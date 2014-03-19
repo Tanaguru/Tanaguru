@@ -294,7 +294,7 @@
             </c:when>
             <c:otherwise>
                 <div class="row">
-                    <div id="work-done" class="span16"
+                    <div id="work-done" class="span16">
                         <h2>
                             <fmt:message key="resultPage.noResults"/>
                         </h2>
