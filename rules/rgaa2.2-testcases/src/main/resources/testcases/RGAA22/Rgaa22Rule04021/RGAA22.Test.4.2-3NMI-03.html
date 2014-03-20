@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <title>Rgaa22 Test.4.2 NMI 03</title>
+    </head>
+    <body>
+        <div>
+
+            <div class="test-detail" lang="fr">
+                Pertinence de l’alternative textuelle aux images liens
+            </div>
+
+            <div class="testcase" lang="fr">
+                <h1>
+                    <a href="my-link.html" title="-->;*">
+                        <img src="image.jpg" alt="-->;*"/>
+                    </a>
+                </h1>
+            </div>
+
+            <div class="test-explanation">
+                NMI : The image link only contains non alphanumeric characters but the context may precise the link function and destination. A warning is thrown
+            </div>
+
+        </div>
+    </body>
+</html>

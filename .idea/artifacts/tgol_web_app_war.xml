@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="tgol-web-app:war">
+    <output-path>$PROJECT_DIR$/web-app/tgol-web-app/target</output-path>
+    <root id="archive" name="tgol-web-app-3.0.0.war">
+      <element id="artifact" artifact-name="tgol-web-app:war exploded" />
+    </root>
+  </artifact>
+</component>

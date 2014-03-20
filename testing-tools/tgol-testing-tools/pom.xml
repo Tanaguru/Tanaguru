@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.opens</groupId>
+        <artifactId>testing-tools</artifactId>
+        <version>3.0.0</version>
+    </parent>
+    <artifactId>tgol-testing-tools</artifactId>
+    <name>tgol-testing-tools</name>
+    <dependencies>
+        <dependency>
+            <groupId>${engineGroupId}</groupId>
+            <artifactId>tanaguru-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${engineGroupId}</groupId>
+            <artifactId>tanaguru-sebuilder-interpreter-tools</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,0 +1,248 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="tgol-web-app:war exploded">
+    <output-path>$PROJECT_DIR$/web-app/tgol-web-app/target/tgol-web-app-3.0.0</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="tgol-web-app/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="tgol-web-app" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="archive" name="tgol-orchestrator-3.0.0.jar">
+            <element id="module-output" name="tgol-orchestrator" />
+          </element>
+          <element id="archive" name="tgol-api-3.0.0.jar">
+            <element id="module-output" name="tgol-api" />
+          </element>
+          <element id="archive" name="email-sender-3.0.0.jar">
+            <element id="module-output" name="email-sender" />
+          </element>
+          <element id="library" level="project" name="Maven: javax.mail:mail:1.4.3" />
+          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.1" />
+          <element id="archive" name="tanaguru-api-3.0.0.jar">
+            <element id="module-output" name="tanaguru-api" />
+          </element>
+          <element id="archive" name="tanaguru-commons-entity-3.0.0.jar">
+            <element id="module-output" name="tanaguru-commons-entity" />
+          </element>
+          <element id="library" level="project" name="Maven: org.archive.heritrix:heritrix-modules:3.1.1" />
+          <element id="library" level="project" name="Maven: org.archive.heritrix:heritrix-commons:3.1.1" />
+          <element id="library" level="project" name="Maven: org.archive.overlays:archive-overlay-commons-httpclient:3.1" />
+          <element id="library" level="project" name="Maven: com.sleepycat:je:4.1.6" />
+          <element id="library" level="project" name="Maven: org.dnsjava:dnsjava:2.0.3" />
+          <element id="library" level="project" name="Maven: fastutil:fastutil:5.0.7" />
+          <element id="library" level="project" name="Maven: org.gnu.inet:libidn:0.6.5" />
+          <element id="library" level="project" name="Maven: it.unimi.dsi:mg4j:1.0.1" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:3.1.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-asm:3.1.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:3.1.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:3.1.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:3.1.2.RELEASE" />
+          <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:3.1.2.RELEASE" />
+          <element id="library" level="project" name="Maven: com.esotericsoftware:kryo:1.01" />
+          <element id="library" level="project" name="Maven: com.esotericsoftware:minlog:1.2" />
+          <element id="library" level="project" name="Maven: net.java.dev.jna:jna:3.2.3" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpclient:4.2.3" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore:4.3" />
+          <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.1.3" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.8" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.1" />
+          <element id="library" level="project" name="Maven: commons-io:commons-io:2.4" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.15" />
+          <element id="library" level="project" name="Maven: org.jsoup:jsoup:1.7.2" />
+          <element id="library" level="project" name="Maven: com.phloc:phloc-css:3.6.0" />
+          <element id="library" level="project" name="Maven: com.phloc:phloc-commons:4.0.11" />
+          <element id="library" level="project" name="Maven: com.google.code.findbugs:annotations:2.0.1" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:3.6.0.Final" />
+          <element id="library" level="project" name="Maven: antlr:antlr:2.7.6" />
+          <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-commons-annotations:3.2.0.Final" />
+          <element id="library" level="project" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.0.Final" />
+          <element id="library" level="project" name="Maven: javax.transaction:jta:1.1" />
+          <element id="library" level="project" name="Maven: org.json:json:20090211" />
+          <element id="library" level="project" name="Maven: displaytag:displaytag:1.2" />
+          <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.6" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.5.11" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.5.11" />
+          <element id="library" level="project" name="Maven: ar.com.fdvs:DynamicJasper:4.0.3" />
+          <element id="library" level="project" name="Maven: net.sf.jasperreports:jasperreports:5.2.0" />
+          <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.3.04" />
+          <element id="library" level="project" name="Maven: org.codehaus.castor:castor:1.2" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.0.5" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.0.5" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.0.5" />
+          <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.8.3" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:3.1.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context-support:3.1.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:3.1.2.RELEASE" />
+          <element id="archive" name="tgol-persistence-3.0.0.jar">
+            <element id="module-output" name="tgol-persistence" />
+          </element>
+          <element id="archive" name="tgol-si-3.0.0.jar">
+            <element id="module-output" name="tgol-si" />
+          </element>
+          <element id="archive" name="tanaguru-audit-3.0.0.jar">
+            <element id="module-output" name="tanaguru-audit" />
+          </element>
+          <element id="archive" name="tanaguru-reference-3.0.0.jar">
+            <element id="module-output" name="tanaguru-reference" />
+          </element>
+          <element id="archive" name="tanaguru-parameterization-3.0.0.jar">
+            <element id="module-output" name="tanaguru-parameterization" />
+          </element>
+          <element id="archive" name="tanaguru-persistence-3.0.0.jar">
+            <element id="module-output" name="tanaguru-persistence" />
+          </element>
+          <element id="archive" name="tanaguru-statistics-3.0.0.jar">
+            <element id="module-output" name="tanaguru-statistics" />
+          </element>
+          <element id="archive" name="tanaguru-commons-entity-jpa-3.0.0.jar">
+            <element id="module-output" name="tanaguru-commons-entity-jpa" />
+          </element>
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:3.6.0.Final" />
+          <element id="library" level="project" name="Maven: cglib:cglib:2.2" />
+          <element id="library" level="project" name="Maven: asm:asm:3.1" />
+          <element id="library" level="project" name="Maven: javassist:javassist:3.12.0.GA" />
+          <element id="archive" name="tgol-data-presentation-3.0.0.jar">
+            <element id="module-output" name="tgol-data-presentation" />
+          </element>
+          <element id="library" level="project" name="Maven: com.uwyn:jhighlight:1.0" />
+          <element id="archive" name="tgol-security-3.0.0.jar">
+            <element id="module-output" name="tgol-security" />
+          </element>
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:3.1.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:3.1.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:3.1.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:3.1.2.RELEASE" />
+          <element id="archive" name="tgol-voter-3.0.0.jar">
+            <element id="module-output" name="tgol-voter" />
+          </element>
+          <element id="archive" name="tgol-report-3.0.0.jar">
+            <element id="module-output" name="tgol-report" />
+          </element>
+          <element id="library" level="project" name="Maven: com.lowagie:itext:4.2.1" />
+          <element id="library" level="project" name="Maven: jfree:jfreechart:1.0.12" />
+          <element id="library" level="project" name="Maven: jfree:jcommon:1.0.15" />
+          <element id="library" level="project" name="Maven: org.swinglabs:pdf-renderer:1.0.5" />
+          <element id="library" level="project" name="Maven: net.sf.jasperreports:jasperreports-fonts:4.0.0" />
+          <element id="archive" name="tgol-resources-3.0.0.jar">
+            <element id="module-output" name="tgol-resources" />
+          </element>
+          <element id="archive" name="security-3.0.0.jar">
+            <element id="module-output" name="security" />
+          </element>
+          <element id="library" level="project" name="Maven: org.owasp.esapi:esapi:2.1.0" />
+          <element id="archive" name="tanaguru-engine-3.0.0.jar">
+            <element id="module-output" name="tanaguru-engine" />
+          </element>
+          <element id="archive" name="tanaguru-sebuilder-interpreter-tools-3.0.0.jar">
+            <element id="module-output" name="tanaguru-sebuilder-interpreter-tools" />
+          </element>
+          <element id="library" level="project" name="Maven: org.seleniumhq.selenium:selenium-java:2.40.0" />
+          <element id="library" level="project" name="Maven: org.seleniumhq.selenium:selenium-firefox-driver:2.40.0" />
+          <element id="library" level="project" name="Maven: org.seleniumhq.selenium:selenium-remote-driver:2.40.0" />
+          <element id="library" level="project" name="Maven: cglib:cglib-nodep:2.2.2" />
+          <element id="library" level="project" name="Maven: org.seleniumhq.selenium:selenium-api:2.40.0" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-exec:1.1" />
+          <element id="library" level="project" name="Maven: net.java.dev.jna:platform:3.4.0" />
+          <element id="library" level="project" name="Maven: org.seleniumhq.selenium:selenium-support:2.40.0" />
+          <element id="library" level="project" name="Maven: org.webbitserver:webbit:0.4.14" />
+          <element id="library" level="project" name="Maven: io.netty:netty:3.5.2.Final" />
+          <element id="library" level="project" name="Maven: com.github.detro.ghostdriver:phantomjsdriver:1.0.4" />
+          <element id="library" level="project" name="Maven: com.saucelabs:sebuilder-interpreter:1.0.2" />
+          <element id="library" level="project" name="Maven: commons-pool:commons-pool:1.6" />
+          <element id="library" level="project" name="Maven: com.google.guava:guava:10.0.1" />
+          <element id="library" level="project" name="Maven: com.google.code.findbugs:jsr305:1.3.9" />
+          <element id="archive" name="tanaguru-resources-3.0.0.jar">
+            <element id="module-output" name="tanaguru-resources" />
+          </element>
+          <element id="archive" name="tanaguru-nomenclatureloader-3.0.0.jar">
+            <element id="module-output" name="tanaguru-nomenclatureloader" />
+          </element>
+          <element id="archive" name="tanaguru-rule-implementation-loader-3.0.0.jar">
+            <element id="module-output" name="tanaguru-rule-implementation-loader" />
+          </element>
+          <element id="archive" name="tanaguru-crawler-3.0.0.jar">
+            <element id="module-output" name="tanaguru-crawler" />
+          </element>
+          <element id="library" level="project" name="Maven: org.archive.heritrix:heritrix-engine:3.1.1" />
+          <element id="library" level="project" name="Maven: joda-time:joda-time:1.6" />
+          <element id="library" level="project" name="Maven: com.googlecode.juniversalchardet:juniversalchardet:1.0.3" />
+          <element id="archive" name="tanaguru-contentloader-3.0.0.jar">
+            <element id="module-output" name="tanaguru-contentloader" />
+          </element>
+          <element id="archive" name="tanaguru-contentadapter-3.0.0.jar">
+            <element id="module-output" name="tanaguru-contentadapter" />
+          </element>
+          <element id="library" level="project" name="Maven: com.thoughtworks.xstream:xstream:1.3.1" />
+          <element id="library" level="project" name="Maven: xpp3:xpp3_min:1.1.4c" />
+          <element id="library" level="project" name="Maven: net.sourceforge.htmlcleaner:htmlcleaner:2.6.1" />
+          <element id="library" level="project" name="Maven: org.jdom:jdom2:2.0.5" />
+          <element id="archive" name="tanaguru-processor-3.0.0.jar">
+            <element id="module-output" name="tanaguru-processor" />
+          </element>
+          <element id="archive" name="tanaguru-commons-processing-3.0.0.jar">
+            <element id="module-output" name="tanaguru-commons-processing" />
+          </element>
+          <element id="archive" name="tanaguru-consolidator-3.0.0.jar">
+            <element id="module-output" name="tanaguru-consolidator" />
+          </element>
+          <element id="archive" name="tanaguru-analyser-3.0.0.jar">
+            <element id="module-output" name="tanaguru-analyser" />
+          </element>
+          <element id="archive" name="tanaguru-logging-3.0.0.jar">
+            <element id="module-output" name="tanaguru-logging" />
+          </element>
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.6.8" />
+          <element id="archive" name="tanaguru-scenarioloader-3.0.0.jar">
+            <element id="module-output" name="tanaguru-scenarioloader" />
+          </element>
+          <element id="archive" name="tanaguru-accessiweb2.1-1.0.0.jar">
+            <element id="module-output" name="tanaguru-accessiweb2.1" />
+          </element>
+          <element id="archive" name="tanaguru-rules-commons-1.0.0.jar">
+            <element id="module-output" name="tanaguru-rules-commons" />
+          </element>
+          <element id="library" level="project" name="Maven: com.cybozu.labs:langdetect:1.1-20120112" />
+          <element id="library" level="project" name="Maven: net.arnx:jsonic:1.2.7" />
+          <element id="library" level="project" name="Maven: commons-validator:commons-validator:1.4.0" />
+          <element id="library" level="project" name="Maven: commons-digester:commons-digester:1.8" />
+          <element id="archive" name="tanaguru-accessiweb2.1-i18n-1.0.0.jar">
+            <element id="module-output" name="tanaguru-accessiweb2.1-i18n" />
+          </element>
+          <element id="archive" name="tanaguru-accessiweb2.2-1.0.0.jar">
+            <element id="module-output" name="tanaguru-accessiweb2.2" />
+          </element>
+          <element id="archive" name="tanaguru-accessiweb2.2-i18n-1.0.0.jar">
+            <element id="module-output" name="tanaguru-accessiweb2.2-i18n" />
+          </element>
+          <element id="archive" name="tanaguru-rgaa2.2-1.0.0.jar">
+            <element id="module-output" name="tanaguru-rgaa2.2" />
+          </element>
+          <element id="archive" name="tanaguru-rgaa2.2-i18n-1.0.0.jar">
+            <element id="module-output" name="tanaguru-rgaa2.2-i18n" />
+          </element>
+          <element id="library" level="project" name="Maven: org.springframework:spring-orm:3.1.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-instrument:3.1.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-taglibs:3.1.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-acl:3.1.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:3.1.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-c3p0:3.6.0.Final" />
+          <element id="library" level="project" name="Maven: c3p0:c3p0:0.9.1" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-ehcache:3.6.0.Final" />
+          <element id="library" level="project" name="Maven: net.sf.ehcache:ehcache:1.5.0" />
+          <element id="library" level="project" name="Maven: backport-util-concurrent:backport-util-concurrent:3.1" />
+          <element id="library" level="project" name="Maven: net.sf.jsr107cache:jsr107cache:1.0" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-jmx:3.5.6-Final" />
+          <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.3" />
+          <element id="library" level="project" name="Maven: xerces:xercesImpl:2.9.1" />
+          <element id="library" level="project" name="Maven: org.apache.tika:tika-core:1.3" />
+          <element id="library" level="project" name="Maven: com.googlecode.htmlcompressor:htmlcompressor:1.5.2" />
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.1.2" />
+          <element id="library" level="project" name="Maven: taglibs:standard:1.1.2" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

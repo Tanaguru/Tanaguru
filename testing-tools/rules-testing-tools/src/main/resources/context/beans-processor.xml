@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="evidenceDAO" class="org.opens.tanaguru.entity.dao.audit.EvidenceDAOImpl"/>
+    <bean id="evidenceFactory" class="org.opens.tanaguru.entity.factory.audit.EvidenceFactoryImpl"/>
+    <bean id="evidenceDataService" class="org.opens.tanaguru.entity.service.audit.EvidenceDataServiceImpl">
+        <property name="entityFactory" ref="evidenceFactory"/>
+        <property name="entityDao" ref="evidenceDAO"/>
+    </bean>
+
+    <bean id="contentDataService" class="org.opens.tanaguru.rules.test.ContentDataServiceMock"/>
+    <bean id="processRemarkDataService" class="org.opens.tanaguru.rules.test.ProcessRemarkDataServiceMock"/>
+    <bean id="preProcessResultDataService" class="org.opens.tanaguru.rules.test.PreProcessResultDataServiceMock"/>
+
+    <bean id="auditDAO" class="org.opens.tanaguru.entity.dao.audit.AuditDAOImpl"/>
+    <bean id="auditFactory" class="org.opens.tanaguru.entity.factory.audit.AuditFactoryImpl"/>
+    <bean id="auditDataService" class="org.opens.tanaguru.entity.service.audit.AuditDataServiceImpl">
+        <property name="entityFactory" ref="auditFactory"/>
+        <property name="entityDao" ref="auditDAO"/>
+    </bean>
+
+    <bean id="processorFactory" class="org.opens.tanaguru.processor.ProcessorFactoryImpl"/>
+    <bean id="processorService" class="org.opens.tanaguru.service.ProcessorServiceImpl"/>
+    
+</beans>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <option name="DEFAULT_COMPILER" value="Javac" />
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="email-sender" />
+        <module name="security" />
+        <module name="tanaguru-accessiweb2.1" />
+        <module name="tanaguru-accessiweb2.1-i18n" />
+        <module name="tanaguru-accessiweb2.1-resources" />
+        <module name="tanaguru-accessiweb2.1-testcases" />
+        <module name="tanaguru-accessiweb2.2" />
+        <module name="tanaguru-accessiweb2.2-i18n" />
+        <module name="tanaguru-accessiweb2.2-resources" />
+        <module name="tanaguru-accessiweb2.2-testcases" />
+        <module name="tanaguru-analyser" />
+        <module name="tanaguru-api" />
+        <module name="tanaguru-audit" />
+        <module name="tanaguru-cli" />
+        <module name="tanaguru-commons-entity" />
+        <module name="tanaguru-commons-entity-jpa" />
+        <module name="tanaguru-commons-processing" />
+        <module name="tanaguru-consolidator" />
+        <module name="tanaguru-contentadapter" />
+        <module name="tanaguru-contentloader" />
+        <module name="tanaguru-crawler" />
+        <module name="tanaguru-engine" />
+        <module name="tanaguru-logging" />
+        <module name="tanaguru-maven-kbcsv-plugin" />
+        <module name="tanaguru-maven-testgenerator-plugin" />
+        <module name="tanaguru-nomenclatureloader" />
+        <module name="tanaguru-parameterization" />
+        <module name="tanaguru-persistence" />
+        <module name="tanaguru-processor" />
+        <module name="tanaguru-reference" />
+        <module name="tanaguru-resources" />
+        <module name="tanaguru-rgaa2.2" />
+        <module name="tanaguru-rgaa2.2-i18n" />
+        <module name="tanaguru-rgaa2.2-resources" />
+        <module name="tanaguru-rgaa2.2-testcases" />
+        <module name="tanaguru-rule-implementation-loader" />
+        <module name="tanaguru-rules-commons" />
+        <module name="tanaguru-rules-resources" />
+        <module name="tanaguru-rules-testing-tools" />
+        <module name="tanaguru-scenarioloader" />
+        <module name="tanaguru-sebuilder-interpreter-tools" />
+        <module name="tanaguru-statistics" />
+        <module name="tgol-api" />
+        <module name="tgol-data-presentation" />
+        <module name="tgol-orchestrator" />
+        <module name="tgol-persistence" />
+        <module name="tgol-report" />
+        <module name="tgol-resources" />
+        <module name="tgol-security" />
+        <module name="tgol-si" />
+        <module name="tgol-testing-tools" />
+        <module name="tgol-voter" />
+        <module name="tgol-web-app" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cli" target="1.6" />
+      <module name="email-sender" target="1.6" />
+      <module name="engine" target="1.6" />
+      <module name="rules" target="1.6" />
+      <module name="security" target="1.6" />
+      <module name="tanaguru" target="1.6" />
+      <module name="tanaguru-accessiweb2.1" target="1.6" />
+      <module name="tanaguru-accessiweb2.1-i18n" target="1.6" />
+      <module name="tanaguru-accessiweb2.1-resources" target="1.6" />
+      <module name="tanaguru-accessiweb2.1-testcases" target="1.6" />
+      <module name="tanaguru-accessiweb2.2" target="1.6" />
+      <module name="tanaguru-accessiweb2.2-i18n" target="1.6" />
+      <module name="tanaguru-accessiweb2.2-resources" target="1.6" />
+      <module name="tanaguru-accessiweb2.2-testcases" target="1.6" />
+      <module name="tanaguru-analyser" target="1.6" />
+      <module name="tanaguru-api" target="1.6" />
+      <module name="tanaguru-audit" target="1.6" />
+      <module name="tanaguru-cli" target="1.6" />
+      <module name="tanaguru-commons-entity" target="1.6" />
+      <module name="tanaguru-commons-entity-jpa" target="1.6" />
+      <module name="tanaguru-commons-processing" target="1.6" />
+      <module name="tanaguru-consolidator" target="1.6" />
+      <module name="tanaguru-contentadapter" target="1.6" />
+      <module name="tanaguru-contentloader" target="1.6" />
+      <module name="tanaguru-crawler" target="1.6" />
+      <module name="tanaguru-engine" target="1.6" />
+      <module name="tanaguru-logging" target="1.6" />
+      <module name="tanaguru-maven-kbcsv-plugin" target="1.6" />
+      <module name="tanaguru-maven-testgenerator-plugin" target="1.6" />
+      <module name="tanaguru-nomenclatureloader" target="1.6" />
+      <module name="tanaguru-parameterization" target="1.6" />
+      <module name="tanaguru-persistence" target="1.6" />
+      <module name="tanaguru-processor" target="1.6" />
+      <module name="tanaguru-reference" target="1.6" />
+      <module name="tanaguru-resources" target="1.6" />
+      <module name="tanaguru-rgaa2.2" target="1.6" />
+      <module name="tanaguru-rgaa2.2-i18n" target="1.6" />
+      <module name="tanaguru-rgaa2.2-resources" target="1.6" />
+      <module name="tanaguru-rgaa2.2-testcases" target="1.6" />
+      <module name="tanaguru-rule-implementation-loader" target="1.6" />
+      <module name="tanaguru-rules-commons" target="1.6" />
+      <module name="tanaguru-rules-resources" target="1.6" />
+      <module name="tanaguru-rules-testing-tools" target="1.6" />
+      <module name="tanaguru-scenarioloader" target="1.6" />
+      <module name="tanaguru-sebuilder-interpreter-tools" target="1.6" />
+      <module name="tanaguru-statistics" target="1.6" />
+      <module name="testing-tools" target="1.6" />
+      <module name="tgol-api" target="1.6" />
+      <module name="tgol-data-presentation" target="1.6" />
+      <module name="tgol-orchestrator" target="1.6" />
+      <module name="tgol-persistence" target="1.6" />
+      <module name="tgol-report" target="1.6" />
+      <module name="tgol-resources" target="1.6" />
+      <module name="tgol-security" target="1.6" />
+      <module name="tgol-si" target="1.6" />
+      <module name="tgol-testing-tools" target="1.6" />
+      <module name="tgol-voter" target="1.6" />
+      <module name="tgol-web-app" target="1.6" />
+      <module name="web-app" target="1.6" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
+

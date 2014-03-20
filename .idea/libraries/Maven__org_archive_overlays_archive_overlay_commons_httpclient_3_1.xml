@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.archive.overlays:archive-overlay-commons-httpclient:3.1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/archive/overlays/archive-overlay-commons-httpclient/3.1/archive-overlay-commons-httpclient-3.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/archive/overlays/archive-overlay-commons-httpclient/3.1/archive-overlay-commons-httpclient-3.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/archive/overlays/archive-overlay-commons-httpclient/3.1/archive-overlay-commons-httpclient-3.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
