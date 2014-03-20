@@ -102,7 +102,7 @@ engine/persistence/tanaguru-persistence.iml
 engine/processor/tanaguru-processor.iml
 engine/reference/tanaguru-reference.iml
 engine/rule-implementation-loader/tanaguru-rule-implementation-loader.iml
-engine/scenarioloader/tanaguru-scenarioloader.iml
+engine/scenarioloader/tanaguru-scenarioloader.iml"
 engine/sebuilder-interpreter-tools/tanaguru-sebuilder-interpreter-tools.iml
 engine/statistics/tanaguru-statistics.iml
 engine/tanaguru-api/tanaguru-api.iml
