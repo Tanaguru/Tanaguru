@@ -191,7 +191,7 @@
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-lodg4j12</artifactId>
+            <artifactId>slf4j-log4j12</artifactId>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -244,10 +244,10 @@
             <artifactId>easymockclassextension</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>net.bull.javamelody</groupId>-->
-        <!--<artifactId>javamelody-core</artifactId>-->
-        <!--</dependency>-->
+        <dependency>
+        <groupId>net.bull.javamelody</groupId>
+        <artifactId>javamelody-core</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
