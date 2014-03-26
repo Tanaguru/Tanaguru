@@ -48,7 +48,7 @@
         <junitVersion>3.8.2</junitVersion>
         
         <log4jGroupId>log4j</log4jGroupId>
-        <log4jVersion>1.2.15</log4jVersion>
+        <log4jVersion>1.2.17</log4jVersion>
         
         <httpcomponentsGroupId>org.apache.httpcomponents</httpcomponentsGroupId>
     </properties>
@@ -70,9 +70,41 @@
                 <version>2.7.2</version>
                 <configuration> 
 <!--                    <skipTests>true</skipTests>-->
-                    <encoding>UTF-8</encoding>
+                    <!--<encoding>UTF-8</encoding>-->
+                    <argLine>-Xmx1024M</argLine>
                 </configuration>
             </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.codehaus.mojo</groupId>-->
+                <!--<artifactId>findbugs-maven-plugin</artifactId>-->
+                <!--<version>2.5.2</version>-->
+                <!--<configuration>-->
+                    <!--&lt;!&ndash;-->
+                       <!--Enables analysis which takes more memory but finds more bugs.-->
+                       <!--If you run out of memory, changes the value of the effort element-->
+                       <!--to 'Low'.-->
+                   <!--&ndash;&gt;-->
+                    <!--<effort>Max</effort>-->
+                    <!--&lt;!&ndash; Reports all bugs (other values are medium and max) &ndash;&gt;-->
+                    <!--<threshold>Low</threshold>-->
+                    <!--&lt;!&ndash; Produces XML report &ndash;&gt;-->
+                    <!--<xmlOutput>true</xmlOutput>-->
+                    <!--&lt;!&ndash; Configures the directory in which the XML report is created &ndash;&gt;-->
+                    <!--<findbugsXmlOutputDirectory>${project.build.directory}/findbugs</findbugsXmlOutputDirectory>-->
+                <!--</configuration>-->
+                <!--<executions>-->
+                    <!--&lt;!&ndash;-->
+                       <!--Ensures that FindBugs inspects source code when project is compiled.-->
+                   <!--&ndash;&gt;-->
+                    <!--<execution>-->
+                        <!--<id>analyze-compile</id>-->
+                        <!--<phase>compile</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>check</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
         </plugins>
     </build>
     <dependencyManagement>
@@ -885,12 +917,12 @@
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
-                <version>1.5.11</version>
+                <version>1.7.5</version>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-log4j12</artifactId>
-                <version>1.5.11</version>
+                <version>1.7.5</version>
             </dependency>
 
             <!-- dbunit and hsqldb dependencies -->
@@ -1277,6 +1309,13 @@
                 <artifactId>jaxen</artifactId>
                 <version>1.1.1</version>
             </dependency>
+
+            <!--monitoring-->
+            <!--<dependency>-->
+                <!--<groupId>net.bull.javamelody</groupId>-->
+                <!--<artifactId>javamelody-core</artifactId>-->
+                <!--<version>1.49.0</version>-->
+            <!--</dependency>-->
         </dependencies>
     </dependencyManagement>
 
@@ -1331,5 +1370,25 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
+        <!--<repository>-->
+            <!--<id>m.g.o-public</id>-->
+            <!--<url>http://maven.glassfish.org/content/groups/public/</url>-->
+            <!--<releases>-->
+                <!--<enabled>true</enabled>-->
+            <!--</releases>-->
+            <!--<snapshots>-->
+                <!--<enabled>false</enabled>-->
+            <!--</snapshots>-->
+        <!--</repository>-->
+        <!--<repository>-->
+            <!--<id>opennms-public</id>-->
+            <!--<url>http://repo.opennms.org/maven2</url>-->
+            <!--<releases>-->
+                <!--<enabled>true</enabled>-->
+            <!--</releases>-->
+            <!--<snapshots>-->
+                <!--<enabled>false</enabled>-->
+            <!--</snapshots>-->
+        <!--</repository>-->
     </repositories>
 </project>

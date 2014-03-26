@@ -38,6 +38,20 @@
             org.opens.tgol.util.webapp.ConfigPropertiesExposerListener
         </listener-class>
     </listener>
+<!--monitoring using java melody tool-->
+    <!--<listener>-->
+        <!--<listener-class>net.bull.javamelody.SessionListener</listener-class>-->
+    <!--</listener>-->
+
+    <!--<filter>-->
+        <!--<filter-name>monitoring</filter-name>-->
+        <!--<filter-class>net.bull.javamelody.MonitoringFilter</filter-class>-->
+    <!--</filter>-->
+    <!--<filter-mapping>-->
+        <!--<filter-name>monitoring</filter-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+    <!--</filter-mapping>-->
+
 
     <!-- servlet dispatcher declaration -->
     <servlet>

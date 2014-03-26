@@ -43,7 +43,7 @@ public abstract class DocumentCaseInsensitiveAdapter {
     public static String removeLowerCaseTags(String cleanHtml) {
         StringBuilder newCleanHtml = new StringBuilder();
         int strPtr=0;
-        int tmpPtr=0;
+        int tmpPtr;
         while (strPtr != cleanHtml.length()){
             if (cleanHtml.charAt(strPtr) == '<') {
                 if (cleanHtml.charAt(strPtr+1) == '!' || 
@@ -109,7 +109,7 @@ public abstract class DocumentCaseInsensitiveAdapter {
                         // case of self-closing tag
                         tmpPtr = cleanHtml.indexOf(' ', strPtr);
                     } else {
-                        // case of classical opening tag
+                        // case of classical opedning tag
                         tmpPtr = cleanHtml.indexOf('>', strPtr);
                     }
                     newCleanHtml.append('<');

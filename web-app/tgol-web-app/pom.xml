@@ -186,8 +186,13 @@
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <scope>runtime</scope>
+            <artifactId>slf4j-api</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-lodg4j12</artifactId>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>xerces</groupId>
@@ -239,6 +244,10 @@
             <artifactId>easymockclassextension</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--<dependency>-->
+        <!--<groupId>net.bull.javamelody</groupId>-->
+        <!--<artifactId>javamelody-core</artifactId>-->
+        <!--</dependency>-->
     </dependencies>
     <build>
         <plugins>
