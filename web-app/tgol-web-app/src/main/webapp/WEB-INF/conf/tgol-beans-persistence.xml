@@ -4,17 +4,10 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:jee="http://www.springframework.org/schema/jee"
        xmlns:tx="http://www.springframework.org/schema/tx"
-       xmlns:util="http://www.springframework.org/schema/util"
-       xmlns:jndi="http://www.springframework.org/schema/jndi"
-       xsi:schemaLocation="
-       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
-       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
-       http://www.springframework.org/schema/jndi http://www.springframework.org/schema/jndi/spring-jndi-2.0.xsd
-       http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
@@ -36,32 +29,22 @@
             </props>
         </property>
     </bean>
+    <bean id="hibernateStatisticsMBean" class="org.hibernate.jmx.StatisticsService">
+        <property name="statisticsEnabled" value="true"/>
+        <property name="sessionFactory" value="#{entityManagerFactory.sessionFactory}"/>
+    </bean>
 
-<!--     <bean class="org.springframework.jmx.export.MBeanExporter">
-        <property name="autodetect" value="false" />
-        <property name="assembler">
-            <bean id="jmxAssembler"
-                class="org.springframework.jmx.export.assembler.MetadataMBeanInfoAssembler">
-                <property name="attributeSource">
-                    <bean
-                        class="org.springframework.jmx.export.annotation.AnnotationJmxAttributeSource" />
-                </property>
-            </bean>
-        </property>
+    <bean id="jmxExporter" class="org.springframework.jmx.export.MBeanExporter"
+          lazy-init="false">
+        <property name="server" ref="mbeanServer"/>
+        <property name="registrationBehaviorName" value="REGISTRATION_REPLACE_EXISTING"/>
         <property name="beans">
             <map>
-                <entry key="org.hibernate:name=statistics">
-                    <bean class="org.hibernate.jmx.StatisticsService">
-                        <property name="statisticsEnabled" value="true" />
-                        <property name="sessionFactory">
-                            <util:property-path
-                                path="entityManagerFactory.sessionFactory" />
-                        </property>
-                    </bean>
-                </entry>
+                <entry key="application:name=hibernateStatistics" value-ref="hibernateStatisticsMBean"/>
             </map>
         </property>
-    </bean>-->
+    </bean>
+    <context:mbean-server/>
 
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
           p:driverClass="${jdbc.driverClassName}"
@@ -74,7 +57,7 @@
           p:minPoolSize="5"
           p:acquireIncrement="10"
           p:debugUnreturnedConnectionStackTraces="true"
-    />
+            />
 
     <!--
         PostProcessors to perform exception translation on @Repository classes (from native
@@ -110,7 +93,7 @@
 
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
-	    <tx:method name="create*" propagation="REQUIRED"/>
+            <tx:method name="create*" propagation="REQUIRED"/>
             <tx:method name="retrieve*" propagation="REQUIRED"/>
             <tx:method name="find*" propagation="REQUIRED"/>
             <tx:method name="get*" propagation="REQUIRED"/>

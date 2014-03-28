@@ -11,7 +11,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <log4jGroupId>log4j</log4jGroupId>
-        <log4jVersion>1.2.15</log4jVersion>
+        <log4jVersion>1.2.17</log4jVersion>
 
     </properties>
     <build>

@@ -57,12 +57,12 @@ public class AuditDAOImplTest extends AbstractDaoTestCase {
         }
     }
 
-    public void testFindAll_AuditStatus() {
-        Collection<Audit> auditList = auditDAO.findAll(AuditStatus.COMPLETED);
-        assertEquals(2, auditList.size());
-        auditList = auditDAO.findAll(AuditStatus.ANALYSIS);
-        assertEquals(0, auditList.size());
-    }
+//    public void testFindAll_AuditStatus() {
+//        Collection<Audit> auditList = auditDAO.findAll(AuditStatus.COMPLETED);
+//        assertEquals(2, auditList.size());
+//        auditList = auditDAO.findAll(AuditStatus.ANALYSIS);
+//        assertEquals(0, auditList.size());
+//    }
 
     public void testRead() {
         Audit audit = auditDAO.read(Long.valueOf(1));
@@ -75,13 +75,13 @@ public class AuditDAOImplTest extends AbstractDaoTestCase {
         assertTrue(audit.getSubject() instanceof Page);
     }
 
-    public void testFindAuditWithTest() {
-        Audit audit = auditDAO.findAuditWithTest(Long.valueOf(1));
-        assertEquals(Long.valueOf(1), audit.getId());
-        assertEquals(10, audit.getTestList().size());
-        audit = auditDAO.findAuditWithTest(Long.valueOf(2));
-        assertEquals(Long.valueOf(2), audit.getId());
-        assertEquals(10, audit.getTestList().size());
-    }
+//    public void testFindAuditWithTest() {
+//        Audit audit = auditDAO.findAuditWithTest(Long.valueOf(1));
+//        assertEquals(Long.valueOf(1), audit.getId());
+//        assertEquals(10, audit.getTestList().size());
+//        audit = auditDAO.findAuditWithTest(Long.valueOf(2));
+//        assertEquals(Long.valueOf(2), audit.getId());
+//        assertEquals(10, audit.getTestList().size());
+//    }
 
 }
