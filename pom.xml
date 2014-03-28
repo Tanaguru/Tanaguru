@@ -1310,12 +1310,6 @@
                 <version>1.1.1</version>
             </dependency>
 
-            <!--monitoring-->
-            <!--<dependency>-->
-                <!--<groupId>net.bull.javamelody</groupId>-->
-                <!--<artifactId>javamelody-core</artifactId>-->
-                <!--<version>1.49.0</version>-->
-            <!--</dependency>-->
         </dependencies>
     </dependencyManagement>
 
@@ -1370,25 +1364,25 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
-        <!--<repository>-->
-            <!--<id>m.g.o-public</id>-->
-            <!--<url>http://maven.glassfish.org/content/groups/public/</url>-->
-            <!--<releases>-->
-                <!--<enabled>true</enabled>-->
-            <!--</releases>-->
-            <!--<snapshots>-->
-                <!--<enabled>false</enabled>-->
-            <!--</snapshots>-->
-        <!--</repository>-->
-        <!--<repository>-->
-            <!--<id>opennms-public</id>-->
-            <!--<url>http://repo.opennms.org/maven2</url>-->
-            <!--<releases>-->
-                <!--<enabled>true</enabled>-->
-            <!--</releases>-->
-            <!--<snapshots>-->
-                <!--<enabled>false</enabled>-->
-            <!--</snapshots>-->
-        <!--</repository>-->
+        <repository>
+            <id>m.g.o-public</id>
+            <url>http://maven.glassfish.org/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>opennms-public</id>
+            <url>http://repo.opennms.org/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
     </repositories>
 </project>

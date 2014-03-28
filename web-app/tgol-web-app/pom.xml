@@ -244,10 +244,6 @@
             <artifactId>easymockclassextension</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-        <groupId>net.bull.javamelody</groupId>
-        <artifactId>javamelody-core</artifactId>
-        </dependency>
     </dependencies>
     <build>
         <plugins>

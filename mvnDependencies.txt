@@ -1,0 +1,2752 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] tanaguru
+[INFO] engine
+[INFO] commons-entity
+[INFO] commons-entity-jpa
+[INFO] tanaguru-api
+[INFO] reference
+[INFO] parameterization
+[INFO] audit
+[INFO] rule-implementation-loader
+[INFO] nomenclatureloader
+[INFO] statistics
+[INFO] persistence
+[INFO] crawler
+[INFO] contentloader
+[INFO] contentadapter
+[INFO] commons-processing
+[INFO] processor
+[INFO] consolidator
+[INFO] analyser
+[INFO] sebuilder-interpreter-tools
+[INFO] tanaguru-engine
+[INFO] tanaguru-resources
+[INFO] logging
+[INFO] scenarioloader
+[INFO] testing-tools
+[INFO] rules-testing-tools
+[INFO] tanaguru-maven-kbcsv-plugin
+[INFO] tanaguru-maven-testgenerator-plugin
+[INFO] tgol-testing-tools
+[INFO] rules
+[INFO] rules-commons
+[INFO] accessiweb2.1-i18n
+[INFO] accessiweb2.1-testcases
+[INFO] accessiweb2.1
+[INFO] accessiweb2.1-resources
+[INFO] accessiweb2.2-testcases
+[INFO] accessiweb2.2-i18n
+[INFO] accessiweb2.2
+[INFO] accessiweb2.2-resources
+[INFO] rgaa2.2-i18n
+[INFO] rgaa2.2-testcases
+[INFO] rgaa2.2
+[INFO] rgaa2.2-resources
+[INFO] rules-resources
+[INFO] email-sender
+[INFO] security
+[INFO] web-app
+[INFO] tgol-resources
+[INFO] tgol-api
+[INFO] tgol-si
+[INFO] tgol-data-presentation
+[INFO] tgol-persistence
+[INFO] tgol-orchestrator
+[INFO] tgol-voter
+[INFO] tgol-report
+[INFO] tgol-security
+[INFO] tgol-web-app
+[INFO] cli
+[INFO] tanaguru-cli
+[INFO] 
+[INFO] Using the builder org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder with a thread count of 1
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building tanaguru 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru ---
+[INFO] org.opens:tanaguru:pom:3.0.0
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building engine 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ engine ---
+[INFO] org.opens:engine:pom:3.0.0
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building commons-entity 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-commons-entity ---
+[INFO] org.opens:tanaguru-commons-entity:jar:3.0.0
+[INFO] \- junit:junit:jar:3.8.2:test
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building commons-entity-jpa 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-commons-entity-jpa ---
+[INFO] org.opens:tanaguru-commons-entity-jpa:jar:3.0.0
+[INFO] +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] \- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO]    +- antlr:antlr:jar:2.7.6:compile
+[INFO]    +- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO]    +- dom4j:dom4j:jar:1.6.1:compile
+[INFO]    +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO]    +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO]    \- javax.transaction:jta:jar:1.1:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building tanaguru-api 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-api ---
+[INFO] org.opens:tanaguru-api:jar:3.0.0
+[INFO] +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |     +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO] |     +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO] |     +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO] |     |  \- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO] |     |     \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |     +- org.springframework:spring-asm:jar:3.0.5.RELEASE:compile
+[INFO] |     +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO] |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |  +- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] +- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] +- commons-io:commons-io:jar:2.4:compile
+[INFO] +- junit:junit:jar:3.8.2:test
+[INFO] +- org.easymock:easymock:jar:3.1:test
+[INFO] |  +- cglib:cglib-nodep:jar:2.2.2:test
+[INFO] |  \- org.objenesis:objenesis:jar:1.2:test
+[INFO] +- org.easymock:easymockclassextension:jar:3.1:test
+[INFO] +- log4j:log4j:jar:1.2.17:compile
+[INFO] +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO] |     +- org.slf4j:slf4j-api:jar:1.7.5:compile
+[INFO] |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO] +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] +- org.json:json:jar:20090211:compile
+[INFO] \- com.google.guava:guava:jar:10.0.1:test
+[INFO]    \- com.google.code.findbugs:jsr305:jar:1.3.9:test
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building reference 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-reference ---
+[INFO] org.opens:tanaguru-reference:jar:3.0.0
+[INFO] \- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO]    +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO]    +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO]    |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO]    |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO]    |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO]    |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO]    |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO]    |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO]    |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO]    |     +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO]    |     +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO]    |     +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO]    |     |  \- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO]    |     |     \- aopalliance:aopalliance:jar:1.0:compile
+[INFO]    |     +- org.springframework:spring-asm:jar:3.0.5.RELEASE:compile
+[INFO]    |     +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO]    |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO]    |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO]    |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO]    +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO]    |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO]    |  +- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO]    |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO]    +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO]    +- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO]    +- commons-io:commons-io:jar:2.4:compile
+[INFO]    +- log4j:log4j:jar:1.2.17:compile
+[INFO]    +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO]    +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO]    |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO]    |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO]    +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO]    |  +- antlr:antlr:jar:2.7.6:compile
+[INFO]    |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO]    |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO]    |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO]    |  \- javax.transaction:jta:jar:1.1:compile
+[INFO]    \- org.json:json:jar:20090211:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building parameterization 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-parameterization ---
+[INFO] org.opens:tanaguru-parameterization:jar:3.0.0
+[INFO] +- org.opens:tanaguru-reference:jar:3.0.0:compile
+[INFO] |  \- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |     +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |     +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |     |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |     |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |     |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |     |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |     |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |     |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |     |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |     |     +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO] |     |     +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO] |     |     +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO] |     |     |  \- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO] |     |     |     \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |     |     +- org.springframework:spring-asm:jar:3.0.5.RELEASE:compile
+[INFO] |     |     +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO] |     |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |     |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |     |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |     +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |     |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |     |  +- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] |     |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |     +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |     +- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] |     +- commons-io:commons-io:jar:2.4:compile
+[INFO] |     +- log4j:log4j:jar:1.2.17:compile
+[INFO] |     +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |     +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] |     |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO] |     |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO] |     +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |     |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |     |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |     |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |     |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] |     |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |     \- org.json:json:jar:20090211:compile
+[INFO] \- junit:junit:jar:3.8.2:test
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building audit 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-audit ---
+[INFO] org.opens:tanaguru-audit:jar:3.0.0
+[INFO] +- org.opens:tanaguru-reference:jar:3.0.0:compile
+[INFO] |  \- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |     +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |     +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |     |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |     |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |     |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |     |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |     |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |     |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |     |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |     |     +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO] |     |     +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO] |     |     +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO] |     |     |  \- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO] |     |     |     \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |     |     +- org.springframework:spring-asm:jar:3.0.5.RELEASE:compile
+[INFO] |     |     +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO] |     |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |     |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |     |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |     +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |     |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |     |  +- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] |     |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |     +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |     +- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] |     +- commons-io:commons-io:jar:2.4:compile
+[INFO] |     +- log4j:log4j:jar:1.2.17:compile
+[INFO] |     +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |     +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] |     |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO] |     |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO] |     +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |     |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |     |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |     |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |     |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] |     |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |     \- org.json:json:jar:20090211:compile
+[INFO] \- org.opens:tanaguru-parameterization:jar:3.0.0:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building rule-implementation-loader 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-rule-implementation-loader ---
+[INFO] org.opens:tanaguru-rule-implementation-loader:jar:3.0.0
+[INFO] \- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO]    +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO]    +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO]    |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO]    |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO]    |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO]    |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO]    |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO]    |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO]    |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO]    |     +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO]    |     +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO]    |     +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO]    |     |  \- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO]    |     |     \- aopalliance:aopalliance:jar:1.0:compile
+[INFO]    |     +- org.springframework:spring-asm:jar:3.0.5.RELEASE:compile
+[INFO]    |     +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO]    |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO]    |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO]    |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO]    +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO]    |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO]    |  +- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO]    |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO]    +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO]    +- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO]    +- commons-io:commons-io:jar:2.4:compile
+[INFO]    +- log4j:log4j:jar:1.2.17:compile
+[INFO]    +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO]    +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO]    |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO]    |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO]    +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO]    |  +- antlr:antlr:jar:2.7.6:compile
+[INFO]    |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO]    |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO]    |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO]    |  \- javax.transaction:jta:jar:1.1:compile
+[INFO]    \- org.json:json:jar:20090211:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building nomenclatureloader 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-nomenclatureloader ---
+[INFO] org.opens:tanaguru-nomenclatureloader:jar:3.0.0
+[INFO] \- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO]    +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO]    +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO]    |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO]    |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO]    |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO]    |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO]    |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO]    |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO]    |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO]    |     +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO]    |     +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO]    |     +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO]    |     |  \- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO]    |     |     \- aopalliance:aopalliance:jar:1.0:compile
+[INFO]    |     +- org.springframework:spring-asm:jar:3.0.5.RELEASE:compile
+[INFO]    |     +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO]    |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO]    |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO]    |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO]    +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO]    |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO]    |  +- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO]    |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO]    +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO]    +- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO]    +- commons-io:commons-io:jar:2.4:compile
+[INFO]    +- log4j:log4j:jar:1.2.17:compile
+[INFO]    +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO]    +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO]    |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO]    |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO]    +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO]    |  +- antlr:antlr:jar:2.7.6:compile
+[INFO]    |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO]    |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO]    |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO]    |  \- javax.transaction:jta:jar:1.1:compile
+[INFO]    \- org.json:json:jar:20090211:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building statistics 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-statistics ---
+[INFO] org.opens:tanaguru-statistics:jar:3.0.0
+[INFO] +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |  |     +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO] |  |     |  \- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO] |  |     |     \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  |     +- org.springframework:spring-asm:jar:3.0.5.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO] |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |  |  +- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |  +- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] |  +- commons-io:commons-io:jar:2.4:compile
+[INFO] |  +- log4j:log4j:jar:1.2.17:compile
+[INFO] |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |  +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] |  |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO] |  |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO] |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  \- org.json:json:jar:20090211:compile
+[INFO] \- org.opens:tanaguru-audit:jar:3.0.0:compile
+[INFO]    +- org.opens:tanaguru-reference:jar:3.0.0:compile
+[INFO]    \- org.opens:tanaguru-parameterization:jar:3.0.0:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building persistence 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-persistence ---
+[INFO] org.opens:tanaguru-persistence:jar:3.0.0
+[INFO] +- org.opens:tanaguru-audit:jar:3.0.0:compile
+[INFO] |  \- org.opens:tanaguru-reference:jar:3.0.0:compile
+[INFO] +- org.opens:tanaguru-statistics:jar:3.0.0:compile
+[INFO] |  \- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |     +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |     |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |     |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |     |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |     |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |     |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |     |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |     |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |     |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |     |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |     |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |     +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |     |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |     |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |     +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |     +- commons-io:commons-io:jar:2.4:compile
+[INFO] |     +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |     +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] |     |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO] |     |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO] |     \- org.json:json:jar:20090211:compile
+[INFO] +- org.opens:tanaguru-parameterization:jar:3.0.0:compile
+[INFO] +- org.opens:tanaguru-commons-entity-jpa:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |  \- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |     +- antlr:antlr:jar:2.7.6:compile
+[INFO] |     +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |     +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |     \- javax.transaction:jta:jar:1.1:compile
+[INFO] +- org.dbunit:dbunit:jar:2.4.8:test
+[INFO] |  \- junit:junit:jar:3.8.2:test
+[INFO] +- org.hsqldb:hsqldb:jar:2.3.1:test
+[INFO] +- mysql:mysql-connector-java:jar:5.1.15:test
+[INFO] +- org.slf4j:slf4j-api:jar:1.7.5:compile
+[INFO] +- org.slf4j:slf4j-log4j12:jar:1.7.5:compile
+[INFO] |  \- log4j:log4j:jar:1.2.17:compile
+[INFO] +- org.hibernate:hibernate-entitymanager:jar:3.6.0.Final:compile
+[INFO] |  +- cglib:cglib:jar:2.2:compile
+[INFO] |  |  \- asm:asm:jar:3.1:compile
+[INFO] |  +- javassist:javassist:jar:3.12.0.GA:compile
+[INFO] |  \- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] +- commons-collections:commons-collections:jar:3.2.1:runtime
+[INFO] +- org.aspectj:aspectjweaver:jar:1.6.8:test
+[INFO] +- org.springframework:spring-core:jar:3.1.2.RELEASE:test
+[INFO] |  +- org.springframework:spring-asm:jar:3.1.2.RELEASE:compile
+[INFO] |  \- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] +- org.springframework:spring-aop:jar:3.1.2.RELEASE:test
+[INFO] |  \- aopalliance:aopalliance:jar:1.0:test
+[INFO] +- org.springframework:spring-context:jar:3.1.2.RELEASE:test
+[INFO] |  \- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO] +- org.springframework:spring-context-support:jar:3.1.2.RELEASE:test
+[INFO] +- org.springframework:spring-tx:jar:3.1.2.RELEASE:test
+[INFO] +- org.springframework:spring-orm:jar:3.1.2.RELEASE:test
+[INFO] |  \- org.springframework:spring-jdbc:jar:3.1.2.RELEASE:test
+[INFO] \- org.springframework:spring-beans:jar:3.1.2.RELEASE:test
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building crawler 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-crawler ---
+[INFO] org.opens:tanaguru-crawler:jar:3.0.0
+[INFO] +- org.opens:tanaguru-audit:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-reference:jar:3.0.0:compile
+[INFO] |  |  \- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |  |     +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |  |     |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |  |     |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |  |     +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |  |     +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] |  |     |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO] |  |     |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO] |  |     \- org.json:json:jar:20090211:compile
+[INFO] |  \- org.opens:tanaguru-parameterization:jar:3.0.0:compile
+[INFO] +- org.opens:tanaguru-persistence:jar:3.0.0:test
+[INFO] |  +- org.opens:tanaguru-statistics:jar:3.0.0:test
+[INFO] |  +- org.opens:tanaguru-commons-entity-jpa:jar:3.0.0:test
+[INFO] |  |  \- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.5:test
+[INFO] |  +- org.slf4j:slf4j-log4j12:jar:1.7.5:test
+[INFO] |  |  \- log4j:log4j:jar:1.2.17:compile
+[INFO] |  \- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] +- org.archive.heritrix:heritrix-engine:jar:3.1.1:compile
+[INFO] |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |  \- joda-time:joda-time:jar:1.6:compile
+[INFO] +- com.googlecode.juniversalchardet:juniversalchardet:jar:1.0.3:compile
+[INFO] +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO] |  +- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO] |  |  \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO] |  +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO] |  |  \- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] |  +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO] |  \- org.springframework:spring-asm:jar:3.1.2.RELEASE:compile
+[INFO] +- commons-io:commons-io:jar:2.4:compile
+[INFO] +- commons-lang:commons-lang:jar:2.6:runtime
+[INFO] +- junit:junit:jar:3.8.2:test
+[INFO] +- org.hsqldb:hsqldb:jar:2.3.1:test
+[INFO] +- mysql:mysql-connector-java:jar:5.1.15:test
+[INFO] +- org.hibernate:hibernate-entitymanager:jar:3.6.0.Final:test
+[INFO] |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  +- cglib:cglib:jar:2.2:test
+[INFO] |  |  \- asm:asm:jar:3.1:test
+[INFO] |  +- javassist:javassist:jar:3.12.0.GA:test
+[INFO] |  \- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] +- org.aspectj:aspectjweaver:jar:1.6.8:test
+[INFO] +- org.easymock:easymock:jar:3.1:test
+[INFO] |  +- cglib:cglib-nodep:jar:2.2.2:test
+[INFO] |  \- org.objenesis:objenesis:jar:1.2:test
+[INFO] +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] \- com.google.guava:guava:jar:10.0.1:compile
+[INFO]    \- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building contentloader 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-contentloader ---
+[INFO] org.opens:tanaguru-contentloader:jar:3.0.0
+[INFO] +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |  |     +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO] |  |     |  \- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO] |  |     |     \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  |     +- org.springframework:spring-asm:jar:3.0.5.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO] |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |  |  +- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |  +- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] |  +- commons-io:commons-io:jar:2.4:compile
+[INFO] |  +- log4j:log4j:jar:1.2.17:compile
+[INFO] |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |  +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] |  |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO] |  |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO] |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  \- org.json:json:jar:20090211:compile
+[INFO] +- org.easymock:easymock:jar:3.1:test
+[INFO] |  +- cglib:cglib-nodep:jar:2.2.2:test
+[INFO] |  \- org.objenesis:objenesis:jar:1.2:test
+[INFO] +- junit:junit:jar:3.8.2:test
+[INFO] \- org.opens:tanaguru-audit:jar:3.0.0:test
+[INFO]    +- org.opens:tanaguru-reference:jar:3.0.0:test
+[INFO]    \- org.opens:tanaguru-parameterization:jar:3.0.0:test
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building contentadapter 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-contentadapter ---
+[INFO] org.opens:tanaguru-contentadapter:jar:3.0.0
+[INFO] +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |  |     +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO] |  |     |  \- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO] |  |     |     \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  |     +- org.springframework:spring-asm:jar:3.0.5.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO] |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |  |  +- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |  +- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] |  +- commons-io:commons-io:jar:2.4:compile
+[INFO] |  +- log4j:log4j:jar:1.2.17:compile
+[INFO] |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  \- org.json:json:jar:20090211:compile
+[INFO] +- com.thoughtworks.xstream:xstream:jar:1.3.1:compile
+[INFO] |  \- xpp3:xpp3_min:jar:1.1.4c:compile
+[INFO] +- net.sourceforge.htmlcleaner:htmlcleaner:jar:2.6.1:compile
+[INFO] |  \- org.jdom:jdom2:jar:2.0.5:compile
+[INFO] +- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.5:compile
+[INFO] |  \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO] +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] \- junit:junit:jar:3.8.2:test
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building commons-processing 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-commons-processing ---
+[INFO] org.opens:tanaguru-commons-processing:jar:3.0.0
+[INFO] +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |  |     +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO] |  |     |  \- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO] |  |     |     \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  |     +- org.springframework:spring-asm:jar:3.0.5.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO] |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |  |  +- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |  +- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] |  +- commons-io:commons-io:jar:2.4:compile
+[INFO] |  +- log4j:log4j:jar:1.2.17:compile
+[INFO] |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |  +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  \- org.json:json:jar:20090211:compile
+[INFO] +- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.5:compile
+[INFO] |  \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO] \- junit:junit:jar:3.8.2:test
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building processor 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-processor ---
+[INFO] org.opens:tanaguru-processor:jar:3.0.0
+[INFO] +- org.opens:tanaguru-commons-processing:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |  |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |  |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |  |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |  |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |  |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |  |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |  |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |  |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |  |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |  |  |     +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO] |  |  |     +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO] |  |  |     +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO] |  |  |     |  \- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO] |  |  |     |     \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  |  |     +- org.springframework:spring-asm:jar:3.0.5.RELEASE:compile
+[INFO] |  |  |     +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO] |  |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |  |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |  |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |  |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |  |  |  +- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] |  |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |  |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |  |  +- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] |  |  +- commons-io:commons-io:jar:2.4:compile
+[INFO] |  |  +- log4j:log4j:jar:1.2.17:compile
+[INFO] |  |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |  |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |  |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |  |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] |  |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  |  \- org.json:json:jar:20090211:compile
+[INFO] |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO] |     +- org.slf4j:slf4j-api:jar:1.7.5:compile
+[INFO] |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO] +- com.thoughtworks.xstream:xstream:jar:1.3.1:compile
+[INFO] |  \- xpp3:xpp3_min:jar:1.1.4c:compile
+[INFO] \- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building consolidator 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-consolidator ---
+[INFO] org.opens:tanaguru-consolidator:jar:3.0.0
+[INFO] +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |  |     +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO] |  |     |  \- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO] |  |     |     \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  |     +- org.springframework:spring-asm:jar:3.0.5.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO] |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |  |  +- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |  +- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] |  +- commons-io:commons-io:jar:2.4:compile
+[INFO] |  +- log4j:log4j:jar:1.2.17:compile
+[INFO] |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |  +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  \- org.json:json:jar:20090211:compile
+[INFO] \- org.opens:tanaguru-commons-processing:jar:3.0.0:compile
+[INFO]    \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO]       +- org.slf4j:slf4j-api:jar:1.7.5:compile
+[INFO]       \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building analyser 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-analyser ---
+[INFO] org.opens:tanaguru-analyser:jar:3.0.0
+[INFO] +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |  |     +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO] |  |     |  \- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO] |  |     |     \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  |     +- org.springframework:spring-asm:jar:3.0.5.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO] |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |  |  +- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |  +- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] |  +- commons-io:commons-io:jar:2.4:compile
+[INFO] |  +- log4j:log4j:jar:1.2.17:compile
+[INFO] |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |  +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] |  |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO] |  |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO] |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  \- org.json:json:jar:20090211:compile
+[INFO] +- org.opens:tanaguru-statistics:jar:3.0.0:test
+[INFO] |  \- org.opens:tanaguru-audit:jar:3.0.0:test
+[INFO] |     +- org.opens:tanaguru-reference:jar:3.0.0:test
+[INFO] |     \- org.opens:tanaguru-parameterization:jar:3.0.0:test
+[INFO] \- junit:junit:jar:3.8.2:test
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building sebuilder-interpreter-tools 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-sebuilder-interpreter-tools ---
+[INFO] org.opens:tanaguru-sebuilder-interpreter-tools:jar:3.0.0
+[INFO] +- org.seleniumhq.selenium:selenium-java:jar:2.40.0:compile
+[INFO] |  +- org.seleniumhq.selenium:selenium-firefox-driver:jar:2.40.0:compile
+[INFO] |  |  +- org.seleniumhq.selenium:selenium-remote-driver:jar:2.40.0:compile
+[INFO] |  |  |  +- cglib:cglib-nodep:jar:2.1_3:compile
+[INFO] |  |  |  +- org.json:json:jar:20090211:compile
+[INFO] |  |  |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |  |  |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |  |  |  +- net.java.dev.jna:jna:jar:3.4.0:compile
+[INFO] |  |  |  \- net.java.dev.jna:platform:jar:3.4.0:compile
+[INFO] |  |  +- commons-io:commons-io:jar:2.4:compile
+[INFO] |  |  \- org.apache.commons:commons-exec:jar:1.1:compile
+[INFO] |  +- org.seleniumhq.selenium:selenium-support:jar:2.40.0:compile
+[INFO] |  |  \- org.seleniumhq.selenium:selenium-api:jar:2.40.0:compile
+[INFO] |  \- org.webbitserver:webbit:jar:0.4.14:compile
+[INFO] |     \- io.netty:netty:jar:3.5.2.Final:compile
+[INFO] +- com.github.detro.ghostdriver:phantomjsdriver:jar:1.0.4:compile
+[INFO] +- com.saucelabs:sebuilder-interpreter:jar:1.0.2:compile
+[INFO] +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO] |  \- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO] |     +- org.springframework:spring-asm:jar:3.1.2.RELEASE:compile
+[INFO] |     \- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] +- log4j:log4j:jar:1.2.17:compile
+[INFO] +- junit:junit:jar:3.8.2:test
+[INFO] +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] +- commons-pool:commons-pool:jar:1.6:compile
+[INFO] \- com.google.guava:guava:jar:10.0.1:compile
+[INFO]    \- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building tanaguru-engine 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-engine ---
+[INFO] org.opens:tanaguru-engine:jar:3.0.0
+[INFO] +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |  |     +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO] |  |     |  \- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO] |  |     |     \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  |     +- org.springframework:spring-asm:jar:3.0.5.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO] |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |  |  +- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |  +- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] |  +- commons-io:commons-io:jar:2.4:compile
+[INFO] |  +- log4j:log4j:jar:1.2.17:compile
+[INFO] |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |  +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] |  |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO] |  |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO] |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  \- org.json:json:jar:20090211:compile
+[INFO] +- org.opens:tanaguru-sebuilder-interpreter-tools:jar:3.0.0:compile
+[INFO] |  +- org.seleniumhq.selenium:selenium-java:jar:2.40.0:compile
+[INFO] |  |  +- org.seleniumhq.selenium:selenium-firefox-driver:jar:2.40.0:compile
+[INFO] |  |  |  +- org.seleniumhq.selenium:selenium-remote-driver:jar:2.40.0:compile
+[INFO] |  |  |  |  \- net.java.dev.jna:platform:jar:3.4.0:compile
+[INFO] |  |  |  \- org.apache.commons:commons-exec:jar:1.1:compile
+[INFO] |  |  +- org.seleniumhq.selenium:selenium-support:jar:2.40.0:compile
+[INFO] |  |  |  \- org.seleniumhq.selenium:selenium-api:jar:2.40.0:compile
+[INFO] |  |  \- org.webbitserver:webbit:jar:0.4.14:compile
+[INFO] |  |     \- io.netty:netty:jar:3.5.2.Final:compile
+[INFO] |  +- com.github.detro.ghostdriver:phantomjsdriver:jar:1.0.4:compile
+[INFO] |  +- com.saucelabs:sebuilder-interpreter:jar:1.0.2:compile
+[INFO] |  +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO] |  +- commons-pool:commons-pool:jar:1.6:compile
+[INFO] |  \- com.google.guava:guava:jar:10.0.1:compile
+[INFO] |     \- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] +- org.hibernate:hibernate-entitymanager:jar:3.6.0.Final:compile
+[INFO] |  +- cglib:cglib:jar:2.2:compile
+[INFO] |  |  \- asm:asm:jar:3.1:compile
+[INFO] |  +- javassist:javassist:jar:3.12.0.GA:compile
+[INFO] |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] |  \- org.slf4j:slf4j-api:jar:1.7.5:compile
+[INFO] +- junit:junit:jar:3.8.2:test
+[INFO] +- org.easymock:easymock:jar:3.1:test
+[INFO] |  +- cglib:cglib-nodep:jar:2.2.2:compile
+[INFO] |  \- org.objenesis:objenesis:jar:1.2:test
+[INFO] +- org.easymock:easymockclassextension:jar:3.1:test
+[INFO] \- org.opens:tanaguru-audit:jar:3.0.0:test
+[INFO]    +- org.opens:tanaguru-reference:jar:3.0.0:test
+[INFO]    \- org.opens:tanaguru-parameterization:jar:3.0.0:test
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building tanaguru-resources 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-resources ---
+[INFO] org.opens:tanaguru-resources:jar:3.0.0
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building logging 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-logging ---
+[INFO] org.opens:tanaguru-logging:jar:3.0.0
+[INFO] +- log4j:log4j:jar:1.2.17:compile
+[INFO] +- org.aspectj:aspectjweaver:jar:1.6.8:compile
+[INFO] \- junit:junit:jar:3.8.2:test
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building scenarioloader 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-scenarioloader ---
+[INFO] org.opens:tanaguru-scenarioloader:jar:3.0.0
+[INFO] +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |  |  +- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |  +- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] |  +- commons-io:commons-io:jar:2.4:compile
+[INFO] |  +- log4j:log4j:jar:1.2.17:compile
+[INFO] |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |  +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] |  |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO] |  |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO] |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  \- org.json:json:jar:20090211:compile
+[INFO] +- org.opens:tanaguru-crawler:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-audit:jar:3.0.0:compile
+[INFO] |  |  +- org.opens:tanaguru-reference:jar:3.0.0:compile
+[INFO] |  |  \- org.opens:tanaguru-parameterization:jar:3.0.0:compile
+[INFO] |  +- org.archive.heritrix:heritrix-engine:jar:3.1.1:compile
+[INFO] |  |  \- joda-time:joda-time:jar:1.6:compile
+[INFO] |  +- com.googlecode.juniversalchardet:juniversalchardet:jar:1.0.3:compile
+[INFO] |  +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO] |  |  +- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO] |  |  |  \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  |  +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO] |  |  +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-asm:jar:3.1.2.RELEASE:compile
+[INFO] |  +- commons-lang:commons-lang:jar:2.6:runtime
+[INFO] |  \- com.google.guava:guava:jar:10.0.1:compile
+[INFO] |     \- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] +- junit:junit:jar:3.8.2:test
+[INFO] +- org.easymock:easymock:jar:3.1:test
+[INFO] |  +- cglib:cglib-nodep:jar:2.2.2:compile
+[INFO] |  \- org.objenesis:objenesis:jar:1.2:test
+[INFO] +- org.opens:tanaguru-sebuilder-interpreter-tools:jar:3.0.0:compile
+[INFO] |  +- org.seleniumhq.selenium:selenium-java:jar:2.40.0:compile
+[INFO] |  |  +- org.seleniumhq.selenium:selenium-firefox-driver:jar:2.40.0:compile
+[INFO] |  |  |  +- org.seleniumhq.selenium:selenium-remote-driver:jar:2.40.0:compile
+[INFO] |  |  |  |  \- net.java.dev.jna:platform:jar:3.4.0:compile
+[INFO] |  |  |  \- org.apache.commons:commons-exec:jar:1.1:compile
+[INFO] |  |  +- org.seleniumhq.selenium:selenium-support:jar:2.40.0:compile
+[INFO] |  |  |  \- org.seleniumhq.selenium:selenium-api:jar:2.40.0:compile
+[INFO] |  |  \- org.webbitserver:webbit:jar:0.4.14:compile
+[INFO] |  |     \- io.netty:netty:jar:3.5.2.Final:compile
+[INFO] |  +- com.saucelabs:sebuilder-interpreter:jar:1.0.2:compile
+[INFO] |  +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO] |  \- commons-pool:commons-pool:jar:1.6:compile
+[INFO] +- org.easymock:easymockclassextension:jar:3.1:test
+[INFO] \- org.opens:tanaguru-contentloader:jar:3.0.0:test
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building testing-tools 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ testing-tools ---
+[INFO] org.opens:testing-tools:pom:3.0.0
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building rules-testing-tools 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-rules-testing-tools ---
+[INFO] org.opens:tanaguru-rules-testing-tools:jar:3.0.0
+[INFO] +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |  +- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] |  +- commons-io:commons-io:jar:2.4:compile
+[INFO] |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |  +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  \- org.json:json:jar:20090211:compile
+[INFO] +- org.opens:tanaguru-nomenclatureloader:jar:3.0.0:compile
+[INFO] +- org.opens:tanaguru-rule-implementation-loader:jar:3.0.0:compile
+[INFO] +- org.opens:tanaguru-persistence:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-audit:jar:3.0.0:compile
+[INFO] |  |  \- org.opens:tanaguru-reference:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-statistics:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-parameterization:jar:3.0.0:compile
+[INFO] |  \- org.opens:tanaguru-commons-entity-jpa:jar:3.0.0:compile
+[INFO] +- org.opens:tanaguru-crawler:jar:3.0.0:compile
+[INFO] |  +- org.archive.heritrix:heritrix-engine:jar:3.1.1:compile
+[INFO] |  |  \- joda-time:joda-time:jar:1.6:compile
+[INFO] |  +- com.googlecode.juniversalchardet:juniversalchardet:jar:1.0.3:compile
+[INFO] |  +- commons-lang:commons-lang:jar:2.6:runtime
+[INFO] |  \- com.google.guava:guava:jar:10.0.1:compile
+[INFO] |     \- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] +- org.opens:tanaguru-contentloader:jar:3.0.0:compile
+[INFO] +- org.opens:tanaguru-contentadapter:jar:3.0.0:compile
+[INFO] |  +- com.thoughtworks.xstream:xstream:jar:1.3.1:compile
+[INFO] |  |  \- xpp3:xpp3_min:jar:1.1.4c:compile
+[INFO] |  +- net.sourceforge.htmlcleaner:htmlcleaner:jar:2.6.1:compile
+[INFO] |  |  \- org.jdom:jdom2:jar:2.0.5:compile
+[INFO] |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO] |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO] +- org.opens:tanaguru-processor:jar:3.0.0:compile
+[INFO] |  \- org.opens:tanaguru-commons-processing:jar:3.0.0:compile
+[INFO] +- org.opens:tanaguru-consolidator:jar:3.0.0:compile
+[INFO] +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO] |  +- org.springframework:spring-asm:jar:3.1.2.RELEASE:compile
+[INFO] |  \- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO] +- org.springframework:spring-context-support:jar:3.1.2.RELEASE:compile
+[INFO] +- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO] |  \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] +- org.springframework:spring-tx:jar:3.1.2.RELEASE:compile
+[INFO] +- org.springframework:spring-orm:jar:3.1.2.RELEASE:compile
+[INFO] |  \- org.springframework:spring-jdbc:jar:3.1.2.RELEASE:compile
+[INFO] +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO] +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO] +- org.dbunit:dbunit:jar:2.4.8:compile
+[INFO] +- org.hsqldb:hsqldb:jar:2.3.1:compile
+[INFO] +- org.hibernate:hibernate-entitymanager:jar:3.6.0.Final:compile
+[INFO] |  +- cglib:cglib:jar:2.2:compile
+[INFO] |  |  \- asm:asm:jar:3.1:compile
+[INFO] |  +- javassist:javassist:jar:3.12.0.GA:compile
+[INFO] |  \- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] +- org.slf4j:slf4j-api:jar:1.7.5:compile
+[INFO] +- org.slf4j:slf4j-log4j12:jar:1.7.5:compile
+[INFO] +- xerces:xercesImpl:jar:2.9.1:compile
+[INFO] |  \- xml-apis:xml-apis:jar:1.3.04:compile
+[INFO] +- org.aspectj:aspectjweaver:jar:1.6.8:compile
+[INFO] +- junit:junit:jar:3.8.2:compile
+[INFO] +- log4j:log4j:jar:1.2.17:compile
+[INFO] +- org.easymock:easymock:jar:3.1:compile
+[INFO] |  +- cglib:cglib-nodep:jar:2.2.2:compile
+[INFO] |  \- org.objenesis:objenesis:jar:1.2:compile
+[INFO] \- org.easymock:easymockclassextension:jar:3.1:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building tanaguru-maven-kbcsv-plugin 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-maven-kbcsv-plugin ---
+[INFO] org.opens:tanaguru-maven-kbcsv-plugin:maven-plugin:3.0.0
+[INFO] +- org.apache.maven:maven-plugin-api:jar:3.1.1:provided
+[INFO] |  +- org.apache.maven:maven-model:jar:3.1.1:provided
+[INFO] |  |  \- org.codehaus.plexus:plexus-utils:jar:3.0.15:provided
+[INFO] |  +- org.apache.maven:maven-artifact:jar:3.1.1:provided
+[INFO] |  \- org.eclipse.sisu:org.eclipse.sisu.plexus:jar:0.0.0.M5:provided
+[INFO] |     +- javax.enterprise:cdi-api:jar:1.0:provided
+[INFO] |     |  +- javax.annotation:jsr250-api:jar:1.0:provided
+[INFO] |     |  \- javax.inject:javax.inject:jar:1:provided
+[INFO] |     +- com.google.guava:guava:jar:10.0.1:provided
+[INFO] |     |  \- com.google.code.findbugs:jsr305:jar:1.3.9:provided
+[INFO] |     +- org.sonatype.sisu:sisu-guice:jar:no_aop:3.1.0:provided
+[INFO] |     |  \- aopalliance:aopalliance:jar:1.0:provided
+[INFO] |     +- org.eclipse.sisu:org.eclipse.sisu.inject:jar:0.0.0.M5:provided
+[INFO] |     +- org.codehaus.plexus:plexus-component-annotations:jar:1.5.5:provided
+[INFO] |     \- org.codehaus.plexus:plexus-classworlds:jar:2.4:provided
+[INFO] +- jaxen:jaxen:jar:1.1.1:compile
+[INFO] |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  +- jdom:jdom:jar:1.0:compile
+[INFO] |  +- xml-apis:xml-apis:jar:1.3.02:compile
+[INFO] |  \- xerces:xercesImpl:jar:2.9.1:compile
+[INFO] \- junit:junit:jar:3.8.2:test
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building tanaguru-maven-testgenerator-plugin 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-maven-testgenerator-plugin ---
+[INFO] org.opens:tanaguru-maven-testgenerator-plugin:maven-plugin:3.0.0
+[INFO] +- org.apache.maven:maven-core:jar:3.1.1:compile
+[INFO] |  +- org.apache.maven:maven-model:jar:3.1.1:compile
+[INFO] |  +- org.apache.maven:maven-settings:jar:3.1.1:compile
+[INFO] |  +- org.apache.maven:maven-settings-builder:jar:3.1.1:compile
+[INFO] |  +- org.apache.maven:maven-repository-metadata:jar:3.1.1:compile
+[INFO] |  +- org.apache.maven:maven-artifact:jar:3.1.1:compile
+[INFO] |  +- org.apache.maven:maven-model-builder:jar:3.1.1:compile
+[INFO] |  +- org.apache.maven:maven-aether-provider:jar:3.1.1:compile
+[INFO] |  |  \- org.eclipse.aether:aether-spi:jar:0.9.0.M2:compile
+[INFO] |  +- org.eclipse.aether:aether-impl:jar:0.9.0.M2:compile
+[INFO] |  +- org.eclipse.aether:aether-api:jar:0.9.0.M2:compile
+[INFO] |  +- org.eclipse.aether:aether-util:jar:0.9.0.M2:compile
+[INFO] |  +- org.eclipse.sisu:org.eclipse.sisu.plexus:jar:0.0.0.M5:compile
+[INFO] |  |  +- javax.enterprise:cdi-api:jar:1.0:compile
+[INFO] |  |  |  +- javax.annotation:jsr250-api:jar:1.0:compile
+[INFO] |  |  |  \- javax.inject:javax.inject:jar:1:compile
+[INFO] |  |  +- com.google.guava:guava:jar:10.0.1:compile
+[INFO] |  |  |  \- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] |  |  +- org.sonatype.sisu:sisu-guice:jar:no_aop:3.1.0:compile
+[INFO] |  |  |  \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  |  \- org.eclipse.sisu:org.eclipse.sisu.inject:jar:0.0.0.M5:compile
+[INFO] |  +- org.codehaus.plexus:plexus-interpolation:jar:1.19:compile
+[INFO] |  +- org.codehaus.plexus:plexus-utils:jar:3.0.15:compile
+[INFO] |  +- org.codehaus.plexus:plexus-classworlds:jar:2.5.1:compile
+[INFO] |  +- org.codehaus.plexus:plexus-component-annotations:jar:1.5.5:compile
+[INFO] |  \- org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3:compile
+[INFO] |     \- org.sonatype.plexus:plexus-cipher:jar:1.4:compile
+[INFO] +- org.apache.maven:maven-plugin-api:jar:3.1.1:compile
+[INFO] +- org.apache.velocity:velocity:jar:1.6.4:compile
+[INFO] |  +- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] |  +- commons-lang:commons-lang:jar:2.6:compile
+[INFO] |  \- oro:oro:jar:2.0.8:compile
+[INFO] \- junit:junit:jar:3.8.2:test
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building tgol-testing-tools 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tgol-testing-tools ---
+[INFO] org.opens:tgol-testing-tools:jar:3.0.0
+[INFO] +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |  |     +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO] |  |     |  \- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO] |  |     |     \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  |     +- org.springframework:spring-asm:jar:3.0.5.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO] |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |  +- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] |  +- commons-io:commons-io:jar:2.4:compile
+[INFO] |  +- log4j:log4j:jar:1.2.17:compile
+[INFO] |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |  +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] |  |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO] |  |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO] |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  \- org.json:json:jar:20090211:compile
+[INFO] +- org.opens:tanaguru-sebuilder-interpreter-tools:jar:3.0.0:compile
+[INFO] |  +- com.github.detro.ghostdriver:phantomjsdriver:jar:1.0.4:compile
+[INFO] |  +- com.saucelabs:sebuilder-interpreter:jar:1.0.2:compile
+[INFO] |  +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO] |  +- commons-pool:commons-pool:jar:1.6:compile
+[INFO] |  \- com.google.guava:guava:jar:10.0.1:compile
+[INFO] |     \- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] +- org.seleniumhq.selenium:selenium-java:jar:2.40.0:compile
+[INFO] |  +- org.seleniumhq.selenium:selenium-firefox-driver:jar:2.40.0:compile
+[INFO] |  |  +- org.seleniumhq.selenium:selenium-remote-driver:jar:2.40.0:compile
+[INFO] |  |  |  +- cglib:cglib-nodep:jar:2.1_3:compile
+[INFO] |  |  |  \- net.java.dev.jna:platform:jar:3.4.0:compile
+[INFO] |  |  \- org.apache.commons:commons-exec:jar:1.1:compile
+[INFO] |  +- org.seleniumhq.selenium:selenium-support:jar:2.40.0:compile
+[INFO] |  |  \- org.seleniumhq.selenium:selenium-api:jar:2.40.0:compile
+[INFO] |  \- org.webbitserver:webbit:jar:0.4.14:compile
+[INFO] |     \- io.netty:netty:jar:3.5.2.Final:compile
+[INFO] +- commons-configuration:commons-configuration:jar:1.6:compile
+[INFO] |  +- commons-lang:commons-lang:jar:2.6:compile
+[INFO] |  +- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] |  +- commons-digester:commons-digester:jar:1.8:compile
+[INFO] |  |  \- commons-beanutils:commons-beanutils:jar:1.7.0:compile
+[INFO] |  \- commons-beanutils:commons-beanutils-core:jar:1.8.0:compile
+[INFO] \- junit:junit:jar:3.8.2:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building rules 1.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ rules ---
+[INFO] org.opens:rules:pom:1.0.0
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building rules-commons 1.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-rules-commons ---
+[INFO] org.opens:tanaguru-rules-commons:jar:1.0.0
+[INFO] +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |  |     +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO] |  |     |  \- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO] |  |     |     \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  |     +- org.springframework:spring-asm:jar:3.0.5.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO] |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |  +- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] |  +- commons-io:commons-io:jar:2.4:compile
+[INFO] |  +- log4j:log4j:jar:1.2.17:compile
+[INFO] |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |  +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] |  |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO] |  |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO] |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  \- org.json:json:jar:20090211:compile
+[INFO] +- org.opens:tanaguru-sebuilder-interpreter-tools:jar:3.0.0:compile
+[INFO] |  +- org.seleniumhq.selenium:selenium-java:jar:2.40.0:compile
+[INFO] |  |  +- org.seleniumhq.selenium:selenium-firefox-driver:jar:2.40.0:compile
+[INFO] |  |  |  +- org.seleniumhq.selenium:selenium-remote-driver:jar:2.40.0:compile
+[INFO] |  |  |  |  \- net.java.dev.jna:platform:jar:3.4.0:compile
+[INFO] |  |  |  \- org.apache.commons:commons-exec:jar:1.1:compile
+[INFO] |  |  +- org.seleniumhq.selenium:selenium-support:jar:2.40.0:compile
+[INFO] |  |  |  \- org.seleniumhq.selenium:selenium-api:jar:2.40.0:compile
+[INFO] |  |  \- org.webbitserver:webbit:jar:0.4.14:compile
+[INFO] |  |     \- io.netty:netty:jar:3.5.2.Final:compile
+[INFO] |  +- com.github.detro.ghostdriver:phantomjsdriver:jar:1.0.4:compile
+[INFO] |  +- com.saucelabs:sebuilder-interpreter:jar:1.0.2:compile
+[INFO] |  +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO] |  +- commons-pool:commons-pool:jar:1.6:compile
+[INFO] |  \- com.google.guava:guava:jar:10.0.1:compile
+[INFO] |     \- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] +- org.opens:tanaguru-resources:jar:3.0.0:runtime
+[INFO] +- com.cybozu.labs:langdetect:jar:1.1-20120112:compile
+[INFO] |  \- net.arnx:jsonic:jar:1.2.7:compile
+[INFO] +- commons-validator:commons-validator:jar:1.4.0:compile
+[INFO] |  +- commons-beanutils:commons-beanutils:jar:1.8.3:compile
+[INFO] |  +- commons-digester:commons-digester:jar:1.8:compile
+[INFO] |  \- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] +- junit:junit:jar:3.8.2:test
+[INFO] +- org.easymock:easymock:jar:3.1:test
+[INFO] |  +- cglib:cglib-nodep:jar:2.2.2:compile
+[INFO] |  \- org.objenesis:objenesis:jar:1.2:test
+[INFO] +- org.easymock:easymockclassextension:jar:3.1:test
+[INFO] \- org.slf4j:slf4j-log4j12:jar:1.7.5:compile
+[INFO]    \- org.slf4j:slf4j-api:jar:1.7.5:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building accessiweb2.1-i18n 1.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-accessiweb2.1-i18n ---
+[INFO] org.opens:tanaguru-accessiweb2.1-i18n:jar:1.0.0
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building accessiweb2.1-testcases 1.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-accessiweb2.1-testcases ---
+[INFO] org.opens:tanaguru-accessiweb2.1-testcases:jar:1.0.0
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building accessiweb2.1 1.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-accessiweb2.1 ---
+[INFO] org.opens:tanaguru-accessiweb2.1:jar:1.0.0
+[INFO] +- org.opens:tanaguru-rules-commons:jar:1.0.0:compile
+[INFO] |  +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |  |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |  |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |  |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |  |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |  |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |  |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |  |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |  |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |  |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |  |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |  |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |  |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |  |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |  |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |  |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |  |  +- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] |  |  +- commons-io:commons-io:jar:2.4:compile
+[INFO] |  |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |  |  +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] |  |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |  |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  |  \- org.json:json:jar:20090211:compile
+[INFO] |  +- org.opens:tanaguru-sebuilder-interpreter-tools:jar:3.0.0:compile
+[INFO] |  |  +- org.seleniumhq.selenium:selenium-java:jar:2.40.0:compile
+[INFO] |  |  |  +- org.seleniumhq.selenium:selenium-firefox-driver:jar:2.40.0:compile
+[INFO] |  |  |  |  +- org.seleniumhq.selenium:selenium-remote-driver:jar:2.40.0:compile
+[INFO] |  |  |  |  |  \- net.java.dev.jna:platform:jar:3.4.0:compile
+[INFO] |  |  |  |  \- org.apache.commons:commons-exec:jar:1.1:compile
+[INFO] |  |  |  +- org.seleniumhq.selenium:selenium-support:jar:2.40.0:compile
+[INFO] |  |  |  |  \- org.seleniumhq.selenium:selenium-api:jar:2.40.0:compile
+[INFO] |  |  |  \- org.webbitserver:webbit:jar:0.4.14:compile
+[INFO] |  |  |     \- io.netty:netty:jar:3.5.2.Final:compile
+[INFO] |  |  +- com.github.detro.ghostdriver:phantomjsdriver:jar:1.0.4:compile
+[INFO] |  |  +- com.saucelabs:sebuilder-interpreter:jar:1.0.2:compile
+[INFO] |  |  +- commons-pool:commons-pool:jar:1.6:compile
+[INFO] |  |  \- com.google.guava:guava:jar:10.0.1:compile
+[INFO] |  |     \- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] |  +- org.opens:tanaguru-resources:jar:3.0.0:runtime
+[INFO] |  +- com.cybozu.labs:langdetect:jar:1.1-20120112:compile
+[INFO] |  |  \- net.arnx:jsonic:jar:1.2.7:compile
+[INFO] |  +- commons-validator:commons-validator:jar:1.4.0:compile
+[INFO] |  |  +- commons-beanutils:commons-beanutils:jar:1.8.3:compile
+[INFO] |  |  +- commons-digester:commons-digester:jar:1.8:compile
+[INFO] |  |  \- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] |  \- org.slf4j:slf4j-log4j12:jar:1.7.5:compile
+[INFO] +- org.opens:tanaguru-accessiweb2.1-i18n:jar:1.0.0:runtime
+[INFO] +- org.opens:tanaguru-accessiweb2.1-testcases:jar:1.0.0:test
+[INFO] \- org.opens:tanaguru-rules-testing-tools:jar:3.0.0:test
+[INFO]    +- org.opens:tanaguru-nomenclatureloader:jar:3.0.0:test
+[INFO]    +- org.opens:tanaguru-rule-implementation-loader:jar:3.0.0:test
+[INFO]    +- org.opens:tanaguru-persistence:jar:3.0.0:test
+[INFO]    |  +- org.opens:tanaguru-audit:jar:3.0.0:test
+[INFO]    |  |  \- org.opens:tanaguru-reference:jar:3.0.0:test
+[INFO]    |  +- org.opens:tanaguru-statistics:jar:3.0.0:test
+[INFO]    |  +- org.opens:tanaguru-parameterization:jar:3.0.0:test
+[INFO]    |  \- org.opens:tanaguru-commons-entity-jpa:jar:3.0.0:test
+[INFO]    +- org.opens:tanaguru-crawler:jar:3.0.0:test
+[INFO]    |  +- org.archive.heritrix:heritrix-engine:jar:3.1.1:test
+[INFO]    |  |  \- joda-time:joda-time:jar:1.6:test
+[INFO]    |  +- com.googlecode.juniversalchardet:juniversalchardet:jar:1.0.3:test
+[INFO]    |  \- commons-lang:commons-lang:jar:2.6:test
+[INFO]    +- org.opens:tanaguru-contentloader:jar:3.0.0:test
+[INFO]    +- org.opens:tanaguru-contentadapter:jar:3.0.0:test
+[INFO]    |  +- com.thoughtworks.xstream:xstream:jar:1.3.1:test
+[INFO]    |  |  \- xpp3:xpp3_min:jar:1.1.4c:test
+[INFO]    |  +- net.sourceforge.htmlcleaner:htmlcleaner:jar:2.6.1:test
+[INFO]    |  |  \- org.jdom:jdom2:jar:2.0.5:test
+[INFO]    |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO]    |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO]    +- org.opens:tanaguru-processor:jar:3.0.0:test
+[INFO]    |  \- org.opens:tanaguru-commons-processing:jar:3.0.0:test
+[INFO]    +- org.opens:tanaguru-consolidator:jar:3.0.0:test
+[INFO]    +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO]    |  \- org.springframework:spring-asm:jar:3.1.2.RELEASE:compile
+[INFO]    +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO]    +- org.springframework:spring-context-support:jar:3.1.2.RELEASE:test
+[INFO]    +- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO]    |  \- aopalliance:aopalliance:jar:1.0:compile
+[INFO]    +- org.springframework:spring-tx:jar:3.1.2.RELEASE:test
+[INFO]    +- org.springframework:spring-orm:jar:3.1.2.RELEASE:test
+[INFO]    |  \- org.springframework:spring-jdbc:jar:3.1.2.RELEASE:test
+[INFO]    +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO]    +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO]    +- org.dbunit:dbunit:jar:2.4.8:test
+[INFO]    +- org.hsqldb:hsqldb:jar:2.3.1:test
+[INFO]    +- org.hibernate:hibernate-entitymanager:jar:3.6.0.Final:test
+[INFO]    |  +- cglib:cglib:jar:2.2:test
+[INFO]    |  |  \- asm:asm:jar:3.1:test
+[INFO]    |  +- javassist:javassist:jar:3.12.0.GA:test
+[INFO]    |  \- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO]    +- org.slf4j:slf4j-api:jar:1.7.5:compile
+[INFO]    +- xerces:xercesImpl:jar:2.9.1:test
+[INFO]    |  \- xml-apis:xml-apis:jar:1.3.04:test
+[INFO]    +- org.aspectj:aspectjweaver:jar:1.6.8:test
+[INFO]    +- junit:junit:jar:3.8.2:test
+[INFO]    +- log4j:log4j:jar:1.2.17:compile
+[INFO]    +- org.easymock:easymock:jar:3.1:test
+[INFO]    |  +- cglib:cglib-nodep:jar:2.2.2:compile
+[INFO]    |  \- org.objenesis:objenesis:jar:1.2:test
+[INFO]    \- org.easymock:easymockclassextension:jar:3.1:test
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building accessiweb2.1-resources 1.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-accessiweb2.1-resources ---
+[INFO] org.opens:tanaguru-accessiweb2.1-resources:jar:1.0.0
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building accessiweb2.2-testcases 1.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-accessiweb2.2-testcases ---
+[INFO] org.opens:tanaguru-accessiweb2.2-testcases:jar:1.0.0
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building accessiweb2.2-i18n 1.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-accessiweb2.2-i18n ---
+[INFO] org.opens:tanaguru-accessiweb2.2-i18n:jar:1.0.0
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building accessiweb2.2 1.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-accessiweb2.2 ---
+[INFO] org.opens:tanaguru-accessiweb2.2:jar:1.0.0
+[INFO] +- org.opens:tanaguru-rules-commons:jar:1.0.0:compile
+[INFO] |  +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |  |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |  |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |  |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |  |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |  |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |  |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |  |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |  |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |  |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |  |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |  |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |  |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |  |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |  |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |  |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |  |  +- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] |  |  +- commons-io:commons-io:jar:2.4:compile
+[INFO] |  |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |  |  +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] |  |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |  |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  |  \- org.json:json:jar:20090211:compile
+[INFO] |  +- org.opens:tanaguru-sebuilder-interpreter-tools:jar:3.0.0:compile
+[INFO] |  |  +- org.seleniumhq.selenium:selenium-java:jar:2.40.0:compile
+[INFO] |  |  |  +- org.seleniumhq.selenium:selenium-firefox-driver:jar:2.40.0:compile
+[INFO] |  |  |  |  +- org.seleniumhq.selenium:selenium-remote-driver:jar:2.40.0:compile
+[INFO] |  |  |  |  |  \- net.java.dev.jna:platform:jar:3.4.0:compile
+[INFO] |  |  |  |  \- org.apache.commons:commons-exec:jar:1.1:compile
+[INFO] |  |  |  +- org.seleniumhq.selenium:selenium-support:jar:2.40.0:compile
+[INFO] |  |  |  |  \- org.seleniumhq.selenium:selenium-api:jar:2.40.0:compile
+[INFO] |  |  |  \- org.webbitserver:webbit:jar:0.4.14:compile
+[INFO] |  |  |     \- io.netty:netty:jar:3.5.2.Final:compile
+[INFO] |  |  +- com.github.detro.ghostdriver:phantomjsdriver:jar:1.0.4:compile
+[INFO] |  |  +- com.saucelabs:sebuilder-interpreter:jar:1.0.2:compile
+[INFO] |  |  +- commons-pool:commons-pool:jar:1.6:compile
+[INFO] |  |  \- com.google.guava:guava:jar:10.0.1:compile
+[INFO] |  |     \- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] |  +- org.opens:tanaguru-resources:jar:3.0.0:runtime
+[INFO] |  +- com.cybozu.labs:langdetect:jar:1.1-20120112:compile
+[INFO] |  |  \- net.arnx:jsonic:jar:1.2.7:compile
+[INFO] |  +- commons-validator:commons-validator:jar:1.4.0:compile
+[INFO] |  |  +- commons-beanutils:commons-beanutils:jar:1.8.3:compile
+[INFO] |  |  +- commons-digester:commons-digester:jar:1.8:compile
+[INFO] |  |  \- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] |  \- org.slf4j:slf4j-log4j12:jar:1.7.5:compile
+[INFO] +- org.opens:tanaguru-accessiweb2.2-testcases:jar:1.0.0:test
+[INFO] +- org.opens:tanaguru-accessiweb2.2-i18n:jar:1.0.0:runtime
+[INFO] \- org.opens:tanaguru-rules-testing-tools:jar:3.0.0:test
+[INFO]    +- org.opens:tanaguru-nomenclatureloader:jar:3.0.0:test
+[INFO]    +- org.opens:tanaguru-rule-implementation-loader:jar:3.0.0:test
+[INFO]    +- org.opens:tanaguru-persistence:jar:3.0.0:test
+[INFO]    |  +- org.opens:tanaguru-audit:jar:3.0.0:test
+[INFO]    |  |  \- org.opens:tanaguru-reference:jar:3.0.0:test
+[INFO]    |  +- org.opens:tanaguru-statistics:jar:3.0.0:test
+[INFO]    |  +- org.opens:tanaguru-parameterization:jar:3.0.0:test
+[INFO]    |  \- org.opens:tanaguru-commons-entity-jpa:jar:3.0.0:test
+[INFO]    +- org.opens:tanaguru-crawler:jar:3.0.0:test
+[INFO]    |  +- org.archive.heritrix:heritrix-engine:jar:3.1.1:test
+[INFO]    |  |  \- joda-time:joda-time:jar:1.6:test
+[INFO]    |  +- com.googlecode.juniversalchardet:juniversalchardet:jar:1.0.3:test
+[INFO]    |  \- commons-lang:commons-lang:jar:2.6:test
+[INFO]    +- org.opens:tanaguru-contentloader:jar:3.0.0:test
+[INFO]    +- org.opens:tanaguru-contentadapter:jar:3.0.0:test
+[INFO]    |  +- com.thoughtworks.xstream:xstream:jar:1.3.1:test
+[INFO]    |  |  \- xpp3:xpp3_min:jar:1.1.4c:test
+[INFO]    |  +- net.sourceforge.htmlcleaner:htmlcleaner:jar:2.6.1:test
+[INFO]    |  |  \- org.jdom:jdom2:jar:2.0.5:test
+[INFO]    |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO]    |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO]    +- org.opens:tanaguru-processor:jar:3.0.0:test
+[INFO]    |  \- org.opens:tanaguru-commons-processing:jar:3.0.0:test
+[INFO]    +- org.opens:tanaguru-consolidator:jar:3.0.0:test
+[INFO]    +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO]    |  \- org.springframework:spring-asm:jar:3.1.2.RELEASE:compile
+[INFO]    +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO]    +- org.springframework:spring-context-support:jar:3.1.2.RELEASE:test
+[INFO]    +- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO]    |  \- aopalliance:aopalliance:jar:1.0:compile
+[INFO]    +- org.springframework:spring-tx:jar:3.1.2.RELEASE:test
+[INFO]    +- org.springframework:spring-orm:jar:3.1.2.RELEASE:test
+[INFO]    |  \- org.springframework:spring-jdbc:jar:3.1.2.RELEASE:test
+[INFO]    +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO]    +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO]    +- org.dbunit:dbunit:jar:2.4.8:test
+[INFO]    +- org.hsqldb:hsqldb:jar:2.3.1:test
+[INFO]    +- org.hibernate:hibernate-entitymanager:jar:3.6.0.Final:test
+[INFO]    |  +- cglib:cglib:jar:2.2:test
+[INFO]    |  |  \- asm:asm:jar:3.1:test
+[INFO]    |  +- javassist:javassist:jar:3.12.0.GA:test
+[INFO]    |  \- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO]    +- org.slf4j:slf4j-api:jar:1.7.5:compile
+[INFO]    +- xerces:xercesImpl:jar:2.9.1:test
+[INFO]    |  \- xml-apis:xml-apis:jar:1.3.04:test
+[INFO]    +- org.aspectj:aspectjweaver:jar:1.6.8:test
+[INFO]    +- junit:junit:jar:3.8.2:test
+[INFO]    +- log4j:log4j:jar:1.2.17:compile
+[INFO]    +- org.easymock:easymock:jar:3.1:test
+[INFO]    |  +- cglib:cglib-nodep:jar:2.2.2:compile
+[INFO]    |  \- org.objenesis:objenesis:jar:1.2:test
+[INFO]    \- org.easymock:easymockclassextension:jar:3.1:test
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building accessiweb2.2-resources 1.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-accessiweb2.2-resources ---
+[INFO] org.opens:tanaguru-accessiweb2.2-resources:jar:1.0.0
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building rgaa2.2-i18n 1.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-rgaa2.2-i18n ---
+[INFO] org.opens:tanaguru-rgaa2.2-i18n:jar:1.0.0
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building rgaa2.2-testcases 1.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-rgaa2.2-testcases ---
+[INFO] org.opens:tanaguru-rgaa2.2-testcases:jar:1.0.0
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building rgaa2.2 1.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-rgaa2.2 ---
+[INFO] org.opens:tanaguru-rgaa2.2:jar:1.0.0
+[INFO] +- org.opens:tanaguru-rules-commons:jar:1.0.0:compile
+[INFO] |  +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |  |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |  |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |  |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |  |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |  |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |  |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |  |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |  |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |  |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |  |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |  |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |  |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |  |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |  |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |  |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |  |  +- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] |  |  +- commons-io:commons-io:jar:2.4:compile
+[INFO] |  |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |  |  +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] |  |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |  |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  |  \- org.json:json:jar:20090211:compile
+[INFO] |  +- org.opens:tanaguru-sebuilder-interpreter-tools:jar:3.0.0:compile
+[INFO] |  |  +- org.seleniumhq.selenium:selenium-java:jar:2.40.0:compile
+[INFO] |  |  |  +- org.seleniumhq.selenium:selenium-firefox-driver:jar:2.40.0:compile
+[INFO] |  |  |  |  +- org.seleniumhq.selenium:selenium-remote-driver:jar:2.40.0:compile
+[INFO] |  |  |  |  |  \- net.java.dev.jna:platform:jar:3.4.0:compile
+[INFO] |  |  |  |  \- org.apache.commons:commons-exec:jar:1.1:compile
+[INFO] |  |  |  +- org.seleniumhq.selenium:selenium-support:jar:2.40.0:compile
+[INFO] |  |  |  |  \- org.seleniumhq.selenium:selenium-api:jar:2.40.0:compile
+[INFO] |  |  |  \- org.webbitserver:webbit:jar:0.4.14:compile
+[INFO] |  |  |     \- io.netty:netty:jar:3.5.2.Final:compile
+[INFO] |  |  +- com.github.detro.ghostdriver:phantomjsdriver:jar:1.0.4:compile
+[INFO] |  |  +- com.saucelabs:sebuilder-interpreter:jar:1.0.2:compile
+[INFO] |  |  +- commons-pool:commons-pool:jar:1.6:compile
+[INFO] |  |  \- com.google.guava:guava:jar:10.0.1:compile
+[INFO] |  |     \- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] |  +- org.opens:tanaguru-resources:jar:3.0.0:runtime
+[INFO] |  +- com.cybozu.labs:langdetect:jar:1.1-20120112:compile
+[INFO] |  |  \- net.arnx:jsonic:jar:1.2.7:compile
+[INFO] |  +- commons-validator:commons-validator:jar:1.4.0:compile
+[INFO] |  |  +- commons-beanutils:commons-beanutils:jar:1.8.3:compile
+[INFO] |  |  +- commons-digester:commons-digester:jar:1.8:compile
+[INFO] |  |  \- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] |  \- org.slf4j:slf4j-log4j12:jar:1.7.5:compile
+[INFO] +- org.opens:tanaguru-rgaa2.2-i18n:jar:1.0.0:runtime
+[INFO] +- org.opens:tanaguru-rgaa2.2-testcases:jar:1.0.0:test
+[INFO] \- org.opens:tanaguru-rules-testing-tools:jar:3.0.0:test
+[INFO]    +- org.opens:tanaguru-nomenclatureloader:jar:3.0.0:test
+[INFO]    +- org.opens:tanaguru-rule-implementation-loader:jar:3.0.0:test
+[INFO]    +- org.opens:tanaguru-persistence:jar:3.0.0:test
+[INFO]    |  +- org.opens:tanaguru-audit:jar:3.0.0:test
+[INFO]    |  |  \- org.opens:tanaguru-reference:jar:3.0.0:test
+[INFO]    |  +- org.opens:tanaguru-statistics:jar:3.0.0:test
+[INFO]    |  +- org.opens:tanaguru-parameterization:jar:3.0.0:test
+[INFO]    |  \- org.opens:tanaguru-commons-entity-jpa:jar:3.0.0:test
+[INFO]    +- org.opens:tanaguru-crawler:jar:3.0.0:test
+[INFO]    |  +- org.archive.heritrix:heritrix-engine:jar:3.1.1:test
+[INFO]    |  |  \- joda-time:joda-time:jar:1.6:test
+[INFO]    |  +- com.googlecode.juniversalchardet:juniversalchardet:jar:1.0.3:test
+[INFO]    |  \- commons-lang:commons-lang:jar:2.6:test
+[INFO]    +- org.opens:tanaguru-contentloader:jar:3.0.0:test
+[INFO]    +- org.opens:tanaguru-contentadapter:jar:3.0.0:test
+[INFO]    |  +- com.thoughtworks.xstream:xstream:jar:1.3.1:test
+[INFO]    |  |  \- xpp3:xpp3_min:jar:1.1.4c:test
+[INFO]    |  +- net.sourceforge.htmlcleaner:htmlcleaner:jar:2.6.1:test
+[INFO]    |  |  \- org.jdom:jdom2:jar:2.0.5:test
+[INFO]    |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO]    |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO]    +- org.opens:tanaguru-processor:jar:3.0.0:test
+[INFO]    |  \- org.opens:tanaguru-commons-processing:jar:3.0.0:test
+[INFO]    +- org.opens:tanaguru-consolidator:jar:3.0.0:test
+[INFO]    +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO]    |  \- org.springframework:spring-asm:jar:3.1.2.RELEASE:compile
+[INFO]    +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO]    +- org.springframework:spring-context-support:jar:3.1.2.RELEASE:test
+[INFO]    +- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO]    |  \- aopalliance:aopalliance:jar:1.0:compile
+[INFO]    +- org.springframework:spring-tx:jar:3.1.2.RELEASE:test
+[INFO]    +- org.springframework:spring-orm:jar:3.1.2.RELEASE:test
+[INFO]    |  \- org.springframework:spring-jdbc:jar:3.1.2.RELEASE:test
+[INFO]    +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO]    +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO]    +- org.dbunit:dbunit:jar:2.4.8:test
+[INFO]    +- org.hsqldb:hsqldb:jar:2.3.1:test
+[INFO]    +- org.hibernate:hibernate-entitymanager:jar:3.6.0.Final:test
+[INFO]    |  +- cglib:cglib:jar:2.2:test
+[INFO]    |  |  \- asm:asm:jar:3.1:test
+[INFO]    |  +- javassist:javassist:jar:3.12.0.GA:test
+[INFO]    |  \- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO]    +- org.slf4j:slf4j-api:jar:1.7.5:compile
+[INFO]    +- xerces:xercesImpl:jar:2.9.1:test
+[INFO]    |  \- xml-apis:xml-apis:jar:1.3.04:test
+[INFO]    +- org.aspectj:aspectjweaver:jar:1.6.8:test
+[INFO]    +- junit:junit:jar:3.8.2:test
+[INFO]    +- log4j:log4j:jar:1.2.17:compile
+[INFO]    +- org.easymock:easymock:jar:3.1:test
+[INFO]    |  +- cglib:cglib-nodep:jar:2.2.2:compile
+[INFO]    |  \- org.objenesis:objenesis:jar:1.2:test
+[INFO]    \- org.easymock:easymockclassextension:jar:3.1:test
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building rgaa2.2-resources 1.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-rgaa2.2-resources ---
+[INFO] org.opens:tanaguru-rgaa2.2-resources:jar:1.0.0
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building rules-resources 1.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-rules-resources ---
+[INFO] org.opens:tanaguru-rules-resources:jar:1.0.0
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building email-sender 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ email-sender ---
+[INFO] org.opens:email-sender:jar:3.0.0
+[INFO] +- javax.mail:mail:jar:1.4.3:compile
+[INFO] +- log4j:log4j:jar:1.2.17:compile
+[INFO] +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] \- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building security 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ security ---
+[INFO] org.opens:security:jar:3.0.0
+[INFO] +- log4j:log4j:jar:1.2.17:compile
+[INFO] +- org.owasp.esapi:esapi:jar:2.1.0:compile
+[INFO] \- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building web-app 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ web-app ---
+[INFO] org.opens:web-app:pom:3.0.0
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building tgol-resources 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tgol-resources ---
+[INFO] org.opens:tgol-resources:jar:3.0.0
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building tgol-api 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tgol-api ---
+[INFO] org.opens:tgol-api:jar:3.0.0
+[INFO] +- org.opens:email-sender:jar:3.0.0:compile
+[INFO] |  +- javax.mail:mail:jar:1.4.3:compile
+[INFO] |  \- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |  +- commons-io:commons-io:jar:2.4:compile
+[INFO] |  +- log4j:log4j:jar:1.2.17:compile
+[INFO] |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |  +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] |  |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO] |  |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO] |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  \- org.json:json:jar:20090211:compile
+[INFO] +- displaytag:displaytag:jar:1.2:compile
+[INFO] |  +- commons-lang:commons-lang:jar:2.6:compile
+[INFO] |  \- org.slf4j:slf4j-log4j12:jar:1.7.5:compile
+[INFO] |     \- org.slf4j:slf4j-api:jar:1.7.5:compile
+[INFO] +- ar.com.fdvs:DynamicJasper:jar:4.0.3:compile
+[INFO] |  +- net.sf.jasperreports:jasperreports:jar:5.2.0:compile
+[INFO] |  |  +- xml-apis:xml-apis:jar:1.3.02:compile
+[INFO] |  |  +- org.codehaus.castor:castor:jar:1.2:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-core:jar:2.0.5:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.0.5:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.0.5:compile
+[INFO] |  \- commons-beanutils:commons-beanutils:jar:1.7.0:compile
+[INFO] +- org.springframework:spring-webmvc:jar:3.1.2.RELEASE:compile
+[INFO] |  +- org.springframework:spring-asm:jar:3.1.2.RELEASE:compile
+[INFO] |  +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO] |  \- org.springframework:spring-web:jar:3.1.2.RELEASE:compile
+[INFO] |     \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] +- org.springframework:spring-context-support:jar:3.1.2.RELEASE:compile
+[INFO] +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO] +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO] |  \- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO] +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO] |  \- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] \- javax.servlet:servlet-api:jar:2.5:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building tgol-si 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tgol-si ---
+[INFO] org.opens:tgol-si:jar:3.0.0
+[INFO] +- org.opens:tanaguru-audit:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-reference:jar:3.0.0:compile
+[INFO] |  \- org.opens:tanaguru-parameterization:jar:3.0.0:compile
+[INFO] \- org.opens:tgol-api:jar:3.0.0:compile
+[INFO]    +- org.opens:email-sender:jar:3.0.0:compile
+[INFO]    |  +- javax.mail:mail:jar:1.4.3:compile
+[INFO]    |  \- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO]    +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO]    |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO]    |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO]    |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO]    |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO]    |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO]    |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO]    |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO]    |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO]    |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO]    |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO]    |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO]    |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO]    |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO]    |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO]    |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO]    |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO]    |  +- commons-io:commons-io:jar:2.4:compile
+[INFO]    |  +- log4j:log4j:jar:1.2.17:compile
+[INFO]    |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO]    |  +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO]    |  |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO]    |  |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO]    |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO]    |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO]    |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO]    |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO]    |  |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO]    |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO]    |  \- org.json:json:jar:20090211:compile
+[INFO]    +- displaytag:displaytag:jar:1.2:compile
+[INFO]    |  +- commons-lang:commons-lang:jar:2.6:compile
+[INFO]    |  \- org.slf4j:slf4j-log4j12:jar:1.7.5:compile
+[INFO]    |     \- org.slf4j:slf4j-api:jar:1.7.5:compile
+[INFO]    +- ar.com.fdvs:DynamicJasper:jar:4.0.3:compile
+[INFO]    |  +- net.sf.jasperreports:jasperreports:jar:5.2.0:compile
+[INFO]    |  |  +- xml-apis:xml-apis:jar:1.3.02:compile
+[INFO]    |  |  +- org.codehaus.castor:castor:jar:1.2:compile
+[INFO]    |  |  +- com.fasterxml.jackson.core:jackson-core:jar:2.0.5:compile
+[INFO]    |  |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.0.5:compile
+[INFO]    |  |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.0.5:compile
+[INFO]    |  \- commons-beanutils:commons-beanutils:jar:1.7.0:compile
+[INFO]    +- org.springframework:spring-webmvc:jar:3.1.2.RELEASE:compile
+[INFO]    |  +- org.springframework:spring-asm:jar:3.1.2.RELEASE:compile
+[INFO]    |  +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO]    |  \- org.springframework:spring-web:jar:3.1.2.RELEASE:compile
+[INFO]    |     \- aopalliance:aopalliance:jar:1.0:compile
+[INFO]    +- org.springframework:spring-context-support:jar:3.1.2.RELEASE:compile
+[INFO]    +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO]    +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO]    |  \- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO]    +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO]    |  \- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO]    \- javax.servlet:servlet-api:jar:2.5:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building tgol-data-presentation 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tgol-data-presentation ---
+[INFO] org.opens:tgol-data-presentation:jar:3.0.0
+[INFO] +- org.opens:tgol-api:jar:3.0.0:compile
+[INFO] |  +- org.opens:email-sender:jar:3.0.0:compile
+[INFO] |  |  +- javax.mail:mail:jar:1.4.3:compile
+[INFO] |  |  \- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] |  +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |  |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |  |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |  |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |  |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |  |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |  |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |  |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |  |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |  |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |  |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |  |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |  |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |  |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |  |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |  |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |  |  +- commons-io:commons-io:jar:2.4:compile
+[INFO] |  |  +- log4j:log4j:jar:1.2.17:compile
+[INFO] |  |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |  |  +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] |  |  |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO] |  |  |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO] |  |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |  |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |  |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] |  |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  |  \- org.json:json:jar:20090211:compile
+[INFO] |  +- displaytag:displaytag:jar:1.2:compile
+[INFO] |  |  +- commons-lang:commons-lang:jar:2.6:compile
+[INFO] |  |  \- org.slf4j:slf4j-log4j12:jar:1.7.5:compile
+[INFO] |  |     \- org.slf4j:slf4j-api:jar:1.7.5:compile
+[INFO] |  +- ar.com.fdvs:DynamicJasper:jar:4.0.3:compile
+[INFO] |  |  +- net.sf.jasperreports:jasperreports:jar:5.2.0:compile
+[INFO] |  |  |  +- xml-apis:xml-apis:jar:1.3.02:compile
+[INFO] |  |  |  +- org.codehaus.castor:castor:jar:1.2:compile
+[INFO] |  |  |  +- com.fasterxml.jackson.core:jackson-core:jar:2.0.5:compile
+[INFO] |  |  |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.0.5:compile
+[INFO] |  |  |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.0.5:compile
+[INFO] |  |  \- commons-beanutils:commons-beanutils:jar:1.7.0:compile
+[INFO] |  +- org.springframework:spring-webmvc:jar:3.1.2.RELEASE:compile
+[INFO] |  |  +- org.springframework:spring-asm:jar:3.1.2.RELEASE:compile
+[INFO] |  |  +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-web:jar:3.1.2.RELEASE:compile
+[INFO] |  |     \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  +- org.springframework:spring-context-support:jar:3.1.2.RELEASE:compile
+[INFO] |  +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO] |  +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO] |  +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO] |  |  \- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] |  \- javax.servlet:servlet-api:jar:2.5:compile
+[INFO] \- com.uwyn:jhighlight:jar:1.0:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building tgol-persistence 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tgol-persistence ---
+[INFO] org.opens:tgol-persistence:jar:3.0.0
+[INFO] +- org.opens:tgol-si:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-audit:jar:3.0.0:compile
+[INFO] |  |  \- org.opens:tanaguru-reference:jar:3.0.0:compile
+[INFO] |  \- org.opens:tgol-api:jar:3.0.0:compile
+[INFO] |     +- org.opens:email-sender:jar:3.0.0:compile
+[INFO] |     |  \- javax.mail:mail:jar:1.4.3:compile
+[INFO] |     +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |     |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |     |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |     |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |     |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |     |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |     |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |     |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |     |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |     |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |     |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |     |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |     |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |     |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |     |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |     |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |     |  +- commons-io:commons-io:jar:2.4:compile
+[INFO] |     |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |     |  +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] |     |  |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO] |     |  |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO] |     |  \- org.json:json:jar:20090211:compile
+[INFO] |     +- displaytag:displaytag:jar:1.2:compile
+[INFO] |     |  \- commons-lang:commons-lang:jar:2.6:compile
+[INFO] |     +- ar.com.fdvs:DynamicJasper:jar:4.0.3:compile
+[INFO] |     |  +- net.sf.jasperreports:jasperreports:jar:5.2.0:compile
+[INFO] |     |  |  +- xml-apis:xml-apis:jar:1.3.02:compile
+[INFO] |     |  |  +- org.codehaus.castor:castor:jar:1.2:compile
+[INFO] |     |  |  +- com.fasterxml.jackson.core:jackson-core:jar:2.0.5:compile
+[INFO] |     |  |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.0.5:compile
+[INFO] |     |  |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.0.5:compile
+[INFO] |     |  \- commons-beanutils:commons-beanutils:jar:1.7.0:compile
+[INFO] |     +- org.springframework:spring-webmvc:jar:3.1.2.RELEASE:compile
+[INFO] |     |  \- org.springframework:spring-web:jar:3.1.2.RELEASE:compile
+[INFO] |     \- javax.servlet:servlet-api:jar:2.5:compile
+[INFO] +- org.opens:tanaguru-persistence:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-statistics:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-parameterization:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-commons-entity-jpa:jar:3.0.0:compile
+[INFO] |  |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |  |  \- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |  |     +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |     +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |     +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |     \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  +- org.hibernate:hibernate-entitymanager:jar:3.6.0.Final:compile
+[INFO] |  |  +- cglib:cglib:jar:2.2:compile
+[INFO] |  |  |  \- asm:asm:jar:3.1:compile
+[INFO] |  |  +- javassist:javassist:jar:3.12.0.GA:compile
+[INFO] |  |  \- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] |  \- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] +- org.opens:tgol-data-presentation:jar:3.0.0:compile
+[INFO] |  \- com.uwyn:jhighlight:jar:1.0:compile
+[INFO] +- org.dbunit:dbunit:jar:2.4.8:test
+[INFO] |  \- junit:junit:jar:3.8.2:test
+[INFO] +- org.slf4j:slf4j-api:jar:1.7.5:compile
+[INFO] +- org.slf4j:slf4j-log4j12:jar:1.7.5:compile
+[INFO] |  \- log4j:log4j:jar:1.2.17:compile
+[INFO] +- org.springframework:spring-context:jar:3.1.2.RELEASE:test
+[INFO] |  +- org.springframework:spring-aop:jar:3.1.2.RELEASE:test
+[INFO] |  +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO] |  +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO] |  |  \- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] |  +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO] |  \- org.springframework:spring-asm:jar:3.1.2.RELEASE:compile
+[INFO] +- org.springframework:spring-context-support:jar:3.1.2.RELEASE:test
+[INFO] +- org.hsqldb:hsqldb:jar:2.3.1:test
+[INFO] +- org.aspectj:aspectjweaver:jar:1.6.8:test
+[INFO] +- org.springframework:spring-orm:jar:3.1.2.RELEASE:test
+[INFO] |  \- org.springframework:spring-jdbc:jar:3.1.2.RELEASE:test
+[INFO] \- org.springframework:spring-tx:jar:3.1.2.RELEASE:test
+[INFO]    \- aopalliance:aopalliance:jar:1.0:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building tgol-orchestrator 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tgol-orchestrator ---
+[INFO] org.opens:tgol-orchestrator:jar:3.0.0
+[INFO] \- org.opens:tgol-api:jar:3.0.0:compile
+[INFO]    +- org.opens:email-sender:jar:3.0.0:compile
+[INFO]    |  +- javax.mail:mail:jar:1.4.3:compile
+[INFO]    |  \- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO]    +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO]    |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO]    |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO]    |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO]    |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO]    |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO]    |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO]    |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO]    |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO]    |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO]    |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO]    |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO]    |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO]    |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO]    |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO]    |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO]    |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO]    |  +- commons-io:commons-io:jar:2.4:compile
+[INFO]    |  +- log4j:log4j:jar:1.2.17:compile
+[INFO]    |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO]    |  +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO]    |  |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO]    |  |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO]    |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO]    |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO]    |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO]    |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO]    |  |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO]    |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO]    |  \- org.json:json:jar:20090211:compile
+[INFO]    +- displaytag:displaytag:jar:1.2:compile
+[INFO]    |  +- commons-lang:commons-lang:jar:2.6:compile
+[INFO]    |  \- org.slf4j:slf4j-log4j12:jar:1.7.5:compile
+[INFO]    |     \- org.slf4j:slf4j-api:jar:1.7.5:compile
+[INFO]    +- ar.com.fdvs:DynamicJasper:jar:4.0.3:compile
+[INFO]    |  +- net.sf.jasperreports:jasperreports:jar:5.2.0:compile
+[INFO]    |  |  +- xml-apis:xml-apis:jar:1.3.02:compile
+[INFO]    |  |  +- org.codehaus.castor:castor:jar:1.2:compile
+[INFO]    |  |  +- com.fasterxml.jackson.core:jackson-core:jar:2.0.5:compile
+[INFO]    |  |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.0.5:compile
+[INFO]    |  |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.0.5:compile
+[INFO]    |  \- commons-beanutils:commons-beanutils:jar:1.7.0:compile
+[INFO]    +- org.springframework:spring-webmvc:jar:3.1.2.RELEASE:compile
+[INFO]    |  +- org.springframework:spring-asm:jar:3.1.2.RELEASE:compile
+[INFO]    |  +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO]    |  \- org.springframework:spring-web:jar:3.1.2.RELEASE:compile
+[INFO]    |     \- aopalliance:aopalliance:jar:1.0:compile
+[INFO]    +- org.springframework:spring-context-support:jar:3.1.2.RELEASE:compile
+[INFO]    +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO]    +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO]    |  \- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO]    +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO]    |  \- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO]    \- javax.servlet:servlet-api:jar:2.5:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building tgol-voter 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tgol-voter ---
+[INFO] org.opens:tgol-voter:jar:3.0.0
+[INFO] \- org.opens:tgol-api:jar:3.0.0:compile
+[INFO]    +- org.opens:email-sender:jar:3.0.0:compile
+[INFO]    |  +- javax.mail:mail:jar:1.4.3:compile
+[INFO]    |  \- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO]    +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO]    |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO]    |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO]    |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO]    |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO]    |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO]    |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO]    |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO]    |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO]    |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO]    |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO]    |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO]    |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO]    |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO]    |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO]    |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO]    |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO]    |  +- commons-io:commons-io:jar:2.4:compile
+[INFO]    |  +- log4j:log4j:jar:1.2.17:compile
+[INFO]    |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO]    |  +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO]    |  |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO]    |  |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO]    |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO]    |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO]    |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO]    |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO]    |  |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO]    |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO]    |  \- org.json:json:jar:20090211:compile
+[INFO]    +- displaytag:displaytag:jar:1.2:compile
+[INFO]    |  +- commons-lang:commons-lang:jar:2.6:compile
+[INFO]    |  \- org.slf4j:slf4j-log4j12:jar:1.7.5:compile
+[INFO]    |     \- org.slf4j:slf4j-api:jar:1.7.5:compile
+[INFO]    +- ar.com.fdvs:DynamicJasper:jar:4.0.3:compile
+[INFO]    |  +- net.sf.jasperreports:jasperreports:jar:5.2.0:compile
+[INFO]    |  |  +- xml-apis:xml-apis:jar:1.3.02:compile
+[INFO]    |  |  +- org.codehaus.castor:castor:jar:1.2:compile
+[INFO]    |  |  +- com.fasterxml.jackson.core:jackson-core:jar:2.0.5:compile
+[INFO]    |  |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.0.5:compile
+[INFO]    |  |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.0.5:compile
+[INFO]    |  \- commons-beanutils:commons-beanutils:jar:1.7.0:compile
+[INFO]    +- org.springframework:spring-webmvc:jar:3.1.2.RELEASE:compile
+[INFO]    |  +- org.springframework:spring-asm:jar:3.1.2.RELEASE:compile
+[INFO]    |  +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO]    |  \- org.springframework:spring-web:jar:3.1.2.RELEASE:compile
+[INFO]    |     \- aopalliance:aopalliance:jar:1.0:compile
+[INFO]    +- org.springframework:spring-context-support:jar:3.1.2.RELEASE:compile
+[INFO]    +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO]    +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO]    |  \- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO]    +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO]    |  \- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO]    \- javax.servlet:servlet-api:jar:2.5:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building tgol-report 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tgol-report ---
+[INFO] org.opens:tgol-report:jar:3.0.0
+[INFO] +- junit:junit:jar:3.8.2:test
+[INFO] +- org.opens:tgol-api:jar:3.0.0:compile
+[INFO] |  +- org.opens:email-sender:jar:3.0.0:compile
+[INFO] |  |  +- javax.mail:mail:jar:1.4.3:compile
+[INFO] |  |  \- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] |  +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |  |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |  |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |  |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |  |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |  |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |  |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |  |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |  |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |  |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |  |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |  |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |  |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |  |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |  |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |  |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |  |  +- commons-io:commons-io:jar:2.4:compile
+[INFO] |  |  +- log4j:log4j:jar:1.2.17:compile
+[INFO] |  |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |  |  +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] |  |  |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO] |  |  |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO] |  |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |  |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |  |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] |  |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  |  \- org.json:json:jar:20090211:compile
+[INFO] |  +- displaytag:displaytag:jar:1.2:compile
+[INFO] |  |  +- commons-lang:commons-lang:jar:2.6:compile
+[INFO] |  |  \- org.slf4j:slf4j-log4j12:jar:1.7.5:compile
+[INFO] |  |     \- org.slf4j:slf4j-api:jar:1.7.5:compile
+[INFO] |  +- ar.com.fdvs:DynamicJasper:jar:4.0.3:compile
+[INFO] |  |  \- commons-beanutils:commons-beanutils:jar:1.7.0:compile
+[INFO] |  +- org.springframework:spring-webmvc:jar:3.1.2.RELEASE:compile
+[INFO] |  |  +- org.springframework:spring-asm:jar:3.1.2.RELEASE:compile
+[INFO] |  |  +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-web:jar:3.1.2.RELEASE:compile
+[INFO] |  |     \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  +- org.springframework:spring-context-support:jar:3.1.2.RELEASE:compile
+[INFO] |  +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO] |  +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO] |  +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO] |  |  \- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] |  \- javax.servlet:servlet-api:jar:2.5:compile
+[INFO] +- javax.servlet:jsp-api:jar:2.0:provided
+[INFO] +- net.sf.jasperreports:jasperreports:jar:5.2.0:compile
+[INFO] |  +- xml-apis:xml-apis:jar:1.3.02:compile
+[INFO] |  +- org.codehaus.castor:castor:jar:1.2:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-core:jar:2.0.5:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.0.5:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.0.5:compile
+[INFO] +- com.lowagie:itext:jar:4.2.1:compile
+[INFO] |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  +- jfree:jfreechart:jar:1.0.12:compile
+[INFO] |  |  \- jfree:jcommon:jar:1.0.15:compile
+[INFO] |  \- org.swinglabs:pdf-renderer:jar:1.0.5:compile
+[INFO] \- net.sf.jasperreports:jasperreports-fonts:jar:4.0.0:runtime
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building tgol-security 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tgol-security ---
+[INFO] org.opens:tgol-security:jar:3.0.0
+[INFO] +- org.opens:tgol-api:jar:3.0.0:compile
+[INFO] |  +- org.opens:email-sender:jar:3.0.0:compile
+[INFO] |  |  +- javax.mail:mail:jar:1.4.3:compile
+[INFO] |  |  \- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] |  +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |  |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |  |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |  |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |  |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |  |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |  |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |  |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |  |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |  |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |  |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |  |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |  |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |  |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |  |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |  |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |  |  +- commons-io:commons-io:jar:2.4:compile
+[INFO] |  |  +- log4j:log4j:jar:1.2.17:compile
+[INFO] |  |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |  |  +- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] |  |  |  \- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO] |  |  |     \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO] |  |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |  |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |  |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] |  |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  |  \- org.json:json:jar:20090211:compile
+[INFO] |  +- displaytag:displaytag:jar:1.2:compile
+[INFO] |  |  +- commons-lang:commons-lang:jar:2.6:compile
+[INFO] |  |  \- org.slf4j:slf4j-log4j12:jar:1.7.5:compile
+[INFO] |  |     \- org.slf4j:slf4j-api:jar:1.7.5:compile
+[INFO] |  +- ar.com.fdvs:DynamicJasper:jar:4.0.3:compile
+[INFO] |  |  +- net.sf.jasperreports:jasperreports:jar:5.2.0:compile
+[INFO] |  |  |  +- xml-apis:xml-apis:jar:1.3.02:compile
+[INFO] |  |  |  +- org.codehaus.castor:castor:jar:1.2:compile
+[INFO] |  |  |  +- com.fasterxml.jackson.core:jackson-core:jar:2.0.5:compile
+[INFO] |  |  |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.0.5:compile
+[INFO] |  |  |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.0.5:compile
+[INFO] |  |  \- commons-beanutils:commons-beanutils:jar:1.7.0:compile
+[INFO] |  +- org.springframework:spring-webmvc:jar:3.1.2.RELEASE:compile
+[INFO] |  |  +- org.springframework:spring-asm:jar:3.1.2.RELEASE:compile
+[INFO] |  |  +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-web:jar:3.1.2.RELEASE:compile
+[INFO] |  +- org.springframework:spring-context-support:jar:3.1.2.RELEASE:compile
+[INFO] |  +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO] |  +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO] |  +- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO] |  |  \- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] |  \- javax.servlet:servlet-api:jar:2.5:compile
+[INFO] +- org.springframework.security:spring-security-core:jar:3.1.2.RELEASE:compile
+[INFO] |  \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] +- org.springframework.security:spring-security-config:jar:3.1.2.RELEASE:compile
+[INFO] |  \- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO] \- org.springframework:spring-jdbc:jar:3.1.2.RELEASE:compile
+[INFO]    \- org.springframework:spring-tx:jar:3.1.2.RELEASE:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building tgol-web-app 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tgol-web-app ---
+[INFO] org.opens:tgol-web-app:war:3.0.0
+[INFO] +- org.opens:tgol-orchestrator:jar:3.0.0:runtime
+[INFO] |  \- org.opens:tgol-api:jar:3.0.0:compile
+[INFO] |     +- org.opens:email-sender:jar:3.0.0:compile
+[INFO] |     |  \- javax.mail:mail:jar:1.4.3:compile
+[INFO] |     +- displaytag:displaytag:jar:1.2:compile
+[INFO] |     +- ar.com.fdvs:DynamicJasper:jar:4.0.3:compile
+[INFO] |     +- org.springframework:spring-webmvc:jar:3.1.2.RELEASE:compile
+[INFO] |     \- org.springframework:spring-context-support:jar:3.1.2.RELEASE:compile
+[INFO] +- org.opens:tgol-persistence:jar:3.0.0:compile
+[INFO] |  +- org.opens:tgol-si:jar:3.0.0:compile
+[INFO] |  \- org.opens:tanaguru-persistence:jar:3.0.0:compile
+[INFO] |     +- org.opens:tanaguru-statistics:jar:3.0.0:compile
+[INFO] |     +- org.opens:tanaguru-parameterization:jar:3.0.0:compile
+[INFO] |     +- org.opens:tanaguru-commons-entity-jpa:jar:3.0.0:compile
+[INFO] |     \- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] +- org.opens:tgol-security:jar:3.0.0:compile
+[INFO] |  +- org.springframework.security:spring-security-core:jar:3.1.2.RELEASE:compile
+[INFO] |  +- org.springframework.security:spring-security-config:jar:3.1.2.RELEASE:compile
+[INFO] |  \- org.springframework:spring-jdbc:jar:3.1.2.RELEASE:compile
+[INFO] +- org.opens:tgol-data-presentation:jar:3.0.0:compile
+[INFO] |  \- com.uwyn:jhighlight:jar:1.0:compile
+[INFO] +- org.opens:tgol-voter:jar:3.0.0:runtime
+[INFO] +- org.opens:tgol-report:jar:3.0.0:compile
+[INFO] |  +- net.sf.jasperreports:jasperreports:jar:5.2.0:compile
+[INFO] |  |  +- org.codehaus.castor:castor:jar:1.2:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-core:jar:2.0.5:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.0.5:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.0.5:compile
+[INFO] |  +- com.lowagie:itext:jar:4.2.1:compile
+[INFO] |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  +- jfree:jfreechart:jar:1.0.12:compile
+[INFO] |  |  |  \- jfree:jcommon:jar:1.0.15:compile
+[INFO] |  |  \- org.swinglabs:pdf-renderer:jar:1.0.5:compile
+[INFO] |  \- net.sf.jasperreports:jasperreports-fonts:jar:4.0.0:runtime
+[INFO] +- org.opens:tgol-resources:jar:3.0.0:runtime
+[INFO] +- org.opens:security:jar:3.0.0:compile
+[INFO] |  \- org.owasp.esapi:esapi:jar:2.1.0:compile
+[INFO] +- org.opens:tanaguru-engine:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |  |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |  |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |  |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |  |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |  |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |  |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |  |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |  |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |  |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |  |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |  |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |  |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |  |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |  |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |  |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |  |  \- org.json:json:jar:20090211:compile
+[INFO] |  \- org.opens:tanaguru-sebuilder-interpreter-tools:jar:3.0.0:compile
+[INFO] |     +- org.seleniumhq.selenium:selenium-java:jar:2.40.0:compile
+[INFO] |     |  +- org.seleniumhq.selenium:selenium-firefox-driver:jar:2.40.0:compile
+[INFO] |     |  |  +- org.seleniumhq.selenium:selenium-remote-driver:jar:2.40.0:compile
+[INFO] |     |  |  |  \- net.java.dev.jna:platform:jar:3.4.0:compile
+[INFO] |     |  |  \- org.apache.commons:commons-exec:jar:1.1:compile
+[INFO] |     |  +- org.seleniumhq.selenium:selenium-support:jar:2.40.0:compile
+[INFO] |     |  |  \- org.seleniumhq.selenium:selenium-api:jar:2.40.0:compile
+[INFO] |     |  \- org.webbitserver:webbit:jar:0.4.14:compile
+[INFO] |     |     \- io.netty:netty:jar:3.5.2.Final:compile
+[INFO] |     +- com.github.detro.ghostdriver:phantomjsdriver:jar:1.0.4:compile
+[INFO] |     +- com.saucelabs:sebuilder-interpreter:jar:1.0.2:compile
+[INFO] |     \- commons-pool:commons-pool:jar:1.6:compile
+[INFO] +- org.opens:tanaguru-resources:jar:3.0.0:runtime
+[INFO] +- org.opens:tanaguru-nomenclatureloader:jar:3.0.0:compile
+[INFO] +- org.opens:tanaguru-rule-implementation-loader:jar:3.0.0:compile
+[INFO] +- org.opens:tanaguru-crawler:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-audit:jar:3.0.0:compile
+[INFO] |  |  \- org.opens:tanaguru-reference:jar:3.0.0:compile
+[INFO] |  +- org.archive.heritrix:heritrix-engine:jar:3.1.1:compile
+[INFO] |  |  \- joda-time:joda-time:jar:1.6:compile
+[INFO] |  +- com.googlecode.juniversalchardet:juniversalchardet:jar:1.0.3:compile
+[INFO] |  +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO] |  +- commons-io:commons-io:jar:2.4:compile
+[INFO] |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |  \- com.google.guava:guava:jar:10.0.1:compile
+[INFO] |     \- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] +- org.opens:tanaguru-contentloader:jar:3.0.0:compile
+[INFO] +- org.opens:tanaguru-contentadapter:jar:3.0.0:compile
+[INFO] |  +- com.thoughtworks.xstream:xstream:jar:1.3.1:compile
+[INFO] |  |  \- xpp3:xpp3_min:jar:1.1.4c:compile
+[INFO] |  +- net.sourceforge.htmlcleaner:htmlcleaner:jar:2.6.1:compile
+[INFO] |  |  \- org.jdom:jdom2:jar:2.0.5:compile
+[INFO] |  +- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO] |  |  \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO] |  \- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] +- org.opens:tanaguru-processor:jar:3.0.0:compile
+[INFO] |  \- org.opens:tanaguru-commons-processing:jar:3.0.0:compile
+[INFO] +- org.opens:tanaguru-consolidator:jar:3.0.0:compile
+[INFO] +- org.opens:tanaguru-analyser:jar:3.0.0:compile
+[INFO] +- org.opens:tanaguru-logging:jar:3.0.0:compile
+[INFO] |  +- log4j:log4j:jar:1.2.17:compile
+[INFO] |  \- org.aspectj:aspectjweaver:jar:1.6.8:compile
+[INFO] +- org.opens:tanaguru-scenarioloader:jar:3.0.0:compile
+[INFO] +- org.opens:tanaguru-accessiweb2.1:jar:1.0.0:runtime
+[INFO] |  +- org.opens:tanaguru-rules-commons:jar:1.0.0:runtime
+[INFO] |  |  \- com.cybozu.labs:langdetect:jar:1.1-20120112:runtime
+[INFO] |  |     \- net.arnx:jsonic:jar:1.2.7:runtime
+[INFO] |  \- org.opens:tanaguru-accessiweb2.1-i18n:jar:1.0.0:runtime
+[INFO] +- org.opens:tanaguru-accessiweb2.2:jar:1.0.0:runtime
+[INFO] |  \- org.opens:tanaguru-accessiweb2.2-i18n:jar:1.0.0:runtime
+[INFO] +- org.opens:tanaguru-rgaa2.2:jar:1.0.0:runtime
+[INFO] |  \- org.opens:tanaguru-rgaa2.2-i18n:jar:1.0.0:runtime
+[INFO] +- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO] |  +- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  +- org.springframework:spring-asm:jar:3.1.2.RELEASE:compile
+[INFO] |  +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO] |  \- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO] +- org.springframework:spring-orm:jar:3.1.2.RELEASE:compile
+[INFO] |  \- org.springframework:spring-tx:jar:3.1.2.RELEASE:compile
+[INFO] +- org.springframework:spring-instrument:jar:3.1.2.RELEASE:compile
+[INFO] +- org.springframework.security:spring-security-taglibs:jar:3.1.2.RELEASE:compile
+[INFO] |  +- org.springframework.security:spring-security-acl:jar:3.1.2.RELEASE:compile
+[INFO] |  +- org.springframework:spring-web:jar:3.1.2.RELEASE:compile
+[INFO] |  +- org.springframework.security:spring-security-web:jar:3.1.2.RELEASE:compile
+[INFO] |  \- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO] +- org.springframework:spring-test:jar:3.1.0.RELEASE:test
+[INFO] +- org.hibernate:hibernate-entitymanager:jar:3.6.0.Final:compile
+[INFO] |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  +- cglib:cglib:jar:2.2:compile
+[INFO] |  |  \- asm:asm:jar:3.1:compile
+[INFO] |  +- javassist:javassist:jar:3.12.0.GA:compile
+[INFO] |  \- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] +- org.hibernate:hibernate-c3p0:jar:3.6.0.Final:runtime
+[INFO] |  \- c3p0:c3p0:jar:0.9.1:runtime
+[INFO] +- org.hibernate:hibernate-ehcache:jar:3.6.0.Final:runtime
+[INFO] |  \- net.sf.ehcache:ehcache:jar:1.5.0:runtime
+[INFO] |     +- backport-util-concurrent:backport-util-concurrent:jar:3.1:runtime
+[INFO] |     \- net.sf.jsr107cache:jsr107cache:jar:1.0:runtime
+[INFO] +- org.hibernate:hibernate-jmx:jar:3.5.6-Final:runtime
+[INFO] +- commons-fileupload:commons-fileupload:jar:1.3:compile
+[INFO] +- commons-lang:commons-lang:jar:2.6:compile
+[INFO] +- commons-validator:commons-validator:jar:1.4.0:compile
+[INFO] |  +- commons-beanutils:commons-beanutils:jar:1.8.3:compile
+[INFO] |  +- commons-digester:commons-digester:jar:1.8:compile
+[INFO] |  \- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] +- org.slf4j:slf4j-api:jar:1.7.5:compile
+[INFO] +- org.slf4j:slf4j-log4j12:jar:1.7.5:compile
+[INFO] +- xerces:xercesImpl:jar:2.9.1:compile
+[INFO] |  \- xml-apis:xml-apis:jar:1.3.04:compile
+[INFO] +- org.apache.tika:tika-core:jar:1.3:compile
+[INFO] +- com.googlecode.htmlcompressor:htmlcompressor:jar:1.5.2:compile
+[INFO] +- javax.servlet:servlet-api:jar:2.5:provided
+[INFO] +- javax.servlet:jsp-api:jar:2.0:provided
+[INFO] +- javax.servlet:jstl:jar:1.1.2:compile
+[INFO] +- taglibs:standard:jar:1.1.2:compile
+[INFO] +- org.easymock:easymock:jar:3.1:test
+[INFO] |  +- cglib:cglib-nodep:jar:2.2.2:compile
+[INFO] |  \- org.objenesis:objenesis:jar:1.2:test
+[INFO] +- junit:junit:jar:3.8.2:test
+[INFO] \- org.easymock:easymockclassextension:jar:3.1:test
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building cli 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ cli ---
+[INFO] org.opens:cli:pom:3.0.0
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building tanaguru-cli 3.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tanaguru-cli ---
+[INFO] org.opens:tanaguru-cli:jar:3.0.0
+[INFO] +- org.opens:tanaguru-engine:jar:3.0.0:runtime
+[INFO] |  \- org.opens:tanaguru-sebuilder-interpreter-tools:jar:3.0.0:runtime
+[INFO] |     +- org.seleniumhq.selenium:selenium-java:jar:2.40.0:runtime
+[INFO] |     |  +- org.seleniumhq.selenium:selenium-firefox-driver:jar:2.40.0:runtime
+[INFO] |     |  |  +- org.seleniumhq.selenium:selenium-remote-driver:jar:2.40.0:runtime
+[INFO] |     |  |  |  +- cglib:cglib-nodep:jar:2.1_3:runtime
+[INFO] |     |  |  |  \- net.java.dev.jna:platform:jar:3.4.0:runtime
+[INFO] |     |  |  \- org.apache.commons:commons-exec:jar:1.1:runtime
+[INFO] |     |  +- org.seleniumhq.selenium:selenium-support:jar:2.40.0:runtime
+[INFO] |     |  |  \- org.seleniumhq.selenium:selenium-api:jar:2.40.0:runtime
+[INFO] |     |  \- org.webbitserver:webbit:jar:0.4.14:runtime
+[INFO] |     |     \- io.netty:netty:jar:3.5.2.Final:runtime
+[INFO] |     +- com.github.detro.ghostdriver:phantomjsdriver:jar:1.0.4:runtime
+[INFO] |     +- com.saucelabs:sebuilder-interpreter:jar:1.0.2:runtime
+[INFO] |     \- commons-pool:commons-pool:jar:1.6:runtime
+[INFO] +- org.opens:tanaguru-resources:jar:3.0.0:runtime
+[INFO] +- org.opens:tanaguru-persistence:jar:3.0.0:runtime
+[INFO] |  +- org.opens:tanaguru-audit:jar:3.0.0:runtime
+[INFO] |  |  \- org.opens:tanaguru-reference:jar:3.0.0:runtime
+[INFO] |  +- org.opens:tanaguru-statistics:jar:3.0.0:runtime
+[INFO] |  +- org.opens:tanaguru-parameterization:jar:3.0.0:runtime
+[INFO] |  +- org.opens:tanaguru-commons-entity-jpa:jar:3.0.0:runtime
+[INFO] |  \- commons-collections:commons-collections:jar:3.2.1:compile
+[INFO] +- org.opens:tanaguru-nomenclatureloader:jar:3.0.0:runtime
+[INFO] +- org.opens:tanaguru-rule-implementation-loader:jar:3.0.0:runtime
+[INFO] +- org.opens:tanaguru-crawler:jar:3.0.0:runtime
+[INFO] |  +- org.archive.heritrix:heritrix-engine:jar:3.1.1:runtime
+[INFO] |  |  \- joda-time:joda-time:jar:1.6:runtime
+[INFO] |  +- com.googlecode.juniversalchardet:juniversalchardet:jar:1.0.3:runtime
+[INFO] |  +- org.springframework:spring-context:jar:3.1.2.RELEASE:compile
+[INFO] |  |  +- org.springframework:spring-expression:jar:3.1.2.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-asm:jar:3.1.2.RELEASE:compile
+[INFO] |  +- commons-lang:commons-lang:jar:2.6:runtime
+[INFO] |  +- org.jsoup:jsoup:jar:1.7.2:compile
+[INFO] |  \- com.google.guava:guava:jar:10.0.1:runtime
+[INFO] |     \- com.google.code.findbugs:jsr305:jar:1.3.9:runtime
+[INFO] +- org.opens:tanaguru-contentloader:jar:3.0.0:runtime
+[INFO] +- org.opens:tanaguru-contentadapter:jar:3.0.0:runtime
+[INFO] |  +- com.thoughtworks.xstream:xstream:jar:1.3.1:runtime
+[INFO] |  |  \- xpp3:xpp3_min:jar:1.1.4c:runtime
+[INFO] |  +- net.sourceforge.htmlcleaner:htmlcleaner:jar:2.6.1:runtime
+[INFO] |  |  \- org.jdom:jdom2:jar:2.0.5:runtime
+[INFO] |  +- com.phloc:phloc-commons:jar:4.0.11:compile
+[INFO] |  |  \- com.google.code.findbugs:annotations:jar:2.0.1:compile
+[INFO] |  \- com.phloc:phloc-css:jar:3.6.0:compile
+[INFO] +- org.opens:tanaguru-processor:jar:3.0.0:runtime
+[INFO] |  \- org.opens:tanaguru-commons-processing:jar:3.0.0:runtime
+[INFO] +- org.opens:tanaguru-consolidator:jar:3.0.0:runtime
+[INFO] +- org.opens:tanaguru-analyser:jar:3.0.0:runtime
+[INFO] +- org.opens:tanaguru-scenarioloader:jar:3.0.0:runtime
+[INFO] +- org.opens:tanaguru-api:jar:3.0.0:compile
+[INFO] |  +- org.opens:tanaguru-commons-entity:jar:3.0.0:compile
+[INFO] |  +- org.archive.heritrix:heritrix-modules:jar:3.1.1:compile
+[INFO] |  |  \- org.archive.heritrix:heritrix-commons:jar:3.1.1:compile
+[INFO] |  |     +- org.archive.overlays:archive-overlay-commons-httpclient:jar:3.1:compile
+[INFO] |  |     +- com.sleepycat:je:jar:4.1.6:compile
+[INFO] |  |     +- org.dnsjava:dnsjava:jar:2.0.3:compile
+[INFO] |  |     +- fastutil:fastutil:jar:5.0.7:compile
+[INFO] |  |     +- org.gnu.inet:libidn:jar:0.6.5:compile
+[INFO] |  |     +- it.unimi.dsi:mg4j:jar:1.0.1:compile
+[INFO] |  |     +- com.esotericsoftware:kryo:jar:1.01:compile
+[INFO] |  |     +- com.esotericsoftware:minlog:jar:1.2:runtime
+[INFO] |  |     \- net.java.dev.jna:jna:jar:3.2.3:compile
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.2.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore:jar:4.3:compile
+[INFO] |  |  +- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] |  |  \- commons-codec:commons-codec:jar:1.8:compile
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.1:compile
+[INFO] |  +- log4j:log4j:jar:1.2.17:compile
+[INFO] |  +- org.hibernate:hibernate-core:jar:3.6.0.Final:compile
+[INFO] |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  \- org.json:json:jar:20090211:compile
+[INFO] +- org.opens:tanaguru-logging:jar:3.0.0:runtime
+[INFO] |  \- org.aspectj:aspectjweaver:jar:1.6.8:runtime
+[INFO] +- org.opens:tanaguru-accessiweb2.1:jar:1.0.0:runtime
+[INFO] |  +- org.opens:tanaguru-rules-commons:jar:1.0.0:runtime
+[INFO] |  |  +- com.cybozu.labs:langdetect:jar:1.1-20120112:runtime
+[INFO] |  |  |  \- net.arnx:jsonic:jar:1.2.7:runtime
+[INFO] |  |  \- commons-validator:commons-validator:jar:1.4.0:runtime
+[INFO] |  |     +- commons-beanutils:commons-beanutils:jar:1.8.3:runtime
+[INFO] |  |     \- commons-digester:commons-digester:jar:1.8:runtime
+[INFO] |  \- org.opens:tanaguru-accessiweb2.1-i18n:jar:1.0.0:runtime
+[INFO] +- org.opens:tanaguru-accessiweb2.2:jar:1.0.0:runtime
+[INFO] |  \- org.opens:tanaguru-accessiweb2.2-i18n:jar:1.0.0:runtime
+[INFO] +- org.opens:tanaguru-rgaa2.2:jar:1.0.0:runtime
+[INFO] |  \- org.opens:tanaguru-rgaa2.2-i18n:jar:1.0.0:runtime
+[INFO] +- org.springframework:spring-tx:jar:3.1.2.RELEASE:runtime
+[INFO] |  +- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  +- org.springframework:spring-aop:jar:3.1.2.RELEASE:compile
+[INFO] |  +- org.springframework:spring-beans:jar:3.1.2.RELEASE:compile
+[INFO] |  \- org.springframework:spring-core:jar:3.1.2.RELEASE:compile
+[INFO] +- org.springframework:spring-orm:jar:3.1.2.RELEASE:runtime
+[INFO] |  \- org.springframework:spring-jdbc:jar:3.1.2.RELEASE:runtime
+[INFO] +- org.hibernate:hibernate-entitymanager:jar:3.6.0.Final:runtime
+[INFO] |  +- cglib:cglib:jar:2.2:runtime
+[INFO] |  |  \- asm:asm:jar:3.1:runtime
+[INFO] |  +- javassist:javassist:jar:3.12.0.GA:runtime
+[INFO] |  \- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] +- org.slf4j:slf4j-api:jar:1.7.5:runtime
+[INFO] +- org.slf4j:slf4j-log4j12:jar:1.7.5:runtime
+[INFO] +- xerces:xercesImpl:jar:2.9.1:runtime
+[INFO] |  \- xml-apis:xml-apis:jar:1.3.04:runtime
+[INFO] +- org.hibernate:hibernate-c3p0:jar:3.6.0.Final:runtime
+[INFO] |  \- c3p0:c3p0:jar:0.9.1:runtime
+[INFO] +- mysql:mysql-connector-java:jar:5.1.15:runtime
+[INFO] +- org.hibernate:hibernate-ehcache:jar:3.6.0.Final:runtime
+[INFO] |  \- net.sf.ehcache:ehcache:jar:1.5.0:runtime
+[INFO] |     +- backport-util-concurrent:backport-util-concurrent:jar:3.1:runtime
+[INFO] |     \- net.sf.jsr107cache:jsr107cache:jar:1.0:runtime
+[INFO] +- commons-cli:commons-cli:jar:1.2:compile
+[INFO] \- commons-io:commons-io:jar:2.4:compile
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] tanaguru .......................................... SUCCESS [  1.589 s]
+[INFO] engine ............................................ SUCCESS [  0.008 s]
+[INFO] commons-entity .................................... SUCCESS [  0.025 s]
+[INFO] commons-entity-jpa ................................ SUCCESS [  0.032 s]
+[INFO] tanaguru-api ...................................... SUCCESS [  0.279 s]
+[INFO] reference ......................................... SUCCESS [  0.072 s]
+[INFO] parameterization .................................. SUCCESS [  0.022 s]
+[INFO] audit ............................................. SUCCESS [  0.045 s]
+[INFO] rule-implementation-loader ........................ SUCCESS [  0.062 s]
+[INFO] nomenclatureloader ................................ SUCCESS [  0.028 s]
+[INFO] statistics ........................................ SUCCESS [  0.070 s]
+[INFO] persistence ....................................... SUCCESS [  0.122 s]
+[INFO] crawler ........................................... SUCCESS [  0.091 s]
+[INFO] contentloader ..................................... SUCCESS [  0.029 s]
+[INFO] contentadapter .................................... SUCCESS [  0.093 s]
+[INFO] commons-processing ................................ SUCCESS [  0.024 s]
+[INFO] processor ......................................... SUCCESS [  0.069 s]
+[INFO] consolidator ...................................... SUCCESS [  0.014 s]
+[INFO] analyser .......................................... SUCCESS [  0.029 s]
+[INFO] sebuilder-interpreter-tools ....................... SUCCESS [  0.146 s]
+[INFO] tanaguru-engine ................................... SUCCESS [  0.050 s]
+[INFO] tanaguru-resources ................................ SUCCESS [  0.004 s]
+[INFO] logging ........................................... SUCCESS [  0.012 s]
+[INFO] scenarioloader .................................... SUCCESS [  0.038 s]
+[INFO] testing-tools ..................................... SUCCESS [  0.001 s]
+[INFO] rules-testing-tools ............................... SUCCESS [  0.059 s]
+[INFO] tanaguru-maven-kbcsv-plugin ....................... SUCCESS [  0.066 s]
+[INFO] tanaguru-maven-testgenerator-plugin ............... SUCCESS [  0.091 s]
+[INFO] tgol-testing-tools ................................ SUCCESS [  0.040 s]
+[INFO] rules ............................................. SUCCESS [  0.014 s]
+[INFO] rules-commons ..................................... SUCCESS [  0.115 s]
+[INFO] accessiweb2.1-i18n ................................ SUCCESS [  0.034 s]
+[INFO] accessiweb2.1-testcases ........................... SUCCESS [  0.001 s]
+[INFO] accessiweb2.1 ..................................... SUCCESS [  0.101 s]
+[INFO] accessiweb2.1-resources ........................... SUCCESS [  0.013 s]
+[INFO] accessiweb2.2-testcases ........................... SUCCESS [  0.011 s]
+[INFO] accessiweb2.2-i18n ................................ SUCCESS [  0.003 s]
+[INFO] accessiweb2.2 ..................................... SUCCESS [  0.084 s]
+[INFO] accessiweb2.2-resources ........................... SUCCESS [  0.006 s]
+[INFO] rgaa2.2-i18n ...................................... SUCCESS [  0.002 s]
+[INFO] rgaa2.2-testcases ................................. SUCCESS [  0.004 s]
+[INFO] rgaa2.2 ........................................... SUCCESS [  0.070 s]
+[INFO] rgaa2.2-resources ................................. SUCCESS [  0.003 s]
+[INFO] rules-resources ................................... SUCCESS [  0.001 s]
+[INFO] email-sender ...................................... SUCCESS [  0.005 s]
+[INFO] security .......................................... SUCCESS [  0.005 s]
+[INFO] web-app ........................................... SUCCESS [  0.004 s]
+[INFO] tgol-resources .................................... SUCCESS [  0.001 s]
+[INFO] tgol-api .......................................... SUCCESS [  0.085 s]
+[INFO] tgol-si ........................................... SUCCESS [  0.037 s]
+[INFO] tgol-data-presentation ............................ SUCCESS [  0.018 s]
+[INFO] tgol-persistence .................................. SUCCESS [  0.084 s]
+[INFO] tgol-orchestrator ................................. SUCCESS [  0.017 s]
+[INFO] tgol-voter ........................................ SUCCESS [  0.029 s]
+[INFO] tgol-report ....................................... SUCCESS [  0.032 s]
+[INFO] tgol-security ..................................... SUCCESS [  0.017 s]
+[INFO] tgol-web-app ...................................... SUCCESS [  0.224 s]
+[INFO] cli ............................................... SUCCESS [  0.008 s]
+[INFO] tanaguru-cli ...................................... SUCCESS [  0.094 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 6.313 s
+[INFO] Finished at: 2014-03-26T12:08:27+01:00
+[INFO] Final Memory: 26M/62M
+[INFO] ------------------------------------------------------------------------
