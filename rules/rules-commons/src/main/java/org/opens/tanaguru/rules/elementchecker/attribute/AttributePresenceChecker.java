@@ -110,7 +110,7 @@ public class AttributePresenceChecker extends ElementCheckerImpl {
     }
     
     @Override
-    public void doCheck(
+    protected void doCheck(
             SSPHandler sspHandler, 
             Elements elements, 
             TestSolutionHandler testSolutionHandler) {

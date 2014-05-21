@@ -7,14 +7,6 @@ INSERT IGNORE INTO `REFERENCE` (`ID_REFERENCE`, `CD_REFERENCE`, `DESCRIPTION`, `
 (2, 'RGAA22', NULL, 'Rgaa 2.2', 'www.references.modernisation.gouv.fr/sites/default/files/RGAA_v2.2.1.pdf', 2, 2);
 
 --
--- Contenu de la table `level`
---
-INSERT IGNORE INTO `LEVEL` (`Id_Level`, `Cd_Level`, `Label`, `Description`, `Rank`) VALUES
-(4, 'A', 'Facile', NULL, 40),
-(5, 'AA', 'Moyen', NULL, 50),
-(6, 'AAA', 'Difficile', NULL, 60);
-
---
 -- Contenu de la table `theme`
 --
 INSERT IGNORE INTO `THEME` (`ID_THEME`, `CD_THEME`, `DESCRIPTION`, `LABEL`, `RANK`) VALUES

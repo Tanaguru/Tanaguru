@@ -17,11 +17,11 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.14.1</version>
                 <configuration>
-                    <skipTests>false</skipTests>
+                    <skipTests>true</skipTests>
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
             </plugin>
-<!--            <plugin>
+            <!--            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
                 <version>2.5.1</version>
@@ -40,7 +40,7 @@
     </build>
     <modules>
         <module>rules-commons</module>
-<!--        <module>accessiweb2.1</module>
+        <!--        <module>accessiweb2.1</module>
         <module>accessiweb2.1-testcases</module>
         <module>accessiweb2.1-i18n</module>
         <module>accessiweb2.1-resources</module>-->
@@ -53,6 +53,11 @@
         <module>rgaa2.2-i18n</module>
         <module>rgaa2.2-resources</module>
         <module>rules-resources</module>
-    </modules>
+        <module>aria1.0</module>
+        <module>aria1.0-testcases</module>
+        <module>aria1.0-resources</module>
+        <module>aria1.0-i18n</module>
+    <module>aria1.0-all-resources</module>
+  </modules>
 
 </project>

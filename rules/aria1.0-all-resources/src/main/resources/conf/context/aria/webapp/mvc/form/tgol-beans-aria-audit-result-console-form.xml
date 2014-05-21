@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+
+    <bean id="ariaAllThemeSelectElementBuilder" class="org.opens.tgol.form.builder.SelectElementBuilderImpl">
+        <property name="value" value="all-theme"/>
+        <property name="i18nKey" value="result.all-theme"/>
+        <property name="errorI18nKey" value="all-theme-error"/>
+        <property name="default" value="true"/>
+        <property name="enabled" value="true"/>
+    </bean>
+
+    <bean id="ariaDesignPatternThemeSelectElementBuilder" class="org.opens.tgol.form.builder.SelectElementBuilderImpl">
+        <property name="value" value="ARIA10-DP"/>
+        <property name="i18nKey" value="ARIA10-DP-select"/>
+        <property name="errorI18nKey" value="Seo-02-select-error"/>
+        <property name="default" value="false"/>
+        <property name="enabled" value="true"/>
+    </bean>
+
+    <bean id="ariaThemeSelectFormFieldBuilder" class="org.opens.tgol.form.builder.SelectFormFieldBuilderImpl">
+        <property name="i18nKey" value="result.theme"/>
+        <property name="errorI18nKey" value="result.theme-error"/>
+        <property name="value" value="ARIA10"/>
+        <property name="selectElementBuilderMap">
+            <map>
+                <entry key="theme">
+                    <list>
+                        <ref local="ariaAllThemeSelectElementBuilder"/>
+                        <ref local="ariaDesignPatternThemeSelectElementBuilder"/>
+                    </list>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <!--     Add seo elements to the audit form field builder   -->
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject">
+            <ref bean="auditResultController"/>
+        </property>
+        <property name="targetMethod">
+            <value>addFormFieldBuilder</value>
+        </property>
+        <property name="arguments">
+            <ref bean="ariaThemeSelectFormFieldBuilder"/>
+        </property>
+    </bean>
+
+</beans>

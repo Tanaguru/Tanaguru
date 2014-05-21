@@ -19,7 +19,6 @@
  * 
  *  Contact us by mail: open-s AT open-s DOT com
  */
-
 package org.opens.tanaguru.rules.elementchecker;
 
 import java.util.ArrayList;
@@ -43,23 +42,30 @@ import org.opens.tanaguru.rules.textbuilder.TextElementBuilder;
 import org.opens.tanaguru.service.ProcessRemarkService;
 
 /**
- * This abstract implementation of element checker handles the basic methods
- * to collect evidence elements using its {@link ProcessRemarkService}
- * instance
+ * This abstract implementation of element checker handles the basic methods to
+ * collect evidence elements using its {@link ProcessRemarkService} instance
  */
 public abstract class ElementCheckerImpl implements ElementChecker {
 
-    /** Max size of evidence element of text type */
+    /**
+     * Max size of evidence element of text type
+     */
     private static final int MAX_TEXT_EE_SIZE = 200;
-    /** colon character */
+    /**
+     * colon character
+     */
     private static final String COLON_CHAR = ":";
-    /** minus character */
+    /**
+     * minus character
+     */
     private static final String MINUS_CHAR = "-";
-    /** Absolute URL prefix */
+    /**
+     * Absolute URL prefix
+     */
     private static final String ABS_URL_PREFIX = "abs:";
-    
     /* The element builder needed to build the element text */
     private TextElementBuilder textElementBuilder;
+
     @Override
     public TextElementBuilder getTextElementBuilder() {
         if (textElementBuilder == null) {
@@ -67,254 +73,258 @@ public abstract class ElementCheckerImpl implements ElementChecker {
         }
         return textElementBuilder;
     }
+
     @Override
     public void setTextElementBuilder(TextElementBuilder textElementBuilder) {
         this.textElementBuilder = textElementBuilder;
     }
-    
     /* Success solution when checker returns success. Default is PASSED*/
     private TestSolution successSolution = TestSolution.PASSED;
+
     @Override
-    public TestSolution getSuccessSolution(){
+    public TestSolution getSuccessSolution() {
         return successSolution;
     }
-    
-    public void setSuccessSolution(TestSolution successSolution){
+
+    public void setSuccessSolution(TestSolution successSolution) {
         this.successSolution = successSolution;
     }
-    
     /* Success solution when checker returns failure. Default is FAILED*/
     private TestSolution failureSolution = TestSolution.FAILED;
+
     @Override
-    public TestSolution getFailureSolution(){
+    public TestSolution getFailureSolution() {
         return failureSolution;
     }
-    
-    public void setFailureSolution(TestSolution failureSolution){
+
+    public void setFailureSolution(TestSolution failureSolution) {
         this.failureSolution = failureSolution;
     }
-
     /**
      * the collection of attributes name used to collect evidenceElement
      */
     private String[] eeAttributeNames = {};
+
     public String[] getEeAttributeNames() {
         return eeAttributeNames;
     }
+
     public Collection<String> getEeAttributeNameAsCollection() {
         return Arrays.asList(eeAttributeNames);
     }
-
     /**
      * The locale ref to the processRemarkService
      */
     private ProcessRemarkService processRemarkService;
+
     public ProcessRemarkService getProcessRemarkService() {
         return processRemarkService;
     }
+
     public void setProcessRemarkService(ProcessRemarkService processRemarkService) {
         this.processRemarkService = processRemarkService;
     }
-    
+
     /**
-     * 
+     *
      * Constructor
      */
-    public ElementCheckerImpl() {}
-    
+    public ElementCheckerImpl() {
+    }
+
     /**
-     * 
+     *
      * @param successSolution
-     * @param failureSolution 
+     * @param failureSolution
      */
-    public ElementCheckerImpl(TestSolution successSolution, 
-                              TestSolution failureSolution) {
+    public ElementCheckerImpl(TestSolution successSolution,
+            TestSolution failureSolution) {
         this.successSolution = successSolution;
         this.failureSolution = failureSolution;
     }
-    
+
     /**
-     * 
-     * @param eeAttributeNameList 
+     *
+     * @param eeAttributeNameList
      */
-    public ElementCheckerImpl(TestSolution successSolution, 
-                              TestSolution failureSolution,
-                              String... eeAttributeNameList) {
-       this(successSolution,failureSolution);
-       this.eeAttributeNames = 
-               Arrays.copyOf(eeAttributeNameList, eeAttributeNameList.length); 
+    public ElementCheckerImpl(TestSolution successSolution,
+            TestSolution failureSolution,
+            String... eeAttributeNameList) {
+        this(successSolution, failureSolution);
+        this.eeAttributeNames =
+                Arrays.copyOf(eeAttributeNameList, eeAttributeNameList.length);
     }
-    
+
     /**
-     * 
-     * @param eeAttributeNameList 
+     *
+     * @param eeAttributeNameList
      */
     public ElementCheckerImpl(String... eeAttributeNameList) {
-       this.eeAttributeNames = 
-               Arrays.copyOf(eeAttributeNameList, eeAttributeNameList.length); 
+        this.eeAttributeNames =
+                Arrays.copyOf(eeAttributeNameList, eeAttributeNameList.length);
     }
 
     @Override
-    public void check (
-            SSPHandler sspHandler, 
-            ElementHandler elementHandler, 
+    public void check(
+            SSPHandler sspHandler,
+            ElementHandler elementHandler,
             TestSolutionHandler testSolutionHandler) {
         this.processRemarkService = sspHandler.getProcessRemarkService();
-        doCheck(sspHandler, (Elements)elementHandler.get(), testSolutionHandler);
+        doCheck(sspHandler, (Elements) elementHandler.get(), testSolutionHandler);
     }
-    
+
     /**
-     * 
+     *
      * @param sspHandler
      * @param elements
-     * @param testSolutionHandler 
+     * @param testSolutionHandler
      */
     protected abstract void doCheck(
-            SSPHandler sspHandler, 
-            Elements elements, 
+            SSPHandler sspHandler,
+            Elements elements,
             TestSolutionHandler testSolutionHandler);
 
     /**
      * Add a sourceCodeRemark on the given element
-     * 
+     *
      * @param testSolution
      * @param element
-     * @param messageCode 
+     * @param messageCode
      */
-    protected void addSourceCodeRemark (
-            TestSolution testSolution, 
-            Element element, 
+    protected void addSourceCodeRemark(
+            TestSolution testSolution,
+            Element element,
             String messageCode) {
-        Collection<EvidenceElement> eeCol = 
+        Collection<EvidenceElement> eeCol =
                 getEvidenceElementCollection(
-                    element, 
-                    getEeAttributeNameAsCollection());
+                element,
+                getEeAttributeNameAsCollection());
         if (CollectionUtils.isNotEmpty(eeCol)) {
             processRemarkService.addSourceCodeRemarkOnElement(
-                        testSolution, 
-                        element, 
-                        messageCode,
-                        eeCol);
+                    testSolution,
+                    element,
+                    messageCode,
+                    eeCol);
         } else {
             processRemarkService.addSourceCodeRemarkOnElement(
-                        testSolution, 
-                        element, 
-                        messageCode);
+                    testSolution,
+                    element,
+                    messageCode);
         }
     }
-    
+
     /**
-     * Add a sourceCodeRemark on the given element with a preset evidence element
-     * collection
-     * 
+     * Add a sourceCodeRemark on the given element with a preset evidence
+     * element collection
+     *
      * @param testSolution
      * @param element
-     * @param messageCode 
+     * @param messageCode
      * @param evidenceElement
      */
-    protected void addSourceCodeRemark (
-            TestSolution testSolution, 
-            Element element, 
-            String messageCode, 
+    protected void addSourceCodeRemark(
+            TestSolution testSolution,
+            Element element,
+            String messageCode,
             EvidenceElement evidenceElement) {
-        
+
         if (evidenceElement != null) {
-            Collection<EvidenceElement> evidenceElementList = 
+            Collection<EvidenceElement> evidenceElementList =
                     new ArrayList<EvidenceElement>();
             evidenceElementList.add(evidenceElement);
             processRemarkService.addSourceCodeRemarkOnElement(
-                        testSolution, 
-                        element, 
-                        messageCode,
-                        evidenceElementList);
+                    testSolution,
+                    element,
+                    messageCode,
+                    evidenceElementList);
         } else {
             processRemarkService.addSourceCodeRemarkOnElement(
-                        testSolution, 
-                        element, 
-                        messageCode);
+                    testSolution,
+                    element,
+                    messageCode);
         }
     }
-    
+
     /**
-     * Add a sourceCodeRemark on the given element with a preset evidence element
-     * collection
-     * 
+     * Add a sourceCodeRemark on the given element with a preset evidence
+     * element collection
+     *
      * @param testSolution
      * @param element
-     * @param messageCode 
+     * @param messageCode
      * @param attributeName
      */
-    protected void addSourceCodeRemarkOnAttribute (
-            TestSolution testSolution, 
-            Element element, 
-            String messageCode, 
+    protected void addSourceCodeRemarkOnAttribute(
+            TestSolution testSolution,
+            Element element,
+            String messageCode,
             String attributeName) {
-        
+
         if (attributeName != null) {
-            Collection<EvidenceElement> evidenceElementList = 
+            Collection<EvidenceElement> evidenceElementList =
                     new ArrayList<EvidenceElement>();
             EvidenceElement ee = getEvidenceElement(
                     EvidenceStore.TARGETTED_ELEMENT_FROM_SCOPE_EE, attributeName);
             evidenceElementList.add(ee);
             processRemarkService.addSourceCodeRemarkOnElement(
-                        testSolution, 
-                        element, 
-                        messageCode,
-                        evidenceElementList);
+                    testSolution,
+                    element,
+                    messageCode,
+                    evidenceElementList);
         }
     }
     
     /**
-     * Add a sourceCodeRemark on the given element with a preset evidence element
-     * collection
-     * 
+     * Add a sourceCodeRemark on the given element with a preset evidence
+     * element collection
+     *
      * @param testSolution
      * @param element
-     * @param messageCode 
+     * @param messageCode
      * @param evidenceElementList
      */
-    protected void addSourceCodeRemark (
-            TestSolution testSolution, 
-            Element element, 
-            String messageCode, 
+    protected void addSourceCodeRemark(
+            TestSolution testSolution,
+            Element element,
+            String messageCode,
             Collection<EvidenceElement> evidenceElementList) {
-        
+
         if (CollectionUtils.isNotEmpty(evidenceElementList)) {
             processRemarkService.addSourceCodeRemarkOnElement(
-                        testSolution, 
-                        element, 
-                        messageCode,
-                        evidenceElementList);
+                    testSolution,
+                    element,
+                    messageCode,
+                    evidenceElementList);
         } else {
             processRemarkService.addSourceCodeRemarkOnElement(
-                        testSolution, 
-                        element, 
-                        messageCode);
+                    testSolution,
+                    element,
+                    messageCode);
         }
     }
-    
+
     /**
      * Add a processRemark
-     * 
+     *
      * @param testSolution
-     * @param messageCode 
+     * @param messageCode
      */
-    protected void addProcessRemark (
-            TestSolution testSolution, 
+    protected void addProcessRemark(
+            TestSolution testSolution,
             String messageCode) {
         processRemarkService.addProcessRemark(testSolution, messageCode);
     }
-    
+
     /**
-     * Returns the default evidence Element Collection with an additional 
-     * info when a sourceCodeRemark is created
-     * 
+     * Returns the default evidence Element Collection with an additional info
+     * when a sourceCodeRemark is created
+     *
      * @param element
      * @param eeListCollection
-     * @return 
+     * @return
      */
-    protected Collection<EvidenceElement> getEvidenceElementCollection (
-            Element element, 
+    protected Collection<EvidenceElement> getEvidenceElementCollection(
+            Element element,
             Collection<String> eeListCollection) {
         if (CollectionUtils.isEmpty(eeListCollection)) {
             return null;
@@ -325,11 +335,11 @@ public abstract class ElementCheckerImpl implements ElementChecker {
         }
         return eeList;
     }
-    
+
     /**
      * @param element
      * @param attr
-     * @return an evidenceElement 
+     * @return an evidenceElement
      */
     protected EvidenceElement getEvidenceElement(Element element, String attr) {
         EvidenceElement extraEe;
@@ -342,27 +352,27 @@ public abstract class ElementCheckerImpl implements ElementChecker {
         }
         if (isElementTextRequested(attr)) {
             extraEe = processRemarkService.getEvidenceElement(
-                    attrEE, 
+                    attrEE,
                     StringUtils.substring(
-                        getTextElementBuilder().buildTextFromElement(element), 
-                        0, 
-                        MAX_TEXT_EE_SIZE));
+                    getTextElementBuilder().buildTextFromElement(element),
+                    0,
+                    MAX_TEXT_EE_SIZE));
         } else if (isAttributeExternalResource(attr)) {
             extraEe = processRemarkService.getEvidenceElement(
-                    attrEE, 
+                    attrEE,
                     buildAttributeContent(element, attr, true));
         } else {
             extraEe = processRemarkService.getEvidenceElement(
-                    attrEE, 
+                    attrEE,
                     buildAttributeContent(element, attr, false));
         }
         return extraEe;
     }
-    
+
     /**
      * @param evidenceKey
      * @param evidenceValue
-     * @return an evidenceElement 
+     * @return an evidenceElement
      */
     protected EvidenceElement getEvidenceElement(String evidenceKey, String evidenceValue) {
         if (StringUtils.equalsIgnoreCase(evidenceKey, AttributeStore.XML_LANG_ATTR)) {
@@ -374,73 +384,71 @@ public abstract class ElementCheckerImpl implements ElementChecker {
     /**
      * Determines whether an attribute defines an external resource regarding
      * the markup type
-     * 
+     *
      * @param attributeName
      * @return whether a requested attribute defines an external resource
      */
     private boolean isAttributeExternalResource(String attributeName) {
-        return (StringUtils.equalsIgnoreCase(attributeName, SRC_ATTR) || 
-                StringUtils.equalsIgnoreCase(attributeName, HREF_ATTR)) ? true : false; 
-    }  
-    
+        return (StringUtils.equalsIgnoreCase(attributeName, SRC_ATTR)
+                || StringUtils.equalsIgnoreCase(attributeName, HREF_ATTR)) ? true : false;
+    }
+
     /**
-     * 
+     *
      * @param attributeName
      * @return whether a requested attribute is of text type
      */
     private boolean isElementTextRequested(String attributeName) {
-        return StringUtils.equalsIgnoreCase(attributeName, HtmlElementStore.TEXT_ELEMENT2) ? true : false; 
-    }  
+        return StringUtils.equalsIgnoreCase(attributeName, HtmlElementStore.TEXT_ELEMENT2) ? true : false;
+    }
 
     /**
-     * 
+     *
      * @param element
      * @param attributeName
      * @param isExternalResource
      * @return the text content of an attribute
      */
     protected String buildAttributeContent(
-            Element element, 
-            String attributeName, 
+            Element element,
+            String attributeName,
             boolean isExternalResource) {
         if (!element.hasAttr(attributeName)) {
             return ABSENT_ATTRIBUTE_VALUE;
-        } else if (isExternalResource && 
-                !element.attr(ABS_URL_PREFIX + attributeName).isEmpty()) {
+        } else if (isExternalResource
+                && !element.attr(ABS_URL_PREFIX + attributeName).isEmpty()) {
             return element.absUrl(attributeName).trim();
         } else {
             return element.attr(attributeName).trim();
         }
     }
-    
+
     /**
-     * Each unit check provides a solution. Regarding the result of this unit 
-     * check, the final result of the test may be impacted. If the result of the 
-     * unit check is PASSED, the global result is not changed. If the result of 
-     * the unit check is FAILED and the current global result is NEED_MORE_INFO, 
+     * Each unit check provides a solution. Regarding the result of this unit
+     * check, the final result of the test may be impacted. If the result of the
+     * unit check is PASSED, the global result is not changed. If the result of
+     * the unit check is FAILED and the current global result is NEED_MORE_INFO,
      * the global result changes to FAILED. If the result of the unit check is
-     * NEED_MORE_INFO and the current global result is FAILED, the current global
-     * result is still FAILED
-     * 
+     * NEED_MORE_INFO and the current global result is FAILED, the current
+     * global result is still FAILED
+     *
      * @param currentTestSolution
      * @param requestedTestSolution
      * @return the updated TestSolution
      */
     protected TestSolution setTestSolution(
-                TestSolution currentTestSolution, 
-                TestSolution requestedTestSolution) {
-        if (requestedTestSolution.equals(TestSolution.PASSED) && 
-                currentTestSolution.equals(TestSolution.NOT_APPLICABLE)) {
+            TestSolution currentTestSolution,
+            TestSolution requestedTestSolution) {
+        if (requestedTestSolution.equals(TestSolution.PASSED)
+                && currentTestSolution.equals(TestSolution.NOT_APPLICABLE)) {
             return requestedTestSolution;
-        } else 
-            if (requestedTestSolution.equals(TestSolution.PASSED)) {
+        } else if (requestedTestSolution.equals(TestSolution.PASSED)) {
             return currentTestSolution;
-        } else if (requestedTestSolution.equals(TestSolution.NEED_MORE_INFO) && 
-                currentTestSolution.equals(TestSolution.FAILED)) {
+        } else if (requestedTestSolution.equals(TestSolution.NEED_MORE_INFO)
+                && currentTestSolution.equals(TestSolution.FAILED)) {
             return currentTestSolution;
         } else {
             return requestedTestSolution;
         }
     }
-    
 }
