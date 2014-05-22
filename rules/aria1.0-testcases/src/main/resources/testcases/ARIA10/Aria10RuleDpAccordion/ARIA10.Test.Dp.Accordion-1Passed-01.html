@@ -6,87 +6,87 @@
     </head>
     <body>
         <div>
-
             <h1>ARIA10 Test.Dp.Accordion Passed 01</h1>
+            <span>Example based on <a href="http://www.oaa-accessibility.org/examplep/accordian1/">Open Ajax Alliance Accordion</a> with some correction</span>
 
-            <span lang="fr">Exemple provenant de <a href="http://www.oaa-accessibility.org/examplep/accordian1/">Open Ajax Alliance Accordion</a> avec quelques corrections.</span>
 
-            <div aria-multiselectable="true" role="tablist" class="tabpanel" id="accordian1">
+            <form>
+                <div id="accordian1" class="tabpanel" role="tablist" aria-multiselectable="true">
 
-                <h2 tabindex="0" role="tab" aria-selected="true" class="tab accordian selected" id="tab1">
-                    <img alt="expanded" src="http://www.oaa-accessibility.org/media/examples/images/expanded.gif">
-                    Crust
-                </h2>
+                    <h3 id="tab1" class="tab accordian selected" aria-selected="true" aria-controls="panel1" role="tab" tabindex="0">
+                        <img src="http://www.oaa-accessibility.org/media/examples/images/expanded.gif" alt="expanded" />
+                        Crust
+                    </h3>
 
-                <div role="tabpanel" aria-labelledby="tab1" aria-expanded="true" aria-hidden="false" class="panel accordian" id="panel1" style="display: block;">
-                    <h2 tabindex="0">Select Crust</h2>
+                    <div id="panel1" class="panel accordian" aria-labelledby="tab1" aria-hidden="false" aria-expanded="true" role="tabpanel">
+                        <h3 tabindex="0">Select Crust</h3>
 
-                    <ul class="controlList">
-                        <li><input type="radio" value="crust1" name="crust" id="p1_opt1"><label for="p1_opt1">Deep Dish</label></li>
-                        <li><input type="radio" checked="checked" value="crust2" name="crust" id="p1_opt2"><label for="p1_opt2">Thick and cheesy</label></li>
-                        <li><input type="radio" value="crust3" name="crust" id="p1_opt3"><label for="p1_opt3">Thick and spicy</label></li>
-                        <li><input type="radio" value="crust4" name="crust" id="p1_opt4"><label for="p1_opt4">Thin</label></li>
-                    </ul>
+                        <ul class="controlList">
+                            <li><input id="p1_opt1" type="radio" name="crust" value="crust1" /><label for="p1_opt1">Deep Dish</label></li>
+                            <li><input id="p1_opt2" type="radio" name="crust" value="crust2" checked="checked" /><label for="p1_opt2">Thick and cheesy</label></li>
+                            <li><input id="p1_opt3" type="radio" name="crust" value="crust3" /><label for="p1_opt3">Thick and spicy</label></li>
+                            <li><input id="p1_opt4" type="radio" name="crust" value="crust4" /><label for="p1_opt4">Thin</label></li>
+                        </ul>
+                    </div>
+
+                    <h3 id="tab2" class="tab accordian" aria-selected="false" aria-controls="panel2" role="tab" tabindex="-1">
+                        <img src="http://www.oaa-accessibility.org/media/examples/images/contracted.gif" alt="collapsed" />
+                        Veggies
+                    </h3>
+                    <div id="panel2" class="panel accordian" aria-labelledby="tab2" aria-hidden="true" aria-expanded="false" role="tabpanel">
+                        <h3 tabindex="0">Select Vegetables</h3>  
+
+                        <ul class="controlList">
+                            <li><input id="p2_opt1" type="checkbox" name="veg" value="black olives" /><label for="p2_opt1">Black Olives</label></li>
+                            <li><input id="p2_opt2" type="checkbox" name="veg" value="green olives" /><label for="p2_opt2">Green Olives</label></li>
+                            <li><input id="p2_opt3" type="checkbox" name="veg" value="green peppers" /><label for="p2_opt3">Green Peppers</label></li>
+                            <li><input id="p2_opt4" type="checkbox" name="veg" value="mushrooms" /><label for="p2_opt4">Mushrooms</label></li>
+                            <li><input id="p2_opt5" type="checkbox" name="veg" value="onions" /><label for="p2_opt5">Onions</label></li>
+                            <li><input id="p2_opt6" type="checkbox" name="veg" value="pineapple" /><label for="p2_opt6">Pineapple</label></li>
+                        </ul>
+                    </div>
+
+                    <h3 id="tab3" class="tab accordian" aria-selected="false" aria-controls="panel3" role="tab" tabindex="-1">
+                        <img src="http://www.oaa-accessibility.org/media/examples/images/contracted.gif" alt="collapsed" />
+                        Carnivore
+                    </h3>
+                    <div id="panel3" class="panel accordian" aria-labelledby="tab3" aria-hidden="true" aria-expanded="false" role="tabpanel">
+                        <h3 tabindex="0">Select Carnivore Options</h3>
+
+                        <ul class="controlList">
+                            <li><input id="p3_opt1" type="checkbox" name="meat" value="pepperoni" /><label for="p3_opt1">Pepperoni</label></li>
+                            <li><input id="p3_opt2" type="checkbox" name="meat" value="sausage" /><label for="p3_opt2">Italian Sausage</label></li>
+                            <li><input id="p3_opt3" type="checkbox" name="meat" value="ham" /><label for="p3_opt3">Ham</label></li>
+                            <li><input id="p3_opt4" type="checkbox" name="meat" value="hamburger" /><label for="p3_opt4">Hamburger</label></li>
+                        </ul>
+                    </div>
+
+                    <h3 id="tab4" class="tab accordian" aria-selected="false" aria-controls="panel4" role="tab" tabindex="-1">
+                        <img src="http://www.oaa-accessibility.org/media/examples/images/contracted.gif" alt="collapsed" />
+                        Delivery
+                    </h3>
+                    <div id="panel4" class="panel accordian" aria-labelledby="tab4" aria-hidden="true" aria-expanded="false" role="tabpanel">
+                        <h3 tabindex="0">Select Delivery Method</h3>
+
+                        <ul class="controlList">
+                            <li><input id="p4_opt1" type="radio" name="delivery" value="delivery1" checked="checked" /><label for="p4_opt1">Delivery</label></li>
+                            <li><input id="p4_opt2" type="radio" name="delivery" value="delivery2" /><label for="p4_opt2">Eat in</label></li>
+                            <li><input id="p4_opt3" type="radio" name="delivery" value="delivery3" /><label for="p4_opt3">Carry out</label></li>
+                            <li><input id="p4_opt4" type="radio" name="delivery" value="delivery4" /><label for="p4_opt4">Overnight mail</label></li>
+                        </ul>
+                    </div>
                 </div>
-
-                <h2 tabindex="-1" role="tab" aria-selected="false" class="tab accordian" id="tab2">
-                    <img alt="collapsed" src="http://www.oaa-accessibility.org/media/examples/images/contracted.gif">
-                    Veggies
-                </h2>
-                <div role="tabpanel" aria-labelledby="tab2" aria-expanded="false" aria-hidden="true" class="panel accordian" id="panel2" style="display: none;">
-                    <h2 tabindex="0">Select Vegetables</h2>	
-
-                    <ul class="controlList">
-                        <li><input type="checkbox" value="black olives" name="veg" id="p2_opt1"><label for="p2_opt1">Black Olives</label></li>
-                        <li><input type="checkbox" value="green olives" name="veg" id="p2_opt2"><label for="p2_opt2">Green Olives</label></li>
-                        <li><input type="checkbox" value="green peppers" name="veg" id="p2_opt3"><label for="p2_opt3">Green Peppers</label></li>
-                        <li><input type="checkbox" value="mushrooms" name="veg" id="p2_opt4"><label for="p2_opt4">Mushrooms</label></li>
-                        <li><input type="checkbox" value="onions" name="veg" id="p2_opt5"><label for="p2_opt5">Onions</label></li>
-                        <li><input type="checkbox" value="pineapple" name="veg" id="p2_opt6"><label for="p2_opt6">Pineapple</label></li>
-                    </ul>
-                </div>
-
-                <h2 tabindex="-1" role="tab" aria-selected="false" class="tab accordian" id="tab3">
-                    <img alt="collapsed" src="http://www.oaa-accessibility.org/media/examples/images/contracted.gif">
-                    Carnivore
-                </h2>
-                <div role="tabpanel" aria-labelledby="tab3" aria-expanded="false" aria-hidden="true" class="panel accordian" id="panel3" style="display: none;">
-                    <h2 tabindex="0">Select Carnivore Options</h2>
-
-                    <ul class="controlList">
-                        <li><input type="checkbox" value="pepperoni" name="meat" id="p3_opt1"><label for="p3_opt1">Pepperoni</label></li>
-                        <li><input type="checkbox" value="sausage" name="meat" id="p3_opt2"><label for="p3_opt2">Italian Sausage</label></li>
-                        <li><input type="checkbox" value="ham" name="meat" id="p3_opt3"><label for="p3_opt3">Ham</label></li>
-                        <li><input type="checkbox" value="hamburger" name="meat" id="p3_opt4"><label for="p3_opt4">Hamburger</label></li>
-                    </ul>
-                </div>
-
-                <h2 tabindex="-1" role="tab" aria-selected="false" class="tab accordian" id="tab4">
-                    <img alt="collapsed" src="http://www.oaa-accessibility.org/media/examples/images/contracted.gif">
-                    Delivery
-                </h2>
-                <div role="tabpanel" aria-labelledby="tab4"aria-expanded="false" aria-hidden="true" class="panel accordian" id="panel4" style="display: none;">
-                    <h2 tabindex="0">Select Delivery Method</h2>
-
-                    <ul class="controlList">
-                        <li><input type="radio" checked="checked" value="delivery1" name="delivery" id="p4_opt1"><label for="p4_opt1">Delivery</label></li>
-                        <li><input type="radio" value="delivery2" name="delivery" id="p4_opt2"><label for="p4_opt2">Eat in</label></li>
-                        <li><input type="radio" value="delivery3" name="delivery" id="p4_opt3"><label for="p4_opt3">Carry out</label></li>
-                        <li><input type="radio" value="delivery4" name="delivery" id="p4_opt4"><label for="p4_opt4">Overnight mail</label></li>
-                    </ul>
-                </div>
-            </div>
-
+            </form>
 
             <p class="test-detail">
                 <span lang="fr">
-                    Ceci est le <span lang="en">design pattern</span> accordéon.
+                    This is the design pattern accordion.
                 </span>
             </p>
 
             <p class="test-explanation">
                 <span lang="fr">
-                    Le <span lang="en">design pattern</span> accordéon écrit avec toute la syntaxe ARIA nécessaire.
+                    The accordion <span lang="en">design pattern</span> written with the correct ARIA implementation.
                 </span>
                 <br/>
                 WAI-ARIA Roles, States, and Properties:

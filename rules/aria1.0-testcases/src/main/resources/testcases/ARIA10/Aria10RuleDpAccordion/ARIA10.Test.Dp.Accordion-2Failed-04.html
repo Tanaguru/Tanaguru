@@ -9,7 +9,7 @@
 
             <h1>ARIA10 Test.Dp.Accordion Failed 04</h1>
 
-            <span lang="fr">Exemple provenant de <a href="http://www.oaa-accessibility.org/examplep/accordian1/">Open Ajax Alliance Accordion</a> avec quelques corrections.</span>
+            <span>Example inspired from <a href="http://www.oaa-accessibility.org/examplep/accordian1/">Open Ajax Alliance Accordion</a></span>
 
             <div aria-multiselectable="true" role="tablist" class="tabpanel" id="accordian1">
 
@@ -145,14 +145,12 @@
             </div>
 
             <p class="test-detail">
-                <span lang="fr">
-                    Ceci est le <span lang="en">design pattern</span> accordéon. Sur deux des header parmi les 4, aria-selected="true".
-                </span>
+                This is the accordion design pattern. On several headers, the <code>aria-selected="true"</code> attribute is present.
             </p>
 
-            <p lang="fr" class="test-explanation">
-                Le <span lang="en">design pattern</span> accordéon ne peux avoir qu'un seul header selectionné à la fois.<br/>
-                Ici, deux header sont notés comme sélectionnés avec aria-selected="true" (#tab1 et #tab2), le test échoue.
+            <p class="test-explanation">
+                The accordion design pattern can have only one header selected.<br/>
+                Here, two headers (#tab1 and #tab2) are selected use the <code>aria-selected="true"</code> attribute , the test is failed.
             </p>
 
         </div>

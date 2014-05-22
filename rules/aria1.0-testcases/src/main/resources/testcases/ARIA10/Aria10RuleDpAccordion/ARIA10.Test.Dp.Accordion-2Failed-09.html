@@ -9,7 +9,7 @@
 
             <h1>ARIA10 Test.Dp.Accordion Failed 09</h1>
 
-            <span lang="fr">Exemple provenant de <a href="http://www.oaa-accessibility.org/examplep/accordian1/">Open Ajax Alliance Accordion</a></span>
+            <span>Example inspired from <a href="http://www.oaa-accessibility.org/examplep/accordian1/">Open Ajax Alliance Accordion</a></span>
 
             <div aria-multiselectable="true" role="tablist" class="tabpanel" id="accordian1">
 
@@ -79,15 +79,12 @@
 
 
             <p class="test-detail">
-                <span lang="fr">
-                    Ceci est le <span lang="en">design pattern</span> accordéon. L'attribut <code>aria-hidden</code> est absent sur l'un des panneaux.
-                </span>
+                This is the accordion design pattern. The <code>aria-hidden</code> attribute is not set on a pannel.
             </p>
 
-            <p lang="fr" class="test-explanation">
-                Le <span lang="en">design pattern</span> accordéon <strong>doit</strong> définir l'état (caché ou non) de son panneau.<br/>
-                Ici, le panneau qui a pour id #panel1 est visible. Il devrait avoir un attribut <code>aria-hidden="false"</code>.<br/>
-                En son absence, le test échoue.
+            <p class="test-explanation">
+                The accordion design pattern <strong>must</strong> define its state (hidden or not) of its panel.<br/>
+                Here, the panel with the id #panel1 is not hidden. It should have an <code>aria-hidden="false"</code> attribute.<br/>
             </p>
 
         </div>

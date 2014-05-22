@@ -9,7 +9,7 @@
 
             <h1>ARIA10 Test.Dp.Accordion Failed 02</h1>
 
-            <span lang="fr">Exemple provenant de <a href="http://www.oaa-accessibility.org/examplep/accordian1/">Open Ajax Alliance Accordion</a></span>
+            <span>Example inspired from <a href="http://www.oaa-accessibility.org/examplep/accordian1/">Open Ajax Alliance Accordion</a></span>
 
             <div aria-multiselectable="true" role="tablist" class="tabpanel" id="accordian1">
 
@@ -79,15 +79,13 @@
 
 
             <p class="test-detail">
-                <span lang="fr">
-                    Ceci est le <span lang="en">design pattern</span> accordéon avec un aria-labelledby référençant un id inexistant.
-                </span>
+                This is the accordion design pattern with an <code>aria-labelledby</code> link to an id that not exist.
             </p>
 
-            <p lang="fr" class="test-explanation">
-                Le tabpanel ayant pour id #panel1 devrait référencer son header correspondant (le <code>h2</code> qui a pour id #tab1).<br>
-                Le tabpanel ayant pour id #panel3 devrait référencer son header correspondant (le <code>h2</code> qui a pour id #tab3).
-                Ils référence des id inexistants (#tab0 et #tab31) qui fait échouer ce test.
+            <p class="test-explanation">
+                The tabpanel with the id #panel1 should reference its header associated (the <code>h2</code> with the id #tab1).<br/>
+                The tabpanel with the id #panel3 should reference its header associated (le <code>h2</code>  with the id #tab3).<br/>
+                They reference id that not exist (#tab0 and #tab31).
             </p>
 
         </div>
