@@ -14,7 +14,7 @@
                 <div id="accordian1" class="tabpanel" role="tablist" aria-multiselectable="true">
 
                     <h3 id="tab1" class="tab accordian selected" aria-selected="true" aria-controls="panel1" role="tab" tabindex="0">
-                        <img src="http://www.oaa-accessibility.org/media/examples/images/expanded.gif" alt="expanded" />
+                        <img src="http://repos.kbaccess.org/testcases/ARIA10/Aria10DpAccordion/expanded.gif" alt="expanded" />
                         Crust
                     </h3>
 
@@ -30,7 +30,7 @@
                     </div>
 
                     <h3 id="tab2" class="tab accordian" aria-selected="false" aria-controls="panel2" role="tab" tabindex="-1">
-                        <img src="http://www.oaa-accessibility.org/media/examples/images/contracted.gif" alt="collapsed" />
+                        <img src="http://repos.kbaccess.org/testcases/ARIA10/Aria10DpAccordion/contracted.gif" alt="collapsed" />
                         Veggies
                     </h3>
                     <div id="panel2" class="panel accordian" aria-labelledby="tab2" aria-hidden="true" aria-expanded="false" role="tabpanel" style="display:none;">
@@ -47,7 +47,7 @@
                     </div>
 
                     <h3 id="tab3" class="tab accordian" aria-selected="false" aria-controls="panel3" role="tab" tabindex="-1">
-                        <img src="http://www.oaa-accessibility.org/media/examples/images/contracted.gif" alt="collapsed" />
+                        <img src="http://repos.kbaccess.org/testcases/ARIA10/Aria10DpAccordion/contracted.gif" alt="collapsed" />
                         Carnivore
                     </h3>
                     <div id="panel3" class="panel accordian" aria-labelledby="tab3" aria-hidden="true" aria-expanded="false" role="tabpanel" style="display:none;">
@@ -62,7 +62,7 @@
                     </div>
 
                     <h3 id="tab4" class="tab accordian" aria-selected="false" aria-controls="panel4" role="tab" tabindex="-1">
-                        <img src="http://www.oaa-accessibility.org/media/examples/images/contracted.gif" alt="collapsed" />
+                        <img src="http://repos.kbaccess.org/testcases/ARIA10/Aria10DpAccordion/contracted.gif" alt="collapsed" />
                         Delivery
                     </h3>
                     <div id="panel4" class="panel accordian" aria-labelledby="tab4" aria-hidden="true" aria-expanded="false" role="tabpanel" style="display:none;">
@@ -83,19 +83,22 @@
             </p>
 
             <p class="test-explanation">
-                The accordion design pattern written with the correct ARIA implementation.<br/>
-                WAI-ARIA Roles, States, and Properties:
-                The accordion component must have a role of tablist and have aria-aria-multiselectable="true" 
-                This will enable an assistive technology, such as screen reader, to convey that the tablist is an accordion or a aria-multiselectable tablist. 
-                This will also tell the user that the keyboard navigation matches an accordion and not a tablist.
-                Contained within the tablist is a set of tab/tabpanel pairs.
-                Each header tab in the tablist has a role of tab.
-                The accordion panel uses the role tabpanel and should have an aria-labelledby relationship referencing the correponding header having a role of tab
-                The tabpanel is considered a grouping for all content consisting of that tabpanel.
-                An accordion should manage the expanded/collapsed state of each tab by maintain its aria-expanded state.
-                An accordion should manage the selected state of each tab by maintaining its aria-selected state.
-                An accordion should convey the visibility of each tabpanel by maintaining its aria-hidden state. 
+                The accordion design pattern written with the correct ARIA implementation.
+                <br/>
+                WAI-ARIA Roles, States, and Properties:<br/>
+                The accordion component must have a role of tablist and have aria-aria-multiselectable="true"<br/>
+                This will enable an assistive technology, such as screen reader, to convey that the tablist is an accordion or a aria-multiselectable tablist.<br/>
+                This will also tell the user that the keyboard navigation matches an accordion and not a tablist.<br/>
+                Contained within the tablist is a set of tab/tabpanel pairs.<br/>
+                Each header tab in the tablist has a role of tab.<br/>
+                The accordion panel uses the role tabpanel and should have an aria-labelledby relationship referencing the correponding header having a role of tab.<br/>
+                The tabpanel is considered a grouping for all content consisting of that tabpanel.<br/>
+                An accordion should manage the expanded/collapsed state of each tab by maintain its aria-expanded state.<br/>
+                An accordion should manage the selected state of each tab by maintaining its aria-selected state.<br/>
+                An accordion should convey the visibility of each tabpanel by maintaining its aria-hidden state. <br/>
             </p>
+
+            This is implementation is part of the testcases files of <a href="http://www.tanaguru.com/">Tanaguru, the opensource accessibility checker</a>
 
         </div>
     </body>
