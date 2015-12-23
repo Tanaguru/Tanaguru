@@ -127,4 +127,15 @@
         <property name="formFieldBuilder" ref="exclusionRegexpOptionFormFieldBuilder"/>
     </bean>
 
+ <bean id="nbMaxPagesPerAuditFormFieldBuilder" class="org.tanaguru.webapp.form.builder.NumericalFormFieldBuilderImpl">
+        <property name="maxValue" value="100"/>
+        <property name="minValue" value="5"/>
+        <property name="i18nKey" value="nb-max-page-per-audit"/>
+        <property name="errorI18nKey" value="nb-max-page-per-audit-error"/>
+    </bean>
+    
+    <bean id="nbMaxPagesPerAuditOptionBuilder" class="org.tanaguru.webapp.form.parameterization.builder.ContractOptionFormFieldBuilderImpl">
+        <property name="optionCode" value="MAX_PAGES_AUDIT_CONTROL"/>
+        <property name="formFieldBuilder" ref="nbMaxPagesPerAuditFormFieldBuilder"/>
+    </bean>
 </beans>
