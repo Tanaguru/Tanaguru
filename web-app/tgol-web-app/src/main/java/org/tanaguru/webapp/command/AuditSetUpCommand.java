@@ -175,6 +175,20 @@ public class AuditSetUpCommand implements Serializable {
         this.isRelaunch = isRelaunch;
     }
     
+    
+    private int listIputUrlSize;
+    
+    public void setListIputSize(int listIputSize) {
+        this.listIputUrlSize = listIputSize;
+    }
+    public int getListIputSize() {
+        return listIputUrlSize;
+    }
+
+   
+    
+    
+    
     /**
      * Default constructor
      */

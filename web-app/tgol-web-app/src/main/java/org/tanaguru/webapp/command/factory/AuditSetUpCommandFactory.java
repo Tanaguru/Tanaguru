@@ -186,7 +186,7 @@ public final class AuditSetUpCommandFactory {
         }
         return pageAuditSetUpCommand;
     }
-
+    
     /**
      *
      * @param contract
@@ -349,7 +349,8 @@ public final class AuditSetUpCommandFactory {
          * WARNING hard-coded exception for guest user 
          * @TODO : do it better
          */
-        int nbOfPages = AuditSetUpCommand.DEFAULT_LIST_SIZE;
+       // int nbOfPages = AuditSetUpCommand.DEFAULT_LIST_SIZE;
+        int nbOfPages = contractDataService.getMaxPagesAuditControlFromContractOption(contract);     
         List<String> groupOfPagesUrl = new LinkedList();
         if (user == null) {
             return null;
@@ -398,7 +399,7 @@ public final class AuditSetUpCommandFactory {
                 AuditSetUpFormFieldHelper.selectDefaultLevelFromLevelValue(levelFormFieldList, defaultValue);
                 isDefaultValue = false;
             }
-        }
+        }     
         auditSetUpCommand.setLevel(defaultValue);
         return isDefaultValue;
     }
