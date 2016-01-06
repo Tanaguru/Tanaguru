@@ -34,6 +34,16 @@
     <sec:authentication property="principal.user.id" />
 </c:set>
 
+<!-- external js -->
+<c:set var="jqueryUrl">
+    <c:url value="/External-Js/jquery-1.9.1.min.js"/>
+</c:set>  
+<c:set var="tableSorter">
+    <c:url value="/External-Js/customizedTableSearchSorter.js"/>
+</c:set> 
+
+<link rel="stylesheet" type="text/css" href="<c:url value="/External-Css/sorter_table.css"/>" />
+
 <html lang="${tg:lang(pageContext)}">
     <c:set var="pageTitle" scope="page">
         <fmt:message key="admin.pageTitle"/>
@@ -213,6 +223,15 @@
             </div>
         </div><!-- class="container"-->                    
     <%@include file="template/footer.jsp" %>
+    
+    <script type="text/javascript" src="${jqueryUrl}"></script>
+    <script type="text/javascript" src="${tableSorter}"></script>
+    <script type="text/javascript">
+        $( document ).ready(function() {
+     $('#user-list-table').dataTable();	
+           });
+    </script>
+    
     </body>
 </html>
 </compress:html>
