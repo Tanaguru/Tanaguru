@@ -138,4 +138,26 @@
         <property name="optionCode" value="MAX_PAGES_AUDIT_CONTROL"/>
         <property name="formFieldBuilder" ref="nbMaxPagesPerAuditFormFieldBuilder"/>
     </bean>
+  
+    <bean id="isDomaineRestrictedBuilder" class="org.tanaguru.webapp.form.builder.CheckboxElementBuilderImpl">
+        <property name="enabled" value="true"/>
+        <property name="value" value="true"/>
+    </bean>
+
+    <bean id="isDomaineRestrictedFormFieldBuilder" class="org.tanaguru.webapp.form.builder.CheckboxFormFieldBuilderImpl">
+        <property name="i18nKey" value="is-domaine-restricted"/>
+        <property name="errorI18nKey" value="is-domaine-restricted-error"/>
+        <property name="checkboxElementBuilderList">
+            <list>
+                <ref local="isDomaineRestrictedBuilder"/>
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="isDomaineRestrictedOptionBuilder" class="org.tanaguru.webapp.form.parameterization.builder.ContractOptionFormFieldBuilderImpl">
+        <property name="optionCode" value="IS_DOMAINE_RESTRICTED_CONTRACT"/>
+        <property name="formFieldBuilder" ref="isDomaineRestrictedFormFieldBuilder"/>
+    </bean>
+
+    
 </beans>

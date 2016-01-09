@@ -74,4 +74,11 @@ public interface ContractDataService extends GenericDataService<Contract, Long> 
      * @return the number of page in audit of groupe of pages
      */
     public int getMaxPagesAuditControlFromContractOption(Contract contract);
+    
+    /**
+     * 
+     * @param contract
+     * @return 
+     */
+    public boolean isContractRestrictedByDomaine(Contract contract);
 }
