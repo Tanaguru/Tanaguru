@@ -30,6 +30,7 @@ import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
 import org.tanaguru.entity.audit.Audit;
 import org.tanaguru.entity.audit.AuditStatus;
 import org.tanaguru.entity.service.statistics.CriterionStatisticsDataService;
@@ -63,7 +64,9 @@ import org.springframework.ui.Model;
  */
 @Controller
 public class AbstractAuditResultController extends AbstractAuditDataHandlerController {
-
+ 
+    private static final Logger LOGGER = Logger.getLogger(AbstractAuditResultController.class);
+    
     private final List<FormFieldBuilder> sortFormFieldBuilderList = new ArrayList();
     public final void setFormFieldBuilderList(final List<FormFieldBuilder> formFieldBuilderList) {
         this.sortFormFieldBuilderList.addAll(formFieldBuilderList);
@@ -144,7 +147,7 @@ public class AbstractAuditResultController extends AbstractAuditDataHandlerContr
             ManualAuditCommand manualAuditCommand) {
         // We first check that the current user is allowed to display the result
         // of this audit
-
+        LOGGER.debug("isManualAudit: "+isManualAudit);
         WebResource webResource = getWebResourceDataService().ligthRead(
                 webResourceId);
         if (webResource == null) {
@@ -336,6 +339,7 @@ public class AbstractAuditResultController extends AbstractAuditDataHandlerContr
             boolean isManualAudit,
             ManualAuditCommand manualAuditCommand) {
 
+        LOGGER.debug("isManualAudit(prepareSuccessfullPageData): "+isManualAudit );
         Contract contract = retrieveContractFromAudit(audit);
 
         if (!audit.getStatus().equals(AuditStatus.COMPLETED)
@@ -395,8 +399,10 @@ public class AbstractAuditResultController extends AbstractAuditDataHandlerContr
                                 getTestResultSortSelection(asuc)));
                 model.addAttribute(TgolKeyStore.MANUAL_AUDIT_COMMAND_KEY,
                         manualAuditCommand);
+                LOGGER.debug("add manualAuditCommand");
+           // return TgolKeyStore.MANUAL_AUDIT_RESULT_VIEW_REDIRECT_NAME;
             }
-
+            
             return TgolKeyStore.RESULT_PAGE_VIEW_NAME;
         } else {
             AuditResultSortCommand asuc = ((AuditResultSortCommand) model
