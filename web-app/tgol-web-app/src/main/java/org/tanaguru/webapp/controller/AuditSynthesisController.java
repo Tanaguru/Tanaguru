@@ -76,6 +76,7 @@ public class AuditSynthesisController extends AbstractAuditDataHandlerController
 
     public boolean isAuthorizedScopeForSynthesis(Audit audit) {
         if (audit.getSubject() instanceof Page) {
+           // return true;
             return false;
         }
         String scope = getActDataService().getActFromAudit(audit).getScope().getCode().name();
@@ -228,5 +229,4 @@ public class AuditSynthesisController extends AbstractAuditDataHandlerController
         model.addAttribute(TgolKeyStore.STATUS_KEY, computeAuditStatus(site.getAudit()));
         return TgolKeyStore.SYNTHESIS_SITE_VIEW_NAME;
     }
-
 }

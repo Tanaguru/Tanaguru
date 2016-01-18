@@ -115,10 +115,11 @@ private static final Logger LOGGER = Logger.getLogger(AuditResultController.clas
 
                 case DOMAIN:
                 case SCENARIO:
+                case GROUPOFPAGES:
                     model.addAttribute(TgolKeyStore.AUDIT_ID_KEY, auditId);
                     return TgolKeyStore.SYNTHESIS_SITE_VIEW_REDIRECT_NAME;
+                    
                 case GROUPOFFILES:
-                case GROUPOFPAGES:
                     model.addAttribute(TgolKeyStore.AUDIT_ID_KEY, auditId);
                     model.addAttribute(TgolKeyStore.STATUS_KEY,
                             HttpStatusCodeFamily.f2xx.name());
