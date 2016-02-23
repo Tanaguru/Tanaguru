@@ -180,6 +180,7 @@ public final class RemarkMessageStore {
     public static final String INVALID_FORM_FIELD_MSG = "InvalidFormField";
     public static final String INVALID_LABEL_MSG = "InvalidLabel";
     public static final String INVALID_INPUT_MSG = "InvalidInput";
+    public static final String CHECK_INPUT_ARIA_LABEL_IDENTIFICATION = "CheckIputAriaLabelIdentification";
     
     // table
     public static final String SUMMARY_MISSING_MSG = "SummaryMissing";
