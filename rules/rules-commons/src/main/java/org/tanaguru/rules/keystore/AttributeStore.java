@@ -64,6 +64,12 @@ public final class AttributeStore {
 
     /* Value linked to an attribute */
     public static final String PRESENTATION_VALUE = "presentation";
+    
+    public static final String ROLE_ATTR_VALUE_MAIN = "main";
+    public static final String ROLE_ATTR_VALUE_BANNER = "banner";
+    public static final String ROLE_ATTR_VALUE_NAVIGATION = "navigation";
+    public static final String ROLE_ATTR_VALUE_CONTENTINFO = "contentinfo";
+    public static final String ROLE_ATTR_VALUE_SEARCH = "search";
 
     /**
      * Private constructor. This class handles keys and must not be instantiated
