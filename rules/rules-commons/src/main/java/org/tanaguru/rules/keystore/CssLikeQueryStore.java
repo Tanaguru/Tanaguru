@@ -179,6 +179,25 @@ public final class CssLikeQueryStore {
                    +"form input[type=color][aria-labelledby] , "
                    +"form input[type=time][aria-labelledby] , "
                    +"form input[type=radio][aria-labelledby]"; 
+       public static final String INPUT_ELEMENT_WITH_ARIA_LABEL_INSIDE_FORM_CSS_LIKE_QUERY=
+                    "form textarea[aria-label] , "
+                   +"form select[aria-label] , "
+                   +"form datalist[aria-label] , "
+                   +"form keygen[aria-label] , "
+                   +"form input[type=password][aria-label] , "
+                   +"form input[type=checkbox][aria-label] , "
+                   +"form input[type=file][aria-label] , "
+                   +"form input[type=text][aria-label] , "
+                   +"form input[type=search][aria-label] , "
+                   +"form input[type=tel][aria-label] , "
+                   +"form input[type=email][aria-label] , "
+                   +"form input[type=number][aria-label] , "
+                   +"form input[type=url][aria-label] , "
+                   +"form input[type=date][aria-label] , "
+                   +"form input[type=range][aria-label] , "
+                   +"form input[type=color][aria-label] , "
+                   +"form input[type=time][aria-label] , "
+                   +"form input[type=radio][aria-label]"; 
     public static final String FORM_ELEMENT_WITH_ID_CSS_LIKE_QUERY = 
                     "textarea[id] , "
                     + "select[id] , "
@@ -362,6 +381,11 @@ public final class CssLikeQueryStore {
                     + ":not(input[type=radio][onclick])"
                     + ":not(input[type=checkbox][onclick])"
                     + ":not(input[type=button][onclick])";
+    
+    
+    
+    public static final String ELEMENT_WITH_ROLE_ATTR_CSS_LIKE_QUERY = 
+                    "*[role]";
             
     // Seo 
     public static final String META_DESC_CSS_LIKE_QUERY = 
