@@ -141,7 +141,7 @@
                                             <th id="last-name" scope="col" class="col02"><fmt:message key="admin.lastName"/></th>
                                             <th id="first-name" scope="col" class="col03"><fmt:message key="admin.firstName"/></th>
                                             <th id="activated" scope="col" class="col04"><fmt:message key="admin.activated"/></th>
-                                            <th id="activated" scope="col" class="col05"><fmt:message key="admin.administrator"/></th>                             
+                                            <th id="administrator" scope="col" class="col05"><fmt:message key="admin.administrator"/></th>                             
                                             <th id="edit" scope="col" class="col06"><fmt:message key="admin.edit"/></th>
                                             <th id="delete-user" scope="col" class="col07"><fmt:message key="admin.delete"/></th>
                                             <th id="edit-contract" scope="col" class="col08"><fmt:message key="admin.manage"/></th>
@@ -170,7 +170,7 @@
                                                         </c:otherwise>
                                                     </c:choose>
                                                 </td>
-                                                <td headers="activated" class="col05">
+                                                <td headers="administrator" class="col05">
                                                     <c:choose>
                                                         <c:when test="${user.roleAdmin}">
                                                             <fmt:message key="admin.yes"/>
