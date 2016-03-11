@@ -44,16 +44,21 @@
 
     <link rel="stylesheet" type="text/css" href="<c:url value="/External-Css/sorter_table.css"/>" />
 
-     <script type="text/javascript" src="${jqueryUrl}"></script>
-            <script type="text/javascript" src="${tableSorter}"></script>
-            <script type="text/javascript">
-                $(document).ready(function () {
-                    $('#user-list-table').dataTable();
-                });
-            </script>
+    <script type="text/javascript" src="${jqueryUrl}"></script>
+    <script type="text/javascript" src="${tableSorter}"></script>
+    <script type="text/javascript">
+        // $('#user-list-table').visible(false);
+        $(document).ready(function () {
+            $('#user-list-table').dataTable();
+            $('#process-dialog').hide();
+            $('#user-list-table').removeClass('tg-table-noJS');
+            $('#user-list-table').addClass('tg-table-JS');
 
-            
-    <html lang="${tg:lang(pageContext)}">
+        });
+    </script>
+
+
+    <html lang="${tg:lang(pageContext)}"> 
         <c:set var="pageTitle" scope="page">
             <fmt:message key="admin.pageTitle"/>
         </c:set>
@@ -133,7 +138,14 @@
                     <c:choose>
                         <c:when test="${not empty userList}">
                             <div class="span16 tg-table-container">
-                                <table id="user-list-table" class="tg-table">
+                                <!-- loading image  -->
+                                <div id="process-dialog" class="ui-dialog-content ui-widget-content" style="width: auto; min-height: 128px; max-height: none; height: auto;">
+                                    <p aria-live="true" id="process-msg"> Loading... </p>
+                                    <p id="process-anim" style="display: block;"> <img alt="Your page is being processed..." src="/tanaguru/Images/processing.gif"> </p>
+                                    <p aria-live="true" id="process-msg"> Loading... </p>
+                                </div>
+
+                                <table id="user-list-table" class="tg-table tg-table-noJS">
                                     <caption><fmt:message key="admin.userList"/></caption>
                                     <thead>
                                         <tr>
@@ -141,7 +153,7 @@
                                             <th id="last-name" scope="col" class="col02"><fmt:message key="admin.lastName"/></th>
                                             <th id="first-name" scope="col" class="col03"><fmt:message key="admin.firstName"/></th>
                                             <th id="activated" scope="col" class="col04"><fmt:message key="admin.activated"/></th>
-                                            <th id="administrator" scope="col" class="col05"><fmt:message key="admin.administrator"/></th>                             
+                                            <th id="activated" scope="col" class="col05"><fmt:message key="admin.administrator"/></th>                             
                                             <th id="edit" scope="col" class="col06"><fmt:message key="admin.edit"/></th>
                                             <th id="delete-user" scope="col" class="col07"><fmt:message key="admin.delete"/></th>
                                             <th id="edit-contract" scope="col" class="col08"><fmt:message key="admin.manage"/></th>
@@ -170,7 +182,7 @@
                                                         </c:otherwise>
                                                     </c:choose>
                                                 </td>
-                                                <td headers="administrator" class="col05">
+                                                <td headers="activated" class="col05">
                                                     <c:choose>
                                                         <c:when test="${user.roleAdmin}">
                                                             <fmt:message key="admin.yes"/>
@@ -239,7 +251,7 @@
                 <p aria-live="true" id="process-msg"> Loading... </p>
             </div> -->
 
-           
+
         </body>
     </html>
 </compress:html>
