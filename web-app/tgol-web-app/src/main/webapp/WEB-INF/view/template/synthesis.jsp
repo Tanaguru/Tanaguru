@@ -71,6 +71,10 @@
                                 <a href="<c:url value="/home/contract/page-list.html?audit=${param.audit}"/>">${pageCounterLinkTitle}</a>
                                 <span>${totalPageCounterTitle}</span>
                             </c:when>
+                                <c:when test="${statistics.auditScope == 'GROUPOFPAGES'}">
+                                <a href="<c:url value="/home/contract/page-list.html?status=f2xx&audit=${param.audit}"/>">${pageCounterLinkTitle}</a>
+                                <span>${totalPageCounterTitle}</span>
+                            </c:when>
                         </c:choose>
                     </c:when>
                     <c:otherwise>

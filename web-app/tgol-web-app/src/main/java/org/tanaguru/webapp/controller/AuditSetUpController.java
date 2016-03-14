@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.log4j.Logger;
 import org.tanaguru.webapp.command.AuditSetUpCommand;
 import org.tanaguru.webapp.entity.contract.Contract;
 import org.tanaguru.webapp.entity.contract.ScopeEnum;
@@ -47,6 +48,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class AuditSetUpController extends AbstractAuditSetUpController{
 
+    private static final Logger LOGGER = Logger.getLogger(AuditSetUpController.class);
+    
     public AuditSetUpController() {
         super();
     }
@@ -144,6 +147,7 @@ public class AuditSetUpController extends AbstractAuditSetUpController{
         if (auditSetUpCommand.getRelaunch()) {
             return launchAudit(contract, auditSetUpCommand, model, request);
         }
+        LOGGER.debug("auditSetUpCommand.getScope(): "+auditSetUpCommand.getScope());
         switch (auditSetUpCommand.getScope()) {
             case DOMAIN:
                 formFielMap = getFreshAuditSetUpFormFieldMap(

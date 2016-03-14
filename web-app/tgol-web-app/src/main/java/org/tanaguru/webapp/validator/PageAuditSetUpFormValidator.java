@@ -75,7 +75,11 @@ public class PageAuditSetUpFormValidator extends AuditSetUpFormValidator {
                                   .getUrlFromContractOption(
                                           getContractDataService()
                                                 .read(pageAuditSetUpCommand.getContractId()));
-        
+        boolean isContractRestrictedByDomaine = getContractDataService()
+                                               .isContractRestrictedByDomaine(
+                                               getContractDataService()
+                                                .read(pageAuditSetUpCommand.getContractId()));
+         LOGGER.debug("====> isContractRestrictedByDomaine= "+isContractRestrictedByDomaine);
         boolean emptyUrl = true;
         String domainOfFirstUrlEncountered = "";
         Set<Integer> urlWithProblemIndexSet = new HashSet();
@@ -119,7 +123,7 @@ public class PageAuditSetUpFormValidator extends AuditSetUpFormValidator {
             LOGGER.debug("emptyUrl");
             errors.rejectValue(GENERAL_ERROR_MSG_KEY,
                     MANDATORY_FIELD_MSG_BUNDLE_KEY);
-        } else if (!urlWithFilePrefixSet.isEmpty()) { // if some URLs are not on the right domain
+        } else if (!urlWithFilePrefixSet.isEmpty() && isContractRestrictedByDomaine ) { // if some URLs are not on the right domain
             LOGGER.debug("fileAuditNotAllowed");
             errors.rejectValue(GENERAL_ERROR_MSG_KEY,
                     FILE_NOT_ALLOWED_HERE_MSG_BUNDLE_KEY);
@@ -128,11 +132,11 @@ public class PageAuditSetUpFormValidator extends AuditSetUpFormValidator {
                         ID_INPUT_PREFIX+"["+urlIndex+"]",
                         FILE_NOT_ALLOWED_HERE_MSG_BUNDLE_KEY);
             }
-        } else if(!onContractUrl) { // if the URL is not allowed (not on the contract for authenticated users)
+        } else if(!onContractUrl && isContractRestrictedByDomaine) { // if the URL is not allowed (not on the contract for authenticated users)
             LOGGER.debug("notOnContract");
             errors.rejectValue(GENERAL_ERROR_MSG_KEY,
                     NOT_ON_CONTRACT_MSG_BUNDLE_KEY);
-        } else if (!urlWithProblemIndexSet.isEmpty()) { // if some URLs are not on the right domain
+        } else if (!urlWithProblemIndexSet.isEmpty() && isContractRestrictedByDomaine) { // if some URLs are not on the right domain
             LOGGER.debug("notOnSameDomain");
             errors.rejectValue(GENERAL_ERROR_MSG_KEY,
                     URL_ON_DIFFERENT_DOMAIN_MSG_BUNDLE_KEY);

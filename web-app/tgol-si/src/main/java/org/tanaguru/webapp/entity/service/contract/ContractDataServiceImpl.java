@@ -39,6 +39,8 @@ public class ContractDataServiceImpl extends AbstractGenericDataService<Contract
 
     private static final String URL_OPTION_NAME = "DOMAIN";
     private static final String PRESET_CONTRACT_OPTION_NAME = "PRESET_CONTRACT";
+    private static final String MAX_PAGES_AUDIT_CONTROL_OPTION_NAME = "MAX_PAGES_AUDIT_CONTROL";
+    private static final String IS_DOMAINE_RESTRICTED_CONTRACT_OPTION_NAME = "IS_DOMAINE_RESTRICTED_CONTRACT";
     
     @Override
     public Collection<Contract> getAllContractsByUser(User user) {
@@ -53,6 +55,21 @@ public class ContractDataServiceImpl extends AbstractGenericDataService<Contract
             }
         }
         return "";
+    }
+    
+    /*
+    *Return the max number of pages in the audit of groupe of pages.
+    */
+    @Override
+    public int getMaxPagesAuditControlFromContractOption(Contract contract) {
+        for (OptionElement optionElement : ((ContractDAO) entityDao).read(contract.getId()).getOptionElementSet()) {
+            if (StringUtils.equals(MAX_PAGES_AUDIT_CONTROL_OPTION_NAME, optionElement.getOption().getCode())) {
+                if (optionElement.getValue()!=null){
+                return Integer.valueOf(optionElement.getValue());
+                }
+            }
+        }
+        return 10;
     }
     
     @Override
@@ -76,4 +93,16 @@ public class ContractDataServiceImpl extends AbstractGenericDataService<Contract
         return false;
     }
 
+    @Override
+    public boolean isContractRestrictedByDomaine(Contract contract) {
+        for (OptionElement optionElement : ((ContractDAO) entityDao).read(contract.getId()).getOptionElementSet()) {
+            if (StringUtils.equals(IS_DOMAINE_RESTRICTED_CONTRACT_OPTION_NAME, optionElement.getOption().getCode())) {
+                if (optionElement.getValue()!=null){
+                return Boolean.valueOf(optionElement.getValue());
+                }
+            }
+        }
+        return Boolean.FALSE;
+    }
+   
 }

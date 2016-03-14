@@ -11,17 +11,17 @@
             <jsp:useBean id="now" class="java.util.Date" scope="page" />
             <div id="footer-down">
                 &copy; 2009-<fmt:formatDate value="${now}" pattern="yyyy" />
-                <a href="http://www.tanaguru.org/">
-                    Tanaguru.org
+                <a href="http://www.tanaguru.com/" target="_blank" title="Tanaguru.com <fmt:message key="footer.newWindow"/> ">
+                    Tanaguru.com
                 </a> 
                 - 
                 <fmt:message key="footer.poweredBy"/> 
-                <a href="http://www.tanaguru.org/">
+                <a href="https://github.com/Tanaguru/Tanaguru" target="_blank" title="Tanaguru v${tanaguruVersion} <fmt:message key="footer.newWindow"/> "  >
                     Tanaguru v${tanaguruVersion}
                 </a>
                 - 
                 <fmt:message key="footer.availableUnder"/> 
-                <a href="http://www.gnu.org/licenses/agpl-3.0.html">
+                <a href="http://www.gnu.org/licenses/agpl-3.0.html" target="_blank" title="GNU AGPL v3 <fmt:message key="footer.newWindow"/> " >
                     GNU AGPL v3
                 </a>
             </div>

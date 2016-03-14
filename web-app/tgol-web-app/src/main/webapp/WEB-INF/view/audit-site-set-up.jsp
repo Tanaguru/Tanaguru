@@ -63,7 +63,7 @@
         </div><!-- class="container"-->
     <%@include file="template/footer.jsp" %>
     <script type="text/javascript" src="${jqueryUrl}"></script>
-    <script type="text/javascript" src="${auditSetUpDetailsJsUrl}"></script>
+  <!--  <script type="text/javascript" src="{auditSetUpDetailsJsUrl}"></script> -->
     </body>
 </html>
 </compress:html>

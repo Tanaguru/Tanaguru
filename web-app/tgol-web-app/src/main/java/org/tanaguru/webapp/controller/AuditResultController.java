@@ -25,6 +25,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
 import org.tanaguru.entity.audit.Audit;
 import org.tanaguru.entity.audit.SSP;
 import org.tanaguru.entity.reference.Criterion;
@@ -59,6 +60,8 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 public class AuditResultController extends AbstractAuditResultController {
+    
+private static final Logger LOGGER = Logger.getLogger(AuditResultController.class);
 
     private CriterionDataService criterionDataService;
     public CriterionDataService getCriterionDataService() {
@@ -112,10 +115,11 @@ public class AuditResultController extends AbstractAuditResultController {
 
                 case DOMAIN:
                 case SCENARIO:
+                case GROUPOFPAGES:
                     model.addAttribute(TgolKeyStore.AUDIT_ID_KEY, auditId);
                     return TgolKeyStore.SYNTHESIS_SITE_VIEW_REDIRECT_NAME;
+                    
                 case GROUPOFFILES:
-                case GROUPOFPAGES:
                     model.addAttribute(TgolKeyStore.AUDIT_ID_KEY, auditId);
                     model.addAttribute(TgolKeyStore.STATUS_KEY,
                             HttpStatusCodeFamily.f2xx.name());
@@ -174,12 +178,41 @@ public class AuditResultController extends AbstractAuditResultController {
             BindingResult result,
             Model model,
             HttpServletRequest request) {
+        LOGGER.debug("submitPageResultSorter not in manual audit");
         return dispatchDisplayResultRequest(
                 auditResultSortCommand.getWebResourceId(),
                 auditResultSortCommand,
                 model,
                 request,
                 false,
+                null);
+    }
+    
+    /**
+     * Submit manual audit page sorter
+     * @param auditResultSortCommand
+     * @param webresourceId
+     * @param result
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = TgolKeyStore.MANUAL_AUDIT_PAGE_RESULT_CONTRACT_URL , method = RequestMethod.POST)
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    protected String submitManualAuditPageResultSorter(
+            @ModelAttribute(TgolKeyStore.AUDIT_RESULT_SORT_COMMAND_KEY) AuditResultSortCommand auditResultSortCommand,
+            @RequestParam(TgolKeyStore.WEBRESOURCE_ID_KEY) String webresourceId,
+            BindingResult result,
+            Model model,
+            HttpServletRequest request) {
+        LOGGER.debug("submitPageResultSorter from manual audit");
+         model.addAttribute(TgolKeyStore.IS_MANUAL_AUDIT_KEY, Boolean.TRUE);
+        return dispatchDisplayResultRequest(
+                auditResultSortCommand.getWebResourceId(),
+                auditResultSortCommand,
+                model,
+                request,
+                Boolean.TRUE,
                 null);
     }
 

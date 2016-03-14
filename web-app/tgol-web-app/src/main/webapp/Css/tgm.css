@@ -2728,6 +2728,13 @@ td.occurences {
 .edit-contract-checkbox-block {
     text-align: center;
 }
+
+.tg-table-noJS { /* table */ 
+    display: none;
+}
+.tg-table-JS { /* table */ 
+    display: table;
+}
 #user-list-table .col01 { /* email */ 
     text-align: left;
 }

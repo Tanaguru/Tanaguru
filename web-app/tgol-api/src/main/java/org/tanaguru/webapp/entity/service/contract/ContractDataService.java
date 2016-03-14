@@ -67,5 +67,18 @@ public interface ContractDataService extends GenericDataService<Contract, Long> 
      * @return whether the contract has the given functionnality
      */
     boolean doesContractHaveFunctionality(Contract contract, String functionnalityKey);
-
+    
+    /**
+     * 
+     * @param contract
+     * @return the number of page in audit of groupe of pages
+     */
+    public int getMaxPagesAuditControlFromContractOption(Contract contract);
+    
+    /**
+     * 
+     * @param contract
+     * @return 
+     */
+    public boolean isContractRestrictedByDomaine(Contract contract);
 }

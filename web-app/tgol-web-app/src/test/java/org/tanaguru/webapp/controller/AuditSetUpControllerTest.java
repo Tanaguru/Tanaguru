@@ -385,6 +385,7 @@ public class AuditSetUpControllerTest extends TestCase {
         
         expect(mockContractDataService.read(Long.valueOf(contractId))).andReturn(mockContract).anyTimes();
         expect(mockContractDataService.getUrlFromContractOption(mockContract)).andReturn("http://www.test1.com").anyTimes();
+        expect(mockContractDataService.getMaxPagesAuditControlFromContractOption(mockContract)).andReturn(10).anyTimes();
         replay(mockContract);
         replay(mockContractDataService);
         instance.setContractDataService(mockContractDataService);

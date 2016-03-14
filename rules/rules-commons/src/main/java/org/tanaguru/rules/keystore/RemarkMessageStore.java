@@ -180,6 +180,7 @@ public final class RemarkMessageStore {
     public static final String INVALID_FORM_FIELD_MSG = "InvalidFormField";
     public static final String INVALID_LABEL_MSG = "InvalidLabel";
     public static final String INVALID_INPUT_MSG = "InvalidInput";
+    public static final String CHECK_INPUT_ARIA_LABEL_IDENTIFICATION = "CheckIputAriaLabelIdentification";
     
     // table
     public static final String SUMMARY_MISSING_MSG = "SummaryMissing";
@@ -376,6 +377,14 @@ public final class RemarkMessageStore {
     public static final String ONKEYPRESS_MISSING_MSG = "OnKeyPressMissing";
     public static final String CHECK_ONCLICK_DEFINTION_IN_JS_MSG = 
             "CheckOnClickDefinitionInJs";
+    
+//  navigation
+    public static final String SUSPECTED_MISSING_ATTRIBUTE_WITH_VALUE_BANNER = 
+            "SuspectedMissingTagWithRoleAttributeThatValueIsBanner";
+    public static final String SUSPECTED_MISSING_ATTRIBUTE_WITH_VALUE_BANNER2 = 
+            "SuspectedMissingTagWithRoleAttributeThatValueIsBanner2";
+    public static final String SUSPECTED_MISSING_ATTRIBUTE_WITH_VALUE_BANNER3 = 
+            "SuspectedMissingTagWithRoleAttributeThatValueIsBanner3";
     
     // seo 
     public static final String META_DESC_MISSING_MSG =
