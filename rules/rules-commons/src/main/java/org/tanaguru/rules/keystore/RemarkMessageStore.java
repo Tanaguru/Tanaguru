@@ -354,6 +354,8 @@ public final class RemarkMessageStore {
             "InvisibleOutlineOnFocus";
     public static final String CHECK_MANUALLY_OUTLINE_FOR_FORM_ELEMENT_AND_IFRAME_MSG = 
             "CheckManuallyOutlineForFormElementAndIframe";
+    public static final String CHECK_IF_USER_HAVE_MECHANISM_TO_DELETE_JUSTIFY_TEXT_ALIGN_MSG = 
+            "ChekIfUserHaveAMechanismToDeleteJustifyTextAlign";
     
     // css
     public static final String BAD_UNIT_TYPE_MSG = "BadUnitType";
