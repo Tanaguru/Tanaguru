@@ -19,7 +19,11 @@
  */
 package org.tanaguru.rules.rgaa30;
 
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.ruleimplementation.AbstractDetectionPageRuleImplementation;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.MEDIA_TMP_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.MANUAL_CHECK_ON_ELEMENTS_MSG;
 
 /**
  * Implementation of the rule 4.1.3 of the referential Rgaa 3.0.
@@ -28,13 +32,24 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-4-1-3"> 4.1.3 rule specification</a>
  */
 
-public class Rgaa30Rule040103 extends AbstractNotTestedRuleImplementation {
+public class Rgaa30Rule040103 extends AbstractDetectionPageRuleImplementation {
 
     /**
      * Default constructor
      */
     public Rgaa30Rule040103 () {
-        super();
+        super(
+                new SimpleElementSelector(MEDIA_TMP_CSS_LIKE_QUERY),
+                // solution when at least one element is found
+                TestSolution.NEED_MORE_INFO,
+                // solution when no element is found
+                TestSolution.NOT_APPLICABLE,
+                // manual check message
+                MANUAL_CHECK_ON_ELEMENTS_MSG,
+                null
+                // evidence element
+                
+        );
     }
 
 }
