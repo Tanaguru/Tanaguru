@@ -49,7 +49,7 @@ public class Rgaa30Rule040101Test extends Rgaa30RuleImplementationTestCase {
 //        addWebResource("Rgaa30.Test.4.1.1-1Passed-01");
 //        addWebResource("Rgaa30.Test.4.1.1-2Failed-01");
         addWebResource("Rgaa30.Test.4.1.1-3NMI-01");
-//        addWebResource("Rgaa30.Test.4.1.1-4NA-01");
+        addWebResource("Rgaa30.Test.4.1.1-4NA-01");
     }
 
     @Override
@@ -76,8 +76,8 @@ public class Rgaa30Rule040101Test extends Rgaa30RuleImplementationTestCase {
         //------------------------------3NMI-01---------------------------------
         //----------------------------------------------------------------------
         ProcessResult processResult = processPageTest("Rgaa30.Test.4.1.1-3NMI-01");
-        checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-//        checkResultIsPreQualified(processResult, 2, 1);
+  //      checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
+        checkResultIsPreQualified(processResult, 1, 1);
 //        checkRemarkIsPresent(
 //                processResult,
 //                TestSolution.NEED_MORE_INFO,
@@ -90,7 +90,7 @@ public class Rgaa30Rule040101Test extends Rgaa30RuleImplementationTestCase {
         //----------------------------------------------------------------------
         //------------------------------4NA-01------------------------------
         //----------------------------------------------------------------------
-//        checkResultIsNotApplicable(processPageTest("Rgaa30.Test.4.1.1-4NA-01"));
+        checkResultIsNotApplicable(processPageTest("Rgaa30.Test.4.1.1-4NA-01"));
     }
 
     @Override
@@ -99,8 +99,8 @@ public class Rgaa30Rule040101Test extends Rgaa30RuleImplementationTestCase {
         // The consolidate method can be removed when real implementation is done.
         // The assertions are automatically tested regarding the file names by 
         // the abstract parent class
-        assertEquals(TestSolution.NOT_TESTED,
-                consolidate("Rgaa30.Test.4.1.1-3NMI-01").getValue());
+//        assertEquals(TestSolution.NOT_TESTED,
+//                consolidate("Rgaa30.Test.4.1.1-3NMI-01").getValue());
     }
 
 }

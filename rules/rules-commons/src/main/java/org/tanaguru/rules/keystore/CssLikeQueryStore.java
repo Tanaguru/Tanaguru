@@ -119,6 +119,14 @@ public final class CssLikeQueryStore {
     public static final String FRAME_WITH_NOT_EMPTY_TITLE_CSS_LIKE_QUERY=
                     "frame[title]:not([title~=^\\s*$])"; 
 
+    // multimedia
+     public static final String MEDIA_AUDI_CSS_LIKE_QUERY = 
+                    "audio"; 
+     public static final String MEDIA_VIDEO_CSS_LIKE_QUERY = 
+                    "video, object, svg, canvas"; 
+     public static final String MEDIA_TMP_CSS_LIKE_QUERY = 
+             MEDIA_AUDI_CSS_LIKE_QUERY +","+ MEDIA_VIDEO_CSS_LIKE_QUERY;
+    
     // Form theme css-like queries
     public static final String FORM_WITHOUT_FIELDSET_CSS_LIKE_QUERY = 
                     "form:not(:has(fieldset))"; 
