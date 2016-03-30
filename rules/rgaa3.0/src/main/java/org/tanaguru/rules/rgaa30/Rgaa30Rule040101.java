@@ -22,8 +22,7 @@ package org.tanaguru.rules.rgaa30;
 import org.tanaguru.entity.audit.TestSolution;
 import org.tanaguru.ruleimplementation.AbstractDetectionPageRuleImplementation;
 import org.tanaguru.rules.elementselector.SimpleElementSelector;
-import static org.tanaguru.rules.keystore.CssLikeQueryStore.MEDIA_AUDI_CSS_LIKE_QUERY;
-import static org.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.MEDIA_AUDIO_CSS_LIKE_QUERY;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.MANUAL_CHECK_ON_ELEMENTS_MSG;
 
 /**
@@ -44,7 +43,7 @@ public class Rgaa30Rule040101 extends AbstractDetectionPageRuleImplementation {
      */
     public Rgaa30Rule040101() {
         super(
-                new SimpleElementSelector(MEDIA_AUDI_CSS_LIKE_QUERY),
+                new SimpleElementSelector(MEDIA_AUDIO_CSS_LIKE_QUERY),
                 // solution when at least one element is found
                 TestSolution.NEED_MORE_INFO,
                 // solution when no element is found
