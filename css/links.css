@@ -1,0 +1,101 @@
+/* --------------------------------------------------
+
+   Hyperlinks
+   
+   (c) 2010-2014 Tiny Typo v1.3.2 - MIT License - tinytypo.tetue.net
+
+----------------------------------------------------- */
+/* Hyperlinks
+[fr] Signalétique des hyperliens : http://letrainde13h37.fr/43/signaletique-hyperliens/ */
+a {
+  background: transparent;
+  color: inherit;
+}
+a:visited {
+  color: inherit;
+}
+a:focus {
+  outline: thin dotted;
+  background: #222222 !important;
+  border-color: #222222 !important;
+  color: #f8f8f8 !important;
+  text-shadow: none;
+}
+a:hover {
+  outline: 0;
+  cursor: pointer;
+}
+a:active {
+  outline: 0;
+}
+/* a { outline: none; }
+[en] http://www.outlinenone.com
+[fr] http://www.outlinenone.fr
+*/
+a:after,
+a:before,
+a small {
+  font-size: 90%;
+  opacity: .9;
+}
+a[hreflang]:after {
+  content: "\0000a0[" attr(hreflang) "]";
+}
+/* External Links */
+a.external:after {
+  content: "\0000a0\279A";
+}
+a[hreflang].external:after {
+  content: "\0000a0[" attr(hreflang) "]\0000a0\279A";
+}
+/* mailto / tel */
+a.mailto:after {
+  content: "\0000a0\2709";
+}
+a.tel:after {
+  content: "\0000a0\2706";
+}
+/* Documents */
+a.download:after {
+  content: "\0000a0\21A7";
+}
+a[hreflang].download:after {
+  content: "\0000a0[" attr(hreflang) "]\0000a0\21A7";
+}
+a.audio:after {
+  content: "\0000a0\266B";
+}
+a[hreflang].audio:after {
+  content: "\0000a0[" attr(hreflang) "]\0000a0\266B";
+}
+/* Linked images */
+a img {
+  border: 0;
+}
+a:focus img,
+a:active img {
+  -moz-transform: translateY(1px);
+  -webkit-transform: translateY(1px);
+  -o-transform: translateY(1px);
+  -ms-transform: translate(1px);
+  transform: translateY(1px);
+}
+@media print {
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a:after {
+    content: '';
+  }
+  a[rel="external"]:after,
+  a.external:after {
+    content: " (" attr(href) ")";
+  }
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: '';
+  }
+  /* Don't show links for images, or javascript/internal links */
+}

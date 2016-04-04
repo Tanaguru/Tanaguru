@@ -1,0 +1,34 @@
+//
+// Variables
+// --------------------------------------------------
+
+// Colors
+@color-bg:				#f8f8f8;		// Couleur du fond
+@color-txt:				#222;			// Couleur du texte
+@color-mid:				#666;			// Couleur pour gris moyen et filets
+@color: 				#900;			// Couleur principale du thème
+
+// Fonts
+@font1: serif;			// Corps de texte principal
+@font2: sans-serif;		// Titraille
+@font3: monospace;		// Code
+@font4: fantasy;		// Alternative, fantaisie (facultative)
+
+// Typo
+@font-size:				1em; // ~ 16px
+@font-size-big:			ceil(@font-size * 1.30); // 130%
+@font-size-small:		ceil(@font-size * 0.80); // 90%
+
+@line-height:			1.5;
+@p:						unit(@line-height, em);
+@alinea:				unit(@line-height, em);
+@gutter:				unit(@line-height, em);
+
+// Links
+@color-link:            @color-txt;
+@color-link-hover:      darken(@color-link, 15%);
+
+// Media queries breakpoints
+@screen-small:			480px;
+@screen-medium:			640px;
+@screen-large:			992px;
