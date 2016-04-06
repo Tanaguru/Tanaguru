@@ -130,11 +130,12 @@ main {
   padding-top: 5px;
   padding-bottom: 5px;
 }
-.legals {
+#footer {
   padding: 1.5em;
-  background-color: #222222;
-  color: #f8f5f5;
-  width: 70%;
-  clear: both;
+  background-color: #DDD;
+  border-top: 10px solid #d71218;
   font-size: small;
+}
+#footer .page {
+  padding: 3em 0 1.5em;
 }
