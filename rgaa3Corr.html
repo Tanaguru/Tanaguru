@@ -6,7 +6,6 @@
         <meta content="English translation of the RGAA 3.0, French official accessibility guidelines. Criteria and tests." name="description" />
         <meta content="RGAA, RGAA 3.0, French accessibility guidelines, English translation, criteria, tests" name="keywords" />
 		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		</head>
     <body>  
@@ -89,16 +88,16 @@
                         <h2>1. Images</h2>
     					<nav>
     						<ul>
-    							<li><a href="#crit-1-1">1.1 [A]</a></li>
-    							<li><a href="#crit-1-2">1.2 [A]</a></li>
-    							<li><a href="#crit-1-3">1.3 [A]</a></li>
-    							<li><a href="#crit-1-4">1.4 [A]</a></li>
-    							<li><a href="#crit-1-5">1.5 [A]</a></li>
-    							<li><a href="#crit-1-6">1.6 [A]</a></li>
-    							<li><a href="#crit-1-7">1.7 [A]</a></li>
-    							<li><a href="#crit-1-8">1.8 [AA]</a></li>
-    							<li><a href="#crit-1-9">1.9 [AAA]</a></li>
-    							<li><a href="#crit-1-10">1.10 [A]</a></li>
+    							<li><a href="#crit-1-1">1.1</a></li>
+    							<li><a href="#crit-1-2">1.2</a></li>
+    							<li><a href="#crit-1-3">1.3</a></li>
+    							<li><a href="#crit-1-4">1.4</a></li>
+    							<li><a href="#crit-1-5">1.5</a></li>
+    							<li><a href="#crit-1-6">1.6</a></li>
+    							<li><a href="#crit-1-7">1.7</a></li>
+    							<li><a href="#crit-1-8">1.8</a></li>
+    							<li><a href="#crit-1-9">1.9</a></li>
+    							<li><a href="#crit-1-10">1.10</a></li>
     						</ul>
     					</nav>
                         <p>WCAG principle: perceivable.</p>
@@ -109,22 +108,22 @@
                         </p>
                     </header>
                     <section>
-                        <h3 id="crit-1-1"><span>Criterion 1.1 [A]</span> Does each image have a <a href="./RGAA3.0_Glossary_English_version_v1.html#mAltTexteImg">text alternative</a>?
+                        <h3 id="crit-1-1"><em>Criterion 1.1 [A]</em> Does each image have a <a href="./RGAA3.0_Glossary_English_version_v1.html#mAltTexteImg">text alternative</a>?
                         </h3>
                         <ul>
-                            <li id="test-1-1-1"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-1-1">
                                 Test 1.1.1: Does each image (<code>img</code> tag) have an <code>alt</code> attribute?
                             </li>
-                            <li id="test-1-1-2"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-1-2">
                                 Test 1.1.2: Does each <a href="./RGAA3.0_Glossary_English_version_v1.html#mZone">area</a> (<code>area</code> tag) of an
                                 <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgReactive">image map</a> have an <code>alt</code> attribute?
                             </li>
-                            <li id="test-1-1-3"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-1-3">
                                 Test 1.1.3: Does each form button
                                 (<code>input</code> tag with the <code>type="image"</code> attribute) have an <code>alt</code>
                                 attribute?
                             </li>
-                            <li id="test-1-1-4"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-1-4">
                                 Test 1.1.4: Does each area (<code>area</code> tag) of a server-side image map have an equivalent link in the page? 
                             </li>
                         </ul>
@@ -135,43 +134,43 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-1-2"><span>Criterion 1.2 [A]</span> For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgDeco">decorative
+                        <h3 id="crit-1-2"><em>Criterion 1.2 [A]</em> For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgDeco">decorative
                                 image</a> with a <a href="./RGAA3.0_Glossary_English_version_v1.html#mAltTexteImg">text
                                 alternative</a>, is this alternative empty?
                         </h3>
                         <ul>
-                            <li id="test-1-2-1"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-2-1">
                                 Test 1.2.1: Does each decorative image (<code>img</code> tag), without caption and with an
                                 <code>alt</code> attribute, meet the following conditions?:
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>The <code>alt</code> attribute has an empty value (<code>alt=""</code>)</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The decorative image does not have a <code>title</code> attribute</li>
+                                    <li>The <code>alt</code> attribute has an empty value (<code>alt=""</code>)</li>
+                                    <li>The decorative image does not have a <code>title</code> attribute</li>
                                 </ul>
                             </li>
-                            <li id="test-1-2-2"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-2-2">
                                 Test 1.2.2: Does each non clickable area  (<code>area</code> tag with no 
                                 <code>href</code> attribute), not conveying any  information, and with an <code>alt</code> attribute,
                                 meet the following conditions?:
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>The <code>alt</code> attribute has an empty value (<code>alt=""</code>)</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The non clickable area does not have a <code>title</code> attribute</li>
+                                    <li>The <code>alt</code> attribute has an empty value (<code>alt=""</code>)</li>
+                                    <li>The non clickable area does not have a <code>title</code> attribute</li>
                                 </ul>
                             </li>
-                            <li id="test-1-2-3"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-2-3">
                                 Test 1.2.3: For each image object without caption (<code>object</code> tag with the attribute <code>type="image/"</code>), not conveying any information, is the text alternative between 
                                 <code>object</code> and  <code>/object</code> empty?
                             </li>
-                            <li id="test-1-2-4"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-2-4">
                                 Test 1.2.4: Does each decorative vector image (<code>svg</code> tag), not conveying any information, and with an alternative, meet the following conditions?:
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>The <code>svg</code> tag has a <code>role="img"</code></li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The <code>svg</code> tag, or one of its children, has no ARIA role, property or state, that aims at labeling the vector image (<code>aria-label</code>, <code>aria-describedby</code>, or
+                                    <li>The <code>svg</code> tag has a <code>role="img"</code></li>
+                                    <li>The <code>svg</code> tag, or one of its children, has no ARIA role, property or state, that aims at labeling the vector image (<code>aria-label</code>, <code>aria-describedby</code>, or
                                         <code>aria-labelledby</code>, for example)</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The <code>title</code> and <code>desc</code> tags are missing, or empty</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The <code>svg</code> tag, or one of its children, has no <code>title</code> attribute</li>
+                                    <li>The <code>title</code> and <code>desc</code> tags are missing, or empty</li>
+                                    <li>The <code>svg</code> tag, or one of its children, has no <code>title</code> attribute</li>
                                 </ul>
                             </li>
-                            <li id="test-1-2-5"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-2-5">
                                 Test 1.2.5: For each decorative bitmap image (<code>canvas</code> tag), there must be no text content
                                 between <code>canvas</code> and <code>/canvas</code>. Has this
                                 rule been followed?
@@ -186,108 +185,108 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-1-3"><span>Criterion 1.3 [A]</span> For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgInfo">image conveying information</a> with a <a href="./RGAA3.0_Glossary_English_version_v1.html#mAltTexteImg">text alternative</a>, is this alternative relevant (except in
+                        <h3 id="crit-1-3"><em>Criterion 1.3 [A]</em> For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgInfo">image conveying information</a> with a <a href="./RGAA3.0_Glossary_English_version_v1.html#mAltTexteImg">text alternative</a>, is this alternative relevant (except in
                             <a title="Particular cases for criterion 1.3" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit1-3">particular
                                 cases</a>)?
                         </h3>
                         <ul>
-                            <li id="test-1-3-1"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-3-1">
                                 Test 1.3.1: Does each image (<code>img</code> tag)
                                 conveying information, with an <code>alt</code> attribute, meet
                                 the following conditions (except in <a title="Particular cases for criterion 1.3" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit1-3">particular
                                     cases</a>)?:
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>The <code>alt</code> attribute has a relevant value</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>If present, the value of the <code>title</code> attribute
+                                    <li>The <code>alt</code> attribute has a relevant value</li>
+                                    <li>If present, the value of the <code>title</code> attribute
                                         matches the value of the <code>alt</code> attribute</li>
                                 </ul>
                             </li>
-                            <li id="test-1-3-2"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-3-2">
                                 Test 1.3.2: Does each area (<code>area</code> tag),
                                 conveying information, and with an <code>alt</code> attribute,
                                 meet the following conditions (except in <a title="Particular cases for criterion 1.3" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit1-3">particular
                                     cases</a>)?:
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>The <code>alt</code> attribute has a relevant value</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>If present, the value of the <code>title</code> attribute
+                                    <li>The <code>alt</code> attribute has a relevant value</li>
+                                    <li>If present, the value of the <code>title</code> attribute
                                         matches the value of the <code>alt</code> attribute</li>
                                 </ul>
                             </li>
-                            <li id="test-1-3-3"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-3-3">
                                 Test 1.3.3: For each button associated
                                 with an image (<code>input</code> tag with the attribute
                                 <code>type="image"</code>), and with an <code>alt</code> attribute, is the content
                                 of this attribute relevant (except in <a title="Particular cases for criterion 1.3"  href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit1-3">particular cases</a>)?
                             </li>
-                            <li id="test-1-3-4"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-3-4">
                                 Test 1.3.4: Does each image object
                                 (<code>object</code> tag with the attribute <code>type="image/"</code>),
                                 conveying information, meet one of the following
                                 conditions (except in <a title="Particular cases for criterion 1.3" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit1-3">particular
                                     cases</a>)?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>The image object is immediately followed by an
+                                    <li>The image object is immediately followed by an
                                         adjacent link giving access to a page or a chunk
                                         of text containing a relevant alternative</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The user can replace the image
+                                    <li>The user can replace the image
                                         object by a relevant text alternative, via a provided mechanism</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The user can replace the image
+                                    <li>The user can replace the image
                                         object by an image with a relevant alternative, via a provided mechanism</li>
                                 </ul>
                             </li>
-                            <li id="test-1-3-5"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-3-5">
                                 Test 1.3.5: Does each embedded image
                                 (<code>embed</code> tag with the attribute <code>type="image/"</code>),
                                 conveying information, meet one of the following
                                 conditions (except in <a title="Particular cases for criterion 1.3" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit1-3">particular
                                     cases</a>)?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>The embedded image is immediately followed by an
+                                    <li>The embedded image is immediately followed by an
                                         adjacent link giving access to a page or a chunk
                                         of text containing a relevant alternative</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The user can replace the embedded image
+                                    <li>The user can replace the embedded image
                                         by a relevant text alternative, via a provided mechanism</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The user can replace the embedded image
+                                    <li>The user can replace the embedded image
                                         by an image with a relevant alternative, via a provided mechanism</li>
                                 </ul>
                             </li>
-                            <li id="test-1-3-6"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-3-6">
                                 Test 1.3.6: Does each vector image (<code>svg</code>
                                 tag), conveying information, and with an alternative, meet
                                 one of the following conditions (except in <a title="Particular cases for criterion 1.3" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit1-3">particular
                                     cases</a>)?:
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>The <code>svg</code> tag has a <code>role="img"</code> </li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The <code>svg</code> tag has an <code>aria-label</code> property with a
+                                    <li>The <code>svg</code> tag has a <code>role="img"</code> </li>
+                                    <li>The <code>svg</code> tag has an <code>aria-label</code> property with a
                                         relevant value, matching the <code>title</code> attribute of the
                                         <code>svg</code> tag, if present</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The <code>svg</code> tag has a <code>desc</code> tag with a relevant
+                                    <li>The <code>svg</code> tag has a <code>desc</code> tag with a relevant
                                         content, equal to the <code>title</code> attribute of the <code>svg</code>
                                         tag, if present</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>An adjacent link gives access to an alternative
+                                    <li>An adjacent link gives access to an alternative
                                         with relevant content, equal to the <code>title</code> attribute
                                         of the <code>svg</code> tag, if present</li>
                                 </ul>
                             </li>
-                            <li id="test-1-3-7"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-3-7">
                                 Test 1.3.7: For each vector image (<code>svg</code> tag), conveying
                                 information, and with an alternative,
                                 is this alternative <a href="./RGAA3.0_Glossary_English_version_v1.html#mCorrectlyRendered">correctly rendered</a> by
                                 assistive technologies?
                             </li>
-                            <li id="test-1-3-8"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-3-8">
                                 Test 1.3.8: For each bitmap image (<code>canvas</code> tag),
                                 conveying information, and with an alternative
                                 (content between <code>canvas</code> and
                                 <code>/canvas</code>), is this alternative <a href="./RGAA3.0_Glossary_English_version_v1.html#mCorrectlyRendered">correctly rendered</a> by assistive technologies?
                             </li>
-                            <li id="test-1-3-9"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-3-9">
                                 Test 1.3.9: For each bitmap image (<code>canvas</code> tag),
                                 conveying information, and with an alternative
                                 (content between <code>canvas</code> and
                                 <code>/canvas</code>), is this alternative relevant?
                             </li>
-                            <li id="test-1-3-10"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-3-10">
                                 Test 1.3.10: For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgInfo">image
                                     conveying information</a> and with a <a href="./RGAA3.0_Glossary_English_version_v1.html#mAltTexteImg">text
                                     alternative</a>, is <a href="./RGAA3.0_Glossary_English_version_v1.html#maltCC">the
@@ -307,80 +306,80 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-1-4"><span>Criterion 1.4 [A]</span> For each image used as <a href="./RGAA3.0_Glossary_English_version_v1.html#mcaptcha">CAPTCHA</a>
+                        <h3 id="crit-1-4"><em>Criterion 1.4 [A]</em> For each image used as <a href="./RGAA3.0_Glossary_English_version_v1.html#mcaptcha">CAPTCHA</a>
                             or as <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgTest">test image</a>, with a <a href="./RGAA3.0_Glossary_English_version_v1.html#mAltTexteImg">text
                                 alternative</a>, does this alternative describe the nature and the purpose of the image?</h3>
                         <ul>
-                            <li id="test-1-4-1"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-4-1">
                                 Test 1.4.1: Does each image (<code>img</code> tag)
                                 used as a CAPTCHA or test image, with an <code>alt</code>
                                 attribute, meet the following conditions?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>
+                                    <li>
                                         The content of the <code>alt</code> attribute describes the nature and purpose of the image</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>If present, the value of the <code>title</code> attribute
+                                    <li>If present, the value of the <code>title</code> attribute
                                         matches the value of the <code>alt</code> attribute</li>
                                 </ul>
                             </li>
-                            <li id="test-1-4-2"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-4-2">
                                 Test 1.4.2: Does each area (<code>area</code> tag) of an image map used as a CAPTCHA or test
                                 image, with an <code>alt</code> attribute, meet the following conditions?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>The content of the <code>alt</code> attribute describes the nature and purpose of the image </li>
-                                    <li><span class="fa fa-dot-circle-o"></span>If present, the value of the <code>title</code> attribute
+                                    <li>The content of the <code>alt</code> attribute describes the nature and purpose of the image </li>
+                                    <li>If present, the value of the <code>title</code> attribute
                                         matches the value of the <code>alt</code> attribute</li>
                                 </ul>
                             </li>
-                            <li id="test-1-4-3"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-4-3">
                                 Test 1.4.3: For each button associated
                                 with an image (<code>input</code> tag with the attribute
                                 <code>type="image"</code>), used as a CAPTCHA or test image, with an
                                 <code>alt</code> attribute, meet the following conditions?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>The content of the <code>alt</code> attribute describes the nature and purpose of the image </li>
-                                    <li><span class="fa fa-dot-circle-o"></span>If present, the value of the <code>title</code> attribute
+                                    <li>The content of the <code>alt</code> attribute describes the nature and purpose of the image </li>
+                                    <li>If present, the value of the <code>title</code> attribute
                                         matches the value of the <code>alt</code> attribute</li>
                                 </ul>
                             </li>
-                            <li id="test-1-4-4"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-4-4">
                                 Test 1.4.4: For each image object (<code>object</code>
                                 tag with the attribute <code>type="image/"</code>), used
                                 as a CAPTCHA or test image, with a text
                                 alternative, does the text alternative describe the nature and purpose of the image?
                             </li>
-                            <li id="test-1-4-5"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-4-5">
                                 Test 1.4.5: For each embedded image
                                 (<code>embed</code> tag with the attribute <code>type="image/"</code>), used
                                 as a CAPTCHA or test image, with a text
                                 alternative, does the text alternative describe the nature and purpose of the image?
                             </li>
-                            <li id="test-1-4-6"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-4-6">
                                 Test 1.4.6: Does each vector image (<code>svg</code>
                                 tag), used as a CAPTCHA or test image, with a text alternative provided
                                 via the <code>aria-label</code> property or the <code>desc</code> tag, meet the following conditions?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>The text alternative provided via the
+                                    <li>The text alternative provided via the
                                         <code>aria-label</code> property describes the nature and purpose of the
                                         image, and matches the value of the <code>title</code>
                                         attribute of the <code>svg</code> tag, if present
                                     </li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The text alternative provided via the <code>desc</code>
+                                    <li>The text alternative provided via the <code>desc</code>
                                         tag describes the nature and purpose of the
                                         image, and matches the value of the <code>title</code>
                                         attribute of the <code>svg</code> tag, if present
                                     </li>
                                 </ul>
                             </li>
-                            <li id="test-1-4-7"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-4-7">
                                 Test 1.4.7: For each vector image (<code>svg</code> tag), used  as a CAPTCHA or test image, with a text
                                 alternative, is this alternative <a href="./RGAA3.0_Glossary_English_version_v1.html#mCorrectlyRendered">correctly rendered</a> by assistive technologies?
                             </li>
-                            <li id="test-1-4-8"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-4-8">
                                 Test 1.4.8: For each bitmap image (<code>canvas</code> tag), used
                                 as a CAPTCHA or test image, with a text
                                 alternative, does this alternative describe the nature and purpose of the image?
                             </li>
-                            <li id="test-1-4-9"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-4-9">
     							Test 1.4.9: For each bitmap image (<code>canvas</code> tag), used
                                 as a CAPTCHA or test image, with a text
                                 alternative, is this alternative
@@ -394,32 +393,32 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-1-5"><span>Criterion 1.5 [A]</span> For each image used as  <a href="./RGAA3.0_Glossary_English_version_v1.html#mcaptcha">CAPTCHA</a>,
+                        <h3 id="crit-1-5"><em>Criterion 1.5 [A]</em> For each image used as  <a href="./RGAA3.0_Glossary_English_version_v1.html#mcaptcha">CAPTCHA</a>,
                             is a solution for alternative access to the content or to
                             the purpose of the <a href="./RGAA3.0_Glossary_English_version_v1.html#mcaptcha">CAPTCHA</a>  available?
                         </h3>
                         <ul>
-                            <li id="test-1-5-1"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-5-1">
                                 Test 1.5.1: Does each image (<code>img</code>,
                                 area, <code>object</code>, <code>embed</code>, <code>svg</code>, <code>canvas</code> tags) used as <a href="./RGAA3.0_Glossary_English_version_v1.html#mcaptcha">CAPTCHA</a>  meet one of the following conditions?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>Another non graphic form of <a href="./RGAA3.0_Glossary_English_version_v1.html#mcaptcha">CAPTCHA</a>
+                                    <li>Another non graphic form of <a href="./RGAA3.0_Glossary_English_version_v1.html#mcaptcha">CAPTCHA</a>
                                         is available, at least</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>Another solution to access the functionality
+                                    <li>Another solution to access the functionality
                                         protected by the <a href="./RGAA3.0_Glossary_English_version_v1.html#mcaptcha">CAPTCHA</a>
                                         is available</li>
                                 </ul>
                             </li>
-                            <li id="test-1-5-2"><span class="fa fa-dot-circle-o"></span>
+                            <li id="test-1-5-2">
     							Test 1.5.2: Does each button
                                 associated with an image (<code>input</code> tag with the attribute
                                 <code>type="image"</code>) used as <a href="./RGAA3.0_Glossary_English_version_v1.html#mcaptcha">CAPTCHA</a>
                                 meet one of the following conditions?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>Another non graphic form of <a href="./RGAA3.0_Glossary_English_version_v1.html#mcaptcha">CAPTCHA</a>
+                                    <li>Another non graphic form of <a href="./RGAA3.0_Glossary_English_version_v1.html#mcaptcha">CAPTCHA</a>
                                         is available, at least
                                     </li>
-                                    <li><span class="fa fa-dot-circle-o"></span>Another solution to access the functionality
+                                    <li>Another solution to access the functionality
                                         protected by the <a href="./RGAA3.0_Glossary_English_version_v1.html#mcaptcha">CAPTCHA</a>
                                         is available</li>
                                 </ul>
@@ -433,98 +432,98 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-1-6"><span>Criterion 1.6 [A]</span> Does each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgInfo">image conveying information</a> have a <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed description</a> if necessary?</h3>
+                        <h3 id="crit-1-6"><em>Criterion 1.6 [A]</em> Does each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgInfo">image conveying information</a> have a <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed description</a> if necessary?</h3>
                         <ul>
-                            <li id="test-1-6-1"><span class="fa fa-dot-circle-o"></span> Test 1.6.1: Does each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgInfo">image
+                            <li id="test-1-6-1"> Test 1.6.1: Does each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgInfo">image
                                     conveying information</a> (<code>img</code> tag) needing a <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed description</a>, meet one of the following conditions?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span> A <code>longdesc</code> attribute providing the <a href="./RGAA3.0_Glossary_English_version_v1.html#mUrl">URL</a>
+                                    <li> A <code>longdesc</code> attribute providing the <a href="./RGAA3.0_Glossary_English_version_v1.html#mUrl">URL</a>
                                         of a page that contains the <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
                                             description</a> is available</li>
-                                    <li><span class="fa fa-dot-circle-o"></span> An <code>alt</code> attribute that contains the reference to a
+                                    <li> An <code>alt</code> attribute that contains the reference to a
                                         <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
                                             description</a> adjacent to the image is available</li>
-                                    <li><span class="fa fa-dot-circle-o"></span> There is an <a href="./RGAA3.0_Glossary_English_version_v1.html#mLienAdj">adjacent
+                                    <li> There is an <a href="./RGAA3.0_Glossary_English_version_v1.html#mLienAdj">adjacent
                                             link</a> (URL or  <a href="./RGAA3.0_Glossary_English_version_v1.html#mAncreNom">anchor</a>) giving access to the <a  href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
                                             description</a></li>
                                 </ul>
                             </li>
-                            <li id="test-1-6-2"><span class="fa fa-dot-circle-o"></span> Test 1.6.2: Does each image object
+                            <li id="test-1-6-2"> Test 1.6.2: Does each image object
                                 (<code>object</code> tag with an attribute <code>type="image/"</code>)
                                 conveying information needing a <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
                                     description</a>, meet one of the following conditions?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>There is an <a href="./RGAA3.0_Glossary_English_version_v1.html#mLienAdj">adjacent
+                                    <li>There is an <a href="./RGAA3.0_Glossary_English_version_v1.html#mLienAdj">adjacent
                                             link</a> (URL or  <a href="./RGAA3.0_Glossary_English_version_v1.html#mAncreNom">anchor</a>) giving access to the <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
                                             description</a></li>
-                                    <li><span class="fa fa-dot-circle-o"></span>There is a clearly identifiable <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
+                                    <li>There is a clearly identifiable <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
                                             description</a> adjacent to the image object
                                     </li>
                                 </ul>
                             </li>
-                            <li id="test-1-6-3"><span class="fa fa-dot-circle-o"></span> Test 1.6.3: Does each embedded image
+                            <li id="test-1-6-3"> Test 1.6.3: Does each embedded image
                                 (<code>embed</code> tag with an attribute <code>type="image/"</code>) conveying
                                 information needing a <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
                                     description</a>, meet one of the following conditions?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>There is an <a href="./RGAA3.0_Glossary_English_version_v1.html#mLienAdj">adjacent
+                                    <li>There is an <a href="./RGAA3.0_Glossary_English_version_v1.html#mLienAdj">adjacent
                                             link</a> (URL or  <a href="./RGAA3.0_Glossary_English_version_v1.html#mAncreNom">anchor</a>) giving access to the <a
                                             href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
                                             description</a></li> 
-                                    <li><span class="fa fa-dot-circle-o"></span>There is a clearly identifiable <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
+                                    <li>There is a clearly identifiable <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
                                             description</a> adjacent to the embedded image
                                     </li>
                                 </ul>
                             </li>
-                            <li id="test-1-6-4"><span class="fa fa-dot-circle-o"></span>Test 1.6.4:
+                            <li id="test-1-6-4">Test 1.6.4:
                                 Does each image button (<code>input</code> tag with the attribute
                                 <code>type="image"</code>), needing a <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
                                     description</a>, meet one of the following conditions?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>
+                                    <li>
                                         An <code>alt</code> attribute containing the reference to a <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">
                                             detailed  description</a> adjacent  to the image is available</li>
-                                    <li><span class="fa fa-dot-circle-o"></span> There is an <a href="./RGAA3.0_Glossary_English_version_v1.html#mLienAdj">adjacent
+                                    <li> There is an <a href="./RGAA3.0_Glossary_English_version_v1.html#mLienAdj">adjacent
                                             link</a> (<a href="./RGAA3.0_Glossary_English_version_v1.html#mUrl">URL</a>
                                         or  <a href="./RGAA3.0_Glossary_English_version_v1.html#mAncreNom">anchor</a>) giving access to the <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
                                             description</a> </li>
                                 </ul>
                             </li>
-                            <li id="test-1-6-5"><span class="fa fa-dot-circle-o"></span>Test 1.6.5: Does each vector image
+                            <li id="test-1-6-5">Test 1.6.5: Does each vector image
                                 (<code>svg</code> tag) conveying information needing a <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
                                     description</a>, meet one of the following conditions?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>There is an <code>aria-label</code> property referencing a
+                                    <li>There is an <code>aria-label</code> property referencing a
                                         detailed description adjacent to the vector image</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>There is a <code>desc</code> tag containing a reference to a
+                                    <li>There is a <code>desc</code> tag containing a reference to a
                                         detailed description adjacent to the vector image</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>There is a <code>desc</code> tag containing a detailed
+                                    <li>There is a <code>desc</code> tag containing a detailed
                                         description</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>There is an <a href="./RGAA3.0_Glossary_English_version_v1.html#mLienAdj">adjacent
+                                    <li>There is an <a href="./RGAA3.0_Glossary_English_version_v1.html#mLienAdj">adjacent
                                             link</a> (URL or  <a href="./RGAA3.0_Glossary_English_version_v1.html#mAncreNom">anchor</a>) giving access to the <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
                                             description</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li id="test-1-6-6"><span class="fa fa-dot-circle-o"></span>Test 1.6.6: For each vector image (<code>svg</code> tag), with a
+                            <li id="test-1-6-6">Test 1.6.6: For each vector image (<code>svg</code> tag), with a
                                 reference to a detailed description provided via an
                                 <code>aria-label</code> property or a <code>desc</code> tag, is this reference
                                 <a href="./RGAA3.0_Glossary_English_version_v1.html#mCorrectlyRendered">correctly rendered</a> by assistive technologies?</li>
-                            <li id="test-1-6-7"><span class="fa fa-dot-circle-o"></span>Test 1.6.7: Does each bitmap image
+                            <li id="test-1-6-7">Test 1.6.7: Does each bitmap image
                                 (<code>canvas</code> tag) conveying information needing a <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
                                     description</a>, meet one of the following conditions?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>There is a chunk of text between <code>canvas</code>
+                                    <li>There is a chunk of text between <code>canvas</code>
                                         and <code>/canvas</code> referencing a detailed
                                         description adjacent to the bitmap image</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>There is a text content between <code>canvas</code> and
+                                    <li>There is a text content between <code>canvas</code> and
                                         <code>/canvas</code> serving as a detailed description</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>There is an <a href="./RGAA3.0_Glossary_English_version_v1.html#mLienAdj">adjacent
+                                    <li>There is an <a href="./RGAA3.0_Glossary_English_version_v1.html#mLienAdj">adjacent
                                             link</a> (URL or  <a href="./RGAA3.0_Glossary_English_version_v1.html#mAncreNom">anchor</a>) giving access to the <a  href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
                                             description</a></li>
                                 </ul>
                             </li>
-                            <li id="test-1-6-8"><span class="fa fa-dot-circle-o"></span>Test 1.6.8: For each bitmap image (<code>canvas</code> tag),
+                            <li id="test-1-6-8">Test 1.6.8: For each bitmap image (<code>canvas</code> tag),
                                 with a reference to an adjacent detailed
                                 description, is this reference <a href="./RGAA3.0_Glossary_English_version_v1.html#mCorrectlyRendered">correctly rendered</a> by assistive technologies?
                             </li>
@@ -538,78 +537,75 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-1-7"><span class="fa fa-dot-circle-o"></span>
-    					Criterion 1.7 [A] For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgInfo">image
-                                conveying information</a> with a <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
-                                description</a>, is this description relevant?</h3>
+                        <h3 id="crit-1-7"><em>Criterion 1.7 [A]</em> For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgInfo">image conveying information</a> with a <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed description</a>, is this description relevant?</h3>
                         <ul>
-                            <li id="test-1-7-1"><span class="fa fa-dot-circle-o"></span>Test 1.7.1: Does each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgInfo">image
+                            <li id="test-1-7-1">Test 1.7.1: Does each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgInfo">image
                                     conveying information</a> (<code>img</code> or <code>input</code>  tag with the
                                 attribute  <code>type="image"</code>) with a <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
                                     description</a> meet one of the following conditions?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span> The <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
+                                    <li> The <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
                                             description</a> referenced via the URL in the
                                         <code>longdesc</code> attribute is relevant</li>
-                                    <li><span class="fa fa-dot-circle-o"></span> The <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
+                                    <li> The <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
                                             description</a> available in the page and
                                         identified in the <code>alt</code> attribute is relevant</li>
-                                    <li><span class="fa fa-dot-circle-o"></span> The <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
+                                    <li> The <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
                                             description</a> available via an <a href="./RGAA3.0_Glossary_English_version_v1.html#mLienAdj">adjacent
                                             link</a> is relevant</li>
                                 </ul>
                             </li>
-                            <li id="test-1-7-2"><span class="fa fa-dot-circle-o"></span>Test 1.7.2: Does each image object
+                            <li id="test-1-7-2">Test 1.7.2: Does each image object
                                 (<code>object</code> tag with the attribute  <code>type="image/"</code>) with a
                                 <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
                                     description</a> meet one of the following conditions?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span> The <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
+                                    <li> The <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
                                             description</a> adjacent to the object image is
                                         relevant</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
+                                    <li>The <a href="./RGAA3.0_Glossary_English_version_v1.html#mDescDetaillee">detailed
                                             description</a> available via an <a href="./RGAA3.0_Glossary_English_version_v1.html#mLienAdj">adjacent
                                             link</a> is relevant</li>
                                 </ul>
                             </li>
-                            <li id="test-1-7-3"><span class="fa fa-dot-circle-o"></span>Test 1.7.3: Does each embedded image
+                            <li id="test-1-7-3">Test 1.7.3: Does each embedded image
                                 (<code>embed</code> tag with the attribute  <code>type="image/"</code>) with a
                                 detailed description meet one of the following
                                 conditions?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>The detailed description adjacent to the embedded
+                                    <li>The detailed description adjacent to the embedded
                                         image is relevant</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The detailed description available via an adjacent
+                                    <li>The detailed description available via an adjacent
                                         link is relevant</li>
                                 </ul>
                             </li>
-                            <li id="test-1-7-4"><span class="fa fa-dot-circle-o"></span>Test 1.7.4: Does each vector image
+                            <li id="test-1-7-4">Test 1.7.4: Does each vector image
                                 (<code>svg</code> tag) with a detailed description meet one of the
                                 following conditions?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>The detailed description adjacent to the vector
+                                    <li>The detailed description adjacent to the vector
                                         image is relevant</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The detailed description available via an adjacent
+                                    <li>The detailed description available via an adjacent
                                         link is relevant</li>
                                 </ul>
                             </li>
-                            <li id="test-1-7-5"><span class="fa fa-dot-circle-o"></span>Test 1.7.5: For each vector image (<code>svg</code>
+                            <li id="test-1-7-5">Test 1.7.5: For each vector image (<code>svg</code>
                                 tag) with a detailed description, is this detailed
                                 description <a href="./RGAA3.0_Glossary_English_version_v1.html#mCorrectlyRendered">correctly rendered</a> by assistive
                                 technologies?</li>
-                            <li id="test-1-7-6"><span class="fa fa-dot-circle-o"></span>Test 1.7.6: Does each bitmap image
+                            <li id="test-1-7-6">Test 1.7.6: Does each bitmap image
                                 (<code>canvas</code> tag) with a detailed description meet one of the
                                 following conditions?    
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>The detailed description adjacent to the bitmap
+                                    <li>The detailed description adjacent to the bitmap
                                         image is relevant</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The detailed description available between
+                                    <li>The detailed description available between
                                         <code>canvas</code> and <code>/canvas</code> is relevant</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The detailed description available via an adjacent
+                                    <li>The detailed description available via an adjacent
                                         link is relevant</li>
                                 </ul>
                             </li>
-                            <li id="test-1-7-7"><span class="fa fa-dot-circle-o"></span>Test 1.7.7: For each bitmap image
+                            <li id="test-1-7-7">Test 1.7.7: For each bitmap image
                                 (<code>canvas</code> tag) with a detailed description between
                                 <code>canvas</code> and <code>/canvas</code>, is this detailed
                                 description <a href="./RGAA3.0_Glossary_English_version_v1.html#mCorrectlyRendered">correctly rendered</a> by assistive
@@ -623,43 +619,43 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-1-8"><span class="fa fa-dot-circle-o"></span>Criterion 1.8 [AA] When an alternate
+                        <h3 id="crit-1-8"><em>Criterion 1.8 [AA]</em> When an alternate
                             mechanism is missing, each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgText">image
                                 of text</a> conveying information must be replaced with
                             <a href="./RGAA3.0_Glossary_English_version_v1.html#mTexteStyle">styled
                                 text</a>, if possible. Has this rule been followed (except in <a title="Particular cases for criterion 1.8"
                                                                                              href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit1-8">particular cases</a>)?</h3>
                         <ul>
-                            <li id="test-1-8-1"><span class="fa fa-dot-circle-o"></span> Test 1.8.1: When an <a href="./RGAA3.0_Glossary_English_version_v1.html#mMecaRempl">alternate
+                            <li id="test-1-8-1"> Test 1.8.1: When an <a href="./RGAA3.0_Glossary_English_version_v1.html#mMecaRempl">alternate
                                     mechanism</a> is missing, each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgText">image
                                     of text</a> (<code>img</code> tag) conveying information must be
                                 replaced with <a href="./RGAA3.0_Glossary_English_version_v1.html#mTexteStyle">styled
                                     text</a>, if possible. Has this rule been followed (except in <a title="Particular cases for criterion 1.8" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit1-8">particular cases</a>)?</li>
-                            <li id="test-1-8-2"><span class="fa fa-dot-circle-o"></span> Test 1.8.2: For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgReactive">image
+                            <li id="test-1-8-2"> Test 1.8.2: For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgReactive">image
                                     map</a> (<code>img</code> or <code>object</code> tag with the <code>usemap</code> or <code>ismap</code> attribute),
                                 when an <a href="./RGAA3.0_Glossary_English_version_v1.html#mMecaRempl">alternate
                                     mechanism</a> is missing, each <a href="./RGAA3.0_Glossary_English_version_v1.html#mZoneTexte">text
                                     area</a> (<code>area</code> tag) conveying information must be
                                 replaced with <a href="./RGAA3.0_Glossary_English_version_v1.html#mTexteStyle">styled
                                     text</a> if possible. Has this rule been followed (except in <a title="Particular cases for criterion 1.8" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit1-8">particular cases</a>)?</li>
-                            <li id="test-1-8-3"><span class="fa fa-dot-circle-o"></span> Test 1.8.3: For each <code>form</code> tag, when
+                            <li id="test-1-8-3"> Test 1.8.3: For each <code>form</code> tag, when
                                 an <a href="./RGAA3.0_Glossary_English_version_v1.html#mMecaRempl">alternate
                                     mechanism</a> is missing, each button "image of text"
                                 (<code>input</code> tag with the attribute <code>type="image"</code>) conveying
                                 information must be replaced with <a href="./RGAA3.0_Glossary_English_version_v1.html#mTexteStyle">styled
                                     text</a>, if possible. Has this rule been followed (except in <a title="Particular cases for criterion 1.8" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit1-8">particular cases</a>)?</li>
-                            <li id="test-1-8-4"><span class="fa fa-dot-circle-o"></span> Test 1.8.4: When an <a href="./RGAA3.0_Glossary_English_version_v1.html#mMecaRempl">alternate
+                            <li id="test-1-8-4"> Test 1.8.4: When an <a href="./RGAA3.0_Glossary_English_version_v1.html#mMecaRempl">alternate
                                     mechanism</a> is missing, each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgTextObj">object
                                     image of text</a> (<code>object</code> tag with the attribute
                                 <code>type="image/"</code>) conveying information must be replaced
                                 with <a href="./RGAA3.0_Glossary_English_version_v1.html#mTexteStyle">styled
                                     text</a> if possible. Has this rule been followed (except in <a title="Particular cases for criterion 1.8" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit1-8">particular cases</a>)?</li>
-                            <li id="test-1-8-5"><span class="fa fa-dot-circle-o"></span> Test 1.8.5: When an <a href="./RGAA3.0_Glossary_English_version_v1.html#mMecaRempl">alternate
+                            <li id="test-1-8-5"> Test 1.8.5: When an <a href="./RGAA3.0_Glossary_English_version_v1.html#mMecaRempl">alternate
                                     mechanism</a> is missing, each embedded image of text
                                 (<code>embed</code> tag with the attribute <code>type="image/"</code>)
                                 conveying information must be replaced with <a href="./RGAA3.0_Glossary_English_version_v1.html#mTexteStyle">styled
                                     text</a> if possible. Has this rule been followed (except in <a title="Particular cases for criterion 1.8" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit1-8">particular cases</a>)?</li>
-                            <li id="test-1-8-6"><span class="fa fa-dot-circle-o"></span>Test 1.8.6: When an <a href="./RGAA3.0_Glossary_English_version_v1.html#mMecaRempl">alternate
+                            <li id="test-1-8-6">Test 1.8.6: When an <a href="./RGAA3.0_Glossary_English_version_v1.html#mMecaRempl">alternate
                                     mechanism</a> is missing, each bitmap image of text
                                 (<code>canvas</code> tag) conveying information must be replaced with
                                 <a href="./RGAA3.0_Glossary_English_version_v1.html#mTexteStyle">styled
@@ -675,33 +671,33 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-1-9"><span class="fa fa-dot-circle-o"></span>Criterion 1.9 [AAA] Each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgText">image
+                        <h3 id="crit-1-9"><em>Criterion 1.9 [AAA]</em> Each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgText">image
                                 of text</a> conveying information must be replaced with
                             <a href="./RGAA3.0_Glossary_English_version_v1.html#mTexteStyle">styled
                                 text</a>. Has this rule been followed (except in <a title="Particular cases for criterion 1.9"
                                                                                 href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit1-9">particular cases</a>)?</h3>
                         <ul>
-                            <li id="test-1-9-1"><span class="fa fa-dot-circle-o"></span> Test 1.9.1: Each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgText">image
+                            <li id="test-1-9-1"> Test 1.9.1: Each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgText">image
                                     of text</a> (<code>img</code> tag) must be replaced with <a href="./RGAA3.0_Glossary_English_version_v1.html#mTexteStyle">styled
                                     text</a> if possible. Has this rule been followed (except in <a title="Particular cases for criterion 1.9" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit1-9">particular cases</a>)?</li>
-                            <li id="test-1-9-2"><span class="fa fa-dot-circle-o"></span> Test 1.9.2: For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgReactive">image
+                            <li id="test-1-9-2"> Test 1.9.2: For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgReactive">image
                                     map</a> (<code>img</code> or <code>object</code> tag with the <code>usemap</code> attribute),
                                 each <a href="./RGAA3.0_Glossary_English_version_v1.html#mZoneTexte">text
                                     area</a> (<code>area</code> tag) must be replaced with <a href="./RGAA3.0_Glossary_English_version_v1.html#mTexteStyle">styled
                                     text</a> if possible. Has this rule been followed (except in <a title="Particular cases for criterion 1.9" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit1-9">particular cases</a>)?</li>
-                            <li id="test-1-9-3"><span class="fa fa-dot-circle-o"></span> Test 1.9.3: For each <code>form</code> tag, each
+                            <li id="test-1-9-3"> Test 1.9.3: For each <code>form</code> tag, each
                                 button "image of text" (<code>input</code> tag with the attribute
                                 <code>type="image"</code>) must be replaced with <a href="./RGAA3.0_Glossary_English_version_v1.html#mTexteStyle">styled
                                     text</a> if possible. Has this rule been followed (except in <a title="Particular cases for criterion 1.9" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit1-9">particular cases</a>)?</li>
-                            <li id="test-1-9-4"><span class="fa fa-dot-circle-o"></span> Test 1.9.4: Each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgTextObj">text
+                            <li id="test-1-9-4"> Test 1.9.4: Each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImgTextObj">text
                                     image object</a> (<code>object</code> tag with the attribute
                                 <code>type="image/"</code>) must be replaced with <a href="./RGAA3.0_Glossary_English_version_v1.html#mTexteStyle">styled
                                     text</a> if possible. Has this rule been followed (except in <a title="Particular cases for criterion 1.9" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit1-9">particular cases</a>)?</li>
-                            <li id="test-1-9-5"><span class="fa fa-dot-circle-o"></span> Test 1.9.5: Each embedded image of
+                            <li id="test-1-9-5"> Test 1.9.5: Each embedded image of
                                 text (<code>embed</code> tag with the attribute <code>type="image/"</code>)
                                 must be replaced with <a href="./RGAA3.0_Glossary_English_version_v1.html#mTexteStyle">styled
                                     text</a> if possible. Has this rule been followed (except in <a title="Particular cases for criterion 1.9" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit1-9">particular cases</a>)?</li>
-                            <li id="test-1-9-6"><span class="fa fa-dot-circle-o"></span> Test 1.9.6: Each bitmap image of text
+                            <li id="test-1-9-6"> Test 1.9.6: Each bitmap image of text
                                 (<code>canvas</code> tag) must be replaced with <a href="./RGAA3.0_Glossary_English_version_v1.html#mTexteStyle">styled
                                     text</a> if possible. Has this rule been followed (except in <a title="Particular cases for criterion 1.9" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit1-9">particular cases</a>)?</li>
                         </ul>
@@ -713,73 +709,73 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-1-10"><span class="fa fa-dot-circle-o"></span>Criterion 1.10
-                            [A] Is each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImageCaption">image caption</a> correctly associated with the
+                        <h3 id="crit-1-10"><em>Criterion 1.10
+                            [A]</em> Is each <a href="./RGAA3.0_Glossary_English_version_v1.html#mImageCaption">image caption</a> correctly associated with the
                             corresponding image, if necessary?</h3>
                         <ul>
-                            <li id="test-1-10-1"><span class="fa fa-dot-circle-o"></span>Test 1.10.1: Does each image with a
+                            <li id="test-1-10-1">Test 1.10.1: Does each image with a
                                 caption (<code>img</code> tag or <code>input</code> tag with the attribute
                                 <code>type="image"</code>, associated with an adjacent caption) meet,
                                 if necessary, the following conditions?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span> The image (<code>img</code> tag) and its caption are contained
+                                    <li> The image (<code>img</code> tag) and its caption are contained
                                         in a <code>figure</code> tag</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The <code>figure</code> tag has an attribute <code>role="group"</code></li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The content of the <code>alt</code> attribute contains a
+                                    <li>The <code>figure</code> tag has an attribute <code>role="group"</code></li>
+                                    <li>The content of the <code>alt</code> attribute contains a
                                         reference to the adjacent caption</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The value of the <code>title</code> attribute of the image, if
+                                    <li>The value of the <code>title</code> attribute of the image, if
                                         present, is strictly equal to the value of the <code>alt</code>
                                         attribute</li>
                                 </ul>
                             </li>
-                            <li id="test-1-10-2"><span class="fa fa-dot-circle-o"></span>Test 1.10.2: Does each image object with a caption (<code>object</code> tag with the attribute <code>type="image/"</code>,
+                            <li id="test-1-10-2">Test 1.10.2: Does each image object with a caption (<code>object</code> tag with the attribute <code>type="image/"</code>,
                                 associated with an adjacent caption) meet, if necessary,
                                 the following conditions?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span> The image (<code>object</code> tag) and its caption are
+                                    <li> The image (<code>object</code> tag) and its caption are
                                         contained in a <code>figure</code> tag</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The <code>figure</code> tag has an attribute <code>role="group"</code></li>
+                                    <li>The <code>figure</code> tag has an attribute <code>role="group"</code></li>
                                 </ul>
                             </li>
-                            <li id="test-1-10-3"><span class="fa fa-dot-circle-o"></span>Test 1.10.3: Does each embedded image
+                            <li id="test-1-10-3">Test 1.10.3: Does each embedded image
                                 with a caption (<code>embed</code> tag with the attribute
                                 <code>type="image/"</code>, associated with an adjacent caption)
                                 meet, if necessary, the following conditions?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span> The embedded image (<code>embed</code> tag) and its caption
+                                    <li> The embedded image (<code>embed</code> tag) and its caption
                                         are contained in a <code>figure</code> tag</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The <code>figure</code> tag has an attribute <code>role="group"</code></li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The content of the <code>alt</code> attribute contains a
+                                    <li>The <code>figure</code> tag has an attribute <code>role="group"</code></li>
+                                    <li>The content of the <code>alt</code> attribute contains a
                                         reference to the adjacent caption</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The value of the <code>title</code> attribute of the image, if
+                                    <li>The value of the <code>title</code> attribute of the image, if
                                         present, is strictly equal to the value of the <code>alt</code>
                                         attribute</li>
                                 </ul>
                             </li>
-                            <li id="test-1-10-4"><span class="fa fa-dot-circle-o"></span>Test 1.10.4: Does each vector image
+                            <li id="test-1-10-4">Test 1.10.4: Does each vector image
                                 with a caption (<code>svg</code> tag associated with an adjacent
                                 caption) meet, if necessary, the following conditions?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span> The vector image (<code>svg</code> tag) and its caption are
+                                    <li> The vector image (<code>svg</code> tag) and its caption are
                                         contained in a <code>figure</code> tag</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The <code>figure</code> tag has an attribute <code>role="group"</code></li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The content of the <code>aria-label</code> property or the <code>desc</code>
+                                    <li>The <code>figure</code> tag has an attribute <code>role="group"</code></li>
+                                    <li>The content of the <code>aria-label</code> property or the <code>desc</code>
                                         tag of the vector image contains a reference to the
                                         adjacent caption</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The value of the <code>title</code> attribute of the vector
+                                    <li>The value of the <code>title</code> attribute of the vector
                                         image (<code>svg</code> tag), if present, is strictly equal to
                                         the content of the <code>aria-label</code> property or the <code>desc</code>
                                         tag used as an alternative</li>
                                 </ul>
                             </li>
-                            <li id="test-1-10-5"><span class="fa fa-dot-circle-o"></span>Test 1.10.5: Does each bitmap image
+                            <li id="test-1-10-5">Test 1.10.5: Does each bitmap image
                                 with a caption (<code>canvas</code> tag associated with an adjacent
                                 caption) meet, if necessary, the following conditions?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span> The bitmap image (<code>canvas</code> tag) and its caption are
+                                    <li> The bitmap image (<code>canvas</code> tag) and its caption are
                                         contained in a <code>figure</code> tag</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The <code>figure</code> tag has an attribute <code>role="group"</code></li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The content between <code>canvas</code> and
+                                    <li>The <code>figure</code> tag has an attribute <code>role="group"</code></li>
+                                    <li>The content between <code>canvas</code> and
                                         <code>/canvas</code> contains a reference to the adjacent
                                         caption</li>
                                 </ul>
@@ -815,11 +811,11 @@
                         </p>
                     </header>
                     <section>
-                        <h3 id="crit-2-1"><span class="fa fa-dot-circle-o"></span>Criterion 2.1 [A] Does each <a href="./RGAA3.0_Glossary_English_version_v1.html#mCadreEnLigne"><code>iframe</code></a>
+                        <h3 id="crit-2-1"><em>Criterion 2.1 [A]</em> Does each <a href="./RGAA3.0_Glossary_English_version_v1.html#mCadreEnLigne"><code>iframe</code></a>
                             have a <a href="./RGAA3.0_Glossary_English_version_v1.html#mTitreCadre">frame
                                 title</a>?</h3>
                         <ul>
-                            <li id="test-2-1-1"><span class="fa fa-dot-circle-o"></span>Test 2.1.1: Does each <a href="./RGAA3.0_Glossary_English_version_v1.html#mCadreEnLigne"><code>iframe</code></a>
+                            <li id="test-2-1-1">Test 2.1.1: Does each <a href="./RGAA3.0_Glossary_English_version_v1.html#mCadreEnLigne"><code>iframe</code></a>
                                 (<code>iframe</code> tag) have a <code>title</code> attribute?</li>
                         </ul>
                         <aside>
@@ -830,11 +826,11 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-2-2"><span class="fa fa-dot-circle-o"></span>Criterion 2.2 [A] For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mCadreEnLigne"><code>iframe</code></a>
+                        <h3 id="crit-2-2"><em>Criterion 2.2 [A]</em> For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mCadreEnLigne"><code>iframe</code></a>
                             with a frame title, is this <a href="./RGAA3.0_Glossary_English_version_v1.html#mTitreCadre">frame
                                 title</a> relevant?</h3>
                         <ul>
-                            <li id="test-2-2-1"><span class="fa fa-dot-circle-o"></span> Test 2.2.1: For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mCadreEnLigne"><code>iframe</code></a>
+                            <li id="test-2-2-1"> Test 2.2.1: For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mCadreEnLigne"><code>iframe</code></a>
                                 (<code>iframe</code> tag) with a <code>title</code> attribute, is the content of
                                 this attribute relevant?</li>
                         </ul>
@@ -868,33 +864,33 @@
                             through color only, and use sufficient color contrasts.</p>
                     </header>
                     <section>
-                        <h3 id="crit-3-1"><span class="fa fa-dot-circle-o"></span>Criterion 3.1 [A] On each Web page, <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoCouleur">information</a> must
+                        <h3 id="crit-3-1"><em>Criterion 3.1 [A]</em> On each Web page, <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoCouleur">information</a> must
                             not  be conveyed only through color. Has this rule been
                             followed?</h3>
                         <ul>
-                            <li id="test-3-1-1"><span class="fa fa-dot-circle-o"></span> Test 3.1.1: For each word or for each
+                            <li id="test-3-1-1"> Test 3.1.1: For each word or for each
                                 group of words where color is used to convey <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoCouleur">information</a>,
                                 <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoCouleur">information</a>
                                 must not be conveyed only through color. Has this rule been
                                 followed?</li>
-                            <li id="test-3-1-2"><span class="fa fa-dot-circle-o"></span> Test 3.1.2: For each color indication
+                            <li id="test-3-1-2"> Test 3.1.2: For each color indication
                                 provided by a text, <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoCouleur">information</a>
                                 must not be conveyed only through color. Has this rule been
                                 followed?</li>
-                            <li id="test-3-1-3"><span class="fa fa-dot-circle-o"></span> Test 3.1.3: For each image <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoDonneeCouleur">conveying
+                            <li id="test-3-1-3"> Test 3.1.3: For each image <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoDonneeCouleur">conveying
                                     information</a>, <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoCouleur">information</a>
                                 must not be conveyed only through color. Has this rule been
                                 followed?</li>
-                            <li id="test-3-1-4"><span class="fa fa-dot-circle-o"></span> Test 3.1.4: For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mPropCouleur">CSS
+                            <li id="test-3-1-4"> Test 3.1.4: For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mPropCouleur">CSS
                                     property defining a color</a> and conveying
                                 information, <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoCouleur">information</a>
                                 must not be conveyed only through color. Has this rule been
                                 followed?</li>
-                            <li id="test-3-1-5"><span class="fa fa-dot-circle-o"></span> Test 3.1.5: For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
+                            <li id="test-3-1-5"> Test 3.1.5: For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                     media</a> conveying information, <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoCouleur">information</a>
                                 must not be conveyed only through color. Has this rule been
                                 followed?</li>
-                            <li id="test-3-1-6"><span class="fa fa-dot-circle-o"></span> Test 3.1.6: For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaNoTemp">non-time-based
+                            <li id="test-3-1-6"> Test 3.1.6: For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaNoTemp">non-time-based
                                     media</a> conveying
                                 information, <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoCouleur">information</a>
                                 must not be conveyed only through color. Has this rule been
@@ -910,34 +906,34 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-3-2"><span class="fa fa-dot-circle-o"></span>Criterion 3.2 [A] On each Web page, <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoCouleur">information</a> 
+                        <h3 id="crit-3-2"><em>Criterion 3.2 [A]</em> On each Web page, <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoCouleur">information</a> 
                             must not be conveyed only through color. Has this rule been
                             implemented in a <a href="./RGAA3.0_Glossary_English_version_v1.html#mPertinent">relevant</a> way?</h3>
                         <ul>
-                            <li id="test-3-2-1"><span class="fa fa-dot-circle-o"></span> Test 3.2.1: For each word or a group
+                            <li id="test-3-2-1"> Test 3.2.1: For each word or a group
                                 of words, whose color conveys information, <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoCouleur">information</a>
                                 must not be conveyed only through color. Has this rule been
                                 implemented in a <a href="./RGAA3.0_Glossary_English_version_v1.html#mPertinent">relevant</a> way?</li>
-                            <li id="test-3-2-2"><span class="fa fa-dot-circle-o"></span> Test 3.2.2: For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoCouleur">information</a>
+                            <li id="test-3-2-2"> Test 3.2.2: For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoCouleur">information</a>
                                 conveyed through color and specified by a word or a group of
                                 words, <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoCouleur">information</a> 
                                 must not be conveyed only through color. Has this rule been
                                 implemented in a <a href="./RGAA3.0_Glossary_English_version_v1.html#mPertinent">relevant</a> way?</li>
-                            <li id="test-3-2-3"><span class="fa fa-dot-circle-o"></span> Test 3.2.3: For each image <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoDonneeCouleur">conveying
+                            <li id="test-3-2-3"> Test 3.2.3: For each image <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoDonneeCouleur">conveying
                                     information</a>, <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoCouleur">information</a> 
                                 must not be conveyed only through color. Has this rule been
                                 implemented in a <a href="./RGAA3.0_Glossary_English_version_v1.html#mPertinent">relevant</a> way?</li>
-                            <li id="test-3-2-4"><span class="fa fa-dot-circle-o"></span> Test 3.2.4: For each CSS element
+                            <li id="test-3-2-4"> Test 3.2.4: For each CSS element
                                 background property conveying
                                 information, <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoCouleur">information</a> 
                                 must not be conveyed only through color. Has this rule been
                                 implemented in a <a href="./RGAA3.0_Glossary_English_version_v1.html#mPertinent">relevant</a> way?</li>
-                            <li id="test-3-2-5"><span class="fa fa-dot-circle-o"></span> Test 3.2.5: For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
+                            <li id="test-3-2-5"> Test 3.2.5: For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                     media</a> conveying
                                 information, <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoCouleur">information</a> 
                                 must not be conveyed only through color. Has this rule been
                                 implemented in a <a href="./RGAA3.0_Glossary_English_version_v1.html#mPertinent">relevant</a> way?</li>
-                            <li id="test-3-2-6"><span class="fa fa-dot-circle-o"></span> Test 3.2.6: For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaNoTemp">non
+                            <li id="test-3-2-6"> Test 3.2.6: For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaNoTemp">non
                                     time-based media</a> conveying
                                 information, <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoCouleur">information</a> 
                                 must not be conveyed only through color. Has this rule been
@@ -951,55 +947,55 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-3-3"><span class="fa fa-dot-circle-o"></span>Criterion 3.3 [AA] On each Web page, is
+                        <h3 id="crit-3-3"><em>Criterion 3.3 [AA]</em> On each Web page, is
                             the <a href="./RGAA3.0_Glossary_English_version_v1.html#mContraste">contrast</a>
                             between the text and background colors sufficient (except in <a title="Particular cases for criterion 3.3"
                                                                                             href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit3-">particular cases</a>)?</h3>
                         <ul>
-                            <li id="test-3-3-1"><span class="fa fa-dot-circle-o"></span> Test 3.3.1: On each Web page, do
+                            <li id="test-3-3-1"> Test 3.3.1: On each Web page, do
                                 non-bold texts and images of non-bold text with font sizes smaller than or equal to <a href="./RGAA3.0_Glossary_English_version_v1.html#mFontSize">150% of
                                     the default font size</a> (or 1.5em)  meet one of the
                                 following conditions (except
                                 in <a title="Particular cases for criterion 3.3"  href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit3-">particular cases</a>)?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span> The contrast ratio between text and its
+                                    <li> The contrast ratio between text and its
                                         background is at least 4.5:1</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The user can display the text with
+                                    <li>The user can display the text with
                                         a contrast ratio of at least 4.5:1, via a provided mechanism</li>
                                 </ul>
                             </li>
-                            <li id="test-3-3-2"><span class="fa fa-dot-circle-o"></span> Test 3.3.2: On each Web page, do bold
+                            <li id="test-3-3-2"> Test 3.3.2: On each Web page, do bold
                                 texts and images of bold text with font sizes smaller than or equal to <a href="./RGAA3.0_Glossary_English_version_v1.html#mFontSize">120% of the default font size</a> (or
                                 1.2em) meet one of the following conditions (except
                                 in <a title="Particular cases for criterion 3.3"
                                       href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit3-">particular cases</a>)?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span> The contrast ratio between text and its
+                                    <li> The contrast ratio between text and its
                                         background is at least 4.5:1</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The user can display the text with a
+                                    <li>The user can display the text with a
                                         contrast ratio of at least 4.5:1, via a provided mechanism</li>
                                 </ul>
                             </li>
-                            <li id="test-3-3-3"><span class="fa fa-dot-circle-o"></span>Test 3.3.3: On each Web page, do
+                            <li id="test-3-3-3">Test 3.3.3: On each Web page, do
                                 non-bold texts and images of non-bold text with font sizes larger than <a href="./RGAA3.0_Glossary_English_version_v1.html#mFontSize">150% of the default font size</a> (or 1.5em), meet one of
                                 the following conditions (except in <a title="Particular cases for criterion 3.3"  href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit3-">particular cases</a>)?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span> The contrast ratio between text and its
+                                    <li> The contrast ratio between text and its
                                         background is at least 3:1</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The user can display the text with a
+                                    <li>The user can display the text with a
                                         contrast ratio of at least 3:1, via a provided mechanism</li>
                                 </ul>
                             </li>
-                            <li id="test-3-3-4"><span class="fa fa-dot-circle-o"></span> Test 3.3.4: On each Web page, do bold
+                            <li id="test-3-3-4"> Test 3.3.4: On each Web page, do bold
                                 texts and images of bold text with font sizes larger than <a href="./RGAA3.0_Glossary_English_version_v1.html#mFontSize">120%
                                     of the default font size</a> (or 1.2em), meet one
                                 of the following conditions (except
                                 in <a title="Particular cases for criterion 3.3"
                                       href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit3-">particular cases</a>)?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span> The contrast ratio between text and its
+                                    <li> The contrast ratio between text and its
                                         background is at least 3:1</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The user can display the text with a
+                                    <li>The user can display the text with a
                                         contrast ratio of at least 3:1, via a provided mechanism</li>
                                 </ul>
                             </li>
@@ -1013,61 +1009,61 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-3-4"><span class="fa fa-dot-circle-o"></span>Criterion 3.4 [AAA] On each Web page, is
+                        <h3 id="crit-3-4"><em>Criterion 3.4 [AAA]</em> On each Web page, is
                             the <a href="./RGAA3.0_Glossary_English_version_v1.html#mContraste">contrast</a>
                             between the text and background colors enhanced (except
                             in <a title="Particular cases for criterion 3.4"
                                   href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit3-">particular cases</a>)?</h3>
                         <ul>
-                            <li id="test-3-4-1"><span class="fa fa-dot-circle-o"></span> Test 3.4.1: On each Web page, do
+                            <li id="test-3-4-1"> Test 3.4.1: On each Web page, do
                                 non-bold texts and images of non-bold text with font sizes smaller than or equal to <a href="./RGAA3.0_Glossary_English_version_v1.html#mFontSize">150% of
                                     the default font size</a> (or 1.5em) meet one of the
                                 following conditions (except
                                 in <a title="Particular cases for criterion 3.4"
                                       href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit3-">particular cases</a>)?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span> The contrast ratio between text and its
+                                    <li> The contrast ratio between text and its
                                         background is at least 7:1</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The user can display the text with
+                                    <li>The user can display the text with
                                         a contrast ratio of at least 7:1, via a provided mechanism</li>
                                 </ul>
                             </li>
-                            <li id="test-3-4-2"><span class="fa fa-dot-circle-o"></span> Test 3.4.2: On each Web page, do bold
+                            <li id="test-3-4-2"> Test 3.4.2: On each Web page, do bold
                                 texts and images of bold text with font sizes smaller than or equal to <a
                                     href="./RGAA3.0_Glossary_English_version_v1.html#mFontSize">120% of the default font size</a> (or
                                 1.2em) meet one of the following conditions (except
                                 in <a title="Particular cases for criterion 3.4"
                                       href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit3-">particular cases</a>)?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span> The contrast ratio between text and its
+                                    <li> The contrast ratio between text and its
                                         background is at least 7:1</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The user can display the text with
+                                    <li>The user can display the text with
                                         a contrast ratio of at least 7:1, via a provided mechanism</li>
                                 </ul>
                             </li>
-                            <li id="test-3-4-3"><span class="fa fa-dot-circle-o"></span>Test 3.4.3: On each Web page, do
+                            <li id="test-3-4-3">Test 3.4.3: On each Web page, do
                                 non-bold texts and images of non-bold text with font sizes larger than <a href="./RGAA3.0_Glossary_English_version_v1.html#mFontSize">150%
                                     of the default font size</a> (or 1.5em), meet one of
                                 the following conditions (except
                                 in <a title="Particular cases for criterion 3.4"
                                       href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit3-">particular cases</a>)?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span> The contrast ratio between text and its
+                                    <li> The contrast ratio between text and its
                                         background is at least 4.5:1</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The user can display the text with
+                                    <li>The user can display the text with
                                         a contrast ratio of at least 4.5:1, via a provided mechanism</li>
                                 </ul>
                             </li>
-                            <li id="test-3-4-4"><span class="fa fa-dot-circle-o"></span> Test 3.4.4: On each Web page, do bold
+                            <li id="test-3-4-4"> Test 3.4.4: On each Web page, do bold
                                 texts and images of bold text with font sizes larger than <a href="./RGAA3.0_Glossary_English_version_v1.html#mFontSize">120%
                                     of the default font size</a> (or 1.2em), meet one
                                 of the following conditions (except
                                 in <a title="Particular cases for criterion 3.4"
                                       href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit3-">particular cases</a>)?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span> The contrast ratio between text and its
+                                    <li> The contrast ratio between text and its
                                         background is at least 4.5:1</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The user can display the text with
+                                    <li>The user can display the text with
                                         a contrast ratio of at least 4.5:1, via a provided mechanism</li>
                                 </ul>
                             </li>
@@ -1126,61 +1122,61 @@
                             compatible with assistive technologies.</p>
                     </header>
                     <section>
-                        <h3 id="crit-4-1"><span class="fa fa-dot-circle-o"></span>Criterion 4.1 [A] Does each prerecorded <a
+                        <h3 id="crit-4-1"><em>Criterion 4.1 [A]</em> Does each prerecorded <a
                                 href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                 media</a> have a <a href="./RGAA3.0_Glossary_English_version_v1.html#mTranscriptTextuel">text
                                 transcript</a> or an audio description if necessary (except
                             in <a
                                 title="Particular cases for criterion 4.1" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit4-">particular cases</a>)?</h3>
                         <ul>
-                            <li id="test-4-1-1"><span class="fa fa-dot-circle-o"></span> Test 4.1.1: Does each prerecorded
+                            <li id="test-4-1-1"> Test 4.1.1: Does each prerecorded
                                 audio-only <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                     media</a> meet one of the following conditions if
                                 necessary (except
                                 in <a title="Particular cases for criterion 4.1" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit4-">particular cases</a>)?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>There is a <a href="./RGAA3.0_Glossary_English_version_v1.html#mTranscriptTextuel">text
+                                    <li>There is a <a href="./RGAA3.0_Glossary_English_version_v1.html#mTranscriptTextuel">text
                                             transcript</a> that is accessible via an <a href="./RGAA3.0_Glossary_English_version_v1.html#mLienAdj">adjacent
                                             link</a> (a URL or an  <a href="./RGAA3.0_Glossary_English_version_v1.html#mAncreNom">anchor</a>)</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>There is an adjacent <a href="./RGAA3.0_Glossary_English_version_v1.html#mTranscriptTextuel">text
+                                    <li>There is an adjacent <a href="./RGAA3.0_Glossary_English_version_v1.html#mTranscriptTextuel">text
                                             transcript</a> that can be clearly identified</li>
                                 </ul>
                             </li>
-                            <li id="test-4-1-2"><span class="fa fa-dot-circle-o"></span> Test 4.1.2: Does each prerecorded
+                            <li id="test-4-1-2"> Test 4.1.2: Does each prerecorded
                                 video-only <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                     media</a> meet one of the following conditions if necessary
                                 (except
                                 in <a title="Particular cases for criterion 4.1" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit4-">particular cases</a>)?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span> There is an <a href="./RGAA3.0_Glossary_English_version_v1.html#mAudioOnly">alternative audio-only version</a> that
+                                    <li> There is an <a href="./RGAA3.0_Glossary_English_version_v1.html#mAudioOnly">alternative audio-only version</a> that
                                         is accessible via an <a href="./RGAA3.0_Glossary_English_version_v1.html#mLienAdj">adjacent
                                             link</a> (a URL or an  <a href="./RGAA3.0_Glossary_English_version_v1.html#mAncreNom">anchor</a>)</li>
                                 </ul>
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>There is an adjacent <a href="./RGAA3.0_Glossary_English_version_v1.html#mTranscriptTextuel">text
+                                    <li>There is an adjacent <a href="./RGAA3.0_Glossary_English_version_v1.html#mTranscriptTextuel">text
                                             transcript</a> that can be clearly identified</li>
-                                    <li><span class="fa fa-dot-circle-o"></span> A synchronized <a href="./RGAA3.0_Glossary_English_version_v1.html#mAudioDesc">audio
+                                    <li> A synchronized <a href="./RGAA3.0_Glossary_English_version_v1.html#mAudioDesc">audio
                                             description</a> is available</li>
-                                    <li><span class="fa fa-dot-circle-o"></span> There is an alternative version with a
+                                    <li> There is an alternative version with a
                                         synchronized audio description that is accessible
                                         via an <a href="./RGAA3.0_Glossary_English_version_v1.html#mLienAdj">adjacent
                                             link</a> (a URL or an  <a href="./RGAA3.0_Glossary_English_version_v1.html#mAncreNom">anchor</a>)</li>
                                 </ul>
                             </li>
-                            <li id="test-4-1-3"><span class="fa fa-dot-circle-o"></span>Test 4.1.3: Does each prerecorded
+                            <li id="test-4-1-3">Test 4.1.3: Does each prerecorded
                                 synchronized <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                     media</a> meet one of the following conditions if necessary
                                 (except
                                 in <a title="Particular cases for criterion 4.1" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit4-">particular cases</a>)?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>There is a <a href="./RGAA3.0_Glossary_English_version_v1.html#mTranscriptTextuel">text
+                                    <li>There is a <a href="./RGAA3.0_Glossary_English_version_v1.html#mTranscriptTextuel">text
                                             transcript</a> that is accessible via an <a href="./RGAA3.0_Glossary_English_version_v1.html#mLienAdj">adjacent
                                             link</a> (a URL or an  <a href="./RGAA3.0_Glossary_English_version_v1.html#mAncreNom">anchor</a>)</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>There is an adjacent <a href="./RGAA3.0_Glossary_English_version_v1.html#mTranscriptTextuel">text
+                                    <li>There is an adjacent <a href="./RGAA3.0_Glossary_English_version_v1.html#mTranscriptTextuel">text
                                             transcript</a> that can be clearly identified</li>
-                                    <li><span class="fa fa-dot-circle-o"></span> A synchronized <a href="./RGAA3.0_Glossary_English_version_v1.html#mAudioDesc">audio
+                                    <li> A synchronized <a href="./RGAA3.0_Glossary_English_version_v1.html#mAudioDesc">audio
                                             description</a> is available</li>
-                                    <li><span class="fa fa-dot-circle-o"></span> There is an alternative version with a
+                                    <li> There is an alternative version with a
                                         synchronized audio description that is accessible
                                         via an <a href="./RGAA3.0_Glossary_English_version_v1.html#mLienAdj">adjacent
                                             link</a> (a URL or an  <a href="./RGAA3.0_Glossary_English_version_v1.html#mAncreNom">anchor</a>)</li>
@@ -1197,7 +1193,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-4-2"><span class="fa fa-dot-circle-o"></span>Criterion 4.2 [A] For each prerecorded <a
+                        <h3 id="crit-4-2"><em>Criterion 4.2 [A]</em> For each prerecorded <a
                                 href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                 media</a> with a <a href="./RGAA3.0_Glossary_English_version_v1.html#mTranscriptTextuel">text
                                 transcript</a> or a synchronized audio description, are
@@ -1205,53 +1201,52 @@
                             in <a title="Particular cases for criterion 4.2"
                                   href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit4-">particular cases</a>)?</h3>
                         <ul>
-                            <li id="test-4-2-1"><span class="fa fa-dot-circle-o"></span>Test 4.2.1: For each prerecorded
+                            <li id="test-4-2-1">Test 4.2.1: For each prerecorded
                                 audio-only <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                     media</a> with a <a href="./RGAA3.0_Glossary_English_version_v1.html#mTranscriptTextuel">text
                                     transcript</a>, is this transcript relevant (except
                                 in <a title="Particular cases for criterion 4.2"
                                       href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit4-">particular cases</a>)? </li>
-                            <li id="test-4-2-2"><span class="fa fa-dot-circle-o"></span>Test 4.2.2: Does each prerecorded
+                            <li id="test-4-2-2">Test 4.2.2: Does each prerecorded
                                 video-only <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                     media</a> meet one of the following conditions (except
                                 in <a title="Particular cases for criterion 4.2"
                                       href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit4-">particular cases</a>)?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>The <a href="./RGAA3.0_Glossary_English_version_v1.html#mTranscriptTextuel">text
+                                    <li>The <a href="./RGAA3.0_Glossary_English_version_v1.html#mTranscriptTextuel">text
                                             transcript</a> is relevant</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The synchronized <a href="./RGAA3.0_Glossary_English_version_v1.html#mAudioDesc">audio
+                                    <li>The synchronized <a href="./RGAA3.0_Glossary_English_version_v1.html#mAudioDesc">audio
                                             description</a> is relevant</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The synchronized <a href="./RGAA3.0_Glossary_English_version_v1.html#mAudioDesc">audio
+                                    <li>The synchronized <a href="./RGAA3.0_Glossary_English_version_v1.html#mAudioDesc">audio
                                             description</a> of the alternative version is
                                         relevant</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The <a href="./RGAA3.0_Glossary_English_version_v1.html#mAudioOnly">alternative audio-only version</a> is relevant </li>
+                                    <li>The <a href="./RGAA3.0_Glossary_English_version_v1.html#mAudioOnly">alternative audio-only version</a> is relevant </li>
                                 </ul>
                             </li>
-                            <li id="test-4-2-3"><span class="fa fa-dot-circle-o"></span> Test 4.2.3: Does each prerecorded
+                            <li id="test-4-2-3"> Test 4.2.3: Does each prerecorded
                                 synchronized <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                     media</a> meet one of the following conditions (except
                                 in <a title="Particular cases for criterion 4.2"
                                       href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit4-">particular cases</a>)?
                                 <ul>
-                                    <li><span class="fa fa-dot-circle-o"></span>The <a href="./RGAA3.0_Glossary_English_version_v1.html#mTranscriptTextuel">text
+                                    <li>The <a href="./RGAA3.0_Glossary_English_version_v1.html#mTranscriptTextuel">text
                                             transcript</a> is relevant</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The synchronized <a href="./RGAA3.0_Glossary_English_version_v1.html#mAudioDesc">audio
+                                    <li>The synchronized <a href="./RGAA3.0_Glossary_English_version_v1.html#mAudioDesc">audio
                                             description</a> is relevant</li>
-                                    <li><span class="fa fa-dot-circle-o"></span>The synchronized <a href="./RGAA3.0_Glossary_English_version_v1.html#mAudioDesc">audio
+                                    <li>The synchronized <a href="./RGAA3.0_Glossary_English_version_v1.html#mAudioDesc">audio
                                             description</a> of the alternative version is
                                         relevant</li>
                                 </ul>
                             </li>
                         </ul>
                         <aside>
-                            <h4>Mapping with WCAG 2.0  </h4>
+                            <h4>Mapping with WCAG 2.0</h4>
                             <p>WCAG 2.0 success criteria: 1.2.1 - 1.2.3</p>
                             <p>WCAG 2.0 sufficient technique(s) and/or failure(s): F30 - F67 - SM6 - SM7</p>
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-4-3">
-                            Criterion 4.3 [A] Does each prerecorded
+                        <h3 id="crit-4-3"><em>Criterion 4.3 [A]</em> Does each prerecorded
                             synchronized <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                 media</a> have <a href="./RGAA3.0_Glossary_English_version_v1.html#mSsTitreSynchro">synchronized
                                 captions</a> if necessary
@@ -1288,7 +1283,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-4-4">Criterion 4.4 [A] For each prerecorded
+                        <h3 id="crit-4-4"><em>Criterion 4.4 [A]</em> For each prerecorded
                             synchronized <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                 media</a> with <a href="./RGAA3.0_Glossary_English_version_v1.html#mSsTitreSynchro">synchronized
                                 captions</a>, are these captions relevant?</h3>
@@ -1307,7 +1302,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-4-5">Criterion 4.5 [AA] Does each live <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
+                        <h3 id="crit-4-5"><em>Criterion 4.5 [AA]</em> Does each live <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                 media</a> have <a href="./RGAA3.0_Glossary_English_version_v1.html#mSsTitreSynchro">synchronized
                                 captions</a> or a <a href="./RGAA3.0_Glossary_English_version_v1.html#mTranscriptTextuel">text
                                 transcript</a> if necessary (except
@@ -1361,7 +1356,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-4-6">Criterion 4.6 [AA] Are each <a href="./RGAA3.0_Glossary_English_version_v1.html#mSsTitreSynchro">synchronized
+                        <h3 id="crit-4-6"><em>Criterion 4.6 [AA]</em> Are each <a href="./RGAA3.0_Glossary_English_version_v1.html#mSsTitreSynchro">synchronized
                                 captions</a> or <a href="./RGAA3.0_Glossary_English_version_v1.html#mTranscriptTextuel">text
                                 transcript</a>, provided for live <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                 media</a>, relevant?</h3>
@@ -1402,7 +1397,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-4-7">Criterion 4.7 [AA] Does each prerecorded <a
+                        <h3 id="crit-4-7"><em>Criterion 4.7 [AA]</em> Does each prerecorded <a
                                 href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                 media</a> have a synchronized <a href="./RGAA3.0_Glossary_English_version_v1.html#mAudioDesc">audio
                                 description</a> if necessary (except
@@ -1443,7 +1438,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-4-8">Criterion 4.8 [AA] For each prerecorded <a
+                        <h3 id="crit-4-8"><em>Criterion 4.8 [AA]</em> For each prerecorded <a
                                 href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                 media</a> with a synchronized audio description, is this
                             audio description relevant?</h3>
@@ -1465,7 +1460,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-4-9">Criterion 4.9 [AAA] Does each prerecorded
+                        <h3 id="crit-4-9"><em>Criterion 4.9 [AAA]</em> Does each prerecorded
                             <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                 media</a> have a sign language interpretation (except
                             in <a title="Particular cases for criterion 4.9"
@@ -1492,7 +1487,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-4-10">Criterion 4.10 [AAA] For each prerecorded
+                        <h3 id="crit-4-10"><em>Criterion 4.10 [AAA]</em> For each prerecorded
                             <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                 media</a> with a sign language interpretation is this
                             interpretation relevant?</h3>
@@ -1514,7 +1509,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-4-11">Criterion 4.11 [AAA] Does each
+                        <h3 id="crit-4-11"><em>Criterion 4.11 [AAA]</em> Does each
                             prerecorded <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                 media</a> have a synchronized <a href="./RGAA3.0_Glossary_English_version_v1.html#mAudioDescE">extended
                                 audio description</a> if necessary (except
@@ -1556,7 +1551,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-4-12">Criterion 4.12 [AAA] For each prerecorded
+                        <h3 id="crit-4-12"><em>Criterion 4.12 [AAA]</em> For each prerecorded
                             <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                 media</a> with a synchronized extended audio
                             description, is this audio description relevant?</h3>
@@ -1580,7 +1575,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-4-13">Criterion 4.13 [AAA] Does each
+                        <h3 id="crit-4-13"><em>Criterion 4.13 [AAA]</em> Does each
                             synchronized or video-only <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                 media</a> have a <a href="./RGAA3.0_Glossary_English_version_v1.html#mTranscriptTextuel">text
                                 transcript</a> (except
@@ -1622,7 +1617,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-4-14">Criterion 4.14 [AAA] For each
+                        <h3 id="crit-4-14"><em>Criterion 4.14 [AAA]</em> For each
                             synchronized or video-only <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                 media</a> with a <a href="./RGAA3.0_Glossary_English_version_v1.html#mTranscriptTextuel">text
                                 transcript</a>, is this text transcript relevant?</h3>
@@ -1644,7 +1639,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-4-15">Criterion 4.15 [A] Can each <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
+                        <h3 id="crit-4-15"><em>Criterion 4.15 [A]</em> Can each <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                 media</a> be clearly identified (except
                             in <a title="Particular cases for criterion 4.15"
                                   href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit4-15">particular cases</a>)?</h3>
@@ -1672,7 +1667,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-4-16">Criterion 4.16 [A] Does each <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaNoTemp">non
+                        <h3 id="crit-4-16"><em>Criterion 4.16 [A]</em> Does each <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaNoTemp">non
                                 time-based media</a> have, if
                             necessary, an alternative (except
                             in <a title="Particular cases for criterion 4.16"
@@ -1713,7 +1708,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-4-17">Criterion 4.17 [A] For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaNoTemp">non
+                        <h3 id="crit-4-17"><em>Criterion 4.17 [A]</em> For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaNoTemp">non
                                 time-based media</a> with an alternative, is this
                             alternative relevant?</h3>
                         <ul>
@@ -1731,7 +1726,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-4-18">Criterion 4.18 [A] Can each <a href="./RGAA3.0_Glossary_English_version_v1.html#mControlSound">autoplaying sound  be controlled by the user</a>?</h3>
+                        <h3 id="crit-4-18"><em>Criterion 4.18 [A]</em> Can each <a href="./RGAA3.0_Glossary_English_version_v1.html#mControlSound">autoplaying sound  be controlled by the user</a>?</h3>
                         <ul>
                             <li id="test-4-18-1"> Test 4.18.1: Does each audio
                                 sequence played automatically via an <code>object</code>, <code>video</code>,
@@ -1756,7 +1751,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-4-19">Criterion 4.19 [AAA] For each prerecorded
+                        <h3 id="crit-4-19"><em>Criterion 4.19 [AAA]</em> For each prerecorded
                             audio-only <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                 media</a>, are the dialogues audible enough (except
                             in <a title="Particular cases for criterion 4.19"
@@ -1790,7 +1785,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-4-20">Criterion 4.20 [A] Can each <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
+                        <h3 id="crit-4-20"><em>Criterion 4.20 [A]</em> Can each <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                 media</a> be, if necessary,
                             <a href="./RGAA3.0_Glossary_English_version_v1.html#mControleClavSour">controlled
                                 by keyboard and mouse</a>?</h3>
@@ -1835,7 +1830,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-4-21">Criterion 4.21 [A] Can each <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaNoTemp">non
+                        <h3 id="crit-4-21"><em>Criterion 4.21 [A]</em> Can each <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaNoTemp">non
                                 time-based media</a> be controlled by the keyboard and
                             by the mouse?</h3>
                         <ul>
@@ -1875,7 +1870,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-4-22">Criterion 4.22 [A] Is each <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
+                        <h3 id="crit-4-22"><em>Criterion 4.22 [A]</em> Is each <a href="./RGAA3.0_Glossary_English_version_v1.html#mMediaTemp">time-based
                                 media</a> and each non time-based media compatible with
                             assistive technologies (except
                             in <a title="Particular cases for criterion 4.22"
@@ -1954,7 +1949,7 @@
                             each layout table is correctly linearized.</p>
                     </header>
                     <section>
-                        <h3 id="crit-5-1">Criterion 5.1 [A] Does each 
+                        <h3 id="crit-5-1"><em>Criterion 5.1 [A]</em> Does each 
                             <a href="./RGAA3.0_Glossary_English_version_v1.html#mTabDonneeComplexe">complex data
                                 table</a> have a <a href="./RGAA3.0_Glossary_English_version_v1.html#mResumeTab">summary</a>?
                         </h3>
@@ -1973,7 +1968,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-5-2">Criterion 5.2 [A] For each 
+                        <h3 id="crit-5-2"><em>Criterion 5.2 [A]</em> For each 
                             <a href="./RGAA3.0_Glossary_English_version_v1.html#mTabDonneeComplexe">complex data
                                 table</a> with a <a href="./RGAA3.0_Glossary_English_version_v1.html#mResumeTab">summary</a>,
                             is this summary relevant?</h3>
@@ -1992,7 +1987,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-5-3">Criterion 5.3 [A] For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mTabMiseForme">layout
+                        <h3 id="crit-5-3"><em>Criterion 5.3 [A]</em> For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mTabMiseForme">layout
                                 table</a>, is the linearized content still
                             understandable?</h3>
                         <ul>
@@ -2016,7 +2011,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-5-4">Criterion 5.4 [A] Does each <a href="./RGAA3.0_Glossary_English_version_v1.html#mTabDonnee">data
+                        <h3 id="crit-5-4"><em>Criterion 5.4 [A]</em> Does each <a href="./RGAA3.0_Glossary_English_version_v1.html#mTabDonnee">data
                                 table</a> have a <a href="./RGAA3.0_Glossary_English_version_v1.html#mTitreTab">title</a>?</h3>
                         <ul>
                             <li id="test-5-4-1"> Test 5.4.1: Does each <a href="./RGAA3.0_Glossary_English_version_v1.html#mTabDonnee">data
@@ -2031,7 +2026,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-5-5">Criterion 5.5 [A] For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mTabDonnee">data
+                        <h3 id="crit-5-5"><em>Criterion 5.5 [A]</em> For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mTabDonnee">data
                                 table</a> with a <a href="./RGAA3.0_Glossary_English_version_v1.html#mTitreTab">title</a>,
                             is this title relevant?</h3>
                         <ul>
@@ -2049,7 +2044,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-5-6">Criterion 5.6 [A] For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mTabDonnee">data
+                        <h3 id="crit-5-6"><em>Criterion 5.6 [A]</em> For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mTabDonnee">data
                                 table</a>, are each <a href="./RGAA3.0_Glossary_English_version_v1.html#mEnteteTab">column
                                 header</a> and each <a href="./RGAA3.0_Glossary_English_version_v1.html#mEnteteTab">row
                                 header</a> correctly identified?</h3>
@@ -2070,7 +2065,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-5-7">Criterion 5.7 [A] For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mTabDonnee">data
+                        <h3 id="crit-5-7"><em>Criterion 5.7 [A]</em> For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mTabDonnee">data
                                 table</a>, is each cell associated with its header using
                             the appropriate technique?</h3>
                         <ul>
@@ -2115,7 +2110,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-5-8">Criterion 5.8 [A] Each <a href="./RGAA3.0_Glossary_English_version_v1.html#mTabMiseForme">layout
+                        <h3 id="crit-5-8"><em>Criterion 5.8 [A]</em> Each <a href="./RGAA3.0_Glossary_English_version_v1.html#mTabMiseForme">layout
                                 table</a> must not use elements intended for data
                             tables. Has this rule been followed?</h3>
                         <ul>
@@ -2166,7 +2161,7 @@
                             navigation form to the areas of a server-side image map.</p>
                     </header>
                     <section>
-                        <h3 id="crit-6-1">Criterion 6.1 [A] Is each <a href="./RGAA3.0_Glossary_English_version_v1.html#mLien">link</a>
+                        <h3 id="crit-6-1"><em>Criterion 6.1 [A]</em> Is each <a href="./RGAA3.0_Glossary_English_version_v1.html#mLien">link</a>
                             explicit (except in <a title="Particular cases for criterion 6.1"
                                                    href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit6-">particular
                                 cases</a>)?</h3>
@@ -2252,7 +2247,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-6-2">Criterion 6.2 [A] For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mLien">link</a>
+                        <h3 id="crit-6-2"><em>Criterion 6.2 [A]</em> For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mLien">link</a>
                             with a <a href="./RGAA3.0_Glossary_English_version_v1.html#mTitreLien">link
                                 title</a>, is this title relevant?</h3>
                         <ul>
@@ -2287,7 +2282,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-6-3">Criterion 6.3 [AAA] Is each <a href="./RGAA3.0_Glossary_English_version_v1.html#mIntituleLien">link
+                        <h3 id="crit-6-3"><em>Criterion 6.3 [AAA]</em> Is each <a href="./RGAA3.0_Glossary_English_version_v1.html#mIntituleLien">link
                                 text</a> alone <a href="./RGAA3.0_Glossary_English_version_v1.html#mLienHorsContexte">explicit
                                 out of context</a> (except
                             in <a title="Particular cases for criterion 6.3"
@@ -2343,7 +2338,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-6-4">Criterion 6.4 [A] For
+                        <h3 id="crit-6-4"><em>Criterion 6.4 [A]</em> For
                             each web page, does each <a href="./RGAA3.0_Glossary_English_version_v1.html#mLienIdentique">identical
                                 link</a> have the same purpose and target?</h3>
                         <ul>
@@ -2379,7 +2374,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-6-5">Criterion 6.5 [A] On each Web page, does
+                        <h3 id="crit-6-5"><em>Criterion 6.5 [A]</em> On each Web page, does
                             each <a href="./RGAA3.0_Glossary_English_version_v1.html#mLien">link</a>,
                             except in <a href="./RGAA3.0_Glossary_English_version_v1.html#mAncreNom">anchor</a>,
                             have a <a href="./RGAA3.0_Glossary_English_version_v1.html#mIntituleLien">text</a>?</h3>
@@ -2423,7 +2418,7 @@
                             that it is compatible with assistive technologies.</p>
                     </header>
                     <section>
-                        <h3 id="crit-7-1">Criterion 7.1 [A] Does each <a href="./RGAA3.0_Glossary_English_version_v1.html#mScript">script</a>
+                        <h3 id="crit-7-1"><em>Criterion 7.1 [A]</em> Does each <a href="./RGAA3.0_Glossary_English_version_v1.html#mScript">script</a>
                             support assistive technologies, if necessary?</h3>
                         <ul>
                             <li id="test-7-1-1">Test 7.1.1:
@@ -2509,7 +2504,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-7-2">Criterion 7.2 [A] For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mScript">script</a>
+                        <h3 id="crit-7-2"><em>Criterion 7.2 [A]</em> For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mScript">script</a>
                             with an <a href="./RGAA3.0_Glossary_English_version_v1.html#mAltScript">alternative</a>,
                             is this <a href="./RGAA3.0_Glossary_English_version_v1.html#mAltScript">alternative</a>
                             relevant?</h3>
@@ -2554,7 +2549,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-7-3">Criterion 7.3 [A] Can each <a href="./RGAA3.0_Glossary_English_version_v1.html#mScript">script</a>
+                        <h3 id="crit-7-3"><em>Criterion 7.3 [A]</em> Can each <a href="./RGAA3.0_Glossary_English_version_v1.html#mScript">script</a>
                             be <a href="./RGAA3.0_Glossary_English_version_v1.html#mControleClavSour">controlled
                                 by keyboard and mouse</a> (except
                             in <a title="Particular cases for criterion 7.3"
@@ -2621,7 +2616,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-7-4">Criterion 7.4 [A] For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mScript">script</a>
+                        <h3 id="crit-7-4"><em>Criterion 7.4 [A]</em> For each <a href="./RGAA3.0_Glossary_English_version_v1.html#mScript">script</a>
                             that initiates a <a href="./RGAA3.0_Glossary_English_version_v1.html#mChangContexte">change
                                 of context</a>, is the user warned or can he control it?</h3>
                         <ul>
@@ -2650,7 +2645,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-7-5">Criterion 7.5 [AAA] Can each <a href="./RGAA3.0_Glossary_English_version_v1.html#mScript">script</a>
+                        <h3 id="crit-7-5"><em>Criterion 7.5 [AAA]</em> Can each <a href="./RGAA3.0_Glossary_English_version_v1.html#mScript">script</a>
                             causing an unrequested <a href="./RGAA3.0_Glossary_English_version_v1.html#mAlerte">alert</a>
                             be controlled by the user (except in <a title="Particular cases for criterion 7.5"
                                                                     href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit7-5">particular
@@ -2703,7 +2698,7 @@
                             order are specified.</p>
                     </header>
                     <section>
-                        <h3 id="crit-8-1">Criterion 8.1 [A] Is each Web page defined
+                        <h3 id="crit-8-1"><em>Criterion 8.1 [A]</em> Is each Web page defined
                             by a <a href="./RGAA3.0_Glossary_English_version_v1.html#mDTD">document
                                 type</a>?</h3>
                         <ul>
@@ -2727,7 +2722,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-8-2">Criterion 8.2 [A] For each Web page, is
+                        <h3 id="crit-8-2"><em>Criterion 8.2 [A]</em> For each Web page, is
                             the source code <a href="./RGAA3.0_Glossary_English_version_v1.html#mCodeValide">valid</a>
                             according to the specified <a href="./RGAA3.0_Glossary_English_version_v1.html#mDTD">document
                                 type</a> (except in <a title="Particular cases for criterion 8.2" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit8-2">particular cases</a>)?</h3>
@@ -2758,7 +2753,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-8-3">Criterion 8.3 [A] On each Web page, is the
+                        <h3 id="crit-8-3"><em>Criterion 8.3 [A]</em> On each Web page, is the
                             <a href="./RGAA3.0_Glossary_English_version_v1.html#mLangueDefaut">
                                 default human language</a> identifiable?</h3>
                         <ul>
@@ -2785,7 +2780,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-8-4">Criterion 8.4 [A] For each Web page with a
+                        <h3 id="crit-8-4"><em>Criterion 8.4 [A]</em> For each Web page with a
                             <a href="./RGAA3.0_Glossary_English_version_v1.html#mLangueDefaut">
                                 default human language</a>, is the <a href="./RGAA3.0_Glossary_English_version_v1.html#mCodeLangue">
                                 language code</a> appropriate?</h3>
@@ -2811,7 +2806,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-8-5">Criterion 8.5 [A] Does each Web page have
+                        <h3 id="crit-8-5"><em>Criterion 8.5 [A]</em> Does each Web page have
                             a <a href="./RGAA3.0_Glossary_English_version_v1.html#mTitrePage">page
                                 title</a>?</h3>
                         <ul>
@@ -2828,7 +2823,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-8-6">Criterion 8.6 [A] For each Web page with a
+                        <h3 id="crit-8-6"><em>Criterion 8.6 [A]</em> For each Web page with a
                             <a href="./RGAA3.0_Glossary_English_version_v1.html#mTitrePage">page
                                 title</a>, is this title relevant?</h3>
                         <ul>
@@ -2846,7 +2841,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-8-7">Criterion 8.7 [AA] On each Web page, is
+                        <h3 id="crit-8-7"><em>Criterion 8.7 [AA]</em> On each Web page, is
                             each change in the human language identified via the
                             source code (except
                             in <a title="Particular cases for criterion 8.7" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit8-7">particular cases</a>)?</h3>
@@ -2873,7 +2868,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-8-8">Criterion 8.8 [AA] On each Web page, is
+                        <h3 id="crit-8-8"><em>Criterion 8.8 [AA]</em> On each Web page, is
                             each change in human language relevant?</h3>
                         <ul>
                             <li id="test-8-8-1"> Test8.8.1: On each Web page, is each
@@ -2892,7 +2887,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-8-9">Criterion 8.9 [A] On each Web page, tags
+                        <h3 id="crit-8-9"><em>Criterion 8.9 [A]</em> On each Web page, tags
                             must not be used <a href="./RGAA3.0_Glossary_English_version_v1.html#mUniquPres">only
                                 for layout</a>. Has this rule been followed?</h3>
                         <ul>
@@ -2909,7 +2904,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-8-10">Criterion 8.10 [A] On each Web page, are
+                        <h3 id="crit-8-10"><em>Criterion 8.10 [A]</em> On each Web page, are
                             changes in <a href="./RGAA3.0_Glossary_English_version_v1.html#mSensLecture">reading
                                 direction</a> identified?</h3>
                         <ul>
@@ -2959,7 +2954,7 @@
                             information. </p>
                     </header>
                     <section>
-                        <h3 id="crit-9-1">Criterion 9.1 [A] On each Web page, is
+                        <h3 id="crit-9-1"><em>Criterion 9.1 [A]</em> On each Web page, is
                             information structured by the appropriate use of <a href="./RGAA3.0_Glossary_English_version_v1.html#mTitre">headings</a>?</h3>
                         <ul>
                             <li id="test-9-1-1"> Test 9.1.1: Is there a level 1 <a href="./RGAA3.0_Glossary_English_version_v1.html#mTitre">heading</a>
@@ -2994,7 +2989,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-9-2">Criterion 9.2 [A] On each Web page, is the
+                        <h3 id="crit-9-2"><em>Criterion 9.2 [A]</em> On each Web page, is the
                             <a href="./RGAA3.0_Glossary_English_version_v1.html#mDocumentOutline">document outline</a> coherent?</h3>
                         <ul>
                             <li id="test-9-2-1"> Test 9.2.1: On each Web page, does
@@ -3025,7 +3020,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-9-3">Criterion 9.3 [A] On each Web page, is
+                        <h3 id="crit-9-3"><em>Criterion 9.3 [A]</em> On each Web page, is
                             each <a href="./RGAA3.0_Glossary_English_version_v1.html#mListes">list</a>
                             structured  appropriately?</h3>
                         <ul>
@@ -3064,8 +3059,8 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-9-4">Criterion 9.4
-                            [AAA] On each Web page, does the first occurence of each <a
+                        <h3 id="crit-9-4"><em>Criterion 9.4
+                            [AAA]</em> On each Web page, does the first occurence of each <a
                                 href="./RGAA3.0_Glossary_English_version_v1.html#mAbbr">abbreviation</a>
                             help to know its meaning?</h3>
                         <ul>
@@ -3101,8 +3096,8 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-9-5">Criterion 9.5
-                            [AAA] On each Web page, is the meaning of each <a href="./RGAA3.0_Glossary_English_version_v1.html#mAbbr">abbreviation</a>
+                        <h3 id="crit-9-5"><em>Criterion 9.5
+                            [AAA]</em> On each Web page, is the meaning of each <a href="./RGAA3.0_Glossary_English_version_v1.html#mAbbr">abbreviation</a>
                             relevant?</h3>
                         <ul>
                             <li id="test-9-5-1"> Test 9.5.1:
@@ -3119,8 +3114,8 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-9-6">Criterion 9.6
-                            [A] On each Web page, is each quotation identified
+                        <h3 id="crit-9-6"><em>Criterion 9.6
+                            [A]</em> On each Web page, is each quotation identified
                             properly?</h3>
                         <ul>
                             <li id="test-9-6-1"> Test 9.6.1:
@@ -3177,7 +3172,7 @@
                             element's shape, size or location.</p>
                     </header>
                     <section>
-                        <h3 id="crit-10-1">Criterion 10.1 [A] In the <a href="./RGAA3.0_Glossary_English_version_v1.html#mSiteWeb">Web
+                        <h3 id="crit-10-1"><em>Criterion 10.1 [A]</em> In the <a href="./RGAA3.0_Glossary_English_version_v1.html#mSiteWeb">Web
                                 site</a>, are <a href="./RGAA3.0_Glossary_English_version_v1.html#mFeuilleStyle">style
                                 sheets</a> used to control <a href="./RGAA3.0_Glossary_English_version_v1.html#mPresInfo">information
                                 presentation</a>?</h3>
@@ -3210,7 +3205,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-10-2">Criterion 10.2 [A] On each Web page, is <a
+                        <h3 id="crit-10-2"><em>Criterion 10.2 [A]</em> On each Web page, is <a
                                 href="./RGAA3.0_Glossary_English_version_v1.html#mVisibleContent">visible
                                 content</a> still available when <a href="./RGAA3.0_Glossary_English_version_v1.html#mFeuilleStyle">style
                                 sheets</a> or images are disabled?</h3>
@@ -3228,7 +3223,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-10-3">Criterion 10.3 [A] On each Web page, is
+                        <h3 id="crit-10-3"><em>Criterion 10.3 [A]</em> On each Web page, is
                             information still <a href="./RGAA3.0_Glossary_English_version_v1.html#mCoherentODL">understandable</a>
                             when <a href="./RGAA3.0_Glossary_English_version_v1.html#mFeuilleStyle">style
                                 sheets</a> are disabled?</h3>
@@ -3247,7 +3242,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-10-4">Criterion 10.4 [AA] On each Web page, is
+                        <h3 id="crit-10-4"><em>Criterion 10.4 [AA]</em> On each Web page, is
                             text still readable when <a href="./RGAA3.0_Glossary_English_version_v1.html#mTailleCaractere">character
                                 size</a> is increased until at least 200%?</h3>
                         <ul>
@@ -3276,7 +3271,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-10-5">Criterion 10.5 [AA] On each Web page, are
+                        <h3 id="crit-10-5"><em>Criterion 10.5 [AA]</em> On each Web page, are
                             CSS declarations for background and foreground colors
                             appropriate?</h3>
                         <ul>
@@ -3305,7 +3300,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-10-6">Criterion 10.6 [A] On each Web page, can
+                        <h3 id="crit-10-6"><em>Criterion 10.6 [A]</em> On each Web page, can
                             each <a href="./RGAA3.0_Glossary_English_version_v1.html#mLienNature">link
                                 whose nature is not obvious</a> be distinguished from
                             the surrounding text?</h3>
@@ -3325,7 +3320,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-10-7">Criterion 10.7 [A] On each Web page, is
+                        <h3 id="crit-10-7"><em>Criterion 10.7 [A]</em> On each Web page, is
                             the <a href="./RGAA3.0_Glossary_English_version_v1.html#mPriseFocus">focus
                             </a> visible for each element that receives focus?</h3>
                         <ul>
@@ -3361,7 +3356,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-10-8">Criterion 10.8 [AAA] On each Web page,
+                        <h3 id="crit-10-8"><em>Criterion 10.8 [AAA]</em> On each Web page,
                             can the user specify the background and foreground colors?</h3>
                         <ul>
                             <li id="test-10-8-1"> Test 10.8.1: For each block of text
@@ -3388,7 +3383,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-10-9">Criterion 10.9 [AAA] for each Web page,
+                        <h3 id="crit-10-9"><em>Criterion 10.9 [AAA]</em> for each Web page,
                             text must not be fully justified. Has this rule been followed?</h3>
                         <ul>
                             <li id="test-10-9-1"> Test 10.9.1: Does each Web page meet
@@ -3409,7 +3404,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-10-10">Criterion 10.10 [AAA] For each Web page,
+                        <h3 id="crit-10-10"><em>Criterion 10.10 [AAA]</em> For each Web page,
                             on a full-screen window and with a font size of 200%, is
                             each block of text still readable without the use of
                             horizontal scrolling?</h3>
@@ -3437,7 +3432,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-10-11">Criterion 10.11 [AAA] For each Web page,
+                        <h3 id="crit-10-11"><em>Criterion 10.11 [AAA]</em> For each Web page,
                             is the length of lines of text equal to 80 characters or
                             less (except in <a title="Particular cases for criterion 10.11" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit10-11">particular cases</a>)?</h3>
                         <ul>
@@ -3463,7 +3458,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-10-12">Criterion 10.12 [AAA] For each Web page,
+                        <h3 id="crit-10-12"><em>Criterion 10.12 [AAA]</em> For each Web page,
                             is line and paragraph spacing sufficient?</h3>
                         <ul>
                             <li id="test-10-12-1"> Test 10.12.1: For each Web page,
@@ -3496,7 +3491,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-10-13">Criterion 10.13 [A] For each Web page,
+                        <h3 id="crit-10-13"><em>Criterion 10.13 [A]</em> For each Web page,
                             are <a href="./RGAA3.0_Glossary_English_version_v1.html#mTexteCache">hidden
                                 texts</a> rendered properly by assistive technologies?</h3>
                         <ul>
@@ -3558,7 +3553,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-10-14">Criterion 10.14 [A] On each Web page,
+                        <h3 id="crit-10-14"><em>Criterion 10.14 [A]</em> On each Web page,
                             information must not be <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoShape">conveyed by shape, size or location</a> alone. Has this rule been followed?</h3>
                         <ul>
                             <li id="test-10-14-1"> Test 10.14.1: On each Web page, for
@@ -3587,7 +3582,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-10-15">Criterion 10.15 [A] On each Web page,
+                        <h3 id="crit-10-15"><em>Criterion 10.15 [A]</em> On each Web page,
                             information must not be <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoShape">conveyed by shape, size or location</a> alone. Has this rule been implemented in a
                             relevant way?</h3>
                         <ul>
@@ -3656,7 +3651,7 @@
                             control financial, legal or personal data.</p>
                     </header>
                     <section>
-                        <h3 id="crit-11-1">Criterion 11.1 [A] Does each <a href="./RGAA3.0_Glossary_English_version_v1.html#mChpSaisie">form
+                        <h3 id="crit-11-1"><em>Criterion 11.1 [A]</em> Does each <a href="./RGAA3.0_Glossary_English_version_v1.html#mChpSaisie">form
                                 field</a> have a <a href="./RGAA3.0_Glossary_English_version_v1.html#mEtiquette">label</a>?</h3>
                         <ul>
                             <li id="test-11-1-1"> Test 11.1.1: Does each <a href="./RGAA3.0_Glossary_English_version_v1.html#mChpSaisie">form
@@ -3712,7 +3707,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-11-2">Criterion 11.2 [A] Is each label that is
+                        <h3 id="crit-11-2"><em>Criterion 11.2 [A]</em> Is each label that is
                             associated with a <a href="./RGAA3.0_Glossary_English_version_v1.html#mChpSaisie">form
                                 field</a> relevant?</h3>
                         <ul>
@@ -3739,8 +3734,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-11-3">
-                            Criterion 11.3 [AA] On a given page, or set of pages, all form fields with similar functions must have consistent  <a href="./RGAA3.0_Glossary_English_version_v1.html#mEtiquette">labels</a>. Has this rule been followed?</h3>
+                        <h3 id="crit-11-3"><em>Criterion 11.3 [AA]</em> On a given page, or set of pages, all form fields with similar functions must have consistent  <a href="./RGAA3.0_Glossary_English_version_v1.html#mEtiquette">labels</a>. Has this rule been followed?</h3>
                         <ul>
                             <li id="test-11-3-1">
                                 Test 11.3.1: On a given page, all form fields with similar functions must have consistent  <a href="./RGAA3.0_Glossary_English_version_v1.html#mEtiquette">labels</a>. Has this rule been followed?
@@ -3757,7 +3751,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-11-4">Criterion 11.4 [A] In each form, are each
+                        <h3 id="crit-11-4"><em>Criterion 11.4 [A]</em> In each form, are each
                             <a href="./RGAA3.0_Glossary_English_version_v1.html#mEtiquette">label</a>
                             and its related control positioned next to each other?</h3>
                         <ul>
@@ -3774,7 +3768,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-11-5">Criterion 11.5 [A] In each form, is the <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoMNature">information of same nature</a> grouped together, if necessary?</h3>
+                        <h3 id="crit-11-5"><em>Criterion 11.5 [A]</em> In each form, is the <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoMNature">information of same nature</a> grouped together, if necessary?</h3>
                         <ul>
                             <li id="test-11-5-1">Test 11.5.1: In each form, is the <a href="./RGAA3.0_Glossary_English_version_v1.html#mInfoMNature">information of same nature</a> grouped together via a <code>fieldset</code> tag, if necessary? </li>
                         </ul>
@@ -3787,7 +3781,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-11-6">Criterion 11.6 [A] In each form, does
+                        <h3 id="crit-11-6"><em>Criterion 11.6 [A]</em> In each form, does
                             each form field grouping have a legend?</h3>
                         <ul>
                             <li id="test-11-6-1"> Test 11.6.1: Is each form field
@@ -3803,7 +3797,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-11-7">Criterion 11.7 [A] In each form, is each
+                        <h3 id="crit-11-7"><em>Criterion 11.7 [A]</em> In each form, is each
                             legend, related to a form field grouping, relevant?</h3>
                         <ul>
                             <li id="test-11-7-1"> Test 11.7.1: In each form, is each
@@ -3819,7 +3813,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-11-8">Criterion 11.8 [A] In each form, is each
+                        <h3 id="crit-11-8"><em>Criterion 11.8 [A]</em> In each form, is each
                             <a href="./RGAA3.0_Glossary_English_version_v1.html#mListeChoix">selection
                                 list</a> structured in a relevant way?</h3>
                         <ul>
@@ -3843,7 +3837,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-11-9">Criterion 11.9 [A] In each form, is the
+                        <h3 id="crit-11-9"><em>Criterion 11.9 [A]</em> In each form, is the
                             text of each <a href="./RGAA3.0_Glossary_English_version_v1.html#mBtnForm">button</a>
                             relevant?</h3>
                         <ul>
@@ -3887,7 +3881,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-11-10">Criterion 11.10 [A] In each form, is the
+                        <h3 id="crit-11-10"><em>Criterion 11.10 [A]</em> In each form, is the
                             <a href="./RGAA3.0_Glossary_English_version_v1.html#mControleSaisie">input
                                 control</a> used in a relevant way?</h3>
                         <ul>
@@ -4032,7 +4026,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-11-11">Criterion 11.11 [AA] In each form, is <a
+                        <h3 id="crit-11-11"><em>Criterion 11.11 [AA]</em> In each form, is <a
                                 href="./RGAA3.0_Glossary_English_version_v1.html#mControleSaisie">input
                                 control</a> accompanied, if necessary,
                             by suggestions helping with the correction of input
@@ -4058,7 +4052,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-11-12">Criterion 11.12 [AA] For each form, can
+                        <h3 id="crit-11-12"><em>Criterion 11.12 [AA]</em> For each form, can
                             financial, legal or personal data be changed, updated or
                             retrieved by the user?</h3>
                         <ul>
@@ -4096,7 +4090,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-11-13">Criterion 11.13 [AAA] For each form, can
+                        <h3 id="crit-11-13"><em>Criterion 11.13 [AAA]</em> For each form, can
                             all data be changed, updated or recovered by the user?</h3>
                         <ul>
                             <li id="test-11-13-1"> Test 11.13.1: For each form, does
@@ -4130,7 +4124,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-11-14">Criterion 11.14 [AAA] For each form, is
+                        <h3 id="crit-11-14"><em>Criterion 11.14 [AAA]</em> For each form, is
                             input assistance available?</h3>
                         <ul>
                             <li id="test-11-14-1"> Test 11.14.1: Does each form meet
@@ -4215,7 +4209,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-11-15">Criterion 11.15 [AAA] For each form, is
+                        <h3 id="crit-11-15"><em>Criterion 11.15 [AAA]</em> For each form, is
                             each input assistance relevant?</h3>
                         <ul>
                             <li id="test-11-15-1"> Test 11.15.1: For each form, is
@@ -4270,7 +4264,7 @@
                             page does not contain keyboard traps.</p>
                     </header>
                     <section>
-                        <h3 id="crit-12-1">Criterion 12.1 [AA] Does each <a href="./RGAA3.0_Glossary_English_version_v1.html#mEnsemblePages">set
+                        <h3 id="crit-12-1"><em>Criterion 12.1 [AA]</em> Does each <a href="./RGAA3.0_Glossary_English_version_v1.html#mEnsemblePages">set
                                 of pages</a> have at least two different <a href="./RGAA3.0_Glossary_English_version_v1.html#mSysNav">navigation
                                 systems</a> (except in <a title="Particular cases for criterion 12.1"  href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit12-1">particular cases</a>)?</h3>
                         <ul>
@@ -4295,7 +4289,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-12-2">Criterion 12.2 [AA] On each <a href="./RGAA3.0_Glossary_English_version_v1.html#mEnsemblePages">set
+                        <h3 id="crit-12-2"><em>Criterion 12.2 [AA]</em> On each <a href="./RGAA3.0_Glossary_English_version_v1.html#mEnsemblePages">set
                                 of pages</a>, are the menu or the <a href="./RGAA3.0_Glossary_English_version_v1.html#mBarreNav">navigation
                                 bars</a> always located at the same place (except in <a title="Particular cases for criterion 12.2"
                                                                                     href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit12-">particular cases</a>)?</h3>
@@ -4336,7 +4330,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-12-3">Criterion 12.3 [AA] On each <a href="./RGAA3.0_Glossary_English_version_v1.html#mEnsemblePages">set
+                        <h3 id="crit-12-3"><em>Criterion 12.3 [AA]</em> On each <a href="./RGAA3.0_Glossary_English_version_v1.html#mEnsemblePages">set
                                 of pages</a>, do the menu and the <a href="./RGAA3.0_Glossary_English_version_v1.html#mBarreNav">navigation bars</a> have a
                             consistent presentation (except in <a title="Particular cases for criterion 12.3"
                                                                   href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit12-">particular cases</a>)?</h3>
@@ -4359,7 +4353,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-12-4">Criterion 12.4 [AA] Is the <a href="./RGAA3.0_Glossary_English_version_v1.html#mPlanSite">"site
+                        <h3 id="crit-12-4"><em>Criterion 12.4 [AA]</em> Is the <a href="./RGAA3.0_Glossary_English_version_v1.html#mPlanSite">"site
                                 map" page</a> relevant?</h3>
                         <ul>
                             <li id="test-12-4-1"> Test 12.4.1: Does the <a href="./RGAA3.0_Glossary_English_version_v1.html#mPlanSite">"site
@@ -4380,7 +4374,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-12-5">Criterion 12.5 [AA] In each set of pages,
+                        <h3 id="crit-12-5"><em>Criterion 12.5 [AA]</em> In each set of pages,
                             is the <a href="./RGAA3.0_Glossary_English_version_v1.html#mPlanSite">"site
                                 map" page</a> accessible in an identical way?</h3>
                         <ul>
@@ -4406,7 +4400,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-12-6">Criterion 12.6 [AA] In each set of pages,
+                        <h3 id="crit-12-6"><em>Criterion 12.6 [AA]</em> In each set of pages,
                             is the <a href="./RGAA3.0_Glossary_English_version_v1.html#mMoteurRecherche">search
                                 function</a> accessible in an identical way?</h3>
                         <ul>
@@ -4432,7 +4426,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-12-7">Criterion 12.7 [AA] On each page within a
+                        <h3 id="crit-12-7"><em>Criterion 12.7 [AA]</em> On each page within a
                             <a href="./RGAA3.0_Glossary_English_version_v1.html#mCollecPage">collection
                                 of pages</a>, are links facilitating navigation
                             available?</h3>
@@ -4458,7 +4452,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-12-8">Criterion 12.8 [AAA] On each Web page, is a
+                        <h3 id="crit-12-8"><em>Criterion 12.8 [AAA]</em> On each Web page, is a
                             breadcrumb trail available (except in <a title="Particular cases for criterion 12.8" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit12-8">particular cases</a>)?</h3>
                         <ul>
                             <li id="test-12-8-1">Test 12.8.1: On each web page, is a breadcrumb trail
@@ -4473,7 +4467,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-12-9">Criterion 12.9 [AAA] On each Web page, is
+                        <h3 id="crit-12-9"><em>Criterion 12.9 [AAA]</em> On each Web page, is
                             the breadcrumb trail relevant?</h3>
                         <ul>
                             <li id="test-12-9-1"> Test 12.9.1: On each Web page, does
@@ -4489,7 +4483,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-12-10">Criterion 12.10 [A] On each Web page,
+                        <h3 id="crit-12-10"><em>Criterion 12.10 [A]</em> On each Web page,
                             are groups of important links (menu, navigation bar)
                             and the <a href="./RGAA3.0_Glossary_English_version_v1.html#mMain">main content area</a> identified (except in <a title="Particular cases for criterion 12.10" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit12-10">particular cases</a>)?</h3>
                         <ul>
@@ -4555,7 +4549,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-12-11">Criterion 12.11 [A] On each Web page,
+                        <h3 id="crit-12-11"><em>Criterion 12.11 [A]</em> On each Web page,
                             are <a href="./RGAA3.0_Glossary_English_version_v1.html#mLienEvitement">bypass
                                 or skip links</a> to groups of important links
                             and to the <a href="./RGAA3.0_Glossary_English_version_v1.html#mMain">main content area</a> available (except in <a title="Particular cases for criterion 12.11" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit12-11">particular cases</a>)?</h3>
@@ -4592,7 +4586,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-12-12">Criterion 12.12 [AAA] On each Web page,
+                        <h3 id="crit-12-12"><em>Criterion 12.12 [AAA]</em> On each Web page,
                             is the current  page specified in the <a href="./RGAA3.0_Glossary_English_version_v1.html#mMenuNav">navigation
                                 menu</a>?</h3>
                         <ul>
@@ -4609,7 +4603,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-12-13">Criterion 12.13 [A] On each Web page, is
+                        <h3 id="crit-12-13"><em>Criterion 12.13 [A]</em> On each Web page, is
                             <a href="./RGAA3.0_Glossary_English_version_v1.html#mOrdTab">tabbing
                                 order</a> <a href="./RGAA3.0_Glossary_English_version_v1.html#mCoherentODL">consistent</a>?</h3>
                         <ul>
@@ -4630,7 +4624,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-12-14">Criterion 12.14 [A] On each Web page,
+                        <h3 id="crit-12-14"><em>Criterion 12.14 [A]</em> On each Web page,
                             navigation must not contain keyboard trap. Has this rule
                             been followed?</h3>
                         <ul>
@@ -4697,7 +4691,7 @@
                             accessible.</p>
                     </header>
                     <section>
-                        <h3 id="crit-13-1">Criterion 13.1 [A] For each Web page, can
+                        <h3 id="crit-13-1"><em>Criterion 13.1 [A]</em> For each Web page, can
                             the user control each time limit that modifies content (except in <a title="Particular cases for criterion 13.1" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit13-1">particular cases</a>)?</h3>
                         <ul>
                             <li id="test-13-1-1"> Test 13.1.1: For each Web page, does
@@ -4773,7 +4767,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-13-2">Criterion 13.2 [A] On each Web page, is
+                        <h3 id="crit-13-2"><em>Criterion 13.2 [A]</em> On each Web page, is
                             the user warned each time a new window opens?</h3>
                         <ul>
                             <li id="test-13-2-1"> Test 13.2.1: On each Web page, for
@@ -4797,7 +4791,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-13-3">Criterion 13.3 [A] On each Web page, the
+                        <h3 id="crit-13-3"><em>Criterion 13.3 [A]</em> On each Web page, the
                             opening of a new window must not happen without user
                             action. Has this rule been followed?</h3>
                         <ul>
@@ -4815,7 +4809,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-13-4">Criterion 13.4 [AAA] On each Web page, a
+                        <h3 id="crit-13-4"><em>Criterion 13.4 [AAA]</em> On each Web page, a
                             task must not require a time limit to be completed, except
                             if it occurs in real time or if this time limit is
                             essential. Has this rule been followed?</h3>
@@ -4839,7 +4833,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-13-5">Criterion 13.5 [AAA] On each Web page,
+                        <h3 id="crit-13-5"><em>Criterion 13.5 [AAA]</em> On each Web page,
                             when an authenticated session is interrupted, is the data
                             entered by the user retrieved after re-authenticating?</h3>
                         <ul>
@@ -4856,7 +4850,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-13-6">Criterion 13.6 [A] On each Web page, for
+                        <h3 id="crit-13-6"><em>Criterion 13.6 [A]</em> On each Web page, for
                             each file that can be downloaded, is there sufficient
                             information provided  (except in <a title="Particular cases for criterion 13.6"
                                                                 href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit13-6">particular cases</a>)?</h3>
@@ -4882,7 +4876,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-13-7">Criterion 13.7 [A] On each Web page, does
+                        <h3 id="crit-13-7"><em>Criterion 13.7 [A]</em> On each Web page, does
                             each electronic <a href="./RGAA3.0_Glossary_English_version_v1.html#mVaccessible">document
                                 that can be downloaded</a> have an accessible version if
                             necessary (except in <a title="Particular cases for criterion 13.7" href="./RGAA3.0_Particular_cases_English_version_v1.html#cpCrit13-7">particular cases</a>)?</h3>
@@ -4912,7 +4906,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-13-8">Criterion 13.8 [A] For each electronic
+                        <h3 id="crit-13-8"><em>Criterion 13.8 [A]</em> For each electronic
                             document with an accessible version, does this version
                             provide the same information?</h3>
                         <ul>
@@ -4936,7 +4930,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-13-9">Criterion 13.9 [AAA] On each Web page,
+                        <h3 id="crit-13-9"><em>Criterion 13.9 [AAA]</em> On each Web page,
                             are unusual phrases, idioms or jargon made explicit?</h3>
                         <ul>
                             <li id="test-13-9-1">Test 13.9.1: On each Web page, does
@@ -4962,7 +4956,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-13-10">Criterion 13.10 [AAA] On each Web page,
+                        <h3 id="crit-13-10"><em>Criterion 13.10 [AAA]</em> On each Web page,
                             for each phrase used in an unusual or restricted way, each
                             idiom or jargon with a definition, is this definition
                             relevant?</h3>
@@ -4993,7 +4987,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-13-11">Criterion 13.11 [A] On each Web page,
+                        <h3 id="crit-13-11"><em>Criterion 13.11 [A]</em> On each Web page,
                             does each cryptical content (ASCII art, emoticon,
                             cryptical syntax) have an alternative?</h3>
                         <ul>
@@ -5016,7 +5010,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-13-12">Criterion 13.12 [A] On each Web page,
+                        <h3 id="crit-13-12"><em>Criterion 13.12 [A]</em> On each Web page,
                             for each cryptical content (ASCII art, emoticon, cryptical
                             syntax) with an alternative, is this alternative relevant?</h3>
                         <ul>
@@ -5041,7 +5035,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-13-13">Criterion 13.13 [AAA] On each Web page,
+                        <h3 id="crit-13-13"><em>Criterion 13.13 [AAA]</em> On each Web page,
                             for each word whose meaning cannot be understood without
                             knowing the pronunciation, is this pronunciation
                             specified?</h3>
@@ -5068,7 +5062,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-13-14">Criterion 13.14 [AAA] On each Web page,
+                        <h3 id="crit-13-14"><em>Criterion 13.14 [AAA]</em> On each Web page,
                             does each text that requires a reading ability more
                             advanced than the lower secondary education level have an
                             alternative version?</h3>
@@ -5100,7 +5094,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-13-15">Criterion 13.15 [A] On each Web page,
+                        <h3 id="crit-13-15"><em>Criterion 13.15 [A]</em> On each Web page,
                             are <a href="./RGAA3.0_Glossary_English_version_v1.html#mChangeLumi">sudden
                                 changes in luminosity or flashing effects</a> used
                             accurately?</h3>
@@ -5156,7 +5150,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-13-16">Criterion 13.16 [AAA] On each Web page,
+                        <h3 id="crit-13-16"><em>Criterion 13.16 [AAA]</em> On each Web page,
                             do the <a href="./RGAA3.0_Glossary_English_version_v1.html#mChangeLumi">sudden
                                 changes in luminosity or flashing effects</a> have a
                             frequency lower than or equal to 3 per second?</h3>
@@ -5184,7 +5178,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3 id="crit-13-17">Criterion 13.17 [A] On each Web page,
+                        <h3 id="crit-13-17"><em>Criterion 13.17 [A]</em> On each Web page,
                             can each moving or blinking content be <a href="./RGAA3.0_Glossary_English_version_v1.html#mControleMov">controlled
                                 by the user</a>?</h3>
                         <ul>
