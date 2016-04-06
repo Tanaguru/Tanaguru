@@ -94,12 +94,12 @@ h2.thematique {
 .thematique section h3 em { color: @color; font-weight: normal; font-style: normal; }
 
 .thematique section {
-  ul { margin: 0 0 @p @gutter*2; list-style: none; }
-  ul li {}
+  ul { margin: 0 0 0 @gutter*2; list-style: none; }
+  ul li { margin-bottom: @p; }
   ul li:before { margin-left: -@gutter*2; content: "\2022"; color: @color; font-size: 2em; line-height: 0; vertical-align: middle; }
   ul li ul { margin-top: @gutter; }
-  ul li ul li { margin-bottom: @gutter/2; font-size : 80%; }
-  ul li ul li:before { content: "• "; font-size: 1em; color: @color-mid; }
+  ul li ul li { margin-bottom: @gutter/2; margin-left: @gutter*3; font-size: 80%; list-style-type: disc; padding-left: @gutter*1.5; }
+  ul li ul li:before { content:''; }
 }
 
 .thematique .correspondance {

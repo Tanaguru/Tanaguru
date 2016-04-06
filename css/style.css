@@ -1177,8 +1177,11 @@ h2.thematique {
   font-style: normal;
 }
 .thematique section ul {
-  margin: 0 0 1.5em 20px;
+  margin: 0 0 0 20px;
   list-style: none;
+}
+.thematique section ul li {
+  margin-bottom: 1.5em;
 }
 .thematique section ul li:before {
   margin-left: -20px;
@@ -1193,12 +1196,13 @@ h2.thematique {
 }
 .thematique section ul li ul li {
   margin-bottom: 5px;
+  margin-left: 30px;
   font-size: 80%;
+  list-style-type: disc;
+  padding-left: 15px;
 }
 .thematique section ul li ul li:before {
-  content: "• ";
-  font-size: 1em;
-  color: #666666;
+  content: '';
 }
 .thematique .correspondance {
   width: 100%;
