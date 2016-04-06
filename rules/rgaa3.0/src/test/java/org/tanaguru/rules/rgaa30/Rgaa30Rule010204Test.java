@@ -33,6 +33,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_INFORMATI
 import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_INFORMATIVE_SVG_WITH_DESC_OR_TITLE_CHILD_TAG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_INFORMATIVE_SVG_WITH_TITLE_ATTRIBUTE_ON_ELEMENT_OR_CHILD;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_WELL_FORMATED_DECORATIVE_SVG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.SVG_WITHOUT_ROLE_IMAGE_MSG;
 import org.tanaguru.rules.rgaa30.test.Rgaa30RuleImplementationTestCase;
 
 /**
@@ -105,7 +106,7 @@ public class Rgaa30Rule010204Test extends Rgaa30RuleImplementationTestCase {
         
         addWebResource("Rgaa30.Test.1.2.4-4NA-01");
         addWebResource("Rgaa30.Test.1.2.4-4NA-02");
-        addWebResource("Rgaa30.Test.1.2.4-4NA-03");
+       // addWebResource("Rgaa30.Test.1.2.4-4NA-03");
     }
 
     @Override
@@ -338,11 +339,11 @@ public class Rgaa30Rule010204Test extends Rgaa30RuleImplementationTestCase {
         //----------------------------------------------------------------------
          processResult = processPageTest("Rgaa30.Test.1.2.4-3NMI-01");
        // checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-          checkResultIsPreQualified(processResult, 2, 1);
+          checkResultIsPreQualified(processResult, 2, 2);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SUSPECTED_INFORMATIVE_SVG_WITH_TITLE_ATTRIBUTE_ON_ELEMENT_OR_CHILD,
+                SVG_WITHOUT_ROLE_IMAGE_MSG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
@@ -351,11 +352,11 @@ public class Rgaa30Rule010204Test extends Rgaa30RuleImplementationTestCase {
         //----------------------------------------------------------------------
          processResult = processPageTest("Rgaa30.Test.1.2.4-3NMI-02");
        // checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-          checkResultIsPreQualified(processResult, 2, 1);
+          checkResultIsPreQualified(processResult, 2, 2);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SUSPECTED_WELL_FORMATED_DECORATIVE_SVG,
+                SVG_WITHOUT_ROLE_IMAGE_MSG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
@@ -365,11 +366,11 @@ public class Rgaa30Rule010204Test extends Rgaa30RuleImplementationTestCase {
         //----------------------------------------------------------------------
          processResult = processPageTest("Rgaa30.Test.1.2.4-3NMI-03");
        // checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-          checkResultIsPreQualified(processResult, 2, 1);
+          checkResultIsPreQualified(processResult, 2, 2);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SUSPECTED_INFORMATIVE_SVG_WITH_ARIA_ATTRIBUTE_DETECTED_ON_ELEMENT_OR_CHILD,
+                SVG_WITHOUT_ROLE_IMAGE_MSG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
@@ -379,11 +380,11 @@ public class Rgaa30Rule010204Test extends Rgaa30RuleImplementationTestCase {
         //----------------------------------------------------------------------
          processResult = processPageTest("Rgaa30.Test.1.2.4-3NMI-04");
        // checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-          checkResultIsPreQualified(processResult, 2, 1);
+          checkResultIsPreQualified(processResult, 2, 2);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SUSPECTED_INFORMATIVE_SVG_WITH_ARIA_ATTRIBUTE_DETECTED_ON_ELEMENT_OR_CHILD,
+                SVG_WITHOUT_ROLE_IMAGE_MSG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
@@ -393,11 +394,11 @@ public class Rgaa30Rule010204Test extends Rgaa30RuleImplementationTestCase {
         //----------------------------------------------------------------------
          processResult = processPageTest("Rgaa30.Test.1.2.4-3NMI-05");
        // checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-          checkResultIsPreQualified(processResult, 2, 1);
+          checkResultIsPreQualified(processResult, 2, 2);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SUSPECTED_INFORMATIVE_SVG_WITH_ARIA_ATTRIBUTE_DETECTED_ON_ELEMENT_OR_CHILD,
+                SVG_WITHOUT_ROLE_IMAGE_MSG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
@@ -406,11 +407,11 @@ public class Rgaa30Rule010204Test extends Rgaa30RuleImplementationTestCase {
         //----------------------------------------------------------------------
          processResult = processPageTest("Rgaa30.Test.1.2.4-3NMI-06");
        // checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-          checkResultIsPreQualified(processResult, 2, 1);
+          checkResultIsPreQualified(processResult, 2, 2);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SUSPECTED_INFORMATIVE_SVG_WITH_ARIA_ATTRIBUTE_DETECTED_ON_ELEMENT_OR_CHILD,
+                SVG_WITHOUT_ROLE_IMAGE_MSG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
@@ -419,11 +420,11 @@ public class Rgaa30Rule010204Test extends Rgaa30RuleImplementationTestCase {
         //----------------------------------------------------------------------
          processResult = processPageTest("Rgaa30.Test.1.2.4-3NMI-07");
        // checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-          checkResultIsPreQualified(processResult, 2, 1);
+          checkResultIsPreQualified(processResult, 2, 2);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SUSPECTED_INFORMATIVE_SVG_WITH_ARIA_ATTRIBUTE_DETECTED_ON_ELEMENT_OR_CHILD,
+                SVG_WITHOUT_ROLE_IMAGE_MSG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
@@ -433,11 +434,11 @@ public class Rgaa30Rule010204Test extends Rgaa30RuleImplementationTestCase {
         //----------------------------------------------------------------------
          processResult = processPageTest("Rgaa30.Test.1.2.4-3NMI-08");
        // checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-          checkResultIsPreQualified(processResult, 2, 1);
+          checkResultIsPreQualified(processResult, 2, 2);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SUSPECTED_INFORMATIVE_SVG_WITH_ARIA_ATTRIBUTE_DETECTED_ON_ELEMENT_OR_CHILD,
+                SVG_WITHOUT_ROLE_IMAGE_MSG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
@@ -447,11 +448,11 @@ public class Rgaa30Rule010204Test extends Rgaa30RuleImplementationTestCase {
         //----------------------------------------------------------------------
          processResult = processPageTest("Rgaa30.Test.1.2.4-3NMI-09");
        // checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-          checkResultIsPreQualified(processResult, 2, 1);
+          checkResultIsPreQualified(processResult, 2, 2);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SUSPECTED_INFORMATIVE_SVG_WITH_DESC_OR_TITLE_CHILD_TAG,
+                SVG_WITHOUT_ROLE_IMAGE_MSG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
@@ -461,11 +462,11 @@ public class Rgaa30Rule010204Test extends Rgaa30RuleImplementationTestCase {
         //----------------------------------------------------------------------
          processResult = processPageTest("Rgaa30.Test.1.2.4-3NMI-10");
        // checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-          checkResultIsPreQualified(processResult, 2, 1);
+          checkResultIsPreQualified(processResult, 2, 2);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SUSPECTED_INFORMATIVE_SVG_WITH_DESC_OR_TITLE_CHILD_TAG,
+                SVG_WITHOUT_ROLE_IMAGE_MSG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
@@ -475,11 +476,11 @@ public class Rgaa30Rule010204Test extends Rgaa30RuleImplementationTestCase {
         //----------------------------------------------------------------------
          processResult = processPageTest("Rgaa30.Test.1.2.4-3NMI-11");
        // checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-          checkResultIsPreQualified(processResult, 2, 1);
+          checkResultIsPreQualified(processResult, 2, 2);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SUSPECTED_INFORMATIVE_SVG_WITH_DESC_OR_TITLE_CHILD_TAG,
+                SVG_WITHOUT_ROLE_IMAGE_MSG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
@@ -489,11 +490,11 @@ public class Rgaa30Rule010204Test extends Rgaa30RuleImplementationTestCase {
         //----------------------------------------------------------------------
          processResult = processPageTest("Rgaa30.Test.1.2.4-3NMI-12");
        // checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-          checkResultIsPreQualified(processResult, 2, 1);
+          checkResultIsPreQualified(processResult, 2, 2);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SUSPECTED_INFORMATIVE_SVG_WITH_TITLE_ATTRIBUTE_ON_ELEMENT_OR_CHILD,
+                SVG_WITHOUT_ROLE_IMAGE_MSG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
@@ -511,7 +512,7 @@ public class Rgaa30Rule010204Test extends Rgaa30RuleImplementationTestCase {
 //        //----------------------------------------------------------------------
 //        //------------------------------4NA-03----------------------------------
 //        //----------------------------------------------------------------------
-        checkResultIsNotApplicable(processPageTest("Rgaa30.Test.1.2.4-4NA-03"),2);
+//        checkResultIsNotApplicable(processPageTest("Rgaa30.Test.1.2.4-4NA-03"),2);
 //      
     }
      

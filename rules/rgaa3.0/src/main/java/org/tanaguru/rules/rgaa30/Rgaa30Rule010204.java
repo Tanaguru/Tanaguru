@@ -227,6 +227,13 @@ public class Rgaa30Rule010204 extends AbstractMarkerPageRuleImplementation {
 //            // result is failed for sure
 //            ec.check(sspHandler, svgElementsWithoutRoleImage, testSolutionHandler);
 //        }
+        ec = new ElementPresenceChecker(
+                new ImmutablePair(NEED_MORE_INFO, SVG_WITHOUT_ROLE_IMAGE_MSG),
+                new ImmutablePair(PASSED, ""));
+        if (!svgElementsWithoutRoleImage.isEmpty()) {
+            // result is failed for sure
+            ec.check(sspHandler, svgElementsWithoutRoleImage, testSolutionHandler);
+        }
         
         ec = new ElementPresenceChecker(
                 new ImmutablePair(NEED_MORE_INFO, SUSPECTED_INFORMATIVE_SVG_WITH_ARIA_ATTRIBUTE_DETECTED_ON_ELEMENT_OR_CHILD), 
