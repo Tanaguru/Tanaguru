@@ -255,7 +255,7 @@ body {
 }
 /* Fonts */
 .font1 {
-  font-family: serif;
+  font-family: sans-serif;
 }
 .font2 {
   font-family: sans-serif;
@@ -838,7 +838,7 @@ a:focus {
   outline: thin dotted;
   background: #222222 !important;
   border-color: #222222 !important;
-  color: #f8f8f8 !important;
+  color: #f8f5f5 !important;
   text-shadow: none;
 }
 a:hover {
@@ -919,6 +919,11 @@ a:active img {
   }
   /* Don't show links for images, or javascript/internal links */
 }
+body {
+  background-color: #f8f5f5;
+  font-family: sans-serif;
+  color: #222222;
+}
 header h1,
 header p {
   clear: both;
@@ -929,7 +934,7 @@ header nav {
 }
 #skiplinks {
   margin: 3px 0 0 10px;
-  color: #000000;
+  color: #222222;
 }
 li {
   display: inline;
@@ -937,7 +942,7 @@ li {
 header nav {
   background-color: #333;
   width: 100%;
-  color: #FFFFFF;
+  color: #f8f5f5;
 }
 header nav ul {
   list-style-type: none;
@@ -965,7 +970,7 @@ header nav li a:hover {
 }
 header h1,
 header p {
-  color: #000000;
+  color: #222222;
   clear: both;
 }
 header h1 {
@@ -977,7 +982,7 @@ header h1 {
   right: 0;
   width: 200px;
   background-color: #333;
-  color: #FFFFFF;
+  color: #f8f5f5;
 }
 .fixed ul {
   padding-left: 10px;
@@ -1036,7 +1041,7 @@ aside {
 }
 .thematique section h3 {
   background-color: #333;
-  color: #FFFFFF;
+  color: #f8f5f5;
   font-size: 1.10em;
   padding: 30px;
 }
