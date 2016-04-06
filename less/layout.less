@@ -10,11 +10,21 @@ body { text-align: center; }
 @media ( max-width: 768px) { .page { width: 80%; } }
 @media ( max-width: 480px) { .page { width: auto; margin: 1em 10px; } }
 
+/* skiplinks */
+
+main .skiplink { text-align: center; }
+main .skiplink * { display: inline; }
+main .skiplink a { margin: 0 @gutter/2; }
+
+@media print {
+.skiplink { display: none; }
+}
+
 /* header + nav */
 
 #skiplinks,
 #header nav { float: left; }
-#skiplinks { margin: 3px 0 0 @gutter; color: @color-txt; }
+#skiplinks { margin: @gutter/2 @gutter; color: @color-txt; }
 
 #header nav { width:100%; }
 #header nav ul {

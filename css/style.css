@@ -943,13 +943,28 @@ body {
     margin: 1em 10px;
   }
 }
+/* skiplinks */
+main .skiplink {
+  text-align: center;
+}
+main .skiplink * {
+  display: inline;
+}
+main .skiplink a {
+  margin: 0 5px;
+}
+@media print {
+  .skiplink {
+    display: none;
+  }
+}
 /* header + nav */
 #skiplinks,
 #header nav {
   float: left;
 }
 #skiplinks {
-  margin: 3px 0 0 10px;
+  margin: 5px 10px;
   color: #222222;
 }
 #header nav {
