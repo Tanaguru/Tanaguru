@@ -1167,25 +1167,19 @@ h2.thematique {
   font-size: 1em;
   color: #666666;
 }
-aside {
-  display: inline-block;
-  /*width: 90%;
-  background-color: @color-bg;
-  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
-  margin: @gutter;
-  padding: @gutter;*/
-
-  font-size: small;
-}
-.thematique aside {
+.thematique .correspondance {
   width: 100%;
   margin: 1.5em 0;
   padding: 10px;
-  background-color: #DDDDDD;
+  background-color: rgba(102, 102, 102, 0.08);
+  color: #666666;
+  font-size: small;
 }
-/*
-.thematique section p {
-    margin: 0 @gutter;
+.thematique .correspondance h4 {
+  margin: 0;
+  font-weight: bold;
 }
-*/
+.thematique .correspondance p {
+  margin: 0;
+}
 /* end */
