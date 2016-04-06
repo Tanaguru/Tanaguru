@@ -1003,11 +1003,11 @@ body {
 #header h1 {
   text-align: center;
   font-weight: bold;
-  color: #d71218;
+  color: #337ab7;
   padding: 3em;
 }
 .active {
-  background-color: #d71218;
+  background-color: #337ab7;
 }
 /* main + content */
 main {
@@ -1054,7 +1054,7 @@ main {
 #footer {
   padding: 1.5em;
   background-color: #DDD;
-  border-top: 10px solid #d71218;
+  border-top: 10px solid #337ab7;
   font-size: small;
 }
 #footer .page {
@@ -1073,7 +1073,7 @@ a {
 a:focus,
 a:hover,
 a:active {
-  color: #d71218;
+  color: #337ab7;
   border-style: solid;
 }
 li {
@@ -1100,7 +1100,7 @@ h2 {
 h2.thematique {
   margin: 3em 0 0;
   padding-bottom: 20px;
-  border-bottom: 10px solid #d71218;
+  border-bottom: 10px solid #337ab7;
   font-weight: bold;
   font-size: 2em;
   text-align: center;
@@ -1123,7 +1123,7 @@ h2.thematique {
   padding: 5px 10px;
   border: 1px solid;
   border-radius: 5px;
-  color: #d71218;
+  color: #337ab7;
 }
 .thematique header h3 {
   position: absolute;

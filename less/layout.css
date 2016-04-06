@@ -82,11 +82,11 @@ body {
 #header h1 {
   text-align: center;
   font-weight: bold;
-  color: #d71218;
+  color: #337ab7;
   padding: 3em;
 }
 .active {
-  background-color: #d71218;
+  background-color: #337ab7;
 }
 /* main + content */
 main {
@@ -133,7 +133,7 @@ main {
 #footer {
   padding: 1.5em;
   background-color: #DDD;
-  border-top: 10px solid #d71218;
+  border-top: 10px solid #337ab7;
   font-size: small;
 }
 #footer .page {
