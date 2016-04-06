@@ -1,0 +1,140 @@
+/* --------------------------------------------------
+
+   Layout
+
+----------------------------------------------------- */
+body {
+  text-align: center;
+}
+.page {
+  max-width: 768px;
+  margin: 1.5em auto;
+  text-align: left;
+}
+@media (max-width: 768px) {
+  .page {
+    width: 80%;
+  }
+}
+@media (max-width: 480px) {
+  .page {
+    width: auto;
+    margin: 1em 10px;
+  }
+}
+.half {
+  float: left;
+  width: 45%;
+  margin-right: 5%;
+}
+.third {
+  float: left;
+  width: 30%;
+  margin-right: 3%;
+}
+@media (max-width: 768px) {
+  .half,
+  .third {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+  }
+}
+/* header + nav */
+#skiplinks,
+#header nav {
+  float: left;
+}
+#skiplinks {
+  margin: 3px 0 0 10px;
+  color: #222222;
+}
+#header nav {
+  width: 100%;
+  background-color: #222222;
+  color: #f8f5f5;
+}
+#header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+#header nav li {
+  float: left;
+}
+#header nav li {
+  display: block;
+  color: #f8f5f5;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+/* Change the link color to #111 (black) on hover */
+#header nav li a:hover {
+  background-color: #111;
+}
+#header h1,
+#header p {
+  clear: both;
+}
+#header h1 {
+  text-align: center;
+  font-weight: bold;
+  color: #d71218;
+  padding: 3em;
+}
+.active {
+  background-color: #d71218;
+}
+/* main + content */
+main {
+  clear: both;
+}
+.content {
+  /*width:70%;
+  float:left;*/
+
+}
+#howto {
+  color: #666666;
+  font-size: small;
+  display: none;
+}
+.fixed {
+  position: fixed;
+}
+#toc {
+  top: 150px;
+  left: 0;
+  /*width: 200px;*/
+
+  padding: 20px 0;
+  background-color: #222222;
+  color: #f8f5f5;
+}
+#toc h2 {
+  padding: 0 30px;
+  /*text-align:center;*/
+}
+#toc ul {
+  margin: 0;
+  /*padding-left:@gutter;*/
+}
+#toc nav li {
+  display: block;
+  padding: 0 30px;
+}
+#toc nav li.active {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.legals {
+  padding: 1.5em;
+  background-color: #222222;
+  color: #f8f5f5;
+  width: 70%;
+  clear: both;
+  font-size: small;
+}

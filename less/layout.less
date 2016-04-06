@@ -1,0 +1,112 @@
+/* --------------------------------------------------
+
+   Layout
+
+----------------------------------------------------- */
+@import "var.less";
+
+body { text-align: center; }
+.page { max-width: 768px; margin: @p auto; text-align: left; }
+@media ( max-width: 768px) { .page { width: 80%; } }
+@media ( max-width: 480px) { .page { width: auto; margin: 1em 10px; } }
+
+.half { float: left; width: 45%; margin-right: 5%; }
+.third { float: left; width: 30%; margin-right: 3%; }
+@media ( max-width: 768px) { .half, .third { float: none; width: 100%; margin-right: 0; } }
+
+/* header + nav */
+
+#skiplinks,
+#header nav {
+  float:left; 
+}
+
+#skiplinks {
+  margin: 3px 0 0 @gutter;
+  color:@color-txt;
+}
+
+#header nav {
+  width:100%;
+  background-color: @color-txt;
+  color: @color-bg;
+}
+
+#header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+ #header nav li {
+    float: left;
+}
+
+ #header nav li {
+    display: block;
+    color: @color-bg;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+#header nav li a:hover {
+    background-color: #111;
+}
+
+#header h1,
+#header p {
+  clear:both;
+}
+
+#header h1 {
+  text-align: center;
+  font-weight: bold;
+  color: @color;
+  padding: @line-height*2em;
+}
+
+.active {
+    background-color: @color;
+}
+
+/* main + content */
+
+main {
+  clear:both;
+}
+
+.content {
+  /*width:70%;
+  float:left;*/
+}
+
+#howto { color: @color-mid; font-size: small; display: none; }
+
+.fixed { position: fixed; }
+
+#toc {
+  top: 150px;
+  left: 0;
+  /*width: 200px;*/
+  padding: @gutter*2 0;
+  background-color: @color-txt;
+  color: @color-bg;
+}
+#toc h2 { padding: 0 @gutter*3; /*text-align:center;*/ }
+#toc ul { margin:0; /*padding-left:@gutter;*/ }
+#toc nav li { display:block; padding: 0 @gutter*3; }
+#toc nav li.active { padding-top: @gutter/2; padding-bottom: @gutter/2; }
+
+
+.legals {
+  padding: @p;
+  background-color: @color-txt;
+  color: @color-bg;
+  width: 70%;
+  clear:both;
+  font-size: small;
+}

@@ -1,131 +1,60 @@
 body { background-color: @color-bg; .font1; color: @color-txt; }
 
-
-
-
-header h1, header p {
-  clear:both;
-}
-
-#skiplinks, header nav {
-  float:left; 
-}
-
-#skiplinks {
-  margin: 3px 0 0 10px;
-  color:@color-txt;
-}
-
- li {
+li {
   display:inline;
 }
 
-header nav {
-  background-color: #333;
-  width:100%;
-  color: @color-bg;
-}
 
-header nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-
- header nav li {
-    float: left;
-}
-
- header nav li {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.active {
-    background-color: #D71218;
-}
-
-/* Change the link color to #111 (black) on hover */
-header nav li a:hover {
-    background-color: #111;
-}
-
-header h1, header p {
-  color:@color-txt;
-  clear:both;
-}
-
-header h1 {
-  text-align: center;
-}
-
-.fixed {
-  position: fixed;
-  bottom: 80px;
-  right: 0;
-  width: 200px;
-  background-color: #333;
-  color:@color-bg;
-}
-
-.fixed ul {
-  padding-left:10px;
-  margin:0;
-}
-
-.fixed nav li{
-  display:block;
-}
-
-.fixed h2 {
-  text-align:center;
-}
 
 h2 {
-    font-size: 24px;
-    display: inline-block;
-}
-
-.thematique h2, h2.thematique {
-    border-bottom: 10px solid #D71218;
-    margin-bottom: 20px;
+    /*font-size: 24px;
+    display: inline-block;*/
 }
 
 .thematique {
   display: inline-block;
-    width: 100%;
-    background-color: #fff;
-    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  /*width: 100%;
+  background-color: @color-bg;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
   margin: 30px;
-    padding: 30px;
+  padding: 30px;*/
 }
 
-aside {
-  display: inline-block;
-    width: 90%;
-    background-color: #fff;
-    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
-  margin: 10px;
-    padding: 10px;  
+.thematique header { margin-bottom: @p; }
+
+.thematique h2,
+h2.thematique {
+  margin: @p*2 0 0;
+  padding-bottom: @gutter*2;
+  border-bottom: @gutter solid @color;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+  text-transform: uppercase;
 }
+
+.thematique header {}
+.thematique header nav { display: block; width: 100%; margin: @p 0; clear: both; text-align: center; font-size: 90%; }
+.thematique header nav li { display: inline-block;  margin: @gutter/2 @gutter/3; }
+.thematique header nav li a { background: @color-bg; padding: @gutter/2 @gutter; border: 1px solid; border-radius: @gutter/2; color: @color; }
+
+.thematique header h3 { .offscreen; }
+.thematique header p { margin: 0; color: @color-mid; font-size: small; }
 
 .thematique section {
-    display: inline-block;
-    width: 90%;
-    background-color: #fff;
-    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  /*width: 90%;
+  background-color: @color-bg;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
   margin: 30px;
-    padding: 30px;
+  padding: 30px;*/
+  margin-bottom: @p*2;
 }
 
 .thematique section {
   ul { padding-left:20px; list-style:none; }
-  li { margin-bottom:10px; }
+  li { margin-bottom:@gutter; }
   li:before {    
     font-family: 'FontAwesome';
     content: '\f067';
@@ -133,19 +62,22 @@ aside {
   }
 }
 
-.thematique section h3{
-  background-color: #333;
+.thematique section h3 {
+  /*background-color: #333;
   color:@color-bg;
   font-size: 1.10em;
-  padding:30px;
+  padding:30px;*/
+  font-weight: bold;
 }
+.thematique section h3 span { color: @color-mid; font-weight: normal;
+ display: block; font-size: small; text-transform: uppercase; letter-spacing: .06em; }
 
 .thematique section ul li{
   margin-bottom: 16px;
 }
 
 .thematique section ul li ul li{
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .thematique ul li{
@@ -154,10 +86,6 @@ aside {
 
 .thematique ul li::before{
   padding-right: .3em;
-}
-
-.thematique section h3 span{
-  margin-right:5px;
 }
 
 .thematique section ul li {
@@ -171,24 +99,26 @@ aside {
     top: 4px;
 }
 
+aside {
+  display: inline-block;
+  /*width: 90%;
+  background-color: @color-bg;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  margin: @gutter;
+  padding: @gutter;*/
+  font-size: small;
+}
+
 .thematique aside {
-  background-color:#DDDDDD;
+  width: 100%;
+  margin: @p 0;
+  padding: @gutter;
+  background-color: #DDDDDD;
 }
-
+/*
 .thematique section p {
-    margin: 0 10px;
+    margin: 0 @gutter;
 }
+*/
 
-.content {
-  width:70%;
-  float:left;
-}
-
-main {
-  clear:both;
-}
-
-.legals {
-  width: 70%;
-  clear:both;
-}
+/* end */

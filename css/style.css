@@ -723,11 +723,11 @@ var {
 @media (min-width: 640px) {
   .box.right {
     width: 33%;
-    margin-left: 1.5em;
+    margin-left: 10px;
   }
   .box.left {
     width: 33%;
-    margin-right: 1.5em;
+    margin-right: 10px;
   }
   .box.center {
     width: 75%;
@@ -919,113 +919,219 @@ a:active img {
   }
   /* Don't show links for images, or javascript/internal links */
 }
+/* --------------------------------------------------
+
+   Layout
+
+----------------------------------------------------- */
 body {
-  background-color: #f8f5f5;
-  font-family: sans-serif;
-  color: #222222;
+  text-align: center;
 }
-header h1,
-header p {
-  clear: both;
+.page {
+  max-width: 768px;
+  margin: 1.5em auto;
+  text-align: left;
 }
+@media (max-width: 768px) {
+  .page {
+    width: 80%;
+  }
+}
+@media (max-width: 480px) {
+  .page {
+    width: auto;
+    margin: 1em 10px;
+  }
+}
+.half {
+  float: left;
+  width: 45%;
+  margin-right: 5%;
+}
+.third {
+  float: left;
+  width: 30%;
+  margin-right: 3%;
+}
+@media (max-width: 768px) {
+  .half,
+  .third {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+  }
+}
+/* header + nav */
 #skiplinks,
-header nav {
+#header nav {
   float: left;
 }
 #skiplinks {
   margin: 3px 0 0 10px;
   color: #222222;
 }
-li {
-  display: inline;
-}
-header nav {
-  background-color: #333;
+#header nav {
   width: 100%;
+  background-color: #222222;
   color: #f8f5f5;
 }
-header nav ul {
+#header nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #333;
 }
-header nav li {
+#header nav li {
   float: left;
 }
-header nav li {
+#header nav li {
   display: block;
-  color: white;
+  color: #f8f5f5;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
-.active {
-  background-color: #D71218;
-}
 /* Change the link color to #111 (black) on hover */
-header nav li a:hover {
+#header nav li a:hover {
   background-color: #111;
 }
-header h1,
-header p {
-  color: #222222;
+#header h1,
+#header p {
   clear: both;
 }
-header h1 {
+#header h1 {
   text-align: center;
+  font-weight: bold;
+  color: #d71218;
+  padding: 3em;
+}
+.active {
+  background-color: #d71218;
+}
+/* main + content */
+main {
+  clear: both;
+}
+.content {
+  /*width:70%;
+  float:left;*/
+
+}
+#howto {
+  color: #666666;
+  font-size: small;
+  display: none;
 }
 .fixed {
   position: fixed;
-  bottom: 80px;
-  right: 0;
-  width: 200px;
-  background-color: #333;
+}
+#toc {
+  top: 150px;
+  left: 0;
+  /*width: 200px;*/
+
+  padding: 20px 0;
+  background-color: #222222;
   color: #f8f5f5;
 }
-.fixed ul {
-  padding-left: 10px;
+#toc h2 {
+  padding: 0 30px;
+  /*text-align:center;*/
+}
+#toc ul {
   margin: 0;
+  /*padding-left:@gutter;*/
 }
-.fixed nav li {
+#toc nav li {
   display: block;
+  padding: 0 30px;
 }
-.fixed h2 {
-  text-align: center;
+#toc nav li.active {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.legals {
+  padding: 1.5em;
+  background-color: #222222;
+  color: #f8f5f5;
+  width: 70%;
+  clear: both;
+  font-size: small;
+}
+body {
+  background-color: #f8f5f5;
+  font-family: sans-serif;
+  color: #222222;
+}
+li {
+  display: inline;
 }
 h2 {
-  font-size: 24px;
-  display: inline-block;
-}
-.thematique h2,
-h2.thematique {
-  border-bottom: 10px solid #D71218;
-  margin-bottom: 20px;
+  /*font-size: 24px;
+    display: inline-block;*/
+
 }
 .thematique {
   display: inline-block;
-  width: 100%;
-  background-color: #fff;
+  /*width: 100%;
+  background-color: @color-bg;
   box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
   margin: 30px;
-  padding: 30px;
+  padding: 30px;*/
+
 }
-aside {
+.thematique header {
+  margin-bottom: 1.5em;
+}
+.thematique h2,
+h2.thematique {
+  margin: 3em 0 0;
+  padding-bottom: 20px;
+  border-bottom: 10px solid #d71218;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.thematique header nav {
+  display: block;
+  width: 100%;
+  margin: 1.5em 0;
+  clear: both;
+  text-align: center;
+  font-size: 90%;
+}
+.thematique header nav li {
   display: inline-block;
-  width: 90%;
-  background-color: #fff;
-  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
-  margin: 10px;
-  padding: 10px;
+  margin: 5px 3.3333333333333335px;
+}
+.thematique header nav li a {
+  background: #f8f5f5;
+  padding: 5px 10px;
+  border: 1px solid;
+  border-radius: 5px;
+  color: #d71218;
+}
+.thematique header h3 {
+  position: absolute;
+  left: -999em;
+  height: 1%;
+}
+.thematique header p {
+  margin: 0;
+  color: #666666;
+  font-size: small;
 }
 .thematique section {
   display: inline-block;
-  width: 90%;
-  background-color: #fff;
+  /*width: 90%;
+  background-color: @color-bg;
   box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
   margin: 30px;
-  padding: 30px;
+  padding: 30px;*/
+
+  margin-bottom: 3em;
 }
 .thematique section ul {
   padding-left: 20px;
@@ -1040,25 +1146,32 @@ aside {
   margin: 0 5px 0 -15px;
 }
 .thematique section h3 {
-  background-color: #333;
-  color: #f8f5f5;
+  /*background-color: #333;
+  color:@color-bg;
   font-size: 1.10em;
-  padding: 30px;
+  padding:30px;*/
+
+  font-weight: bold;
+}
+.thematique section h3 span {
+  color: #666666;
+  font-weight: normal;
+  display: block;
+  font-size: small;
+  text-transform: uppercase;
+  letter-spacing: .06em;
 }
 .thematique section ul li {
   margin-bottom: 16px;
 }
 .thematique section ul li ul li {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 .thematique ul li {
   display: block;
 }
 .thematique ul li::before {
   padding-right: .3em;
-}
-.thematique section h3 span {
-  margin-right: 5px;
 }
 .thematique section ul li {
   position: relative;
@@ -1069,20 +1182,25 @@ aside {
   left: -20px;
   top: 4px;
 }
+aside {
+  display: inline-block;
+  /*width: 90%;
+  background-color: @color-bg;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  margin: @gutter;
+  padding: @gutter;*/
+
+  font-size: small;
+}
 .thematique aside {
+  width: 100%;
+  margin: 1.5em 0;
+  padding: 10px;
   background-color: #DDDDDD;
 }
+/*
 .thematique section p {
-  margin: 0 10px;
+    margin: 0 @gutter;
 }
-.content {
-  width: 70%;
-  float: left;
-}
-main {
-  clear: both;
-}
-.legals {
-  width: 70%;
-  clear: both;
-}
+*/
+/* end */
