@@ -45,34 +45,12 @@ body { text-align: center; }
   padding: @line-height*2em;
 }
 
-
 /* main + content */
 
-main {
-  clear:both;
-}
+main { clear:both; }
+.content {}
 
-.content {
-  /*width:70%;
-  float:left;*/
-}
-
-#howto { color: @color-mid; font-size: small; display: none; }
-
-.fixed { position: fixed; }
-
-#toc {
-  top: 150px;
-  left: 0;
-  /*width: 200px;*/
-  padding: @gutter*2 0;
-  background-color: @color-txt;
-  color: @color-bg;
-}
-#toc h2 { padding: 0 @gutter*3; /*text-align:center;*/ }
-#toc ul { margin:0; /*padding-left:@gutter;*/ }
-#toc nav li { display:block; padding: 0 @gutter*3; }
-#toc nav li.on { padding-top: @gutter/2; padding-bottom: @gutter/2; background-color: @color; }
+/* footer */
 
 #footer {
   padding: @p;

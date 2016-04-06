@@ -997,45 +997,7 @@ body {
 main {
   clear: both;
 }
-.content {
-  /*width:70%;
-  float:left;*/
-
-}
-#howto {
-  color: #666666;
-  font-size: small;
-  display: none;
-}
-.fixed {
-  position: fixed;
-}
-#toc {
-  top: 150px;
-  left: 0;
-  /*width: 200px;*/
-
-  padding: 20px 0;
-  background-color: #222222;
-  color: #f8f5f5;
-}
-#toc h2 {
-  padding: 0 30px;
-  /*text-align:center;*/
-}
-#toc ul {
-  margin: 0;
-  /*padding-left:@gutter;*/
-}
-#toc nav li {
-  display: block;
-  padding: 0 30px;
-}
-#toc nav li.on {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  background-color: #337ab7;
-}
+/* footer */
 #footer {
   padding: 1.5em;
   background-color: rgba(102, 102, 102, 0.2);
@@ -1069,6 +1031,42 @@ h2 {
     display: inline-block;*/
 
 }
+#howto {
+  color: #666666;
+  font-size: small;
+  display: none;
+}
+/* nav laterale */
+.fixed {
+  position: fixed;
+}
+#toc {
+  top: 150px;
+  left: 0;
+  /*width: 200px;*/
+
+  padding: 20px 0;
+  background-color: #222222;
+  color: #f8f5f5;
+}
+#toc h2 {
+  padding: 0 30px;
+  /*text-align:center;*/
+}
+#toc ul {
+  margin: 0;
+  /*padding-left:@gutter;*/
+}
+#toc nav li {
+  display: block;
+  padding: 0 30px;
+}
+#toc nav li.on {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #337ab7;
+}
+/* thematique */
 .thematique {
   display: inline-block;
   /*width: 100%;
