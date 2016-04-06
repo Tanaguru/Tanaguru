@@ -1,0 +1,71 @@
+/* --------------------------------------------------
+
+   Layout
+
+----------------------------------------------------- */
+@import "var.less";
+
+body { text-align: center; }
+.page { max-width: 768px; margin: @p auto; text-align: left; }
+@media ( max-width: 768px) { .page { width: 80%; } }
+@media ( max-width: 480px) { .page { width: auto; margin: 1em 10px; } }
+
+/* skiplinks */
+
+main .skiplink { text-align: center; }
+main .skiplink * { display: inline; }
+main .skiplink a { margin: 0 @gutter/2; }
+
+@media print {
+.skiplink { display: none; }
+}
+
+/* header + nav */
+
+#skiplinks,
+#header nav { float: left; }
+#skiplinks { margin: @gutter/2 @gutter; color: @color-txt; }
+
+#header nav { width:100%; }
+#header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: @color;
+  color: @color-bg;
+}
+#header nav li { float: left; }
+#header nav li a,
+#header nav li .on { display: block; color: @color-bg; text-align: center; padding: @gutter*2; }
+#header nav li .on { background: @color-bg; color: @color; font-weight: normal; }
+#header nav li a:focus,
+#header nav li a:hover,
+#header nav li a:active { background-color: fade(@color-bg, 20%); }
+
+#header h1,
+#header p {
+  clear:both;
+}
+
+#header h1 {
+  text-align: center;
+  font-weight: bold;
+  color: @color;
+  padding: @line-height*2em;
+}
+
+/* main + content */
+
+main { clear:both; }
+.content {}
+
+/* footer */
+
+#footer {
+  padding: @p;
+  background-color: fade(@color-mid, 20%);
+  border-top: @gutter solid @color;
+  font-size: small;
+}
+#footer .page { padding: @p*2 0 @p; }

@@ -5,8 +5,8 @@ $(window).scroll(function() {
         var id = $(this).attr('id');
         
         if (position >= target) {
-            $('#navigation > ul > li').removeClass('active');
-            $('#navigation > ul > li > a[href=#' + id + ']').parent().addClass('active');
+            $('#navigation > ol > li').removeClass('on');
+            $('#navigation > ol > li > a[href=#' + id + ']').parent().addClass('on');
         }
     });
 });
