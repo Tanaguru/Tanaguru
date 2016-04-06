@@ -255,10 +255,10 @@ body {
 }
 /* Fonts */
 .font1 {
-  font-family: sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .font2 {
-  font-family: sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .font3 {
   font-family: monospace;
@@ -1062,7 +1062,7 @@ main {
 }
 body {
   background-color: #f8f5f5;
-  font-family: sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #222222;
 }
 a {
