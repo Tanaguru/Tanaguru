@@ -1041,10 +1041,14 @@ a:active {
 .nav a {
   border-width: 0;
 }
+h2 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2em;
+}
 #howto {
   color: #666666;
   font-size: small;
-  display: none;
 }
 /* nav laterale */
 #toc h2 {
@@ -1108,14 +1112,10 @@ a:active {
 .thematique header {
   margin-bottom: 1.5em;
 }
-.thematique h2,
-h2.thematique {
+.thematique h2 {
   margin: 3em 0 0;
   padding-bottom: 20px;
   border-bottom: 10px solid #337ab7;
-  font-weight: bold;
-  font-size: 2em;
-  text-align: center;
   text-transform: uppercase;
 }
 .thematique header nav {
