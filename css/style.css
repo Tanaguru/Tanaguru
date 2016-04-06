@@ -1065,6 +1065,17 @@ body {
   font-family: sans-serif;
   color: #222222;
 }
+a {
+  text-decoration: none;
+  border-width: 0 0 1px;
+  border-style: dotted;
+}
+a:focus,
+a:hover,
+a:active {
+  color: #d71218;
+  border-style: solid;
+}
 li {
   display: inline;
 }
