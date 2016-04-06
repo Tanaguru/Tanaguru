@@ -46,19 +46,21 @@ body {
   float: left;
 }
 #header nav li a,
-#header nav li .active {
+#header nav li .on {
   display: block;
   color: #f8f5f5;
   text-align: center;
   padding: 20px;
 }
-#header nav li .active {
+#header nav li .on {
   background: #f8f5f5;
   color: #337ab7;
+  font-weight: normal;
 }
-/* Change the link color to #111 (black) on hover */
-#header nav li a:hover {
-  background-color: #111;
+#header nav li a:focus,
+#header nav li a:hover,
+#header nav li a:active {
+  background-color: rgba(248, 245, 245, 0.2);
 }
 #header h1,
 #header p {
@@ -69,9 +71,6 @@ body {
   font-weight: bold;
   color: #337ab7;
   padding: 3em;
-}
-.active {
-  background-color: #337ab7;
 }
 /* main + content */
 main {
@@ -111,13 +110,14 @@ main {
   display: block;
   padding: 0 30px;
 }
-#toc nav li.active {
+#toc nav li.on {
   padding-top: 5px;
   padding-bottom: 5px;
+  background-color: #337ab7;
 }
 #footer {
   padding: 1.5em;
-  background-color: #DDD;
+  background-color: rgba(102, 102, 102, 0.2);
   border-top: 10px solid #337ab7;
   font-size: small;
 }

@@ -13,19 +13,10 @@ body { text-align: center; }
 /* header + nav */
 
 #skiplinks,
-#header nav {
-  float: left; 
-}
+#header nav { float: left; }
+#skiplinks { margin: 3px 0 0 @gutter; color: @color-txt; }
 
-#skiplinks {
-  margin: 3px 0 0 @gutter;
-  color: @color-txt;
-}
-
-#header nav {
-  width:100%;
-}
-
+#header nav { width:100%; }
 #header nav ul {
   list-style-type: none;
   margin: 0;
@@ -34,16 +25,13 @@ body { text-align: center; }
   background-color: @color;
   color: @color-bg;
 }
-
 #header nav li { float: left; }
 #header nav li a,
-#header nav li .active { display: block; color: @color-bg; text-align: center; padding: @gutter*2; }
-#header nav li .active { background: @color-bg; color: @color; }
-
-/* Change the link color to #111 (black) on hover */
-#header nav li a:hover {
-    background-color: #111;
-}
+#header nav li .on { display: block; color: @color-bg; text-align: center; padding: @gutter*2; }
+#header nav li .on { background: @color-bg; color: @color; font-weight: normal; }
+#header nav li a:focus,
+#header nav li a:hover,
+#header nav li a:active { background-color: fade(@color-bg, 20%); }
 
 #header h1,
 #header p {
@@ -57,9 +45,6 @@ body { text-align: center; }
   padding: @line-height*2em;
 }
 
-.active {
-    background-color: @color;
-}
 
 /* main + content */
 
@@ -87,12 +72,11 @@ main {
 #toc h2 { padding: 0 @gutter*3; /*text-align:center;*/ }
 #toc ul { margin:0; /*padding-left:@gutter;*/ }
 #toc nav li { display:block; padding: 0 @gutter*3; }
-#toc nav li.active { padding-top: @gutter/2; padding-bottom: @gutter/2; }
-
+#toc nav li.on { padding-top: @gutter/2; padding-bottom: @gutter/2; background-color: @color; }
 
 #footer {
   padding: @p;
-  background-color: #DDD;
+  background-color: fade(@color-mid, 20%);
   border-top: @gutter solid @color;
   font-size: small;
 }
