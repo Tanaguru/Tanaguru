@@ -1,189 +1,162 @@
-header h1, header p {
-	clear:both;
+header h1,
+header p {
+  clear: both;
 }
-
-#skiplinks, header nav {
-	float:left; 
-}
-
-#skiplinks {
-	margin: 3px 0 0 10px;
-	color:#000000;
-}
-
- li {
-	display:inline;
-}
-
+#skiplinks,
 header nav {
-	background-color: #333;
-	width:100%;
-	color: #FFFFFF;
+  float: left;
 }
-
+#skiplinks {
+  margin: 3px 0 0 10px;
+  color: #000000;
+}
+li {
+  display: inline;
+}
+header nav {
+  background-color: #333;
+  width: 100%;
+  color: #FFFFFF;
+}
 header nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
 }
-
- header nav li {
-    float: left;
+header nav li {
+  float: left;
 }
-
- header nav li {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+header nav li {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
-
 .active {
-    background-color: #D71218;
+  background-color: #D71218;
 }
-
 /* Change the link color to #111 (black) on hover */
 header nav li a:hover {
-    background-color: #111;
+  background-color: #111;
 }
-
-header h1, header p {
-	color:#000000;
-	clear:both;
+header h1,
+header p {
+  color: #000000;
+  clear: both;
 }
-
 header h1 {
-	text-align: center;
+  text-align: center;
 }
-
 .fixed {
   position: fixed;
   bottom: 80px;
   right: 0;
   width: 200px;
   background-color: #333;
-  color:#FFFFFF;
+  color: #FFFFFF;
 }
-
 .fixed ul {
-	padding-left:10px;
-	margin:0;
+  padding-left: 10px;
+  margin: 0;
 }
-
-.fixed nav li{
-	display:block;
+.fixed nav li {
+  display: block;
 }
-
 .fixed h2 {
-	text-align:center;
+  text-align: center;
 }
-
 h2 {
-    font-size: 24px;
-    display: inline-block;
+  font-size: 24px;
+  display: inline-block;
 }
-
-.thematique h2, h2.thematique {
-    border-bottom: 10px solid #D71218;
-    margin-bottom: 20px;
+.thematique h2,
+h2.thematique {
+  border-bottom: 10px solid #D71218;
+  margin-bottom: 20px;
 }
-
 .thematique {
-	display: inline-block;
-    width: 100%;
-    background-color: #fff;
-    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
-	margin: 30px;
-    padding: 30px;
+  display: inline-block;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  margin: 30px;
+  padding: 30px;
 }
-
 aside {
-	display: inline-block;
-    width: 90%;
-    background-color: #fff;
-    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
-	margin: 10px;
-    padding: 10px;	
+  display: inline-block;
+  width: 90%;
+  background-color: #fff;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  padding: 10px;
 }
-
 .thematique section {
-		display: inline-block;
-    width: 90%;
-    background-color: #fff;
-    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
-	margin: 30px;
-    padding: 30px;
+  display: inline-block;
+  width: 90%;
+  background-color: #fff;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  margin: 30px;
+  padding: 30px;
 }
-
-.thematique section {
-	ul { padding-left:20px; list-style:none; }
-	li { margin-bottom:10px; }
-	li:before {    
-    font-family: 'FontAwesome';
-    content: '\f067';
-    margin:0 5px 0 -15px;
-	}
+.thematique section ul {
+  padding-left: 20px;
+  list-style: none;
 }
-
-.thematique section h3{
+.thematique section li {
+  margin-bottom: 10px;
+}
+.thematique section li:before {
+  font-family: 'FontAwesome';
+  content: '\f067';
+  margin: 0 5px 0 -15px;
+}
+.thematique section h3 {
   background-color: #333;
-  color:#FFFFFF;
+  color: #FFFFFF;
   font-size: 1.10em;
-  padding:30px;
+  padding: 30px;
 }
-
-.thematique section ul li{
+.thematique section ul li {
   margin-bottom: 16px;
 }
-
-.thematique section ul li ul li{
+.thematique section ul li ul li {
   margin-bottom: 0px;
 }
-
-.thematique ul li{
-  display:block;
+.thematique ul li {
+  display: block;
 }
-
-.thematique ul li::before{
+.thematique ul li::before {
   padding-right: .3em;
 }
-
-.thematique section h3 span{
-	margin-right:5px;
+.thematique section h3 span {
+  margin-right: 5px;
 }
-
 .thematique section ul li {
-	position: relative;
-  padding-left: -20px; 
+  position: relative;
+  padding-left: -20px;
 }
-
-.thematique section ul li span{
-	position:absolute;
-    left: -20px;
-    top: 4px;
+.thematique section ul li span {
+  position: absolute;
+  left: -20px;
+  top: 4px;
 }
-
 .thematique aside {
-	background-color:#DDDDDD;
+  background-color: #DDDDDD;
 }
-
 .thematique section p {
-    margin: 0 10px;
+  margin: 0 10px;
 }
-
 .content {
-	width:70%;
-	float:left;
+  width: 70%;
+  float: left;
 }
-
 main {
-	clear:both;
+  clear: both;
 }
-
 .legals {
-	width: 70%;
-	clear:both;
+  width: 70%;
+  clear: both;
 }
