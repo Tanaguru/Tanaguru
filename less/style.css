@@ -1,3 +1,140 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* Print styles from HTML5 Boilerplate */
+@media print {
+  * {
+    text-shadow: none !important;
+    color: #000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+}
 /* --------------------------------------------------
 
    Composition helpers
@@ -782,134 +919,165 @@ a:active img {
   }
   /* Don't show links for images, or javascript/internal links */
 }
-/* --------------------------------------------------
-
-   Illustrations, images and albums
-   
-   (c) 2010-2014 Tiny Typo v1.3.2 - MIT License - tinytypo.tetue.net
-
------------------------------------------------------ */
-/* Make images responsive by default */
-img {
-  max-width: 100%;
-  height: auto;
+header h1,
+header p {
+  clear: both;
 }
-@media print {
-  img {
-    max-width: 100% !important;
-  }
+#skiplinks,
+header nav {
+  float: left;
 }
-img {
-  vertical-align: middle;
+#skiplinks {
+  margin: 3px 0 0 10px;
+  color: #000000;
 }
-/**
- * 1. Correct `inline-block` display not defined in IE 8/9.
- * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
- */
-audio,
-canvas,
-progress,
-video {
-  display: inline-block;
-  /* 1 */
-
-  vertical-align: baseline;
-  /* 2 */
-
+li {
+  display: inline;
 }
-/**
- * Prevent modern browsers from displaying `audio` without controls.
- * Remove excess height in iOS 5 devices.
- */
-audio:not([controls]) {
-  display: none;
-  height: 0;
+header nav {
+  background-color: #333;
+  width: 100%;
+  color: #FFFFFF;
 }
-/**
- * Address `[hidden]` styling not present in IE 8/9/10.
- * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
- */
-[hidden],
-template {
-  display: none;
-}
-/**
- * Remove border when inside `a` element in IE 8/9/10.
- */
-img {
-  border: 0;
-}
-/**
- * Correct overflow not hidden in IE 9/10/11.
- */
-svg:not(:root) {
-  overflow: hidden;
-}
-/* thumbnail */
-.thumb,
-.thumb.left {
-  margin: 0 10px 10px 0;
-}
-.thumb.right {
-  margin: 0 0 10px 10px;
-}
-/* style effects */
-img.round {
-  border-radius: 5px;
-}
-img.circle {
-  border-radius: 50%;
-}
-img.border {
-  padding: 4px;
-  background-color: #fff;
-  border: 1px solid #bbb;
-}
-img.shadow {
-  box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7), -1px 2px 20px rgba(255, 255, 255, 0.6) inset;
-}
-/* figure */
-figure {
+header nav ul {
+  list-style-type: none;
   margin: 0;
-  margin-bottom: 0.75em;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+header nav li {
+  float: left;
+}
+header nav li {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.active {
+  background-color: #D71218;
+}
+/* Change the link color to #111 (black) on hover */
+header nav li a:hover {
+  background-color: #111;
+}
+header h1,
+header p {
+  color: #000000;
+  clear: both;
+}
+header h1 {
   text-align: center;
 }
-figure.center {
-  margin-bottom: 1.5em;
+.fixed {
+  position: fixed;
+  bottom: 80px;
+  right: 0;
+  width: 200px;
+  background-color: #333;
+  color: #FFFFFF;
 }
-figure.left {
-  margin-right: 1.5em;
-}
-figure.right {
-  margin-left: 1.5em;
-}
-@media (max-width: 640px) {
-  figure {
-    margin-bottom: 1.5em;
-  }
-  figure.left {
-    float: none;
-    margin-right: 0;
-  }
-  figure.right {
-    float: none;
-    margin-left: 0;
-  }
-}
-/* album */
-.album {
-  margin-bottom: 1.5em;
-}
-.album ul {
-  overflow: hidden;
+.fixed ul {
+  padding-left: 10px;
   margin: 0;
+}
+.fixed nav li {
+  display: block;
+}
+.fixed h2 {
+  text-align: center;
+}
+h2 {
+  font-size: 24px;
+  display: inline-block;
+}
+.thematique h2,
+h2.thematique {
+  border-bottom: 10px solid #D71218;
+  margin-bottom: 20px;
+}
+.thematique {
+  display: inline-block;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  margin: 30px;
+  padding: 30px;
+}
+aside {
+  display: inline-block;
+  width: 90%;
+  background-color: #fff;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  padding: 10px;
+}
+.thematique section {
+  display: inline-block;
+  width: 90%;
+  background-color: #fff;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  margin: 30px;
+  padding: 30px;
+}
+.thematique section ul {
+  padding-left: 20px;
   list-style: none;
 }
-.album li {
-  float: left;
-  margin: 0;
-  margin: 0 10px 10px 0;
+.thematique section li {
+  margin-bottom: 10px;
 }
-.album .thumb {
-  margin: 0;
+.thematique section li:before {
+  font-family: 'FontAwesome';
+  content: '\f067';
+  margin: 0 5px 0 -15px;
+}
+.thematique section h3 {
+  background-color: #333;
+  color: #FFFFFF;
+  font-size: 1.10em;
+  padding: 30px;
+}
+.thematique section ul li {
+  margin-bottom: 16px;
+}
+.thematique section ul li ul li {
+  margin-bottom: 0px;
+}
+.thematique ul li {
+  display: block;
+}
+.thematique ul li::before {
+  padding-right: .3em;
+}
+.thematique section h3 span {
+  margin-right: 5px;
+}
+.thematique section ul li {
+  position: relative;
+  padding-left: -20px;
+}
+.thematique section ul li span {
+  position: absolute;
+  left: -20px;
+  top: 4px;
+}
+.thematique aside {
+  background-color: #DDDDDD;
+}
+.thematique section p {
+  margin: 0 10px;
+}
+.content {
+  width: 70%;
+  float: left;
+}
+main {
+  clear: both;
+}
+.legals {
+  width: 70%;
+  clear: both;
 }

@@ -1,3 +1,239 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* Print styles from HTML5 Boilerplate */
+@media print {
+  * {
+    text-shadow: none !important;
+    color: #000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+}
+/* --------------------------------------------------
+
+   Composition helpers
+   [fr] Aides a la composition
+   
+   (c) 2010-2014 Tiny Typo v1.3.2 - MIT License - tinytypo.tetue.net
+
+----------------------------------------------------- */
+/* Box model
+[fr] http://blog.goetter.fr/post/27612618411/box-sizing-et-pourquoi-pas
+[en] http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* Blocks */
+.block {
+  display: block;
+  margin-bottom: 1.5em;
+}
+.inline {
+  display: inline;
+}
+.inline-block {
+  display: inline-block;
+}
+/* Positioning */
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.center {
+  margin-right: auto;
+  margin-left: auto;
+}
+/* Blocks spacer
+[fr] Espaceur de blocs : http://romy.tetue.net/657 */
+.clear {
+  clear: both;
+}
+br.clear {
+  clear: both;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 0;
+  line-height: 1px;
+  font-size: 1px;
+}
+hr.clear {
+  visibility: hidden;
+}
+/* clearfix : http://www.positioniseverything.net/easyclearing.html */
+.clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  overflow: hidden;
+}
+.clearfix {
+  display: inline-table;
+}
+/* Hides from IE-mac \*/
+.clearfix {
+  height: 1%;
+}
+.clearfix {
+  display: block;
+}
+/* End hide from IE-mac */
+/* Not visible */
+.offscreen {
+  position: absolute;
+  left: -999em;
+  height: 1%;
+}
+.hidden {
+  visibility: hidden;
+}
+.none {
+  display: none;
+}
+/* debug */
+.todo {
+  opacity: 0.5;
+}
+.todo:hover {
+  opacity: 1;
+}
+.blink {
+  text-decoration: blink;
+}
 /* --------------------------------------------------
 
    Typographical base
@@ -581,4 +817,267 @@ Inlined to avoid required HTTP connection: h5bp.com/r */
   h3 {
     page-break-after: avoid;
   }
+}
+/* --------------------------------------------------
+
+   Hyperlinks
+   
+   (c) 2010-2014 Tiny Typo v1.3.2 - MIT License - tinytypo.tetue.net
+
+----------------------------------------------------- */
+/* Hyperlinks
+[fr] Signalétique des hyperliens : http://letrainde13h37.fr/43/signaletique-hyperliens/ */
+a {
+  background: transparent;
+  color: inherit;
+}
+a:visited {
+  color: inherit;
+}
+a:focus {
+  outline: thin dotted;
+  background: #222222 !important;
+  border-color: #222222 !important;
+  color: #f8f8f8 !important;
+  text-shadow: none;
+}
+a:hover {
+  outline: 0;
+  cursor: pointer;
+}
+a:active {
+  outline: 0;
+}
+/* a { outline: none; }
+[en] http://www.outlinenone.com
+[fr] http://www.outlinenone.fr
+*/
+a:after,
+a:before,
+a small {
+  font-size: 90%;
+  opacity: .9;
+}
+a[hreflang]:after {
+  content: "\0000a0[" attr(hreflang) "]";
+}
+/* External Links */
+a.external:after {
+  content: "\0000a0\279A";
+}
+a[hreflang].external:after {
+  content: "\0000a0[" attr(hreflang) "]\0000a0\279A";
+}
+/* mailto / tel */
+a.mailto:after {
+  content: "\0000a0\2709";
+}
+a.tel:after {
+  content: "\0000a0\2706";
+}
+/* Documents */
+a.download:after {
+  content: "\0000a0\21A7";
+}
+a[hreflang].download:after {
+  content: "\0000a0[" attr(hreflang) "]\0000a0\21A7";
+}
+a.audio:after {
+  content: "\0000a0\266B";
+}
+a[hreflang].audio:after {
+  content: "\0000a0[" attr(hreflang) "]\0000a0\266B";
+}
+/* Linked images */
+a img {
+  border: 0;
+}
+a:focus img,
+a:active img {
+  -moz-transform: translateY(1px);
+  -webkit-transform: translateY(1px);
+  -o-transform: translateY(1px);
+  -ms-transform: translate(1px);
+  transform: translateY(1px);
+}
+@media print {
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a:after {
+    content: '';
+  }
+  a[rel="external"]:after,
+  a.external:after {
+    content: " (" attr(href) ")";
+  }
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: '';
+  }
+  /* Don't show links for images, or javascript/internal links */
+}
+header h1,
+header p {
+  clear: both;
+}
+#skiplinks,
+header nav {
+  float: left;
+}
+#skiplinks {
+  margin: 3px 0 0 10px;
+  color: #000000;
+}
+li {
+  display: inline;
+}
+header nav {
+  background-color: #333;
+  width: 100%;
+  color: #FFFFFF;
+}
+header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+header nav li {
+  float: left;
+}
+header nav li {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.active {
+  background-color: #D71218;
+}
+/* Change the link color to #111 (black) on hover */
+header nav li a:hover {
+  background-color: #111;
+}
+header h1,
+header p {
+  color: #000000;
+  clear: both;
+}
+header h1 {
+  text-align: center;
+}
+.fixed {
+  position: fixed;
+  bottom: 80px;
+  right: 0;
+  width: 200px;
+  background-color: #333;
+  color: #FFFFFF;
+}
+.fixed ul {
+  padding-left: 10px;
+  margin: 0;
+}
+.fixed nav li {
+  display: block;
+}
+.fixed h2 {
+  text-align: center;
+}
+h2 {
+  font-size: 24px;
+  display: inline-block;
+}
+.thematique h2,
+h2.thematique {
+  border-bottom: 10px solid #D71218;
+  margin-bottom: 20px;
+}
+.thematique {
+  display: inline-block;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  margin: 30px;
+  padding: 30px;
+}
+aside {
+  display: inline-block;
+  width: 90%;
+  background-color: #fff;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  padding: 10px;
+}
+.thematique section {
+  display: inline-block;
+  width: 90%;
+  background-color: #fff;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  margin: 30px;
+  padding: 30px;
+}
+.thematique section ul {
+  padding-left: 20px;
+  list-style: none;
+}
+.thematique section li {
+  margin-bottom: 10px;
+}
+.thematique section li:before {
+  font-family: 'FontAwesome';
+  content: '\f067';
+  margin: 0 5px 0 -15px;
+}
+.thematique section h3 {
+  background-color: #333;
+  color: #FFFFFF;
+  font-size: 1.10em;
+  padding: 30px;
+}
+.thematique section ul li {
+  margin-bottom: 16px;
+}
+.thematique section ul li ul li {
+  margin-bottom: 0px;
+}
+.thematique ul li {
+  display: block;
+}
+.thematique ul li::before {
+  padding-right: .3em;
+}
+.thematique section h3 span {
+  margin-right: 5px;
+}
+.thematique section ul li {
+  position: relative;
+  padding-left: -20px;
+}
+.thematique section ul li span {
+  position: absolute;
+  left: -20px;
+  top: 4px;
+}
+.thematique aside {
+  background-color: #DDDDDD;
+}
+.thematique section p {
+  margin: 0 10px;
+}
+.content {
+  width: 70%;
+  float: left;
+}
+main {
+  clear: both;
+}
+.legals {
+  width: 70%;
+  clear: both;
 }
