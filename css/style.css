@@ -1082,23 +1082,18 @@ h2 {
   background-color: #337ab7;
   color: #f8f5f5;
 }
-@media (min-width: 1280px) {
-  #toc {
-    position: fixed;
-    top: 150px;
-    left: 0;
-    padding: 20px 0;
-    background-color: rgba(248, 245, 245, 0.9);
-  }
-  #toc h2 {
-    padding: 0 30px;
-    text-align: left;
-  }
-  #toc nav li a {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
+/*@media (min-width: 1280px) {
+#toc {
+  position: fixed;
+  top: 150px;
+  left: 0;
+  padding: @gutter*2 0;
+  background-color: fade(@color-bg, 90%);
 }
+#toc h2 { padding: 0 @gutter*3; text-align: left; }
+#toc nav li a { padding-left: @gutter*3; padding-right: @gutter*3; }
+
+}*/
 /* thematique */
 .thematique {
   display: inline-block;
