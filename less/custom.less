@@ -14,6 +14,9 @@ h2 {
   font-size: 2em;
 }
 
+pre, code, kbd, samp, var, tt { font-family: @font3; font-size: 90%; border-radius: 4px; }
+pre, code, samp, var, tt { padding: .1em .3em; background-color: fade(@color,5%); border: 1px solid fadeout(@color,90%); white-space: nowrap; }
+
 #howto { color: @color-mid; font-size: small; }
 
 /* thematique */
@@ -37,7 +40,7 @@ h2 {
 }
 
 .thematique header {}
-.thematique header nav { display: block; width: 100%; margin: @p 0; clear: both; text-align: center; font-size: 90%; }
+.thematique header nav { display: block; width: 100%; margin: @p 0; clear: both; text-align: center; font-size: 80%; }
 .thematique header nav li { display: inline-block; margin: @gutter/2 @gutter/3; }
 .thematique header nav li a { display: block; margin: 0; padding: @gutter/2 @gutter; border: 1px solid; border-radius: @gutter/2; color: @color; }
 .thematique header nav li a:focus,

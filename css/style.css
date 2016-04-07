@@ -261,7 +261,7 @@ body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .font3 {
-  font-family: monospace;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
 }
 .font4 {
   font-family: fantasy;
@@ -684,7 +684,7 @@ kbd,
 samp,
 var,
 tt {
-  font-family: monospace;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
   font-size: 1em;
 }
 pre {
@@ -1105,6 +1105,26 @@ h2 {
   font-weight: bold;
   font-size: 2em;
 }
+pre,
+code,
+kbd,
+samp,
+var,
+tt {
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+  font-size: 90%;
+  border-radius: 4px;
+}
+pre,
+code,
+samp,
+var,
+tt {
+  padding: .1em .3em;
+  background-color: rgba(44, 105, 158, 0.05);
+  border: 1px solid rgba(44, 105, 158, 0.09999999999999998);
+  white-space: nowrap;
+}
 #howto {
   color: #666666;
   font-size: small;
@@ -1134,7 +1154,7 @@ h2 {
   margin: 1.5em 0;
   clear: both;
   text-align: center;
-  font-size: 90%;
+  font-size: 80%;
 }
 .thematique header nav li {
   display: inline-block;
