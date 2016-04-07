@@ -1,9 +1,9 @@
 body { background-color: @color-bg; .font1; color: @color-txt; }
 
-a { text-decoration: none; border-width: 0 0 1px; border-style: dotted; }
+a { text-decoration: none; border-width: 0 0 1px; border-style: dotted; border-color: @color; }
 a:focus,
 a:hover,
-a:active { color: @color; border-style: solid; }
+a:active { color: @color; border-width: 0 0 2px; border-style: solid; }
 
 .nav {}
 .nav a { border-width: 0; }
@@ -14,34 +14,10 @@ h2 {
   font-size: 2em;
 }
 
+pre, code, kbd, samp, var, tt { font-family: @font3; font-size: 90%; border-radius: 4px; }
+pre, code, samp, var, tt { padding: .1em .3em; background-color: fade(@color,5%); border: 1px solid fadeout(@color,90%); white-space: nowrap; }
+
 #howto { color: @color-mid; font-size: small; }
-
-/* nav laterale */
-
-#toc {}
-#toc h2 { color: @color; font-size: 1em; font-weight: bold; text-align: center; }
-#toc nav ul,
-#toc nav li { border-color: fade(@color-mid, 20%); border-style: solid; }
-#toc nav ol { border-width: 1px 0 0; }
-#toc nav li { border-width: 0 0 1px; }
-#toc nav li a { display: block; padding: @gutter/2; }
-#toc nav li a:focus,
-#toc nav li a:hover,
-#toc nav li a:active { background-color: fade(@color, 20%); color: inherit; }
-#toc nav li.on { background-color: @color; color: @color-bg; }
-
-@media (min-width: 1280px) {
-#toc {
-  position: fixed;
-  top: 150px;
-  left: 0;
-  padding: @gutter*2 0;
-  background-color: fade(@color-bg, 90%);
-}
-#toc h2 { padding: 0 @gutter*3; text-align: left; }
-#toc nav li a { padding-left: @gutter*3; padding-right: @gutter*3; }
-
-}
 
 /* thematique */
 
@@ -64,15 +40,16 @@ h2 {
 }
 
 .thematique header {}
-.thematique header nav { display: block; width: 100%; margin: @p 0; clear: both; text-align: center; font-size: 90%; }
+.thematique header nav { display: block; width: 100%; margin: @p 0; clear: both; text-align: center; font-size: 80%; }
 .thematique header nav li { display: inline-block; margin: @gutter/2 @gutter/3; }
 .thematique header nav li a { display: block; margin: 0; padding: @gutter/2 @gutter; border: 1px solid; border-radius: @gutter/2; color: @color; }
 .thematique header nav li a:focus,
 .thematique header nav li a:hover,
 .thematique header nav li a:active { background-color: fade(@color, 10%); }
 
-.thematique header h3 { .offscreen; }
+.thematique header h3,
 .thematique header p { margin: 0; color: @color-mid; font-size: small; }
+.thematique header h3 { font-weight: bold; }
 
 .thematique section {
   /*display: inline-block;
@@ -84,14 +61,7 @@ h2 {
   margin-bottom: @p*2;
 }
 
-.thematique section h3 {
-  /*background-color: #333;
-  color:@color-bg;
-  font-size: 1.10em;
-  padding:30px;*/
-  font-weight: bold;
-}
-
+.thematique section h3 { font-weight: bold; }
 .thematique section h3 em { color: @color; font-weight: normal; font-style: normal; }
 
 .thematique section {
@@ -106,12 +76,11 @@ h2 {
 .thematique .correspondance {
   width: 100%;
   margin: @p 0;
-  padding: @gutter;
-  background-color: fade(@color-mid, 8%);
+  padding-top: @gutter;
+  border-top: 1px dashed fade(@color-mid, 30%);
   color: @color-mid;
-  font-size: small;
-  h4 { margin: 0; font-weight: bold; }
-  p { margin: 0; }
+  h4 { margin: 0; font-weight: bold; font-size: small; }
+  p { margin: 0; font-size: small; }
 }
 
 /* end */
