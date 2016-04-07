@@ -1175,15 +1175,14 @@ tt {
 .thematique header nav li a:active {
   background-color: rgba(44, 105, 158, 0.1);
 }
-.thematique header h3 {
-  position: absolute;
-  left: -999em;
-  height: 1%;
-}
+.thematique header h3,
 .thematique header p {
   margin: 0;
   color: #666666;
   font-size: small;
+}
+.thematique header h3 {
+  font-weight: bold;
 }
 .thematique section {
   /*display: inline-block;
@@ -1196,11 +1195,6 @@ tt {
   margin-bottom: 3em;
 }
 .thematique section h3 {
-  /*background-color: #333;
-  color:@color-bg;
-  font-size: 1.10em;
-  padding:30px;*/
-
   font-weight: bold;
 }
 .thematique section h3 em {
@@ -1242,13 +1236,14 @@ tt {
   padding-top: 10px;
   border-top: 1px dashed rgba(102, 102, 102, 0.3);
   color: #666666;
-  font-size: small;
 }
 .thematique .correspondance h4 {
   margin: 0;
   font-weight: bold;
+  font-size: small;
 }
 .thematique .correspondance p {
   margin: 0;
+  font-size: small;
 }
 /* end */

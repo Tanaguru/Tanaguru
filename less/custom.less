@@ -47,8 +47,9 @@ pre, code, samp, var, tt { padding: .1em .3em; background-color: fade(@color,5%)
 .thematique header nav li a:hover,
 .thematique header nav li a:active { background-color: fade(@color, 10%); }
 
-.thematique header h3 { .offscreen; }
+.thematique header h3,
 .thematique header p { margin: 0; color: @color-mid; font-size: small; }
+.thematique header h3 { font-weight: bold; }
 
 .thematique section {
   /*display: inline-block;
@@ -60,14 +61,7 @@ pre, code, samp, var, tt { padding: .1em .3em; background-color: fade(@color,5%)
   margin-bottom: @p*2;
 }
 
-.thematique section h3 {
-  /*background-color: #333;
-  color:@color-bg;
-  font-size: 1.10em;
-  padding:30px;*/
-  font-weight: bold;
-}
-
+.thematique section h3 { font-weight: bold; }
 .thematique section h3 em { color: @color; font-weight: normal; font-style: normal; }
 
 .thematique section {
@@ -85,9 +79,8 @@ pre, code, samp, var, tt { padding: .1em .3em; background-color: fade(@color,5%)
   padding-top: @gutter;
   border-top: 1px dashed fade(@color-mid, 30%);
   color: @color-mid;
-  font-size: small;
-  h4 { margin: 0; font-weight: bold; }
-  p { margin: 0; }
+  h4 { margin: 0; font-weight: bold; font-size: small; }
+  p { margin: 0; font-size: small; }
 }
 
 /* end */
