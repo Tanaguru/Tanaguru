@@ -16,33 +16,6 @@ h2 {
 
 #howto { color: @color-mid; font-size: small; }
 
-/* nav laterale */
-
-#toc {}
-#toc h2 { color: @color; font-size: 1em; font-weight: bold; text-align: center; }
-#toc nav ul,
-#toc nav li { border-color: fade(@color-mid, 20%); border-style: solid; }
-#toc nav ol { border-width: 1px 0 0; }
-#toc nav li { border-width: 0 0 1px; }
-#toc nav li a { display: block; padding: @gutter/2; }
-#toc nav li a:focus,
-#toc nav li a:hover,
-#toc nav li a:active { background-color: fade(@color, 20%); color: inherit; }
-#toc nav li.on { background-color: @color; color: @color-bg; }
-
-/*@media (min-width: 1280px) {
-#toc {
-  position: fixed;
-  top: 150px;
-  left: 0;
-  padding: @gutter*2 0;
-  background-color: fade(@color-bg, 90%);
-}
-#toc h2 { padding: 0 @gutter*3; text-align: left; }
-#toc nav li a { padding-left: @gutter*3; padding-right: @gutter*3; }
-
-}*/
-
 /* thematique */
 
 .thematique {
