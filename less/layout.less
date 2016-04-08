@@ -47,15 +47,26 @@ main .skiplink a { margin: 0 @gutter/2; }
   text-align: center;
   font-weight: bold;
   color: @color;
-  padding-top: @line-height*2em;
+  padding-top: @line-height*1em;
 }
 #header .lead { text-align: center; }
 
 /* * table of content */
 
-#navtoc { padding: @line-height*2em 0; text-align: center; }
-#navtoc h2 { color: @color; font-size: 1em; font-weight: bold; text-align: center; }
-#navtoc nav ul,
+#navtoc { margin: @line-height*2em 0; padding: @gutter*2; text-align: center; background: fade(@color-mid,10); }
+#navtoc h2 { color: @color; font-size: 1em; font-weight: bold; }
+#navtoc ul {
+  .list-none; margin: 0;
+  * { display: inline-block; }
+  li a { display: block; padding: @gutter/2 @gutter; }
+  /*li a:before { content: ' • '; color: @color; }
+  li:first-child a:before { content: ''; }*/
+  li a:focus,
+  li a:hover,
+  li a:active { background: fade(@color,90); color: @color-bg; }
+}
+
+/*#navtoc nav ul,
 #navtoc nav li { .list-none; border-color: fade(@color-mid, 20%); border-style: solid; }
 #navtoc nav ul { border-width: 1px 0 0; .list-none; }
 #navtoc nav li { border-width: 0 0 1px; }
@@ -63,7 +74,7 @@ main .skiplink a { margin: 0 @gutter/2; }
 #navtoc nav li a:focus,
 #navtoc nav li a:hover,
 #navtoc nav li a:active { background-color: fade(@color, 20%); color: inherit; }
-#navtoc nav li.on { background-color: @color; color: @color-bg; }
+#navtoc nav li.on { background-color: @color; color: @color-bg; }*/
 
 /*@media (min-width: 1280px) {
 #navtoc {
