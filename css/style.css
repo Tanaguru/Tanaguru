@@ -1087,6 +1087,7 @@ body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #222222;
 }
+/* * liens */
 a {
   text-decoration: none;
   border-width: 0 0 1px;
@@ -1102,6 +1103,10 @@ a:active {
 }
 .nav a {
   border-width: 0;
+}
+/* * titres */
+h3 {
+  font-weight: bold;
 }
 h2 {
   text-align: center;
@@ -1132,7 +1137,7 @@ tt {
   color: #666666;
   font-size: small;
 }
-/* thematique */
+/* * thematique */
 .thematique {
   display: inline-block;
   /*width: 100%;
@@ -1182,14 +1187,8 @@ tt {
   color: #666666;
   font-size: small;
 }
-.thematique header h3 {
-  font-weight: bold;
-}
 .thematique section {
   margin-bottom: 3em;
-}
-.thematique section h3 {
-  font-weight: bold;
 }
 .thematique section h3 em {
   color: #2c699e;

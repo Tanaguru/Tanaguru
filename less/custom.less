@@ -1,5 +1,6 @@
 body { background-color: @color-bg; .font1; color: @color-txt; }
 
+/* * liens */
 a { text-decoration: none; border-width: 0 0 1px; border-style: dotted; border-color: @color; }
 a:focus,
 a:hover,
@@ -8,6 +9,8 @@ a:active { color: @color; border-width: 0 0 2px; border-style: solid; }
 .nav {}
 .nav a { border-width: 0; }
 
+/* * titres */
+h3 { font-weight: bold; }
 h2 {
   text-align: center;
   font-weight: bold;
@@ -19,7 +22,7 @@ pre, code, samp, var, tt { padding: .1em .3em; background-color: fade(@color,5%)
 
 #howto { color: @color-mid; font-size: small; }
 
-/* thematique */
+/* * thematique */
 
 .thematique {
   display: inline-block;
@@ -49,10 +52,8 @@ pre, code, samp, var, tt { padding: .1em .3em; background-color: fade(@color,5%)
 
 .thematique header h3,
 .thematique header p { margin: 0; color: @color-mid; font-size: small; }
-.thematique header h3 { font-weight: bold; }
 
 .thematique section { margin-bottom: @p*2; }
-.thematique section h3 { font-weight: bold; }
 .thematique section h3 em { color: @color; font-weight: normal; font-style: normal; }
 
 .thematique section {
