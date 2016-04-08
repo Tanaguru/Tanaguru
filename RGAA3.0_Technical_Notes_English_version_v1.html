@@ -10,7 +10,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	</head>
 	<body>  
-		<header role="banner" id="header">
+		<header id="header" role="banner">
 			<p class="skiplink" id="skiplinks"><a href="#toc">Go to Table of Contents</a></p>
 			<nav id="nav" class="nav" role="navigation">
                 <strong id="logo"><abbr lang="fr" title="Référentiel Général d'Accessibilité des Administrations">RGAA</abbr>&nbsp;3.0</strong>
@@ -23,25 +23,27 @@
 					--><li><a href="./RGAA3.0_References_English_version_v1.html">References</a></li><!--
 				--></ul>
 			</nav>
-			<h1>Technical Notes</h1>
-			<p class="lead">The technical notes below provide explanations regarding some HTML5 elements whose support can be inconsistent across different user agents, and propositions made by the <abbr lang="fr" title="Référentiel Général d'Accessibilité des Administrations">RGAA</abbr> to circumvent potential issues.</p>
-			<div id="toc"> 
-				<h2>Table of Contents</h2>
-				<nav id="navtoc" class="nav" role="navigation" aria-labelledby="toc">
-					<ul>
-						<li><a href="#images">Images</a></li>
-						<li><a href="#tableaux">Tables</a></li>
-						<li><a href="#script">Scripts</a></li>
-						<li><a href="#structure">Information structure</a></li>
-						<li><a href="#presentation">Presentation of information</a></li>
-						<li><a href="#formulaire">Forms</a></li>
-						<li><a href="#navigation">Navigation</a></li>
-					</ul>
-				</nav>
+			<div class="page">
+				<h1>Technical Notes</h1>
+				<p class="lead">The technical notes below provide explanations regarding some HTML5 elements whose support can be inconsistent across different user agents, and propositions made by the <abbr lang="fr" title="Référentiel Général d'Accessibilité des Administrations">RGAA</abbr> to circumvent potential issues.</p>
+				<div id="toc"> 
+					<h2 id="toc">Table of Contents</h2>
+					<nav id="navtoc" class="nav" role="navigation" aria-labelledby="toc">
+						<ul>
+							<li><a href="#images">Images</a></li>
+							<li><a href="#tableaux">Tables</a></li>
+							<li><a href="#script">Scripts</a></li>
+							<li><a href="#structure">Information structure</a></li>
+							<li><a href="#presentation">Presentation of information</a></li>
+							<li><a href="#formulaire">Forms</a></li>
+							<li><a href="#navigation">Navigation</a></li>
+						</ul>
+					</nav>
+				</div>
 			</div>
 		</header>
-		<main class="page" role="main" id="main">
-			<div class="content">
+		<main id="main" role="main">
+			<div class="page">
 				<h2>Images</h2>
 				<h3 id="TNcrit1-1">Criterion 1.1 [A]</h3>
 				<p>Except for <code>svg</code>, the <code>aria-label</code> and <code>aria-labelledby</code> attributes to provide an alternative text, or link the image to a chunk of text provided as an alternative text, can not be used due to lack of support by assistive technologies.
