@@ -44,7 +44,7 @@
 		</header>
 		<main id="main" role="main">
 			<div class="page">
-				<h2>Images</h2>
+				<h2 id="images">Images</h2>
 				<h3 id="TNcrit1-1">Criterion 1.1 [A]</h3>
 				<p>Except for <code>svg</code>, the <code>aria-label</code> and <code>aria-labelledby</code> attributes to provide an alternative text, or link the image to a chunk of text provided as an alternative text, can not be used due to lack of support by assistive technologies.
 				</p>
@@ -79,12 +79,12 @@
 				</p>
 				<p>The <code>aria-labelledby</code>  and <code>aria-describedby</code> attributes can not be currently used, due to lack of support by assistive technologies.
 				</p>
-				<h2>Tables</h2>
+				<h2 id="tableaux">Tables</h2>
 				<h3 id="TNcrit5-1">Criterion 5.1 [A]</h3>
 				<p>The specification provides several methods to associate a table with its summary (table linked to a text passage with <code>aria-describedby</code>; table grouped with a summary, provided as an adjacent text, via a <code>figure</code> element; table grouped with a summary, provided in a <code>figcaption</code> element, via a <code>figure</code> element; summary provided via a <code>details</code> element in the <code>caption</code> element).
 				</p>
 				<p>These methods are currently not  supported enough to be used reliably.</p>
-				<h2>Scripts</h2>
+				<h2 id="script">Scripts</h2>
 				<h3 id="TNcrit7-1">Alternative to JavaScript and compatibility of user interface components with assistive technologies</h3>
 				<p>Criterion 7.1 implements the concept of "compatible with assistive technologies" as defined by the WCAG 2, as well as the use of WAI-ARIA API to make a component or  functionality accessible. The proper use of the WAI-ARIA API is verified through tests 7.1.3, 7.1.4, 7.1.5 and 7.1.6.</p>
 				<p><strong>Important note</strong>: in an HTML5 environment, many components may require JavaScript to function. In the case of a JavaScript component that could not be made ​​accessible, when an alternative is provided, a method must be provided specifically for the faulty component to enable the user to replace it (or turn it on again) with its accessible alternative.</p>
@@ -92,7 +92,7 @@
 				</p>
 				<h3 id="TNcrit7-3">Criterion 7.3 [A]</h3>
 				<p>For certain user interface components design patterns, ARIA defines a set of keyboard interactions  based on Esc, Spacebar, Tab and arrow keys; and, occasionally, other interactions based on Page Up, Page Down, Home and End keys, for example. In order to allow gradual implementation of these components with complex keyboard interactions, the RGAA restricts the requirements to only main keys (Esc, Spacebar, Tab, Arrow keys) as per the <a href="./glossary.html#motif-de-conception">ARIA  design patterns.</a></p>
-				<h2>Information structure</h2>
+				<h2 id="structure">Information structure</h2>
 				<h3 id="TNcrit9-1">Criterion 9.1 [A]</h3>
 				<p>The ARIA specification allows the use of the role <code>heading</code> combined with the <code>aria-level</code> property (hierarchical level in the document outline) to mark headings. Although it is preferable to use the native &lt;h<i>x</i>&gt; elements in HTML , the use of the WAI-ARIA role <code>heading</code> is compatible with accessibility.</p>
 				<p>While the HTML5 specification allows the use of only level 1 headings (<code>&lt;h1&gt;</code>), the lack of support by assistive technologies makes it necessary to use a relevant headings hierarchy.
@@ -122,19 +122,19 @@
 				<p>References: <a rel="external" class="external" href="http://www.w3.org/WAI/PF/aria/roles#list">The Role Model,  List Role</a> and <a rel="external" class="external" href="http://www.w3.org/WAI/PF/aria/states_and_properties#aria-setsize">The role model - ARIA SETSIZE</a>.</p>
 				<h3 id="TNcrit9-4">Criterion 9.4 [AAA]</h3>	
 				<p>Despite the existence of the <code>definition</code> role, used in combination with the <code>aria-labelledby</code> property, WAI-ARIA does not offer a role equivalent  to HTML definition lists (<code>DL</code>). The  <code>definition</code> role can not, therefore, be used as an equivalent of an HTML definition list <code>DL</code>.</p>
-				<h2>Presentation of information</h2>
+				<h2 id="presentation">Presentation of information</h2>
 				<h3 id="TNcrit10-13">Criterion 10.13 [A]</h3>
 				<p>WAI-ARIA provides an <code>aria-hidden</code> property (<code>true</code> or <code>false</code>) that inhibits the rendering of a content to assistive technologies, without affecting its visibility with visual user agents: content with <code>aria-hidden="true"</code> will not be spoken out but remains visible. Unless the content controlled by <code>aria-hidden</code> is not intended to be rendered by assistive technologies, the value of the <code>aria-hidden</code> attribute must be consistent with the displayed or hidden status of the on-screen content.
 				</p>
 				<p>The HTML5 specification describes a <code>hidden</code> attribute that can make unavailable (when the hidden attribute is present) content in the generated DOM (similar to <code>type="hidden"</code> on a form control). Unless the content controlled by <code>hidden</code> is not intended to be rendered by assistive technologies, the value of the <code>hidden</code> attribute must be consistent with the displayed or hidden status of the on-screen content.</p>
 				<p>There can be situations where a  content controlled with <code>hidden</code> or <code>aria-hidden</code> is momentarily in an inconsistent state with the displayed or hidden  status of the content, for example when an item is meant to be available but visually displayed only upon further action. In this case, it is the final state of the content that should be considered for validation of this criterion.</p>
-				<h2>Forms</h2>
+				<h2 id="formulaire">Forms</h2>
 				<h3 id="TNcrit11-11">Criterion 11.11 [AA]</h3>
 				<p>Some types of HTML5 form controls manage help messages on input automatically. For example, input fields of type  <code>email</code> display a message like "Please enter a valid email address" if the entered email address does not match the expected format. These messages are customizable via the API Constraint Validation, which provides ability to customize error messages. This validates the criterion, however, authors are warned that support of this API is not yet stabilized. The <code>pattern</code> type that can automatically perform format control (using regular expressions) also displays a help message but it is customizable via the <code>title</code> attribute; this mechanism validates the criterion.
 				</p>
 				<p>Reference: <a rel="external" class="external" href="http://www.whatwg.org/specs/web-apps/current-work/#constraint-validation">WHATWG - 4.10.21.3 The constraint validation API</a>.
 				</p>
-				<h2>Navigation</h2>	
+				<h2 id="navigation">Navigation</h2>	
 				<h3 id="TNcrit12-10">Criterion 12.10 [A]</h3>
 				<p>WAI-ARIA provides roles to indicate the main areas (regions) of the document. These roles are very beneficial to users of screen readers in particular, but also to sighted  keyboard users who can benefit from features allowing rapid navigation  in the document structure. While most screen readers make  these features available to users, browsers have not yet proposed dedicated navigation features for users who rey on keyboard eclusively. The implementation of skip links remains a requirement.</p>
 			</div>
