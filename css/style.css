@@ -1169,6 +1169,7 @@ tt {
   border: 1px solid;
   border-radius: 5px;
   color: #2c699e;
+  font-weight: bold;
 }
 .thematique header nav li a:focus,
 .thematique header nav li a:hover,
