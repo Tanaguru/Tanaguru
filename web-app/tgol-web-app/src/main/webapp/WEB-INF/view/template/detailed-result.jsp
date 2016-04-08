@@ -5,6 +5,24 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://tagutils" prefix="tg" %>
 
+<c:if test="${not empty configProperties['rgaaTanaguruUrlFirstPart']}">
+            <c:set var="rgaaTanaguruUrlFirstPart">
+                ${configProperties['rgaaTanaguruUrlFirstPart']}
+            </c:set>    
+        </c:if>
+
+<c:if test="${not empty configProperties['rgaaTanaguruUrlSecondPartGloss']}">
+            <c:set var="rgaaTanaguruUrlSecondPartGloss">
+                ${configProperties['rgaaTanaguruUrlSecondPartGloss']}
+            </c:set>    
+        </c:if>
+<c:if test="${not empty configProperties['rgaaTanaguruUrlThirdPartCrit']}">
+            <c:set var="rgaaTanaguruUrlThirdPartCrit">
+                ${configProperties['rgaaTanaguruUrlThirdPartCrit']}
+            </c:set>    
+        </c:if>
+
+
 <c:if test="${addSideBarNav}">
     <div class="theme-nav bs-docs-sidebar">
         <ul class="nav-list bs-docs-sidenav">
@@ -197,13 +215,21 @@
                                             </c:if>
                                             <h4 id="test-${testResult.testShortLabel}">${testResult.testShortLabel} <span class="test-result sr-only"> <fmt:message key="${testResult.resultCode}"/> </span></h4>
                                             <span class="rule-detail-link">
-                                                <a target="_blank" title="<fmt:message key="resultPage.more"/> ${testResult.testShortLabel} <fmt:message key="footer.newWindow"/>" href="<fmt:message key="${testResult.testCode}-url"/>">
+                                                <a target="_blank" title="<fmt:message key="resultPage.more"/> ${testResult.testShortLabel} <fmt:message key="footer.newWindow"/>" href="
+                                                   <fmt:message key="${testResult.testCode}-url"> 
+                                                       <fmt:param>${rgaaTanaguruUrlFirstPart}</fmt:param> 
+                                                        <fmt:param>${rgaaTanaguruUrlThirdPartCrit}</fmt:param> 
+                                                   </fmt:message> ">
                                                     <img alt="<fmt:message key="resultPage.more"/> ${testResult.testShortLabel}" src="${testInfoLinkImg}">
                                                 </a>
                                             </span>
                                         </div>
                                         <div class="rule-label span9" ${ruleLang}>
-                                            <fmt:message key="${testResult.testCode}"/>
+                                            <fmt:message key="${testResult.testCode}">
+                                                <fmt:param>${rgaaTanaguruUrlFirstPart}</fmt:param>
+                                                <fmt:param>${rgaaTanaguruUrlSecondPartGloss}</fmt:param>
+                                            </fmt:message>
+                                                
                                         </div><!-- class="span9 rule-label" -->
 
                                         <div class="audit-result-container span5">
