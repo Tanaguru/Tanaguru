@@ -53,28 +53,28 @@ main .skiplink a { margin: 0 @gutter/2; }
 
 /* * table of content */
 
-#toc { padding: @line-height*2em 0; text-align: center; }
-#toc h2 { color: @color; font-size: 1em; font-weight: bold; text-align: center; }
-#toc nav ul,
-#toc nav li { .list-none; border-color: fade(@color-mid, 20%); border-style: solid; }
-#toc nav ul { border-width: 1px 0 0; .list-none; }
-#toc nav li { border-width: 0 0 1px; }
-#toc nav li a { display: block; padding: @gutter/2; }
-#toc nav li a:focus,
-#toc nav li a:hover,
-#toc nav li a:active { background-color: fade(@color, 20%); color: inherit; }
-#toc nav li.on { background-color: @color; color: @color-bg; }
+#navtoc { padding: @line-height*2em 0; text-align: center; }
+#navtoc h2 { color: @color; font-size: 1em; font-weight: bold; text-align: center; }
+#navtoc nav ul,
+#navtoc nav li { .list-none; border-color: fade(@color-mid, 20%); border-style: solid; }
+#navtoc nav ul { border-width: 1px 0 0; .list-none; }
+#navtoc nav li { border-width: 0 0 1px; }
+#navtoc nav li a { display: block; padding: @gutter/2; }
+#navtoc nav li a:focus,
+#navtoc nav li a:hover,
+#navtoc nav li a:active { background-color: fade(@color, 20%); color: inherit; }
+#navtoc nav li.on { background-color: @color; color: @color-bg; }
 
 /*@media (min-width: 1280px) {
-#toc {
+#navtoc {
   position: fixed;
   top: 150px;
   left: 0;
   padding: @gutter*2 0;
   background-color: fade(@color-bg, 90%);
 }
-#toc h2 { padding: 0 @gutter*3; text-align: left; }
-#toc nav li a { padding-left: @gutter*3; padding-right: @gutter*3; }
+#navtoc h2 { padding: 0 @gutter*3; text-align: left; }
+#navtoc nav li a { padding-left: @gutter*3; padding-right: @gutter*3; }
 }*/
 
 /* * main + content */

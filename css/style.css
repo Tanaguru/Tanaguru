@@ -1011,55 +1011,55 @@ main .skiplink a {
   text-align: center;
 }
 /* * table of content */
-#toc {
+#navtoc {
   padding: 3em 0;
   text-align: center;
 }
-#toc h2 {
+#navtoc h2 {
   color: #2c699e;
   font-size: 1em;
   font-weight: bold;
   text-align: center;
 }
-#toc nav ul,
-#toc nav li {
+#navtoc nav ul,
+#navtoc nav li {
   margin-left: 0;
   list-style: none;
   border-color: rgba(102, 102, 102, 0.2);
   border-style: solid;
 }
-#toc nav ul {
+#navtoc nav ul {
   border-width: 1px 0 0;
   margin-left: 0;
   list-style: none;
 }
-#toc nav li {
+#navtoc nav li {
   border-width: 0 0 1px;
 }
-#toc nav li a {
+#navtoc nav li a {
   display: block;
   padding: 5px;
 }
-#toc nav li a:focus,
-#toc nav li a:hover,
-#toc nav li a:active {
+#navtoc nav li a:focus,
+#navtoc nav li a:hover,
+#navtoc nav li a:active {
   background-color: rgba(44, 105, 158, 0.2);
   color: inherit;
 }
-#toc nav li.on {
+#navtoc nav li.on {
   background-color: #2c699e;
   color: #f8f5f5;
 }
 /*@media (min-width: 1280px) {
-#toc {
+#navtoc {
   position: fixed;
   top: 150px;
   left: 0;
   padding: @gutter*2 0;
   background-color: fade(@color-bg, 90%);
 }
-#toc h2 { padding: 0 @gutter*3; text-align: left; }
-#toc nav li a { padding-left: @gutter*3; padding-right: @gutter*3; }
+#navtoc h2 { padding: 0 @gutter*3; text-align: left; }
+#navtoc nav li a { padding-left: @gutter*3; padding-right: @gutter*3; }
 }*/
 /* * main + content */
 main {
