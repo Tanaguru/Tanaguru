@@ -6,11 +6,15 @@
 @import "var.less";
 
 body { text-align: center; }
-.page { max-width: 768px; margin: @p auto; text-align: left; }
-@media ( max-width: 768px) { .page { width: 80%; } }
-@media ( max-width: 480px) { .page { width: auto; margin: 1em 10px; } }
+.page { max-width: @screen-medium; margin: @p auto; text-align: left; }
+@media ( max-width: @screen-medium) { .page { width: 80%; } }
+@media ( max-width: @screen-small) { .page { width: auto; margin: 1em 10px; } }
 
-/* skiplinks */
+/* * skiplinks */
+
+.skiplink { .list-none; font-size: small; }
+
+#skiplinks { margin: @gutter/2 @gutter; color: @color-txt; }
 
 main .skiplink { text-align: center; }
 main .skiplink * { display: inline; }
@@ -20,24 +24,18 @@ main .skiplink a { margin: 0 @gutter/2; }
 .skiplink { display: none; }
 }
 
-/* header + nav */
+/* * header + nav */
 
-#skiplinks,
-#header #nav { float: left; }
-#skiplinks { margin: @gutter/2 @gutter; color: @color-txt; }
+#header #nav { background-color: @color; }
+#header #nav * { display: inline; margin: 0; line-height: 0; }
+#header #nav,
+#header #nav * { color: @color-bg; }
 
-#header #nav { width:100%; }
-#header #nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: @color;
-  color: @color-bg;
-}
-#header #nav li { float: left; }
+#header #nav #logo {}
+#header #nav ul {}
+#header #nav #logo,
 #header #nav li a,
-#header #nav li .on { display: block; color: @color-bg; text-align: center; padding: @gutter*2; }
+#header #nav li .on { display: inline-block; padding: @gutter*3 @gutter*2; }
 #header #nav li .on { background: @color-bg; color: @color; font-weight: normal; }
 #header #nav li a:focus,
 #header #nav li a:hover,
@@ -49,48 +47,61 @@ main .skiplink a { margin: 0 @gutter/2; }
   text-align: center;
   font-weight: bold;
   color: @color;
-  padding-top: @line-height*2em;
+  padding-top: @line-height*1em;
 }
-#header .lead { .page; text-align: center; }
+#header .lead { text-align: center; }
 
-/* table of content */
+/* * table of content */
 
-#toc { padding: @line-height*2em 0; .page; text-align: center; }
-#toc h2 { color: @color; font-size: 1em; font-weight: bold; text-align: center; }
-#toc nav ul,
-#toc nav li { border-color: fade(@color-mid, 20%); border-style: solid; }
-#toc nav ul { border-width: 1px 0 0; .list-none; }
-#toc nav li { border-width: 0 0 1px; }
-#toc nav li a { display: block; padding: @gutter/2; }
-#toc nav li a:focus,
-#toc nav li a:hover,
-#toc nav li a:active { background-color: fade(@color, 20%); color: inherit; }
-#toc nav li.on { background-color: @color; color: @color-bg; }
+#navtoc { margin: @line-height*2em 0; padding: @gutter*2; text-align: center; background: fade(@color-mid,10); }
+#navtoc h2 { padding: 0; color: @color; font-size: 1em; font-weight: bold; }
+#navtoc ul {
+  .list-none; margin: 0;
+  * { display: inline-block; }
+  li a { display: block; padding: @gutter/2 @gutter; }
+  /*li a:before { content: ' • '; color: @color; }
+  li:first-child a:before { content: ''; }*/
+  li a:focus,
+  li a:hover,
+  li a:active { background: fade(@color,90); color: @color-bg; }
+}
+
+/*#navtoc nav ul,
+#navtoc nav li { .list-none; border-color: fade(@color-mid, 20%); border-style: solid; }
+#navtoc nav ul { border-width: 1px 0 0; .list-none; }
+#navtoc nav li { border-width: 0 0 1px; }
+#navtoc nav li a { display: block; padding: @gutter/2; }
+#navtoc nav li a:focus,
+#navtoc nav li a:hover,
+#navtoc nav li a:active { background-color: fade(@color, 20%); color: inherit; }
+#navtoc nav li.on { background-color: @color; color: @color-bg; }*/
 
 /*@media (min-width: 1280px) {
-#toc {
+#navtoc {
   position: fixed;
   top: 150px;
   left: 0;
   padding: @gutter*2 0;
   background-color: fade(@color-bg, 90%);
 }
-#toc h2 { padding: 0 @gutter*3; text-align: left; }
-#toc nav li a { padding-left: @gutter*3; padding-right: @gutter*3; }
-
+#navtoc h2 { padding: 0 @gutter*3; text-align: left; }
+#navtoc nav li a { padding-left: @gutter*3; padding-right: @gutter*3; }
 }*/
 
-/* main + content */
+/* * main + content */
 
 main { clear:both; }
 .content {}
 
-/* footer */
+/* * footer */
 
 #footer {
-  padding: @p;
+  margin-top: @p*4;
+  padding: @p 0;
   background-color: fade(@color-mid, 20%);
   border-top: @gutter solid @color;
-  font-size: small;
+  .page { font-size: small; }
 }
+@media (min-width: @screen-medium) {
 #footer .page { padding: @p*2 0 @p; }
+}

@@ -1,5 +1,6 @@
 body { background-color: @color-bg; .font1; color: @color-txt; }
 
+/* * liens */
 a { text-decoration: none; border-width: 0 0 1px; border-style: dotted; border-color: @color; }
 a:focus,
 a:hover,
@@ -8,32 +9,28 @@ a:active { color: @color; border-width: 0 0 2px; border-style: solid; }
 .nav {}
 .nav a { border-width: 0; }
 
+/* * titres */
+h3 { font-weight: bold; }
 h2 {
+  padding-top: @p*2;
   text-align: center;
   font-weight: bold;
   font-size: 2em;
 }
+
+/* * */
 
 pre, code, kbd, samp, var, tt { font-family: @font3; font-size: 90%; border-radius: 4px; }
 pre, code, samp, var, tt { padding: .1em .3em; background-color: fade(@color,5%); border: 1px solid fadeout(@color,90%); white-space: nowrap; }
 
 #howto { color: @color-mid; font-size: small; }
 
-/* thematique */
-
-.thematique {
-  display: inline-block;
-  /*width: 100%;
-  background-color: @color-bg;
-  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
-  margin: 30px;
-  padding: 30px;*/
-}
+/* * thematique */
 
 .thematique header { margin-bottom: @p; }
 
 .thematique h2 {
-  margin: @p*2 0 0;
+  margin: 0;
   padding-bottom: @gutter*2;
   border-bottom: @gutter solid @color;
   text-transform: uppercase;
@@ -49,28 +46,17 @@ pre, code, samp, var, tt { padding: .1em .3em; background-color: fade(@color,5%)
 
 .thematique header h3,
 .thematique header p { margin: 0; color: @color-mid; font-size: small; }
-.thematique header h3 { font-weight: bold; }
+.thematique header p { margin-bottom: @p/2; }
 
-.thematique section {
-  /*display: inline-block;
-  width: 90%;
-  background-color: @color-bg;
-  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
-  margin: 30px;
-  padding: 30px;*/
-  margin-bottom: @p*2;
-}
-
-.thematique section h3 { font-weight: bold; }
+.thematique section { margin-bottom: @p*2; }
 .thematique section h3 em { color: @color; font-weight: normal; font-style: normal; }
 
 .thematique section {
-  ul { margin: 0 0 0 @gutter*2; list-style: none; }
-  ul li { margin-bottom: @p; }
-  ul li:before { margin-left: -@gutter*2; content: "\2022"; color: @color; font-size: 2em; line-height: 0; vertical-align: middle; }
-  ul li ul { margin-top: @gutter; }
-  ul li ul li { margin-bottom: @gutter/2; margin-left: @gutter*3; font-size: 80%; list-style-type: disc; padding-left: @gutter*1.5; }
-  ul li ul li:before { content:''; }
+  > ul { /*margin: 0 0 0 @gutter*2;*/ list-style: none; }
+  > ul > li { margin-bottom: @p; }
+  > ul > li:before { margin-left: -@gutter*2; content: "\2022"; color: @color; font-size: 2em; line-height: 0; vertical-align: middle; }
+  > ul ul { margin-top: @gutter/2; /*padding-left: @gutter*3;*/ list-style-type: disc; font-size: .8em; }
+  > ul ul li { margin-bottom: @gutter/2; }
 }
 
 .thematique .correspondance {

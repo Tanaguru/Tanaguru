@@ -5,43 +5,47 @@
 		<title>RGAA 3.0 Particular cases - English translation</title>
 		<meta content="English translation of the RGAA 3.0, French official accessibility guidelines. Particular cases." name="description" />
 		<meta content="RGAA, RGAA 3.0, French accessibility guidelines, English translation, particular cases" name="keywords" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="css/style.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	</head>
 	<body>  
-		<header role="banner" id="header">
+		<header id="header" role="banner">
 			<p class="skiplink" id="skiplinks"><a href="#toc">Go to Table of Contents</a></p>
 			<nav id="nav" class="nav" role="navigation">
-				<ul>
-					<li><a href="./index.html">Criteria</a></li>
-					<li><a href="./RGAA3.0_Glossary_English_version_v1.html">Glossary</a></li>
-					<li><strong class="on">Particular cases</strong></li>
-					<li><a href="./RGAA3.0_Technical_Notes_English_version_v1.html">Technical notes</a></li>
-					<li><a href="./RGAA3.0_Baseline_English_version_v1.html">Baseline</a></li>
-					<li><a href="./RGAA3.0_References_English_version_v1.html">References</a></li>
-				</ul>
+                <strong id="logo">RGAA&nbsp;3.0</strong>
+				<ul><!--
+					--><li><a href="./criteria.html">Criteria</a></li><!--
+					--><li><a href="./glossary.html">Glossary</a></li><!--
+					--><li><strong class="on">Particular cases</strong></li><!--
+					--><li><a href="./technical-notes.html">Technical notes</a></li><!--
+					--><li><a href="./baseline.html">Baseline</a></li><!--
+					--><li><a href="./references.html">References</a></li><!--
+				--></ul>
 			</nav>
-			<h1>Particular cases</h1>
-			<p class="lead">Several <abbr lang="fr" title="Référentiel Général d'Accessibilité des Administrations">RGAA</abbr> criteria refer to particular cases, necessary for their understanding and application. This document lists all the particular cases in which the considered criterion  is not applicable.</p>
-			<div id="toc">
-				<h2>Table of Contents</h2>
-				<nav id="navtoc" class="nav" role="navigation" aria-labelledby="toc">
-					<ul>
-						<li><a href="#images">Images</a></li>
-						<li><a href="#couleurs">Colors</a></li>
-						<li><a href="#multimedia">Multimedia</a></li>
-						<li><a href="#liens">Links</a></li>
-						<li><a href="#script">Scripts</a></li>
-						<li><a href="#elements">Mandatory elements</a></li>
-						<li><a href="#presentation">Presentation of information</a></li>
-						<li><a href="#navigation">Navigation</a></li>
-						<li><a href="#consultation">Consultation</a></li>
-					</ul>
-				</nav>
+			<div class="page">
+				<h1>Particular cases</h1>
+				<p class="lead">Several <abbr lang="fr" title="Référentiel Général d'Accessibilité des Administrations">RGAA</abbr> criteria refer to particular cases, necessary for their understanding and application. This document lists all the particular cases in which the considered criterion  is not applicable.</p>
+				<div id="navtoc">
+					<h2 id="toc">Table of Contents</h2>
+					<nav class="nav" role="navigation" aria-labelledby="toc">
+						<ul>
+							<li><a href="#images">Images</a></li>
+							<li><a href="#couleurs">Colors</a></li>
+							<li><a href="#multimedia">Multimedia</a></li>
+							<li><a href="#liens">Links</a></li>
+							<li><a href="#script">Scripts</a></li>
+							<li><a href="#elements">Mandatory elements</a></li>
+							<li><a href="#presentation">Presentation of information</a></li>
+							<li><a href="#navigation">Navigation</a></li>
+							<li><a href="#consultation">Consultation</a></li>
+						</ul>
+					</nav>
+				</div>
 			</div>
 		</header>
-		<main class="page" role="main" id="main">
-			<div class="content">
+		<main id="main" role="main">
+			<div class="page">
 				<h2 id="images">Images</h2>
 				<h3 id="cpCrit1-3">Criterion 1.3</h3>
 				<p>
@@ -136,7 +140,7 @@
 				<p>
 					There is a particular case management when the link is ambiguous for every user. In this situation, where it is not possible to make the explicit link in context, the criterion is not applicable.
 				</p>
-				<h2 id="scripts">Scripts</h2>
+				<h2 id="script">Scripts</h2>
 				<h3 id="cpCrit7-3">Criterion 7.3</h3>
 				<p>
 					There is a particular case management when the functionality depends on the use of an event manager without any universal equivalent, for example, a hand drawing application  can not be made controllable with the keyboard. In these situations, the criterion is not applicable.
