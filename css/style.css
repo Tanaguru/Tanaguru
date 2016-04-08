@@ -1113,6 +1113,7 @@ h2 {
   font-weight: bold;
   font-size: 2em;
 }
+/* * */
 pre,
 code,
 kbd,
@@ -1177,6 +1178,9 @@ tt {
   margin: 0;
   color: #666666;
   font-size: small;
+}
+.thematique header p {
+  margin-bottom: 0.75em;
 }
 .thematique section {
   margin-bottom: 3em;
