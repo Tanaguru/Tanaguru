@@ -1018,6 +1018,7 @@ main .skiplink a {
   background: rgba(102, 102, 102, 0.1);
 }
 #navtoc h2 {
+  padding: 0;
   color: #2c699e;
   font-size: 1em;
   font-weight: bold;
@@ -1069,9 +1070,12 @@ main {
 }
 /* * footer */
 #footer {
+  margin-top: 6em;
   padding: 1.5em 0;
   background-color: rgba(102, 102, 102, 0.2);
   border-top: 10px solid #2c699e;
+}
+#footer .page {
   font-size: small;
 }
 @media (min-width: 640px) {
@@ -1106,6 +1110,7 @@ h3 {
   font-weight: bold;
 }
 h2 {
+  padding-top: 3em;
   text-align: center;
   font-weight: bold;
   font-size: 2em;
@@ -1140,7 +1145,7 @@ tt {
   margin-bottom: 1.5em;
 }
 .thematique h2 {
-  margin: 3em 0 0;
+  margin: 0;
   padding-bottom: 20px;
   border-bottom: 10px solid #2c699e;
   text-transform: uppercase;

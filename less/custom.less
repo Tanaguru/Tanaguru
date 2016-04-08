@@ -12,6 +12,7 @@ a:active { color: @color; border-width: 0 0 2px; border-style: solid; }
 /* * titres */
 h3 { font-weight: bold; }
 h2 {
+  padding-top: @p*2;
   text-align: center;
   font-weight: bold;
   font-size: 2em;
@@ -29,7 +30,7 @@ pre, code, samp, var, tt { padding: .1em .3em; background-color: fade(@color,5%)
 .thematique header { margin-bottom: @p; }
 
 .thematique h2 {
-  margin: @p*2 0 0;
+  margin: 0;
   padding-bottom: @gutter*2;
   border-bottom: @gutter solid @color;
   text-transform: uppercase;
