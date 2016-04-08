@@ -10,7 +10,11 @@ body { text-align: center; }
 @media ( max-width: 768px) { .page { width: 80%; } }
 @media ( max-width: 480px) { .page { width: auto; margin: 1em 10px; } }
 
-/* skiplinks */
+/* * skiplinks */
+
+.skiplink { .list-none; font-size: small; }
+
+#skiplinks { margin: @gutter/2 @gutter; color: @color-txt; }
 
 main .skiplink { text-align: center; }
 main .skiplink * { display: inline; }
@@ -20,24 +24,18 @@ main .skiplink a { margin: 0 @gutter/2; }
 .skiplink { display: none; }
 }
 
-/* header + nav */
+/* * header + nav */
 
-#skiplinks,
-#header #nav { float: left; }
-#skiplinks { margin: @gutter/2 @gutter; color: @color-txt; }
+#header #nav { background-color: @color; }
+#header #nav * { display: inline; margin: 0; line-height: 0; }
+#header #nav,
+#header #nav * { color: @color-bg; }
 
-#header #nav { width:100%; }
-#header #nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: @color;
-  color: @color-bg;
-}
-#header #nav li { float: left; }
+#header #nav #logo {}
+#header #nav ul {}
+#header #nav #logo,
 #header #nav li a,
-#header #nav li .on { display: block; color: @color-bg; text-align: center; padding: @gutter*2; }
+#header #nav li .on { display: inline-block; padding: @gutter*3 @gutter*2; }
 #header #nav li .on { background: @color-bg; color: @color; font-weight: normal; }
 #header #nav li a:focus,
 #header #nav li a:hover,
@@ -53,12 +51,12 @@ main .skiplink a { margin: 0 @gutter/2; }
 }
 #header .lead { .page; text-align: center; }
 
-/* table of content */
+/* * table of content */
 
 #toc { padding: @line-height*2em 0; .page; text-align: center; }
 #toc h2 { color: @color; font-size: 1em; font-weight: bold; text-align: center; }
 #toc nav ul,
-#toc nav li { border-color: fade(@color-mid, 20%); border-style: solid; }
+#toc nav li { .list-none; border-color: fade(@color-mid, 20%); border-style: solid; }
 #toc nav ul { border-width: 1px 0 0; .list-none; }
 #toc nav li { border-width: 0 0 1px; }
 #toc nav li a { display: block; padding: @gutter/2; }
@@ -80,12 +78,12 @@ main .skiplink a { margin: 0 @gutter/2; }
 
 }*/
 
-/* main + content */
+/* * main + content */
 
 main { clear:both; }
 .content {}
 
-/* footer */
+/* * footer */
 
 #footer {
   padding: @p;
