@@ -20,6 +20,7 @@
 package org.tanaguru.rules.rgaa30;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.jsoup.nodes.Element;
@@ -55,7 +56,7 @@ public class Rgaa30Rule100102 extends AbstractPageRuleMarkupImplementation {
     private static final String PRESENTATION_ATTR_NOM = 
                 "DeprecatedRepresentationAttributes";
     
-    private final Map<String, ElementHandler> attrElementHandlerMap = new HashMap<>();
+    private final Map<String, ElementHandler> attrElementHandlerMap = new LinkedHashMap<>();
     /* the total number of elements */
     int totalNumberOfElements = 0;
     
