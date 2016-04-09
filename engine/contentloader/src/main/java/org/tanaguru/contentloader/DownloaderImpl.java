@@ -50,6 +50,7 @@ public class DownloaderImpl implements Downloader {
     private final String HTTP_PROTOCOL_PREFIX = "http://";
     private final String HTTPS_PROTOCOL_PREFIX = "https://";
     private final String FILE_PROTOCOL_PREFIX = "file:/";
+    private final String WINFILE_PROTOCOL_PREFIX = "file:\\";
 
     public DownloaderImpl() {
         super();
@@ -134,7 +135,8 @@ public class DownloaderImpl implements Downloader {
                 || url.startsWith(HTTPS_PROTOCOL_PREFIX)) {
             LOGGER.debug("Download resource "  + url);
             result = download(url);
-        } else if (url.startsWith(FILE_PROTOCOL_PREFIX)) {
+        } else if (url.startsWith(FILE_PROTOCOL_PREFIX) 
+                || url.startsWith(WINFILE_PROTOCOL_PREFIX)) {
             LOGGER.debug("Load resource "  + url);
             result = load(url);
         }
