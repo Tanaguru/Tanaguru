@@ -128,8 +128,8 @@ public class UploadAuditCommandImplTest extends AuditCommandTestCase {
         
         mockInitialisationCalls(false, AuditStatus.CONTENT_LOADING);
         
-        fileMap.put("file:///My File Name1", "MyFileContent1");
-        fileMap.put("file:///My File Name2", "MyFileContent2");
+        fileMap.put("file:///MyFileName1", "MyFileContent1");
+        fileMap.put("file:///MyFileName2", "MyFileContent2");
         
         EasyMock.expect(mockAudit.getStatus()).andReturn(AuditStatus.CONTENT_LOADING).once();
 
@@ -137,13 +137,13 @@ public class UploadAuditCommandImplTest extends AuditCommandTestCase {
         Page mockPage1 = EasyMock.createMock(Page.class);
         Page mockPage2 = EasyMock.createMock(Page.class);
         
-        EasyMock.expect(mockWebResourceDataService.createSite("file:///My File Name1"))
+        EasyMock.expect(mockWebResourceDataService.createSite("file:///MyFileName1"))
                 .andReturn(mockSite)
                 .once();
-        EasyMock.expect(mockWebResourceDataService.createPage("file:///My File Name1"))
+        EasyMock.expect(mockWebResourceDataService.createPage("file:///MyFileName1"))
                 .andReturn(mockPage1)
                 .once();
-        EasyMock.expect(mockWebResourceDataService.createPage("file:///My File Name2"))
+        EasyMock.expect(mockWebResourceDataService.createPage("file:///MyFileName2"))
                 .andReturn(mockPage2)
                 .once();
         
