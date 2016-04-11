@@ -1,10 +1,10 @@
 body { background-color: @color-bg; .font1; color: @color-txt; }
 
 /* * liens */
-a { text-decoration: none; border-width: 0 0 1px; border-style: dotted; border-color: @color; }
+a { text-decoration: none; border-width: 0 0 1px; border-style: solid; border-color: lighten(@color,20); }
 a:focus,
 a:hover,
-a:active { color: @color; border-width: 0 0 2px; border-style: solid; }
+a:active { color: @color; border-width: 0 0 2px; border-color: inherit; }
 
 .nav {}
 .nav a { border-width: 0; }

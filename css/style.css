@@ -1092,15 +1092,15 @@ body {
 a {
   text-decoration: none;
   border-width: 0 0 1px;
-  border-style: dotted;
-  border-color: #2c699e;
+  border-style: solid;
+  border-color: #5e9cd2;
 }
 a:focus,
 a:hover,
 a:active {
   color: #2c699e;
   border-width: 0 0 2px;
-  border-style: solid;
+  border-color: inherit;
 }
 .nav a {
   border-width: 0;
