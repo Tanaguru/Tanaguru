@@ -1143,7 +1143,6 @@ tt {
   padding: .1em .3em;
   background-color: rgba(44, 105, 158, 0.05);
   border: 1px solid rgba(44, 105, 158, 0.09999999999999998);
-  white-space: nowrap;
 }
 /* * Atténuer ce qui est annexe */
 #howto,
