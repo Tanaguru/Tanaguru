@@ -1225,23 +1225,13 @@ tt {
   font-style: normal;
 }
 .thematique section > ul {
-  /*margin: 0 0 0 @gutter*2;*/
-  list-style: none;
+  list-style: square;
 }
 .thematique section > ul > li {
   margin-bottom: 1.5em;
 }
-.thematique section > ul > li:before {
-  margin-left: -20px;
-  content: "\2022";
-  color: #2c699e;
-  font-size: 2em;
-  line-height: 0;
-  vertical-align: middle;
-}
 .thematique section > ul ul {
   margin-top: 5px;
-  /*padding-left: @gutter*3;*/
   list-style-type: disc;
   font-size: .8em;
 }

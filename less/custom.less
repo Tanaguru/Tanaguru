@@ -69,10 +69,9 @@ pre, code, samp, var, tt { padding: .1em .3em; background-color: fade(@color,5%)
 .thematique section h3 em { color: @color; font-weight: normal; font-style: normal; }
 
 .thematique section {
-  > ul { /*margin: 0 0 0 @gutter*2;*/ list-style: none; }
+  > ul { list-style: square; }
   > ul > li { margin-bottom: @p; }
-  > ul > li:before { margin-left: -@gutter*2; content: "\2022"; color: @color; font-size: 2em; line-height: 0; vertical-align: middle; }
-  > ul ul { margin-top: @gutter/2; /*padding-left: @gutter*3;*/ list-style-type: disc; font-size: .8em; }
+  > ul ul { margin-top: @gutter/2; list-style-type: disc; font-size: .8em; }
   > ul ul li { margin-bottom: @gutter/2; }
 }
 
