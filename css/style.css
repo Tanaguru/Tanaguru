@@ -1107,6 +1107,7 @@ a:active {
 }
 /* * titres */
 h3 {
+  padding-top: 10px;
   font-weight: bold;
 }
 h2 {
@@ -1216,8 +1217,8 @@ tt {
 .thematique header nav li a:active {
   background-color: rgba(44, 105, 158, 0.1);
 }
-.thematique section h3 {
-  padding-top: 10px;
+.thematique section {
+  margin-bottom: 3em;
 }
 .thematique section h3 em {
   color: #2c699e;

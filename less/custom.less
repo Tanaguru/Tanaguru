@@ -10,7 +10,10 @@ a:active { color: @color; border-width: 0 0 2px; border-color: inherit; }
 .nav a { border-width: 0; }
 
 /* * titres */
-h3 { font-weight: bold; }
+h3 {
+  padding-top: @gutter;
+  font-weight: bold;
+}
 h2 {
   padding-top: @p*2;
   text-align: center;
@@ -64,8 +67,7 @@ pre, code, samp, var, tt { padding: .1em .3em; background-color: fade(@color,5%)
   li a:active { background-color: fade(@color, 10%); }
 }
 
-.thematique section {}
-.thematique section h3 { padding-top: @gutter; }
+.thematique section { margin-bottom: @p*2; }
 .thematique section h3 em { color: @color; font-weight: normal; font-style: normal; }
 
 .thematique section {
