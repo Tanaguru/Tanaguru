@@ -930,6 +930,7 @@ body {
 }
 .page {
   max-width: 38em;
+  max-width: 640px;
   margin: 1.5em auto;
   text-align: left;
 }
@@ -985,7 +986,7 @@ main .skiplink a {
 #header #nav li a,
 #header #nav li .on {
   display: inline-block;
-  padding: 30px 20px;
+  padding: 20px;
 }
 #header #nav li .on {
   background: #f8f5f5;
@@ -998,13 +999,14 @@ main .skiplink a {
   background-color: rgba(248, 245, 245, 0.2);
 }
 #header h1 {
+  margin-bottom: 10px;
+  padding-top: 10px;
   font-weight: bold;
   color: #2c699e;
-  padding-top: 10px;
 }
 #header .lead {
   margin: 0;
-  color: #666666;
+  font-size: 1em;
 }
 /* * table of content */
 #navtoc {
@@ -1151,6 +1153,7 @@ tt {
 .thematique header h3,
 .thematique .correspondance h4 {
   margin: 0;
+  padding: 0;
   font-weight: bold;
 }
 .thematique .correspondance {

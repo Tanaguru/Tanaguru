@@ -6,7 +6,7 @@
 @import "var.less";
 
 body { text-align: center; }
-.page { max-width: 38em; margin: @p auto; text-align: left; }
+.page { max-width: 38em; max-width: @screen-medium; margin: @p auto; text-align: left; }
 @media ( max-width: @screen-medium) { .page { width: 80%; } }
 @media ( max-width: @screen-small) { .page { width: auto; margin: 1em 10px; } }
 
@@ -35,18 +35,19 @@ main .skiplink a { margin: 0 @gutter/2; }
 #header #nav ul {}
 #header #nav #logo,
 #header #nav li a,
-#header #nav li .on { display: inline-block; padding: @gutter*3 @gutter*2; }
+#header #nav li .on { display: inline-block; padding: @gutter*2; }
 #header #nav li .on { background: @color-bg; color: @color; font-weight: normal; }
 #header #nav li a:focus,
 #header #nav li a:hover,
 #header #nav li a:active { background-color: fade(@color-bg, 20%); }
 
 #header h1 {
+  margin-bottom: @gutter;
+  padding-top: @gutter;
   font-weight: bold;
   color: @color;
-  padding-top: @gutter;
 }
-#header .lead { margin: 0; color: @color-mid; }
+#header .lead { margin: 0; font-size: 1em; }
 
 /* * table of content */
 
