@@ -6,7 +6,7 @@
 @import "var.less";
 
 body { text-align: center; }
-.page { max-width: @screen-medium; margin: @p auto; text-align: left; }
+.page { max-width: 38em; margin: @p auto; text-align: left; }
 @media ( max-width: @screen-medium) { .page { width: 80%; } }
 @media ( max-width: @screen-small) { .page { width: auto; margin: 1em 10px; } }
 
@@ -41,19 +41,16 @@ main .skiplink a { margin: 0 @gutter/2; }
 #header #nav li a:hover,
 #header #nav li a:active { background-color: fade(@color-bg, 20%); }
 
-#header h1,
-#header p { clear:both; }
 #header h1 {
-  text-align: center;
   font-weight: bold;
   color: @color;
-  padding-top: @line-height*1em;
+  padding-top: @gutter;
 }
-#header .lead { text-align: center; }
+#header .lead { margin: 0; color: @color-mid; }
 
 /* * table of content */
 
-#navtoc { margin: @line-height*2em 0; padding: @gutter*2; text-align: center; background: fade(@color-mid,10); }
+#navtoc { margin: @line-height*1em 0; padding: @gutter*2 @gutter; text-align: center; background: fade(@color-mid,10); }
 #navtoc h2 { padding: 0; color: @color; font-size: 1em; font-weight: bold; }
 #navtoc ul {
   .list-none; margin: 0;

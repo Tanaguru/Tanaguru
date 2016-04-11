@@ -4,7 +4,7 @@ body { background-color: @color-bg; .font1; color: @color-txt; }
 a { text-decoration: none; border-width: 0 0 1px; border-style: solid; border-color: lighten(@color,30); }
 a:focus,
 a:hover,
-a:active { color: @color; border-width: 0 0 2px; border-color: inherit; }
+a:active { color: @color; border-width: 0 0 2px; border-color: @color; }
 
 .nav {}
 .nav a { border-width: 0; }
@@ -35,8 +35,8 @@ pre, code, samp, var, tt { padding: .1em .3em; background-color: fade(@color,5%)
 .thematique .correspondance,
 .thematique .correspondance h4 {
   color: @color-mid; font-size: small;
-  p, h3, h4 { margin-bottom: @p/2; }
 }
+.thematique p { margin-bottom: @p/2; }
 .thematique header h3,
 .thematique .correspondance h4 { margin: 0; font-weight: bold; }
 

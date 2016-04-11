@@ -929,7 +929,7 @@ body {
   text-align: center;
 }
 .page {
-  max-width: 640px;
+  max-width: 38em;
   margin: 1.5em auto;
   text-align: left;
 }
@@ -997,23 +997,19 @@ main .skiplink a {
 #header #nav li a:active {
   background-color: rgba(248, 245, 245, 0.2);
 }
-#header h1,
-#header p {
-  clear: both;
-}
 #header h1 {
-  text-align: center;
   font-weight: bold;
   color: #2c699e;
-  padding-top: 1.5em;
+  padding-top: 10px;
 }
 #header .lead {
-  text-align: center;
+  margin: 0;
+  color: #666666;
 }
 /* * table of content */
 #navtoc {
-  margin: 3em 0;
-  padding: 20px;
+  margin: 1.5em 0;
+  padding: 20px 10px;
   text-align: center;
   background: rgba(102, 102, 102, 0.1);
 }
@@ -1100,7 +1096,7 @@ a:hover,
 a:active {
   color: #2c699e;
   border-width: 0 0 2px;
-  border-color: inherit;
+  border-color: #2c699e;
 }
 .nav a {
   border-width: 0;
@@ -1147,24 +1143,7 @@ tt {
   color: #666666;
   font-size: small;
 }
-#howto p,
-#howto h3 p,
-.thematique p p,
-.thematique header h3 p,
-.thematique .correspondance p,
-.thematique .correspondance h4 p,
-#howto h3,
-#howto h3 h3,
-.thematique p h3,
-.thematique header h3 h3,
-.thematique .correspondance h3,
-.thematique .correspondance h4 h3,
-#howto h4,
-#howto h3 h4,
-.thematique p h4,
-.thematique header h3 h4,
-.thematique .correspondance h4,
-.thematique .correspondance h4 h4 {
+.thematique p {
   margin-bottom: 0.75em;
 }
 .thematique header h3,
