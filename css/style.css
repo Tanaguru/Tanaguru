@@ -1071,12 +1071,12 @@ main {
   background-color: rgba(102, 102, 102, 0.2);
   border-top: 10px solid #2c699e;
 }
-#footer .page {
+#footer p {
   font-size: small;
 }
 @media (min-width: 640px) {
   #footer .page {
-    padding: 3em 0 1.5em;
+    padding: 1.5em 0 0.375em;
   }
 }
 body {
@@ -1143,6 +1143,8 @@ tt {
   color: #666666;
   font-size: small;
 }
+#howto p,
+#howto ul,
 .thematique p {
   margin-bottom: 0.75em;
 }
