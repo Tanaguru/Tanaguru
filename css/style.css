@@ -1136,19 +1136,59 @@ tt {
   border: 1px solid rgba(44, 105, 158, 0.09999999999999998);
   white-space: nowrap;
 }
-#howto {
+/* * Atténuer ce qui est annexe */
+#howto,
+#howto h3,
+.thematique p,
+.thematique header h3,
+.thematique .correspondance,
+.thematique .correspondance h4 {
   color: #666666;
   font-size: small;
 }
-/* * thematique */
-.thematique header {
-  margin-bottom: 1.5em;
+#howto p,
+#howto h3 p,
+.thematique p p,
+.thematique header h3 p,
+.thematique .correspondance p,
+.thematique .correspondance h4 p,
+#howto h3,
+#howto h3 h3,
+.thematique p h3,
+.thematique header h3 h3,
+.thematique .correspondance h3,
+.thematique .correspondance h4 h3,
+#howto h4,
+#howto h3 h4,
+.thematique p h4,
+.thematique header h3 h4,
+.thematique .correspondance h4,
+.thematique .correspondance h4 h4 {
+  margin-bottom: 0.75em;
 }
+.thematique header h3,
+.thematique .correspondance h4 {
+  margin: 0;
+  font-weight: bold;
+}
+.thematique .correspondance {
+  width: 100%;
+  margin: 1.5em 0;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(102, 102, 102, 0.3);
+}
+.thematique .correspondance p {
+  margin: 0;
+}
+/* * thematique */
 .thematique h2 {
   margin: 0;
   padding-bottom: 20px;
   border-bottom: 10px solid #2c699e;
   text-transform: uppercase;
+}
+.thematique header {
+  margin-bottom: 1.5em;
 }
 .thematique header nav {
   display: block;
@@ -1176,17 +1216,8 @@ tt {
 .thematique header nav li a:active {
   background-color: rgba(44, 105, 158, 0.1);
 }
-.thematique header h3,
-.thematique header p {
-  margin: 0;
-  color: #666666;
-  font-size: small;
-}
-.thematique header p {
-  margin-bottom: 0.75em;
-}
-.thematique section {
-  margin-bottom: 3em;
+.thematique section h3 {
+  padding-top: 10px;
 }
 .thematique section h3 em {
   color: #2c699e;
@@ -1216,21 +1247,5 @@ tt {
 }
 .thematique section > ul ul li {
   margin-bottom: 5px;
-}
-.thematique .correspondance {
-  width: 100%;
-  margin: 1.5em 0;
-  padding-top: 10px;
-  border-top: 1px dashed rgba(102, 102, 102, 0.3);
-  color: #666666;
-}
-.thematique .correspondance h4 {
-  margin: 0;
-  font-weight: bold;
-  font-size: small;
-}
-.thematique .correspondance p {
-  margin: 0;
-  font-size: small;
 }
 /* end */
