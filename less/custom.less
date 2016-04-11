@@ -53,7 +53,7 @@ pre, code, samp, var, tt { padding: .1em .3em; background-color: fade(@color,5%)
 /* * thematique */
 
 .thematique h2 {
-  margin: 0;
+  margin: 0 0 @gutter;
   padding-bottom: @gutter*2;
   border-bottom: @gutter solid @color;
   text-transform: uppercase;
@@ -61,12 +61,16 @@ pre, code, samp, var, tt { padding: .1em .3em; background-color: fade(@color,5%)
 
 .thematique header { margin-bottom: @p; }
 .thematique header nav {
-  display: block; width: 100%; margin: @p 0; clear: both; text-align: center; font-size: 80%;
+  display: block; width: 100%; margin: @gutter 0 @p; clear: both; text-align: center; font-size: 80%;
   li { display: inline-block; margin: @gutter/2 @gutter/3; }
   li a { display: block; margin: 0; padding: @gutter/2 @gutter; border: 1px solid; border-radius: @gutter/2; color: @color; font-weight: bold; }
   li a:focus,
   li a:hover,
   li a:active { background-color: fade(@color, 10%); }
+}
+@media print {
+.thematique header nav { display: none; }
+.thematique h2 {page-break-before:always}
 }
 
 .thematique section { margin-bottom: @p*2; }

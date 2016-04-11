@@ -103,3 +103,10 @@ main { clear:both; }
 @media (min-width: @screen-medium) {
 #footer .page { padding: @p 0 @p/4; }
 }
+
+/* * print */
+@media print {
+#header #nav,
+#navtoc { display: none; }
+#footer { border-top-width: 1px; }
+}
