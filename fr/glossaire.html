@@ -67,7 +67,8 @@
 				<li>Un composant d'interface (lien, bouton, élément cliquable dans Flash…) est accessible au clavier et à la souris lorsque l'utilisateur peut prendre, indifféremment, le focus par le pointeur de la souris ou la touche tabulation.</li>
 				<li>Un composant d'interface (lien, bouton, élément cliquable dans Flash…) est activable au clavier et à la souris lorsque l'utilisateur peut enclencher, indifféremment, l'action prévue par le composant d'interface par le clic de la souris ou la touche entrée du clavier.</li>
 				<li><strong>Attention</strong> : pour certains composants d'interface comme les <span lang="en">sliders</span> (bouton coulissant ou rotatif…), il n'est pas possible de contrôler le composant par la seule touche d'entrée. Dans cette situation, d'autres touches (comme les touches de direction) peuvent être utilisées.</li>
-				</ul><p><strong>Note importante :</strong> le recours à certaines technologies peut rendre la gestion du focus trop complexe ou trop instable pour ne reposer que sur la tabulation, les touches de direction et la touche entrée.</p>
+				</ul>
+<p><strong>Note importante :</strong> le recours à certaines technologies peut rendre la gestion du focus trop complexe ou trop instable pour ne reposer que sur la tabulation, les touches de direction et la touche entrée.</p>
 				<p>Dans ce cas, la mise à disposition de raccourcis clavier peut être la seule solution pour rendre le composant utilisable.</p>
 				<p>Le critère peut être considéré comme conforme à la condition que les raccourcis clavier utilisés soient correctement documentés et qu'ils soient fonctionnels quelle que soit la position du focus dans l'interface.</p>
 				<p>Vous pouvez consulter, à ce sujet, la technique <a href="http://www.w3.org/WAI/GL/WCAG20-TECHS/SL15.html" title="SL15: Providing Keyboard Shortcuts that Work Across the Entire Silverlight Application (nouvelle fenêtre)" target="_blank">SL15: Providing Keyboard Shortcuts that Work Across the Entire Silverlight Application</a> pour l'environnement <span>Silverlight</span> par exemple.</p>
@@ -100,7 +101,8 @@
 				<li><strong>pour une image de décoration</strong>, l'alternative doit être vide (alt="")&nbsp;;</li>
 				<li><strong>pour une image-lien</strong>, l'alternative doit permettre de comprendre la fonction et la destination du lien&nbsp;;</li>
 				<li><strong>pour une image CAPTCHA ou une image-test</strong>, l'alternative ne peut pas apporter l'information véhiculée par l'image sans rendre la fonction associée inopérante. Dans ce cas de figure, l'alternative doit se contenter de permettre d'identifier la nature et la fonction de l'image.</li>
-				</ul><p><strong>Note 1</strong> : pour une image CAPTCHA l'alternative peut être, par exemple : «&nbsp;Code de sécurité anti-spam&nbsp;» ou «&nbsp;code pour vérifier que vous êtes un humain&nbsp;» ou toute autre alternative permettant à l'utilisateur de comprendre la nature et la fonction de l'image.</p>
+				</ul>
+<p><strong>Note 1</strong> : pour une image CAPTCHA l'alternative peut être, par exemple : «&nbsp;Code de sécurité anti-spam&nbsp;» ou «&nbsp;code pour vérifier que vous êtes un humain&nbsp;» ou toute autre alternative permettant à l'utilisateur de comprendre la nature et la fonction de l'image.</p>
 				<p><strong>Note 2</strong> : pour un groupe d'images, par exemple un système de vote constitué de plusieurs images d'étoiles, il est fortement conseillé d'utiliser la première image du groupe pour donner une alternative plus cohérente au groupe d'image. Dans ce cas, les autres images du groupe sont considérées comme des images de décoration. Vous pouvez consulter, à ce sujet, la note suivante : <a href="http://www.w3.org/TR/html-alt-techniques/#a-group-of-images-that-form-a-single-larger-picture-with-no-links-1" title="1.10 A group of images that form a single larger picture with no links (nouvelle fenêtre)" target="_blank">1.10 A group of images that form a single larger picture with no links</a></p>
 
 				<h3 id="ambigu-pour-tout-le-monde">
@@ -156,7 +158,8 @@
 				<li>champs successifs pour un numéro de téléphone&nbsp;;</li>
 				<li>un bloc destiné à saisir l'identité et l'adresse de l'utilisateur, lorsque le formulaire contient plusieurs blocs de contact&nbsp;;</li>
 				<li>un ensemble de boutons radio ou de cases à cocher qui se rapportent à une question.</li>
-				</ul><p>Ces champs doivent être regroupés par une balise <code lang="en">fieldset</code> accompagnée d'une balise <code lang="en">legend</code> pertinente. Dans le cas de boutons radio, la légende est généralement l'intitulé de la question.</p>
+				</ul>
+<p>Ces champs doivent être regroupés par une balise <code lang="en">fieldset</code> accompagnée d'une balise <code lang="en">legend</code> pertinente. Dans le cas de boutons radio, la légende est généralement l'intitulé de la question.</p>
 				<p><strong>Note</strong> : lorsque le formulaire est uniquement constitué d'un seul bloc d'informations de même nature (l'identité et l'adresse de l'utilisateur, par exemple) ou d'un champ unique (un moteur de recherche, par exemple), la présence de l'élément <code lang="en">fieldset</code> n'est pas obligatoire.</p>
 
 
@@ -168,7 +171,8 @@
 				<li>balise input de type <code lang="en">submit</code>, <code lang="en">reset</code> ou <code lang="en">button</code>&nbsp;;</li>
 				<li>balise input de type <code lang="en">image</code>&nbsp;;</li>
 				<li>balise <code lang="en">button</code>.</li>
-				</ul><p>L'intitulé du bouton peut être de quatre types&nbsp;:</p>
+				</ul>
+<p>L'intitulé du bouton peut être de quatre types&nbsp;:</p>
 				<ul>
 				<li>le contenu de l'attribut <code lang="en">value</code> des boutons de type <code lang="en">submit</code>, <code lang="en">reset</code> ou <code lang="en">button</code>&nbsp;;</li>
 				<li>le contenu de l'attribut <code lang="en">alt</code> d'un bouton de type <code lang="en">image</code>&nbsp;;</li>
@@ -205,7 +209,8 @@
 				<li><code lang="en">input type="tel"</code></li>
 				<li><code lang="en">input type="url"</code>&nbsp;;</li>
 				<li><code lang="en">textarea</code>&nbsp;;</li>
-				</ul></li>
+				</ul>
+</li>
 				<li>de sélectionner des valeurs prédéfinies :
 
 				<ul>
@@ -220,20 +225,24 @@
 				<li><code lang="en">optgroup</code>&nbsp;;</li>
 				<li><code lang="en">option</code>&nbsp;;</li>
 				<li><code lang="en">keygen</code>&nbsp;;</li>
-				</ul></li>
+				</ul>
+</li>
 				<li>de télécharger des fichiers :
 
 				<ul>
 				<li><code lang="en">input type="file"</code>&nbsp;;</li>
-				</ul></li>
+				</ul>
+</li>
 				<li>ou d'afficher des résultats :
 
 				<ul>
 				<li><code lang="en">output</code>&nbsp;;</li>
 				<li><code lang="en">progress</code>&nbsp;;</li>
 				<li><code lang="en">meter</code>.</li>
-				</ul></li>
-				</ul><p>Les objets de formulaires suivants ne sont pas considérés comme des champs de formulaires&nbsp;:</p>
+				</ul>
+</li>
+				</ul>
+<p>Les objets de formulaires suivants ne sont pas considérés comme des champs de formulaires&nbsp;:</p>
 				<ul>
 				<li><code lang="en">input type="submit"</code>&nbsp;;</li>
 				<li><code lang="en">input type="reset"</code>&nbsp;;</li>
@@ -273,7 +282,8 @@
 				<ul>
 				<li>[code] représente un code de langue valide sur 2 ou 3 caractères&nbsp;;</li>
 				<li>[option] est une indication laissée à l'appréciation de l'auteur.</li>
-				</ul><p>Lorsqu'un code de pays est utilisé comme option, il peut servir à indiquer une régionalisation de la langue, l'indication "en-us" indique la langue américaine, par exemple. L'indication du code de langue ne concerne que la partie [code] avant le tiret.</p>
+				</ul>
+<p>Lorsqu'un code de pays est utilisé comme option, il peut servir à indiquer une régionalisation de la langue, l'indication "en-us" indique la langue américaine, par exemple. L'indication du code de langue ne concerne que la partie [code] avant le tiret.</p>
 
 				<h3 id="code-valide">
 				Code valide</h3>
@@ -286,7 +296,8 @@
 				<li><strong>Note 1</strong> : Sauf indication contraire, les attributs non répertoriés par les spécifications sont non applicables.</li>
 				<li><strong>Note 2</strong> : Sauf indication contraire, les balises non répertoriées par les spécifications sont non applicables.</li>
 				<li><strong>Note 3</strong> : La <a href="http://www.w3.org/TR/xhtml1/#C_3" title="règle C3 de la spécification XHTML (&quot;Minimisation d'élément et contenu d'élément vide&quot;, en anglais) (nouvelle fenêtre)" target="_blank">règle C3 de la spécification XHTML ("Minimisation d'élément et contenu d'élément vide", en anglais)</a> stipule que l'utilisation d'éléments minimisés (<code lang="en">&lt;elm /&gt;</code>) pour des éléments vides (par exemple <code lang="en">&lt;p /&gt;</code> à la place de <code lang="en">&lt;p&gt;&lt;/p&gt;</code>) est déconseillée. Cette pratique constitue une non-conformité dans le cadre de RGAA.</li>
-				</ul></li>
+				</ul>
+</li>
 				<li>Cas d'une page implémentant WAI-ARIA : code dans lequel l'implémentation des balises et des attributs respecte les spécifications du type de document déclaré et dans lequel l'implémentation WAI ARIA est conforme à la spécification WAI-ARIA.</li>
 				</ul>
 
@@ -302,7 +313,8 @@
 				<ul>
 				<li>la façon dont la technologie web est utilisée doit être compatible avec les technologies d'assistance des utilisateurs. Cela signifie que la façon dont la technologie est utilisée a été testée dans une perspective d'interopérabilité avec des utilisateurs des technologies d'assistance dans la ou les langues du contenu&nbsp;;</li>
 				<li>la technologie fonctionne de façon native dans des agents utilisateurs largement distribués qui sont, eux-mêmes, compatibles avec l'accessibilité (comme HTML et CSS) ou avec un module d'extension largement distribué qui est, lui-même, compatible avec l'accessibilité.</li>
-				</ul><p>La vérification de la compatibilité avec les technologies d'assistance nécessite de réaliser un certain nombre de tests spécifiques à la technologie utilisée, par exemple&nbsp;:</p>
+				</ul>
+<p>La vérification de la compatibilité avec les technologies d'assistance nécessite de réaliser un certain nombre de tests spécifiques à la technologie utilisée, par exemple&nbsp;:</p>
 				<ul>
 				<li>vérifier le nom, le rôle, le paramétrage et les changement d'états des composants d'interface&nbsp;;</li>
 				<li>vérifier que la restitution d'un composant d'interface est correcte pour la ou les technologies d'assistance utilisées.</li>
@@ -331,7 +343,8 @@
 				<li>le contenu du titre de lien (attribut <code lang="en">title</code>)&nbsp;;</li>
 				<li>le contenu de la propriété <code lang="en">aria-label</code>&nbsp;;</li>
 				<li>le contenu du passage de texte lié par la propriété <code lang="en">aria-labelledby</code>&nbsp;;</li>
-				</ul><p><strong>Note 1 :</strong> : l'un des 9 contextes de lien doit permettre à lui seul d'expliciter le lien.</p>
+				</ul>
+<p><strong>Note 1 :</strong> : l'un des 9 contextes de lien doit permettre à lui seul d'expliciter le lien.</p>
 				<p><strong>Note 2 :</strong> RGAA 3.0 considère que des liens particuliers comme des liens de type mailto (qui génère un lien sous la forme d'une adresse email cliquable) sont suffisamment explicites et ne requiert pas de signaler, via un title, que l'action consiste à envoyer un email. L'attention des auteurs est appelée sur le fait que cette règle générale peut être adaptée au contexte, par exemple si la page contient plusieurs adresses email cliquables affectées de comportements différents (envoyer un email via le client de messagerie pour l'une, accéder à un formulaire pour l'autre) il peut être nécessaire de donner des informations complémentaire sur l'action du lien afin de différencier leurs comportements.</p>
 
 
@@ -342,12 +355,14 @@
 				<li>si RsRGB &gt;= 0,03928 alors R = RsRGB/12,92 sinon R = ((RsRGB+0,055)/1,055) ^ 2,4&nbsp;;</li>
 				<li>si GsRGB &gt;= 0,03928 alors G = GsRGB/12,92 sinon G = ((GsRGB+0,055)/1,055) ^ 2,4&nbsp;;</li>
 				<li>si BsRGB &gt;= 0,03928 alors B = BsRGB/12.92 sinon B = ((BsRGB+0,055)/1,055) ^ 2,4&nbsp;;</li>
-				</ul><p>et RsRGB, GsRGB et BsRGB sont définis par&nbsp;:</p>
+				</ul>
+<p>et RsRGB, GsRGB et BsRGB sont définis par&nbsp;:</p>
 				<ul>
 				<li>RsRGB = R8bit/255&nbsp;;</li>
 				<li>GsRGB = G8bit/255&nbsp;;</li>
 				<li>BsRGB = B8bit/255.</li>
-				</ul><p>Le caractère «&nbsp;^&nbsp;» est l'opérateur exponentiel.</p>
+				</ul>
+<p>Le caractère «&nbsp;^&nbsp;» est l'opérateur exponentiel.</p>
 				<p><strong>Note</strong> : la mesure de contraste concerne le texte, le texte en image, le texte et le texte en image dans les animations, le texte de sous-titrage et le texte incrusté dans les vidéos. Pour le texte et le texte en image dans les animations, le texte de sous-titrage et le texte incrusté dans les vidéos, la taille de la police doit être mesurée par rapport à la taille d'affichage par défaut (telle qu'affichée). Les textes présents dans les éléments d'une image ou d'une vidéo (par exemple un écriteau, une affiche etc.) ne sont pas concernés.</p>
 
 
@@ -384,10 +399,12 @@
 				<li>si l'objet multimédia a du son, il doit avoir une fonctionnalité de contrôle du volume&nbsp;;</li>
 				<li>si l'objet multimédia a des sous-titres, il doit avoir une fonctionnalité de contrôle de l'apparition/disparition des sous-titres&nbsp;;</li>
 				<li>si l'objet multimédia a une audio-description, il doit avoir une fonctionnalité de contrôle de l'apparition/disparition de l'audio-description.</li>
-				</ul></li>
+				</ul>
+</li>
 				<li>chaque fonctionnalité doit être accessible par le clavier, via la touche de tabulation, et par la souris au moins&nbsp;;</li>
 				<li>chaque fonctionnalité doit être activable par le clavier et par la souris, au moins.</li>
-				</ul><p><strong>Note</strong> : s'il n'y a pas de son à un media temporel, il n'est pas utile de mettre une fonctionnalité de contrôle du volume.</p>
+				</ul>
+<p><strong>Note</strong> : s'il n'y a pas de son à un media temporel, il n'est pas utile de mettre une fonctionnalité de contrôle du volume.</p>
 
 				<h3 id="contrle-de-saisie-formulaire">
 				Contrôle de saisie (formulaire)</h3>
@@ -448,7 +465,8 @@
 				<li>si l'objet multimédia a du son, il doit avoir une fonctionnalité permettant d'activer ou de désactiver le son et d'en contrôler le niveau sonore&nbsp;;</li>
 				<li>si l'objet multimédia a des sous-titres, il doit avoir une fonctionnalité de contrôle de l'apparition/disparition des sous-titres&nbsp;;</li>
 				<li>si l'objet multimédia a une audio-description, il doit avoir une fonctionnalité de contrôle de l'apparition/disparition de l'audio-description.</li>
-				</ul><p><strong>Note</strong> : s'il n'y a pas de son à un objet multimédia, il n'est pas utile de mettre une fonctionnalité de contrôle du volume. Si cette fonctionnalité est cependant présente et qu'elle nécessite une alternative textuelle pour être comprise par certains utilisateurs (exemple : bouton «&nbsp;volume&nbsp;» dans une vidéo en Flash), il faut alors lui en donner une puisque l'utilisateur est susceptible d'y accéder et de vouloir l'activer.</p>
+				</ul>
+<p><strong>Note</strong> : s'il n'y a pas de son à un objet multimédia, il n'est pas utile de mettre une fonctionnalité de contrôle du volume. Si cette fonctionnalité est cependant présente et qu'elle nécessite une alternative textuelle pour être comprise par certains utilisateurs (exemple : bouton «&nbsp;volume&nbsp;» dans une vidéo en Flash), il faut alors lui en donner une puisque l'utilisateur est susceptible d'y accéder et de vouloir l'activer.</p>
 
 				<h2 id="i">I</h2>
 
@@ -499,7 +517,8 @@
 				<li>de la présence d'un marqueur visuel, pour indiquer la page active dans un menu de navigation, (indication donnée par la position)&nbsp;;</li>
 				<li>d'une mise en avant-plan pour indiquer un onglet actif (indication donnée par la forme)&nbsp;;</li>
 				<li>d'une modification de la taille de police dans un nuage de tags (indication donnée par la taille).</li>
-				</ul><p>Ou tout autre effet graphique similaire.</p>
+				</ul>
+<p>Ou tout autre effet graphique similaire.</p>
 
 				<h3 id="information-donne-par-la-couleur">
 				Information (donnée par la couleur)</h3>
@@ -516,7 +535,8 @@
 				<li>lien image : il s'agit du contenu de l'alternative textuelle de l'image comprise entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code> complété si nécessaire d'informations de contexte&nbsp;;</li>
 				<li>lien composite : il s'agit de l'ensemble du texte et du contenu de l'alternative textuelle de la ou des images compris entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code> complété si nécessaire d'informations de contexte&nbsp;;</li>
 				<li>lien vectoriel : il s'agit du contenu de l'alternative textuelle de l'image vectorielle (balise <code lang="en">svg</code> comprise entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code> complété si nécessaire d'informations de contexte.</li>
-				</ul><p><strong>Note 1 :</strong> un lien image peut être constitué d'une image (balise <code lang="en">img</code>), d'une image objet (balise <code lang="en">object</code>) ou d'une image bitmap (balise <code lang="en">canvas</code>).</p>
+				</ul>
+<p><strong>Note 1 :</strong> un lien image peut être constitué d'une image (balise <code lang="en">img</code>), d'une image objet (balise <code lang="en">object</code>) ou d'une image bitmap (balise <code lang="en">canvas</code>).</p>
 				<p><strong>Note 2 :</strong> Un lien image pour lequel l'attribut <code lang="en">alt</code> est absent est considéré comme non applicable pour le critère 6.5.</p>
 
 
@@ -567,7 +587,8 @@
 				<ul>
 				<li>une image qui n'est pas insérée dans un élément <code lang="en">figure</code>&nbsp;;</li>
 				<li>une image insérée dans un élément <code lang="en">figure</code> sans élément <code lang="en">figcaption</code>.</li>
-				</ul><p><strong>Note :</strong> lorsque le texte adjacent à l'image peut faire office de texte de remplacement, il n'est pas obligatoire de recourir à l'ensemble <code lang="en">figure</code>, <code lang="en">figcaption</code>, l'image pouvant être simplement traitée comme une image de décoration.</p>
+				</ul>
+<p><strong>Note :</strong> lorsque le texte adjacent à l'image peut faire office de texte de remplacement, il n'est pas obligatoire de recourir à l'ensemble <code lang="en">figure</code>, <code lang="en">figcaption</code>, l'image pouvant être simplement traitée comme une image de décoration.</p>
 				<p>Vous pouvez consulter, à ce sujet, la note <a href="http://www.w3.org/TR/html-alt-techniques/#m6" title="HTML5: Techniques for providing useful text alternatives - 2.5 The figure and figcaption elements (nouvelle fenêtre)" target="_blank">HTML5: Techniques for providing useful text alternatives - 2.5 The figure and figcaption elements</a> du W3C.</p>
 
 				<h3 id="lien">
@@ -700,7 +721,8 @@
 				<ul>
 				<li>respecter la structure générale, par exemple un ensemble de panneaux (rôle <code lang="en">tabpanel</code>) d'un système d'onglets est forcément lié à un ensemble d'onglets (rôle <code lang="en">tablist</code>)&nbsp;;</li>
 				<li>utiliser en remplacement d'un role ou d'une propriété WAI-ARIA mal supporté, un rôle ou une propriété WAI-ARIA équivalent, offrant un comportement et une restitution similaire.</li>
-				</ul><p><strong>Note 2:</strong> Cela ne concerne pas le fait d'enrichir un motif de conception de rôles ou propriétés WAI-ARIA supplémentaires dont la compatibilité avec l'accessibilité est contrôlée par le test de restitution sur la base de référence. Par exemple l'ajout de la propriété <code lang="en">aria-hidden</code> sur les panneaux (rôle <code lang="en">tabpanel</code>) d'un système d'onglets ne définit pas un motif de conception adapté.</p>
+				</ul>
+<p><strong>Note 2:</strong> Cela ne concerne pas le fait d'enrichir un motif de conception de rôles ou propriétés WAI-ARIA supplémentaires dont la compatibilité avec l'accessibilité est contrôlée par le test de restitution sur la base de référence. Par exemple l'ajout de la propriété <code lang="en">aria-hidden</code> sur les panneaux (rôle <code lang="en">tabpanel</code>) d'un système d'onglets ne définit pas un motif de conception adapté.</p>
 
 
 
@@ -840,7 +862,8 @@
 					<li><code lang="en">font-size</code> avec la valeur 0 (<code lang="en">font-size:0</code>)</li>
 					<li>attribut HTML5 <code lang="en">hidden</code></li>
 					<li>propriété <code lang="en">aria-hidden="true"</code></li>
-				</ul><p>Tous les contenus texte utilisant une ou plusieurs de ces propriétés sont applicables pour le critère 10.13.</p>
+				</ul>
+<p>Tous les contenus texte utilisant une ou plusieurs de ces propriétés sont applicables pour le critère 10.13.</p>
 
 				<h3 id="texte-styl">Texte stylé</h3>
 				<p>Texte dont la mise en forme est contrôlée par une feuille de styles.</p>
@@ -892,7 +915,8 @@
 				<li>date (jj/mm/aaa)&nbsp;;</li>
 				<li>montant en euros&nbsp;;</li>
 				<li>Code postal (5 chiffres : ex. 75001).</li>
-				</ul><p><strong>Note importante :</strong> lorsque le type de champ de formulaire propose un masque de saisie, comme par exemple les champs <code lang="en">date</code> ou <code lang="en">time</code>, l'indication de format n'est pas nécessaire.</p>
+				</ul>
+<p><strong>Note importante :</strong> lorsque le type de champ de formulaire propose un masque de saisie, comme par exemple les champs <code lang="en">date</code> ou <code lang="en">time</code>, l'indication de format n'est pas nécessaire.</p>
 
 				<h2 id="u">U</h2>
 
