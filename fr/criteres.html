@@ -57,8 +57,8 @@
 <h3>Note importante pour tout contenu antérieur à la spécification HTML5&nbsp;:</h3>
 	<p>Lorsque le code HTML de la page n'est pas du HTML5, les éléments HTML5 (balises et attributs) exigés par un critère ou test sont non applicables. Tous les autres critères ou tests restent applicables, y compris les dispositifs ARIA. Les critères et tests suivants sont non applicables&nbsp;:</p>
 	<ul>
-		<li>critère 1.10&nbsp;;</li>
-		<li>critère 9.2&nbsp;;</li>
+		<li>Critère 1.10&nbsp;;</li>
+		<li>Critère 9.2&nbsp;;</li>
 		<li>test 10.13.3&nbsp;;</li>
 		<li>test 11.10.1 (condition 2 relative à l'attribut HTML5 required).</li>
 	</ul>
@@ -83,22 +83,19 @@
 					<article id="images" class="thematique">
 						<header>
 							<h2>1. Images</h2>
+							<p><strong>Recommandation :</strong></p>
+							<p>Donner à chaque <a href="glossaire.html#image-porteuse-dinformation">image porteuse d'information</a> une <a href="#alternative-textuelle-image">alternative textuelle</a> pertinente et une <a href="#description-dtaille-image">description détaillée</a> si nécessaire. Remplacer les images textes par du texte stylé lorsque c'est possible.</p>
 
-<p><strong>Recommandation :</strong></p>
-<p>Donner à chaque <a href="glossaire.html#image-porteuse-dinformation">image porteuse d'information</a> une <a href="#alternative-textuelle-image">alternative textuelle</a> pertinente et une <a href="#description-dtaille-image">description détaillée</a> si nécessaire. Remplacer les images textes par du texte stylé lorsque c'est possible.</p>
-
-<div class="key-words">
-	<span>mot clé</span>
-	<ul>
-		<li>Principe : Perceptible</li>
-	</ul>
-</div>
-</header>
+							<div class="key-words">
+								<span>mot clé</span>
+								<ul>
+									<li>Principe : Perceptible</li>
+								</ul>
+							</div>
+						</header>
 
 <section>
-	</section>
-<section>
-<h3 id="crit-1-1"><em>Critère 1.1 [A]</em> Chaque image a-t-elle une alternative textuelle&nbsp;?</h3>
+	<h3 id="crit-1-1"><em>Critère 1.1 [A]</em> Chaque image a-t-elle une alternative textuelle&nbsp;?</h3>
 	<ul>
 		<li>Test 1.1.1 : Chaque image (balise <code lang="en">img</code>) a-t-elle un attribut <code lang="en">alt</code>&nbsp;?</li>
 		<li>Test 1.1.2 : Chaque <a href="#zone-dune-image-ractive">zone</a> (balise <code lang="en">area</code>) d'une <a href="#image-ractive">image réactive</a> a-t-elle un attribut <code lang="en">alt</code>&nbsp;?</li>
@@ -107,7 +104,7 @@
 	</ul>
 	<aside class="correspondance">
 	<p><strong>Correspondances WCAG 2.0</strong></p>
-	<p>Critère(s) de succès WCAG 2.0 : <a href="http://www.w3.org/Translations/WCAG20-fr/#text-equiv-all" title="1.1.1 (nouvelle fenêtre)" target="_blank">1.1.1</a></p>
+	<p>Critère(s) de succès WCAG 2.0 : <a href="http://www.w3.org/Translations/WCAG20-fr/#text-equiv-all" hreflang="en">1.1.1</a></p>
 	<p>Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org/TR/WCAG-TECHS/H36.html" title="H36 (nouvelle fenêtre)" target="_blank">H36</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/H37.html" title="H37 (nouvelle fenêtre)" target="_blank">H37</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/H53.html" title="H53 (nouvelle fenêtre)" target="_blank">H53</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/H24.html" title="H24 (nouvelle fenêtre)" target="_blank">H24</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/H65.html" title="F65 (nouvelle fenêtre)" target="_blank">F65</a></p>
 	</aside>
 	<div class="key-words">
@@ -122,7 +119,7 @@
 <section>
 	</section>
 <section>
-<h3><em>Critère 1.2 [A]</em> Pour chaque image de décoration ayant une alternative textuelle, cette alternative est-elle vide&nbsp;?</h3>
+<h3 id="crit-1-2"><em>Critère 1.2 [A]</em> Pour chaque image de décoration ayant une alternative textuelle, cette alternative est-elle vide&nbsp;?</h3>
 	<ul>
 	<li>Test 1.2.1 : Chaque <a href="#image-de-dcoration">image de décoration</a> sans <a href="#lgende-dimage">légende</a> (balise <code lang="en">img</code>) et ayant un attribut <code lang="en">alt</code> vérifie-t-elle ces conditions :
 	<ul>
@@ -164,7 +161,7 @@
 	</div>
 </section>
 <section>
-<h3 id="crit-13">Critère 1.3 [A] Pour chaque image porteuse d'information ayant une alternative textuelle, cette alternative est-elle pertinente (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-13"><em>Critère 1.3 [A]</em> Pour chaque image porteuse d'information ayant une alternative textuelle, cette alternative est-elle pertinente (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-13-a-pour-chaque-image-porteuse-dinformation-ayant-une-alternative-textuelle-cette-alternative-est-elle-pertinente-hors-cas-particuliers-">
 
   <ul>
@@ -232,14 +229,8 @@
         
           </section>
 <section>
-<h3 id="crit-14-a-pour-chaque-image-utilise-comme-captcha-ou-comme-image-test-ayant-une-alternative-textuelle-cette-alternative-permet-elle-didentifier-la-nature-et-la-fonction-de-limage-">Critère 1.4 [A] Pour chaque image utilisée comme CAPTCHA ou comme image-test, ayant une alternative textuelle, cette alternative permet-elle d'identifier la nature et la fonction de l'image&nbsp;?</h3>
-        <div class="section__content js-contentToggle__content" id="content-critre-14-a-pour-chaque-image-utilise-comme-captcha-ou-comme-image-test-ayant-une-alternative-textuelle-cette-alternative-permet-elle-didentifier-la-nature-et-la-fonction-de-limage-">
-                      
-
-  
-
-
-  <ul>
+<h3 id="crit-14-a-pour-chaque-image-utilise-comme-captcha-ou-comme-image-test-ayant-une-alternative-textuelle-cette-alternative-permet-elle-didentifier-la-nature-et-la-fonction-de-limage-"><em>Critère 1.4 [A]</em> Pour chaque image utilisée comme CAPTCHA ou comme image-test, ayant une alternative textuelle, cette alternative permet-elle d'identifier la nature et la fonction de l'image&nbsp;?</h3>
+<ul>
 <li>Test 1.4.1 : Chaque image (balise <code lang="en">img</code>) utilisée comme <a href="#captcha">CAPTCHA</a> ou comme <a href="#imagetest">image-test</a>, ayant un attribut <code lang="en">alt</code>, vérifie-t-elle ces conditions ?
 
 <ul>
@@ -292,53 +283,39 @@
         
           </section>
 <section>
-<h3 id="crit-15-a-pour-chaque-image-utilise-comme-captcha-une-solution-daccs-alternatif-au-contenu-ou-la-fonction-du-captcha-est-elle-prsente-">Critère 1.5 [A] Pour chaque image utilisée comme CAPTCHA, une solution d'accès alternatif au contenu ou à la fonction du CAPTCHA est-elle présente&nbsp;?</h3>
-        <div class="section__content js-contentToggle__content" id="content-critre-15-a-pour-chaque-image-utilise-comme-captcha-une-solution-daccs-alternatif-au-contenu-ou-la-fonction-du-captcha-est-elle-prsente-">
-                      
+	<h3 id="crit-1-5"><em>Critère 1.5 [A]</em> Pour chaque image utilisée comme CAPTCHA, une solution d'accès alternatif au contenu ou à la fonction du CAPTCHA est-elle présente&nbsp;?</h3>
+	<ul>
+		<li>Test 1.5.1 : Chaque image (balises <code lang="en">img</code>, <code lang="en">area</code>, <code lang="en">object</code>, <code lang="en">embed</code>, <code lang="en">svg</code>, <code lang="en">canvas</code>) utilisée comme <a href="#captcha">CAPTCHA</a> vérifie-t-elle une de ces conditions ?
 
-  
+		<ul>
+		<li>Il existe une autre forme de <a href="#captcha">CAPTCHA</a> non graphique, au moins</li>
+		<li>Il existe une autre solution d'accès à la fonctionnalité sécurisée par le <a href="#captcha">CAPTCHA</a></li>
+		</ul>
+		</li>
+		<li>Test 1.5.2 : Chaque bouton associé à une image (balise <code lang="en">input</code> avec l'attribut <code lang="en">type="image"</code>) utilisée comme <a href="#captcha">CAPTCHA</a> vérifie-t-il une de ces conditions ?
 
-
-  <ul>
-<li>Test 1.5.1 : Chaque image (balises <code lang="en">img</code>, <code lang="en">area</code>, <code lang="en">object</code>, <code lang="en">embed</code>, <code lang="en">svg</code>, <code lang="en">canvas</code>) utilisée comme <a href="#captcha">CAPTCHA</a> vérifie-t-elle une de ces conditions ?
-
-<ul>
-<li>Il existe une autre forme de <a href="#captcha">CAPTCHA</a> non graphique, au moins</li>
-<li>Il existe une autre solution d'accès à la fonctionnalité sécurisée par le <a href="#captcha">CAPTCHA</a></li>
-</ul>
-</li>
-<li>Test 1.5.2 : Chaque bouton associé à une image (balise <code lang="en">input</code> avec l'attribut <code lang="en">type="image"</code>) utilisée comme <a href="#captcha">CAPTCHA</a> vérifie-t-il une de ces conditions ?
-
-<ul>
-<li>Il existe une autre forme de <a href="#captcha">CAPTCHA</a> non graphique, au moins</li>
-<li>Il existe une autre solution d'accès à la fonctionnalité sécurisée par le <a href="#captcha">CAPTCHA</a></li>
-</ul>
-</li>
-</ul>
-<p><strong>Correspondances WCAG 2.0</strong></p>
-
-<p>Critère(s) de succès WCAG 2.0 : <a href="http://www.w3.org/Translations/WCAG20-fr/#text-equiv-all" title="1.1.1 (nouvelle fenêtre)" target="_blank">1.1.1</a></p>
-
-<p>Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org/TR/WCAG-TECHS/G144.html" title="G144 (nouvelle fenêtre)" target="_blank">G144</a></p>
-
-
-<div class="key-words">
-    <span>mot clé</span>
-    <ul>
-              <li>Niveau : A</li>
-              <li>Principe : Perceptible</li>
-          </ul>
-  </div>
-     
-        
-          </section>
+		<ul>
+		<li>Il existe une autre forme de <a href="#captcha">CAPTCHA</a> non graphique, au moins</li>
+		<li>Il existe une autre solution d'accès à la fonctionnalité sécurisée par le <a href="#captcha">CAPTCHA</a></li>
+		</ul>
+		</li>
+	</ul>
+	<aside>
+		<p><strong>Correspondances WCAG 2.0</strong></p>
+		<p>Critère(s) de succès WCAG 2.0 : <a href="http://www.w3.org/Translations/WCAG20-fr/#text-equiv-all" title="1.1.1 (nouvelle fenêtre)" target="_blank">1.1.1</a></p>
+		<p>Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org/TR/WCAG-TECHS/G144.html" title="G144 (nouvelle fenêtre)" target="_blank">G144</a></p>
+		<div class="key-words">
+			<span>mot clé</span>
+			<ul>
+				<li>Niveau : A</li>
+				<li>Principe : Perceptible</li>
+			</ul>
+		</div>
+	</aside>
+</section>
 <section>
-<h3 id="crit-16-a-chaque-image-porteuse-dinformation-a-t-elle-si-ncessaire-une-description-dtaille-">Critère 1.6 [A] Chaque image porteuse d'information a-t-elle, si nécessaire, une description détaillée&nbsp;?</h3>
-        <div class="section__content js-contentToggle__content" id="content-critre-16-a-chaque-image-porteuse-dinformation-a-t-elle-si-ncessaire-une-description-dtaille-">
-                      
-
-  
-
+<h3 id="crit-16-a-chaque-image-porteuse-dinformation-a-t-elle-si-ncessaire-une-description-dtaille-"><em>Critère 1.6 [A]</em> Chaque image porteuse d'information a-t-elle, si nécessaire, une description détaillée&nbsp;?</h3>
+      
 
   <ul>
 <li>Test 1.6.1 : Chaque <a href="glossaire.html#image-porteuse-dinformation">image porteuse d'information</a> (balise <code lang="en">img</code>) qui nécessite une <a href="#description-dtaille-image">description détaillée</a>, vérifie-t-elle une de ces conditions ?
@@ -409,7 +386,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-17-a-pour-chaque-image-porteuse-dinformation-ayant-une-description-dtaille-cette-description-est-elle-pertinente-">Critère 1.7 [A] Pour chaque image porteuse d'information ayant une description détaillée, cette description est-elle pertinente&nbsp;?</h3>
+<h3 id="crit-17-a-pour-chaque-image-porteuse-dinformation-ayant-une-description-dtaille-cette-description-est-elle-pertinente-"><em>Critère 1.7 [A]</em> Pour chaque image porteuse d'information ayant une description détaillée, cette description est-elle pertinente&nbsp;?</h3>
 
   <ul>
 <li>Test 1.7.1 : Chaque <a href="glossaire.htm#mimgInfo">image porteuse d'information</a> (balise <code lang="en">img</code> ou <code lang="en">input</code> avec l'attribut <code lang="en">type="image"</code>) ayant une <a href="#description-dtaille-image">description détaillée</a> vérifie-t-elle une de ces conditions ?
@@ -470,7 +447,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-18-aa-chaque-image-texte-porteuse-dinformation-en-labsence-dun-mcanisme-de-remplacement-doit-si-possible-tre-remplace-par-du-texte-styl-cette-rgle-est-elle-respecte-hors-cas-particuliers-">Critère 1.8 [AA] Chaque image texte porteuse d'information, en l'absence d'un mécanisme de remplacement, doit si possible être remplacée par du texte stylé. Cette règle est-elle respectée (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-18-aa-chaque-image-texte-porteuse-dinformation-en-labsence-dun-mcanisme-de-remplacement-doit-si-possible-tre-remplace-par-du-texte-styl-cette-rgle-est-elle-respecte-hors-cas-particuliers-"><em>Critère 1.8 [AA]</em> Chaque image texte porteuse d'information, en l'absence d'un mécanisme de remplacement, doit si possible être remplacée par du texte stylé. Cette règle est-elle respectée (hors cas particuliers)&nbsp;?</h3>
 
 <ul>
 	<li>Test 1.8.1 : Chaque <a href="#image-texte">image texte</a> (balise <code lang="en">img</code>) porteuse d'information, en l'absence d'un <a href="#mcanisme-de-remplacement">mécanisme de remplacement</a>, doit si possible être remplacée par du <a href="#texte-styl">texte stylé</a>. Cette règle est-elle respectée (<a href="#critre-18">hors cas particuliers</a>)&nbsp;?</li>
@@ -499,7 +476,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-	<h3 id="crit-1-9">Critère 1.9 [AAA] Chaque image texte porteuse d'information, doit si possible être remplacée par du texte stylé. Cette règle est-elle respectée (hors cas particuliers)&nbsp;?</h3>
+	<h3 id="crit-1-9"><em>Critère 1.9 [AAA]</em> Chaque image texte porteuse d'information, doit si possible être remplacée par du texte stylé. Cette règle est-elle respectée (hors cas particuliers)&nbsp;?</h3>
 	<ul>
 		<li>Test 1.9.1 : Chaque <a href="#image-texte">image texte</a> (balise <code lang="en">img</code>) doit si possible être remplacée par du <a href="#texte-styl">texte stylé</a>. Cette règle est-elle respectée (<a href="#critre-19" title="Cas particuliers pour le critère 1.9">hors cas particuliers</a>)&nbsp;?</li>
 		<li>Test 1.9.2 : Pour chaque <a href="glossaire.htm#mimgReactive">image réactive</a> (balise <code lang="en">img</code> ou <code lang="en">object</code> avec l'attribut <code lang="en">usemap</code>), chaque <a href="#zone-dune-image-ractiveTexte">zone texte</a> (balise <code lang="en">area</code>) doit si possible être remplacée par du <a href="#texte-styl">texte stylé</a>. Cette règle est-elle respectée (<a href="#critre-19" title="Cas particuliers pour le critère 1.9">hors cas particuliers</a>)&nbsp;?</li>
@@ -523,7 +500,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
 	</aside>
 </section>
 <section>
-	<h3 id="crit-1-10">Critère 1.10 [A] Chaque légende d'image est-elle, si nécessaire, correctement reliée à l'image correspondante&nbsp;?</h3>
+	<h3 id="crit-1-10"><em>Critère 1.10 [A]</em> Chaque légende d'image est-elle, si nécessaire, correctement reliée à l'image correspondante&nbsp;?</h3>
 	<ul>
 		<li>Test 1.10.1 : Chaque image légendée (balise <code lang="en">img</code> ou <code lang="en">input</code> avec l'attribut <code lang="en">type="image"</code> associée à une légende adjacente) vérifie-t-elle, si nécessaire, ces conditions&nbsp;?
 			<ul>
@@ -592,7 +569,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
 		</div>
 	</header>
 	<section>
-		<h3 id="crit-2-1">Critère 2.1 [A] Chaque cadre en ligne a-t-il un titre de cadre&nbsp;?</h3>
+		<h3 id="crit-2-1"><em>Critère 2.1 [A]</em> Chaque cadre en ligne a-t-il un titre de cadre&nbsp;?</h3>
 		<ul>
 			<li>Test 2.1.1 : Chaque <a href="#cadre-en-ligne">cadre en ligne</a> (balise <code lang="en">iframe</code>) a-t-il un attribut <code lang="en">title</code>&nbsp;?</li>
 		</ul>
@@ -610,7 +587,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
 		</aside>
 	</section>
 	<section>
-		<h3 id="crit-2-2">Critère 2.2 [A] Pour chaque cadre en ligne ayant un titre de cadre, ce titre de cadre est-il pertinent&nbsp;?</h3>
+		<h3 id="crit-2-2"><em>Critère 2.2 [A]</em> Pour chaque cadre en ligne ayant un titre de cadre, ce titre de cadre est-il pertinent&nbsp;?</h3>
 		<ul>
 			<li>Test 2.2.1 : Pour chaque <a href="#cadre-en-ligne">cadre en ligne</a> (balise <code lang="en">iframe</code>) ayant un attribut <code lang="en">title</code>, le contenu de cet attribut est-il pertinent&nbsp;?</li>
 		</ul>
@@ -645,7 +622,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
   </div>
 </header>
 <section>
-<h3 id="crit-31-a-dans-chaque-page-web-linformation-ne-doit-pas-tre-donne-uniquement-par-la-couleur-cette-rgle-est-elle-respecte-">Critère 3.1 [A] Dans chaque page web, l'information ne doit pas être donnée uniquement par la couleur. Cette règle est-elle respectée&nbsp;?</h3>
+<h3 id="crit-31-a-dans-chaque-page-web-linformation-ne-doit-pas-tre-donne-uniquement-par-la-couleur-cette-rgle-est-elle-respecte-"><em>Critère 3.1 [A]</em> Dans chaque page web, l'information ne doit pas être donnée uniquement par la couleur. Cette règle est-elle respectée&nbsp;?</h3>
 <ul>
 <li>Test 3.1.1 : Pour chaque mot ou ensemble de mots dont la mise en couleur est porteuse d'<a href="#information-donne-par-la-couleur">information</a>, l'<a href="#information-donne-par-la-couleur">information</a> ne doit pas être donnée uniquement par la couleur. Cette règle est-elle respectée&nbsp;?</li>
 <li>Test 3.1.2 : Pour chaque indication de couleur donnée par un texte, l'<a href="#information-donne-par-la-couleur">information</a> ne doit pas être donnée uniquement par la couleur. Cette règle est-elle respectée&nbsp;?</li>
@@ -667,7 +644,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
   </div>
 </section>
 <section>
-<h3 id="crit-32-a-dans-chaque-page-web-linformation-ne-doit-pas-tre-donne-uniquement-par-la-couleur-cette-rgle-est-elle-implmente-de-faon-pertinente-">Critère 3.2 [A] Dans chaque page web, l'information ne doit pas être donnée uniquement par la couleur. Cette règle est-elle implémentée de façon pertinente&nbsp;?</h3>
+<h3 id="crit-32-a-dans-chaque-page-web-linformation-ne-doit-pas-tre-donne-uniquement-par-la-couleur-cette-rgle-est-elle-implmente-de-faon-pertinente-"><em>Critère 3.2 [A]</em> Dans chaque page web, l'information ne doit pas être donnée uniquement par la couleur. Cette règle est-elle implémentée de façon pertinente&nbsp;?</h3>
 
 <ul>
 <li>Test 3.2.1 : Pour chaque mot ou ensemble de mots dont la mise en couleur est porteuse d'<a href="#information-donne-par-la-couleur">information</a>, l'<a href="#information-donne-par-la-couleur">information</a> ne doit pas être donnée uniquement par la couleur. Cette règle est-elle implémentée de façon <a href="#pertinence-information-autrement-que-par-la-couleur">pertinente</a>&nbsp;?</li>
@@ -695,7 +672,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-33-aa-dans-chaque-page-web-le-contraste-entre-la-couleur-du-texte-et-la-couleur-de-son-arrire-plan-est-il-suffisamment-lev-hors-cas-particuliers-">Critère 3.3 [AA] Dans chaque page web, le contraste entre la couleur du texte et la couleur de son arrière-plan est-il suffisamment élevé (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-33-aa-dans-chaque-page-web-le-contraste-entre-la-couleur-du-texte-et-la-couleur-de-son-arrire-plan-est-il-suffisamment-lev-hors-cas-particuliers-"><em>Critère 3.3 [AA]</em> Dans chaque page web, le contraste entre la couleur du texte et la couleur de son arrière-plan est-il suffisamment élevé (hors cas particuliers)&nbsp;?</h3>
 
   <ul>
 <li>Test 3.3.1 : Dans chaque page web, <a href="glossaire.htm#mTailleCaract%C3%A8re"><strong>jusqu'à 150%</strong> de la taille de police par défaut</a> (ou 1.5em), le texte et le texte en image sans effet de graisse vérifient-ils une de ces conditions (<a href="#critres-33--34" title="Cas particuliers pour le critère 3.3">hors cas particuliers</a>) ?
@@ -745,7 +722,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-34-aaa-dans-chaque-page-web-le-contraste-entre-la-couleur-du-texte-et-la-couleur-de-son-arrire-plan-est-il-amlior-hors-cas-particuliers-">Critère 3.4 [AAA] Dans chaque page web, le contraste entre la couleur du texte et la couleur de son arrière-plan est-il amélioré (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-34-aaa-dans-chaque-page-web-le-contraste-entre-la-couleur-du-texte-et-la-couleur-de-son-arrire-plan-est-il-amlior-hors-cas-particuliers-"><em>Critère 3.4 [AAA]</em> Dans chaque page web, le contraste entre la couleur du texte et la couleur de son arrière-plan est-il amélioré (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-34-aaa-dans-chaque-page-web-le-contraste-entre-la-couleur-du-texte-et-la-couleur-de-son-arrire-plan-est-il-amlior-hors-cas-particuliers-">
                       
 
@@ -818,7 +795,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
 	</header>
 
 <section>
-<h3 id="crit-41-a-chaque-mdia-temporel-pr-enregistr-a-t-il-si-ncessaire-une-transcription-textuelle-ou-une-audio-description-hors-cas-particuliers-">Critère 4.1 [A] Chaque média temporel pré-enregistré a-t-il, si nécessaire, une transcription textuelle ou une audio-description (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-41-a-chaque-mdia-temporel-pr-enregistr-a-t-il-si-ncessaire-une-transcription-textuelle-ou-une-audio-description-hors-cas-particuliers-"><em>Critère 4.1 [A]</em> Chaque média temporel pré-enregistré a-t-il, si nécessaire, une transcription textuelle ou une audio-description (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-41-a-chaque-mdia-temporel-pr-enregistr-a-t-il-si-ncessaire-une-transcription-textuelle-ou-une-audio-description-hors-cas-particuliers-">
                       
 
@@ -873,7 +850,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-42-a-pour-chaque-mdia-temporel-pr-enregistr-ayant-une-transcription-textuelle-ou-une-audio-description-synchronise-celles-ci-sont-elles-pertinentes-hors-cas-particuliers-">Critère 4.2 [A] Pour chaque média temporel pré-enregistré ayant une transcription textuelle ou une audio-description synchronisée, celles-ci sont-elles pertinentes (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-42-a-pour-chaque-mdia-temporel-pr-enregistr-ayant-une-transcription-textuelle-ou-une-audio-description-synchronise-celles-ci-sont-elles-pertinentes-hors-cas-particuliers-"><em>Critère 4.2 [A]</em> Pour chaque média temporel pré-enregistré ayant une transcription textuelle ou une audio-description synchronisée, celles-ci sont-elles pertinentes (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-42-a-pour-chaque-mdia-temporel-pr-enregistr-ayant-une-transcription-textuelle-ou-une-audio-description-synchronise-celles-ci-sont-elles-pertinentes-hors-cas-particuliers-">
                       
 
@@ -918,7 +895,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-43-a-chaque-mdia-temporel-synchronis-pr-enregistr-a-t-il-si-ncessaire-des-sous-titres-synchroniss-hors-cas-particuliers-">Critère 4.3 [A] Chaque média temporel synchronisé pré-enregistré a-t-il, si nécessaire, des sous-titres synchronisés (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-43-a-chaque-mdia-temporel-synchronis-pr-enregistr-a-t-il-si-ncessaire-des-sous-titres-synchroniss-hors-cas-particuliers-"><em>Critère 4.3 [A]</em> Chaque média temporel synchronisé pré-enregistré a-t-il, si nécessaire, des sous-titres synchronisés (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-43-a-chaque-mdia-temporel-synchronis-pr-enregistr-a-t-il-si-ncessaire-des-sous-titres-synchroniss-hors-cas-particuliers-">
                       
 
@@ -953,7 +930,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-44-a-pour-chaque-mdia-temporel-synchronis-pr-enregistr-ayant-des-sous-titres-synchroniss-ces-sous-titres-sont-ils-pertinents-">Critère 4.4 [A] Pour chaque média temporel synchronisé pré-enregistré ayant des sous-titres synchronisés, ces sous-titres sont-ils pertinents&nbsp;?</h3>
+<h3 id="crit-44-a-pour-chaque-mdia-temporel-synchronis-pr-enregistr-ayant-des-sous-titres-synchroniss-ces-sous-titres-sont-ils-pertinents-"><em>Critère 4.4 [A]</em> Pour chaque média temporel synchronisé pré-enregistré ayant des sous-titres synchronisés, ces sous-titres sont-ils pertinents&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-44-a-pour-chaque-mdia-temporel-synchronis-pr-enregistr-ayant-des-sous-titres-synchroniss-ces-sous-titres-sont-ils-pertinents-">
                       
 
@@ -981,7 +958,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-45-aa-chaque-mdia-temporel-en-direct-a-t-il-si-ncessaire-des-sous-titres-synchroniss-ou-une-transcription-textuelle-hors-cas-particuliers-">Critère 4.5 [AA] Chaque média temporel en direct a-t-il, si nécessaire, des sous-titres synchronisés ou une transcription textuelle (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-45-aa-chaque-mdia-temporel-en-direct-a-t-il-si-ncessaire-des-sous-titres-synchroniss-ou-une-transcription-textuelle-hors-cas-particuliers-"><em>Critère 4.5 [AA]</em> Chaque média temporel en direct a-t-il, si nécessaire, des sous-titres synchronisés ou une transcription textuelle (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-45-aa-chaque-mdia-temporel-en-direct-a-t-il-si-ncessaire-des-sous-titres-synchroniss-ou-une-transcription-textuelle-hors-cas-particuliers-">
 
   <ul>
@@ -1022,7 +999,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-46-aa-pour-chaque-mdia-temporel-en-direct-ayant-des-sous-titres-synchroniss-ou-une-transcription-textuelle-ceux-ci-sont-ils-pertinents-">Critère 4.6 [AA] Pour chaque média temporel en direct ayant des sous-titres synchronisés ou une transcription textuelle, ceux-ci sont-ils pertinents&nbsp;?</h3>
+<h3 id="crit-46-aa-pour-chaque-mdia-temporel-en-direct-ayant-des-sous-titres-synchroniss-ou-une-transcription-textuelle-ceux-ci-sont-ils-pertinents-"><em>Critère 4.6 [AA]</em> Pour chaque média temporel en direct ayant des sous-titres synchronisés ou une transcription textuelle, ceux-ci sont-ils pertinents&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-46-aa-pour-chaque-mdia-temporel-en-direct-ayant-des-sous-titres-synchroniss-ou-une-transcription-textuelle-ceux-ci-sont-ils-pertinents-">
                       
 
@@ -1065,7 +1042,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-47-aa-chaque-mdia-temporel-pr-enregistr-a-t-il-si-ncessaire-une-audio-description-synchronise-hors-cas-particuliers-">Critère 4.7 [AA] Chaque média temporel pré-enregistré a-t-il, si nécessaire, une audio-description synchronisée (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-47-aa-chaque-mdia-temporel-pr-enregistr-a-t-il-si-ncessaire-une-audio-description-synchronise-hors-cas-particuliers-"><em>Critère 4.7 [AA]</em> Chaque média temporel pré-enregistré a-t-il, si nécessaire, une audio-description synchronisée (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-47-aa-chaque-mdia-temporel-pr-enregistr-a-t-il-si-ncessaire-une-audio-description-synchronise-hors-cas-particuliers-">
                       
 
@@ -1106,7 +1083,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-48-aa-pour-chaque-mdia-temporel-pr-enregistr-ayant-une-audio-description-synchronise-celle-ci-est-elle-pertinente-">Critère 4.8 [AA] Pour chaque média temporel pré-enregistré ayant une audio-description synchronisée, celle-ci est-elle pertinente&nbsp;?</h3>
+<h3 id="crit-48-aa-pour-chaque-mdia-temporel-pr-enregistr-ayant-une-audio-description-synchronise-celle-ci-est-elle-pertinente-"><em>Critère 4.8 [AA]</em> Pour chaque média temporel pré-enregistré ayant une audio-description synchronisée, celle-ci est-elle pertinente&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-48-aa-pour-chaque-mdia-temporel-pr-enregistr-ayant-une-audio-description-synchronise-celle-ci-est-elle-pertinente-">
                       
 
@@ -1135,7 +1112,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-49-aaa-chaque-mdia-temporel-pr-enregistr-a-t-il-si-ncessaire-une-interprtation-en-langue-des-signes-hors-cas-particuliers-">Critère 4.9 [AAA] Chaque média temporel pré-enregistré a-t-il, si nécessaire, une interprétation en langue des signes (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-49-aaa-chaque-mdia-temporel-pr-enregistr-a-t-il-si-ncessaire-une-interprtation-en-langue-des-signes-hors-cas-particuliers-"><em>Critère 4.9 [AAA]</em> Chaque média temporel pré-enregistré a-t-il, si nécessaire, une interprétation en langue des signes (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-49-aaa-chaque-mdia-temporel-pr-enregistr-a-t-il-si-ncessaire-une-interprtation-en-langue-des-signes-hors-cas-particuliers-">
                       
 
@@ -1164,7 +1141,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-410-aaa-pour-chaque-mdia-temporel-pr-enregistr-ayant-une-interprtation-en-langue-des-signes-celle-ci-est-elle-pertinente-">Critère 4.10 [AAA] Pour chaque média temporel pré-enregistré ayant une interprétation en langue des signes, celle-ci est-elle pertinente&nbsp;?</h3>
+<h3 id="crit-410-aaa-pour-chaque-mdia-temporel-pr-enregistr-ayant-une-interprtation-en-langue-des-signes-celle-ci-est-elle-pertinente-"><em>Critère 4.10 [AAA]</em> Pour chaque média temporel pré-enregistré ayant une interprétation en langue des signes, celle-ci est-elle pertinente&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-410-aaa-pour-chaque-mdia-temporel-pr-enregistr-ayant-une-interprtation-en-langue-des-signes-celle-ci-est-elle-pertinente-">
                       
 
@@ -1193,7 +1170,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-411-aaa-chaque-mdia-temporel-pr-enregistr-a-t-il-si-ncessaire-une-audio-description-tendue-synchronise-hors-cas-particuliers-">Critère 4.11 [AAA] Chaque média temporel pré-enregistré a-t-il, si nécessaire, une audio-description étendue synchronisée (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-411-aaa-chaque-mdia-temporel-pr-enregistr-a-t-il-si-ncessaire-une-audio-description-tendue-synchronise-hors-cas-particuliers-"><em>Critère 4.11 [AAA]</em> Chaque média temporel pré-enregistré a-t-il, si nécessaire, une audio-description étendue synchronisée (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-411-aaa-chaque-mdia-temporel-pr-enregistr-a-t-il-si-ncessaire-une-audio-description-tendue-synchronise-hors-cas-particuliers-">
                       
 
@@ -1234,7 +1211,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-412-aaa-pour-chaque-mdia-temporel-pr-enregistr-ayant-une-audio-description-tendue-synchronise-celle-ci-est-elle-pertinente-">Critère 4.12 [AAA] Pour chaque média temporel pré-enregistré ayant une audio-description étendue synchronisée, celle-ci est-elle pertinente&nbsp;?</h3>
+<h3 id="crit-412-aaa-pour-chaque-mdia-temporel-pr-enregistr-ayant-une-audio-description-tendue-synchronise-celle-ci-est-elle-pertinente-"><em>Critère 4.12 [AAA]</em> Pour chaque média temporel pré-enregistré ayant une audio-description étendue synchronisée, celle-ci est-elle pertinente&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-412-aaa-pour-chaque-mdia-temporel-pr-enregistr-ayant-une-audio-description-tendue-synchronise-celle-ci-est-elle-pertinente-">
                       
 
@@ -1263,7 +1240,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-413-aaa-chaque-mdia-temporel-synchronis-ou-seulement-vido-a-t-il-si-ncessaire-une-transcription-textuelle-hors-cas-particuliers-">Critère 4.13 [AAA] Chaque média temporel synchronisé ou seulement vidéo a-t-il, si nécessaire, une transcription textuelle (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-413-aaa-chaque-mdia-temporel-synchronis-ou-seulement-vido-a-t-il-si-ncessaire-une-transcription-textuelle-hors-cas-particuliers-"><em>Critère 4.13 [AAA]</em> Chaque média temporel synchronisé ou seulement vidéo a-t-il, si nécessaire, une transcription textuelle (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-413-aaa-chaque-mdia-temporel-synchronis-ou-seulement-vido-a-t-il-si-ncessaire-une-transcription-textuelle-hors-cas-particuliers-">
                       
 
@@ -1304,7 +1281,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-414-aaa-pour-chaque-mdia-temporel-synchronis-ou-seulement-vido-ayant-une-transcription-textuelle-celle-ci-est-elle-pertinente-">Critère 4.14 [AAA] Pour chaque média temporel synchronisé ou seulement vidéo, ayant une transcription textuelle, celle-ci est-elle pertinente&nbsp;?</h3>
+<h3 id="crit-414-aaa-pour-chaque-mdia-temporel-synchronis-ou-seulement-vido-ayant-une-transcription-textuelle-celle-ci-est-elle-pertinente-"><em>Critère 4.14 [AAA]</em> Pour chaque média temporel synchronisé ou seulement vidéo, ayant une transcription textuelle, celle-ci est-elle pertinente&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-414-aaa-pour-chaque-mdia-temporel-synchronis-ou-seulement-vido-ayant-une-transcription-textuelle-celle-ci-est-elle-pertinente-">
                       
 
@@ -1333,7 +1310,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-415-a-chaque-mdia-temporel-est-il-clairement-identifiable-hors-cas-particuliers-">Critère 4.15 [A] Chaque média temporel est-il clairement identifiable (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-415-a-chaque-mdia-temporel-est-il-clairement-identifiable-hors-cas-particuliers-"><em>Critère 4.15 [A]</em> Chaque média temporel est-il clairement identifiable (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-415-a-chaque-mdia-temporel-est-il-clairement-identifiable-hors-cas-particuliers-">
                       
 
@@ -1362,7 +1339,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-416-a-chaque-mdia-non-temporel-a-t-il-si-ncessaire-une-alternative-hors-cas-particuliers-">Critère 4.16 [A] Chaque média non temporel a-t-il, si nécessaire, une alternative (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-416-a-chaque-mdia-non-temporel-a-t-il-si-ncessaire-une-alternative-hors-cas-particuliers-"><em>Critère 4.16 [A]</em> Chaque média non temporel a-t-il, si nécessaire, une alternative (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-416-a-chaque-mdia-non-temporel-a-t-il-si-ncessaire-une-alternative-hors-cas-particuliers-">
                       
 
@@ -1403,7 +1380,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-417-a-pour-chaque-mdia-non-temporel-ayant-une-alternative-cette-alternative-est-elle-pertinente-">Critère 4.17 [A] Pour chaque média non temporel ayant une alternative, cette alternative est-elle pertinente&nbsp;?</h3>
+<h3 id="crit-417-a-pour-chaque-mdia-non-temporel-ayant-une-alternative-cette-alternative-est-elle-pertinente-"><em>Critère 4.17 [A]</em> Pour chaque média non temporel ayant une alternative, cette alternative est-elle pertinente&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-417-a-pour-chaque-mdia-non-temporel-ayant-une-alternative-cette-alternative-est-elle-pertinente-">
                       
 
@@ -1431,7 +1408,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-418-a-chaque-son-dclench-automatiquement-est-il-contrlable-par-lutilisateur-">Critère 4.18 [A] Chaque son déclenché automatiquement est-il contrôlable par l'utilisateur&nbsp;?</h3>
+<h3 id="crit-418-a-chaque-son-dclench-automatiquement-est-il-contrlable-par-lutilisateur-"><em>Critère 4.18 [A]</em> Chaque son déclenché automatiquement est-il contrôlable par l'utilisateur&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-418-a-chaque-son-dclench-automatiquement-est-il-contrlable-par-lutilisateur-">
                       
 
@@ -1466,7 +1443,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-419-aaa-pour-chaque-mdia-temporel-seulement-audio-pr-enregistr-les-dialogues-sont-ils-suffisamment-audibles-hors-cas-particuliers-">Critère 4.19 [AAA] Pour chaque média temporel seulement audio pré-enregistré, les dialogues sont-ils suffisamment audibles (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-419-aaa-pour-chaque-mdia-temporel-seulement-audio-pr-enregistr-les-dialogues-sont-ils-suffisamment-audibles-hors-cas-particuliers-"><em>Critère 4.19 [AAA]</em> Pour chaque média temporel seulement audio pré-enregistré, les dialogues sont-ils suffisamment audibles (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-419-aaa-pour-chaque-mdia-temporel-seulement-audio-pr-enregistr-les-dialogues-sont-ils-suffisamment-audibles-hors-cas-particuliers-">
                       
 
@@ -1502,7 +1479,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-420-a-la-consultation-de-chaque-mdia-temporel-est-elle-si-ncessaire-contrlable-par-le-clavier-et-la-souris-">Critère 4.20 [A] La consultation de chaque média temporel est-elle, si nécessaire, contrôlable par le clavier et la souris&nbsp;?</h3>
+<h3 id="crit-420-a-la-consultation-de-chaque-mdia-temporel-est-elle-si-ncessaire-contrlable-par-le-clavier-et-la-souris-"><em>Critère 4.20 [A]</em> La consultation de chaque média temporel est-elle, si nécessaire, contrôlable par le clavier et la souris&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-420-a-la-consultation-de-chaque-mdia-temporel-est-elle-si-ncessaire-contrlable-par-le-clavier-et-la-souris-">
                       
 
@@ -1544,7 +1521,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-421-a-la-consultation-de-chaque-mdia-non-temporel-est-elle-contrlable-par-le-clavier-et-la-souris-">Critère 4.21 [A] La consultation de chaque média non temporel est-elle contrôlable par le clavier et la souris&nbsp;?</h3>
+<h3 id="crit-421-a-la-consultation-de-chaque-mdia-non-temporel-est-elle-contrlable-par-le-clavier-et-la-souris-"><em>Critère 4.21 [A]</em> La consultation de chaque média non temporel est-elle contrôlable par le clavier et la souris&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-421-a-la-consultation-de-chaque-mdia-non-temporel-est-elle-contrlable-par-le-clavier-et-la-souris-">
                       
 
@@ -1585,7 +1562,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-422-a-chaque-mdia-temporel-et-non-temporel-est-il-compatible-avec-les-technologies-dassistance-hors-cas-particuliers-">Critère 4.22 [A] Chaque média temporel et non temporel est-il compatible avec les technologies d'assistance (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-422-a-chaque-mdia-temporel-et-non-temporel-est-il-compatible-avec-les-technologies-dassistance-hors-cas-particuliers-"><em>Critère 4.22 [A]</em> Chaque média temporel et non temporel est-il compatible avec les technologies d'assistance (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-422-a-chaque-mdia-temporel-et-non-temporel-est-il-compatible-avec-les-technologies-dassistance-hors-cas-particuliers-">
                       
 
@@ -1639,7 +1616,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
 	</div>
 </header>
 <section>
-<h3 id="crit-51-a-chaque-tableau-de-donnes-complexe-a-t-il-un-rsum-">Critère 5.1 [A] Chaque tableau de données complexe a-t-il un résumé&nbsp;?</h3>
+<h3 id="crit-51-a-chaque-tableau-de-donnes-complexe-a-t-il-un-rsum-"><em>Critère 5.1 [A]</em> Chaque tableau de données complexe a-t-il un résumé&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-51-a-chaque-tableau-de-donnes-complexe-a-t-il-un-rsum-">
                       
 
@@ -1667,7 +1644,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-52-a-pour-chaque-tableau-de-donnes-complexe-ayant-un-rsum-celui-ci-est-il-pertinent-">Critère 5.2 [A] Pour chaque tableau de données complexe ayant un résumé, celui-ci est-il pertinent&nbsp;?</h3>
+<h3 id="crit-52-a-pour-chaque-tableau-de-donnes-complexe-ayant-un-rsum-celui-ci-est-il-pertinent-"><em>Critère 5.2 [A]</em> Pour chaque tableau de données complexe ayant un résumé, celui-ci est-il pertinent&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-52-a-pour-chaque-tableau-de-donnes-complexe-ayant-un-rsum-celui-ci-est-il-pertinent-">
                       
 
@@ -1695,7 +1672,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-53-a-pour-chaque-tableau-de-mise-en-forme-le-contenu-linaris-reste-t-il-comprhensible-">Critère 5.3 [A] Pour chaque tableau de mise en forme, le contenu linéarisé reste-t-il compréhensible&nbsp;?</h3>
+<h3 id="crit-53-a-pour-chaque-tableau-de-mise-en-forme-le-contenu-linaris-reste-t-il-comprhensible-"><em>Critère 5.3 [A]</em> Pour chaque tableau de mise en forme, le contenu linéarisé reste-t-il compréhensible&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-53-a-pour-chaque-tableau-de-mise-en-forme-le-contenu-linaris-reste-t-il-comprhensible-">
                       
 
@@ -1729,7 +1706,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-54-a-chaque-tableau-de-donnes-a-t-il-un-titre-">Critère 5.4 [A] Chaque tableau de données a-t-il un titre&nbsp;?</h3>
+<h3 id="crit-54-a-chaque-tableau-de-donnes-a-t-il-un-titre-"><em>Critère 5.4 [A]</em> Chaque tableau de données a-t-il un titre&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-54-a-chaque-tableau-de-donnes-a-t-il-un-titre-">
                       
 
@@ -1757,7 +1734,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-55-a-pour-chaque-tableau-de-donnes-ayant-un-titre-celui-ci-est-il-pertinent-">Critère 5.5 [A] Pour chaque tableau de données ayant un titre, celui-ci est-il pertinent&nbsp;?</h3>
+<h3 id="crit-55-a-pour-chaque-tableau-de-donnes-ayant-un-titre-celui-ci-est-il-pertinent-"><em>Critère 5.5 [A]</em> Pour chaque tableau de données ayant un titre, celui-ci est-il pertinent&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-55-a-pour-chaque-tableau-de-donnes-ayant-un-titre-celui-ci-est-il-pertinent-">
                       
 
@@ -1785,7 +1762,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-56-a-pour-chaque-tableau-de-donnes-chaque-en-tte-de-colonnes-et-chaque-en-tte-de-lignes-sont-ils-correctement-dclars-">Critère 5.6 [A] Pour chaque tableau de données, chaque en-tête de colonnes et chaque en-tête de lignes sont-ils correctement déclarés&nbsp;?</h3>
+<h3 id="crit-56-a-pour-chaque-tableau-de-donnes-chaque-en-tte-de-colonnes-et-chaque-en-tte-de-lignes-sont-ils-correctement-dclars-"><em>Critère 5.6 [A]</em> Pour chaque tableau de données, chaque en-tête de colonnes et chaque en-tête de lignes sont-ils correctement déclarés&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-56-a-pour-chaque-tableau-de-donnes-chaque-en-tte-de-colonnes-et-chaque-en-tte-de-lignes-sont-ils-correctement-dclars-">
                       
 
@@ -1814,7 +1791,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-57-a-pour-chaque-tableau-de-donnes-la-technique-approprie-permettant-dassocier-chaque-cellule-avec-ses-en-ttes-est-elle-utilise-">Critère 5.7 [A] Pour chaque tableau de données, la technique appropriée permettant d'associer chaque cellule avec ses en-têtes est-elle utilisée&nbsp;?</h3>
+<h3 id="crit-57-a-pour-chaque-tableau-de-donnes-la-technique-approprie-permettant-dassocier-chaque-cellule-avec-ses-en-ttes-est-elle-utilise-"><em>Critère 5.7 [A]</em> Pour chaque tableau de données, la technique appropriée permettant d'associer chaque cellule avec ses en-têtes est-elle utilisée&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-57-a-pour-chaque-tableau-de-donnes-la-technique-approprie-permettant-dassocier-chaque-cellule-avec-ses-en-ttes-est-elle-utilise-">
                       
 
@@ -1863,7 +1840,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-58-a-chaque-tableau-de-mise-en-forme-ne-doit-pas-utiliser-dlments-propres-aux-tableaux-de-donnes-cette-rgle-est-elle-respecte-">Critère 5.8 [A] Chaque tableau de mise en forme ne doit pas utiliser d'éléments propres aux tableaux de données. Cette règle est-elle respectée&nbsp;?</h3>
+<h3 id="crit-58-a-chaque-tableau-de-mise-en-forme-ne-doit-pas-utiliser-dlments-propres-aux-tableaux-de-donnes-cette-rgle-est-elle-respecte-"><em>Critère 5.8 [A]</em> Chaque tableau de mise en forme ne doit pas utiliser d'éléments propres aux tableaux de données. Cette règle est-elle respectée&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-58-a-chaque-tableau-de-mise-en-forme-ne-doit-pas-utiliser-dlments-propres-aux-tableaux-de-donnes-cette-rgle-est-elle-respecte-">
                       
 
@@ -1917,7 +1894,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-61-a-chaque-lien-est-il-explicite-hors-cas-particuliers-">Critère 6.1 [A] Chaque lien est-il explicite (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-61-a-chaque-lien-est-il-explicite-hors-cas-particuliers-"><em>Critère 6.1 [A]</em> Chaque lien est-il explicite (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-61-a-chaque-lien-est-il-explicite-hors-cas-particuliers-">
                       
 
@@ -1979,7 +1956,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-62-a-pour-chaque-lien-ayant-un-titre-de-lien-celui-ci-est-il-pertinent-">Critère 6.2 [A] Pour chaque lien ayant un titre de lien, celui-ci est-il pertinent&nbsp;?</h3>
+<h3 id="crit-62-a-pour-chaque-lien-ayant-un-titre-de-lien-celui-ci-est-il-pertinent-"><em>Critère 6.2 [A]</em> Pour chaque lien ayant un titre de lien, celui-ci est-il pertinent&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-62-a-pour-chaque-lien-ayant-un-titre-de-lien-celui-ci-est-il-pertinent-">
                       
 
@@ -2011,7 +1988,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-63-aaa-chaque-intitul-de-lien-seul-est-il-explicite-hors-contexte-hors-cas-particuliers-">Critère 6.3 [AAA] Chaque intitulé de lien seul est-il explicite hors contexte (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-63-aaa-chaque-intitul-de-lien-seul-est-il-explicite-hors-contexte-hors-cas-particuliers-"><em>Critère 6.3 [AAA]</em> Chaque intitulé de lien seul est-il explicite hors contexte (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-63-aaa-chaque-intitul-de-lien-seul-est-il-explicite-hors-contexte-hors-cas-particuliers-">
                       
 
@@ -2050,7 +2027,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-64-a-pour-chaque-page-web-chaque-lien-identique-a-t-il-les-mmes-fonction-et-destination-">Critère 6.4 [A] Pour chaque page web, chaque lien identique a-t-il les mêmes fonction et destination&nbsp;?</h3>
+<h3 id="crit-64-a-pour-chaque-page-web-chaque-lien-identique-a-t-il-les-mmes-fonction-et-destination-"><em>Critère 6.4 [A]</em> Pour chaque page web, chaque lien identique a-t-il les mêmes fonction et destination&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-64-a-pour-chaque-page-web-chaque-lien-identique-a-t-il-les-mmes-fonction-et-destination-">
                       
 
@@ -2082,7 +2059,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-65-a-dans-chaque-page-web-chaque-lien-lexception-des-ancres-a-t-il-un-intitul-">Critère 6.5 [A] Dans chaque page web, chaque lien, à l'exception des ancres, a-t-il un intitulé&nbsp;?</h3>
+<h3 id="crit-65-a-dans-chaque-page-web-chaque-lien-lexception-des-ancres-a-t-il-un-intitul-"><em>Critère 6.5 [A]</em> Dans chaque page web, chaque lien, à l'exception des ancres, a-t-il un intitulé&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-65-a-dans-chaque-page-web-chaque-lien-lexception-des-ancres-a-t-il-un-intitul-">
                       
 
@@ -2135,7 +2112,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-71-a-chaque-script-est-il-si-ncessaire-compatible-avec-les-technologies-dassistance-">Critère 7.1 [A] Chaque script est-il, si nécessaire, compatible avec les technologies d'assistance&nbsp;?</h3>
+<h3 id="crit-71-a-chaque-script-est-il-si-ncessaire-compatible-avec-les-technologies-dassistance-"><em>Critère 7.1 [A]</em> Chaque script est-il, si nécessaire, compatible avec les technologies d'assistance&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-71-a-chaque-script-est-il-si-ncessaire-compatible-avec-les-technologies-dassistance-">
                       
 
@@ -2197,7 +2174,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-72-a-pour-chaque-script-ayant-une-alternative-cette-alternative-est-elle-pertinente-">Critère 7.2 [A] Pour chaque script ayant une alternative, cette alternative est-elle pertinente&nbsp;?</h3>
+<h3 id="crit-72-a-pour-chaque-script-ayant-une-alternative-cette-alternative-est-elle-pertinente-"><em>Critère 7.2 [A]</em> Pour chaque script ayant une alternative, cette alternative est-elle pertinente&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-72-a-pour-chaque-script-ayant-une-alternative-cette-alternative-est-elle-pertinente-">
                       
 
@@ -2241,7 +2218,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-73-a-chaque-script-est-il-contrlable-par-le-clavier-et-la-souris-hors-cas-particuliers-">Critère 7.3 [A] Chaque script est-il contrôlable par le clavier et la souris (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-73-a-chaque-script-est-il-contrlable-par-le-clavier-et-la-souris-hors-cas-particuliers-"><em>Critère 7.3 [A]</em> Chaque script est-il contrôlable par le clavier et la souris (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-73-a-chaque-script-est-il-contrlable-par-le-clavier-et-la-souris-hors-cas-particuliers-">
                       
 
@@ -2293,7 +2270,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-74-a-pour-chaque-script-qui-initie-un-changement-de-contexte-lutilisateur-est-il-averti-ou-en-a-t-il-le-contrle-">Critère 7.4 [A] Pour chaque script qui initie un changement de contexte, l'utilisateur est-il averti ou en a-t-il le contrôle&nbsp;?</h3>
+<h3 id="crit-74-a-pour-chaque-script-qui-initie-un-changement-de-contexte-lutilisateur-est-il-averti-ou-en-a-t-il-le-contrle-"><em>Critère 7.4 [A]</em> Pour chaque script qui initie un changement de contexte, l'utilisateur est-il averti ou en a-t-il le contrôle&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-74-a-pour-chaque-script-qui-initie-un-changement-de-contexte-lutilisateur-est-il-averti-ou-en-a-t-il-le-contrle-">
                       
 
@@ -2328,7 +2305,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-75-aaa-chaque-script-qui-provoque-une-alerte-non-sollicite-est-il-contrlable-par-lutilisateur-hors-cas-particuliers-">Critère 7.5 [AAA] Chaque script qui provoque une alerte non sollicitée est-il contrôlable par l'utilisateur (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-75-aaa-chaque-script-qui-provoque-une-alerte-non-sollicite-est-il-contrlable-par-lutilisateur-hors-cas-particuliers-"><em>Critère 7.5 [AAA]</em> Chaque script qui provoque une alerte non sollicitée est-il contrôlable par l'utilisateur (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-75-aaa-chaque-script-qui-provoque-une-alerte-non-sollicite-est-il-contrlable-par-lutilisateur-hors-cas-particuliers-">
                       
 
@@ -2370,7 +2347,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
 	</header>
 
 <section>
-<h3 id="crit-81-a-chaque-page-web-est-elle-dfinie-par-un-type-de-document-">Critère 8.1 [A] Chaque page web est-elle définie par un type de document&nbsp;?</h3>
+<h3 id="crit-81-a-chaque-page-web-est-elle-dfinie-par-un-type-de-document-"><em>Critère 8.1 [A]</em> Chaque page web est-elle définie par un type de document&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-81-a-chaque-page-web-est-elle-dfinie-par-un-type-de-document-">
                       
 
@@ -2396,7 +2373,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
 </aside>
           </section>
 <section>
-<h3 id="crit-82">Critère 8.2 [A] Pour chaque page web, le code source est-il valide selon le type de document spécifié hors cas particuliers&nbsp;?</h3>
+<h3 id="crit-82"><em>Critère 8.2 [A]</em> Pour chaque page web, le code source est-il valide selon le type de document spécifié hors cas particuliers&nbsp;?</h3>
    
 
 
@@ -2431,7 +2408,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-8-3">Critère 8.3 [A] Dans chaque page web, la langue par défaut est-elle présente&nbsp;?</h3>
+<h3 id="crit-8-3"><em>Critère 8.3 [A]</em> Dans chaque page web, la langue par défaut est-elle présente&nbsp;?</h3>
 
   <ul>
 <li>Test 8.3.1 : Pour chaque page web, l'indication de <a href="#langue-par-dfaut">langue par défaut</a> vérifie-t-elle une de ces conditions ?
@@ -2460,7 +2437,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-84-a-pour-chaque-page-web-ayant-une-langue-par-dfaut-le-code-de-langue-est-il-pertinent-">Critère 8.4 [A] Pour chaque page web ayant une langue par défaut, le code de langue est-il pertinent&nbsp;?</h3>
+<h3 id="crit-84-a-pour-chaque-page-web-ayant-une-langue-par-dfaut-le-code-de-langue-est-il-pertinent-"><em>Critère 8.4 [A]</em> Pour chaque page web ayant une langue par défaut, le code de langue est-il pertinent&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-84-a-pour-chaque-page-web-ayant-une-langue-par-dfaut-le-code-de-langue-est-il-pertinent-">
                       
 
@@ -2494,7 +2471,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-85-a-chaque-page-web-a-t-elle-un-titre-de-page-">Critère 8.5 [A] Chaque page web a-t-elle un titre de page&nbsp;?</h3>
+<h3 id="crit-85-a-chaque-page-web-a-t-elle-un-titre-de-page-"><em>Critère 8.5 [A]</em> Chaque page web a-t-elle un titre de page&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-85-a-chaque-page-web-a-t-elle-un-titre-de-page-">
                       
 
@@ -2522,7 +2499,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-86-a-pour-chaque-page-web-ayant-un-titre-de-page-ce-titre-est-il-pertinent-">Critère 8.6 [A] Pour chaque page web ayant un titre de page, ce titre est-il pertinent&nbsp;?</h3>
+<h3 id="crit-86-a-pour-chaque-page-web-ayant-un-titre-de-page-ce-titre-est-il-pertinent-"><em>Critère 8.6 [A]</em> Pour chaque page web ayant un titre de page, ce titre est-il pertinent&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-86-a-pour-chaque-page-web-ayant-un-titre-de-page-ce-titre-est-il-pertinent-">
                       
 
@@ -2550,7 +2527,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-87-aa-dans-chaque-page-web-chaque-changement-de-langue-est-il-indiqu-dans-le-code-source-hors-cas-particuliers-">Critère 8.7 [AA] Dans chaque page web, chaque changement de langue est-il indiqué dans le code source (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-87-aa-dans-chaque-page-web-chaque-changement-de-langue-est-il-indiqu-dans-le-code-source-hors-cas-particuliers-"><em>Critère 8.7 [AA]</em> Dans chaque page web, chaque changement de langue est-il indiqué dans le code source (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-87-aa-dans-chaque-page-web-chaque-changement-de-langue-est-il-indiqu-dans-le-code-source-hors-cas-particuliers-">
                       
 
@@ -2584,7 +2561,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-88-aa-dans-chaque-page-web-chaque-changement-de-langue-est-il-pertinent-">Critère 8.8 [AA] Dans chaque page web, chaque changement de langue est-il pertinent&nbsp;?</h3>
+<h3 id="crit-88-aa-dans-chaque-page-web-chaque-changement-de-langue-est-il-pertinent-"><em>Critère 8.8 [AA]</em> Dans chaque page web, chaque changement de langue est-il pertinent&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-88-aa-dans-chaque-page-web-chaque-changement-de-langue-est-il-pertinent-">
                       
 
@@ -2613,7 +2590,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-89-a-dans-chaque-page-web-les-balises-ne-doivent-pas-tre-utilises-uniquement-des-fins-de-prsentation-cette-rgle-est-elle-respecte-">Critère 8.9 [A] Dans chaque page web, les balises ne doivent pas être utilisées uniquement à des fins de présentation. Cette règle est-elle respectée&nbsp;?</h3>
+<h3 id="crit-89-a-dans-chaque-page-web-les-balises-ne-doivent-pas-tre-utilises-uniquement-des-fins-de-prsentation-cette-rgle-est-elle-respecte-"><em>Critère 8.9 [A]</em> Dans chaque page web, les balises ne doivent pas être utilisées uniquement à des fins de présentation. Cette règle est-elle respectée&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-89-a-dans-chaque-page-web-les-balises-ne-doivent-pas-tre-utilises-uniquement-des-fins-de-prsentation-cette-rgle-est-elle-respecte-">
                       
 
@@ -2641,7 +2618,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-810-a-dans-chaque-page-web-les-changements-du-sens-de-lecture-sont-ils-signals-">Critère 8.10 [A] Dans chaque page web, les changements du sens de lecture sont-ils signalés&nbsp;?</h3>
+<h3 id="crit-810-a-dans-chaque-page-web-les-changements-du-sens-de-lecture-sont-ils-signals-"><em>Critère 8.10 [A]</em> Dans chaque page web, les changements du sens de lecture sont-ils signalés&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-810-a-dans-chaque-page-web-les-changements-du-sens-de-lecture-sont-ils-signals-">
                       
 
@@ -2701,7 +2678,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-91-a-dans-chaque-page-web-linformation-est-elle-structure-par-lutilisation-approprie-de-titres-">Critère 9.1 [A] Dans chaque page web, l'information est-elle structurée par l'utilisation appropriée de titres&nbsp;?</h3>
+<h3 id="crit-91-a-dans-chaque-page-web-linformation-est-elle-structure-par-lutilisation-approprie-de-titres-"><em>Critère 9.1 [A]</em> Dans chaque page web, l'information est-elle structurée par l'utilisation appropriée de titres&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-91-a-dans-chaque-page-web-linformation-est-elle-structure-par-lutilisation-approprie-de-titres-">
                       
 
@@ -2736,7 +2713,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-92-a-dans-chaque-page-web-la-structure-du-document-est-elle-cohrente-">Critère 9.2 [A] Dans chaque page web, la structure du document est-elle cohérente&nbsp;?</h3>
+<h3 id="crit-92-a-dans-chaque-page-web-la-structure-du-document-est-elle-cohrente-"><em>Critère 9.2 [A]</em> Dans chaque page web, la structure du document est-elle cohérente&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-92-a-dans-chaque-page-web-la-structure-du-document-est-elle-cohrente-">
                       
 
@@ -2777,7 +2754,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-93-a-dans-chaque-page-web-chaque-liste-est-elle-correctement-structure-">Critère 9.3 [A] Dans chaque page web, chaque liste est-elle correctement structurée&nbsp;?</h3>
+<h3 id="crit-93-a-dans-chaque-page-web-chaque-liste-est-elle-correctement-structure-"><em>Critère 9.3 [A]</em> Dans chaque page web, chaque liste est-elle correctement structurée&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-93-a-dans-chaque-page-web-chaque-liste-est-elle-correctement-structure-">
                       
 
@@ -2821,7 +2798,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-94-aaa-dans-chaque-page-web-la-premire-occurrence-de-chaque-abrviation-permet-elle-den-connatre-la-signification-">Critère 9.4 [AAA] Dans chaque page web, la première occurrence de chaque abréviation permet-elle d'en connaître la signification&nbsp;?</h3>
+<h3 id="crit-94-aaa-dans-chaque-page-web-la-premire-occurrence-de-chaque-abrviation-permet-elle-den-connatre-la-signification-"><em>Critère 9.4 [AAA]</em> Dans chaque page web, la première occurrence de chaque abréviation permet-elle d'en connaître la signification&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-94-aaa-dans-chaque-page-web-la-premire-occurrence-de-chaque-abrviation-permet-elle-den-connatre-la-signification-">
                       
 
@@ -2860,7 +2837,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-95-aaa-dans-chaque-page-web-la-signification-de-chaque-abrviation-est-elle-pertinente-">Critère 9.5 [AAA] Dans chaque page web, la signification de chaque abréviation est-elle pertinente&nbsp;?</h3>
+<h3 id="crit-95-aaa-dans-chaque-page-web-la-signification-de-chaque-abrviation-est-elle-pertinente-"><em>Critère 9.5 [AAA]</em> Dans chaque page web, la signification de chaque abréviation est-elle pertinente&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-95-aaa-dans-chaque-page-web-la-signification-de-chaque-abrviation-est-elle-pertinente-">
                       
 
@@ -2888,7 +2865,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-96-a-dans-chaque-page-web-chaque-citation-est-elle-correctement-indique-">Critère 9.6 [A] Dans chaque page web, chaque citation est-elle correctement indiquée&nbsp;?</h3>
+<h3 id="crit-96-a-dans-chaque-page-web-chaque-citation-est-elle-correctement-indique-"><em>Critère 9.6 [A]</em> Dans chaque page web, chaque citation est-elle correctement indiquée&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-96-a-dans-chaque-page-web-chaque-citation-est-elle-correctement-indique-">
                       
 
@@ -2942,7 +2919,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-101-a-dans-le-site-web-des-feuilles-de-styles-sont-elles-utilises-pour-contrler-la-prsentation-de-linformation-">Critère 10.1 [A] Dans le site web, des feuilles de styles sont-elles utilisées pour contrôler la présentation de l'information&nbsp;?</h3>
+<h3 id="crit-101-a-dans-le-site-web-des-feuilles-de-styles-sont-elles-utilises-pour-contrler-la-prsentation-de-linformation-"><em>Critère 10.1 [A]</em> Dans le site web, des feuilles de styles sont-elles utilisées pour contrôler la présentation de l'information&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-101-a-dans-le-site-web-des-feuilles-de-styles-sont-elles-utilises-pour-contrler-la-prsentation-de-linformation-">
                       
 
@@ -2979,7 +2956,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-102-a-dans-chaque-page-web-le-contenu-visible-reste-t-il-prsent-lorsque-les-feuilles-de-styles-sont-dsactives-">Critère 10.2 [A] Dans chaque page web, le contenu visible reste-t-il présent lorsque les feuilles de styles sont désactivées&nbsp;?</h3>
+<h3 id="crit-102-a-dans-chaque-page-web-le-contenu-visible-reste-t-il-prsent-lorsque-les-feuilles-de-styles-sont-dsactives-"><em>Critère 10.2 [A]</em> Dans chaque page web, le contenu visible reste-t-il présent lorsque les feuilles de styles sont désactivées&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-102-a-dans-chaque-page-web-le-contenu-visible-reste-t-il-prsent-lorsque-les-feuilles-de-styles-sont-dsactives-">
                       
 
@@ -3007,7 +2984,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-103-a-dans-chaque-page-web-linformation-reste-t-elle-comprhensible-lorsque-les-feuilles-de-styles-sont-dsactives-">Critère 10.3 [A] Dans chaque page web, l'information reste-t-elle compréhensible lorsque les feuilles de styles sont désactivées&nbsp;?</h3>
+<h3 id="crit-103-a-dans-chaque-page-web-linformation-reste-t-elle-comprhensible-lorsque-les-feuilles-de-styles-sont-dsactives-"><em>Critère 10.3 [A]</em> Dans chaque page web, l'information reste-t-elle compréhensible lorsque les feuilles de styles sont désactivées&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-103-a-dans-chaque-page-web-linformation-reste-t-elle-comprhensible-lorsque-les-feuilles-de-styles-sont-dsactives-">
                       
 
@@ -3035,7 +3012,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-104-aa-dans-chaque-page-web-le-texte-reste-t-il-lisible-lorsque-la-taille-des-caractres-est-augmente-jusqu-200-au-moins-">Critère 10.4 [AA] Dans chaque page web, le texte reste-t-il lisible lorsque la taille des caractères est augmentée jusqu'à 200%, au moins&nbsp;?</h3>
+<h3 id="crit-104-aa-dans-chaque-page-web-le-texte-reste-t-il-lisible-lorsque-la-taille-des-caractres-est-augmente-jusqu-200-au-moins-"><em>Critère 10.4 [AA]</em> Dans chaque page web, le texte reste-t-il lisible lorsque la taille des caractères est augmentée jusqu'à 200%, au moins&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-104-aa-dans-chaque-page-web-le-texte-reste-t-il-lisible-lorsque-la-taille-des-caractres-est-augmente-jusqu-200-au-moins-">
                       
 
@@ -3065,7 +3042,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-105-aa-dans-chaque-page-web-les-dclarations-css-de-couleurs-de-fond-dlment-et-de-police-sont-elles-correctement-utilises">Critère 10.5 [AA] Dans chaque page web, les déclarations CSS de couleurs de fond d'élément et de police sont-elles correctement utilisées?          </h3>
+<h3 id="crit-105-aa-dans-chaque-page-web-les-dclarations-css-de-couleurs-de-fond-dlment-et-de-police-sont-elles-correctement-utilises"><em>Critère 10.5 [AA]</em> Dans chaque page web, les déclarations CSS de couleurs de fond d'élément et de police sont-elles correctement utilisées?          </h3>
         <div class="section__content js-contentToggle__content" id="content-critre-105-aa-dans-chaque-page-web-les-dclarations-css-de-couleurs-de-fond-dlment-et-de-police-sont-elles-correctement-utilises">
                       
 
@@ -3095,7 +3072,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-106-a-dans-chaque-page-web-chaque-lien-dont-la-nature-nest-pas-vidente-est-il-visible-par-rapport-au-texte-environnant-">Critère 10.6 [A] Dans chaque page web, chaque lien dont la nature n'est pas évidente est-il visible par rapport au texte environnant&nbsp;?</h3>
+<h3 id="crit-106-a-dans-chaque-page-web-chaque-lien-dont-la-nature-nest-pas-vidente-est-il-visible-par-rapport-au-texte-environnant-"><em>Critère 10.6 [A]</em> Dans chaque page web, chaque lien dont la nature n'est pas évidente est-il visible par rapport au texte environnant&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-106-a-dans-chaque-page-web-chaque-lien-dont-la-nature-nest-pas-vidente-est-il-visible-par-rapport-au-texte-environnant-">
                       
 
@@ -3123,7 +3100,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-107-a-dans-chaque-page-web-pour-chaque-lment-recevant-le-focus-la-prise-de-focus-est-elle-visible-">Critère 10.7 [A] Dans chaque page web, pour chaque élément recevant le focus, la prise de focus est-elle visible&nbsp;?</h3>
+<h3 id="crit-107-a-dans-chaque-page-web-pour-chaque-lment-recevant-le-focus-la-prise-de-focus-est-elle-visible-"><em>Critère 10.7 [A]</em> Dans chaque page web, pour chaque élément recevant le focus, la prise de focus est-elle visible&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-107-a-dans-chaque-page-web-pour-chaque-lment-recevant-le-focus-la-prise-de-focus-est-elle-visible-">
                       
 
@@ -3159,7 +3136,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-108-aaa-dans-chaque-page-web-le-choix-de-la-couleur-de-fond-et-de-police-du-texte-est-il-contrlable-par-lutilisateur-">Critère 10.8 [AAA] Dans chaque page web, le choix de la couleur de fond et de police du texte est-il contrôlable par l'utilisateur&nbsp;?</h3>
+<h3 id="crit-108-aaa-dans-chaque-page-web-le-choix-de-la-couleur-de-fond-et-de-police-du-texte-est-il-contrlable-par-lutilisateur-"><em>Critère 10.8 [AAA]</em> Dans chaque page web, le choix de la couleur de fond et de police du texte est-il contrôlable par l'utilisateur&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-108-aaa-dans-chaque-page-web-le-choix-de-la-couleur-de-fond-et-de-police-du-texte-est-il-contrlable-par-lutilisateur-">
                       
 
@@ -3190,7 +3167,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-109-aaa-pour-chaque-page-web-le-texte-ne-doit-pas-tre-justifi-cette-rgle-est-elle-respecte-">Critère 10.9 [AAA] Pour chaque page web, le texte ne doit pas être justifié. Cette règle est-elle respectée&nbsp;?</h3>
+<h3 id="crit-109-aaa-pour-chaque-page-web-le-texte-ne-doit-pas-tre-justifi-cette-rgle-est-elle-respecte-"><em>Critère 10.9 [AAA]</em> Pour chaque page web, le texte ne doit pas être justifié. Cette règle est-elle respectée&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-109-aaa-pour-chaque-page-web-le-texte-ne-doit-pas-tre-justifi-cette-rgle-est-elle-respecte-">
                       
 
@@ -3224,7 +3201,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-1010-aaa-pour-chaque-page-web-en-affichage-plein-cran-et-avec-une-taille-de-police-200-chaque-bloc-de-texte-reste-t-il-lisible-sans-lutilisation-de-la-barre-de-dfilement-horizontal-">Critère 10.10 [AAA] Pour chaque page web, en affichage plein écran et avec une taille de police à 200%, chaque bloc de texte reste-t-il lisible sans l'utilisation de la barre de défilement horizontal&nbsp;?</h3>
+<h3 id="crit-1010-aaa-pour-chaque-page-web-en-affichage-plein-cran-et-avec-une-taille-de-police-200-chaque-bloc-de-texte-reste-t-il-lisible-sans-lutilisation-de-la-barre-de-dfilement-horizontal-"><em>Critère 10.10 [AAA]</em> Pour chaque page web, en affichage plein écran et avec une taille de police à 200%, chaque bloc de texte reste-t-il lisible sans l'utilisation de la barre de défilement horizontal&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-1010-aaa-pour-chaque-page-web-en-affichage-plein-cran-et-avec-une-taille-de-police-200-chaque-bloc-de-texte-reste-t-il-lisible-sans-lutilisation-de-la-barre-de-dfilement-horizontal-">
                       
 
@@ -3258,7 +3235,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-1011-aaa-pour-chaque-page-web-les-blocs-de-texte-ont-ils-une-largeur-infrieure-ou-gale-80-caractres-hors-cas-particuliers-">Critère 10.11 [AAA] Pour chaque page web, les blocs de texte ont-ils une largeur inférieure ou égale à 80 caractères (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-1011-aaa-pour-chaque-page-web-les-blocs-de-texte-ont-ils-une-largeur-infrieure-ou-gale-80-caractres-hors-cas-particuliers-"><em>Critère 10.11 [AAA]</em> Pour chaque page web, les blocs de texte ont-ils une largeur inférieure ou égale à 80 caractères (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-1011-aaa-pour-chaque-page-web-les-blocs-de-texte-ont-ils-une-largeur-infrieure-ou-gale-80-caractres-hors-cas-particuliers-">
                       
 
@@ -3292,7 +3269,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-1012-aaa-pour-chaque-page-web-lespace-entre-les-lignes-et-les-paragraphes-est-il-suffisant-">Critère 10.12 [AAA] Pour chaque page web, l'espace entre les lignes et les paragraphes est-il suffisant&nbsp;?</h3>
+<h3 id="crit-1012-aaa-pour-chaque-page-web-lespace-entre-les-lignes-et-les-paragraphes-est-il-suffisant-"><em>Critère 10.12 [AAA]</em> Pour chaque page web, l'espace entre les lignes et les paragraphes est-il suffisant&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-1012-aaa-pour-chaque-page-web-lespace-entre-les-lignes-et-les-paragraphes-est-il-suffisant-">
                       
 
@@ -3333,7 +3310,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-1013-a-pour-chaque-page-web-les-textes-cachs-sont-ils-correctement-affichs-pour-tre-restitus-par-les-technologies-dassistance-">Critère 10.13 [A] Pour chaque page web, les textes cachés sont-ils correctement affichés pour être restitués par les technologies d'assistance&nbsp;?</h3>
+<h3 id="crit-1013-a-pour-chaque-page-web-les-textes-cachs-sont-ils-correctement-affichs-pour-tre-restitus-par-les-technologies-dassistance-"><em>Critère 10.13 [A]</em> Pour chaque page web, les textes cachés sont-ils correctement affichés pour être restitués par les technologies d'assistance&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-1013-a-pour-chaque-page-web-les-textes-cachs-sont-ils-correctement-affichs-pour-tre-restitus-par-les-technologies-dassistance-">
                       
 
@@ -3385,7 +3362,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-1014-a-dans-chaque-page-web-linformation-ne-doit-pas-tre-donne-uniquement-par-la-forme-taille-ou-position-cette-rgle-est-elle-respecte-">Critère 10.14 [A] Dans chaque page web, l'information ne doit pas être donnée uniquement par la forme, taille ou position. Cette règle est-elle respectée&nbsp;?</h3>
+<h3 id="crit-1014-a-dans-chaque-page-web-linformation-ne-doit-pas-tre-donne-uniquement-par-la-forme-taille-ou-position-cette-rgle-est-elle-respecte-"><em>Critère 10.14 [A]</em> Dans chaque page web, l'information ne doit pas être donnée uniquement par la forme, taille ou position. Cette règle est-elle respectée&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-1014-a-dans-chaque-page-web-linformation-ne-doit-pas-tre-donne-uniquement-par-la-forme-taille-ou-position-cette-rgle-est-elle-respecte-">
                       
 
@@ -3416,7 +3393,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-1015-a-dans-chaque-page-web-linformation-ne-doit-pas-tre-donne-par-la-forme-taille-ou-position-uniquement-cette-rgle-est-elle-implmente-de-faon-pertinente-">Critère 10.15 [A] Dans chaque page web, l'information ne doit pas être donnée par la forme, taille ou position uniquement. Cette règle est-elle implémentée de façon pertinente&nbsp;?</h3>
+<h3 id="crit-1015-a-dans-chaque-page-web-linformation-ne-doit-pas-tre-donne-par-la-forme-taille-ou-position-uniquement-cette-rgle-est-elle-implmente-de-faon-pertinente-"><em>Critère 10.15 [A]</em> Dans chaque page web, l'information ne doit pas être donnée par la forme, taille ou position uniquement. Cette règle est-elle implémentée de façon pertinente&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-1015-a-dans-chaque-page-web-linformation-ne-doit-pas-tre-donne-par-la-forme-taille-ou-position-uniquement-cette-rgle-est-elle-implmente-de-faon-pertinente-">
                       
 
@@ -3471,7 +3448,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-111-a-chaque-champ-de-formulaire-a-t-il-une-tiquette-">Critère 11.1 [A] Chaque champ de formulaire a-t-il une étiquette&nbsp;?</h3>
+<h3 id="crit-111-a-chaque-champ-de-formulaire-a-t-il-une-tiquette-"><em>Critère 11.1 [A]</em> Chaque champ de formulaire a-t-il une étiquette&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-111-a-chaque-champ-de-formulaire-a-t-il-une-tiquette-">
                       
 
@@ -3524,7 +3501,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-112-a-chaque-tiquette-associe-un-champ-de-formulaire-est-elle-pertinente-">Critère 11.2 [A] Chaque étiquette associée à un champ de formulaire est-elle pertinente&nbsp;?</h3>
+<h3 id="crit-112-a-chaque-tiquette-associe-un-champ-de-formulaire-est-elle-pertinente-"><em>Critère 11.2 [A]</em> Chaque étiquette associée à un champ de formulaire est-elle pertinente&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-112-a-chaque-tiquette-associe-un-champ-de-formulaire-est-elle-pertinente-">
                       
 
@@ -3555,7 +3532,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-113-aa-dans-chaque-formulaire-chaque-tiquette-associe-un-champ-de-formulaire-ayant-la-mme-fonction-et-rpte-plusieurs-fois-dans-une-mme-page-ou-dans-un-ensemble-de-pages-est-elle-cohrente-">Critère 11.3 [AA] Dans chaque formulaire, chaque étiquette associée à un champ de formulaire ayant la même fonction et répétée plusieurs fois dans une même page ou dans un ensemble de pages est-elle cohérente&nbsp;?</h3>
+<h3 id="crit-113-aa-dans-chaque-formulaire-chaque-tiquette-associe-un-champ-de-formulaire-ayant-la-mme-fonction-et-rpte-plusieurs-fois-dans-une-mme-page-ou-dans-un-ensemble-de-pages-est-elle-cohrente-"><em>Critère 11.3 [AA]</em> Dans chaque formulaire, chaque étiquette associée à un champ de formulaire ayant la même fonction et répétée plusieurs fois dans une même page ou dans un ensemble de pages est-elle cohérente&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-113-aa-dans-chaque-formulaire-chaque-tiquette-associe-un-champ-de-formulaire-ayant-la-mme-fonction-et-rpte-plusieurs-fois-dans-une-mme-page-ou-dans-un-ensemble-de-pages-est-elle-cohrente-">
                       
 
@@ -3584,7 +3561,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-114-a-dans-chaque-formulaire-chaque-tiquette-de-champ-et-son-champ-associ-sont-ils-accols-">Critère 11.4 [A] Dans chaque formulaire, chaque étiquette de champ et son champ associé sont-ils accolés&nbsp;?</h3>
+<h3 id="crit-114-a-dans-chaque-formulaire-chaque-tiquette-de-champ-et-son-champ-associ-sont-ils-accols-"><em>Critère 11.4 [A]</em> Dans chaque formulaire, chaque étiquette de champ et son champ associé sont-ils accolés&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-114-a-dans-chaque-formulaire-chaque-tiquette-de-champ-et-son-champ-associ-sont-ils-accols-">
                       
 
@@ -3612,7 +3589,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-115-a-dans-chaque-formulaire-les-informations-de-mme-nature-sont-elles-regroupes-si-ncessaire-">Critère 11.5 [A] Dans chaque formulaire, les informations de même nature sont-elles regroupées, si nécessaire&nbsp;?</h3>
+<h3 id="crit-115-a-dans-chaque-formulaire-les-informations-de-mme-nature-sont-elles-regroupes-si-ncessaire-"><em>Critère 11.5 [A]</em> Dans chaque formulaire, les informations de même nature sont-elles regroupées, si nécessaire&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-115-a-dans-chaque-formulaire-les-informations-de-mme-nature-sont-elles-regroupes-si-ncessaire-">
                       
 
@@ -3640,7 +3617,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-116-a-dans-chaque-formulaire-chaque-regroupement-de-champs-de-formulaire-a-t-il-une-lgende-">Critère 11.6 [A] Dans chaque formulaire, chaque regroupement de champs de formulaire a-t-il une légende&nbsp;?</h3>
+<h3 id="crit-116-a-dans-chaque-formulaire-chaque-regroupement-de-champs-de-formulaire-a-t-il-une-lgende-"><em>Critère 11.6 [A]</em> Dans chaque formulaire, chaque regroupement de champs de formulaire a-t-il une légende&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-116-a-dans-chaque-formulaire-chaque-regroupement-de-champs-de-formulaire-a-t-il-une-lgende-">
                       
 
@@ -3668,7 +3645,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-117-a-dans-chaque-formulaire-chaque-lgende-associe-un-groupement-de-champs-de-formulaire-est-elle-pertinente-">Critère 11.7 [A] Dans chaque formulaire, chaque légende associée à un groupement de champs de formulaire est-elle pertinente&nbsp;?</h3>
+<h3 id="crit-117-a-dans-chaque-formulaire-chaque-lgende-associe-un-groupement-de-champs-de-formulaire-est-elle-pertinente-"><em>Critère 11.7 [A]</em> Dans chaque formulaire, chaque légende associée à un groupement de champs de formulaire est-elle pertinente&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-117-a-dans-chaque-formulaire-chaque-lgende-associe-un-groupement-de-champs-de-formulaire-est-elle-pertinente-">
                       
 
@@ -3696,7 +3673,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-118-a-dans-chaque-formulaire-chaque-liste-de-choix-est-elle-structure-de-manire-pertinente-">Critère 11.8 [A] Dans chaque formulaire, chaque liste de choix est-elle structurée de manière pertinente&nbsp;?</h3>
+<h3 id="crit-118-a-dans-chaque-formulaire-chaque-liste-de-choix-est-elle-structure-de-manire-pertinente-"><em>Critère 11.8 [A]</em> Dans chaque formulaire, chaque liste de choix est-elle structurée de manière pertinente&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-118-a-dans-chaque-formulaire-chaque-liste-de-choix-est-elle-structure-de-manire-pertinente-">
                       
 
@@ -3726,7 +3703,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-119-a-dans-chaque-formulaire-lintitul-de-chaque-bouton-est-il-pertinent-">Critère 11.9 [A] Dans chaque formulaire, l'intitulé de chaque bouton est-il pertinent&nbsp;?</h3>
+<h3 id="crit-119-a-dans-chaque-formulaire-lintitul-de-chaque-bouton-est-il-pertinent-"><em>Critère 11.9 [A]</em> Dans chaque formulaire, l'intitulé de chaque bouton est-il pertinent&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-119-a-dans-chaque-formulaire-lintitul-de-chaque-bouton-est-il-pertinent-">
                       
 
@@ -3771,7 +3748,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-1110-a-dans-chaque-formulaire-le-contrle-de-saisie-est-il-utilis-de-manire-pertinente-">Critère 11.10 [A] Dans chaque formulaire, le contrôle de saisie est-il utilisé de manière pertinente&nbsp;?</h3>
+<h3 id="crit-1110-a-dans-chaque-formulaire-le-contrle-de-saisie-est-il-utilis-de-manire-pertinente-"><em>Critère 11.10 [A]</em> Dans chaque formulaire, le contrôle de saisie est-il utilisé de manière pertinente&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-1110-a-dans-chaque-formulaire-le-contrle-de-saisie-est-il-utilis-de-manire-pertinente-">
                       
 
@@ -3853,7 +3830,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-1111-aa-dans-chaque-formulaire-le-contrle-de-saisie-est-il-accompagn-si-ncessaire-de-suggestions-facilitant-la-correction-des-erreurs-de-saisie-">Critère 11.11 [AA] Dans chaque formulaire, le contrôle de saisie est-il accompagné, si nécessaire, de suggestions facilitant la correction des erreurs de saisie&nbsp;?</h3>
+<h3 id="crit-1111-aa-dans-chaque-formulaire-le-contrle-de-saisie-est-il-accompagn-si-ncessaire-de-suggestions-facilitant-la-correction-des-erreurs-de-saisie-"><em>Critère 11.11 [AA]</em> Dans chaque formulaire, le contrôle de saisie est-il accompagné, si nécessaire, de suggestions facilitant la correction des erreurs de saisie&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-1111-aa-dans-chaque-formulaire-le-contrle-de-saisie-est-il-accompagn-si-ncessaire-de-suggestions-facilitant-la-correction-des-erreurs-de-saisie-">
                       
 
@@ -3884,7 +3861,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-1112-aa-pour-chaque-formulaire-les-donnes-caractre-financier-juridique-ou-personnel-peuvent-elles-tre-modifies-mises-jour-ou-rcupres-par-lutilisateur-">Critère 11.12 [AA] Pour chaque formulaire, les données à caractère financier, juridique ou personnel peuvent-elles être modifiées, mises à jour ou récupérées par l'utilisateur&nbsp;?</h3>
+<h3 id="crit-1112-aa-pour-chaque-formulaire-les-donnes-caractre-financier-juridique-ou-personnel-peuvent-elles-tre-modifies-mises-jour-ou-rcupres-par-lutilisateur-"><em>Critère 11.12 [AA]</em> Pour chaque formulaire, les données à caractère financier, juridique ou personnel peuvent-elles être modifiées, mises à jour ou récupérées par l'utilisateur&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-1112-aa-pour-chaque-formulaire-les-donnes-caractre-financier-juridique-ou-personnel-peuvent-elles-tre-modifies-mises-jour-ou-rcupres-par-lutilisateur-">
                       
 
@@ -3926,7 +3903,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-1113-aaa-pour-chaque-formulaire-toutes-les-donnes-peuvent-elles-tre-modifies-mises-jour-ou-rcupres-par-lutilisateur-">Critère 11.13 [AAA] Pour chaque formulaire, toutes les données peuvent-elles être modifiées, mises à jour ou récupérées par l'utilisateur&nbsp;?</h3>
+<h3 id="crit-1113-aaa-pour-chaque-formulaire-toutes-les-donnes-peuvent-elles-tre-modifies-mises-jour-ou-rcupres-par-lutilisateur-"><em>Critère 11.13 [AAA]</em> Pour chaque formulaire, toutes les données peuvent-elles être modifiées, mises à jour ou récupérées par l'utilisateur&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-1113-aaa-pour-chaque-formulaire-toutes-les-donnes-peuvent-elles-tre-modifies-mises-jour-ou-rcupres-par-lutilisateur-">
                       
 
@@ -3968,7 +3945,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-1114-aaa-pour-chaque-formulaire-des-aides-la-saisie-sont-elles-prsentes-">Critère 11.14 [AAA] Pour chaque formulaire, des aides à la saisie sont-elles présentes&nbsp;?</h3>
+<h3 id="crit-1114-aaa-pour-chaque-formulaire-des-aides-la-saisie-sont-elles-prsentes-"><em>Critère 11.14 [AAA]</em> Pour chaque formulaire, des aides à la saisie sont-elles présentes&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-1114-aaa-pour-chaque-formulaire-des-aides-la-saisie-sont-elles-prsentes-">
                       
 
@@ -4033,7 +4010,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-1115-aaa-pour-chaque-formulaire-chaque-aide-la-saisie-est-elle-pertinente-">Critère 11.15 [AAA] Pour chaque formulaire, chaque aide à la saisie est-elle pertinente&nbsp;?</h3>
+<h3 id="crit-1115-aaa-pour-chaque-formulaire-chaque-aide-la-saisie-est-elle-pertinente-"><em>Critère 11.15 [AAA]</em> Pour chaque formulaire, chaque aide à la saisie est-elle pertinente&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-1115-aaa-pour-chaque-formulaire-chaque-aide-la-saisie-est-elle-pertinente-">
                       
 
@@ -4086,7 +4063,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-121-aa-chaque-ensemble-de-pages-dispose-t-il-de-deux-systmes-de-navigation-diffrents-au-moins-hors-cas-particuliers-">Critère 12.1 [AA] Chaque ensemble de pages dispose-t-il de deux systèmes de navigation différents, au moins (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-121-aa-chaque-ensemble-de-pages-dispose-t-il-de-deux-systmes-de-navigation-diffrents-au-moins-hors-cas-particuliers-"><em>Critère 12.1 [AA]</em> Chaque ensemble de pages dispose-t-il de deux systèmes de navigation différents, au moins (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-121-aa-chaque-ensemble-de-pages-dispose-t-il-de-deux-systmes-de-navigation-diffrents-au-moins-hors-cas-particuliers-">
                       
 
@@ -4121,7 +4098,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-122-aa-dans-chaque-ensemble-de-pages-le-menu-ou-les-barres-de-navigation-sont-ils-toujours-la-mme-place-hors-cas-particuliers-">Critère 12.2 [AA] Dans chaque ensemble de pages, le menu ou les barres de navigation sont-ils toujours à la même place (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-122-aa-dans-chaque-ensemble-de-pages-le-menu-ou-les-barres-de-navigation-sont-ils-toujours-la-mme-place-hors-cas-particuliers-"><em>Critère 12.2 [AA]</em> Dans chaque ensemble de pages, le menu ou les barres de navigation sont-ils toujours à la même place (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-122-aa-dans-chaque-ensemble-de-pages-le-menu-ou-les-barres-de-navigation-sont-ils-toujours-la-mme-place-hors-cas-particuliers-">
                       
 
@@ -4162,7 +4139,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-123-aa-dans-chaque-ensemble-de-pages-le-menu-et-les-barres-de-navigation-ont-ils-une-prsentation-cohrente-hors-cas-particuliers-">Critère 12.3 [AA] Dans chaque ensemble de pages, le menu et les barres de navigation ont-ils une présentation cohérente (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-123-aa-dans-chaque-ensemble-de-pages-le-menu-et-les-barres-de-navigation-ont-ils-une-prsentation-cohrente-hors-cas-particuliers-"><em>Critère 12.3 [AA]</em> Dans chaque ensemble de pages, le menu et les barres de navigation ont-ils une présentation cohérente (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-123-aa-dans-chaque-ensemble-de-pages-le-menu-et-les-barres-de-navigation-ont-ils-une-prsentation-cohrente-hors-cas-particuliers-">
                       
 
@@ -4191,7 +4168,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-124-aa-la-page-plan-du-site-est-elle-pertinente-">Critère 12.4 [AA] La page «&nbsp;plan du site&nbsp;» est-elle pertinente&nbsp;?</h3>
+<h3 id="crit-124-aa-la-page-plan-du-site-est-elle-pertinente-"><em>Critère 12.4 [AA]</em> La page «&nbsp;plan du site&nbsp;» est-elle pertinente&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-124-aa-la-page-plan-du-site-est-elle-pertinente-">
                       
 
@@ -4221,7 +4198,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-125-aa-dans-chaque-ensemble-de-pages-la-page-plan-du-site-est-elle-atteignable-de-manire-identique-">Critère 12.5 [AA] Dans chaque ensemble de pages, la page «&nbsp;plan du site&nbsp;» est-elle atteignable de manière identique&nbsp;?</h3>
+<h3 id="crit-125-aa-dans-chaque-ensemble-de-pages-la-page-plan-du-site-est-elle-atteignable-de-manire-identique-"><em>Critère 12.5 [AA]</em> Dans chaque ensemble de pages, la page «&nbsp;plan du site&nbsp;» est-elle atteignable de manière identique&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-125-aa-dans-chaque-ensemble-de-pages-la-page-plan-du-site-est-elle-atteignable-de-manire-identique-">
                       
 
@@ -4251,7 +4228,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-126-aa-dans-chaque-ensemble-de-pages-le-moteur-de-recherche-est-il-atteignable-de-manire-identique-">Critère 12.6 [AA] Dans chaque ensemble de pages, le moteur de recherche est-il atteignable de manière identique&nbsp;?</h3>
+<h3 id="crit-126-aa-dans-chaque-ensemble-de-pages-le-moteur-de-recherche-est-il-atteignable-de-manire-identique-"><em>Critère 12.6 [AA]</em> Dans chaque ensemble de pages, le moteur de recherche est-il atteignable de manière identique&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-126-aa-dans-chaque-ensemble-de-pages-le-moteur-de-recherche-est-il-atteignable-de-manire-identique-">
                       
 
@@ -4281,7 +4258,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-127-aa-dans-chaque-page-dune-collection-de-pages-des-liens-facilitant-la-navigation-sont-ils-prsents-">Critère 12.7 [AA] Dans chaque page d'une collection de pages, des liens facilitant la navigation sont-ils présents&nbsp;?</h3>
+<h3 id="crit-127-aa-dans-chaque-page-dune-collection-de-pages-des-liens-facilitant-la-navigation-sont-ils-prsents-"><em>Critère 12.7 [AA]</em> Dans chaque page d'une collection de pages, des liens facilitant la navigation sont-ils présents&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-127-aa-dans-chaque-page-dune-collection-de-pages-des-liens-facilitant-la-navigation-sont-ils-prsents-">
                       
 
@@ -4316,7 +4293,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-128-aaa-dans-chaque-page-web-un-fil-dariane-est-il-prsent-hors-cas-particuliers-">Critère 12.8 [AAA] Dans chaque page web, un fil d'Ariane est-il présent (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-128-aaa-dans-chaque-page-web-un-fil-dariane-est-il-prsent-hors-cas-particuliers-"><em>Critère 12.8 [AAA]</em> Dans chaque page web, un fil d'Ariane est-il présent (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-128-aaa-dans-chaque-page-web-un-fil-dariane-est-il-prsent-hors-cas-particuliers-">
                       
 
@@ -4344,7 +4321,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-129-aaa-dans-chaque-page-web-le-fil-dariane-est-il-pertinent-">Critère 12.9 [AAA] Dans chaque page web, le fil d'Ariane est-il pertinent&nbsp;?</h3>
+<h3 id="crit-129-aaa-dans-chaque-page-web-le-fil-dariane-est-il-pertinent-"><em>Critère 12.9 [AAA]</em> Dans chaque page web, le fil d'Ariane est-il pertinent&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-129-aaa-dans-chaque-page-web-le-fil-dariane-est-il-pertinent-">
                       
 
@@ -4372,7 +4349,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-1210-a-dans-chaque-page-web-les-groupes-de-liens-importants-menu-barre-de-navigation-et-la-zone-de-contenu-sont-ils-identifis-hors-cas-particuliers-">Critère 12.10 [A] Dans chaque page web, les groupes de liens importants (menu, barre de navigation…) et la zone de contenu sont-ils identifiés hors cas particuliers&nbsp;?</h3>
+<h3 id="crit-1210-a-dans-chaque-page-web-les-groupes-de-liens-importants-menu-barre-de-navigation-et-la-zone-de-contenu-sont-ils-identifis-hors-cas-particuliers-"><em>Critère 12.10 [A]</em> Dans chaque page web, les groupes de liens importants (menu, barre de navigation…) et la zone de contenu sont-ils identifiés hors cas particuliers&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-1210-a-dans-chaque-page-web-les-groupes-de-liens-importants-menu-barre-de-navigation-et-la-zone-de-contenu-sont-ils-identifis-hors-cas-particuliers-">
                       
 
@@ -4430,7 +4407,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-1211-a-dans-chaque-page-web-des-liens-dvitement-ou-daccs-rapide-aux-groupes-de-liens-importants-et-la-zone-de-contenu-sont-ils-prsents-hors-cas-particuliers-">Critère 12.11 [A] Dans chaque page web, des liens d'évitement ou d'accès rapide aux groupes de liens importants et à la zone de contenu sont-ils présents hors cas particuliers&nbsp;?</h3>
+<h3 id="crit-1211-a-dans-chaque-page-web-des-liens-dvitement-ou-daccs-rapide-aux-groupes-de-liens-importants-et-la-zone-de-contenu-sont-ils-prsents-hors-cas-particuliers-"><em>Critère 12.11 [A]</em> Dans chaque page web, des liens d'évitement ou d'accès rapide aux groupes de liens importants et à la zone de contenu sont-ils présents hors cas particuliers&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-1211-a-dans-chaque-page-web-des-liens-dvitement-ou-daccs-rapide-aux-groupes-de-liens-importants-et-la-zone-de-contenu-sont-ils-prsents-hors-cas-particuliers-">
 
 
@@ -4465,7 +4442,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-1212-aaa-dans-chaque-page-web-la-page-en-cours-de-consultation-est-elle-indique-dans-le-menu-de-navigation-">Critère 12.12 [AAA] Dans chaque page web, la page en cours de consultation est-elle indiquée dans le menu de navigation&nbsp;?</h3>
+<h3 id="crit-1212-aaa-dans-chaque-page-web-la-page-en-cours-de-consultation-est-elle-indique-dans-le-menu-de-navigation-"><em>Critère 12.12 [AAA]</em> Dans chaque page web, la page en cours de consultation est-elle indiquée dans le menu de navigation&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-1212-aaa-dans-chaque-page-web-la-page-en-cours-de-consultation-est-elle-indique-dans-le-menu-de-navigation-">
          
   <ul>
@@ -4489,7 +4466,7 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
         
           </section>
 <section>
-<h3 id="crit-1213-a-dans-chaque-page-web-lordre-de-tabulation-est-il-cohrent-">Critère 12.13 [A] Dans chaque page web, l'ordre de tabulation est-il cohérent&nbsp;?</h3>
+<h3 id="crit-1213-a-dans-chaque-page-web-lordre-de-tabulation-est-il-cohrent-"><em>Critère 12.13 [A]</em> Dans chaque page web, l'ordre de tabulation est-il cohérent&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-1213-a-dans-chaque-page-web-lordre-de-tabulation-est-il-cohrent-">
                       
 
@@ -4518,13 +4495,13 @@ Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org
                 <article
         class="section js-contentToggle--section"
         id="critre-1214-a-dans-chaque-page-web-la-navigation-ne-doit-pas-contenir-de-pige-au-clavier-cette-rgle-est-elle-respecte-"
-        data-closed-label="&lt;span title='Afficher la section &quot;Critère 12.14 [A] Dans chaque page web, la navigation ne doit pas contenir de piège au clavier. Cette règle est-elle respectée ?&quot;'&gt;Afficher cette section&lt;/span&gt;"
-        data-opened-label="&lt;span title='Masquer la section &quot;Critère 12.14 [A] Dans chaque page web, la navigation ne doit pas contenir de piège au clavier. Cette règle est-elle respectée ?&quot;'&gt;Masquer cette section&lt;/span&gt;"
+        data-closed-label="&lt;span title='Afficher la section &quot;Critère 12.14 [A]</em> Dans chaque page web, la navigation ne doit pas contenir de piège au clavier. Cette règle est-elle respectée ?&quot;'&gt;Afficher cette section&lt;/span&gt;"
+        data-opened-label="&lt;span title='Masquer la section &quot;Critère 12.14 [A]</em> Dans chaque page web, la navigation ne doit pas contenir de piège au clavier. Cette règle est-elle respectée ?&quot;'&gt;Masquer cette section&lt;/span&gt;"
         id="crit-12-14"      >
         
           </section>
 <section>
-<h3 id="crit-1214-a-dans-chaque-page-web-la-navigation-ne-doit-pas-contenir-de-pige-au-clavier-cette-rgle-est-elle-respecte-">Critère 12.14 [A] Dans chaque page web, la navigation ne doit pas contenir de piège au clavier. Cette règle est-elle respectée&nbsp;?</h3>
+<h3 id="crit-1214-a-dans-chaque-page-web-la-navigation-ne-doit-pas-contenir-de-pige-au-clavier-cette-rgle-est-elle-respecte-"><em>Critère 12.14 [A]</em> Dans chaque page web, la navigation ne doit pas contenir de piège au clavier. Cette règle est-elle respectée&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-1214-a-dans-chaque-page-web-la-navigation-ne-doit-pas-contenir-de-pige-au-clavier-cette-rgle-est-elle-respecte-">
                       
 
@@ -4590,13 +4567,13 @@ Indiquer lorsqu'un contenu s'ouvre dans une nouvelle fenêtre et donner des info
                 <article
         class="section js-contentToggle--section"
         id="critre-131-a-pour-chaque-page-web-lutilisateur-a-t-il-le-contrle-de-chaque-limite-de-temps-modifiant-le-contenu-hors-cas-particuliers-"
-        data-closed-label="&lt;span title='Afficher la section &quot;Critère 13.1 [A] Pour chaque page web, l&amp;#039;utilisateur a-t-il le contrôle de chaque limite de temps modifiant le contenu (hors cas particuliers) ?&quot;'&gt;Afficher cette section&lt;/span&gt;"
-        data-opened-label="&lt;span title='Masquer la section &quot;Critère 13.1 [A] Pour chaque page web, l&amp;#039;utilisateur a-t-il le contrôle de chaque limite de temps modifiant le contenu (hors cas particuliers) ?&quot;'&gt;Masquer cette section&lt;/span&gt;"
+        data-closed-label="&lt;span title='Afficher la section &quot;Critère 13.1 [A]</em> Pour chaque page web, l&amp;#039;utilisateur a-t-il le contrôle de chaque limite de temps modifiant le contenu (hors cas particuliers) ?&quot;'&gt;Afficher cette section&lt;/span&gt;"
+        data-opened-label="&lt;span title='Masquer la section &quot;Critère 13.1 [A]</em> Pour chaque page web, l&amp;#039;utilisateur a-t-il le contrôle de chaque limite de temps modifiant le contenu (hors cas particuliers) ?&quot;'&gt;Masquer cette section&lt;/span&gt;"
         id="crit-13-1"      >
         
           </section>
 <section>
-<h3 id="crit-131-a-pour-chaque-page-web-lutilisateur-a-t-il-le-contrle-de-chaque-limite-de-temps-modifiant-le-contenu-hors-cas-particuliers-">Critère 13.1 [A] Pour chaque page web, l'utilisateur a-t-il le contrôle de chaque limite de temps modifiant le contenu (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-131-a-pour-chaque-page-web-lutilisateur-a-t-il-le-contrle-de-chaque-limite-de-temps-modifiant-le-contenu-hors-cas-particuliers-"><em>Critère 13.1 [A]</em> Pour chaque page web, l'utilisateur a-t-il le contrôle de chaque limite de temps modifiant le contenu (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-131-a-pour-chaque-page-web-lutilisateur-a-t-il-le-contrle-de-chaque-limite-de-temps-modifiant-le-contenu-hors-cas-particuliers-">
                       
 
@@ -4659,13 +4636,13 @@ Indiquer lorsqu'un contenu s'ouvre dans une nouvelle fenêtre et donner des info
                 <article
         class="section js-contentToggle--section"
         id="critre-132-a-dans-chaque-page-web-pour-chaque-ouverture-de-nouvelle-fentre-lutilisateur-est-il-averti-"
-        data-closed-label="&lt;span title='Afficher la section &quot;Critère 13.2 [A] Dans chaque page web, pour chaque ouverture de nouvelle fenêtre, l&amp;#039;utilisateur est-il averti ?&quot;'&gt;Afficher cette section&lt;/span&gt;"
-        data-opened-label="&lt;span title='Masquer la section &quot;Critère 13.2 [A] Dans chaque page web, pour chaque ouverture de nouvelle fenêtre, l&amp;#039;utilisateur est-il averti ?&quot;'&gt;Masquer cette section&lt;/span&gt;"
+        data-closed-label="&lt;span title='Afficher la section &quot;Critère 13.2 [A]</em> Dans chaque page web, pour chaque ouverture de nouvelle fenêtre, l&amp;#039;utilisateur est-il averti ?&quot;'&gt;Afficher cette section&lt;/span&gt;"
+        data-opened-label="&lt;span title='Masquer la section &quot;Critère 13.2 [A]</em> Dans chaque page web, pour chaque ouverture de nouvelle fenêtre, l&amp;#039;utilisateur est-il averti ?&quot;'&gt;Masquer cette section&lt;/span&gt;"
         id="crit-13-2"      >
         
           </section>
 <section>
-<h3 id="crit-132-a-dans-chaque-page-web-pour-chaque-ouverture-de-nouvelle-fentre-lutilisateur-est-il-averti-">Critère 13.2 [A] Dans chaque page web, pour chaque ouverture de nouvelle fenêtre, l'utilisateur est-il averti&nbsp;?</h3>
+<h3 id="crit-132-a-dans-chaque-page-web-pour-chaque-ouverture-de-nouvelle-fentre-lutilisateur-est-il-averti-"><em>Critère 13.2 [A]</em> Dans chaque page web, pour chaque ouverture de nouvelle fenêtre, l'utilisateur est-il averti&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-132-a-dans-chaque-page-web-pour-chaque-ouverture-de-nouvelle-fentre-lutilisateur-est-il-averti-">
                       
 
@@ -4695,13 +4672,13 @@ Indiquer lorsqu'un contenu s'ouvre dans une nouvelle fenêtre et donner des info
                 <article
         class="section js-contentToggle--section"
         id="critre-133-a-dans-chaque-page-web-louverture-dune-nouvelle-fentre-ne-doit-pas-tre-dclenche-sans-action-de-lutilisateur-cette-rgle-est-elle-respecte-"
-        data-closed-label="&lt;span title='Afficher la section &quot;Critère 13.3 [A] Dans chaque page web, l&amp;#039;ouverture d&amp;#039;une nouvelle fenêtre ne doit pas être déclenchée sans action de l&amp;#039;utilisateur. Cette règle est-elle respectée ?&quot;'&gt;Afficher cette section&lt;/span&gt;"
-        data-opened-label="&lt;span title='Masquer la section &quot;Critère 13.3 [A] Dans chaque page web, l&amp;#039;ouverture d&amp;#039;une nouvelle fenêtre ne doit pas être déclenchée sans action de l&amp;#039;utilisateur. Cette règle est-elle respectée ?&quot;'&gt;Masquer cette section&lt;/span&gt;"
+        data-closed-label="&lt;span title='Afficher la section &quot;Critère 13.3 [A]</em> Dans chaque page web, l&amp;#039;ouverture d&amp;#039;une nouvelle fenêtre ne doit pas être déclenchée sans action de l&amp;#039;utilisateur. Cette règle est-elle respectée ?&quot;'&gt;Afficher cette section&lt;/span&gt;"
+        data-opened-label="&lt;span title='Masquer la section &quot;Critère 13.3 [A]</em> Dans chaque page web, l&amp;#039;ouverture d&amp;#039;une nouvelle fenêtre ne doit pas être déclenchée sans action de l&amp;#039;utilisateur. Cette règle est-elle respectée ?&quot;'&gt;Masquer cette section&lt;/span&gt;"
         id="crit-13-3"      >
         
           </section>
 <section>
-<h3 id="crit-133-a-dans-chaque-page-web-louverture-dune-nouvelle-fentre-ne-doit-pas-tre-dclenche-sans-action-de-lutilisateur-cette-rgle-est-elle-respecte-">Critère 13.3 [A] Dans chaque page web, l'ouverture d'une nouvelle fenêtre ne doit pas être déclenchée sans action de l'utilisateur. Cette règle est-elle respectée&nbsp;?</h3>
+<h3 id="crit-133-a-dans-chaque-page-web-louverture-dune-nouvelle-fentre-ne-doit-pas-tre-dclenche-sans-action-de-lutilisateur-cette-rgle-est-elle-respecte-"><em>Critère 13.3 [A]</em> Dans chaque page web, l'ouverture d'une nouvelle fenêtre ne doit pas être déclenchée sans action de l'utilisateur. Cette règle est-elle respectée&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-133-a-dans-chaque-page-web-louverture-dune-nouvelle-fentre-ne-doit-pas-tre-dclenche-sans-action-de-lutilisateur-cette-rgle-est-elle-respecte-">
                       
 
@@ -4729,7 +4706,7 @@ Indiquer lorsqu'un contenu s'ouvre dans une nouvelle fenêtre et donner des info
         
           </section>
 <section>
-<h3 id="crit-134-aaa-dans-chaque-page-web-une-tche-ne-doit-pas-requrir-de-limite-de-temps-pour-tre-ralise-sauf-si-elle-se-droule-en-temps-rel-ou-si-cette-limite-de-temps-est-essentielle-cette-rgle-est-elle-respecte-">Critère 13.4 [AAA] Dans chaque page web, une tâche ne doit pas requérir de limite de temps pour être réalisée, sauf si elle se déroule en temps réel ou si cette limite de temps est essentielle. Cette règle est-elle respectée&nbsp;?</h3>
+<h3 id="crit-134-aaa-dans-chaque-page-web-une-tche-ne-doit-pas-requrir-de-limite-de-temps-pour-tre-ralise-sauf-si-elle-se-droule-en-temps-rel-ou-si-cette-limite-de-temps-est-essentielle-cette-rgle-est-elle-respecte-"><em>Critère 13.4 [AAA]</em> Dans chaque page web, une tâche ne doit pas requérir de limite de temps pour être réalisée, sauf si elle se déroule en temps réel ou si cette limite de temps est essentielle. Cette règle est-elle respectée&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-134-aaa-dans-chaque-page-web-une-tche-ne-doit-pas-requrir-de-limite-de-temps-pour-tre-ralise-sauf-si-elle-se-droule-en-temps-rel-ou-si-cette-limite-de-temps-est-essentielle-cette-rgle-est-elle-respecte-">
                       
 
@@ -4763,7 +4740,7 @@ Indiquer lorsqu'un contenu s'ouvre dans une nouvelle fenêtre et donner des info
         
           </section>
 <section>
-<h3 id="crit-135-aaa-dans-chaque-page-web-lors-dune-interruption-de-session-authentifie-les-donnes-saisies-par-lutilisateur-sont-elles-rcupres-aprs-r-authentification-">Critère 13.5 [AAA] Dans chaque page web, lors d'une interruption de session authentifiée, les données saisies par l'utilisateur sont-elles récupérées après ré-authentification&nbsp;?</h3>
+<h3 id="crit-135-aaa-dans-chaque-page-web-lors-dune-interruption-de-session-authentifie-les-donnes-saisies-par-lutilisateur-sont-elles-rcupres-aprs-r-authentification-"><em>Critère 13.5 [AAA]</em> Dans chaque page web, lors d'une interruption de session authentifiée, les données saisies par l'utilisateur sont-elles récupérées après ré-authentification&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-135-aaa-dans-chaque-page-web-lors-dune-interruption-de-session-authentifie-les-donnes-saisies-par-lutilisateur-sont-elles-rcupres-aprs-r-authentification-">
                       
 
@@ -4791,7 +4768,7 @@ Indiquer lorsqu'un contenu s'ouvre dans une nouvelle fenêtre et donner des info
         
           </section>
 <section>
-<h3 id="crit-136-a-dans-chaque-page-web-pour-chaque-fichier-en-tlchargement-des-informations-relatives-sa-consultation-sont-elles-prsentes-hors-cas-particuliers-">Critère 13.6 [A] Dans chaque page web, pour chaque fichier en téléchargement, des informations relatives à sa consultation sont-elles présentes (hors cas particuliers)&nbsp;?</h3>
+<h3 id="crit-136-a-dans-chaque-page-web-pour-chaque-fichier-en-tlchargement-des-informations-relatives-sa-consultation-sont-elles-prsentes-hors-cas-particuliers-"><em>Critère 13.6 [A]</em> Dans chaque page web, pour chaque fichier en téléchargement, des informations relatives à sa consultation sont-elles présentes (hors cas particuliers)&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-136-a-dans-chaque-page-web-pour-chaque-fichier-en-tlchargement-des-informations-relatives-sa-consultation-sont-elles-prsentes-hors-cas-particuliers-">
                       
 
@@ -4821,7 +4798,7 @@ Indiquer lorsqu'un contenu s'ouvre dans une nouvelle fenêtre et donner des info
         
           </section>
 <section>
-<h3 id="crit-137-a-dans-chaque-page-web-chaque-document-bureautique-en-tlchargement-possde-t-il-si-ncessaire-une-version-accessible">Critère 13.7 [A] Dans chaque page web, chaque document bureautique en téléchargement possède-t-il, si nécessaire, une version accessible?          </h3>
+<h3 id="crit-137-a-dans-chaque-page-web-chaque-document-bureautique-en-tlchargement-possde-t-il-si-ncessaire-une-version-accessible"><em>Critère 13.7 [A]</em> Dans chaque page web, chaque document bureautique en téléchargement possède-t-il, si nécessaire, une version accessible?          </h3>
         <div class="section__content js-contentToggle__content" id="content-critre-137-a-dans-chaque-page-web-chaque-document-bureautique-en-tlchargement-possde-t-il-si-ncessaire-une-version-accessible">
                       
 
@@ -4856,7 +4833,7 @@ Indiquer lorsqu'un contenu s'ouvre dans une nouvelle fenêtre et donner des info
         
           </section>
 <section>
-<h3 id="crit-138-a-pour-chaque-document-bureautique-ayant-une-version-accessible-cette-version-offre-t-elle-la-mme-information-">Critère 13.8 [A] Pour chaque document bureautique ayant une version accessible, cette version offre-t-elle la même information&nbsp;?</h3>
+<h3 id="crit-138-a-pour-chaque-document-bureautique-ayant-une-version-accessible-cette-version-offre-t-elle-la-mme-information-"><em>Critère 13.8 [A]</em> Pour chaque document bureautique ayant une version accessible, cette version offre-t-elle la même information&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-138-a-pour-chaque-document-bureautique-ayant-une-version-accessible-cette-version-offre-t-elle-la-mme-information-">
                       
 
@@ -4890,7 +4867,7 @@ Indiquer lorsqu'un contenu s'ouvre dans une nouvelle fenêtre et donner des info
         
           </section>
 <section>
-<h3 id="crit-139-aaa-dans-chaque-page-web-les-expressions-inhabituelles-les-expressions-idiomatiques-ou-le-jargon-sont-ils-explicits-">Critère 13.9 [AAA] Dans chaque page web, les expressions inhabituelles, les expressions idiomatiques ou le jargon sont-ils explicités&nbsp;?</h3>
+<h3 id="crit-139-aaa-dans-chaque-page-web-les-expressions-inhabituelles-les-expressions-idiomatiques-ou-le-jargon-sont-ils-explicits-"><em>Critère 13.9 [AAA]</em> Dans chaque page web, les expressions inhabituelles, les expressions idiomatiques ou le jargon sont-ils explicités&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-139-aaa-dans-chaque-page-web-les-expressions-inhabituelles-les-expressions-idiomatiques-ou-le-jargon-sont-ils-explicits-">
                       
 
@@ -4926,9 +4903,7 @@ Indiquer lorsqu'un contenu s'ouvre dans une nouvelle fenêtre et donner des info
         
           </section>
 <section>
-<h3 id="crit-1310-aaa-dans-chaque-page-web-pour-chaque-expression-inhabituelle-ou-limite-idiomatique-ou-de-jargon-ayant-une-dfinition-cette-dfinition-est-elle-pertinente-">Critère 13.10 [AAA] Dans chaque page web, pour chaque expression inhabituelle ou limitée, idiomatique ou de jargon ayant une définition, cette définition est-elle pertinente&nbsp;?</h3>
-        <div class="section__content js-contentToggle__content" id="content-critre-1310-aaa-dans-chaque-page-web-pour-chaque-expression-inhabituelle-ou-limite-idiomatique-ou-de-jargon-ayant-une-dfinition-cette-dfinition-est-elle-pertinente-">
- 
+<h3 id="crit-1310-aaa-dans-chaque-page-web-pour-chaque-expression-inhabituelle-ou-limite-idiomatique-ou-de-jargon-ayant-une-dfinition-cette-dfinition-est-elle-pertinente-"><em>Critère 13.10 [AAA]</em> Dans chaque page web, pour chaque expression inhabituelle ou limitée, idiomatique ou de jargon ayant une définition, cette définition est-elle pertinente&nbsp;?</h3>
   <ul>
 <li>Test 13.10.1 : Dans chaque page web, pour chaque expression inhabituelle ou limitée, idiomatique ou de jargon ayant une définition, cette définition vérifie-t-elle l'une de ces conditions ?
 
@@ -4957,9 +4932,7 @@ Indiquer lorsqu'un contenu s'ouvre dans une nouvelle fenêtre et donner des info
         
           </section>
 <section>
-<h3 id="crit-1311-a-dans-chaque-page-web-chaque-contenu-cryptique-art-ascii-moticon-syntaxe-cryptique-a-t-il-une-alternative-">Critère 13.11 [A] Dans chaque page web, chaque contenu cryptique (art ascii, émoticon, syntaxe cryptique) a-t-il une alternative&nbsp;?</h3>
-        <div class="section__content js-contentToggle__content" id="content-critre-1311-a-dans-chaque-page-web-chaque-contenu-cryptique-art-ascii-moticon-syntaxe-cryptique-a-t-il-une-alternative-">
-                      
+<h3 id="crit-1311-a-dans-chaque-page-web-chaque-contenu-cryptique-art-ascii-moticon-syntaxe-cryptique-a-t-il-une-alternative-"><em>Critère 13.11 [A]</em> Dans chaque page web, chaque contenu cryptique (art ascii, émoticon, syntaxe cryptique) a-t-il une alternative&nbsp;?</h3>
 
   
 
@@ -4991,7 +4964,7 @@ Indiquer lorsqu'un contenu s'ouvre dans une nouvelle fenêtre et donner des info
         
           </section>
 <section>
-<h3 id="crit-1312-a-dans-chaque-page-web-pour-chaque-contenu-cryptique-art-ascii-moticon-syntaxe-cryptique-ayant-une-alternative-cette-alternative-est-elle-pertinente-">Critère 13.12 [A] Dans chaque page web, pour chaque contenu cryptique (art ascii, émoticon, syntaxe cryptique) ayant une alternative, cette alternative est-elle pertinente&nbsp;?</h3>
+<h3 id="crit-1312-a-dans-chaque-page-web-pour-chaque-contenu-cryptique-art-ascii-moticon-syntaxe-cryptique-ayant-une-alternative-cette-alternative-est-elle-pertinente-"><em>Critère 13.12 [A]</em> Dans chaque page web, pour chaque contenu cryptique (art ascii, émoticon, syntaxe cryptique) ayant une alternative, cette alternative est-elle pertinente&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-1312-a-dans-chaque-page-web-pour-chaque-contenu-cryptique-art-ascii-moticon-syntaxe-cryptique-ayant-une-alternative-cette-alternative-est-elle-pertinente-">
                       
 
@@ -5025,7 +4998,7 @@ Indiquer lorsqu'un contenu s'ouvre dans une nouvelle fenêtre et donner des info
         
           </section>
 <section>
-<h3 id="crit-1313-aaa-dans-chaque-page-web-pour-chaque-mot-dont-le-sens-ne-peut-tre-compris-sans-en-connatre-la-prononciation-celle-ci-est-elle-indique-">Critère 13.13 [AAA] Dans chaque page web, pour chaque mot dont le sens ne peut être compris sans en connaître la prononciation, celle-ci est-elle indiquée&nbsp;?</h3>
+<h3 id="crit-1313-aaa-dans-chaque-page-web-pour-chaque-mot-dont-le-sens-ne-peut-tre-compris-sans-en-connatre-la-prononciation-celle-ci-est-elle-indique-"><em>Critère 13.13 [AAA]</em> Dans chaque page web, pour chaque mot dont le sens ne peut être compris sans en connaître la prononciation, celle-ci est-elle indiquée&nbsp;?</h3>
         <div class="section__content js-contentToggle__content" id="content-critre-1313-aaa-dans-chaque-page-web-pour-chaque-mot-dont-le-sens-ne-peut-tre-compris-sans-en-connatre-la-prononciation-celle-ci-est-elle-indique-">
                       
 
@@ -5059,10 +5032,7 @@ Indiquer lorsqu'un contenu s'ouvre dans une nouvelle fenêtre et donner des info
         
           </section>
 <section>
-<h3 id="crit-1314-aaa-dans-chaque-page-web-chaque-texte-qui-ncessite-un-niveau-de-lecture-plus-avanc-que-le-premier-cycle-de-lenseignement-secondaire-a-t-il-une-version-alternative-">Critère 13.14 [AAA] Dans chaque page web, chaque texte qui nécessite un niveau de lecture plus avancé que le premier cycle de l'enseignement secondaire a-t-il une version alternative&nbsp;?</h3>
-        <div class="section__content js-contentToggle__content" id="content-critre-1314-aaa-dans-chaque-page-web-chaque-texte-qui-ncessite-un-niveau-de-lecture-plus-avanc-que-le-premier-cycle-de-lenseignement-secondaire-a-t-il-une-version-alternative-">
-                      
-
+<h3 id="crit-1314-aaa-dans-chaque-page-web-chaque-texte-qui-ncessite-un-niveau-de-lecture-plus-avanc-que-le-premier-cycle-de-lenseignement-secondaire-a-t-il-une-version-alternative-"><em>Critère 13.14 [AAA]</em> Dans chaque page web, chaque texte qui nécessite un niveau de lecture plus avancé que le premier cycle de l'enseignement secondaire a-t-il une version alternative&nbsp;?</h3>
   
 
 
@@ -5095,126 +5065,95 @@ Indiquer lorsqu'un contenu s'ouvre dans une nouvelle fenêtre et donner des info
         
           </section>
 <section>
-<h3 id="crit-1315-a-dans-chaque-page-web-les-changements-brusques-de-luminosit-ou-les-effets-de-flash-sont-ils-correctement-utiliss-">Critère 13.15 [A] Dans chaque page web, les changements brusques de luminosité ou les effets de flash sont-ils correctement utilisés&nbsp;?</h3>
-        <div class="section__content js-contentToggle__content" id="content-critre-1315-a-dans-chaque-page-web-les-changements-brusques-de-luminosit-ou-les-effets-de-flash-sont-ils-correctement-utiliss-">
-                      
-
-  
-
-
-  <ul>
-<li>Test 13.15.1 : Dans chaque page web, chaque image animée (balise <code lang="en">img</code>, balise <code lang="en">svg</code> ou balise <code lang="en">object</code>) qui provoque un changement brusque de luminosité ou un effet de flash vérifie-t-elle une de ces conditions ?
-
-<ul>
-<li>La fréquence de l'effet est inférieure à 3 par seconde</li>
-<li>La surface totale cumulée des effets est inférieure ou égale à 21 824 pixels</li>
-</ul>
-</li>
-<li>Test 13.15.2 : Dans chaque page web, chaque <a href="#scripts"><code lang="en">script</code></a> qui provoque un changement brusque de luminosité ou un effet de flash vérifie-t-il une de ces conditions ?
-
-<ul>
-<li>La fréquence de l'effet est inférieure à 3 par seconde</li>
-<li>La surface totale cumulée des effets est inférieure ou égale à 21 824 pixels</li>
-</ul>
-</li>
-<li>Test 13.15.3 : Dans chaque page web, chaque mise en forme CSS qui provoque un changement brusque de luminosité ou un effet de flash vérifie-t-elle une de ces conditions ?
-
-<ul>
-<li>La fréquence de l'effet est inférieure à 3 par seconde</li>
-<li>La surface totale cumulée des effets est inférieure ou égale à 21 824 pixels</li>
-</ul>
-</li>
-</ul>
-<p><strong>Correspondances WCAG 2.0</strong></p>
-
-<p>Critère(s) de succès WCAG 2.0 : <a href="http://www.w3.org/Translations/WCAG20-fr/#seizure-does-not-violate" title="2.3.1 (nouvelle fenêtre)" target="_blank">2.3.1</a></p>
-
-<p>Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org/TR/WCAG-TECHS/G15.html" title="G15 (nouvelle fenêtre)" target="_blank">G15</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/G19.html" title="G19 (nouvelle fenêtre)" target="_blank">G19</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/G176.html" title="G176 (nouvelle fenêtre)" target="_blank">G176</a></p>
-
-
-<div class="key-words">
-    <span>mot clé</span>
-    <ul>
-              <li>Niveau : A</li>
-              <li>Principe : Perceptible, Utilisable, Compréhensible, Robuste</li>
-          </ul>
-  </div>
-     
-        
-          </section>
+	<h3 id="crit-13-15"><em>Critère 13.15 [A]</em> Dans chaque page web, les changements brusques de luminosité ou les effets de flash sont-ils correctement utilisés&nbsp;?</h3>
+	<ul>
+		<li>Test 13.15.1 : Dans chaque page web, chaque image animée (balise <code lang="en">img</code>, balise <code lang="en">svg</code> ou balise <code lang="en">object</code>) qui provoque un changement brusque de luminosité ou un effet de flash vérifie-t-elle une de ces conditions&nbsp;?
+			<ul>
+				<li>La fréquence de l'effet est inférieure à 3 par seconde</li>
+				<li>La surface totale cumulée des effets est inférieure ou égale à 21 824 pixels</li>
+			</ul>
+		</li>
+		<li>Test 13.15.2 : Dans chaque page web, chaque <a href="#scripts"><code lang="en">script</code></a> qui provoque un changement brusque de luminosité ou un effet de flash vérifie-t-il une de ces conditions&nbsp;?
+			<ul>
+				<li>La fréquence de l'effet est inférieure à 3 par seconde</li>
+				<li>La surface totale cumulée des effets est inférieure ou égale à 21 824 pixels</li>
+			</ul>
+		</li>
+		<li>Test 13.15.3 : Dans chaque page web, chaque mise en forme CSS qui provoque un changement brusque de luminosité ou un effet de flash vérifie-t-elle une de ces conditions&nbsp;?
+			<ul>
+				<li>La fréquence de l'effet est inférieure à 3 par seconde</li>
+				<li>La surface totale cumulée des effets est inférieure ou égale à 21 824 pixels</li>
+			</ul>
+		</li>
+	</ul>
+	<aside>
+		<p><strong>Correspondances WCAG 2.0</strong></p>
+		<p>Critère(s) de succès WCAG 2.0 : <a href="http://www.w3.org/Translations/WCAG20-fr/#seizure-does-not-violate" title="2.3.1 (nouvelle fenêtre)" target="_blank">2.3.1</a></p>
+		<p>Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org/TR/WCAG-TECHS/G15.html" title="G15 (nouvelle fenêtre)" target="_blank">G15</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/G19.html" title="G19 (nouvelle fenêtre)" target="_blank">G19</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/G176.html" title="G176 (nouvelle fenêtre)" target="_blank">G176</a></p>
+		<div class="key-words">
+			<span>mot clé</span>
+			<ul>
+				<li>Niveau : A</li>
+				<li>Principe : Perceptible, Utilisable, Compréhensible, Robuste</li>
+			</ul>
+		</div>
+	</aside>
+</section>
 <section>
-<h3 id="crit-1316-aaa-dans-chaque-page-web-les-changements-brusques-de-luminosit-ou-les-effets-de-flash-ont-ils-une-frquence-infrieure-ou-gale-3-par-seconde-">Critère 13.16 [AAA] Dans chaque page web, les changements brusques de luminosité ou les effets de flash ont-ils une fréquence inférieure ou égale à 3 par seconde&nbsp;?</h3>
-        <div class="section__content js-contentToggle__content" id="content-critre-1316-aaa-dans-chaque-page-web-les-changements-brusques-de-luminosit-ou-les-effets-de-flash-ont-ils-une-frquence-infrieure-ou-gale-3-par-seconde-">
-                      
-
-  
-
-
-  <ul>
-<li>Test 13.16.1 : Dans chaque page web, chaque changement brusque de luminosité ou un effet de flash provoqué par une image animée (balise <code lang="en">img</code>, balise <code lang="en">svg</code>, balise <code lang="en">embed</code>, balise <code lang="en">canvas</code> ou balise <code lang="en">object</code>) a-t-il une fréquence inférieure ou égale à 3 par seconde&nbsp;?</li>
-<li>Test 13.16.2 : Dans chaque page web chaque changement brusque de luminosité ou un effet de flash provoqué par un <a href="#scripts"><code lang="en">script</code></a> a-t-il une fréquence inférieure ou égale à 3 par seconde&nbsp;?</li>
-<li>Test 13.16.3 : Dans chaque page web, chaque changement brusque de luminosité ou un effet de flash provoqué par une mise en forme CSS a-t-il une fréquence inférieure ou égale à 3 par seconde&nbsp;?</li>
-</ul>
-<p><strong>Correspondances WCAG 2.0</strong></p>
-
-<p>Critère(s) de succès WCAG 2.0 : <a href="http://www.w3.org/Translations/WCAG20-fr/#seizure-three-times" title="2.3.2 (nouvelle fenêtre)" target="_blank">2.3.2</a></p>
-
-<p>Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org/TR/WCAG-TECHS/G19.html" title="G19 (nouvelle fenêtre)" target="_blank">G19</a></p>
-
-
-<div class="key-words">
-    <span>mot clé</span>
-    <ul>
-              <li>Niveau : AAA</li>
-              <li>Principe : Perceptible, Utilisable, Compréhensible, Robuste</li>
-          </ul>
-  </div>
-     
-        
-          </section>
+	<h3 id="crit-13-16"><em>Critère 13.16 [AAA]</em> Dans chaque page web, les changements brusques de luminosité ou les effets de flash ont-ils une fréquence inférieure ou égale à 3 par seconde&nbsp;?</h3>
+	<ul>
+		<li>Test 13.16.1 : Dans chaque page web, chaque changement brusque de luminosité ou un effet de flash provoqué par une image animée (balise <code lang="en">img</code>, balise <code lang="en">svg</code>, balise <code lang="en">embed</code>, balise <code lang="en">canvas</code> ou balise <code lang="en">object</code>) a-t-il une fréquence inférieure ou égale à 3 par seconde&nbsp;?</li>
+		<li>Test 13.16.2 : Dans chaque page web chaque changement brusque de luminosité ou un effet de flash provoqué par un <a href="#scripts"><code lang="en">script</code></a> a-t-il une fréquence inférieure ou égale à 3 par seconde&nbsp;?</li>
+		<li>Test 13.16.3 : Dans chaque page web, chaque changement brusque de luminosité ou un effet de flash provoqué par une mise en forme CSS a-t-il une fréquence inférieure ou égale à 3 par seconde&nbsp;?</li>
+	</ul>
+	<aside>
+		<p><strong>Correspondances WCAG 2.0</strong></p>
+		<p>Critère(s) de succès WCAG 2.0 : <a href="http://www.w3.org/Translations/WCAG20-fr/#seizure-three-times" title="2.3.2 (nouvelle fenêtre)" target="_blank">2.3.2</a></p>
+		<p>Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org/TR/WCAG-TECHS/G19.html" title="G19 (nouvelle fenêtre)" target="_blank">G19</a></p>
+		<div class="key-words">
+			<span>mot clé</span>
+			<ul>
+				<li>Niveau : AAA</li>
+				<li>Principe : Perceptible, Utilisable, Compréhensible, Robuste</li>
+			</ul>
+		</div>
+	</aside>
+</section>
 <section>
-<h3 id="crit-1317-a-dans-chaque-page-web-chaque-contenu-en-mouvement-ou-clignotant-est-il-contrlable-par-lutilisateur-">Critère 13.17 [A] Dans chaque page web, chaque contenu en mouvement ou clignotant est-il contrôlable par l'utilisateur&nbsp;?</h3>
-        <div class="section__content js-contentToggle__content" id="content-critre-1317-a-dans-chaque-page-web-chaque-contenu-en-mouvement-ou-clignotant-est-il-contrlable-par-lutilisateur-">
-                      
+	<h3 id="crit-13-17"><em>Critère 13.17 [A]</em> Dans chaque page web, chaque contenu en mouvement ou clignotant est-il contrôlable par l'utilisateur&nbsp;?</h3>
+	<ul>
+		<li>Test 13.17.1 : Dans chaque page web, chaque contenu en mouvement, déclenché automatiquement, vérifie-t-il une de ces conditions ?
+			<ul>
+				<li>La durée du mouvement est inférieure ou égale à 5 secondes</li>
+				<li>L'utilisateur peut arrêter et relancer le mouvement</li>
+				<li>L'utilisateur peut afficher et masquer le contenu en mouvement</li>
+				<li>L'utilisateur peut afficher la totalité de l'information sans le mouvement.</li>
+			</ul>
+		</li>
+		<li>Test 13.17.2 : Dans chaque page web, chaque contenu clignotant, déclenché automatiquement, vérifie-t-il une de ces conditions ?
+			<ul>
+				<li>La durée du clignotement est inférieure ou égale à 5 secondes</li>
+				<li>L'utilisateur peut arrêter et relancer le clignotement</li>
+				<li>L'utilisateur peut afficher et masquer le contenu clignotant</li>
+				<li>L'utilisateur peut afficher la totalité de l'information sans le clignotement</li>
+			</ul>
+		</li>
+	</ul>
+	<aside>
+		<p><strong>Correspondances WCAG 2.0</strong></p>
+		<p>Critère(s) de succès WCAG 2.0 : <a href="http://www.w3.org/Translations/WCAG20-fr/#media-equiv-real-time-captions" title="1.2.4 (nouvelle fenêtre)" target="_blank">1.2.4</a> - <a href="http://www.w3.org/Translations/WCAG20-fr/#media-equiv-live-audio-only" title="1.2.9 (nouvelle fenêtre)" target="_blank">1.2.9</a> - <a href="http://www.w3.org/Translations/WCAG20-fr/#time-limits-required-behaviors" title="2.2.1 (nouvelle fenêtre)" target="_blank">2.2.1</a> - <a href="http://www.w3.org/Translations/WCAG20-fr/#time-limits-pause" title="2.2.2 (nouvelle fenêtre)" target="_blank">2.2.2</a></p>
+		<p>Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org/TR/WCAG-TECHS/G4.html" title="G4 (nouvelle fenêtre)" target="_blank">G4</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/G11.html" title="G11 (nouvelle fenêtre)" target="_blank">G11</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/G152.html" title="G152 (nouvelle fenêtre)" target="_blank">G152</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/G186.html" title="G186 (nouvelle fenêtre)" target="_blank">G186</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/G187.html" title="G187 (nouvelle fenêtre)" target="_blank">G187</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/G191.html" title="G191 (nouvelle fenêtre)" target="_blank">G191</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/SM11.html" title="SM11 (nouvelle fenêtre)" target="_blank">SM11</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/SM12.html" title="SM12 (nouvelle fenêtre)" target="_blank">SM12</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/F47.html" title="F47 (nouvelle fenêtre)" target="_blank">F47</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/F50.html" title="F50 (nouvelle fenêtre)" target="_blank">F50</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/F4.html" title="F4 (nouvelle fenêtre)" target="_blank">F4</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/F7.html" title="F7 (nouvelle fenêtre)" target="_blank">F7</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/F16.html" title="F16 (nouvelle fenêtre)" target="_blank">F16</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/SCR22.html" title="SCR22 (nouvelle fenêtre)" target="_blank">SCR22</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/SCR33.html" title="SCR33 (nouvelle fenêtre)" target="_blank">SCR33</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/SCR36.html" title="SCR36 (nouvelle fenêtre)" target="_blank">SCR36</a></p>
+		<div class="key-words">
+			<span>mot clé</span>
+			<ul>
+				<li>Niveau : A</li>
+				<li>Principe : Perceptible, Utilisable, Compréhensible, Robuste</li>
+			</ul>
+		</div>
+	</aside>
+</section>
 
-  
-
-
-  <ul>
-<li>Test 13.17.1 : Dans chaque page web, chaque contenu en mouvement, déclenché automatiquement, vérifie-t-il une de ces conditions ?
-
-<ul>
-<li>La durée du mouvement est inférieure ou égale à 5 secondes</li>
-<li>L'utilisateur peut arrêter et relancer le mouvement</li>
-<li>L'utilisateur peut afficher et masquer le contenu en mouvement</li>
-<li>L'utilisateur peut afficher la totalité de l'information sans le mouvement.</li>
-</ul>
-</li>
-<li>Test 13.17.2 : Dans chaque page web, chaque contenu clignotant, déclenché automatiquement, vérifie-t-il une de ces conditions ?
-
-<ul>
-<li>La durée du clignotement est inférieure ou égale à 5 secondes</li>
-<li>L'utilisateur peut arrêter et relancer le clignotement</li>
-<li>L'utilisateur peut afficher et masquer le contenu clignotant</li>
-<li>L'utilisateur peut afficher la totalité de l'information sans le clignotement</li>
-</ul>
-</li>
-</ul>
-<p><strong>Correspondances WCAG 2.0</strong></p>
-
-<p>Critère(s) de succès WCAG 2.0 : <a href="http://www.w3.org/Translations/WCAG20-fr/#media-equiv-real-time-captions" title="1.2.4 (nouvelle fenêtre)" target="_blank">1.2.4</a> - <a href="http://www.w3.org/Translations/WCAG20-fr/#media-equiv-live-audio-only" title="1.2.9 (nouvelle fenêtre)" target="_blank">1.2.9</a> - <a href="http://www.w3.org/Translations/WCAG20-fr/#time-limits-required-behaviors" title="2.2.1 (nouvelle fenêtre)" target="_blank">2.2.1</a> - <a href="http://www.w3.org/Translations/WCAG20-fr/#time-limits-pause" title="2.2.2 (nouvelle fenêtre)" target="_blank">2.2.2</a></p>
-
-<p>Technique(s) suffisante(s) et/ou échec(s) WCAG 2.0 : <a href="http://www.w3.org/TR/WCAG-TECHS/G4.html" title="G4 (nouvelle fenêtre)" target="_blank">G4</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/G11.html" title="G11 (nouvelle fenêtre)" target="_blank">G11</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/G152.html" title="G152 (nouvelle fenêtre)" target="_blank">G152</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/G186.html" title="G186 (nouvelle fenêtre)" target="_blank">G186</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/G187.html" title="G187 (nouvelle fenêtre)" target="_blank">G187</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/G191.html" title="G191 (nouvelle fenêtre)" target="_blank">G191</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/SM11.html" title="SM11 (nouvelle fenêtre)" target="_blank">SM11</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/SM12.html" title="SM12 (nouvelle fenêtre)" target="_blank">SM12</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/F47.html" title="F47 (nouvelle fenêtre)" target="_blank">F47</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/F50.html" title="F50 (nouvelle fenêtre)" target="_blank">F50</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/F4.html" title="F4 (nouvelle fenêtre)" target="_blank">F4</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/F7.html" title="F7 (nouvelle fenêtre)" target="_blank">F7</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/F16.html" title="F16 (nouvelle fenêtre)" target="_blank">F16</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/SCR22.html" title="SCR22 (nouvelle fenêtre)" target="_blank">SCR22</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/SCR33.html" title="SCR33 (nouvelle fenêtre)" target="_blank">SCR33</a> - <a href="http://www.w3.org/TR/WCAG-TECHS/SCR36.html" title="SCR36 (nouvelle fenêtre)" target="_blank">SCR36</a></p>
-
-
-<div class="key-words">
-    <span>mot clé</span>
-    <ul>
-              <li>Niveau : A</li>
-              <li>Principe : Perceptible, Utilisable, Compréhensible, Robuste</li>
-          </ul>
-  </div>
-      </article>
+</article>
                 
 
 
