@@ -929,6 +929,7 @@ body {
   text-align: center;
 }
 .page {
+  max-width: 38em;
   max-width: 640px;
   margin: 1.5em auto;
   text-align: left;
@@ -985,7 +986,7 @@ main .skiplink a {
 #header #nav li a,
 #header #nav li .on {
   display: inline-block;
-  padding: 30px 20px;
+  padding: 20px;
 }
 #header #nav li .on {
   background: #f8f5f5;
@@ -997,23 +998,20 @@ main .skiplink a {
 #header #nav li a:active {
   background-color: rgba(248, 245, 245, 0.2);
 }
-#header h1,
-#header p {
-  clear: both;
-}
 #header h1 {
-  text-align: center;
+  margin-bottom: 10px;
+  padding-top: 10px;
   font-weight: bold;
   color: #2c699e;
-  padding-top: 1.5em;
 }
 #header .lead {
-  text-align: center;
+  margin: 0;
+  font-size: 1em;
 }
 /* * table of content */
 #navtoc {
-  margin: 3em 0;
-  padding: 20px;
+  margin: 1.5em 0;
+  padding: 20px 10px;
   text-align: center;
   background: rgba(102, 102, 102, 0.1);
 }
@@ -1075,12 +1073,22 @@ main {
   background-color: rgba(102, 102, 102, 0.2);
   border-top: 10px solid #2c699e;
 }
-#footer .page {
+#footer p {
   font-size: small;
 }
 @media (min-width: 640px) {
   #footer .page {
-    padding: 3em 0 1.5em;
+    padding: 1.5em 0 0.375em;
+  }
+}
+/* * print */
+@media print {
+  #header #nav,
+  #navtoc {
+    display: none;
+  }
+  #footer {
+    border-top-width: 1px;
   }
 }
 body {
@@ -1092,21 +1100,22 @@ body {
 a {
   text-decoration: none;
   border-width: 0 0 1px;
-  border-style: dotted;
-  border-color: #2c699e;
+  border-style: solid;
+  border-color: #86b5dd;
 }
 a:focus,
 a:hover,
 a:active {
   color: #2c699e;
   border-width: 0 0 2px;
-  border-style: solid;
+  border-color: #2c699e;
 }
 .nav a {
   border-width: 0;
 }
 /* * titres */
 h3 {
+  padding-top: 10px;
   font-weight: bold;
 }
 h2 {
@@ -1136,24 +1145,50 @@ tt {
   border: 1px solid rgba(44, 105, 158, 0.09999999999999998);
   white-space: nowrap;
 }
-#howto {
+/* * Atténuer ce qui est annexe */
+#howto,
+#howto h3,
+.thematique p,
+.thematique header h3,
+.thematique .correspondance,
+.thematique .correspondance h4 {
   color: #666666;
   font-size: small;
 }
-/* * thematique */
-.thematique header {
-  margin-bottom: 1.5em;
+#howto p,
+#howto ul,
+.thematique p {
+  margin-bottom: 0.75em;
 }
-.thematique h2 {
+.thematique header h3,
+.thematique .correspondance h4 {
   margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+.thematique .correspondance {
+  width: 100%;
+  margin: 1.5em 0;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(102, 102, 102, 0.3);
+}
+.thematique .correspondance p {
+  margin: 0;
+}
+/* * thematique */
+.thematique h2 {
+  margin: 0 0 10px;
   padding-bottom: 20px;
   border-bottom: 10px solid #2c699e;
   text-transform: uppercase;
 }
+.thematique header {
+  margin-bottom: 1.5em;
+}
 .thematique header nav {
   display: block;
   width: 100%;
-  margin: 1.5em 0;
+  margin: 10px 0 1.5em;
   clear: both;
   text-align: center;
   font-size: 80%;
@@ -1169,20 +1204,20 @@ tt {
   border: 1px solid;
   border-radius: 5px;
   color: #2c699e;
+  font-weight: bold;
 }
 .thematique header nav li a:focus,
 .thematique header nav li a:hover,
 .thematique header nav li a:active {
   background-color: rgba(44, 105, 158, 0.1);
 }
-.thematique header h3,
-.thematique header p {
-  margin: 0;
-  color: #666666;
-  font-size: small;
-}
-.thematique header p {
-  margin-bottom: 0.75em;
+@media print {
+  .thematique header nav {
+    display: none;
+  }
+  .thematique h2 {
+    page-break-before: always;
+  }
 }
 .thematique section {
   margin-bottom: 3em;
@@ -1193,43 +1228,17 @@ tt {
   font-style: normal;
 }
 .thematique section > ul {
-  /*margin: 0 0 0 @gutter*2;*/
-  list-style: none;
+  list-style: square;
 }
 .thematique section > ul > li {
   margin-bottom: 1.5em;
 }
-.thematique section > ul > li:before {
-  margin-left: -20px;
-  content: "\2022";
-  color: #2c699e;
-  font-size: 2em;
-  line-height: 0;
-  vertical-align: middle;
-}
 .thematique section > ul ul {
   margin-top: 5px;
-  /*padding-left: @gutter*3;*/
   list-style-type: disc;
   font-size: .8em;
 }
 .thematique section > ul ul li {
   margin-bottom: 5px;
-}
-.thematique .correspondance {
-  width: 100%;
-  margin: 1.5em 0;
-  padding-top: 10px;
-  border-top: 1px dashed rgba(102, 102, 102, 0.3);
-  color: #666666;
-}
-.thematique .correspondance h4 {
-  margin: 0;
-  font-weight: bold;
-  font-size: small;
-}
-.thematique .correspondance p {
-  margin: 0;
-  font-size: small;
 }
 /* end */

@@ -1,16 +1,19 @@
 body { background-color: @color-bg; .font1; color: @color-txt; }
 
 /* * liens */
-a { text-decoration: none; border-width: 0 0 1px; border-style: dotted; border-color: @color; }
+a { text-decoration: none; border-width: 0 0 1px; border-style: solid; border-color: lighten(@color,30); }
 a:focus,
 a:hover,
-a:active { color: @color; border-width: 0 0 2px; border-style: solid; }
+a:active { color: @color; border-width: 0 0 2px; border-color: @color; }
 
 .nav {}
 .nav a { border-width: 0; }
 
 /* * titres */
-h3 { font-weight: bold; }
+h3 {
+  padding-top: @gutter;
+  font-weight: bold;
+}
 h2 {
   padding-top: @p*2;
   text-align: center;
@@ -23,50 +26,61 @@ h2 {
 pre, code, kbd, samp, var, tt { font-family: @font3; font-size: 90%; border-radius: 4px; }
 pre, code, samp, var, tt { padding: .1em .3em; background-color: fade(@color,5%); border: 1px solid fadeout(@color,90%); white-space: nowrap; }
 
-#howto { color: @color-mid; font-size: small; }
+/* * Atténuer ce qui est annexe */
 
-/* * thematique */
-
-.thematique header { margin-bottom: @p; }
-
-.thematique h2 {
-  margin: 0;
-  padding-bottom: @gutter*2;
-  border-bottom: @gutter solid @color;
-  text-transform: uppercase;
-}
-
-.thematique header {}
-.thematique header nav { display: block; width: 100%; margin: @p 0; clear: both; text-align: center; font-size: 80%; }
-.thematique header nav li { display: inline-block; margin: @gutter/2 @gutter/3; }
-.thematique header nav li a { display: block; margin: 0; padding: @gutter/2 @gutter; border: 1px solid; border-radius: @gutter/2; color: @color; }
-.thematique header nav li a:focus,
-.thematique header nav li a:hover,
-.thematique header nav li a:active { background-color: fade(@color, 10%); }
-
+#howto,
+#howto h3,
+.thematique p,
 .thematique header h3,
-.thematique header p { margin: 0; color: @color-mid; font-size: small; }
-.thematique header p { margin-bottom: @p/2; }
-
-.thematique section { margin-bottom: @p*2; }
-.thematique section h3 em { color: @color; font-weight: normal; font-style: normal; }
-
-.thematique section {
-  > ul { /*margin: 0 0 0 @gutter*2;*/ list-style: none; }
-  > ul > li { margin-bottom: @p; }
-  > ul > li:before { margin-left: -@gutter*2; content: "\2022"; color: @color; font-size: 2em; line-height: 0; vertical-align: middle; }
-  > ul ul { margin-top: @gutter/2; /*padding-left: @gutter*3;*/ list-style-type: disc; font-size: .8em; }
-  > ul ul li { margin-bottom: @gutter/2; }
+.thematique .correspondance,
+.thematique .correspondance h4 {
+  color: @color-mid; font-size: small;
 }
+#howto p,
+#howto ul,
+.thematique p { margin-bottom: @p/2; }
+.thematique header h3,
+.thematique .correspondance h4 { margin: 0; padding: 0; font-weight: bold; }
 
 .thematique .correspondance {
   width: 100%;
   margin: @p 0;
   padding-top: @gutter;
   border-top: 1px dashed fade(@color-mid, 30%);
-  color: @color-mid;
-  h4 { margin: 0; font-weight: bold; font-size: small; }
-  p { margin: 0; font-size: small; }
+  p { margin: 0; }
+}
+
+/* * thematique */
+
+.thematique h2 {
+  margin: 0 0 @gutter;
+  padding-bottom: @gutter*2;
+  border-bottom: @gutter solid @color;
+  text-transform: uppercase;
+}
+
+.thematique header { margin-bottom: @p; }
+.thematique header nav {
+  display: block; width: 100%; margin: @gutter 0 @p; clear: both; text-align: center; font-size: 80%;
+  li { display: inline-block; margin: @gutter/2 @gutter/3; }
+  li a { display: block; margin: 0; padding: @gutter/2 @gutter; border: 1px solid; border-radius: @gutter/2; color: @color; font-weight: bold; }
+  li a:focus,
+  li a:hover,
+  li a:active { background-color: fade(@color, 10%); }
+}
+@media print {
+.thematique header nav { display: none; }
+.thematique h2 {page-break-before:always}
+}
+
+.thematique section { margin-bottom: @p*2; }
+.thematique section h3 em { color: @color; font-weight: normal; font-style: normal; }
+
+.thematique section {
+  > ul { list-style: square; }
+  > ul > li { margin-bottom: @p; }
+  > ul ul { margin-top: @gutter/2; list-style-type: disc; font-size: .8em; }
+  > ul ul li { margin-bottom: @gutter/2; }
 }
 
 /* end */

@@ -6,7 +6,7 @@
 @import "var.less";
 
 body { text-align: center; }
-.page { max-width: @screen-medium; margin: @p auto; text-align: left; }
+.page { max-width: 38em; max-width: @screen-medium; margin: @p auto; text-align: left; }
 @media ( max-width: @screen-medium) { .page { width: 80%; } }
 @media ( max-width: @screen-small) { .page { width: auto; margin: 1em 10px; } }
 
@@ -35,25 +35,23 @@ main .skiplink a { margin: 0 @gutter/2; }
 #header #nav ul {}
 #header #nav #logo,
 #header #nav li a,
-#header #nav li .on { display: inline-block; padding: @gutter*3 @gutter*2; }
+#header #nav li .on { display: inline-block; padding: @gutter*2; }
 #header #nav li .on { background: @color-bg; color: @color; font-weight: normal; }
 #header #nav li a:focus,
 #header #nav li a:hover,
 #header #nav li a:active { background-color: fade(@color-bg, 20%); }
 
-#header h1,
-#header p { clear:both; }
 #header h1 {
-  text-align: center;
+  margin-bottom: @gutter;
+  padding-top: @gutter;
   font-weight: bold;
   color: @color;
-  padding-top: @line-height*1em;
 }
-#header .lead { text-align: center; }
+#header .lead { margin: 0; font-size: 1em; }
 
 /* * table of content */
 
-#navtoc { margin: @line-height*2em 0; padding: @gutter*2; text-align: center; background: fade(@color-mid,10); }
+#navtoc { margin: @line-height*1em 0; padding: @gutter*2 @gutter; text-align: center; background: fade(@color-mid,10); }
 #navtoc h2 { padding: 0; color: @color; font-size: 1em; font-weight: bold; }
 #navtoc ul {
   .list-none; margin: 0;
@@ -100,8 +98,15 @@ main { clear:both; }
   padding: @p 0;
   background-color: fade(@color-mid, 20%);
   border-top: @gutter solid @color;
-  .page { font-size: small; }
+  p { font-size: small; }
 }
 @media (min-width: @screen-medium) {
-#footer .page { padding: @p*2 0 @p; }
+#footer .page { padding: @p 0 @p/4; }
+}
+
+/* * print */
+@media print {
+#header #nav,
+#navtoc { display: none; }
+#footer { border-top-width: 1px; }
 }
