@@ -64,9 +64,9 @@
 				<h3 id="accessible-et-activable-par-le-clavier-et-la-souris">
 				Accessible et activable par le clavier et la souris</h3>
 				<ul>
-				<li>Un composant d'interface (lien, bouton, élément cliquable dans Flash...) est accessible au clavier et à la souris lorsque l'utilisateur peut prendre, indifféremment, le focus par le pointeur de la souris ou la touche tabulation.</li>
-				<li>Un composant d'interface (lien, bouton, élément cliquable dans Flash...) est activable au clavier et à la souris lorsque l'utilisateur peut enclencher, indifféremment, l'action prévue par le composant d'interface par le clic de la souris ou la touche entrée du clavier.</li>
-				<li><strong>Attention</strong> : pour certains composants d'interface comme les <span lang="en">sliders</span> (bouton coulissant ou rotatif...), il n'est pas possible de contrôler le composant par la seule touche d'entrée. Dans cette situation, d'autres touches (comme les touches de direction) peuvent être utilisées.</li>
+				<li>Un composant d'interface (lien, bouton, élément cliquable dans Flash…) est accessible au clavier et à la souris lorsque l'utilisateur peut prendre, indifféremment, le focus par le pointeur de la souris ou la touche tabulation.</li>
+				<li>Un composant d'interface (lien, bouton, élément cliquable dans Flash…) est activable au clavier et à la souris lorsque l'utilisateur peut enclencher, indifféremment, l'action prévue par le composant d'interface par le clic de la souris ou la touche entrée du clavier.</li>
+				<li><strong>Attention</strong> : pour certains composants d'interface comme les <span lang="en">sliders</span> (bouton coulissant ou rotatif…), il n'est pas possible de contrôler le composant par la seule touche d'entrée. Dans cette situation, d'autres touches (comme les touches de direction) peuvent être utilisées.</li>
 				</ul><p><strong>Note importante :</strong> le recours à certaines technologies peut rendre la gestion du focus trop complexe ou trop instable pour ne reposer que sur la tabulation, les touches de direction et la touche entrée.</p>
 				<p>Dans ce cas, la mise à disposition de raccourcis clavier peut être la seule solution pour rendre le composant utilisable.</p>
 				<p>Le critère peut être considéré comme conforme à la condition que les raccourcis clavier utilisés soient correctement documentés et qu'ils soient fonctionnels quelle que soit la position du focus dans l'interface.</p>
@@ -423,10 +423,10 @@
 				<p>Tout environnement dans lequel l'accès à l'information, les technologies, les conditions d'utilisation et le profil des utilisateurs peuvent être connus et maîtrisés. Les principaux éléments dont la maîtrise est essentielle sont&nbsp;:</p>
 				<ul>
 					<li>le type et la version des navigateurs&nbsp;;</li>
-					<li>les technologies supportées, leur version et leur activation (JavaScript, WAI-ARIA, Flash...)&nbsp;;</li>
+					<li>les technologies supportées, leur version et leur activation (JavaScript, WAI-ARIA, Flash…)&nbsp;;</li>
 					<li>les technologies d'assistance et tout dispositif utilisé de manière spécifique par les utilisateurs handicapés&nbsp;;</li>
 					<li>les systèmes d'exploitation et les APIs d'accessibilité supportées&nbsp;;</li>
-					<li>la formation des utilisateurs de technologies d'assistance à l'utilisation de tout dispositif particulier (interface, application en ligne...).</li>
+					<li>la formation des utilisateurs de technologies d'assistance à l'utilisation de tout dispositif particulier (interface, application en ligne…).</li>
 				</ul>
 				<p>Les auteurs et les administrateurs doivent garantir la compatibilité des technologies utilisées et de leurs usages par les utilisateurs et leurs technologies (y compris les technologies d'assistance). Les services d'information ou les sites web, quel que soit leur statut, qui offrent un accès public ne peuvent pas être considérés comme des environnements maîtrisés.</p>
 
@@ -438,7 +438,7 @@
 
 				<h3 id="feuille-de-style">
 				Feuille de style</h3>
-				<p>Le langage CSS destiné à la mise en forme des éléments du contenu (exemples&nbsp;: couleur du fond de la page, taille/police/couleur des caractères, positionnement de l'information dans la page web...). Les styles CSS peuvent être externes (fichier CSS), embarqués (déclarés dans l'en-tête de la page) ou en ligne (déclarés via l'attribut <code lang="en">style</code> d'une balise).</p>
+				<p>Le langage CSS destiné à la mise en forme des éléments du contenu (exemples&nbsp;: couleur du fond de la page, taille/police/couleur des caractères, positionnement de l'information dans la page web…). Les styles CSS peuvent être externes (fichier CSS), embarqués (déclarés dans l'en-tête de la page) ou en ligne (déclarés via l'attribut <code lang="en">style</code> d'une balise).</p>
 
 				<h3 id="fonctionnalits-de-contrle-media-temporel">
 				Fonctionnalités de contrôle (media temporel)</h3>
@@ -509,13 +509,13 @@
 
 				<h3 id="intitul-de-lien">
 				Intitulé de lien</h3>
-				<p>Information textuelle comprise entre <code lang="en">&lt;a href="..."&gt;</code> et <code lang="en">&lt;/a&gt;</code> d'un lien complété si nécessaire d'informations de contexte.</p>
+				<p>Information textuelle comprise entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code> d'un lien complété si nécessaire d'informations de contexte.</p>
 				<p>Les 4 différents types de liens sont&nbsp;:</p>
 				<ul>
-				<li>lien texte : il s'agit du texte compris entre <code lang="en">&lt;a href="..."&gt;</code> et <code lang="en">&lt;/a&gt;</code> complété si nécessaire d'informations de contexte&nbsp;;</li>
-				<li>lien image : il s'agit du contenu de l'alternative textuelle de l'image comprise entre <code lang="en">&lt;a href="..."&gt;</code> et <code lang="en">&lt;/a&gt;</code> complété si nécessaire d'informations de contexte&nbsp;;</li>
-				<li>lien composite : il s'agit de l'ensemble du texte et du contenu de l'alternative textuelle de la ou des images compris entre <code lang="en">&lt;a href="..."&gt;</code> et <code lang="en">&lt;/a&gt;</code> complété si nécessaire d'informations de contexte&nbsp;;</li>
-				<li>lien vectoriel : il s'agit du contenu de l'alternative textuelle de l'image vectorielle (balise <code lang="en">svg</code> comprise entre <code lang="en">&lt;a href="..."&gt;</code> et <code lang="en">&lt;/a&gt;</code> complété si nécessaire d'informations de contexte.</li>
+				<li>lien texte : il s'agit du texte compris entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code> complété si nécessaire d'informations de contexte&nbsp;;</li>
+				<li>lien image : il s'agit du contenu de l'alternative textuelle de l'image comprise entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code> complété si nécessaire d'informations de contexte&nbsp;;</li>
+				<li>lien composite : il s'agit de l'ensemble du texte et du contenu de l'alternative textuelle de la ou des images compris entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code> complété si nécessaire d'informations de contexte&nbsp;;</li>
+				<li>lien vectoriel : il s'agit du contenu de l'alternative textuelle de l'image vectorielle (balise <code lang="en">svg</code> comprise entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code> complété si nécessaire d'informations de contexte.</li>
 				</ul><p><strong>Note 1 :</strong> un lien image peut être constitué d'une image (balise <code lang="en">img</code>), d'une image objet (balise <code lang="en">object</code>) ou d'une image bitmap (balise <code lang="en">canvas</code>).</p>
 				<p><strong>Note 2 :</strong> Un lien image pour lequel l'attribut <code lang="en">alt</code> est absent est considéré comme non applicable pour le critère 6.5.</p>
 
@@ -560,7 +560,7 @@
 
 				<h3 id="lgende-dimage">
 				Légende d'image</h3>
-				<p>Lorsqu'un texte, adjacent à une image, contient des informations sur l'image (par exemple un <span lang="en">copyright</span>, une date, un auteur...) ou est destiné à compléter les informations apportées par l'image (par exemple un texte associé à une image dans une galerie d'images), on parle de légende d'image.</p>
+				<p>Lorsqu'un texte, adjacent à une image, contient des informations sur l'image (par exemple un <span lang="en">copyright</span>, une date, un auteur…) ou est destiné à compléter les informations apportées par l'image (par exemple un texte associé à une image dans une galerie d'images), on parle de légende d'image.</p>
 				<p>Lorsqu'une image est légendée il est nécessaire d'associer la légende de l'image à l'image par une relation de structure, de telle sorte que les technologies d'assistance puissent traiter l'image et sa légende comme un ensemble unique.</p>
 				<p>HTML5 propose d'associer une légende à une image via les éléments <code lang="en">figure</code> (l'ensemble de l'image et la légende) et <code lang="en">figcaption</code> (la légende).</p>
 				<p>Une image sans légende peut définir&nbsp;:</p>
@@ -572,10 +572,10 @@
 
 				<h3 id="lien">
 				Lien</h3>
-				<p>Élément HTML (balise <code lang="en">a</code>) activable par l'utilisateur (par la souris, le clavier...) et déclenchant une action (affichage d'une page web, téléchargement d'un fichier...) ou un événement généré par un script. Un lien possède au minimum&nbsp;:</p>
+				<p>Élément HTML (balise <code lang="en">a</code>) activable par l'utilisateur (par la souris, le clavier…) et déclenchant une action (affichage d'une page web, téléchargement d'un fichier…) ou un événement généré par un script. Un lien possède au minimum&nbsp;:</p>
 				<ul>
 				<li>une référence de ressource (attribut <code lang="en">href</code>)&nbsp;;</li>
-				<li>un intitulé de lien compris entre <code lang="en">&lt;a href="..."&gt;</code> et <code lang="en">&lt;/a&gt;</code>.</li>
+				<li>un intitulé de lien compris entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code>.</li>
 				</ul>
 
 				<h3 id="lien-adjacent">
@@ -584,32 +584,32 @@
 
 				<h3 id="lien-composite">
 				Lien composite</h3>
-				<p>Lien dont le contenu entre <code lang="en">&lt;a href="..."&gt;</code> et <code lang="en">&lt;/a&gt;</code> est constitué de 2 éléments de type différent, au moins ; par exemple, du texte et une ou plusieurs images. L'intitulé de lien pour un lien composite est l'ensemble du texte et du contenu de l'alternative textuelle de ou des images compris entre <code lang="en">&lt;a href="..."&gt;</code> et <code lang="en">&lt;/a&gt;</code>.</p>
+				<p>Lien dont le contenu entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code> est constitué de 2 éléments de type différent, au moins ; par exemple, du texte et une ou plusieurs images. L'intitulé de lien pour un lien composite est l'ensemble du texte et du contenu de l'alternative textuelle de ou des images compris entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code>.</p>
 				<p><strong>Note importante</strong>: il est rappelé que l'utilisation de deux liens adjacents (lien image et lien texte) et identiques constitue une gêne importante pour l'utilisateur. Même si cela ne constitue pas une non-conformité, cet usage devrait être évité. Une manière de traiter ce type de liens est d'inclure l'image dans le lien texte de façon à constituer un lien composite, ce qui évitera la redondance.</p>
 				<p>Vous pouvez consulter à ce sujet la technique <a href="http://www.w3.org/TR/WCAG20-TECHS/H2.html" title="H2 : Combining adjacent image and text links for the same resource (nouvelle fenêtre)" target="_blank">H2 : Combining adjacent image and text links for the same resource</a></p>
 
 				<h3 id="lien-dont-la-nature-nest-pas-vidente">
 				Lien dont la nature n'est pas évidente</h3>
 				<p>Lien qui peut être confondu avec un texte normal lorsqu'il est signalé uniquement par la couleur par certains types d'utilisateurs ne percevant pas ou mal les couleurs. Par exemple, dans ce texte «&nbsp;Nouvelle grève à la SNCF&nbsp;», si le mot «&nbsp;grève&nbsp;» est un lien signalé uniquement par la couleur, sa nature peut être ignorée par les utilisateurs ne percevant pas la couleur et accédant au contenu CSS activées. En revanche, dans ce texte «&nbsp;Nouvelle grève à la SNCF, lire la suite&nbsp;» si «&nbsp;lire la suite&nbsp;» est un lien, un utilisateur ne percevant pas les couleurs n'aura pas de problème pour en comprendre la nature.</p>
-				<p><strong>Note</strong> : «&nbsp;signalés uniquement par la couleur&nbsp;» signifie que le lien n'est accompagné d'aucun marqueur visuel (icône, soulignement, bordure...). En conséquence un lien de la même couleur que le texte environnant est concerné par ce critère.</p>
+				<p><strong>Note</strong> : «&nbsp;signalés uniquement par la couleur&nbsp;» signifie que le lien n'est accompagné d'aucun marqueur visuel (icône, soulignement, bordure…). En conséquence un lien de la même couleur que le texte environnant est concerné par ce critère.</p>
 
 				<h3 id="lien-explicite-hors-contexte">
 				Lien explicite hors contexte</h3>
-				<p>Un lien est explicite hors contexte lorsque l'intitulé du lien seul (contenu entre la balise <code lang="en">&lt;a href="..."&gt;</code> et <code lang="en">&lt;/a&gt;</code>) permet de connaître et de comprendre la fonction et la destination du lien.</p>
+				<p>Un lien est explicite hors contexte lorsque l'intitulé du lien seul (contenu entre la balise <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code>) permet de connaître et de comprendre la fonction et la destination du lien.</p>
 
 				<h3 id="lien-image">
 				Lien image</h3>
-				<p>Lien dont le contenu entre <code lang="en">&lt;a href="..."&gt;</code> et <code lang="en">&lt;/a&gt;</code> est uniquement constitué d'une image. L'intitulé de lien pour un lien image est le contenu de l'alternative textuelle de l'image.</p>
+				<p>Lien dont le contenu entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code> est uniquement constitué d'une image. L'intitulé de lien pour un lien image est le contenu de l'alternative textuelle de l'image.</p>
 				<p><strong>Note :</strong> un lien image peut être constitué d'une image (balise <code lang="en">img</code>), d'une image objet (<code lang="en">balise object</code>) ou d'une image bitmap (balise <code lang="en">canvas</code>).</p>
 
 
 				<h3 id="lien-texte">
 				Lien texte</h3>
-				<p>Lien dont le contenu entre <code lang="en">&lt;a href="..."&gt;</code> et <code lang="en">&lt;/a&gt;</code> est uniquement constitué de texte (il s'agit de son intitulé de lien).</p>
+				<p>Lien dont le contenu entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code> est uniquement constitué de texte (il s'agit de son intitulé de lien).</p>
 
 
 				<h3 id="lien-vectoriel">Lien vectoriel</h3>
-				<p>Lien dont le contenu entre <code lang="en">&lt;a href="..."&gt;</code> et <code lang="en">&lt;/a&gt;</code> est uniquement constitué d'une image vectorielle (balise <code lang="en">svg</code>). L'intitulé de lien pour un lien vectoriel est le contenu de l'alternative textuelle de l'image vectorielle.</p>
+				<p>Lien dont le contenu entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code> est uniquement constitué d'une image vectorielle (balise <code lang="en">svg</code>). L'intitulé de lien pour un lien vectoriel est le contenu de l'alternative textuelle de l'image vectorielle.</p>
 
 				<h3 id="liens-dvitement-ou-daccs-rapide">Liens d'évitement ou d'accès rapide</h3>
 				<p>Liens dont la fonction est de permettre de naviguer à l'intérieur du contenu (lien d'évitement, lien d'accès au formulaire de recherche ou au menu..).</p>
@@ -642,13 +642,13 @@
 
 				<h3 id="mdia-non-temporel">
 				Média non temporel</h3>
-				<p>Contenu qui ne se déroule pas dans le temps, consultable via un plugin (Flash, Java, Silverlight...) ou via les éléments <code lang="en">svg</code> et <code lang="en">canvas</code> ; par exemple, une carte interactive en Flash, une application Flash ou Java, un diaporama sont des médias non temporels. Un média non temporel peut contenir des médias temporels (un lecteur Flash qui propose une liste de vidéos à consulter, par exemple).</p>
+				<p>Contenu qui ne se déroule pas dans le temps, consultable via un plugin (Flash, Java, Silverlight…) ou via les éléments <code lang="en">svg</code> et <code lang="en">canvas</code> ; par exemple, une carte interactive en Flash, une application Flash ou Java, un diaporama sont des médias non temporels. Un média non temporel peut contenir des médias temporels (un lecteur Flash qui propose une liste de vidéos à consulter, par exemple).</p>
 				<p><strong>Note</strong> : l'utilisation du paramètre <code lang="en">wmode</code> pour un objet Flash avec les valeurs <code lang="en">"transparent"</code> et <code lang="en">"opaque"</code> invalide de fait le critère 4.21 (La consultation de chaque média non temporel est-elle contrôlable par le clavier et la souris ?). En effet, l'utilisation de ces valeurs a pour conséquence que l'animation Flash vue du côté des utilisateurs de lecteur d'écran est invisible.</p>
 
 
 				<h3 id="mdia-temporel-type-son-vido-et-synchronis">Média temporel (type son, vidéo et synchronisé)</h3>
 				<ul>
-					<li>Média temporel seulement audio : contenu sonore (Wawe, Mp3...)&nbsp;;</li>
+					<li>Média temporel seulement audio : contenu sonore (Wawe, Mp3…)&nbsp;;</li>
 					<li>Média temporel seulement vidéo : images ou photos en mouvement ou en séquence&nbsp;;</li>
 					<li>Média temporel synchronisé : flux audio ou vidéo synchronisé avec un autre format pour présenter de l'information et/ou comportant des composants temporels interactifs. Un média temporel peut être consulté de 2 manières différentes :
 						<ul>
@@ -688,7 +688,7 @@
 				<h3 id="moteur-de-recherche-interne-un-site-web">
 				Moteur de recherche (interne à un site web)</h3>
 				<p>Zone contenant le moteur de recherche permettant d'effectuer des recherches sur les contenus de l'ensemble du site</p>
-				<p><strong>Note :</strong> Attention à ne pas confondre cette zone de recherche, unique dans le site, avec tout autre moteur de recherche permettant par exemple de faire des recherches sur une partie restreinte du site : un catalogue, les offres sur une section marchés publics...</p>
+				<p><strong>Note :</strong> Attention à ne pas confondre cette zone de recherche, unique dans le site, avec tout autre moteur de recherche permettant par exemple de faire des recherches sur une partie restreinte du site : un catalogue, les offres sur une section marchés publics…</p>
 				<p>Voir la définition technique de zone d'en-tête fournie par l'API ARIA <a href="http://www.w3.org/WAI/PF/aria/roles#search" title="search (role) (nouvelle fenêtre)" target="_blank">search (role)</a></p>
 
 				<h3 id="motif-de-conception">
@@ -708,7 +708,7 @@
 
 				<h3 id="ordre-de-tabulation">Ordre de tabulation</h3>
 				<p>Ordre dans lequel le focus se déplace (vers un élément suivant ou vers un élément précédent). L'ordre naturel est celui qui est implémenté via le code source. Lorsqu'il est modifié par l'utilisation de l'attribut <code lang="en">tabindex</code> ou par l'utilisation d'une commande JavaScript, c'est l'ordre modifié qui fait référence.</p>
-				<p><strong>Attention</strong> : lorsqu'un élément initie un changement dans la page (changement de contexte, gestion de zones cachées, ajout de contenu, gestion de champs de formulaire...) il est nécessaire d'activer l'élément qui initie le changement pour tester la cohérence de l'ordre de tabulation.</p>
+				<p><strong>Attention</strong> : lorsqu'un élément initie un changement dans la page (changement de contexte, gestion de zones cachées, ajout de contenu, gestion de champs de formulaire…) il est nécessaire d'activer l'élément qui initie le changement pour tester la cohérence de l'ordre de tabulation.</p>
 
 
 
@@ -744,7 +744,7 @@
 
 				<h3 id="proprit-css-dterminant-une-couleur">Propriété CSS déterminant une couleur</h3>
 				<p>Cela concerne les propriétés suivantes : <code lang="en">color</code>, <code lang="en">background-color</code>, <code lang="en">background</code>, <code lang="en">border-color</code>, <code lang="en">border</code>, <code lang="en">outline-color</code>, <code lang="en">outline</code>.</p>
-				<p><strong>Note</strong> : l'utilisation d'une image de fond pour insérer une couleur (propriété <code lang="en">background:url</code>...) est également concernée.</p>
+				<p><strong>Note</strong> : l'utilisation d'une image de fond pour insérer une couleur (propriété <code lang="en">background:url</code>…) est également concernée.</p>
 
 				<h3 id="proprits-et-mthodes-conformes-la-spcification-dom">
 				Propriétés et méthodes conformes à la spécification DOM</h3>
@@ -798,13 +798,13 @@
 				</ul>
 				<p><strong>Cas particulier des pages web d'un sous-domaine</strong> ; un sous-domaine peut&nbsp;:</p>
 				<ul>
-				<li>soit appartenir au site web attaché au nom de domaine, si l'utilisateur en a une perception cohérente avec les autres pages du site web (par exemple : même structure, même navigation...)&nbsp;;</li>
+				<li>soit appartenir au site web attaché au nom de domaine, si l'utilisateur en a une perception cohérente avec les autres pages du site web (par exemple : même structure, même navigation…)&nbsp;;</li>
 				<li>soit ne pas appartenir au site web attaché au nom de domaine (par exemple : différents blogs en sous-domaine d'un nom de domaine et sans relation les uns avec les autres).</li>
 				</ul>
 
 				<h3 id="sous-titres-synchroniss-objet-multimdia">Sous-titres synchronisés (objet multimédia)</h3>
-				<p>Texte des informations audio (paroles d'un personnage, bruit important pour comprendre l'action...) présentes dans un média temporel et affiché de manière synchrone avec le flux de l'objet multimédia.</p>
-				<p><strong>Note 1 :</strong> pour différencier les sources sonores (différents personnages, voix off...), il est recommandé d'utiliser un mécanisme approprié (mise entre crochets, mise en italique, annonce explicite du type «&nbsp;voix off : ...&nbsp;»).</p>
+				<p>Texte des informations audio (paroles d'un personnage, bruit important pour comprendre l'action…) présentes dans un média temporel et affiché de manière synchrone avec le flux de l'objet multimédia.</p>
+				<p><strong>Note 1 :</strong> pour différencier les sources sonores (différents personnages, voix off…), il est recommandé d'utiliser un mécanisme approprié (mise entre crochets, mise en italique, annonce explicite du type «&nbsp;voix off : …&nbsp;»).</p>
 				<p><strong>Note 2 :</strong> il ne faut pas confondre le sous-titrage pour la traduction (<code lang="en">kind="subtitles"</code> en HTML5 par exemple) et le sous-titrage pour sourds et malentendants (<code lang="en">kind="captions"</code> en HTML5 par exemple). Ces deux types de sous-titrage poursuivent des buts différents. Seule la présence et la pertinence d'un sous-titrage pour sourds et malentendants permet d'être conforme.</p>
 
 				<h3 id="systme-de-navigation">Système de navigation</h3>
@@ -904,7 +904,7 @@
 				<p>Même si cette utilisation est fortement déconseillée (dans le cas de technologie d'assistance qui n'implémenteraient pas ARIA par exemple) elle peut être considérée conforme à WCAG. En revanche l'utilisation d'un rôle <code lang="en">presentation</code> sur un élément dont la nature (e.g la sémantique) est essentielle à la compréhension du contenu est une violation des règles WCAG (particulièrement de l'échec F92) et invalide le critère.</p>
 
 				<h3 id="url">Url</h3>
-				<p>Adresse permettant d'accéder aux ressources du <span lang="en">World Wide Web</span> : document HTML, pages web, image, son...</p>
+				<p>Adresse permettant d'accéder aux ressources du <span lang="en">World Wide Web</span> : document HTML, pages web, image, son…</p>
 				<p><strong>Note</strong> : dans le référentiel RGAA, la notion d'url est utilisée à la place de uri (chaîne de caractères compacte identifiant une ressource).</p>
 
 				<h2 id="v">V</h2>
@@ -934,12 +934,12 @@
 				<p>Pour les images réactives côté serveur, les coordonnées sont détenues sur le serveur.</p>
 
 				<h3 id="zone-den-tte">Zone d'en-tête</h3>
-				<p>Zone située en haut du document et contenant généralement le titre du document, un logo, un slogan...</p>
+				<p>Zone située en haut du document et contenant généralement le titre du document, un logo, un slogan…</p>
 				<p><strong>Note :</strong> Attention à ne pas confondre cette zone d'en-tête, unique dans le site, avec tout contenu pouvant être balisé en HTML5 avec l'élément <scope>header</scope>.</p>
 				<p>Voir la définition technique fournie par l'API ARIA : <a href="http://www.w3.org/WAI/PF/aria/roles#banner" title="Banner(role) (nouvelle fenêtre)" target="_blank">Banner(role)</a></p>
 
 				<h3 id="zone-de-contenu-principal">Zone de contenu principal</h3>
-				<p>Zone contenant les principaux contenus de la page, là où se trouvent les informations et fonctionnalités de fond (donc en dehors des menus, de la recherche ou des zones secondaires de publicités, actualités connexes...).</p>
+				<p>Zone contenant les principaux contenus de la page, là où se trouvent les informations et fonctionnalités de fond (donc en dehors des menus, de la recherche ou des zones secondaires de publicités, actualités connexes…).</p>
 				<p><strong>Note :</strong> Cette zone est unique dans la page. Elle peut être difficile à déterminer sur certaines pages particulières, comme la page d'accueil.</p>
 				<p>Voir la définition technique fournie par l'API ARIA : <a href="http://www.w3.org/WAI/PF/aria/roles#main" title="Main(role) (nouvelle fenêtre)" target="_blank">Main(role)</a></p>
 
