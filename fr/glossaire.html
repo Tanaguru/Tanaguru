@@ -60,20 +60,18 @@
 				<h3 id="accder-chaque-page-de-la-collection-de-pages">Accéder à chaque page de la collection de pages</h3>
 				<p>Dans le cas où la collection de pages comporte un grand nombre de pages, il est habituel de présenter ces liens d'accès aux pages par groupes de liens, par séquences de 10&nbsp;liens, par&nbsp;exemple. Cette pratique valide le test.</p>
 
-				<h3 id="accessible-et-activable-par-le-clavier-et-la-souris">
-				Accessible et activable par le clavier et la souris</h3>
+				<h3 id="accessible-et-activable-par-le-clavier-et-la-souris">Accessible et activable par le clavier et la souris</h3>
 				<ul>
-				<li>Un composant d'interface (lien, bouton, élément cliquable dans Flash…) est accessible au clavier et à la souris lorsque l'utilisateur peut prendre, indifféremment, le&nbsp;focus par le pointeur de la souris ou la touche tabulation.</li>
-				<li>Un composant d'interface (lien, bouton, élément cliquable dans Flash…) est activable au clavier et à la souris lorsque l'utilisateur peut enclencher, indifféremment, l'action prévue par le composant d'interface par le clic de la souris ou la touche entrée du clavier.</li>
-				<li><strong>Attention</strong> : pour certains composants d'interface comme les <span lang="en">sliders</span> (bouton coulissant ou rotatif…), il n'est pas possible de contrôler le composant par la seule touche d'entrée. Dans cette situation, d'autres touches (comme les touches de direction) peuvent être utilisées.</li>
+					<li>Un composant d'interface (lien, bouton, élément cliquable dans Flash…) est accessible au clavier et à la souris lorsque l'utilisateur peut prendre, indifféremment, le&nbsp;focus par le pointeur de la souris ou la touche tabulation.</li>
+					<li>Un composant d'interface (lien, bouton, élément cliquable dans Flash…) est activable au clavier et à la souris lorsque l'utilisateur peut enclencher, indifféremment, l'action prévue par le composant d'interface par le clic de la souris ou la touche entrée du clavier.</li>
+					<li><strong>Attention</strong> : pour certains composants d'interface comme les <span lang="en">sliders</span> (bouton coulissant ou rotatif…), il n'est pas possible de contrôler le composant par la seule touche d'entrée. Dans cette situation, d'autres touches (comme les touches de direction) peuvent être utilisées.</li>
 				</ul>
-<p><strong>Note importante :</strong> le recours à certaines technologies peut rendre la gestion du focus trop complexe ou trop instable pour ne reposer que sur la tabulation, les touches de direction et la touche entrée.</p>
+				<p><strong>Note importante :</strong> le recours à certaines technologies peut rendre la gestion du focus trop complexe ou trop instable pour ne reposer que sur la tabulation, les touches de direction et la touche entrée.</p>
 				<p>Dans ce cas, la mise à disposition de raccourcis clavier peut être la seule solution pour rendre le composant utilisable.</p>
 				<p>Le critère peut être considéré comme conforme à la condition que les raccourcis clavier utilisés soient correctement documentés et qu'ils soient fonctionnels quelle que soit la position du focus dans l'interface.</p>
-				<p>Vous pouvez consulter, à ce sujet, la technique <a href="http://www.w3.org/WAI/GL/WCAG20-TECHS/SL15.html" title="SL15: Providing Keyboard Shortcuts that Work Across the Entire Silverlight Application (nouvelle fenêtre)" target="_blank">SL15: Providing Keyboard Shortcuts that Work Across the Entire Silverlight Application</a> pour l'environnement <span>Silverlight</span> par&nbsp;exemple.</p>
+				<p>Vous pouvez consulter, à ce sujet, la technique <a rel="external" class="external" hreflang="en" href="http://www.w3.org/WAI/GL/WCAG20-TECHS/SL15.html">SL15: Providing Keyboard Shortcuts that Work Across the Entire Silverlight Application</a> pour l'environnement <span>Silverlight</span> par&nbsp;exemple.</p>
 
-				<h3 id="adapter-un-motif-de-conception-aria">
-				Adapter un motif de conception ARIA</h3>
+				<h3 id="adapter-un-motif-de-conception-aria">Adapter un motif de conception ARIA</h3>
 				<p>L'API ARIA définit des motifs de conception, par&nbsp;exemple pour un système d'onglet ou une fenêtre modale, destinés à assurer un comportement homogène de référence des composants d'interface. Le respect de ces motifs de conception est exigé par le référentiel RGAA.</p>
 				<p>Néanmoins il est possible d'adapter ces motifs de conception en remplaçant une propriété mal supportée par une propriété équivalente ou en enrichissant le composant de propriétés améliorant l'expérience utilisateur ou sécurisant son comportement.</p>
 				<p>Il appartient à l'auditeur de vérifier que ces adaptations sont cohérentes avec le motif de conception, ne modifient pas le comportement, en termes d'expérience utilisateur, du composant et que le composant adapté est correctement restitué par les technologies d'assistance.</p>
@@ -102,7 +100,7 @@
 				<li><strong>pour une image CAPTCHA ou une image-test</strong>, l'alternative ne peut pas apporter l'information véhiculée par l'image sans rendre la fonction associée inopérante. Dans ce cas de figure, l'alternative doit se contenter de permettre d'identifier la nature et la fonction de l'image.</li>
 				</ul>
 <p><strong>Note 1</strong> : pour une image CAPTCHA l'alternative peut être, par&nbsp;exemple&nbsp;: «&nbsp;Code de sécurité anti-spam&nbsp;» ou «&nbsp;code pour vérifier que vous êtes un humain&nbsp;» ou toute autre alternative permettant à l'utilisateur de comprendre la nature et la fonction de l'image.</p>
-				<p><strong>Note 2</strong> : pour un groupe d'images, par&nbsp;exemple un système de vote constitué de plusieurs images d'étoiles, il est fortement conseillé d'utiliser la première image du groupe pour donner une alternative plus cohérente au groupe d'image. Dans ce cas, les autres images du groupe sont considérées comme des images de décoration. Vous pouvez consulter, à ce sujet, la note suivante : <a href="http://www.w3.org/TR/html-alt-techniques/#a-group-of-images-that-form-a-single-larger-picture-with-no-links-1" title="1.10 A group of images that form a single larger picture with no links (nouvelle fenêtre)" target="_blank">1.10 A group of images that form a single larger picture with no links</a></p>
+				<p><strong>Note 2</strong> : pour un groupe d'images, par&nbsp;exemple un système de vote constitué de plusieurs images d'étoiles, il est fortement conseillé d'utiliser la première image du groupe pour donner une alternative plus cohérente au groupe d'image. Dans ce cas, les autres images du groupe sont considérées comme des images de décoration. Vous pouvez consulter, à ce sujet, la note suivante : <a rel="external" class="external" hreflang="en" href="http://www.w3.org/TR/html-alt-techniques/#a-group-of-images-that-form-a-single-larger-picture-with-no-links-1" title="1.10 A group of images that form a single larger picture with no links (nouvelle fenêtre)" target="_blank">1.10 A group of images that form a single larger picture with no links</a></p>
 
 				<h3 id="ambigu-pour-tout-le-monde">
 				Ambigu pour tout le monde</h3>
@@ -115,8 +113,8 @@
 				<p>Le test 9.2.2 demande de vérifier que la structure des éléments sectionnant (<code lang="en">nav</code>, <code lang="en">section</code>, <code lang="en">article</code> par&nbsp;exemple) est cohérente, c'est-à-dire représentative de l'architecture du document. Cette structure est complémentaire à la structure des titres <code lang="en">h(x)</code> qui en sont un élément.</p>
 				<p>L'utilisation innapropriée de ces éléments sectionnants peut générer une arborescence de document incohérente, par&nbsp;exemple par l'utilisation abusive d'éléments <code lang="en">section</code> ou <code lang="en">article</code>.</p>
 				<p><strong>Note 1 :</strong> Pour accompagner la prise en charge progressive de l'arborescence du document et compte tenu du fait que le référentiel exige de disposer, en tout état de cause, d'une structure de contenu (balises <code lang="en">h(x)</code>) robuste et cohérente, <strong>il est acceptable de considérer le test 9.2.2 comme non applicable</strong> lorsqu'il n'est pas possible de s'assurer que l'arborescence du document est parfaitement cohérente.<br>
-				Vous pouvez consulter, à ce sujet la note technique : <a href="criteres.html#crit-92-a">Note technique au sujet de l'arborescence du document</a>.</p>
-				<p><strong>Note 2 :</strong> vous pouvez consulter, à ce sujet, l'exemple donné par la spécification HTML5 : <a href="http://www.w3.org/TR/html5/sections.html#sample-outlines" title="4.3.10.2 Sample outlines (nouvelle fenêtre)" target="_blank">4.3.10.2 Sample outlines</a>.</p>
+				Vous pouvez consulter, à ce sujet la note technique : <a href="notes-techniques.html#crit-9-2">Note technique au sujet de l'arborescence du document</a>.</p>
+				<p><strong>Note 2 :</strong> vous pouvez consulter, à ce sujet, l'exemple donné par la spécification HTML5 : <a rel="external" class="external" hreflang="en" href="http://www.w3.org/TR/html5/sections.html#sample-outlines">4.3.10.2 Sample outlines</a>.</p>
 
 				<h3 id="audio-description-tendue">Audio-description étendue</h3>
 				<p>Audio-description ajoutée à une présentation audiovisuelle en mettant en pause la vidéo de manière à avoir le temps d'ajouter des descriptions supplémentaires. <strong>Note</strong>&nbsp;: cette technique est à utiliser seulement si le sens de la vidéo est perdu sans audio-description supplémentaire et que les pauses entre les dialogues ou la narration sont trop courtes.</p>
@@ -284,7 +282,7 @@
 				<ul>
 				<li><strong>Note 1</strong> : Sauf indication contraire, les attributs non répertoriés par les spécifications sont non applicables.</li>
 				<li><strong>Note 2</strong> : Sauf indication contraire, les balises non répertoriées par les spécifications sont non applicables.</li>
-				<li><strong>Note 3</strong> : La <a href="http://www.w3.org/TR/xhtml1/#C_3" title="règle C3 de la spécification XHTML (&quot;Minimisation d'élément et contenu d'élément vide&quot;, en anglais) (nouvelle fenêtre)" target="_blank">règle C3 de la spécification XHTML ("Minimisation d'élément et contenu d'élément vide", en anglais)</a> stipule que l'utilisation d'éléments minimisés (<code lang="en">&lt;elm /&gt;</code>) pour des éléments vides (par&nbsp;exemple <code lang="en">&lt;p /&gt;</code> à la place de <code lang="en">&lt;p&gt;&lt;/p&gt;</code>) est déconseillée. Cette pratique constitue une non-conformité dans le cadre de RGAA.</li>
+				<li><strong>Note 3</strong> : La <a rel="external" class="external" hreflang="en" href="http://www.w3.org/TR/xhtml1/#C_3">règle C3 de la spécification XHTML («&nbsp;Minimisation d'élément et contenu d'élément vide&nbsp;», en anglais)</a> stipule que l'utilisation d'éléments minimisés (<code lang="en">&lt;elm /&gt;</code>) pour des éléments vides (par&nbsp;exemple <code lang="en">&lt;p /&gt;</code> à la place de <code lang="en">&lt;p&gt;&lt;/p&gt;</code>) est déconseillée. Cette pratique constitue une non-conformité dans le cadre de RGAA.</li>
 				</ul>
 </li>
 				<li>Cas d'une page implémentant WAI-ARIA : code dans lequel l'implémentation des balises et des attributs respecte les spécifications du type de document déclaré et dans lequel l'implémentation WAI ARIA est conforme à la spécification WAI-ARIA.</li>
@@ -574,18 +572,18 @@
 				<p>HTML5 propose d'associer une légende à une image via les éléments <code lang="en">figure</code> (l'ensemble de l'image et la légende) et <code lang="en">figcaption</code> (la légende).</p>
 				<p>Une image sans légende peut définir&nbsp;:</p>
 				<ul>
-				<li>une image qui n'est pas insérée dans un élément <code lang="en">figure</code>&nbsp;;</li>
-				<li>une image insérée dans un élément <code lang="en">figure</code> sans élément <code lang="en">figcaption</code>.</li>
+					<li>une image qui n'est pas insérée dans un élément <code lang="en">figure</code>&nbsp;;</li>
+					<li>une image insérée dans un élément <code lang="en">figure</code> sans élément <code lang="en">figcaption</code>.</li>
 				</ul>
-<p><strong>Note&nbsp;:</strong> lorsque le texte adjacent à l'image peut faire office de texte de remplacement, il n'est pas obligatoire de recourir à l'ensemble <code lang="en">figure</code>, <code lang="en">figcaption</code>, l'image pouvant être simplement traitée comme une image de décoration.</p>
-				<p>Vous pouvez consulter, à ce sujet, la note <a href="http://www.w3.org/TR/html-alt-techniques/#m6" title="HTML5: Techniques for providing useful text alternatives - 2.5 The figure and figcaption elements (nouvelle fenêtre)" target="_blank">HTML5: Techniques for providing useful text alternatives - 2.5 The figure and figcaption elements</a> du W3C.</p>
+				<p><strong>Note&nbsp;:</strong> lorsque le texte adjacent à l'image peut faire office de texte de remplacement, il n'est pas obligatoire de recourir à l'ensemble <code lang="en">figure</code>, <code lang="en">figcaption</code>, l'image pouvant être simplement traitée comme une image de décoration.</p>
+				<p>Vous pouvez consulter, à ce sujet, la note <a rel="external" class="external" hreflang="en" href="http://www.w3.org/TR/html-alt-techniques/#m6" title="HTML5: Techniques for providing useful text alternatives - 2.5 The figure and figcaption elements (nouvelle fenêtre)" target="_blank">HTML5: Techniques for providing useful text alternatives - 2.5 The figure and figcaption elements</a> du W3C.</p>
 
 				<h3 id="lien">
 				Lien</h3>
 				<p>Élément HTML (balise <code lang="en">a</code>) activable par l'utilisateur (par la souris, le clavier…) et déclenchant une action (affichage d'une page web, téléchargement d'un fichier…) ou un événement généré par un script. Un lien possède au minimum&nbsp;:</p>
 				<ul>
-				<li>une référence de ressource (attribut <code lang="en">href</code>)&nbsp;;</li>
-				<li>un intitulé de lien compris entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code>.</li>
+					<li>une référence de ressource (attribut <code lang="en">href</code>)&nbsp;;</li>
+					<li>un intitulé de lien compris entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code>.</li>
 				</ul>
 
 				<h3 id="lien-adjacent">
@@ -596,7 +594,7 @@
 				Lien composite</h3>
 				<p>Lien dont le&nbsp;contenu entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code> est constitué de 2 éléments de type différent, au moins ; par&nbsp;exemple, du texte et une ou plusieurs images. L'intitulé de lien pour un lien composite est l'ensemble du texte et du contenu de l'alternative textuelle de ou des images compris entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code>.</p>
 				<p><strong>Note importante</strong>: il est rappelé que l'utilisation de deux liens adjacents (lien image et lien texte) et identiques constitue une gêne importante pour l'utilisateur. Même si cela ne constitue pas une non-conformité, cet usage devrait être évité. Une manière de traiter ce type de liens est d'inclure l'image dans le lien texte de façon à constituer un lien composite, ce qui évitera la redondance.</p>
-				<p>Vous pouvez consulter à ce sujet la technique <a href="http://www.w3.org/TR/WCAG20-TECHS/H2.html" title="H2 : Combining adjacent image and text links for the same resource (nouvelle fenêtre)" target="_blank">H2 : Combining adjacent image and text links for the same resource</a></p>
+				<p>Vous pouvez consulter à ce sujet la technique <a rel="external" class="external" hreflang="en" href="http://www.w3.org/TR/WCAG20-TECHS/H2.html" title="H2 : Combining adjacent image and text links for the same resource (nouvelle fenêtre)" target="_blank">H2 : Combining adjacent image and text links for the same resource</a></p>
 
 				<h3 id="lien-dont-la-nature-nest-pas-vidente">
 				Lien dont la nature n'est pas évidente</h3>
@@ -685,13 +683,13 @@
 				Menu de navigation</h3>
 				<p>Zone contenant des liens qui permettent de naviguer dans les rubriques principales du site. Il s'agit généralement du menu principal et des menus contextuels.</p>
 				<p><strong>Note</strong>&nbsp;: Les liens de pied de page renvoyant vers les mentions légales, plan du site et autres informations concernant le site ne sont pas considérés comme un menu de navigation principal.</p>
-				<p>Voir la définition technique de zone d'en-tête fournie par l'API ARIA <a href="http://www.w3.org/WAI/PF/aria/roles#navigation" title="navigation (role) (nouvelle fenêtre)" target="_blank">navigation (role)</a></p>
+				<p>Voir la définition technique de zone d'en-tête fournie par l'API ARIA <a rel="external" class="external" hreflang="en" href="http://www.w3.org/WAI/PF/aria/roles#navigation" title="navigation (role) (nouvelle fenêtre)" target="_blank">navigation (role)</a></p>
 
 
 				<h3 id="modification-du-rle-natif-dun-lment-html">
 				Modification du rôle natif d'un élément HTML</h3>
 				<p>La spécification WAI-ARIA permet de modifier le rôle natif d'un élément, par&nbsp;exemple modifier un élément <code lang="en">a href=""</code> en élément <code lang="en">button</code>.</p>
-				<p>Ces modifications ne peuvent être réalisées que sous certaines conditions décrites dans le document : <a href="http://www.w3.org/TR/aria-in-html/" title="Using WAI-ARIA in HTML (nouvelle fenêtre)" target="_blank">Using WAI-ARIA in HTML</a> qui définit un certain nombre de restrictions notamment.</p>
+				<p>Ces modifications ne peuvent être réalisées que sous certaines conditions décrites dans le document : <a rel="external" class="external" hreflang="en" href="http://www.w3.org/TR/aria-in-html/" title="Using WAI-ARIA in HTML (nouvelle fenêtre)" target="_blank">Using WAI-ARIA in HTML</a> qui définit un certain nombre de restrictions notamment.</p>
 				<p>Pour qu'une modification du rôle natif d'un élément HTML via WAI-ARIA soit compatible, il faut que les restrictions soient respectées.</p>
 
 
@@ -699,12 +697,12 @@
 				Moteur de recherche (interne à un site web)</h3>
 				<p>Zone contenant le moteur de recherche permettant d'effectuer des recherches sur les contenus de l'ensemble du site</p>
 				<p><strong>Note&nbsp;:</strong> Attention à ne pas confondre cette zone de recherche, unique dans le site, avec tout autre moteur de recherche permettant par&nbsp;exemple de faire des recherches sur une partie restreinte du site : un catalogue, les offres sur une section marchés publics…</p>
-				<p>Voir la définition technique de zone d'en-tête fournie par l'API ARIA <a href="http://www.w3.org/WAI/PF/aria/roles#search" title="search (role) (nouvelle fenêtre)" target="_blank">search (role)</a></p>
+				<p>Voir la définition technique de zone d'en-tête fournie par l'API ARIA <a rel="external" class="external" hreflang="en" href="http://www.w3.org/WAI/PF/aria/roles#search" title="search (role) (nouvelle fenêtre)" target="_blank">search (role)</a></p>
 
 				<h3 id="motif-de-conception">
 				Motif de conception</h3>
 				<p>Un motif de conception (<span lang="en">Design Pattern</span>) est un modèle défini par l'API WAI-ARIA qui décrit la structure, les rôles et propriétés et le comportement que doit respecter un composant JavaScript (<span lang="en">widget</span>).</p>
-				<p>Les motifs de conception sont décrits dans le document : <a href="http://www.w3.org/TR/wai-aria-practices/" title="WAI-ARIA 1.0 Authoring Practices (nouvelle fenêtre)" target="_blank">WAI-ARIA 1.0 Authoring Practices</a>.</p>
+				<p>Les motifs de conception sont décrits dans le document : <a rel="external" class="external" hreflang="en" href="http://www.w3.org/TR/wai-aria-practices/" title="WAI-ARIA 1.0 Authoring Practices (nouvelle fenêtre)" target="_blank">WAI-ARIA 1.0 Authoring Practices</a>.</p>
 				<p>Un composant développé avec JavaScript doit respecter le motif de conception correspondant au rôle WAI-ARIA utilisé.</p>
 				<p><strong>Note 1:</strong> compte tenu du manque de support de certaines propriétés et de certains rôles WAI-ARIA et de la grande variabilité des situations dans lesquelles un composant JavaScript peut être proposé, il est possible d'adapter des motifs de conception à des contextes ou des utilisations particulières. Dans ce cas, le motif de conception adapté doit&nbsp;:</p>
 				<ul>
@@ -753,20 +751,18 @@
 				Procédé de rafraîchissement</h3>
 				<p>Technique visant à modifier le&nbsp;contenu d'un ou de plusieurs éléments de la page web. Le procédé de rafraîchissement peut s'effectuer par rechargement automatique de la page ou de manière dynamique sans rechargement de la page (via AJAX, par&nbsp;exemple). L'utilisateur doit pouvoir contrôler chaque procédé de rafraîchissement de manière indépendante.</p>
 
-				<h3 id="proprit-css-dterminant-une-couleur">Propriété CSS déterminant une couleur</h3>
+				<h3 id="proprite-css-dterminant-une-couleur">Propriété CSS déterminant une couleur</h3>
 				<p>Cela concerne les propriétés suivantes : <code lang="en">color</code>, <code lang="en">background-color</code>, <code lang="en">background</code>, <code lang="en">border-color</code>, <code lang="en">border</code>, <code lang="en">outline-color</code>, <code lang="en">outline</code>.</p>
 				<p><strong>Note</strong>&nbsp;: l'utilisation d'une image de fond pour insérer une couleur (propriété <code lang="en">background:url</code>…) est également concernée.</p>
 
-				<h3 id="proprits-et-mthodes-conformes-la-spcification-dom">
-				Propriétés et méthodes conformes à la spécification DOM</h3>
+				<h3 id="proprits-et-methodes-conformes-la-spcification-dom">Propriétés et méthodes conformes à la spécification DOM</h3>
 				<p>Les méthodes d'insertion de contenu conformes à la spécification DOM font appel aux propriétés et méthodes de l'objet Node par opposition aux méthodes propriétaires. Par&nbsp;exemple <code lang="en">document.write</code>, spécifique à la plateforme IE/Microsoft pour les navigateurs IE anciens.</p>
 
 				<h2 id="r">R</h2>
 
-				<h3 id="correctement-restitue-par-les-technologies-dassistance">
-				Correctement restituée par les technologies d'assistance</h3>
+				<h3 id="correctement-restitue-par-les-technologies-dassistance">Correctement restituée par les technologies d'assistance</h3>
 				<p>Lorsqu'un critère, un test ou une condition de test demande de vérifier la restitution d'un dispositif, il faut s'assurer que ladite restitution est compatible avec l'accessibilité.</p>
-				<p>Le test consiste à vérifier que la restitution est pertinente pour au moins une des combinaisons de la <a href="#53%20base%20de%20rfrence">base de référence</a> utilisée pour déclarer qu'un élément, un dispositif ou une alternative est «&nbsp;compatible avec l'accessibilité&nbsp;».</p>
+				<p>Le test consiste à vérifier que la restitution est pertinente pour au moins une des combinaisons de la <a href="base-de-reference.html">base de référence</a> utilisée pour déclarer qu'un élément, un dispositif ou une alternative est «&nbsp;compatible avec l'accessibilité&nbsp;».</p>
 				<p>par&nbsp;exemple&nbsp;: le test 1.3.7 demande de vérifier que l'alternative d'une image porteuse d'information vectorielle est correctement restituée.</p>
 				<p>On procède alors à un test avec NVDA (dernière version) et Firefox, JAWS (version précédente) et IE9+ et Voice Over (dernière version) et Safari.</p>
 				<p>Si on constate que l'alternative est correctement restituée, le test est validé.</p>
@@ -775,17 +771,16 @@
 				Redirection automatique</h3>
 				<p>Procédé qui consiste pour l'affichage d'une page sur le poste client à rediriger automatiquement l'utilisateur vers une autre page, sur le même domaine ou sur un domaine différent.</p>
 
-				<h3 id="rsum-de-tableau">
-				Résumé (de tableau)</h3>
+				<h3 id="resume-de-tableau">Résumé (de tableau)</h3>
 				<p>Un résumé est un passage de texte associé à un tableau de données complexe. Il permet de donner des informations sur la nature et la structure du tableau afin d'en faciliter l'utilisation par les utilisateurs de technologies d'assistance par&nbsp;exemple.</p>
 				<p><strong>Note&nbsp;:</strong> l'attribut <code lang="en">summary</code> est obsolète non conforme en HTML5 et ne doit plus être utilisé.</p>
 				<p>Parmi les 5 techniques proposées par HTML5, la seule technique utilisable actuellement est celle qui consiste à insérer le résumé directement dans le titre (balise <code lang="en">caption</code>) en masquant le résumé via CSS si&nbsp;nécessaire.</p>
-				<p><a href="criteres.html#crit-51-a">Consulter la note technique au sujet du résumé de tableau</a>.</p>
+				<p><a href="notes-techniques.html#crit-5-1">Consulter la note technique au sujet du résumé de tableau</a>.</p>
 
 				<h3 id="rle-wai-aria-quivalent-surcharge-de-rle">Rôle WAI-ARIA équivalent (surcharge de rôle)</h3>
 				<div class="section__content js-contentToggle__content" id="content-rle-wai-aria-quivalent-surcharge-de-rle">
 
-				<p>Afin de pallier à l'implémentation progressive des nouveaux éléments HTML5 et pour des raisons de rétro-compatibilité, le document <a href="http://www.w3.org/TR/aria-in-html/" title="Using WAI-ARIA in HTML (nouvelle fenêtre)" target="_blank">Using WAI-ARIA in HTML</a> préconise de surcharger les rôles natifs des éléments HTML par leur équivalent WAI-ARIA, par&nbsp;exemple un élément <code lang="en">article</code> devra comporter un attribut <code lang="en">role="article"</code>.</p>
+				<p>Afin de pallier à l'implémentation progressive des nouveaux éléments HTML5 et pour des raisons de rétro-compatibilité, le document <a rel="external" class="external" hreflang="en" href="http://www.w3.org/TR/aria-in-html/" title="Using WAI-ARIA in HTML (nouvelle fenêtre)" target="_blank">Using WAI-ARIA in HTML</a> préconise de surcharger les rôles natifs des éléments HTML par leur équivalent WAI-ARIA, par&nbsp;exemple un élément <code lang="en">article</code> devra comporter un attribut <code lang="en">role="article"</code>.</p>
 				<p>Ces surcharges de rôles natifs doivent être respectées.</p>
 
 				<h2 id="s">S</h2>
@@ -881,7 +876,7 @@
 				<p><strong>Note 2</strong> : Il est rappelé que l'attribut <code lang="en">title</code> peut poser de vrais problèmes de restitution, par&nbsp;exemple au clavier, sur les surfaces tactiles, lorsqu'une technologie d'assistance est paramétrée pour ne pas les restituer et ne devrait être utilisé qu'en dernier recours.</p>
 
 				<h3 id="titre-de-page">Titre de page</h3>
-				<p>Contenu de la balise <code lang="en">title</code> d'une page web permettant d'identifier de manière claire, concise et unique les contenus/la nature de la page («&nbsp;Plan du site <a href="http://www.nomdusite.fr" title="www.nomdusite.fr (nouvelle fenêtre)" target="_blank">www.nomdusite.fr</a>&nbsp;» pour une page présentant le plan du site web, par&nbsp;exemple).</p>
+				<p>Contenu de la balise <code lang="en">title</code> d'une page web permettant d'identifier de manière claire, concise et unique les contenus/la nature de la page («&nbsp;Plan du site www.nomdusite.fr&nbsp;» pour une page présentant le plan du site web, par&nbsp;exemple).</p>
 
 				<h3 id="transcription-textuelle-media-temporel">
 				Transcription textuelle (media temporel)</h3>
@@ -930,7 +925,7 @@
 					<li>Adobe PDF&nbsp;;</li>
 					<li>Epub/Daisy.</li>
 				</ul>
-				<p>Les contenus doivent être conformes à la <a href="sites/default/files/liste-criteres-documents-bureautiques-telechargement-RGAA.odt" title="Liste des critères Documents Bureautiques en téléchargement - OpenOffice - 56 Ko">liste des critères Documents Bureautiques en téléchargement</a>.</p>
+				<p>Les contenus doivent être conformes à la <a href="http://references.modernisation.gouv.fr/sites/default/files/liste-criteres-documents-bureautiques-telechargement-RGAA.odt" class="download">liste des critères Documents Bureautiques en téléchargement <small>(OpenOffice - 56&nbsp;Ko)</small></a>.</p>
 				<p><strong>Note</strong>&nbsp;: le format txt ne peut pas être utilisé pour produire une version accessible pour un document en téléchargement.</p>
 
 				<h3 id="version-alternative-audio-seulement">Version alternative «&nbsp;audio seulement&nbsp;»</h3>
@@ -949,17 +944,17 @@
 				<h3 id="zone-den-tte">Zone d'en-tête</h3>
 				<p>Zone située en haut du document et contenant généralement le titre du document, un logo, un&nbsp;slogan…</p>
 				<p><strong>Note&nbsp;:</strong> Attention à ne pas confondre cette zone d'en-tête, unique dans le site, avec tout contenu pouvant être balisé en HTML5 avec l'élément <scope>header</scope>.</p>
-				<p>Voir la définition technique fournie par l'API ARIA : <a href="http://www.w3.org/WAI/PF/aria/roles#banner" title="Banner(role) (nouvelle fenêtre)" target="_blank">Banner(role)</a></p>
+				<p>Voir la définition technique fournie par l'API ARIA : <a rel="external" class="external" hreflang="en" href="http://www.w3.org/WAI/PF/aria/roles#banner" title="Banner(role) (nouvelle fenêtre)" target="_blank">Banner(role)</a></p>
 
 				<h3 id="zone-de-contenu-principal">Zone de contenu principal</h3>
 				<p>Zone contenant les principaux contenus de la page, là où se trouvent les informations et fonctionnalités de fond (donc en dehors des menus, de la recherche ou des zones secondaires de publicités, actualités connexes…).</p>
 				<p><strong>Note&nbsp;:</strong> Cette zone est unique dans la page. Elle peut être difficile à déterminer sur certaines pages particulières, comme la page d'accueil.</p>
-				<p>Voir la définition technique fournie par l'API ARIA : <a href="http://www.w3.org/WAI/PF/aria/roles#main" title="Main(role) (nouvelle fenêtre)" target="_blank">Main(role)</a></p>
+				<p>Voir la définition technique fournie par l'API ARIA : <a rel="external" class="external" hreflang="en" href="http://www.w3.org/WAI/PF/aria/roles#main" title="Main(role) (nouvelle fenêtre)" target="_blank">Main(role)</a></p>
 
 				<h3 id="zone-de-pied-de-page">Zone de pied de page</h3>
 				<p>Il s'agit des informations concernant le fonctionnement du site ou les informations légales. On y trouve par&nbsp;exemple les mentions légales, les crédits, les conditions d'utilisation, le plan du site et éventuellement la page accessibilité.</p>
 				<p><strong>Note&nbsp;:</strong> Attention à ne pas confondre cette zone de pied de page, unique dans le site, avec tout contenu pouvant être balisé en HTML5 avec l'élément <code lang="en">footer</code>.</p>
-				<p>Voir la définition technique fournie par l'API ARIA : <a href="http://www.w3.org/WAI/PF/aria/roles#contentinfo" title="contentinfo(role) (nouvelle fenêtre)" target="_blank">contentinfo(role)</a></p>
+				<p>Voir la définition technique fournie par l'API ARIA : <a rel="external" class="external" hreflang="en" href="http://www.w3.org/WAI/PF/aria/roles#contentinfo" title="contentinfo(role) (nouvelle fenêtre)" target="_blank">contentinfo(role)</a></p>
 
 				<h3 id="zone-non-cliquable">
 				Zone non cliquable</h3>
