@@ -1114,15 +1114,18 @@ a:active {
   border-width: 0;
 }
 /* * titres */
-h3 {
-  padding-top: 10px;
-  font-weight: bold;
-}
 h2 {
   padding-top: 3em;
   text-align: center;
   font-weight: bold;
   font-size: 2em;
+}
+h3 {
+  padding-top: 10px;
+  font-weight: bold;
+}
+h4 {
+  font-weight: bold;
 }
 /* * */
 pre,
@@ -1150,31 +1153,50 @@ tt {
 .thematique p,
 .thematique aside,
 .thematique header h3,
-.thematique .correspondance,
-.thematique .correspondance h4,
-.thematique .key-words {
+.thematique h4,
+.thematique .tags {
   color: #666666;
   font-size: small;
 }
 #howto p,
 #howto ul,
 .thematique p {
-  margin-bottom: 0.75em;
+  margin-bottom: 0;
 }
 .thematique header h3,
-.thematique .correspondance h4 {
-  margin: 0;
+.thematique h4 {
+  margin: 10px 0 0;
   padding: 0;
-  font-weight: bold;
 }
-.thematique .correspondance {
-  width: 100%;
+.thematique aside {
   margin: 1.5em 0;
+}
+.thematique aside p {
+  margin: 0;
+}
+.thematique .tags {
+  margin-top: 10px;
+}
+.thematique .tags * {
+  display: inline;
+  margin: 0;
+}
+.thematique .tags span {
+  font-weight: bold;
+  display: none;
+}
+.thematique .tags span:after {
+  content: " : ";
+}
+.thematique .tags li:before {
+  content: " / ";
+}
+.thematique .tags li:first-child:before {
+  content: "";
+}
+.thematique aside h4 {
   padding-top: 10px;
   border-top: 1px dashed rgba(102, 102, 102, 0.3);
-}
-.thematique .correspondance p {
-  margin: 0;
 }
 /* * thematique */
 .thematique h2 {
