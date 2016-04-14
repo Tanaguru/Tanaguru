@@ -25,6 +25,19 @@ main .skiplink a { margin: 0 @gutter/2; }
 .skiplink .gobefore a:after { content: ' ⬆'; }
 .skiplink .goafter a:after { content: ' ⬇'; }
 
+.skiplink .gotop { position: fixed; bottom: @gutter; right: @gutter; }
+.skiplink .gotop a { display: block; width: 50px; height: 50px; background: fade(@color-txt,30); border: 0; border-radius: 5px; font-size: 30px; line-height: -30px; text-align: center; }
+.skiplink .gotop a:after { color: @color-txt; }
+.skiplink .gotop a:focus,
+.skiplink .gotop a:hover {
+   background: fade(@color-txt,50);
+   &:after { color: lighten(@color-bg,20); }
+}
+@media (min-width: @screen-large) {
+  .skiplink .gotop { right: 25%; }
+}
+.skiplink .gotop span { .offscreen; }
+
 @media print {
 .skiplink { display: none; }
 }
@@ -34,6 +47,7 @@ main .skiplink a { margin: 0 @gutter/2; }
 #header {}
 
 #header .headsite {
+    z-index: 1;
     position: fixed;
     background: fade(@color-bg,90);
     width: 100% !important; height: auto;
