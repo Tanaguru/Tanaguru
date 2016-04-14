@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Base de référence - RGAA 3.0</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href="../css/style.css">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<a name="top" id="top"></a>
+        <header id="header" role="banner">
+            <div class="headsite nav clearfix">
+                <strong id="logo"><a href="index.html">RGAA&nbsp;3.0</a></strong>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" id="btnnav">Menu</button>
+                <nav id="nav" class="collapse navbar-collapse" role="navigation">
+                    <ul><!--
+                    --><li><a href="./criteres.html">Critères</a></li><!--
+                    --><li><a href="./glossaire.html">Glossaire</a></li><!--
+                    --><li><a href="./cas-particuliers.html">Cas particuliers</a></li><!--
+                    --><li><a href="./notes-techniques.html">Notes techniques</a></li><!--
+                    --><li><strong class="on">Base de référence</strong></li><!--
+                    --><li><a href="./references.html">Références</a></li><!--
+                --></ul>
+            	</nav>
+            </div>
+            <div class="headrub page">
+                <h1>Base de référence</h1>
+				<p class="lead">Plusieurs critères <abbr title="Référentiel Général d'Accessibilité des Administrations">RGAA</abbr> font référence à des tests de restitution à effectuer sur un ensemble de technologies d'assistance, de navigateur et de systèmes d'exploitation. Ce&nbsp;document décrit et explique les combinaisons qui ont été retenues pour constituer la base de références.</p>
+				<div id="navtoc">
+					<h2 id="toc">Sommaire</h2>
+					<nav class="nav" role="navigation" aria-labelledby="toc">
+						<ul>
+							<li><a href="#compatible">Compatible avec les technologies d'assistance - Base de référence</a></li>
+							<li><a href="#baseline">Base de référence</a></li>
+							<li><a href="#additional">Exigences complémentaires</a></li>
+							<li><a href="#controlled">Environnement maitrisé</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+        <main id="main" role="main">
+			<div class="page">
+				<h2 id="compatible">Compatible avec les technologies d'assistance - Base de référence</h2>
+				<p>La base de référence est constituée des configurations (technologie d'assistance, système d'exploitation, navigateur) qui permettent de déclarer qu'un dispositif HTML5/ARIA est «&nbsp;compatible avec l'accessibilité&nbsp;» tel que défini par WCAG&nbsp;2.</p>
+				<p>Elle est établie par consensus à partir de la liste des technologies d'assistance dont l'usage est suffisamment répandu, ou, dans certains cas (par&nbsp;exemple pour OSX) lorsqu'elle est fournie de manière native et constitue le moyen privilégié d'accès à l'information et aux fonctionnalités.</p>
+				<p>Le document Base de référence pour la compatibilité avec les technologies d'assistance décrit dans le détail la méthodologie utilisée pour établir cette base de référence. Télécharger le document «&nbsp;compatibilité avec les technologies d'assistance&nbsp;» au format <a href="http://references.modernisation.gouv.fr/sites/default/files/base_de_reference_RGAA.odt" class="download">odt <small>(25&nbsp;kb)</small></a>, <a href="http://references.modernisation.gouv.fr/sites/default/files/base_de_reference_RGAA.pdf" class="download">pdf <small>(610&nbsp;kb)</small></a></p>
+        
+				<h2 id="baseline">Base de référence</h2>
+				<p>La base de référence permettant de couvrir la proportion la plus large des usages est constituée de combinaisons associant des technologies d'assistance d'usage suffisamment répandu, les deux systèmes d'exploitation Windows XP+ et OSX et les trois navigateurs IE9+, Firefox et Safari.</p>
+				<p>Pour qu'un dispositif HTML5/ARIA ou son alternative soit considéré comme compatible avec l'accessibilité il faut qu'il soit pleinement fonctionnel, en termes de restitution et de fonctionnalités, sur au moins une des combinaisons suivantes&nbsp;:</p>
+
+				<table class="table">
+					<caption>Base de référence - Combinaison 1</caption>
+					<thead>
+					<tr><th>Technologie d'assistance</th>
+					<th>Version TA</th>
+					<th>Navigateur</th>
+					</tr></thead><tbody><tr><td>NVDA</td>
+					<td>Dernière version</td>
+					<td>Firefox</td>
+					</tr><tr><td>JAWS</td>
+					<td>Version précédente</td>
+					<td>Firefox ou Internet Explorer 9+</td>
+					</tr><tr><td>Voice Over</td>
+					<td>Dernière Version</td>
+					<td>Safari</td>
+					</tr></tbody>
+				</table>
+
+				<table class="table">
+					<caption>Base de référence - Combinaison 2</caption>
+					<thead>
+					<tr><th>Technologie d'assistance</th>
+					<th>Version TA</th>
+					<th>Navigateur</th>
+					</tr></thead><tbody><tr><td>JAWS</td>
+					<td>Version précédente</td>
+					<td>Firefox</td>
+					</tr><tr><td>NVDA</td>
+					<td>Dernière Version</td>
+					<td>Firefox ou Internet Explorer 9+</td>
+					</tr><tr><td>Voice Over</td>
+					<td>Dernière Version</td>
+					<td>Safari</td>
+					</tr></tbody>
+				</table>
+
+				<table class="table">
+					<caption>Base de référence - Combinaison 3</caption>
+					<thead>
+					<tr><th>Technologie d'assistance</th>
+					<th>Version TA</th>
+					<th>Navigateur</th>
+					</tr></thead><tbody><tr><td>JAWS</td>
+					<td>Version précédente</td>
+					<td>Firefox</td>
+					</tr><tr><td>Window-Eyes</td>
+					<td>Version précédente</td>
+					<td>Firefox ou Internet Explorer 9+</td>
+					</tr><tr><td>Voice Over</td>
+					<td>Dernière Version</td>
+					<td>Safari</td>
+					</tr></tbody>
+				</table>
+
+				<table class="table">
+					<caption>Base de référence - Combinaison 4</caption>
+					<thead>
+					<tr><th>Technologie d'assistance</th>
+					<th>Version TA</th>
+					<th>Navigateur</th>
+					</tr></thead><tbody><tr><td>Window-Eyes</td>
+					<td>Version précédente</td>
+					<td>Firefox</td>
+					</tr><tr><td>JAWS</td>
+					<td>Version précédente</td>
+					<td>Firefox ou Internet Explorer 9+</td>
+					</tr><tr><td>Voice Over</td>
+					<td>Dernière Version</td>
+					<td>Safari</td>
+					</tr></tbody>
+				</table>
+
+				<p><strong>Note&nbsp;:</strong> Compte tenu que le lecteur d'écran NVDA ne nécessite pas l'achat d'une licence commerciale et couvre toutes les versions de Windows, les deux premières combinaisons devraient être privilégiées. La combinaison NVDA + Window-Eyes ne peut pas être retenue car elle ne couvre pas une proportion suffisamment large d'usages.</p>
+				        
+				<h2 id="additional">Exigences complémentaires</h2>
+				<p>Les règles suivantes doivent également être respectées&nbsp;:</p>
+				<ol>
+					<li>L'ensemble des dispositifs HTML5/ARIA ou leurs alternatives doivent être pleinement fonctionnels, sur l'ensemble des pages du site, sans nécessiter de changement de technologie d'assistance en cours d'utilisation&nbsp;;</li>
+					<li>
+						Lorsque des alternatives à des dispositifs HTML5/ARIA sont proposées, elles ne doivent pas nécessiter la désactivation d'une technologie (par&nbsp;exemple JavaScript ou le plugin Flash) sauf s'il s'agit d'une fonctionnalité proposée par le site lui-même.<br>
+					 	par&nbsp;exemple&nbsp;:
+						<ul>
+							<li>le site met à disposition une version alternative conforme pleinement fonctionnelle sans le recours aux technologies dont l'usage est non compatible avec l'accessibilité&nbsp;;</li>
+							<li>le site met à disposition une fonctionnalité de remplacement des dispositifs HTML5/ARIA par des dispositifs alternatifs compatibles&nbsp;;</li>
+						</ul>
+					</li>
+					<li>un moyen est mis à disposition des utilisateurs de technologies d'assistance pour signaler les problèmes rencontrés et obtenir, via un dispositif de compensation, les informations qui seraient rendues indisponibles&nbsp;;</li>
+					<li>si une déclaration de conformité est établie, elle doit comporter la liste des technologies d'assistance avec lesquelles les dispositifs HTML5/ARIA ont été testés et les résultats de ces tests (par&nbsp;exemple «&nbsp;supporté&nbsp;», «&nbsp;non supporté&nbsp;», «&nbsp;supporté partiellement&nbsp;») au moins.</li>
+				</ol>
+
+				<h2 id="controlled">Environnement maitrisé</h2>
+				<p>Lorsque le site web est destiné à être diffusé et utilisé dans un <a href="#environnement-matris">environnement maîtrisé</a>, la base de références est constituée des configurations (technologie d'assistance, système d'exploitation, navigateur) effectivement utilisés dans l'environnement maîtrisé.</p>
+				<p>par&nbsp;exemple, lorsque le site web est exclusivement diffusé dans un environnement GNU/Linux, les tests devront être réalisés uniquement sur les navigateurs et les technologies d'assistance utilisés par les agents sur cette plateforme. Cette base de référence se substitue à la base de référence utilisée en environnement non maîtrisé.</p>
+			</div>
+        </main>
+		<footer id="footer" role="contentinfo">
+			<div class="page">
+				<p>Ce document est un document de l'État placé sous <a href="http://wiki.data.gouv.fr/wiki/Licence_Ouverte_/_Open_Licence" rel="external" class="external">licence ouverte&nbsp;1.0</a> ou ultérieure, comme tous les documents hébergés sur <a href="http://references.modernisation.gouv.fr/" rel="external" class="external">references.modernisation.gouv.fr</a>. Voir les conditions d'utilisation de la licence dans les <a href="http://references.modernisation.gouv.fr/mentions-legales" rel="external" class="external">mentions légales</a>.</p>
+				<p>Le référentiel technique (liste des critères, glossaire, cas particuliers, notes techniques, base de référence) est une copie adaptée du <a href="http://www.accessiweb.org/index.php/accessiweb-html5aria-liste-deployee.html" rel="external" class="external">référentiel AccessiWeb HTML5 / ARIA</a> - Version de travail du 19/12/2013 - Edité par l'association BrailleNet.</p>
+				<p>Cette page est réalisée avec <a href="http://tinytypo.tetue.net" rel="external" class="external">Tiny Typo</a>, par <a href="http://www.tanaguru.com/fr/" rel="external" class="external">Tanaguru</a>, un gentil dragon qui teste votre accessibilité&nbsp;web.</p>
+				<p class="skiplink"><span class="gobefore gotop"><a href="#top" title="Retour en haut de page"><span>Haut de page</span></a></span></p>
+			</div>
+		</footer>
+        <script src="../js/main.js"></script>
+	</body>
+</html>

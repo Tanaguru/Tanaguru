@@ -6,9 +6,9 @@
 @import "var.less";
 
 body { text-align: center; }
-.page { max-width: 38em; max-width: @screen-medium; margin: @p auto; text-align: left; }
-@media ( max-width: @screen-medium) { .page { width: 80%; } }
-@media ( max-width: @screen-small) { .page { width: auto; margin: 1em 10px; } }
+.page { max-width: 38em; max-width: @screen-medium; margin: 0 auto; text-align: left; }
+@media (max-width: @screen-medium) { .page { width: 80%; } }
+@media (max-width: @screen-small) { .page { width: auto; margin: 0 @gutter; } }
 
 /* * skiplinks */
 
@@ -17,8 +17,26 @@ body { text-align: center; }
 #skiplinks { margin: @gutter/2 @gutter; color: @color-txt; }
 
 main .skiplink { text-align: center; }
-main .skiplink * { display: inline; }
+main .thematique .skiplink { text-align: right; }
 main .skiplink a { margin: 0 @gutter/2; }
+
+.skiplink .gobefore a:after,
+.skiplink .goafter a:after { color: @color; }
+.skiplink .gobefore a:after { content: ' ⬆'; }
+.skiplink .goafter a:after { content: ' ⬇'; }
+
+.skiplink .gotop { position: fixed; bottom: @gutter; right: @gutter; }
+.skiplink .gotop a { display: block; width: 50px; height: 50px; background: fade(@color-txt,30); border: 0; border-radius: 5px; font-size: 30px; line-height: -30px; text-align: center; }
+.skiplink .gotop a:after { color: @color-txt; }
+.skiplink .gotop a:focus,
+.skiplink .gotop a:hover {
+   background: fade(@color-txt,50);
+   &:after { color: lighten(@color-bg,20); }
+}
+@media (min-width: @screen-large) {
+  .skiplink .gotop { right: 25%; }
+}
+.skiplink .gotop span { .offscreen; }
 
 @media print {
 .skiplink { display: none; }
@@ -26,20 +44,66 @@ main .skiplink a { margin: 0 @gutter/2; }
 
 /* * header + nav */
 
-#header #nav { background-color: @color; }
-#header #nav * { display: inline; margin: 0; line-height: 0; }
-#header #nav,
-#header #nav * { color: @color-bg; }
+#header {}
 
-#header #nav #logo {}
-#header #nav ul {}
-#header #nav #logo,
-#header #nav li a,
-#header #nav li .on { display: inline-block; padding: @gutter*2; }
-#header #nav li .on { background: @color-bg; color: @color; font-weight: normal; }
-#header #nav li a:focus,
-#header #nav li a:hover,
-#header #nav li a:active { background-color: fade(@color-bg, 20%); }
+#header .headsite {
+    z-index: 1;
+    position: fixed;
+    background: fade(@color-bg,90);
+    width: 100% !important; height: auto;
+    text-align: center;
+
+    * { vertical-align: middle; }
+    a, .on, #logo a { display: inline-block; padding: @gutter 0; color: @color; }
+
+    #logo { display: block; border-bottom: 1px solid fade(@color-mid,20); }
+    button { position: absolute; top: 0; right: 0; margin: @gutter @gutter 0; }
+
+    /*#nav { background: @color; }
+    #nav, #nav a { color: @color-bg; }*/
+
+    #nav {
+      display: none;
+      border-bottom: 1px solid fade(@color-mid,20);
+      font-size: .88em;
+
+      ul { .list-none; margin: 0; /*text-transform: uppercase;*/ }
+      li a:focus,
+      li a:hover,
+      li a:active { background-color: fade(@color, 20%); }
+      li .on { background-color: @color; color: @color-bg; font-weight: normal; }
+    }
+}
+
+@media (max-width: @screen-small) {
+  #header .headsite {
+    a, .on { display: block; padding: @gutter/2 @gutter; }
+  }
+}
+
+@media (min-width: @screen-small) {
+  #header .headsite {
+    #nav li { display: inline; }
+    a, .on { padding: @gutter @gutter; }
+  }
+}
+
+@media (min-width: @screen-medium) {
+  #header .headsite {
+    margin-bottom: @p*3;
+
+    #nav ul { font-size: 1em; }
+    a, .on { padding: @gutter*2 @gutter; }
+  }
+}
+
+@media (min-width: @screen-large) {
+  #header .headsite {
+    button { margin-right: 25%; }
+  }
+}
+
+#header .headrub { clear: both; padding-top: @p*3; }
 
 #header h1 {
   margin-bottom: @gutter;
@@ -51,40 +115,54 @@ main .skiplink a { margin: 0 @gutter/2; }
 
 /* * table of content */
 
-#navtoc { margin: @line-height*1em 0; padding: @gutter*2 @gutter; text-align: center; background: fade(@color-mid,10); }
-#navtoc h2 { padding: 0; color: @color; font-size: 1em; font-weight: bold; }
-#navtoc ul {
-  .list-none; margin: 0;
-  * { display: inline-block; }
-  li a { display: block; padding: @gutter/2 @gutter; }
-  /*li a:before { content: ' • '; color: @color; }
-  li:first-child a:before { content: ''; }*/
+#navtoc {
+  padding: @p 0;
+  background: fade(@color-bg,90);
+  font-size: .88em;
+
+  h2 { padding: 0; color: @color; font-size: 1em; font-weight: bold; .offscreen; }
+
+  ul { .list-none; margin: 0; }
+  ul,
+  li { border-color: fade(@color-mid, 20%); border-style: solid; }
+  ul { border-width: 1px 0 0; .list-none; }
+  li { border-width: 0 0 1px; }
+  li a { display: block; padding: @gutter/2; }
   li a:focus,
   li a:hover,
-  li a:active { background: fade(@color,90); color: @color-bg; }
+  li a:active { background-color: fade(@color, 20%); color: inherit; }
+  li.on { background-color: @color; color: @color-bg; }
 }
 
-/*#navtoc nav ul,
-#navtoc nav li { .list-none; border-color: fade(@color-mid, 20%); border-style: solid; }
-#navtoc nav ul { border-width: 1px 0 0; .list-none; }
-#navtoc nav li { border-width: 0 0 1px; }
-#navtoc nav li a { display: block; padding: @gutter/2; }
-#navtoc nav li a:focus,
-#navtoc nav li a:hover,
-#navtoc nav li a:active { background-color: fade(@color, 20%); color: inherit; }
-#navtoc nav li.on { background-color: @color; color: @color-bg; }*/
+/* LARGE : menu lateral */
+@media (min-width: 940px) and (min-height: @screen-medium) and (min-height: 30em) {
+  
+  .page {
+    width: @screen-medium;
+    padding-right: 220px !important;
+    box-sizing:
+    content-box;
+  }
+  
+  #header .headsite {
+    /*width: 940px;
+    max-width: 100%;
+    padding-right: 0 !important;*/
+  }
 
-/*@media (min-width: 1280px) {
-#navtoc {
-  position: fixed;
-  top: 150px;
-  left: 0;
-  padding: @gutter*2 0;
-  background-color: fade(@color-bg, 90%);
+  #navtoc {
+    position: fixed;
+    width: 200px;
+    top: 5em; top: 9.3em;
+    /*margin-left: -220px;*/
+    padding: 0;
+    text-align: left;
+    margin-left: 680px;
+  }
+  .gotoc { display: none; }
+
 }
-#navtoc h2 { padding: 0 @gutter*3; text-align: left; }
-#navtoc nav li a { padding-left: @gutter*3; padding-right: @gutter*3; }
-}*/
+
 
 /* * main + content */
 

@@ -10,44 +10,58 @@ a:active { color: @color; border-width: 0 0 2px; border-color: @color; }
 .nav a { border-width: 0; }
 
 /* * titres */
-h3 {
-  padding-top: @gutter;
-  font-weight: bold;
-}
 h2 {
   padding-top: @p*2;
   text-align: center;
   font-weight: bold;
   font-size: 2em;
 }
+h3 {
+  padding-top: @gutter;
+  font-weight: bold;
+}
+h4 {
+  font-weight: bold;
+}
 
 /* * */
 
 pre, code, kbd, samp, var, tt { font-family: @font3; font-size: 90%; border-radius: 4px; }
-pre, code, samp, var, tt { padding: .1em .3em; background-color: fade(@color,5%); border: 1px solid fadeout(@color,90%); white-space: nowrap; }
+pre, code, samp, var, tt { padding: .1em .3em; background-color: fade(@color,5%); border: 1px solid fadeout(@color,90%); }
 
 /* * Atténuer ce qui est annexe */
 
 #howto,
 #howto h3,
 .thematique p,
+.thematique aside,
 .thematique header h3,
-.thematique .correspondance,
-.thematique .correspondance h4 {
+.thematique h4,
+.thematique .tags {
   color: @color-mid; font-size: small;
 }
 #howto p,
 #howto ul,
-.thematique p { margin-bottom: @p/2; }
+.thematique p { margin-bottom: 0; }
+#howto h3 { margin: 0; padding: @p/2 0; }
 .thematique header h3,
-.thematique .correspondance h4 { margin: 0; padding: 0; font-weight: bold; }
+.thematique h4 { margin: @gutter 0 0; padding: 0; }
 
-.thematique .correspondance {
-  width: 100%;
+.thematique aside {
   margin: @p 0;
+  p { margin: 0; }
+}
+
+.thematique .tags { margin-top: @gutter; }
+.thematique .tags * { display: inline; margin: 0; }
+.thematique .tags span { font-weight: bold; display: none; }
+.thematique .tags span:after { content: " : "; }
+.thematique .tags li:before { content: " / "; }
+.thematique .tags li:first-child:before { content: ""; }
+
+.thematique aside h4 {
   padding-top: @gutter;
   border-top: 1px dashed fade(@color-mid, 30%);
-  p { margin: 0; }
 }
 
 /* * thematique */
@@ -70,7 +84,7 @@ pre, code, samp, var, tt { padding: .1em .3em; background-color: fade(@color,5%)
 }
 @media print {
 .thematique header nav { display: none; }
-.thematique h2 {page-break-before:always}
+.thematique h2 { page-break-before: always;}
 }
 
 .thematique section { margin-bottom: @p*2; }
