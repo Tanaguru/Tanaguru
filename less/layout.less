@@ -29,13 +29,16 @@ main .skiplink a { margin: 0 @gutter/2; }
 #header {}
 
 #header .headsite {
-    position: relative;
+    position: fixed;
+    background: fade(@color-bg,90);
+    width: 100% !important; height: auto;
+    text-align: center;
 
     * { vertical-align: middle; }
     a, .on, #logo a { display: inline-block; padding: @gutter 0; color: @color; }
 
     #logo { display: block; border-bottom: 1px solid fade(@color-mid,20); }
-    button { position: absolute; top: 0; right: 0; margin: @gutter 0 0; }
+    button { position: absolute; top: 0; right: 0; margin: @gutter @gutter 0; }
 
     /*#nav { background: @color; }
     #nav, #nav a { color: @color-bg; }*/
@@ -68,14 +71,20 @@ main .skiplink a { margin: 0 @gutter/2; }
 
 @media (min-width: @screen-medium) {
   #header .headsite {
-    padding-bottom: 30px;
+    margin-bottom: @p*3;
 
     #nav ul { font-size: 1em; }
     a, .on { padding: @gutter*2 @gutter; }
   }
 }
 
-#header .headrub { clear: both; }
+@media (min-width: @screen-large) {
+  #header .headsite {
+    button { margin-right: 25%; }
+  }
+}
+
+#header .headrub { clear: both; padding-top: @p*3; }
 
 #header h1 {
   margin-bottom: @gutter;
@@ -116,10 +125,10 @@ main .skiplink a { margin: 0 @gutter/2; }
     content-box;
   }
   
-  #header .headsite.page {
-    width: 940px;
+  #header .headsite {
+    /*width: 940px;
     max-width: 100%;
-    padding-right: 0 !important;
+    padding-right: 0 !important;*/
   }
 
   #navtoc {

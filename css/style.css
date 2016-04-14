@@ -971,7 +971,11 @@ main .skiplink a {
 }
 /* * header + nav */
 #header .headsite {
-  position: relative;
+  position: fixed;
+  background: rgba(248, 245, 245, 0.9);
+  width: 100% !important;
+  height: auto;
+  text-align: center;
   /*#nav { background: @color; }
     #nav, #nav a { color: @color-bg; }*/
 
@@ -994,7 +998,7 @@ main .skiplink a {
   position: absolute;
   top: 0;
   right: 0;
-  margin: 10px 0 0;
+  margin: 10px 10px 0;
 }
 #header .headsite #nav {
   display: none;
@@ -1035,7 +1039,7 @@ main .skiplink a {
 }
 @media (min-width: 640px) {
   #header .headsite {
-    padding-bottom: 30px;
+    margin-bottom: 4.5em;
   }
   #header .headsite #nav ul {
     font-size: 1em;
@@ -1045,8 +1049,14 @@ main .skiplink a {
     padding: 20px 10px;
   }
 }
+@media (min-width: 992px) {
+  #header .headsite button {
+    margin-right: 25%;
+  }
+}
 #header .headrub {
   clear: both;
+  padding-top: 4.5em;
 }
 #header h1 {
   margin-bottom: 10px;
@@ -1112,10 +1122,11 @@ main .skiplink a {
     padding-right: 220px !important;
     box-sizing: content-box;
   }
-  #header .headsite.page {
-    width: 940px;
-    max-width: 100%;
-    padding-right: 0 !important;
+  #header .headsite {
+    /*width: 940px;
+      max-width: 100%;
+      padding-right: 0 !important;*/
+  
   }
   #navtoc {
     position: fixed;
