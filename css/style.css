@@ -931,7 +931,7 @@ body {
 .page {
   max-width: 38em;
   max-width: 640px;
-  margin: 1.5em auto;
+  margin: 0 auto;
   text-align: left;
 }
 @media (max-width: 640px) {
@@ -942,7 +942,7 @@ body {
 @media (max-width: 480px) {
   .page {
     width: auto;
-    margin: 1em 10px;
+    margin: 0 10px;
   }
 }
 /* * skiplinks */
@@ -970,33 +970,83 @@ main .skiplink a {
   }
 }
 /* * header + nav */
-#header #nav {
-  background-color: #2c699e;
+#header .headsite {
+  position: relative;
+  /*#nav { background: @color; }
+    #nav, #nav a { color: @color-bg; }*/
+
 }
-#header #nav * {
-  display: inline;
-  margin: 0;
-  line-height: 0;
+#header .headsite * {
+  vertical-align: middle;
 }
-#header #nav,
-#header #nav * {
-  color: #f8f5f5;
-}
-#header #nav #logo,
-#header #nav li a,
-#header #nav li .on {
+#header .headsite a,
+#header .headsite .on,
+#header .headsite #logo a {
   display: inline-block;
-  padding: 20px;
-}
-#header #nav li .on {
-  background: #f8f5f5;
+  padding: 10px 0;
   color: #2c699e;
+}
+#header .headsite #logo {
+  display: block;
+  border-bottom: 1px solid rgba(102, 102, 102, 0.2);
+}
+#header .headsite button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px 0 0;
+}
+#header .headsite #nav {
+  display: none;
+  border-bottom: 1px solid rgba(102, 102, 102, 0.2);
+  font-size: .88em;
+}
+#header .headsite #nav ul {
+  margin-left: 0;
+  list-style: none;
+  margin: 0;
+  /*text-transform: uppercase;*/
+}
+#header .headsite #nav li a:focus,
+#header .headsite #nav li a:hover,
+#header .headsite #nav li a:active {
+  background-color: rgba(44, 105, 158, 0.2);
+}
+#header .headsite #nav li .on {
+  background-color: #2c699e;
+  color: #f8f5f5;
   font-weight: normal;
 }
-#header #nav li a:focus,
-#header #nav li a:hover,
-#header #nav li a:active {
-  background-color: rgba(248, 245, 245, 0.2);
+@media (max-width: 480px) {
+  #header .headsite a,
+  #header .headsite .on {
+    display: block;
+    padding: 5px 10px;
+  }
+}
+@media (min-width: 480px) {
+  #header .headsite #nav li {
+    display: inline;
+  }
+  #header .headsite a,
+  #header .headsite .on {
+    padding: 10px 10px;
+  }
+}
+@media (min-width: 640px) {
+  #header .headsite {
+    padding-bottom: 30px;
+  }
+  #header .headsite #nav ul {
+    font-size: 1em;
+  }
+  #header .headsite a,
+  #header .headsite .on {
+    padding: 20px 10px;
+  }
+}
+#header .headrub {
+  clear: both;
 }
 #header h1 {
   margin-bottom: 10px;
@@ -1062,6 +1112,11 @@ main .skiplink a {
     padding-right: 220px !important;
     box-sizing: content-box;
   }
+  #header .headsite.page {
+    width: 940px;
+    max-width: 100%;
+    padding-right: 0 !important;
+  }
   #navtoc {
     position: fixed;
     width: 200px;
@@ -1074,17 +1129,6 @@ main .skiplink a {
     margin-left: 680px;
   }
 }
-/*#navtoc { margin: @line-height*1em 0; padding: @gutter*2 @gutter; text-align: center; background: fade(@color-mid,10); }
-
-#navtoc ul {
-  * { display: inline-block; }
-  li a { display: block; padding: @gutter/2 @gutter; }
-  *//*li a:before { content: ' • '; color: @color; }
-  li:first-child a:before { content: ''; }*//*
-  li a:focus,
-  li a:hover,
-  li a:active { background: fade(@color,90); color: @color-bg; }
-}*/
 /* * main + content */
 main {
   clear: both;
@@ -1185,6 +1229,10 @@ tt {
 #howto ul,
 .thematique p {
   margin-bottom: 0;
+}
+#howto h3 {
+  margin: 0;
+  padding: 0.75em 0;
 }
 .thematique header h3,
 .thematique h4 {

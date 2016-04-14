@@ -10,3 +10,18 @@ $(window).scroll(function() {
         }
     });
 });
+
+$( document ).ready(function() {
+	$toto=false;
+    $("#btnnav").on('click',function(){
+    	if ($toto){
+    		$('#nav').hide();
+    		$toto=false;
+    		$("#btnnav").attr('aria-expanded','false');
+    	} else {
+    		$('#nav').show();
+    		$toto=true;
+    		$("#btnnav").attr('aria-expanded','true');
+    	}
+    });
+});
