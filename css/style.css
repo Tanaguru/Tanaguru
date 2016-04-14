@@ -958,11 +958,21 @@ body {
 main .skiplink {
   text-align: center;
 }
-main .skiplink * {
-  display: inline;
+main .thematique .skiplink {
+  text-align: right;
 }
 main .skiplink a {
   margin: 0 5px;
+}
+.skiplink .gobefore a:after,
+.skiplink .goafter a:after {
+  color: #2c699e;
+}
+.skiplink .gobefore a:after {
+  content: ' ⬆';
+}
+.skiplink .goafter a:after {
+  content: ' ⬇';
 }
 @media print {
   .skiplink {
@@ -1138,6 +1148,9 @@ main .skiplink a {
     padding: 0;
     text-align: left;
     margin-left: 680px;
+  }
+  .gotoc {
+    display: none;
   }
 }
 /* * main + content */

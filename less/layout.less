@@ -17,8 +17,13 @@ body { text-align: center; }
 #skiplinks { margin: @gutter/2 @gutter; color: @color-txt; }
 
 main .skiplink { text-align: center; }
-main .skiplink * { display: inline; }
+main .thematique .skiplink { text-align: right; }
 main .skiplink a { margin: 0 @gutter/2; }
+
+.skiplink .gobefore a:after,
+.skiplink .goafter a:after { color: @color; }
+.skiplink .gobefore a:after { content: ' ⬆'; }
+.skiplink .goafter a:after { content: ' ⬇'; }
 
 @media print {
 .skiplink { display: none; }
@@ -140,6 +145,7 @@ main .skiplink a { margin: 0 @gutter/2; }
     text-align: left;
     margin-left: 680px;
   }
+  .gotoc { display: none; }
 
 }
 
