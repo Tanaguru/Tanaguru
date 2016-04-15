@@ -1019,7 +1019,6 @@ main .skiplink a {
 /* * header + nav */
 #header .headsite {
   z-index: 1;
-  position: fixed;
   background: rgba(248, 245, 245, 0.9);
   width: 100% !important;
   height: auto;

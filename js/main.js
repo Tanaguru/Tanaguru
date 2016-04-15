@@ -24,17 +24,4 @@ $( document ).ready(function() {
     		$("#btnnav").attr('aria-expanded','true');
     	}
     });
-
-    // Pour tous les liens commençant par #
-    // cf. : http://blog.haeresis.fr/la-navigation-interne-dans-une-page-web/
-	$("a[href^='#']").click(function (e) {
-		// On annule le comportement initial au cas ou la base soit différente de la page courante
-		e.preventDefault(); 
-				
-		// On ajoute le hash dans l'URL
-		window.location.hash = $(this).attr("href");
-		
-		// Une fois en place on va forcer l'affichage N pixels plus haut
-		$(window).scrollTop( $(window).scrollTop() - 50 );
-	});
 });
