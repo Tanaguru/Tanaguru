@@ -47,11 +47,11 @@ main .skiplink a { margin: 0 @gutter/2; }
 #header {}
 
 #header .headsite {
-    z-index: 1;
+    z-index: 99;
     background: fade(@color-bg,90);
     width: 100% !important; height: auto;
     text-align: center;
-    
+
     * { vertical-align: middle; }
     a, .on, #logo a { display: inline-block; padding: @gutter 0; color: @color; }
 
@@ -134,7 +134,7 @@ main .skiplink a { margin: 0 @gutter/2; }
 }
 
 /* LARGE : menu lateral */
-@media (min-width: 940px) and (min-height: @screen-medium) and (min-height: 30em) {
+@media (min-height: 34em) and (min-width: 940px) {
   
   .page {
     width: @screen-medium;
@@ -152,7 +152,7 @@ main .skiplink a { margin: 0 @gutter/2; }
   #navtoc {
     position: fixed;
     width: 200px;
-    top: 5em; top: 9.3em;
+    top: @gutter*5;
     /*margin-left: -220px;*/
     padding: 0;
     text-align: left;
