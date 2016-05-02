@@ -17,11 +17,11 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" id="btnnav">Menu</button>
                 <nav id="nav" class="collapse navbar-collapse" role="navigation">
                     <ul><!--
-					--><li><a href="./criteria.html">Criteria</a></li><!--
+					--><li><a href="./criteres.html">Criteria</a></li><!--
 					--><li><strong class="on">Glossary</strong></li><!--
-					--><li><a href="./particular-cases.html">Particular cases</a></li><!--
-					--><li><a href="./technical-notes.html">Technical notes</a></li><!--
-					--><li><a href="./baseline.html">Baseline</a></li><!--
+					--><li><a href="./cas-particuliers.html">Particular cases</a></li><!--
+					--><li><a href="./notes-techniques.html">Technical notes</a></li><!--
+					--><li><a href="./base-de-reference.html">Baseline</a></li><!--
 					--><li><a href="./references.html">References</a></li><!--
 				--></ul>
             	</nav>
@@ -354,7 +354,7 @@
 				<p>Controlling a functionality with the keyboard means that it can be accessed via the Tab key and activated via the Enter key, except for:
 				</p>
 				<ul>
-					<li>User interface components implementing WAI-ARIA, when a <a href="./glossary.html#mDesignPAttern">Design Pattern</a> defines requirements for specific  keyboard interactions;
+					<li>User interface components implementing WAI-ARIA, when a <a href="./glossaire.html#mDesignPAttern">Design Pattern</a> defines requirements for specific  keyboard interactions;
 					</li>
 					<li>When a component makes use of a technology that requires keyboard shortcuts, and the Tab key is not available.</li>
 				</ul>
@@ -376,7 +376,7 @@
 					Correctly rendered (by assistive technologies)
 				</h3>
 				When a criterion, a test or a test condition requires to verify that a device is correctly rendered by assistive technologies, it must be checked that this rendering is accessibility supported.
-				The test consists in checking that the rendering is relevant for at least one combination of the <a href="./baseline.html">Reference baseline</a> used to declare that an element, a device or an alternative is "accessibility supported".
+				The test consists in checking that the rendering is relevant for at least one combination of the <a href="./base-de-reference.html">Reference baseline</a> used to declare that an element, a device or an alternative is "accessibility supported".
 				For example: Test 1.3.7 requires to check that the alternative of a vector image conveying information is correctly rendered.
 				The rendering is then tested with NVDA (last version) and Firefox, JAWS (previous version) and Internet Explorer 9+, and VoiceOver (last version) and Safari.
 				If the alternative is correctly rendered, then the test is passed.
@@ -461,7 +461,7 @@
 					The Test 9.2.2 requires that the structure of the sectioning elements (<code>NAV</code>), <code>SECTION</code>, <code>ARTICLE</code> for instance) in the page is coherent; meaning it's representative of the document's architecture. This structure is completed by the headings (<code>h1</code> to <code>h6</code> tags) structure, which is also a part of it.
 				</p>
 				<p>Inappropriate use of these sectioning elements could result in an incoherent document outline, through excessive use of <code>SECTION</code> or <code>ARTICLE</code> elements for example.</p>
-				<p><strong>Note 1:</strong>The document outline algorithm is progressively supported by browsers and assistive technologies. Considering that, in any case, the RGAA requires a robust and coherent headings hierarchy, <strong>it is acceptable to consider the Test 9.2.2 as not applicable</strong> when a perfectly coherent document outline can not be guaranteed. You may read this technical note: <a href="./technical-notes.html#crit-9-2">Technical note on document outline</a>.</p>
+				<p><strong>Note 1:</strong>The document outline algorithm is progressively supported by browsers and assistive technologies. Considering that, in any case, the RGAA requires a robust and coherent headings hierarchy, <strong>it is acceptable to consider the Test 9.2.2 as not applicable</strong> when a perfectly coherent document outline can not be guaranteed. You may read this technical note: <a href="./notes-techniques.html#crit-9-2">Technical note on document outline</a>.</p>
 				<p><strong>Note 2</strong>You may read, on the same subject, the example provided in the HTML5 specification: <a rel="external" class="external" href="http://www.w3.org/TR/html5/sections.html#sample-outlines">4.3.10.2 Sample outlines</a>.
 				</p>
 
@@ -606,7 +606,7 @@
 				Heading
 				</h3>
 				<p>HTML element (h<i>n</i> tag) with 6 hierarchy levels (from <code>h1</code> for the most important heading to <code>h6</code> for the less important), allowing to define and title sections in a Web content. The hierarchy between headings must be respected on a web page, and the heading levels cannot be skipped: a <code>h3</code> heading (level&nbsp;3) cannot be the next heading after a <code>h1</code> heading (level&nbsp;1), for example. On each web page, there must be at least one <code>h1</code> heading.</p>
-				<p><strong>Note:</strong> Headings hidden via CSS are considered as available to the user, and validate <a href="criteria.html#crit-9-1">criterion&nbsp;9.1</a>.
+				<p><strong>Note:</strong> Headings hidden via CSS are considered as available to the user, and validate <a href="criteres.html#crit-9-1">criterion&nbsp;9.1</a>.
 				</p>
 
 				<h3 id="mTexteCache">Hidden text</h3>
@@ -851,7 +851,7 @@
 				</ul>
 				<p><strong>Note 1:</strong> An image link can be based on an image (<code>img</code> tag), on image object (<code>object</code> tag) or a bitmap image (<code>canvas</code> tag).
 				</p>
-				<p><strong>Note 2:</strong> An image link with a missing <code>alt</code> attribute is considered as not applicable for <a href="criteria.html#crit-6-5">criterion&nbsp;6.5</a>.
+				<p><strong>Note 2:</strong> An image link with a missing <code>alt</code> attribute is considered as not applicable for <a href="criteres.html#crit-6-5">criterion&nbsp;6.5</a>.
 				</p>
 
 				<h3 id="mTitreLien">
@@ -961,7 +961,7 @@
 				</h3>
 				<p>
 				Content that is not time-dependant, that can be played via a plugin (Flash, Java, Silverlight&hellip;) or via <code>svg</code> and <code>canvas</code> tags. For example, an interactive map in Flash, a Flash-based or Java application, a user-controlled slideshow, are non time-based media. A non time-based media can contain time-based media (a Flash-based gallery of videos, for example).</p>
-				<p><strong>Note :</strong> the use of the <code>wmode</code> parameter for a Flash object with the values "<code>transparent</code>" and "<code>opaque</code>" invalidates <a href="criteria.html#crit-4-21">criterion&nbsp;4.21</a> (Can each non time-based media be controlled by the keyboard and by the mouse?). When accessed with a  screenreader, these values make the Flash movie inaccessible (the object is ignored, or can not be browsed). therefore it can not be tabbed to.</p>
+				<p><strong>Note :</strong> the use of the <code>wmode</code> parameter for a Flash object with the values "<code>transparent</code>" and "<code>opaque</code>" invalidates <a href="criteres.html#crit-4-21">criterion&nbsp;4.21</a> (Can each non time-based media be controlled by the keyboard and by the mouse?). When accessed with a  screenreader, these values make the Flash movie inaccessible (the object is ignored, or can not be browsed). therefore it can not be tabbed to.</p>
 
 				<h2 id="o">O</h2>
 				<ul class="skiplink">
@@ -1126,7 +1126,7 @@
 					Among the 5 techniques proposed by the HTML5 specification, the only one that should be used currently consists in inserting the summary in the table title (<code>caption</code> tag), and hiding it with CSS if necessary.
 				</p>
 				<p>
-					Read the <a href="./technical-notes.html#crit-5-1">Technical note on table summaries</a>.
+					Read the <a href="./notes-techniques.html#crit-5-1">Technical note on table summaries</a>.
 				</p>
 
 				<h3 id="mSsTitreSynchro">
@@ -1197,7 +1197,7 @@
 				</ul>    
 				<p>
 				A time-based media can be broadcast live or be provided to play in an asynchronous way (prerecorded media).</p>
-				<p><strong>Note :</strong> the use of the <code>wmode</code> parameter for a Flash object with the values "<code>transparent</code>" and "<code>opaque</code>" invalidates <a href="criteria.html#crit-4-21">criterion&nbsp;4.21</a> (Can each non time-based media be controlled by the keyboard and by the mouse?). When accessed with a  screenreader, these values make the Flash movie inaccessible (the object is ignored, or can not be browsed). therefore it can not be tabbed to.</p>
+				<p><strong>Note :</strong> the use of the <code>wmode</code> parameter for a Flash object with the values "<code>transparent</code>" and "<code>opaque</code>" invalidates <a href="criteres.html#crit-4-21">criterion&nbsp;4.21</a> (Can each non time-based media be controlled by the keyboard and by the mouse?). When accessed with a  screenreader, these values make the Flash movie inaccessible (the object is ignored, or can not be browsed). therefore it can not be tabbed to.</p>
 				<p>Note 2: Animated GIFs, and JavaScript-based animations  are not considered as time-based media with regards to RGAA.</p>
 
 				<h3 id="mTitreTab">Title (of a data table)</h3>
