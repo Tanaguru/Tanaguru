@@ -46,8 +46,8 @@ public class Rgaa30Rule100501Test extends Rgaa30RuleImplementationTestCase {
 
     @Override
     protected void setUpWebResourceMap() {
-//        addWebResource("Rgaa30.Test.10.5.1-1Passed-01");
-//        addWebResource("Rgaa30.Test.10.5.1-2Failed-01");
+        addWebResource("Rgaa30.Test.10.5.1-1Passed-01");
+   //     addWebResource("Rgaa30.Test.10.5.1-2Failed-01");
         addWebResource("Rgaa30.Test.10.5.1-3NMI-01");
 //        addWebResource("Rgaa30.Test.10.5.1-4NA-01");
     }
@@ -57,7 +57,7 @@ public class Rgaa30Rule100501Test extends Rgaa30RuleImplementationTestCase {
         //----------------------------------------------------------------------
         //------------------------------1Passed-01------------------------------
         //----------------------------------------------------------------------
-//        checkResultIsPassed(processPageTest("Rgaa30.Test.10.5.1-1Passed-01"), 1);
+      checkResultIsPassed(processPageTest("Rgaa30.Test.10.5.1-1Passed-01"), 0);
 
         //----------------------------------------------------------------------
         //------------------------------2Failed-01------------------------------
@@ -76,15 +76,15 @@ public class Rgaa30Rule100501Test extends Rgaa30RuleImplementationTestCase {
         //------------------------------3NMI-01---------------------------------
         //----------------------------------------------------------------------
         ProcessResult processResult = processPageTest("Rgaa30.Test.10.5.1-3NMI-01");
-        checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-//        checkResultIsPreQualified(processResult, 2, 1);
-//        checkRemarkIsPresent(
-//                processResult,
-//                TestSolution.NEED_MORE_INFO,
-//                "#MessageHere",
-//                "#CurrentElementHere",
-//                1,
-//                new ImmutablePair("#ExtractedAttributeAsEvidence", "#ExtractedAttributeValue"));
+     //   checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
+        checkResultIsPreQualified(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                "CheckBackGroundColorPresence",
+                null,
+                1,
+                null);
 
 
         //----------------------------------------------------------------------
@@ -99,8 +99,8 @@ public class Rgaa30Rule100501Test extends Rgaa30RuleImplementationTestCase {
         // The consolidate method can be removed when real implementation is done.
         // The assertions are automatically tested regarding the file names by 
         // the abstract parent class
-        assertEquals(TestSolution.NOT_TESTED,
-                consolidate("Rgaa30.Test.10.5.1-3NMI-01").getValue());
+//        assertEquals(TestSolution.NOT_TESTED,
+//                consolidate("Rgaa30.Test.10.5.1-3NMI-01").getValue());
     }
 
 }

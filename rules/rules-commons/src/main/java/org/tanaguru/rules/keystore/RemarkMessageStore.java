@@ -374,6 +374,8 @@ public final class RemarkMessageStore {
             "NotTreatedBackgroundColor";
     public static final String CHECK_CONTRAST_OF_IMAGE_MSG =
             "CheckTheContrastOfImagesWithText";
+    public static final String CHECK_BG_COLOR_PRESENCE =
+            "CheckBackGroundColorPresence";
     
     // scripts
     public static final String ONKEYPRESS_MISSING_MSG = "OnKeyPressMissing";
