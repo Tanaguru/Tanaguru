@@ -90,7 +90,7 @@
 				</ul>
 				<p>Contents must conform to the <a href="http://references.modernisation.gouv.fr/sites/default/files/liste-criteres-documents-bureautiques-telechargement-RGAA.odt" class="download">list of criteria for downloadable electronic documents <small>(ODT, 56 kb, in&nbsp;French)</small></a>.</p>
 				<p>
-					<strong>Note:</strong>The txt format cannot be used to provide an accessible version of a downloadable document.
+					<strong>Note:</strong> The txt format cannot be used to provide an accessible version of a downloadable document.
 				</p>
 
 				<h3 id="mAdaptsARIADP">Adapts a design pattern defined by the ARIA API</h3>
@@ -99,7 +99,7 @@
 				<p>It is the author's responsibility to check that these adaptations are consistent with the design pattern; that they do not modify the expected behavior, from a user experience point of view; and that the adapted component is correctly rendered by assistive technologies.</p>
 				<p>If these requirements are met, the component can be declared "compliant" with the design pattern.</p>
 
-				<h3 id="mLienAdj">Adjacent link</h3>
+				<h3 id="LienAdj">Adjacent link</h3>
 				<p>Link adjacent to an element both in the layout (CSS enabled) and in the HTML code. In the HTML code, the link must be just before or after the element it is adjacent to.</p>
 
 				<h3 id="mAlerte">Alert</h3>
@@ -143,9 +143,7 @@
 				<h3 id="mAltScript">Alternative (to a script)</h3>
 				<p>
 				Text or process associated with the script, via an appropriate technique, and providing a function or a content similar to the one provided by the script.</p>
-				<p><strong>Note:</strong>
-					when an alternative to a JavaScript functionality is available, the website must provide the way to access it. It can be a link or a button providing access to an alternative page not relying upon JavaScript, or allowing to replace the component by an alternative component that does not rely on JavaScript, for instance.
-				</p>
+				<p><strong>Note:</strong> when an alternative to a JavaScript functionality is available, the website must provide the way to access it. It can be a link or a button providing access to an alternative page not relying upon JavaScript, or allowing to replace the component by an alternative component that does not rely on JavaScript, for instance.</p>
 
 				<h3 id="mAudioOnly">
 					Alternative audio-only version
@@ -229,7 +227,7 @@
 					<li>the content of the <code>button</code> tag.</li>
 				</ul>
 
-				<h3 id="mLienEvitement">
+				<h3 id="LienEvitement">
 					Bypass or skip links
 				</h3>
 				<p>Links whose purpose is to navigate inside of content (skip link, link to  the search form or the menu).</p>
@@ -321,7 +319,7 @@
 				<ul>
 					<li>List of required control features:
 						<ul>
-							<li>the time-based media must always have at least the following features: play, pause, stop ;
+							<li>the time-based media must always have at least the following features: play, pause, stop;
 							</li>
 							<li>if the time-based media has sound, it must have a feature to set the sound on and off, and to control the volume;
 							</li>
@@ -372,17 +370,14 @@
 				</ul>
 				<p>Authors and administrators must guarantee that the technologies in use, and the way they are utilized by users, are compatible with their technologies (including assistive technologies). Information services or web sites, whatever their status, that provide public access cannot be considered as controlled environments.</p>
 
-				<h3 id="mCorrectlyRendered">
-					Correctly rendered (by assistive technologies)
-				</h3>
-				When a criterion, a test or a test condition requires to verify that a device is correctly rendered by assistive technologies, it must be checked that this rendering is accessibility supported.
-				The test consists in checking that the rendering is relevant for at least one combination of the <a href="./base.html">Reference baseline</a> used to declare that an element, a device or an alternative is "accessibility supported".
+				<h3 id="mCorrectlyRendered">Correctly rendered (by assistive technologies)</h3>
+				<p>When a criterion, a test or a test condition requires to verify that a device is correctly rendered by assistive technologies, it must be checked that this rendering is accessibility supported.</p>
+				<p>The test consists in checking that the rendering is relevant for at least one combination of the <a href="./base.html">Reference baseline</a> used to declare that an element, a device or an alternative is "accessibility supported".
 				For example: Test 1.3.7 requires to check that the alternative of a vector image conveying information is correctly rendered.
-				The rendering is then tested with NVDA (last version) and Firefox, JAWS (previous version) and Internet Explorer 9+, and VoiceOver (last version) and Safari.
-				If the alternative is correctly rendered, then the test is passed.
-				<h3 id="mPropCouleur">
-					CSS property defining a color
-				</h3>
+				The rendering is then tested with NVDA (last version) and Firefox, JAWS (previous version) and Internet Explorer 9+, and VoiceOver (last version) and Safari.</p>
+				<p>If the alternative is correctly rendered, then the test is passed.</p>
+
+				<h3 id="mPropCouleur">CSS property defining a color</h3>
 				<p>This concerns the following CSS properties: <code>color</code>, <code>background>-color</code>, <code>background</code>, <code>border-color</code>, <code>border</code>, <code>outline-color</code>, <code>outline</code>.
 				</p>
 				<p> <strong>Note:</strong> the use of a background image to set a color (<code>bakground:url(&hellip;)</code> property) is also concerned. 
@@ -427,7 +422,7 @@
 					Design Pattern
 				</h3>
 				<p>A design pattern is a model defined by the ARIA API describing the structure, roles, properties and behaviors a JavaScript component (widget) must have.</p>
-				<p>The design patterns are described in this document: <a rel="external" class="external" href="http://www.w3.org/WAI/PF/aria-practices/">WAI-ARIA 1.0 Authoring PRactices</a>.
+				<p>The design patterns are described in this document: <a rel="external" class="external" href="http://www.w3.org/WAI/PF/aria-practices/">WAI-ARIA 1.0 Authoring Practices</a>.
 				</p>
 				<p>A JavaScript-based component must follow the design pattern corresponding with its WAI-ARIA role.
 				</p>
@@ -461,7 +456,7 @@
 					The Test 9.2.2 requires that the structure of the sectioning elements (<code>NAV</code>), <code>SECTION</code>, <code>ARTICLE</code> for instance) in the page is coherent; meaning it's representative of the document's architecture. This structure is completed by the headings (<code>h1</code> to <code>h6</code> tags) structure, which is also a part of it.
 				</p>
 				<p>Inappropriate use of these sectioning elements could result in an incoherent document outline, through excessive use of <code>SECTION</code> or <code>ARTICLE</code> elements for example.</p>
-				<p><strong>Note 1:</strong>The document outline algorithm is progressively supported by browsers and assistive technologies. Considering that, in any case, the RGAA requires a robust and coherent headings hierarchy, <strong>it is acceptable to consider the Test 9.2.2 as not applicable</strong> when a perfectly coherent document outline can not be guaranteed. You may read this technical note: <a href="./notes-techniques.html#crit-9-2">Technical note on document outline</a>.</p>
+				<p><strong>Note 1:</strong> The document outline algorithm is progressively supported by browsers and assistive technologies. Considering that, in any case, the RGAA requires a robust and coherent headings hierarchy, <strong>it is acceptable to consider the Test 9.2.2 as not applicable</strong> when a perfectly coherent document outline can not be guaranteed. You may read this technical note: <a href="./notes-techniques.html#crit-9-2">Technical note on document outline</a>.</p>
 				<p><strong>Note 2</strong>You may read, on the same subject, the example provided in the HTML5 specification: <a rel="external" class="external" href="http://www.w3.org/TR/html5/sections.html#sample-outlines">4.3.10.2 Sample outlines</a>.
 				</p>
 
@@ -489,7 +484,7 @@
 				<h2 id="f">F</h2>
 				<ul class="skiplink">
 					<li class="gobefore"><a href="#e">Skip to E</a></li>
-					<li class="goafter"><a href="#g">Skip to G</a></li>
+					<li class="goafter"><a href="#h">Skip to H</a></li>
 				</ul>
 
 				<h3 id="mPriseFocus">Focus</h3>
@@ -621,7 +616,7 @@
 				<li>(HTML5) <code>hidden</code> attribute</li>
 				<li>(HTML+ARIA) <code>aria-hidden=true</code></li>
 				</ul>
-				<p>All text content using one or more of these properties are scoped by the <a href="critetia.html#crit-10-13">criterion&nbsp;10.13</a>.</p>
+				<p>All text content using one or more of these properties are scoped by the <a href="criteres.html#crit-10-13">criterion&nbsp;10.13</a>.</p>
 
 				<h2 id="i">I</h2>
 				<ul class="skiplink">
@@ -655,38 +650,25 @@
 				Image implemented via the <code>object</code> tag and displaying text.
 				</p>
 
-				<h3 id="mImageCaption">
-				Image caption
-				</h3>
+				<h3 id="ImageCaption">Image caption</h3>
 				<p>For an image, a caption is an adjacent text, containing information about the image (for instance a copyright, a date, an author&hellip;), or information complementary to the one conveyed by the image (for instance, text associated with an image in a gallery).</p>
-				<p>When an image has a caption, it is necessary to tie the image and its caption together via a structure relationship, so that assistive technologies can process both as a whole.
-				</p>
-				<p>The HTML5 specification defines the <code>figure</code> (container for the image and its caption) and <code>figcaption</code> (container for the caption) tags.
-				</p>
+				<p>When an image has a caption, it is necessary to tie the image and its caption together via a structure relationship, so that assistive technologies can process both as a whole.</p>
+				<p>The HTML5 specification defines the <code>figure</code> (container for the image and its caption) and <code>figcaption</code> (container for the caption) tags.</p>
 				<p>An image without caption can be:
 				</p>
 				<ul>
-				<li>an image that is not included in a <code>figure</code> element;</li>
-				<li>an image included in a <code>figure</code> element, with no <code>figcaption</code> element</li>
+					<li>an image that is not included in a <code>figure</code> element;</li>
+					<li>an image included in a <code>figure</code> element, with no <code>figcaption</code> element</li>
 				</ul>
-				<p>Note: when the text adjacent to the image can serve as its alternative text, it is not required to use <code>figure</code> and <code>figcaption</code> tags; the image can be considered as decorative in this situation.
-				</p>
+				<p>Note: when the text adjacent to the image can serve as its alternative text, it is not required to use <code>figure</code> and <code>figcaption</code> tags; the image can be considered as decorative in this situation.</p>
 
-				<h3 id="mImgInfo">
-				Image conveying information
-				</h3>
-				<p>An image that conveys information needed to understand the content it is associated with.
-				</p>
+				<h3 id="mImgInfo">Image conveying information</h3>
+				<p>An image that conveys information needed to understand the content it is associated with.</p>
 
-				<h3 id="mInfoDonneeCouleur">
-				Image conveying information (provided by color)
-				</h3>
-				<p>Image for which all or part of its content conveys information visually, by means of color only.
-				</p>
+				<h3 id="mInfoDonneeCouleur">Image conveying information (provided by color)</h3>
+				<p>Image for which all or part of its content conveys information visually, by means of color only.</p>
 
-				<h3 id="mLienImage">
-				Image link
-				</h3>
+				<h3 id="LienImage">Image link</h3>
 				<p>
 				Link whose content between <code>&lt;a href="&hellip;"&gt;</code> and <code>&lt;/a&gt;</code> is only constituted of an image. The link text of an image link is the content of the  text alternative of the image.
 				</p>
@@ -696,14 +678,12 @@
 				Image map
 				</h3>
 				<ol>
-				<li>    <strong>client-side image map</strong> (<code>usemap</code> attribute): image divided into clickable or non-clickable areas (<code>nohref</code> attribute).
-				</li>
-				<li>    <strong>Server-side image map</strong> (<code>ismap</code> attribute) : image for which the browser sends the coordinates of the pointing device to the server, each set of coordinates corresponding to a resource (URL). The server-side image map is extremely rare.
-				</li>
+					<li><strong>client-side image map</strong> (<code>usemap</code> attribute): image divided into clickable or non-clickable areas (<code>nohref</code> attribute).
+					</li>
+					<li><strong>Server-side image map</strong> (<code>ismap</code> attribute) : image for which the browser sends the coordinates of the pointing device to the server, each set of coordinates corresponding to a resource (URL). The server-side image map is extremely rare.
+					</li>
 				</ol>
-				<p>
-				Note: in HTML5, the <code>ismap</code> attribute is obsolete non conformant for form buttons of type image (<code>input type="image"</code>).
-				</p>
+				<p><strong>Note:</strong> in HTML5, the <code>ismap</code> attribute is obsolete non conformant for form buttons of type image (<code>input type="image"</code>).</p>
 
 				<h3 id="mImgText">Image of text</h3>
 				<p>Image that displays text.</p>
@@ -771,28 +751,24 @@
 				<p><strong>Note:</strong> in HTML, it is not technically possible to signal language changes inside an attribute value. In this case, the language change is signalled via the element bearing this attribute. For instance, an hyperlink with a <code>title</code> attribute in German, in a page whose main language is English, should have a <code>lang</code> attribute set to <code>"de"</code>. When the attribute contains several language changes, the criterion is not applicable. 
 				</p>
 
-				<h3 id="mCodeLangue">
-				Language code
-				</h3>
-				<p>Code with two characters (ISO 639-1) or 3 characters (ISO 639-2 and following) specifying the default language of a document or a chunk of text. The language code  is constituted of two parts separated by a dash on the model <code>lang="[code][-option]</code>".
+				<h3 id="mCodeLangue">Language code</h3>
+				<p>Code with two characters (ISO 639-1) or 3 characters (ISO 639-2 and following) specifying the default language of a document or a chunk of text. The language code  is constituted of two parts separated by a dash on the model <code>lang="[code][-option]"</code>.
 				</p>
 				<ul>
-				<li>[code] represents a valid language code of 2 or 3 characters;</li>
-				<li>[option] is an indication left to the author's judgment.</li>
+					<li>[code] represents a valid language code of 2 or 3 characters;</li>
+					<li>[option] is an indication left to the author's judgment.</li>
 				</ul>
 				<p>When the [option]  is provided, it defines a language regionalisation. For example: <code>"en-us"</code> for American English. When checking for conformance against the RGAA, only the [code] part is evaluated.</p>
 
-				<h3 id="mLien">
-				Link
-				</h3>
+				<h3 id="Lien">Link</h3>
 				<p>HTML element (<code>a</code> tag) that can be activated by the user (with the mouse, the keyboard&hellip;) and that initiates an action (generally, a page or file download) or an event generated by a script. A link has at least:
 				</p>
 				<ul>
-				<li>a resource reference (<code>href</code> attribute);</li>
-				<li>a link text between <code>&lt;a href="&hellip;"&gt;</code> and <code>&lt;/a&gt;</code>.</li>
+					<li>a resource reference (<code>href</code> attribute);</li>
+					<li>a link text between <code>&lt;a href="&hellip;"&gt;</code> and <code>&lt;/a&gt;</code>.</li>
 				</ul>
 
-				<h3 id="mLienComposite">
+				<h3 id="LienComposite">
 				Link (Combined)
 				</h3>
 				<p>Link whose content between <code>&lt;a href="&hellip;"&gt;</code> and <code>&lt;/a&gt;</code> is formed with at least 2 elements of different types; for example, text and one or several images. The link text of a combined link is the whole text and the content of the text alternatives of the image(s)  between <code>&lt;a href="&hellip;"&gt;</code> and <code>&lt;/a&gt;</code>. 
@@ -826,7 +802,7 @@
 				<p><code>Note 1:</code> One of the 9 link contexts alone must be sufficient to make the link explicit.</p>
 				<p><strong>Note 2:</strong> The RGAA considers that specific links like <code>mailto</code> links (interpreted by the user agent as a clickable e-mail address) are explicit by nature. therefore it is not required to inform the user, via a link title for instance, that the link triggers the opening of an e-mail client application. Authors are advised, however, to adapt this rule to the situation. For instance, if the page contains multiple clickable e-mail addresses, some opening thee-mail client application, other sending to a contact form, then it may be necessary to provide additional information in order to help the user understand the different uses of this type of links in this context.</p>
 
-				<h3 id="mLienIdentique">
+				<h3 id="LienIdentique">
 				Links (Identical)
 				</h3>
 				<p>Two links are considered identical when link x (link text only, content of the <code>title</code> attribute or link context) is equal to link y. This definition applies to all types of links: text links, image links (identical images) and combined links.</p>
@@ -854,9 +830,7 @@
 				<p><strong>Note 2:</strong> An image link with a missing <code>alt</code> attribute is considered as not applicable for <a href="criteres.html#crit-6-5">criterion&nbsp;6.5</a>.
 				</p>
 
-				<h3 id="mTitreLien">
-				Link title
-				</h3>
+				<h3 id="mTitreLien">Link title</h3>
 				<p>
 				Content of the <code>title</code> attribute of a link. This content must be set only if it is necessary to identify the link target in an explicit way. A link title must duplicate the link text, and add  complementary information. A link title will be considered as not relevant in the following situations:</p>
 				<ul>
@@ -868,26 +842,19 @@
 				</p>
 				<p>Authors are warned that relying upon the <code>title</code> attribute to convey information is unsafe. Specifically, contents in <code>title</code> attributes are not rendered visually when navigating with the keyboard, a tactile interface, or when an assistive technology user settings prevent them from being rendered. therefore, they should be used only as a last resort solution.</p>
 
-				<h3 id="mLienNature">
-				Link whose nature is not obvious
-				</h3>
+				<h3 id="LienNature">Link whose nature is not obvious</h3>
 				<p>Link that can be confused with normal text, when it is indicated through color alone, by some types of users who have bad or no color perception. For example, in this text "New strike at SNCF", if the word "strike" is a link that is specified by color alone, its kind can be ignored by users who cannot perceive color and who access content with CSS enabled. On the other hand, in this text "New strike at SNCF, read more" if "read more" is a link, a user who does not perceive colors will have no difficulties to understand its nature.
 				</p><p>
 				<strong>Note:</strong> "indicated through color alone" means that the link is accompanied by no other visual indication (icon, underline, border&hellip;). As a consequence, a link of the same color as the surrounding text is targetted by this criterion.
 				</p>
 
-				<h3 id="mListes">
-				Lists
-				</h3>
+				<h3 id="Listes">Lists</h3>
 				<p>Sequence of elements that can be grouped in the form of a structured list as ordered, unordered or definition lists. For example, the  links in a navigation menu is an unordered list of links, the different steps in a process are an ordered list of items, the pair term/definition in a glossary is a definition list. In HTML, lists are defined using the following tags:
 				</p>
 				<ul>
-				<li>ordered list: <code>ol</code> and <code>li</code> tags (each list item is numbered incrementally)
-				</li>
-				<li>    unordered list: <code>ul</code> and <code>li</code> tags (each list item is, potentially, marked with a bullet point)
-				</li>
-				<li>    definition list: dl, dt: term(s) to be defined, and dd: definition data
-				</li>
+					<li>ordered list: <code>ol</code> and <code>li</code> tags (each list item is numbered incrementally)</li>
+					<li>unordered list: <code>ul</code> and <code>li</code> tags (each list item is, potentially, marked with a bullet point)</li>
+					<li>definition list: <code>dl</code>, <code>dt</code>: term(s) to be defined, and <code>dd</code>: definition data</li>
 				</ul>
 
 				<h2 id="m">M</h2>
@@ -897,11 +864,8 @@
 				</ul>
 
 				<h3 id="mMain">Main content area</h3>
-				<p>
-				Container of the main contents of the page, where can be found principal information and functionalities (therefore excluding menu, the search form, or secondary content blocks contaning related news, ads, etc.).
-				</p>
-				<p><strong>Note:</strong> there must be only one main content area. On some pages, defining what constitutes the main content can be challenging, like on homepages for instance.
-				</p>
+				<p>Container of the main contents of the page, where can be found principal information and functionalities (therefore excluding menu, the search form, or secondary content blocks contaning related news, ads, etc.).</p>
+				<p><strong>Note:</strong> there must be only one main content area. On some pages, defining what constitutes the main content can be challenging, like on homepages for instance.</p>
 				<p>See the technical definition as defined by the ARIA API: <a rel="external" class="external" href="https://www.w3.org/WAI/PF/aria/roles#main">Main (role)</a>.
 
 				<h2 id="n">N</h2>
@@ -910,18 +874,14 @@
 					<li class="goafter"><a href="#o">Skip to O</a></li>
 				</ul>
 
-				<h3 id="mNameRole">
-					Name, role, value, settings and states changes
-				</h3>
+				<h3 id="mNameRole">Name, role, value, settings and states changes</h3>
 				<p>A user interface component must have appropriate role and name; its values, states and parameters (if any) must also be available and correctly conveyed to accessibility APIs, in particular.</p>
 				<p>The name may be the component's text content, like the label of a button, for example. </p>
 				<p>The value may be the selected item of a select list, or the current value of a slider, for example.</p>
-				<p>The role of an element is defined by the HTML specification (native roles, like for the button tag for example) or the WAI-ARIA API (ARIA role="button", for example).
-				</p>
-				<p>The settings are the information specific to a component, generally defined via the WAI-ARIA API. For example, <code>aria-controls</code> is a parameter informing the APIs that the component controls another one (referenced via its <code>id</code> attribute).
-				</p>
-				<p>The states changes are generally conveyed via the WAI-ARIA API. For instance <code>aria-expanded</code> is a state informing the accessibility APIs that the component is "expanded" or "collapsed". <strong>Note:</strong> a state can also be conveyed by the name, when it is dynamically changed to match the current state of the component, for instance.
-				</p>
+				<p>The role of an element is defined by the HTML specification (native roles, like for the button tag for example) or the WAI-ARIA API (ARIA role="button", for example).</p>
+				<p>The settings are the information specific to a component, generally defined via the WAI-ARIA API. For example, <code>aria-controls</code> is a parameter informing the APIs that the component controls another one (referenced via its <code>id</code> attribute).</p>
+				<p>The states changes are generally conveyed via the WAI-ARIA API. For instance <code>aria-expanded</code> is a state informing the accessibility APIs that the component is "expanded" or "collapsed".</p>
+				<p><strong>Note:</strong> a state can also be conveyed by the name, when it is dynamically changed to match the current state of the component, for instance.</p>
 				<p>These parameters are not mandatory, but may be required if they are needed to make the component accessible. When testing for accessibility, the assessor must decide, based on the context where the component is used, if these parameters are required.</p>
 				<p>The assessor must also check that they are implemented according to the specifications, when they are used.</p>
 				<p><strong>Note:</strong> the ARIA roles, properties and states are implemented via attributes, like <code>role="banner"</code>, or <code>aria-hidden="true"</code> for instance.</p>
@@ -977,7 +937,7 @@
 				<p>Only for layout: use of HTML tags for a purpose  different from what  is intended by specifications (with regard to the declared document type). Examples: use of <code>H<i>n</i></code> tags only to apply tyhe associated typographical effect; use of the <code>blockquote</code> tag only to indent a block of text, etc.</p>
 				<p><strong>Note 1:</strong> the use of DIV or SPAN elements for paragraphs is considered as a non conforming use of these elements, and invalidates the criterion.
 				</p>
-				<p><strong>Note 2:</strong> WAI-ARIA provides the <code>presentation</code> role, which suppresses the semantics of an element. For example: <code>&lt;h1 role=presentation"&gt;Title&lt;/h1&gt;</code>. In this example, the text content will be rendered, but not the role of heading (the rendered element will be undefined, in the form of <code>&lt;Title&gt;).</code></p>
+				<p><strong>Note 2:</strong> WAI-ARIA provides the <code>presentation</code> role, which suppresses the semantics of an element. For example: <code>&lt;h1 role=presentation"&gt;Title&lt;/h1&gt;</code>. In this example, the text content will be rendered, but not the role of heading (the rendered element will be undefined, in the form of <code>&lt;title&gt;).</code></p>
 				<p>The <code>presentation</code> role may be required for some ARIA design patterns.It can also be used to suppress semantics on an element used only for layout. For example: <code>&lt;blockquote role=presentation"&gt;</code> will have the same effect as an absence of <code>blockquote</code> element.  </p>
 				<p>Although authors are strongly advised against this technique (because it will fail for older assistive technologies that do not support ARIA, for instance), it can be considered as WCAG conformant. However, assigning a <code>presentation</code> role to an element whose nature (i.e., its semantics) is essential to understand the content, is a viloation of the WCAG recommendations (see <a rel="external" class="external" href="https://www.w3.org/TR/2015/NOTE-WCAG20-TECHS-20150226/F92">Failure F92</a>) et invalidates the criterion.</p>
 
@@ -998,7 +958,7 @@
 				<p>See the technical definition of a banner as defined by the ARIA API: <a rel="external" class="external" href="https://www.w3.org/WAI/PF/aria/roles#banner">Banner (role)</a>.
 				</p>
 
-				<h3 id="#mFontSize">
+				<h3 id="#FontSize">
 					Percentage of the default font size
 				</h3>
 				<p>150% and 120% of the default font size: these two dimensions define the relative font size equivalent to 18 point (non-bold), and 14 points (bold), respectively, considering that the body font size is set at 100%.
@@ -1023,12 +983,12 @@
 				</h3>
 				<p>Indicates the reading direction of the document or of a chunk of text via the <code>dir</code> attribute. The three accepted values are:</p>
 				<ul>
-					<li> <code>ltr</code> (left to right) indicates a reading direction from the left to the right;</li>
+					<li><code>ltr</code> (left to right) indicates a reading direction from the left to the right;</li>
 					<li><code>rtl</code> (right to left) indicates a reading direction from the right to the left;
 					</li>
 					<li><code>auto</code>, which lets the browser determine the reading direction based ont the Unicode characters it finds in content.</li>
 				</ul>
-				<p><strong>Note:</strong> When the dir attribute is not set, the default reading direction is from left to right ("ltr" value).
+				<p><strong>Note:</strong> When the dir attribute is not set, the default reading direction is from left to right ("<code>ltr</code>" value).
 				</p>
 
 				<h3 id="mProcedeRafraichissement">
@@ -1166,7 +1126,7 @@
 				<p>Image used in a test, a <a href="#mcaptcha">CAPTCHA</a> or an image used for a test in a quiz or a game. Example: a series of images present a detail from famous paintings; the title and the painter of each painting must be found. In this case, it is not possible to provide a relevant alternative (e.g. the painting title and/or painter) without making the test useless. The alternative must then only provide the ability to identify the image; for example "image 1 of the test".
 				</p>
 
-				<h3 id="mLienTexte">Text link</h3>
+				<h3 id="LienTexte">Text link</h3>
 				<p>Link whose content between <code>&lt;a href="&hellip;"&gt;</code> and <code>&lt;/a&gt;</code> is only constituted of text (called the link text). </p>
 
 				<h3 id="mTranscriptTextuel">Text transcript (time-based media)</h3>
@@ -1245,7 +1205,7 @@
 				<h3 id="mVisibleContent">
 					Visible content
 				</h3>
-				<p>For Test 10.2.1: "available content" means that the visible content remains available when CSS styles have been disabled. For instance, an image conveying information, used as a background through CSS, fails this test, since information is not "available" when CSS styles are disabled. However,  an image conveying information, used as a background through CSS, but accompanied by a hidden text, passes this test because information is "available" when CSS styles are disabled.</p>
+				<p>For <a href="criteres.html#test-10-2-1">Test 10.2.1</a>: "available content" means that the visible content remains available when CSS styles have been disabled. For instance, an image conveying information, used as a background through CSS, fails this test, since information is not "available" when CSS styles are disabled. However,  an image conveying information, used as a background through CSS, but accompanied by a hidden text, passes this test because information is "available" when CSS styles are disabled.</p>
 				<p>
 					<strong>Note:</strong> authors are formally advised against using images conveying information as CSS backgrounds, even when hidden texts are available. 
 				</p>

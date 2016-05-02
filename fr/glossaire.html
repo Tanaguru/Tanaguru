@@ -568,7 +568,7 @@
 				<p>L'auditeur doit également vérifier que, lorsqu'il sont présents, ces paramètres sont correctement utilisés.</p>
 				<p><strong>Note&nbsp;:</strong> les rôles, propriétés et états ARIA s'implémentent via des attributs, par&nbsp;exemple <code lang="en">role="banner"</code>, <code lang="en">aria-hidden="true"</code>.</p>
 
-				<h3 id="mImageCaption">
+				<h3 id="ImageCaption">
 				Légende d'image</h3>
 				<p>Lorsqu'un texte, adjacent à une image, contient des informations sur l'image (par&nbsp;exemple un <span lang="en">copyright</span>, une date, un auteur…) ou est destiné à compléter les informations apportées par l'image (par&nbsp;exemple un texte associé à une image dans une galerie d'images), on parle de légende d'image.</p>
 				<p>Lorsqu'une image est légendée il est nécessaire d'associer la légende de l'image à l'image par une relation de structure, de telle sorte que les technologies d'assistance puissent traiter l'image et sa légende comme un ensemble unique.</p>
@@ -581,7 +581,7 @@
 				<p><strong>Note&nbsp;:</strong> lorsque le texte adjacent à l'image peut faire office de texte de remplacement, il n'est pas obligatoire de recourir à l'ensemble <code lang="en">figure</code>, <code lang="en">figcaption</code>, l'image pouvant être simplement traitée comme une image de décoration.</p>
 				<p>Vous pouvez consulter, à ce sujet, la note <a rel="external" class="external" hreflang="en" href="http://www.w3.org/TR/html-alt-techniques/#m6" title="HTML5: Techniques for providing useful text alternatives - 2.5 The figure and figcaption elements (nouvelle fenêtre)" target="_blank">HTML5: Techniques for providing useful text alternatives - 2.5 The figure and figcaption elements</a> du W3C.</p>
 
-				<h3 id="mLien">
+				<h3 id="Lien">
 				Lien</h3>
 				<p>Élément HTML (balise <code lang="en">a</code>) activable par l'utilisateur (par la souris, le clavier…) et déclenchant une action (affichage d'une page web, téléchargement d'un fichier…) ou un événement généré par un script. Un lien possède au minimum&nbsp;:</p>
 				<ul>
@@ -589,17 +589,17 @@
 					<li>un intitulé de lien compris entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code>.</li>
 				</ul>
 
-				<h3 id="mLienAdj">
+				<h3 id="LienAdj">
 				Lien adjacent</h3>
 				<p>Lien présenté de manière adjacente dans la représentation graphique (CSS activé) et dans le code HTML. Dans le code HTML, le lien doit se situer juste avant ou juste après l'objet avec lequel il est adjacent.</p>
 
-				<h3 id="mLienComposite">
+				<h3 id="LienComposite">
 				Lien composite</h3>
 				<p>Lien dont le&nbsp;contenu entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code> est constitué de 2 éléments de type différent, au moins ; par&nbsp;exemple, du texte et une ou plusieurs images. L'intitulé de lien pour un lien composite est l'ensemble du texte et du contenu de l'alternative textuelle de ou des images compris entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code>.</p>
 				<p><strong>Note importante</strong>: il est rappelé que l'utilisation de deux liens adjacents (lien image et lien texte) et identiques constitue une gêne importante pour l'utilisateur. Même si cela ne constitue pas une non-conformité, cet usage devrait être évité. Une manière de traiter ce type de liens est d'inclure l'image dans le lien texte de façon à constituer un lien composite, ce qui évitera la redondance.</p>
 				<p>Vous pouvez consulter à ce sujet la technique <a rel="external" class="external" hreflang="en" href="http://www.w3.org/TR/WCAG20-TECHS/H2.html" title="H2 : Combining adjacent image and text links for the same resource (nouvelle fenêtre)" target="_blank">H2 : Combining adjacent image and text links for the same resource</a></p>
 
-				<h3 id="mLienNature">
+				<h3 id="LienNature">
 				Lien dont la nature n'est pas évidente</h3>
 				<p>Lien qui peut être confondu avec un texte normal lorsqu'il est signalé uniquement par la couleur par certains types d'utilisateurs ne percevant pas ou mal les couleurs. Par&nbsp;exemple, dans ce texte «&nbsp;Nouvelle grève à la SNCF&nbsp;», si le mot «&nbsp;grève&nbsp;» est un lien signalé uniquement par la couleur, sa nature peut être ignorée par les utilisateurs ne percevant pas la couleur et accédant au contenu CSS activées. En revanche, dans ce texte «&nbsp;Nouvelle grève à la SNCF, lire la suite&nbsp;» si «&nbsp;lire la suite&nbsp;» est un lien, un utilisateur ne percevant pas les couleurs n'aura pas de problème pour en comprendre la nature.</p>
 				<p><strong>Note</strong>&nbsp;: «&nbsp;signalés uniquement par la couleur&nbsp;» signifie que le lien n'est accompagné d'aucun marqueur visuel (icône, soulignement, bordure…). En conséquence un lien de la même couleur que le texte environnant est concerné par ce critère.</p>
@@ -608,7 +608,7 @@
 				Lien explicite hors contexte</h3>
 				<p>Un lien est explicite hors contexte lorsque l'intitulé du lien seul (contenu entre la balise <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code>) permet de connaître et de comprendre la fonction et la destination du lien.</p>
 
-				<h3 id="mLienImage">
+				<h3 id="LienImage">
 				Lien image</h3>
 				<p>Lien dont le&nbsp;contenu entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code> est uniquement constitué d'une image. L'intitulé de lien pour un lien image est le&nbsp;contenu de l'alternative textuelle de l'image.</p>
 				<p><strong>Note&nbsp;:</strong> un lien image peut être constitué d'une image (balise <code lang="en">img</code>), d'une image objet (<code lang="en">balise object</code>) ou d'une image bitmap (balise <code lang="en">canvas</code>).</p>
@@ -622,11 +622,11 @@
 				<h3 id="mVectorLink"</h3>
 				<p>Lien dont le&nbsp;contenu entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code> est uniquement constitué d'une image vectorielle (balise <code lang="en">svg</code>). L'intitulé de lien pour un lien vectoriel est le&nbsp;contenu de l'alternative textuelle de l'image vectorielle.</p>
 
-				<h3 id="mLienEvitement">Liens d'évitement ou d'accès rapide</h3>
+				<h3 id="LienEvitement">Liens d'évitement ou d'accès rapide</h3>
 				<p>Liens dont la fonction est de permettre de naviguer à l'intérieur du contenu (lien d'évitement, lien d'accès au formulaire de recherche ou au menu..).</p>
 
 
-				<h3 id="mLienIdentique">Liens identiques</h3>
+				<h3 id="LienIdentique">Liens identiques</h3>
 				<p>Deux liens sont dits identiques quand le lien&nbsp;x (intitulé du lien seul, contenu de l'attribut <code lang="en">title</code> ou contexte du lien) est égal au lien&nbsp;y. Cette définition s'applique à tous les types de liens&nbsp;: lien texte, lien image (les liens ont alors la même image) et lien composite.</p>
 				<p><strong>Attention</strong>&nbsp;: des liens avec des intitulés identiques mais des titres de liens différents ou des contextes de liens différents ne sont pas identiques (exemple&nbsp;: <code lang="en">&lt;a href="lien_bar.html" title="cliquer ici pour télécharger la barre d'outils"&gt;cliquer ici&lt;/a&gt;</code> et <code lang="en">&lt;a href="lien_doc.html" title="cliquer ici pour télécharger le document"&gt;cliquer ici&lt;/a&gt;</code>).</p>
 
@@ -635,7 +635,7 @@
 				<p>Champ de formulaire affichant une série d'items à sélectionner sous forme d'une liste déroulante (balise <code lang="en">select</code> avec des balises <code lang="en">option</code>).</p>
 
 
-				<h3 id="mListes">Listes</h3>
+				<h3 id="Listes">Listes</h3>
 				<p>Suite d'éléments pouvant être regroupés sous la forme d'une liste structurée ordonnée, non ordonnée ou de définition. Par&nbsp;exemple la suite des liens d'un menu de navigation est une liste de liens non ordonnée, les différentes étapes d'une procédure est une liste d'éléments ordonnés, le couple terme/définition d'un glossaire est une liste de définition. En HTML, les listes utilisent les balises suivantes&nbsp;:</p>
 				<ul>
 					<li>liste ordonnée : balises <code lang="en">ol</code> et <code lang="en">li</code> (chaque élément de la liste est affecté d'un marqueur indéxé)&nbsp;;</li>
