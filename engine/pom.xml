@@ -35,5 +35,6 @@
         <module>scenarioloader</module>
         <module>sebuilder-interpreter-tools</module>
         <module>tanaguru-jms</module>
+        <module>tanaguru-kafka</module>
     </modules>
 </project>

@@ -288,6 +288,13 @@
                 <artifactId>tanaguru-jms</artifactId>
                 <version>${engineVersion}</version>
             </dependency>
+             
+            <dependency>
+                 <groupId>${engineGroupId}</groupId>
+                 <artifactId>tanaguru-kafka</artifactId>
+                 <version>${engineVersion}</version>
+             </dependency>
+             
             <dependency>
                 <groupId>${engineGroupId}</groupId>
                 <artifactId>tanaguru-statistics</artifactId>
