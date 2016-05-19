@@ -1018,8 +1018,7 @@ main .skiplink a {
 }
 /* * header + nav */
 #header .headsite {
-  z-index: 1;
-  position: fixed;
+  z-index: 99;
   background: rgba(248, 245, 245, 0.9);
   width: 100% !important;
   height: auto;
@@ -1164,7 +1163,7 @@ main .skiplink a {
   color: #f8f5f5;
 }
 /* LARGE : menu lateral */
-@media (min-width: 940px) and (min-height: 640px) and (min-height: 30em) {
+@media (min-height: 34em) and (min-width: 940px) {
   .page {
     width: 640px;
     padding-right: 220px !important;
@@ -1179,8 +1178,7 @@ main .skiplink a {
   #navtoc {
     position: fixed;
     width: 200px;
-    top: 5em;
-    top: 9.3em;
+    top: 50px;
     /*margin-left: -220px;*/
   
     padding: 0;

@@ -87,7 +87,7 @@
 						<header>
 							<h2>1. Images</h2>
 							<h3>Recommandation</h3>
-							<p>Donner à chaque <a href="glossaire.html#image-porteuse-dinformation">image porteuse d'information</a> une <a href="glossaire.html#alternative-textuelle-image">alternative textuelle</a> pertinente et une <a href="glossaire.html#description-dtaille-image">description détaillée</a> si&nbsp;nécessaire. Remplacer les images textes par du texte stylé lorsque c'est possible.</p>
+							<p>Donner à chaque <a href="glossaire.html#image-porteuse-dinformation">image porteuse d'information</a> une <a href="glossaire.html#mAltTexteImg">alternative textuelle</a> pertinente et une <a href="glossaire.html#description-dtaille-image">description détaillée</a> si&nbsp;nécessaire. Remplacer les images textes par du texte stylé lorsque c'est possible.</p>
 
 							<div class="tags">
 								<span>Mot-clés</span>
@@ -204,7 +204,7 @@
 		<li>Test 1.3.7 : Pour chaque image vectorielle porteuse d'information (balise <code lang="en">svg</code>) et&nbsp;possédant une alternative, cette alternative est-elle <a href="glossaire.html#correctement-restitue-par-les-technologies-dassistance">correctement restituée</a> par les technologies d'assistance&nbsp;?</li>
 		<li>Test 1.3.8 : Pour chaque image bitmap porteuse d'information (balise <code lang="en">canvas</code>) et&nbsp;possédant une alternative (contenu entre <code lang="en">&lt;canvas&gt;</code> et <code lang="en">&lt;/canvas&gt;</code>), cette alternative est-elle <a href="glossaire.html#correctement-restitue-par-les-technologies-dassistance">correctement restituée</a> par les technologies d'assistance&nbsp;?</li>
 		<li>Test 1.3.9 : Pour chaque image bitmap porteuse d'information (balise <code lang="en">canvas</code>) et&nbsp;possédant une alternative (contenu entre <code lang="en">&lt;canvas&gt;</code> et <code lang="en">&lt;/canvas&gt;</code>), cette alternative est-elle pertinente&nbsp;?</li>
-		<li>Test 1.3.10 : Pour chaque image porteuse d'information et ayant une alternative textuelle, l'alternative textuelle est-elle <a href="glossaire.html#alternative-courte-et-concise">courte et concise</a> (hors <a href="glossaire.html#crit-13">cas particuliers</a>)&nbsp;?</li>
+		<li>Test 1.3.10 : Pour chaque image porteuse d'information et ayant une alternative textuelle, l'alternative textuelle est-elle <a href="glossaire.html#mAltCC">courte et concise</a> (hors <a href="glossaire.html#crit-13">cas particuliers</a>)&nbsp;?</li>
 	</ul>
 	<aside>
 		<p><strong>Note technique :</strong> <a href="glossaire.html#crit-13-a">Consulter la note technique au sujet de l'attribut title et des des images vectorielles</a></p>
@@ -245,9 +245,9 @@
 		<li>s'il est présent, le&nbsp;contenu de l'attribut <code lang="en">title</code> est identique au contenu de l'attribut <code lang="en">alt</code></li>
 		</ul>
 		</li>
-		<li>Test 1.4.4 : Pour chaque <a href="glossaire.html#image-objet">image objet</a> (balise <code lang="en">object</code> avec l'attribut <code lang="en">type="image/…"</code>) utilisée comme <a href="glossaire.html#captcha">CAPTCHA</a> ou comme <a href="glossaire.html#imagetest">image-test</a>, et ayant une <a href="glossaire.html#alternative-textuelle-image">alternative textuelle</a>, l'<a href="glossaire.html#alternative-textuelle-image">alternative textuelle</a> permet-elle d'identifier la nature et la fonction de l'image&nbsp;?</li>
-		<li>Test 1.4.5 : Pour chaque image embarquée (balise <code lang="en">embed</code> avec l'attribut <code lang="en">type="image/…"</code>) utilisée comme <a href="glossaire.html#captcha">CAPTCHA</a> ou comme <a href="glossaire.html#imagetest">image-test</a>, et ayant une <a href="glossaire.html#alternative-textuelle-image">alternative textuelle</a>, l'<a href="glossaire.html#alternative-textuelle-image">alternative textuelle</a> permet-elle d'identifier la nature et la fonction de l'image&nbsp;?</li>
-		<li>Test 1.4.6 : Chaque image vectorielle (balise <code lang="en">svg</code>) utilisée comme <a href="glossaire.html#captcha">CAPTCHA</a> ou comme <a href="glossaire.html#imagetest">image-test</a> et ayant une <a href="glossaire.html#alternative-textuelle-image">alternative textuelle</a> via la propriété <code lang="en">aria-label</code> ou la balise <code lang="en">desc</code> vérifie-t-elle ces conditions ?
+		<li>Test 1.4.4 : Pour chaque <a href="glossaire.html#image-objet">image objet</a> (balise <code lang="en">object</code> avec l'attribut <code lang="en">type="image/…"</code>) utilisée comme <a href="glossaire.html#captcha">CAPTCHA</a> ou comme <a href="glossaire.html#imagetest">image-test</a>, et ayant une <a href="glossaire.html#mAltTexteImg">alternative textuelle</a>, l'<a href="glossaire.html#mAltTexteImg">alternative textuelle</a> permet-elle d'identifier la nature et la fonction de l'image&nbsp;?</li>
+		<li>Test 1.4.5 : Pour chaque image embarquée (balise <code lang="en">embed</code> avec l'attribut <code lang="en">type="image/…"</code>) utilisée comme <a href="glossaire.html#captcha">CAPTCHA</a> ou comme <a href="glossaire.html#imagetest">image-test</a>, et ayant une <a href="glossaire.html#mAltTexteImg">alternative textuelle</a>, l'<a href="glossaire.html#mAltTexteImg">alternative textuelle</a> permet-elle d'identifier la nature et la fonction de l'image&nbsp;?</li>
+		<li>Test 1.4.6 : Chaque image vectorielle (balise <code lang="en">svg</code>) utilisée comme <a href="glossaire.html#captcha">CAPTCHA</a> ou comme <a href="glossaire.html#imagetest">image-test</a> et ayant une <a href="glossaire.html#mAltTexteImg">alternative textuelle</a> via la propriété <code lang="en">aria-label</code> ou la balise <code lang="en">desc</code> vérifie-t-elle ces conditions ?
 
 		<ul>
 		<li>l'alternative textuelle implémentée via la propriété <code lang="en">aria-label</code> permet d'identifier la nature et la fonction de l'image et est identique à l'attribut <code lang="en">title</code> s'il est présent</li>
@@ -1387,15 +1387,15 @@
 <li>Test 4.20.2 : Pour chaque média temporel, chaque fonctionnalité vérifie-t-elle une de ces conditions :
 
 <ul>
-<li>La fonctionnalité est <a href="glossaire.html#accessible-et-activable-par-le-clavier-et-la-souris">accessible par le clavier et la souris</a></li>
-<li>Une fonctionnalité <a href="glossaire.html#accessible-et-activable-par-le-clavier-et-la-souris">accessible par le clavier et la souris</a> permettant de réaliser la même action est présente dans la page</li>
+<li>La fonctionnalité est <a href="glossaire.html#mAAClavierSouristivable-par-le-clavier-et-la-souris">accessible par le clavier et la souris</a></li>
+<li>Une fonctionnalité <a href="glossaire.html#mAAClavierSouristivable-par-le-clavier-et-la-souris">accessible par le clavier et la souris</a> permettant de réaliser la même action est présente dans la page</li>
 </ul>
 </li>
 <li>Test 4.20.3 : Pour chaque média temporel, chaque fonctionnalité vérifie-t-elle une de ces conditions :
 
 <ul>
-<li>La fonctionnalité est <a href="glossaire.html#accessible-et-activable-par-le-clavier-et-la-souris">activable par le clavier et la souris</a></li>
-<li>Une fonctionnalité <a href="glossaire.html#accessible-et-activable-par-le-clavier-et-la-souris">activable par le clavier et la souris</a> permettant de réaliser la même action est présente dans la page</li>
+<li>La fonctionnalité est <a href="glossaire.html#mAAClavierSouristivable-par-le-clavier-et-la-souris">activable par le clavier et la souris</a></li>
+<li>Une fonctionnalité <a href="glossaire.html#mAAClavierSouristivable-par-le-clavier-et-la-souris">activable par le clavier et la souris</a> permettant de réaliser la même action est présente dans la page</li>
 </ul>
 </li>
 </ul>
@@ -1426,15 +1426,15 @@
 <li>Test 4.21.1 : Pour chaque <a href="glossaire.html#mdia-non-temporel">média non temporel</a>, chaque fonctionnalité vérifie-t-elle une de ces conditions :
 
 <ul>
-<li>La fonctionnalité est <a href="glossaire.html#accessible-et-activable-par-le-clavier-et-la-souris">accessible par le clavier et la souris</a></li>
-<li>Une fonctionnalité <a href="glossaire.html#accessible-et-activable-par-le-clavier-et-la-souris">accessible par le clavier et la souris</a> permettant de réaliser la même action est présente dans la page</li>
+<li>La fonctionnalité est <a href="glossaire.html#mAAClavierSouristivable-par-le-clavier-et-la-souris">accessible par le clavier et la souris</a></li>
+<li>Une fonctionnalité <a href="glossaire.html#mAAClavierSouristivable-par-le-clavier-et-la-souris">accessible par le clavier et la souris</a> permettant de réaliser la même action est présente dans la page</li>
 </ul>
 </li>
 <li>Test 4.21.2 : Pour chaque <a href="glossaire.html#mdia-non-temporel">média non temporel</a>, chaque fonctionnalité vérifie-t-elle une de ces conditions :
 
 <ul>
-<li>La fonctionnalité est <a href="glossaire.html#accessible-et-activable-par-le-clavier-et-la-souris">activable par le clavier et la souris</a></li>
-<li>Une fonctionnalité <a href="glossaire.html#accessible-et-activable-par-le-clavier-et-la-souris">activable par le clavier et la souris</a> permettant de réaliser la même action est présente dans la page</li>
+<li>La fonctionnalité est <a href="glossaire.html#mAAClavierSouristivable-par-le-clavier-et-la-souris">activable par le clavier et la souris</a></li>
+<li>Une fonctionnalité <a href="glossaire.html#mAAClavierSouristivable-par-le-clavier-et-la-souris">activable par le clavier et la souris</a> permettant de réaliser la même action est présente dans la page</li>
 </ul>
 </li>
 </ul>
@@ -1898,7 +1898,7 @@ ul>
 <header>
 	<h2 id="scripts">7. Scripts</h2>
 	<h3>Recommandation</h3>
-	<p>Donner si&nbsp;nécessaire à chaque <a href="glossaire.html#scripts">script</a> une <a href="glossaire.html#alternative--script">alternative</a> pertinente. Rendre possible le contrôle de chaque code <a href="glossaire.html#scripts">script</a> au moins par le clavier et la souris et s'assurer de leur compatibilité avec les technologies d'assistance.</p>
+	<p>Donner si&nbsp;nécessaire à chaque <a href="glossaire.html#scripts">script</a> une <a href="glossaire.html#mAltScript">alternative</a> pertinente. Rendre possible le contrôle de chaque code <a href="glossaire.html#scripts">script</a> au moins par le clavier et la souris et s'assurer de leur compatibilité avec les technologies d'assistance.</p>
 	<div class="tags">
 		<span>Mot-clés</span>
 		<ul>
@@ -1914,7 +1914,7 @@ ul>
 <ul>
 <li><a href="glossaire.html#le-nom-le-rle-la-valeur-le-paramtrage-et-les-changements-dtats">Le nom, le rôle, la valeur, le paramétrage et les changements d'états</a> sont accessibles aux technologies d'assistance via une API d'accessibilité</li>
 <li>un composant d'interface accessible permettant d'accéder aux mêmes fonctionnalités est présent dans la page&nbsp;;</li>
-<li>une <a href="glossaire.html#alternative--script">alternative</a> accessible permet d'accéder aux mêmes fonctionnalités.</li>
+<li>une <a href="glossaire.html#mAltScript">alternative</a> accessible permet d'accéder aux mêmes fonctionnalités.</li>
 </ul>
 </li>
 <li>Test 7.1.2 : Chaque fonctionnalité d'insertion de contenu contrôlée par un <a href="glossaire.html#scripts">script</a> utilise-t-elle des <a href="glossaire.html#proprits-et-methodes-conformes--la-spcification-dom">propriétés et méthodes conformes à la spécification DOM (Document Object Model)</a>&nbsp;?</li>
@@ -1923,8 +1923,8 @@ ul>
 <ul>
 <li>Le composant d'interface est conforme au <a href="glossaire.html#motif-de-conception">motif de conception</a> défini par l'API ARIA</li>
 <li>Un composant d'interface présent sur la page, permettant d'accéder aux mêmes fonctionnalités, est conforme au <a href="glossaire.html#motif-de-conception">motif de conception</a> défini par l'API ARIA</li>
-<li>Le composant d'interface <a href="glossaire.html#adapter-un-motif-de-conception-aria">adapte un motif de conception</a> défini par l'API ARIA.</li>
-<li>Une <a href="glossaire.html#alternative--script">alternative</a> accessible permet d'accéder aux mêmes fonctionnalités.</li>
+<li>Le composant d'interface <a href="glossaire.html#mAdaptsARIADP">adapte un motif de conception</a> défini par l'API ARIA.</li>
+<li>Une <a href="glossaire.html#mAltScript">alternative</a> accessible permet d'accéder aux mêmes fonctionnalités.</li>
 </ul>
 </li>
 <li>Test 7.1.4 : Chaque <a href="glossaire.html#modification-du-rle-natif-dun-lment-html">modification du rôle natif</a> d'un élément HTML respecte-t-elle les règles et préconisations indiquées dans la spécification HTML5 et les notes techniques associées&nbsp;?</li>
@@ -1932,14 +1932,14 @@ ul>
 
 <ul>
 <li>Le composant d'interface est <a href="glossaire.html#correctement-restitue-par-les-technologies-dassistance"></a><a href="glossaire.html#correctement-restitue-par-les-technologies-dassistance">correctement restitué</a> par les technologies d'assistance</li>
-<li>Une <a href="glossaire.html#alternative--script">alternative</a> accessible permet d'accéder aux mêmes fonctionnalités.</li>
+<li>Une <a href="glossaire.html#mAltScript">alternative</a> accessible permet d'accéder aux mêmes fonctionnalités.</li>
 </ul>
 </li>
 <li>Test 7.1.6 : Chaque composant d'interface qui utilise un role ARIA <code lang="en">application</code> respecte-t-il une de ces conditions ?
 
 <ul>
 <li>Le composant d'interface est <a href="glossaire.html#correctement-restitue-par-les-technologies-dassistance"></a><a href="glossaire.html#correctement-restitue-par-les-technologies-dassistance">correctement restitué</a> par les technologies d'assistance</li>
-<li>Une <a href="glossaire.html#alternative--script">alternative</a> accessible permet d'accéder aux mêmes fonctionnalités.</li>
+<li>Une <a href="glossaire.html#mAltScript">alternative</a> accessible permet d'accéder aux mêmes fonctionnalités.</li>
 </ul>
 </li>
 </ul>
@@ -1960,21 +1960,21 @@ ul>
 <section>
 <h3 id="crit-7-2"><em>Critère 7.2 [A]</em> Pour chaque script ayant une alternative, cette alternative est-elle pertinente&nbsp;?</h3>
 <ul>
-<li>Test 7.2.1 : Chaque <a href="glossaire.html#scripts">script</a> débutant par la balise <code lang="en">script</code> et ayant une <a href="glossaire.html#alternative--script">alternative</a> vérifie-t-il une de ces conditions ?
+<li>Test 7.2.1 : Chaque <a href="glossaire.html#scripts">script</a> débutant par la balise <code lang="en">script</code> et ayant une <a href="glossaire.html#mAltScript">alternative</a> vérifie-t-il une de ces conditions ?
 
 <ul>
-<li>L'<a href="glossaire.html#alternative--script">alternative</a> entre <code lang="en">&lt;noscript&gt;</code> et <code lang="en">&lt;/noscript&gt;</code> permet d'accéder à des contenus et des fonctionnalités similaires</li>
+<li>L'<a href="glossaire.html#mAltScript">alternative</a> entre <code lang="en">&lt;noscript&gt;</code> et <code lang="en">&lt;/noscript&gt;</code> permet d'accéder à des contenus et des fonctionnalités similaires</li>
 <li>La page affichée, lorsque JavaScript est désactivé, permet d'accéder à des contenus et des fonctionnalités similaires</li>
-<li>La page <a href="glossaire.html#alternative--script">alternative</a> permet d'accéder à des contenus et des fonctionnalités similaires</li>
+<li>La page <a href="glossaire.html#mAltScript">alternative</a> permet d'accéder à des contenus et des fonctionnalités similaires</li>
 <li>Le langage de <code lang="en">script</code> côté serveur permet d'accéder à des contenus et des fonctionnalités similaires</li>
 <li>L'alternative, présente dans la page, permet d'accéder à des contenus et des fonctionnalités similaires</li>
 </ul>
 </li>
-<li>Test 7.2.2 : Chaque élément non textuel mis à jour par un <a href="glossaire.html#scripts">script</a> (dans la page, ou un cadre en ligne) et ayant une <a href="glossaire.html#alternative--script">alternative</a> vérifie-t-il ces conditions ?
+<li>Test 7.2.2 : Chaque élément non textuel mis à jour par un <a href="glossaire.html#scripts">script</a> (dans la page, ou un cadre en ligne) et ayant une <a href="glossaire.html#mAltScript">alternative</a> vérifie-t-il ces conditions ?
 
 <ul>
-<li>L'<a href="glossaire.html#alternative--script">alternative</a> de l'élément non textuel est mise à jour</li>
-<li>L'<a href="glossaire.html#alternative--script">alternative</a> mise à jour est pertinente</li>
+<li>L'<a href="glossaire.html#mAltScript">alternative</a> de l'élément non textuel est mise à jour</li>
+<li>L'<a href="glossaire.html#mAltScript">alternative</a> mise à jour est pertinente</li>
 </ul>
 </li>
 </ul>
@@ -1997,15 +1997,15 @@ ul>
 <li>Test 7.3.1 : Chaque élément possédant un gestionnaire d'événement contrôlé par un <a href="glossaire.html#scripts">script</a> vérifie-t-il une de ces conditions (<a href="glossaire.html#crit-73" title="Cas particuliers pour le critère 7.3">hors cas particuliers</a>)&nbsp;?
 
 <ul>
-<li>L'élément est <a href="glossaire.html#accessible-et-activable-par-le-clavier-et-la-souris">accessible par le clavier et la souris</a></li>
-<li>Un élément <a href="glossaire.html#accessible-et-activable-par-le-clavier-et-la-souris">accessible par le clavier et la souris</a> permettant de réaliser la même action est présent dans la page</li>
+<li>L'élément est <a href="glossaire.html#mAAClavierSouristivable-par-le-clavier-et-la-souris">accessible par le clavier et la souris</a></li>
+<li>Un élément <a href="glossaire.html#mAAClavierSouristivable-par-le-clavier-et-la-souris">accessible par le clavier et la souris</a> permettant de réaliser la même action est présent dans la page</li>
 </ul>
 </li>
 <li>Test 7.3.2 : Chaque élément possédant un gestionnaire d'événement contrôlé par un <a href="glossaire.html#scripts">script</a> vérifie-t-il une de ces conditions (<a href="glossaire.html#crit-73" title="Cas particuliers pour le critère 7.3">hors cas particuliers</a>)&nbsp;?
 
 <ul>
-<li>L'élément est <a href="glossaire.html#accessible-et-activable-par-le-clavier-et-la-souris">activable par le clavier et la souris</a></li>
-<li>Un élément <a href="glossaire.html#accessible-et-activable-par-le-clavier-et-la-souris">activable par le clavier et la souris</a> permettant de réaliser la même action est présent dans la page</li>
+<li>L'élément est <a href="glossaire.html#mAAClavierSouristivable-par-le-clavier-et-la-souris">activable par le clavier et la souris</a></li>
+<li>Un élément <a href="glossaire.html#mAAClavierSouristivable-par-le-clavier-et-la-souris">activable par le clavier et la souris</a> permettant de réaliser la même action est présent dans la page</li>
 </ul>
 </li>
 <li>Test 7.3.3 : Un <a href="glossaire.html#scripts">script</a> ne doit pas supprimer le <code lang="en">focus</code> d'un élément qui le reçoit. Cette règle est-elle respectée (<a href="glossaire.html#crit-73" title="Cas particuliers pour le critère 7.3">hors cas particuliers</a>)&nbsp;?</li>
@@ -2065,7 +2065,7 @@ ul>
 <section>
 <h3 id="crit-7-5"><em>Critère 7.5 [AAA]</em> Chaque script qui provoque une alerte non sollicitée est-il contrôlable par l'utilisateur (hors cas particuliers)&nbsp;?</h3>
 <ul>
-<li>Test 7.5.1 : Chaque <a href="glossaire.html#scripts">script</a> qui provoque une <a href="glossaire.html#alerte">alerte</a> non sollicitée est-il contrôlable par l'utilisateur (hors <a href="glossaire.html#crit-76" title="Cas particuliers pour le critère 7.6">cas particuliers</a>)&nbsp;?</li>
+<li>Test 7.5.1 : Chaque <a href="glossaire.html#scripts">script</a> qui provoque une <a href="glossaire.html#mAlerte">alerte</a> non sollicitée est-il contrôlable par l'utilisateur (hors <a href="glossaire.html#crit-76" title="Cas particuliers pour le critère 7.6">cas particuliers</a>)&nbsp;?</li>
 </ul>
 <aside>
 <h4>Correspondances WCAG 2.0</h4>
@@ -3627,7 +3627,7 @@ ul>
 <ul>
 <li>Un lien permet d'accéder à la page suivante</li>
 <li>Un lien permet d'accéder à la page précédente</li>
-<li>Des <a href="glossaire.html#accder--chaque-page-de-la-collection-de-pages">liens permettent d'accéder à chaque page</a> de la <a href="glossaire.html#collection-de-pages">collection de pages</a></li>
+<li>Des <a href="glossaire.html#mAccColl">liens permettent d'accéder à chaque page</a> de la <a href="glossaire.html#collection-de-pages">collection de pages</a></li>
 </ul>
 </li>
 </ul>

@@ -19,7 +19,7 @@
                     --><li><strong class="on">Glossaire</strong></li><!--
                     --><li><a href="./cas-particuliers.html">Cas particuliers</a></li><!--
                     --><li><a href="./notes-techniques.html">Notes techniques</a></li><!--
-                    --><li><a href="./base-de-reference.html">Base de référence</a></li><!--
+                    --><li><a href="./base.html">Base de référence</a></li><!--
                     --><li><a href="./references.html">Références</a></li><!--
                 --></ul>
             	</nav>
@@ -60,10 +60,10 @@
 
 				<h2 id="a">A</h2>
 
-				<h3 id="accder-chaque-page-de-la-collection-de-pages">Accéder à chaque page de la collection de pages</h3>
+				<h3 id="mAccColl">Accéder à chaque page de la collection de pages</h3>
 				<p>Dans le cas où la collection de pages comporte un grand nombre de pages, il est habituel de présenter ces liens d'accès aux pages par groupes de liens, par séquences de 10&nbsp;liens, par&nbsp;exemple. Cette pratique valide le test.</p>
 
-				<h3 id="accessible-et-activable-par-le-clavier-et-la-souris">Accessible et activable par le clavier et la souris</h3>
+				<h3 id="mAAClavierSouris">Accessible et activable par le clavier et la souris</h3>
 				<ul>
 					<li>Un composant d'interface (lien, bouton, élément cliquable dans Flash…) est accessible au clavier et à la souris lorsque l'utilisateur peut prendre, indifféremment, le&nbsp;focus par le pointeur de la souris ou la touche tabulation.</li>
 					<li>Un composant d'interface (lien, bouton, élément cliquable dans Flash…) est activable au clavier et à la souris lorsque l'utilisateur peut enclencher, indifféremment, l'action prévue par le composant d'interface par le clic de la souris ou la touche entrée du clavier.</li>
@@ -74,26 +74,26 @@
 				<p>Le critère peut être considéré comme conforme à la condition que les raccourcis clavier utilisés soient correctement documentés et qu'ils soient fonctionnels quelle que soit la position du focus dans l'interface.</p>
 				<p>Vous pouvez consulter, à ce sujet, la technique <a rel="external" class="external" hreflang="en" href="http://www.w3.org/WAI/GL/WCAG20-TECHS/SL15.html">SL15: Providing Keyboard Shortcuts that Work Across the Entire Silverlight Application</a> pour l'environnement <span>Silverlight</span> par&nbsp;exemple.</p>
 
-				<h3 id="adapter-un-motif-de-conception-aria">Adapter un motif de conception ARIA</h3>
+				<h3 id="mAdaptsARIADP">Adapter un motif de conception ARIA</h3>
 				<p>L'API ARIA définit des motifs de conception, par&nbsp;exemple pour un système d'onglet ou une fenêtre modale, destinés à assurer un comportement homogène de référence des composants d'interface. Le respect de ces motifs de conception est exigé par le référentiel RGAA.</p>
 				<p>Néanmoins il est possible d'adapter ces motifs de conception en remplaçant une propriété mal supportée par une propriété équivalente ou en enrichissant le composant de propriétés améliorant l'expérience utilisateur ou sécurisant son comportement.</p>
 				<p>Il appartient à l'auditeur de vérifier que ces adaptations sont cohérentes avec le motif de conception, ne modifient pas le comportement, en termes d'expérience utilisateur, du composant et que le composant adapté est correctement restitué par les technologies d'assistance.</p>
 				<p>Si ces exigences sont respectées, le composant peut-être déclaré «&nbsp;conforme&nbsp;» au motif de conception.</p>
 
-				<h3 id="alerte">
+				<h3 id="mAlerte">
 				Alerte</h3>
 				<p>Message d'alerte interrompant la navigation ou l'utilisation de la page, notamment en demandant de cliquer sur un bouton ou un lien pour continuer la navigation ou l'utilisation du contenu. Par&nbsp;exemple, une boîte de dialogue générée par JavaScript via la fonction alert. Par extension, une fenêtre modale (contenu présenté sous forme de «&nbsp;fenêtre&nbsp;» insérée ou affichée dans le DOM) qui nécessite d'être fermée pour continuer la navigation ou l'utilisation du contenu est considérée comme une alerte. Note&nbsp;: la désactivation des alertes concernées peut être proposée avant le déclenchement de l'alerte, par&nbsp;exemple, via un paramètre utilisateur ou lors de l'affichage de la première alerte, par&nbsp;exemple via une case à cocher «&nbsp;ne plus afficher cette alerte&nbsp;».</p>
 
-				<h3 id="alternative-script">
+				<h3 id="mAltScript">
 				Alternative (à script)</h3>
 				<p>Texte ou procédé associé au script via une technique appropriée et permettant de mettre à disposition une fonction ou un contenu similaire à celui proposé par script.</p>
 				<p><strong>Note&nbsp;:</strong> lorsqu'une alternative à un procédé ou une fonctionnalité JavaScript est proposée, le moyen d'y accéder doit être fourni par le site lui-même. Il peut s'agir d'un lien ou d'un bouton permettant d'accéder à une page alternative fonctionnant sans JavaScript ou permettant de remplacer le(s) composant(s) par un composant alternatif fonctionnant sans JavaScript par&nbsp;exemple.</p>
 
-				<h3 id="alternative-courte-et-concise">
+				<h3 id="mAltCC">
 				Alternative courte et concise</h3>
 				<p>Les conditions de restitution d'une alternative textuelle via des technologies d'assistance (par&nbsp;exemple une loupe d'écran) nécessitent qu'elle soit la plus courte possible. Une longueur maximale de 80 caractères est fortement recommandée ; elle limitera le nombre de manipulations nécessaires pour lire l'alternative par les utilisateurs de plages braille ou de loupes d'écran notamment.</p>
 
-				<h3 id="alternative-textuelle-image">
+				<h3 id="mAltTexteImg">
 				Alternative textuelle (image)</h3>
 				<p>Texte associé à une image via une technique appropriée et décrivant l'information véhiculée par l'image (par rapport au contexte du contenu web dans lequel elle se trouve). RGAA considère quatre types d'alternatives liées à la nature de l'image&nbsp;:</p>
 				<ul>
@@ -105,24 +105,24 @@
 <p><strong>Note 1</strong> : pour une image CAPTCHA l'alternative peut être, par&nbsp;exemple&nbsp;: «&nbsp;Code de sécurité anti-spam&nbsp;» ou «&nbsp;code pour vérifier que vous êtes un humain&nbsp;» ou toute autre alternative permettant à l'utilisateur de comprendre la nature et la fonction de l'image.</p>
 				<p><strong>Note 2</strong> : pour un groupe d'images, par&nbsp;exemple un système de vote constitué de plusieurs images d'étoiles, il est fortement conseillé d'utiliser la première image du groupe pour donner une alternative plus cohérente au groupe d'image. Dans ce cas, les autres images du groupe sont considérées comme des images de décoration. Vous pouvez consulter, à ce sujet, la note suivante : <a rel="external" class="external" hreflang="en" href="http://www.w3.org/TR/html-alt-techniques/#a-group-of-images-that-form-a-single-larger-picture-with-no-links-1" title="1.10 A group of images that form a single larger picture with no links (nouvelle fenêtre)" target="_blank">1.10 A group of images that form a single larger picture with no links</a></p>
 
-				<h3 id="ambigu-pour-tout-le-monde">
+				<h3 id="mAmbigueTtMonde">
 				Ambigu pour tout le monde</h3>
 				<p>L'intention ne peut être déterminée à partir du lien et de toute l'information de la page web présentée à l'utilisateur en même temps que ce lien. (c'est-à-dire qu'un lecteur sans limitation fonctionnelle ne connaîtrait pas la fonction d'un lien avant de l'activer). <strong>Exemple</strong>&nbsp;: le mot «&nbsp;goyave&nbsp;» dans la phrase suivante utilisé comme lien : «&nbsp;L'une des exportations importantes est la goyave&nbsp;». Ce lien pourrait conduire à une définition de la goyave, à un graphe présentant une liste des quantités de goyaves exportées ou à une photo de personnes récoltant la goyave. Jusqu'à ce que le lien soit activé, tout utilisateur est dans l'incertitude et une personne handicapée n'est donc pas désavantagée.</p>
 
-				<h3 id="ancre">Ancre</h3>
+				<h3 id="mAncreNom">Ancre</h3>
 				<p>En HTML, une ancre (appelée aussi signet) est constituée d'une balise <code lang="en">&lt;a&gt;</code> avec l'attribut <code lang="en">id</code> et dépourvue de <code lang="en">href</code>&nbsp;; par&nbsp;exemple&nbsp;: <code lang="en">&lt;a id="content"&gt;&lt;/a&gt;</code>. Une&nbsp;ancre sert de cible à un lien de la forme <code lang="en">&lt;a href="index.html#content"&gt;Contenu&lt;/a&gt;</code>.</p>
 
-				<h3 id="arborescence-du-document">Arborescence du document</h3>
+				<h3 id="mDocumentOutline">Arborescence du document</h3>
 				<p>Le test 9.2.2 demande de vérifier que la structure des éléments sectionnant (<code lang="en">nav</code>, <code lang="en">section</code>, <code lang="en">article</code> par&nbsp;exemple) est cohérente, c'est-à-dire représentative de l'architecture du document. Cette structure est complémentaire à la structure des titres <code lang="en">h(x)</code> qui en sont un élément.</p>
 				<p>L'utilisation innapropriée de ces éléments sectionnants peut générer une arborescence de document incohérente, par&nbsp;exemple par l'utilisation abusive d'éléments <code lang="en">section</code> ou <code lang="en">article</code>.</p>
 				<p><strong>Note 1 :</strong> Pour accompagner la prise en charge progressive de l'arborescence du document et compte tenu du fait que le référentiel exige de disposer, en tout état de cause, d'une structure de contenu (balises <code lang="en">h(x)</code>) robuste et cohérente, <strong>il est acceptable de considérer le test 9.2.2 comme non applicable</strong> lorsqu'il n'est pas possible de s'assurer que l'arborescence du document est parfaitement cohérente.<br>
 				Vous pouvez consulter, à ce sujet la note technique : <a href="notes-techniques.html#crit-9-2">Note technique au sujet de l'arborescence du document</a>.</p>
 				<p><strong>Note 2 :</strong> vous pouvez consulter, à ce sujet, l'exemple donné par la spécification HTML5 : <a rel="external" class="external" hreflang="en" href="http://www.w3.org/TR/html5/sections.html#sample-outlines">4.3.10.2 Sample outlines</a>.</p>
 
-				<h3 id="audio-description-tendue">Audio-description étendue</h3>
+				<h3 id="mAudioDescE">Audio-description étendue</h3>
 				<p>Audio-description ajoutée à une présentation audiovisuelle en mettant en pause la vidéo de manière à avoir le temps d'ajouter des descriptions supplémentaires. <strong>Note</strong>&nbsp;: cette technique est à utiliser seulement si le sens de la vidéo est perdu sans audio-description supplémentaire et que les pauses entre les dialogues ou la narration sont trop courtes.</p>
 
-				<h3 id="audio-description-synchronise-media-temporel">Audio-description synchronisée (media temporel)</h3>
+				<h3 id="mAudioDesc">Audio-description synchronisée (media temporel)</h3>
 				<p>Narration ajoutée (via un fichier son) à une piste sonore pour décrire les détails visuels importants qui ne peuvent être compris à partir de la piste sonore principale seulement. L'audio-description doit être synchronisée avec le media temporel grâce à l'utilisation de format spécialisés comme le format <code lang="en">SRT</code> par&nbsp;exemple.</p>
 				<ul>
 					<li><strong>Note 1</strong> : l'audio-description d'une vidéo fournit de&nbsp;l'information à propos des actions, des personnages, des changements de scènes, du texte apparaissant à l'écran et d'autres contenus visuels.</li>
@@ -133,7 +133,7 @@
 
 				<h2 id="b">B</h2>
 
-				<h3 id="barre-de-navigation">Barre de navigation</h3>
+				<h3 id="mBarreNav">Barre de navigation</h3>
 				<p>Liste de liens permettant une navigation spécifique dans le site, dans une rubrique ou dans une collection de pages. Les principales barres de navigation sont&nbsp;:</p>
 				<ul>
 					<li>le menu de navigation principal&nbsp;;</li>
@@ -142,7 +142,7 @@
 					<li>un menu de sous-rubrique.</li>
 				</ul>
 
-				<h3 id="bloc-dinformations-de-mme-nature">Bloc d'informations de même nature</h3>
+				<h3 id="mInfoMNature">Bloc d'informations de même nature</h3>
 				<p>Dans un formulaire, ensemble des champs pouvant être regroupés par la nature des informations attendues. Le regroupement vise à identifier les champs devant être traités comme un ensemble.</p>
 				<p>Quelques exemples&nbsp;:</p>
 				<ul>
@@ -154,7 +154,7 @@
 <p>Ces champs doivent être regroupés par une balise <code lang="en">fieldset</code> accompagnée d'une balise <code lang="en">legend</code> pertinente. Dans le cas de boutons radio, la légende est généralement l'intitulé de la question.</p>
 				<p><strong>Note</strong>&nbsp;: lorsque le formulaire est uniquement constitué d'un seul bloc d'informations de même nature (l'identité et l'adresse de l'utilisateur, par&nbsp;exemple) ou d'un champ unique (un moteur de recherche, par&nbsp;exemple), la présence de l'élément <code lang="en">fieldset</code> n'est pas obligatoire.</p>
 
-				<h3 id="bouton-formulaire">Bouton (formulaire)</h3>
+				<h3 id="mBtnForm">Bouton (formulaire)</h3>
 				<p>Élément d'un formulaire qui permet d'effectuer une action prédéfinie. Par&nbsp;exemple, le bouton de soumission d'un formulaire permet l'envoi au serveur des informations collectées pour leur traitement. L'intitulé d'un bouton doit décrire l'action qui résulte de son activation (par&nbsp;exemple&nbsp;: «&nbsp;Lancer votre recherche&nbsp;», «&nbsp;Envoyer votre message&nbsp;»).</p>
 				<p>En HTML, il y a trois types de boutons de formulaire&nbsp;:</p>
 				<ul>
@@ -174,16 +174,16 @@
 				<h2 id="c">
 				C</h2>
 
-				<h3 id="cadre-en-ligne">
+				<h3 id="mTitreCadre">
 				Cadre en ligne</h3>
 				<p>Élément HTML (balise <code lang="en">iframe</code>) permettant d'afficher un contenu dans la page web dans laquelle il est implémenté.</p>
 
 
-				<h3 id="captcha">
+				<h3 id="mcaptcha">
 				CAPTCHA</h3>
 				<p>Un CAPTCHA est un test utilisé pour distinguer un utilisateur humain d'un ordinateur. Le&nbsp;test utilise souvent des images contenant du texte déformé, mélangé avec d'autres formes ou utilisant des jeux de couleur altérées, que l'utilisateur est invité à retaper. D'autres formes de CAPTCHA peuvent être basées sur des questions logiques ou des extraits sonores.</p>
 
-				<h3 id="champ-de-saisie-de-formulaire">
+				<h3 id="mChpSaisie">
 				Champ de saisie de formulaire</h3>
 				<p>objet d'un formulaire permettant à l'utilisateur&nbsp;:</p>
 				<ul>
@@ -243,11 +243,11 @@
 				</ul>
 
 
-				<h3 id="changement-brusque-de-luminosit-ou-effets-de-flash">
+				<h3 id="mChangeLumi">
 				Changement brusque de luminosité ou effets de flash</h3>
 				<p>Alternance de luminosité relative qui peut causer des crises chez certaines personnes si leur taille est suffisamment importante dans une gamme de fréquences spécifiques.</p>
 
-				<h3 id="changement-de-contexte">
+				<h3 id="mChangeLumi">
 				Changement de contexte</h3>
 				<p>Changements majeurs dans le&nbsp;contenu d'une page web qui, s'ils sont faits sans que l'utilisateur n'en soit conscient, peuvent désorienter l'utilisateur qui ne peut voir l'ensemble de la page en même temps. Les changements de contexte comprennent les changements&nbsp;:</p>
 
@@ -260,13 +260,13 @@
 				<p><strong>Exemple</strong> : l'ouverture d'une nouvelle fenêtre, le déplacement du focus sur un composant différent, le déplacement vers une nouvelle page (y compris tout ce qui, pour l'utilisateur, aurait l'air d'un déplacement vers une autre page) ou la réorganisation significative du contenu d'une page sont autant d'exemples d'un changement de contexte.</p>
 
 
-				<h3 id="changement-de-langue">
+				<h3 id="mLanguageChange">
 				Changement de langue</h3>
 				<p>L'indication des changements de langue est nécessaire pour indiquer aux technologies d'assistance de modifier la restitution vocale d'un élément. Les changement de langue concernent tous les contenus, y compris les valeurs de certains attributs comme <code lang="en">title</code>.</p>
 				<p><strong>Note&nbsp;:</strong> il n'est pas possible d'indiquer des changements de langue dans une valeur d'attribut elle-même, dans ce cas le changement de langue est indiqué sur l'élément qui contient l'attribut. Par&nbsp;exemple un lien affecté d'un <code lang="en">title</code> en anglais devra comporter un attribut <code lang="en">lang="en"</code>. Lorsque l'attribut contient plusieurs passage de texte dans des langues différentes, le critère est non applicable.</p>
 
 
-				<h3 id="code-de-langue">
+				<h3 id="mCodeLangue">
 				Code de langue</h3>
 				<p>Code de 2 caractères (ISO 639-1) ou 3 caractères (ISO 639-2 et suivants) permettant d'indiquer la langue d'un document ou d'un passage de texte. L'indication du code de langue est constituée de deux parties séparées par un tiret sur le modèle <code lang="en">lang="[code]-[option]"</code>.</p>
 				<ul>
@@ -275,7 +275,7 @@
 				</ul>
 <p>Lorsqu'un code de pays est utilisé comme option, il peut servir à indiquer une régionalisation de la langue, l'indication "en-us" indique la langue américaine, par&nbsp;exemple. L'indication du code de langue ne concerne que la partie [code] avant le tiret.</p>
 
-				<h3 id="code-valide">
+				<h3 id="mCodeValide">
 				Code valide</h3>
 
 
@@ -291,12 +291,12 @@
 				<li>Cas d'une page implémentant WAI-ARIA : code dans lequel l'implémentation des balises et des attributs respecte les spécifications du type de document déclaré et dans lequel l'implémentation WAI ARIA est conforme à la spécification WAI-ARIA.</li>
 				</ul>
 
-				<h3 id="collection-de-pages">
+				<h3 id="mCollecPage">
 				Collection de pages</h3>
 				<p>Pages reliées les unes aux autres par des liens et ayant un thème ou une nature commune. Par&nbsp;exemple, les pages de résultats d'un moteur de recherche ou les pages d'un catalogue (pour une même recherche) sont des collections de pages.</p>
 
 
-				<h3 id="compatible-avec-les-technologies-dassistance">
+				<h3 id="mCorrectlyRendered">
 				Compatible avec les technologies d'assistance</h3>
 				<p>Un contenu ou une fonctionnalité doit être compatible avec les technologies d'assistance des utilisateurs ainsi qu'avec les fonctions d'accessibilité des navigateurs et des autres agents utilisateurs via une API d'accessibilité.</p>
 				<p>Cela concerne, à la fois, la technologie, ses fonctionnalités et ses usages&nbsp;:</p>
@@ -310,17 +310,17 @@
 				<li>vérifier que la restitution d'un composant d'interface est correcte pour la ou les technologies d'assistance utilisées.</li>
 				</ul>
 
-				<h3 id="comprhensible-ordre-de-lecture">
+				<h3 id="mCoherentODL">
 				Compréhensible (ordre de lecture)</h3>
 				<p>Un contenu compréhensible est lisible (l'ordre des éléments est logique) et cohérent (l'enchaînement de la lecture est cohérent).</p>
 
 
-				<h3 id="contenu-visible">
+				<h3 id="mVisibleContent">
 				Contenu visible</h3>
 				<p>Pour le test 10.2.1 : «&nbsp;Contenu présent&nbsp;» signifie que le&nbsp;contenu visible reste présent lorsque CSS est désactivé. Par&nbsp;exemple, une image porteuse d'information en propriété de fond CSS invalide ce test car l'information n'est plus «&nbsp;présente&nbsp;» lorsque CSS est désactivé. En revanche, une image porteuse d'information en propriété de fond CSS mais accompagnée d'un texte caché valide ce test car l'information est bien «&nbsp;présente&nbsp;» lorsque CSS est désactivé.</p>
 				<p><strong>Note</strong>&nbsp;: la pratique qui consiste à gérer des images en propriété de fond d'éléments via CSS est formellement déconseillée, même si elle est accompagnée d'un texte caché.</p>
 
-				<h3 id="contexte-du-lien">
+				<h3 id="mContexteLien">
 				Contexte du lien</h3>
 				<p>Le contexte du lien représente les informations supplémentaires (on parle d'informations de contexte) qui peuvent être mises en relation par un programme informatique avec l'intitulé du lien. Les informations de contexte qui permettent de rendre un lien explicite sont les suivantes&nbsp;:</p>
 				<ul>
@@ -338,7 +338,7 @@
 				<p><strong>Note 2 :</strong> RGAA 3.0 considère que des liens particuliers comme des liens de type mailto (qui génère un lien sous la forme d'une adresse email cliquable) sont suffisamment explicites et ne requiert pas de signaler, via un title, que l'action consiste à envoyer un email. L'attention des auteurs est appelée sur le fait que cette règle générale peut être adaptée au contexte, par&nbsp;exemple si la page contient plusieurs adresses email cliquables affectées de comportements différents (envoyer un email via le client de messagerie pour l'une, accéder à un formulaire pour l'autre) il peut être nécessaire de donner des informations complémentaire sur l'action du lien afin de différencier leurs comportements.</p>
 
 
-				<h3 id="contraste">
+				<h3 id="mContraste">
 				Contraste</h3>
 				<p>Opposition marquée entre la luminosité d'une couleur de premier plan et d'une couleur d'arrière-plan. Le rapport de contraste est basé sur la différence de luminosité relative entre l'arrière-plan et le premier plan selon la règle : (L1 + 0,05) / (L2 + 0,05) où L1 est la luminosité relative la plus claire et L2 la luminosité relative la plus sombre. La luminosité est calculée selon la formule suivante : L = 0,2126 * R + 0,7152 * G + 0,0722 * B. Où R, G et B sont définis par&nbsp;:</p>
 				<ul>
@@ -356,7 +356,7 @@
 				<p><strong>Note</strong>&nbsp;: la mesure de contraste concerne le texte, le texte en image, le texte et le texte en image dans les animations, le texte de sous-titrage et le texte incrusté dans les vidéos. Pour le texte et le texte en image dans les animations, le texte de sous-titrage et le texte incrusté dans les vidéos, la taille de la police doit être mesurée par rapport à la taille d'affichage par défaut (telle qu'affichée). Les textes présents dans les éléments d'une image ou d'une vidéo (par&nbsp;exemple un écriteau, une affiche etc.) ne sont pas concernés.</p>
 
 
-				<h3 id="contrlable-par-le-clavier-et-la-souris">
+				<h3 id="mAAClavierSouris">
 				Contrôlable par le clavier et la souris</h3>
 				<p>Le contrôle d'une fonctionnalité par le clavier signifie que celle-ci est accessible via la touche tabulation et activable par la touche entrée à l'exception&nbsp;:</p>
 				<ul>
@@ -364,7 +364,7 @@
 				<li>Lorsque un composant utilise une technologie qui nécessite l'utilisation de raccourcis clavier et que la touche de tabulation n'est pas disponible.</li>
 				</ul>
 
-				<h3 id="contrle-contenu-en-mouvement-ou-clignotant">
+				<h3 id="mControleMov">
 				Contrôle (contenu en mouvement ou clignotant)</h3>
 				<p>Possibilité pour l'utilisateur de contrôler l'affichage ou la lecture d'un contenu en mouvement ou clignotant par le clavier et la souris, au moins.</p>
 				<p>Tous les contenus en mouvement, à l'exception des média temporels pris en charge par la thématique multimédia, sont concernés : les images animés (par&nbsp;exemple un gif animé), les contenus en mouvement proposés via une balise <code lang="en">object</code>, du code <code lang="en">JavaScript</code> ou des effets <code lang="en">CSS</code> par&nbsp;exemple.</p>
@@ -373,12 +373,12 @@
 				<p><strong>Note 2 :</strong> Dans certains cas, le mouvement fait partie intégrante du composant et il n'est pas possible d'en donner le contrôle à l'utilsateur, par&nbsp;exemple une barre de progression dont la fonction est d'indiquer par un mouvement la progression d'un évènement comme un téléchargement. Dans ce cas le critère est Non Applicable.</p>
 
 
-				<h3 id="contrle-son-dclench-automatiquement">
+				<h3 id="mControlSound">
 				Contrôle (son déclenché automatiquement)</h3>
 				<p>Possibilité pour l'utilisateur d'arrêter ou de relancer un son déclenché automatiquement.</p>
 				<p><strong>Note&nbsp;:</strong> la méthode de contrôle du son devrait être disponible comme premier élément de la page.</p>
 
-				<h3 id="contrle-de-la-consultation-dun-media-temporel">
+				<h3 id="mFonctionControle">
 				Contrôle de la consultation (d'un media temporel)</h3>
 				<p>Possibilité pour l'utilisateur de contrôler la consultation d'un media temporel par le clavier et la souris, au moins. Les points suivants doivent être respectés&nbsp;:</p>
 				<ul>
@@ -396,7 +396,7 @@
 				</ul>
 <p><strong>Note</strong>&nbsp;: s'il n'y a pas de son à un media temporel, il n'est pas utile de mettre une fonctionnalité de contrôle du volume.</p>
 
-				<h3 id="contrle-de-saisie-formulaire">
+				<h3 id="mControleSaisie">
 				Contrôle de saisie (formulaire)</h3>
 				<p>Ensemble des processus qui permettent de prévenir l'utilisateur des champs obligatoires, des indications de type ou de format attendus et des erreurs de saisie dans un formulaire. Ces contrôles de saisie peuvent être implémentés par l'auteur des contenus ou s'appuyer sur des attributs (comme <code lang="en">required</code> ou <code lang="en">pattern</code>), des propriétés WAI-ARIA (comme <code lang="en">aria-required</code>) ou des types de champ qui produisent de manière automatique des indications de saisie ou d'erreurs (comme les types <code lang="en">url</code>, <code lang="en">email</code>, <code lang="en">date</code>, <code lang="en">time</code> par&nbsp;exemple.</p>
 				<p><strong>Note importante</strong> : lorsqu'une page est renvoyée avec des erreurs de saisie le titre de la page doit comporter la mention «&nbsp;<strong>erreur sur le formulaire</strong>&nbsp;».</p>
@@ -405,7 +405,7 @@
 
 				<h2 id="d">
 				D</h2>
-				<h3 id="description-dtaille-image">
+				<h3 id="mDescDetaillee">
 				Description détaillée (image)</h3>
 				<p>Contenu associé à une image en complément de son alternative textuelle afin de décrire en totalité l'information véhiculée par l'image. La description détaillée peut être insérée via&nbsp;:</p>
 				<ul>
@@ -417,16 +417,16 @@
 
 				<h2 id="e">
 				E</h2>
-				<h3 id="en-tte-de-colonne-ou-de-ligne">
+				<h3 id="mCelluleTab">
 				En-tête de colonne ou de ligne</h3>
 				<p>Contenu d'une cellule dans un tableau de données (la première cellule d'une colonne ou d'une ligne, généralement) qui sert d'intitulé pour la totalité ou une partie des cellules de la colonne ou de la ligne. Une colonne ou une ligne peut contenir plusieurs en-têtes (en-tête intermédiaire). Les en-têtes doivent utiliser une balise <code lang="en">th</code>.</p>
 
-				<h3 id="ensemble-de-pages">
+				<h3 id="mEnsemblePages">
 				Ensemble de pages</h3>
 				<p>Pages web liées les unes aux autres par des liens et constituant un ensemble cohérent à l'intérieur d'un site web. Par&nbsp;exemple, les pages d'un processus de paiement électronique, les pages d'une rubrique spécifique, les pages d'un blog, les pages d'administration d'un compte client sont autant d'ensembles de page.</p>
 				<p><strong>Note</strong>&nbsp;: la page d'accueil d'un site web peut constituer, à elle seule, un «&nbsp;ensemble de pages&nbsp;» du fait de son unicité.</p>
 
-				<h3 id="environnement-matris">Environnement maîtrisé</h3>
+				<h3 id="mEnvMait">Environnement maîtrisé</h3>
 				<p>Tout environnement dans lequel l'accès à l'information, les technologies, les conditions d'utilisation et le profil des utilisateurs peuvent être connus et maîtrisés. Les principaux éléments dont la maîtrise est essentielle sont&nbsp;:</p>
 				<ul>
 					<li>le type et la version des navigateurs&nbsp;;</li>
@@ -437,17 +437,17 @@
 				</ul>
 				<p>Les auteurs et les administrateurs doivent garantir la compatibilité des technologies utilisées et de leurs usages par les utilisateurs et leurs technologies (y compris les technologies d'assistance). Les services d'information ou les sites web, quel que soit leur statut, qui offrent un accès public ne peuvent pas être considérés comme des environnements maîtrisés.</p>
 
-				<h3 id="tiquette-de-champs-de-formulaire">
+				<h3 id="mEtiquette">
 				Étiquette de champs de formulaire</h3>
 				<p>Texte à proximité du champ de formulaire permettant d'en connaître la nature, le type ou le format des informations attendues. L'étiquette peut être associée au champ de formulaire de plusieurs manières : par l'utilisation d'une balise <code lang="en">label</code>, l'utilisation de la propriété WAI-ARIA <code lang="en">aria-label</code>, l'utilisation d'une liaison entre le texte et le champ par la propriété WAI-ARIA <code lang="en">aria-labelledby</code>, l'utilisation de l'attribut <code lang="en">title</code>.</p>
 
 				<h2 id="f">F</h2>
 
-				<h3 id="feuille-de-style">
+				<h3 id="mFeuilleStyle">
 				Feuille de style</h3>
 				<p>Le langage CSS destiné à la mise en forme des éléments du contenu (exemples&nbsp;: couleur du fond de la page, taille/police/couleur des caractères, positionnement de&nbsp;l'information dans la page web…). Les styles CSS peuvent être externes (fichier CSS), embarqués (déclarés dans l'en-tête de la page) ou en ligne (déclarés via l'attribut <code lang="en">style</code> d'une balise).</p>
 
-				<h3 id="fonctionnalits-de-contrle-media-temporel">
+				<h3 id="mFonctionControle">
 				Fonctionnalités de contrôle (media temporel)</h3>
 				<p>Il s'agit des fonctionnalités de contrôle de la consultation (objet multimédia) suivantes&nbsp;:</p>
 				<ul>
@@ -460,7 +460,7 @@
 
 				<h2 id="i">I</h2>
 
-				<h3 id="image-de-dcoration">
+				<h3 id="mImgDeco">
 				Image de décoration</h3>
 				<p>image n'ayant aucune fonction et ne véhiculant aucune information particulière par rapport au contenu auquel elle est associée. Exemples&nbsp;:</p>
 				<ul>
@@ -469,38 +469,38 @@
 					<li>une image d'illustration n'apportant aucune information nécessaire à la compréhension du texte auquel elle est associée.</li>
 				</ul>
 
-				<h3 id="image-objet">
+				<h3 id="mImgObj">
 				Image objet</h3>
 				<p>Image incorporée ou générée par une balise <code lang="en">object</code>.</p>
 
-				<h3 id="image-porteuse-dinformation">
+				<h3 id="mImgInfo">
 				Image porteuse d'information</h3>
 				<p>Image qui véhicule une information nécessaire à la compréhension du contenu auquel elle est associée.</p>
 
 
-				<h3 id="image-ractive">Image réactive</h3>
+				<h3 id="mImgReactive">Image réactive</h3>
 				<ol>
 					<li><strong>image réactive</strong> côté client (attribut <code lang="en">usemap</code>) : image divisée en zones cliquables ou neutres (attribut <code lang="en">nohref</code>).</li>
 					<li><strong>image réactive côté serveur</strong> (attribut <code lang="en">ismap</code>) : image pour laquelle le navigateur transmet au serveur les coordonnées du pointeur, chaque jeu de coordonnées correspondant à une ressource (page web). L'image réactive côté serveur est extrêmement rare.</li>
 				</ol>
 				<p><strong>Note&nbsp;:</strong> en HTML5, l'attribut <code lang="en">ismap</code> est obsolète non conforme pour les boutons de type image (<code lang="en">input type="image"</code>).</p>
 
-				<h3 id="image-texte">Image texte</h3>
+				<h3 id="mImgText">Image texte</h3>
 				<p>Image affichant du texte.</p>
 				<p><strong>Note&nbsp;:</strong> il n'est pas recommandé d'utiliser des images textes. Lorsqu'il est possible de reproduire les mêmes effets en CSS, le <a href="criteres.html#crit-1-8">critère 1.8 [AA]</a> impose que le texte soit reproduit en texte CSS, ou qu'un mécanisme de remplacement permette à l'utilisateur de remplacer ces images par du texte stylé en CSS.</p>
 
-				<h3 id="image-texte-objet">Image texte objet</h3>
+				<h3 id="mImgTextObj">Image texte objet</h3>
 				<p>image générée par la balise <code lang="en">object</code> et affichant du texte.</p>
 
-				<h3 id="image-vhiculant-une-information-donne-par-la-couleur">
+				<h3 id="mInfoDonneeCouleur">
 				Image véhiculant une information (donnée par la couleur)</h3>
 				<p>image dont tout ou partie du contenu transmet visuellement une information par l'intermédiaire d'une couleur uniquement.</p>
 
-				<h3 id="image-test">Image-test</h3>
+				<h3 id="mImgTest">Image-test</h3>
 				<p>Image servant dans un test, Captcha ou une image servant de test dans un quiz ou un jeu. Exemple&nbsp;: une série d'images présente un détail issu de tableaux célèbres; il faut reconnaître le titre et le peintre de chaque tableau. Dans cette situation, il n'est pas possible de donner une alternative pertinente (e.g le nom du tableau et/ou du peintre) sans rendre le test inutilisable. L'alternative doit alors se contenter de donner la possibilité d'identifier l'image, par&nbsp;exemple «&nbsp;image 1 du test&nbsp;».</p>
 
 
-				<h3 id="indication-donne-par-la-forme-la-taille-ou-la-position">
+				<h3 id="mInfoShape">
 				Indication donnée par la forme, la taille ou la position</h3>
 				<p>Il peut s'agir, par&nbsp;exemple&nbsp;:</p>
 				<ul>
@@ -510,13 +510,13 @@
 				</ul>
 <p>Ou tout autre effet graphique similaire.</p>
 
-				<h3 id="information-donne-par-la-couleur">
+				<h3 id="mInfoCouleur">
 				Information (donnée par la couleur)</h3>
 				<p>Information transmise visuellement par l'intermédiaire d'une couleur. L'indication que les champs en rouge sont obligatoires dans un formulaire, un changement de couleur de fond pour indiquer la page active dans un menu de navigation, le changement de couleur d'un nom d'article pour indiquer son indisponibilité dans une liste d'article sont autant d'exemples d'indication donnée par la couleur.</p>
 				<p>L'indication donnée uniquement par la couleur doit être accompagnée d'une autre méthode à destination des utilisateurs qui ne voient pas ou perçoivent mal les couleurs ou leurs associations.</p>
 				<p>L'autre moyen de récupérer une information par la couleur peut être très divers, lorsqu'il s'agit d'un moyen faisant intervenir du graphisme (utilisation de CSS ou d'élément graphique) l'indication visuelle pourrait devoir être accompagnée d'une indication textuelle. Par&nbsp;exemple, un effet de bordure, de gras, de changement typographique ou autre dispositif similaire sera jugé insuffisant car ces indications ne seront pas accessibles aux personnes aveugles, notamment.</p>
 
-				<h3 id="intitul-de-lien">
+				<h3 id="mIntituleLien">
 				Intitulé de lien</h3>
 				<p>Information textuelle comprise entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code> d'un lien complété si&nbsp;nécessaire d'informations de contexte.</p>
 				<p>Les 4 différents types de liens sont&nbsp;:</p>
@@ -534,7 +534,7 @@
 				<h2 id="j">
 				J</h2>
 
-				<h3 id="jusqu-ou-partir-de-150-15em-de-la-taille-de-police-par-dfaut-sans-effet-de-graisse-jusqu-ou-partir-de-120-12em-de-la-taille-de-police-par-dfaut-en-gras">
+				<h3 id="mFontSize">
 				Jusqu'à ou à partir de 150&nbsp;% (1.5em) de la taille de police par défaut sans effet de graisse. Jusqu'à ou à partir de 120&nbsp;% (1.2em) de la taille de police par défaut en gras</h3>
 				<p>Jusqu'à ou à partir de 120&nbsp;% (1.2em) de la taille de police par défaut en gras</p>
 				<p>Ces deux mesures déterminent la taille relative des caractères correspondant à une taille de caractères équivalent à 14 points gras ou 18 points sans effet de graisse en considérant que la police de corps (<code lang="en">body</code>) est à 100&nbsp;%.</p>
@@ -545,7 +545,7 @@
 
 				<h2 id="l">
 				L</h2>
-				<h3 id="langue-par-dfaut">
+				<h3 id="mLangueDefaut">
 				Langue par défaut</h3>
 				<p>indication de la langue de traitement principale du document qui peut être présente sur l'élément racine <code lang="en">html</code> ou sur chaque élément de la page concerné via les attributs <code lang="en">lang</code> et/ou <code lang="en">xml:lang</code> selon le schéma suivant&nbsp;:</p>
 				<ul>
@@ -556,7 +556,7 @@
 				<li>pour HTML5 : attribut <code lang="en">lang</code> obligatoire</li>
 				</ul>
 
-				<h3 id="le-nom-le-rle-la-valeur-le-paramtrage-et-les-changements-dtats">
+				<h3 id="mNameRole">
 				Le nom, le rôle, la valeur, le paramétrage et les changements d'états</h3>
 				<p>Un composant doit avoir un rôle et un nom appropriés, ses valeurs, états et paramètres éventuels doivent également être accessibles et correctement transmis aux APIs d'accessibilité notamment.</p>
 				<p>Le nom peut être l'intitulé du composant comme l'intitulé d'un bouton par&nbsp;exemple.</p>
@@ -568,7 +568,7 @@
 				<p>L'auditeur doit également vérifier que, lorsqu'il sont présents, ces paramètres sont correctement utilisés.</p>
 				<p><strong>Note&nbsp;:</strong> les rôles, propriétés et états ARIA s'implémentent via des attributs, par&nbsp;exemple <code lang="en">role="banner"</code>, <code lang="en">aria-hidden="true"</code>.</p>
 
-				<h3 id="lgende-dimage">
+				<h3 id="ImageCaption">
 				Légende d'image</h3>
 				<p>Lorsqu'un texte, adjacent à une image, contient des informations sur l'image (par&nbsp;exemple un <span lang="en">copyright</span>, une date, un auteur…) ou est destiné à compléter les informations apportées par l'image (par&nbsp;exemple un texte associé à une image dans une galerie d'images), on parle de légende d'image.</p>
 				<p>Lorsqu'une image est légendée il est nécessaire d'associer la légende de l'image à l'image par une relation de structure, de telle sorte que les technologies d'assistance puissent traiter l'image et sa légende comme un ensemble unique.</p>
@@ -581,7 +581,7 @@
 				<p><strong>Note&nbsp;:</strong> lorsque le texte adjacent à l'image peut faire office de texte de remplacement, il n'est pas obligatoire de recourir à l'ensemble <code lang="en">figure</code>, <code lang="en">figcaption</code>, l'image pouvant être simplement traitée comme une image de décoration.</p>
 				<p>Vous pouvez consulter, à ce sujet, la note <a rel="external" class="external" hreflang="en" href="http://www.w3.org/TR/html-alt-techniques/#m6" title="HTML5: Techniques for providing useful text alternatives - 2.5 The figure and figcaption elements (nouvelle fenêtre)" target="_blank">HTML5: Techniques for providing useful text alternatives - 2.5 The figure and figcaption elements</a> du W3C.</p>
 
-				<h3 id="lien">
+				<h3 id="Lien">
 				Lien</h3>
 				<p>Élément HTML (balise <code lang="en">a</code>) activable par l'utilisateur (par la souris, le clavier…) et déclenchant une action (affichage d'une page web, téléchargement d'un fichier…) ou un événement généré par un script. Un lien possède au minimum&nbsp;:</p>
 				<ul>
@@ -589,53 +589,53 @@
 					<li>un intitulé de lien compris entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code>.</li>
 				</ul>
 
-				<h3 id="lien-adjacent">
+				<h3 id="LienAdj">
 				Lien adjacent</h3>
 				<p>Lien présenté de manière adjacente dans la représentation graphique (CSS activé) et dans le code HTML. Dans le code HTML, le lien doit se situer juste avant ou juste après l'objet avec lequel il est adjacent.</p>
 
-				<h3 id="lien-composite">
+				<h3 id="LienComposite">
 				Lien composite</h3>
 				<p>Lien dont le&nbsp;contenu entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code> est constitué de 2 éléments de type différent, au moins ; par&nbsp;exemple, du texte et une ou plusieurs images. L'intitulé de lien pour un lien composite est l'ensemble du texte et du contenu de l'alternative textuelle de ou des images compris entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code>.</p>
 				<p><strong>Note importante</strong>: il est rappelé que l'utilisation de deux liens adjacents (lien image et lien texte) et identiques constitue une gêne importante pour l'utilisateur. Même si cela ne constitue pas une non-conformité, cet usage devrait être évité. Une manière de traiter ce type de liens est d'inclure l'image dans le lien texte de façon à constituer un lien composite, ce qui évitera la redondance.</p>
 				<p>Vous pouvez consulter à ce sujet la technique <a rel="external" class="external" hreflang="en" href="http://www.w3.org/TR/WCAG20-TECHS/H2.html" title="H2 : Combining adjacent image and text links for the same resource (nouvelle fenêtre)" target="_blank">H2 : Combining adjacent image and text links for the same resource</a></p>
 
-				<h3 id="lien-dont-la-nature-nest-pas-vidente">
+				<h3 id="LienNature">
 				Lien dont la nature n'est pas évidente</h3>
 				<p>Lien qui peut être confondu avec un texte normal lorsqu'il est signalé uniquement par la couleur par certains types d'utilisateurs ne percevant pas ou mal les couleurs. Par&nbsp;exemple, dans ce texte «&nbsp;Nouvelle grève à la SNCF&nbsp;», si le mot «&nbsp;grève&nbsp;» est un lien signalé uniquement par la couleur, sa nature peut être ignorée par les utilisateurs ne percevant pas la couleur et accédant au contenu CSS activées. En revanche, dans ce texte «&nbsp;Nouvelle grève à la SNCF, lire la suite&nbsp;» si «&nbsp;lire la suite&nbsp;» est un lien, un utilisateur ne percevant pas les couleurs n'aura pas de problème pour en comprendre la nature.</p>
 				<p><strong>Note</strong>&nbsp;: «&nbsp;signalés uniquement par la couleur&nbsp;» signifie que le lien n'est accompagné d'aucun marqueur visuel (icône, soulignement, bordure…). En conséquence un lien de la même couleur que le texte environnant est concerné par ce critère.</p>
 
-				<h3 id="lien-explicite-hors-contexte">
+				<h3 id="mExpliciteHorsContexte">
 				Lien explicite hors contexte</h3>
 				<p>Un lien est explicite hors contexte lorsque l'intitulé du lien seul (contenu entre la balise <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code>) permet de connaître et de comprendre la fonction et la destination du lien.</p>
 
-				<h3 id="lien-image">
+				<h3 id="LienImage">
 				Lien image</h3>
 				<p>Lien dont le&nbsp;contenu entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code> est uniquement constitué d'une image. L'intitulé de lien pour un lien image est le&nbsp;contenu de l'alternative textuelle de l'image.</p>
 				<p><strong>Note&nbsp;:</strong> un lien image peut être constitué d'une image (balise <code lang="en">img</code>), d'une image objet (<code lang="en">balise object</code>) ou d'une image bitmap (balise <code lang="en">canvas</code>).</p>
 
 
-				<h3 id="lien-texte">
+				<h3 id="mIntituleLien">
 				Lien texte</h3>
 				<p>Lien dont le&nbsp;contenu entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code> est uniquement constitué de texte (il s'agit de son intitulé de lien).</p>
 
 
-				<h3 id="lien-vectoriel">Lien vectoriel</h3>
+				<h3 id="mVectorLink"</h3>
 				<p>Lien dont le&nbsp;contenu entre <code lang="en">&lt;a href="…"&gt;</code> et <code lang="en">&lt;/a&gt;</code> est uniquement constitué d'une image vectorielle (balise <code lang="en">svg</code>). L'intitulé de lien pour un lien vectoriel est le&nbsp;contenu de l'alternative textuelle de l'image vectorielle.</p>
 
-				<h3 id="liens-dvitement-ou-daccs-rapide">Liens d'évitement ou d'accès rapide</h3>
+				<h3 id="LienEvitement">Liens d'évitement ou d'accès rapide</h3>
 				<p>Liens dont la fonction est de permettre de naviguer à l'intérieur du contenu (lien d'évitement, lien d'accès au formulaire de recherche ou au menu..).</p>
 
 
-				<h3 id="liens-identiques">Liens identiques</h3>
+				<h3 id="LienIdentique">Liens identiques</h3>
 				<p>Deux liens sont dits identiques quand le lien&nbsp;x (intitulé du lien seul, contenu de l'attribut <code lang="en">title</code> ou contexte du lien) est égal au lien&nbsp;y. Cette définition s'applique à tous les types de liens&nbsp;: lien texte, lien image (les liens ont alors la même image) et lien composite.</p>
 				<p><strong>Attention</strong>&nbsp;: des liens avec des intitulés identiques mais des titres de liens différents ou des contextes de liens différents ne sont pas identiques (exemple&nbsp;: <code lang="en">&lt;a href="lien_bar.html" title="cliquer ici pour télécharger la barre d'outils"&gt;cliquer ici&lt;/a&gt;</code> et <code lang="en">&lt;a href="lien_doc.html" title="cliquer ici pour télécharger le document"&gt;cliquer ici&lt;/a&gt;</code>).</p>
 
 
-				<h3 id="liste-de-choix">Liste de choix</h3>
+				<h3 id="mListeChoix">Liste de choix</h3>
 				<p>Champ de formulaire affichant une série d'items à sélectionner sous forme d'une liste déroulante (balise <code lang="en">select</code> avec des balises <code lang="en">option</code>).</p>
 
 
-				<h3 id="listes">Listes</h3>
+				<h3 id="Listes">Listes</h3>
 				<p>Suite d'éléments pouvant être regroupés sous la forme d'une liste structurée ordonnée, non ordonnée ou de définition. Par&nbsp;exemple la suite des liens d'un menu de navigation est une liste de liens non ordonnée, les différentes étapes d'une procédure est une liste d'éléments ordonnés, le couple terme/définition d'un glossaire est une liste de définition. En HTML, les listes utilisent les balises suivantes&nbsp;:</p>
 				<ul>
 					<li>liste ordonnée : balises <code lang="en">ol</code> et <code lang="en">li</code> (chaque élément de la liste est affecté d'un marqueur indéxé)&nbsp;;</li>
@@ -647,17 +647,17 @@
 				<h2 id="m">
 				M</h2>
 
-				<h3 id="mcanisme-de-remplacement">
+				<h3 id="mMecaRempl">
 				Mécanisme de remplacement</h3>
 				<p>Mécanisme généralement basé sur CSS, permettant à l'utilisateur de remplacer du texte par du texte en image et inversement sur le principe du <span lang="en">style switcher</span>. Le mécanisme peut utiliser un langage de script côté serveur ou un langage de script côté client.</p>
 
-				<h3 id="mdia-non-temporel">
+				<h3 id="mMediaNoTemp">
 				Média non temporel</h3>
 				<p>Contenu qui ne se déroule pas dans le temps, consultable via un plugin (Flash, Java, Silverlight…) ou via les éléments <code lang="en">svg</code> et <code lang="en">canvas</code> ; par&nbsp;exemple, une carte interactive en Flash, une application Flash ou Java, un diaporama sont des médias non temporels. Un média non temporel peut contenir des médias temporels (un lecteur Flash qui propose une liste de vidéos à consulter, par&nbsp;exemple).</p>
 				<p><strong>Note</strong>&nbsp;: l'utilisation du paramètre <code lang="en">wmode</code> pour un objet Flash avec les valeurs <code lang="en">"transparent"</code> et <code lang="en">"opaque"</code> invalide de fait le critère 4.21 (La consultation de chaque média non temporel est-elle contrôlable par le clavier et la souris ?). En effet, l'utilisation de ces valeurs a pour conséquence que l'animation Flash vue du côté des utilisateurs de lecteur d'écran est invisible.</p>
 
 
-				<h3 id="mdia-temporel-type-son-vido-et-synchronis">Média temporel (type son, vidéo et synchronisé)</h3>
+				<h3 id="mMediaTemp">Média temporel (type son, vidéo et synchronisé)</h3>
 				<ul>
 					<li>Média temporel seulement audio : contenu sonore (Wawe, Mp3…)&nbsp;;</li>
 					<li>Média temporel seulement vidéo : images ou photos en mouvement ou en séquence&nbsp;;</li>
@@ -682,27 +682,27 @@
 				<p><strong>Note 2</strong> : les gif animés, les animations d'images réalisées par JavaScript ou CSS ne sont pas considérés comme étant des médias temporels.</p>
 
 
-				<h3 id="menu-de-navigation">
+				<h3 id="mMenuNav">
 				Menu de navigation</h3>
 				<p>Zone contenant des liens qui permettent de naviguer dans les rubriques principales du site. Il s'agit généralement du menu principal et des menus contextuels.</p>
 				<p><strong>Note</strong>&nbsp;: Les liens de pied de page renvoyant vers les mentions légales, plan du site et autres informations concernant le site ne sont pas considérés comme un menu de navigation principal.</p>
 				<p>Voir la définition technique de zone d'en-tête fournie par l'API ARIA <a rel="external" class="external" hreflang="en" href="http://www.w3.org/WAI/PF/aria/roles#navigation" title="navigation (role) (nouvelle fenêtre)" target="_blank">navigation (role)</a></p>
 
 
-				<h3 id="modification-du-rle-natif-dun-lment-html">
+				<h3 id="mChangeNativeRole">
 				Modification du rôle natif d'un élément HTML</h3>
 				<p>La spécification WAI-ARIA permet de modifier le rôle natif d'un élément, par&nbsp;exemple modifier un élément <code lang="en">a href=""</code> en élément <code lang="en">button</code>.</p>
 				<p>Ces modifications ne peuvent être réalisées que sous certaines conditions décrites dans le document : <a rel="external" class="external" hreflang="en" href="http://www.w3.org/TR/aria-in-html/" title="Using WAI-ARIA in HTML (nouvelle fenêtre)" target="_blank">Using WAI-ARIA in HTML</a> qui définit un certain nombre de restrictions notamment.</p>
 				<p>Pour qu'une modification du rôle natif d'un élément HTML via WAI-ARIA soit compatible, il faut que les restrictions soient respectées.</p>
 
 
-				<h3 id="moteur-de-recherche-interne-un-site-web">
+				<h3 id="mMoteurRecherche">
 				Moteur de recherche (interne à un site web)</h3>
 				<p>Zone contenant le moteur de recherche permettant d'effectuer des recherches sur les contenus de l'ensemble du site</p>
 				<p><strong>Note&nbsp;:</strong> Attention à ne pas confondre cette zone de recherche, unique dans le site, avec tout autre moteur de recherche permettant par&nbsp;exemple de faire des recherches sur une partie restreinte du site : un catalogue, les offres sur une section marchés publics…</p>
 				<p>Voir la définition technique de zone d'en-tête fournie par l'API ARIA <a rel="external" class="external" hreflang="en" href="http://www.w3.org/WAI/PF/aria/roles#search" title="search (role) (nouvelle fenêtre)" target="_blank">search (role)</a></p>
 
-				<h3 id="motif-de-conception">
+				<h3 id="mDesignPattern">
 				Motif de conception</h3>
 				<p>Un motif de conception (<span lang="en">Design Pattern</span>) est un modèle défini par l'API WAI-ARIA qui décrit la structure, les rôles et propriétés et le comportement que doit respecter un composant JavaScript (<span lang="en">widget</span>).</p>
 				<p>Les motifs de conception sont décrits dans le document : <a rel="external" class="external" hreflang="en" href="http://www.w3.org/TR/wai-aria-practices/" title="WAI-ARIA 1.0 Authoring Practices (nouvelle fenêtre)" target="_blank">WAI-ARIA 1.0 Authoring Practices</a>.</p>
@@ -718,7 +718,7 @@
 
 				<h2 id="o">O</h2>
 
-				<h3 id="ordre-de-tabulation">Ordre de tabulation</h3>
+				<h3 id="mOrdTab">Ordre de tabulation</h3>
 				<p>Ordre dans lequel le&nbsp;focus se déplace (vers un élément suivant ou vers un élément précédent). L'ordre naturel est celui qui est implémenté via le code source. Lorsqu'il est modifié par l'utilisation de l'attribut <code lang="en">tabindex</code> ou par l'utilisation d'une commande JavaScript, c'est l'ordre modifié qui fait référence.</p>
 				<p><strong>Attention</strong> : lorsqu'un élément initie un changement dans la page (changement de contexte, gestion de zones cachées, ajout de contenu, gestion de champs de formulaire…) il est nécessaire d'activer l'élément qui initie le changement pour tester la cohérence de l'ordre de tabulation.</p>
 
@@ -726,20 +726,20 @@
 
 				<h2 id="p">P</h2>
 
-				<h3 id="page-plan-du-site">Page «&nbsp;plan du site&nbsp;»</h3>
+				<h3 id="mPlanSite">Page «&nbsp;plan du site&nbsp;»</h3>
 				<p>Page dédiée présentant l'arborescence d'un site web, généralement sous forme de listes de liens organisées en rubriques et sous-rubriques donnant accès à l'ensemble des pages du site.</p>
 				<p><strong>Note 1</strong> : les liens du plan du site peuvent être constitués de balises <code lang="en">a</code> ou de balises <code lang="en">area</code>.</p>
 				<p><strong>Note 2</strong> : il n'est pas nécessaire que le plan du site contiennent les liens vers toutes les pages du site, en revanche il est nécessaire qu'à partir du plan du site, l'utilisateur puisse atteindre l'ensemble des pages du site.</p>
 
 
-				<h3 id="pertinence-information-autrement-que-par-la-couleur">Pertinence (information autrement que par la couleur)</h3>
+				<h3 id="mPertinence">Pertinence (information autrement que par la couleur)</h3>
 				<p>Le moyen pour récupérer une information autrement que par la couleur doit être accessible à tous. Par&nbsp;exemple, dans le cas d'une liste d'articles dont les articles en jaune sont en promotion, l'utilisation de texte caché via CSS est un moyen de récupérer l'information «&nbsp;en promotion&nbsp;», mais il n'est pas pertinent car cette information restera cachée à l'utilisateur qui visualise la page CSS activée.</p>
 				<p><strong>Note</strong>&nbsp;: l'utilisation d'une balise d'emphase (<code lang="en">strong</code> ou <code lang="en">em</code>) comme autre moyen pour récupérer une information donnée par la couleur permet de valider le critère même si ces éléments ne sont généralement pas supportés par les technologies d'assistance, particulièrement les lecteurs d'écrans.</p>
 
-				<h3 id="presentation-de-linformation">Présentation de&nbsp;l'information</h3>
+				<h3 id="mPresInfo">Présentation de&nbsp;l'information</h3>
 				<p>Restitution visuelle des contenus via un navigateur en mode graphique. La présentation concerne le style, la position et les dimensions des éléments HTML et de leur contenu. La présentation de&nbsp;l'information doit être réalisée via CSS. Les éléments (<code lang="en">basefont</code>, <code lang="en">blink</code>, <code lang="en">center</code>, <code lang="en">font</code>, <code lang="en">marquee</code>, <code lang="en">s</code>, <code lang="en">strike</code>, <code lang="en">tt</code>, <code lang="en">u</code>) et les attributs (<code lang="en">align</code>, <code lang="en">alink</code>, <code lang="en">background</code>, <code lang="en">basefont</code>, <code lang="en">bgcolor</code>, <code lang="en">border</code>, <code lang="en">color</code>, <code lang="en">link</code>, <code lang="en">text</code>, <code lang="en">vlink</code>) sont interdits. Les attributs <code lang="en">width</code> et <code lang="en">height</code> utilisés sur d'autres éléments que les balises <code lang="en">img</code>, <code lang="en">object</code>, <code lang="en">embed</code>, <code lang="en">canvas</code> et <code lang="en">svg</code>, sont également interdits.</p>
 
-				<h3 id="prise-de-focus">Prise de focus</h3>
+				<h3 id="mPriseFocus">Prise de focus</h3>
 				<p>La prise de focus est l'état renvoyé par un élément qui reçoit l'attention suite à une action de l'utilisateur. Il y a trois moyens en HTML de donner le&nbsp;focus à un élément&nbsp;:</p>
 				<ul>
 					<li>en activant l'élément par un dispositif de pointage (souris)&nbsp;;</li>
@@ -750,37 +750,37 @@
 				<p><strong>Note 1</strong> : la spécification WAI-ARIA étend le rôle attribué à l'attribut <code lang="en">tabindex</code> en définissant que tout élément html peut acquérir la possibilité de recevoir le&nbsp;focus en lui attribuant la valeur <code lang="en">tabindex="0"</code>. En revanche, aucun comportement n'est attribué via la seule présence de <code lang="en">tabindex</code>. De même, la valeur <code lang="en">tabindex="-1"</code> retire l'élément qui en est affecté du plan de tabulation en inhibant sa capacité à signaler la «&nbsp;prise de focus&nbsp;». L'utilisation de <code lang="en">tabindex</code>, conformément à la spécification WAI-ARIA, peut valider certains tests relatifs à la gestion du focus de tabulation, notamment.</p>
 				<p><strong>Note 2</strong> : l'indication visuelle du focus ne doit pas être dégradée, c'est à dire amoindrie au moyen de valeurs qui en dégrade le style par rapport à son style par défaut.</p>
 
-				<h3 id="procd-de-rafrachissement">
+				<h3 id="mProcedeRafraichissement">
 				Procédé de rafraîchissement</h3>
 				<p>Technique visant à modifier le&nbsp;contenu d'un ou de plusieurs éléments de la page web. Le procédé de rafraîchissement peut s'effectuer par rechargement automatique de la page ou de manière dynamique sans rechargement de la page (via AJAX, par&nbsp;exemple). L'utilisateur doit pouvoir contrôler chaque procédé de rafraîchissement de manière indépendante.</p>
 
-				<h3 id="proprite-css-dterminant-une-couleur">Propriété CSS déterminant une couleur</h3>
+				<h3 id="mPropCouleur">Propriété CSS déterminant une couleur</h3>
 				<p>Cela concerne les propriétés suivantes : <code lang="en">color</code>, <code lang="en">background-color</code>, <code lang="en">background</code>, <code lang="en">border-color</code>, <code lang="en">border</code>, <code lang="en">outline-color</code>, <code lang="en">outline</code>.</p>
 				<p><strong>Note</strong>&nbsp;: l'utilisation d'une image de fond pour insérer une couleur (propriété <code lang="en">background:url</code>…) est également concernée.</p>
 
-				<h3 id="proprits-et-methodes-conformes-la-spcification-dom">Propriétés et méthodes conformes à la spécification DOM</h3>
+				<h3 id="mDOM">Propriétés et méthodes conformes à la spécification DOM</h3>
 				<p>Les méthodes d'insertion de contenu conformes à la spécification DOM font appel aux propriétés et méthodes de l'objet Node par opposition aux méthodes propriétaires. Par&nbsp;exemple <code lang="en">document.write</code>, spécifique à la plateforme IE/Microsoft pour les navigateurs IE anciens.</p>
 
 				<h2 id="r">R</h2>
 
-				<h3 id="correctement-restitue-par-les-technologies-dassistance">Correctement restituée par les technologies d'assistance</h3>
+				<h3 id="mCorrectlyRendered">Correctement restituée par les technologies d'assistance</h3>
 				<p>Lorsqu'un critère, un test ou une condition de test demande de vérifier la restitution d'un dispositif, il faut s'assurer que ladite restitution est compatible avec l'accessibilité.</p>
-				<p>Le test consiste à vérifier que la restitution est pertinente pour au moins une des combinaisons de la <a href="base-de-reference.html">base de référence</a> utilisée pour déclarer qu'un élément, un dispositif ou une alternative est «&nbsp;compatible avec l'accessibilité&nbsp;».</p>
+				<p>Le test consiste à vérifier que la restitution est pertinente pour au moins une des combinaisons de la <a href="base.html">base de référence</a> utilisée pour déclarer qu'un élément, un dispositif ou une alternative est «&nbsp;compatible avec l'accessibilité&nbsp;».</p>
 				<p>par&nbsp;exemple&nbsp;: le test 1.3.7 demande de vérifier que l'alternative d'une image porteuse d'information vectorielle est correctement restituée.</p>
 				<p>On procède alors à un test avec NVDA (dernière version) et Firefox, JAWS (version précédente) et IE9+ et Voice Over (dernière version) et Safari.</p>
 				<p>Si on constate que l'alternative est correctement restituée, le test est validé.</p>
 
-				<h3 id="redirection-automatique">
+				<h3 id="mRedirectAuto">
 				Redirection automatique</h3>
 				<p>Procédé qui consiste pour l'affichage d'une page sur le poste client à rediriger automatiquement l'utilisateur vers une autre page, sur le même domaine ou sur un domaine différent.</p>
 
-				<h3 id="resume-de-tableau">Résumé (de tableau)</h3>
+				<h3 id="mResumeTab">Résumé (de tableau)</h3>
 				<p>Un résumé est un passage de texte associé à un tableau de données complexe. Il permet de donner des informations sur la nature et la structure du tableau afin d'en faciliter l'utilisation par les utilisateurs de technologies d'assistance par&nbsp;exemple.</p>
 				<p><strong>Note&nbsp;:</strong> l'attribut <code lang="en">summary</code> est obsolète non conforme en HTML5 et ne doit plus être utilisé.</p>
 				<p>Parmi les 5 techniques proposées par HTML5, la seule technique utilisable actuellement est celle qui consiste à insérer le résumé directement dans le titre (balise <code lang="en">caption</code>) en masquant le résumé via CSS si&nbsp;nécessaire.</p>
 				<p><a href="notes-techniques.html#crit-5-1">Consulter la note technique au sujet du résumé de tableau</a>.</p>
 
-				<h3 id="rle-wai-aria-quivalent-surcharge-de-rle">Rôle WAI-ARIA équivalent (surcharge de rôle)</h3>
+				<h3 id="mChangeNativeRole">Rôle WAI-ARIA équivalent (surcharge de rôle)</h3>
 				<div class="section__content js-contentToggle__content" id="content-rle-wai-aria-quivalent-surcharge-de-rle">
 
 				<p>Afin de pallier à l'implémentation progressive des nouveaux éléments HTML5 et pour des raisons de rétro-compatibilité, le document <a rel="external" class="external" hreflang="en" href="http://www.w3.org/TR/aria-in-html/" title="Using WAI-ARIA in HTML (nouvelle fenêtre)" target="_blank">Using WAI-ARIA in HTML</a> préconise de surcharger les rôles natifs des éléments HTML par leur équivalent WAI-ARIA, par&nbsp;exemple un élément <code lang="en">article</code> devra comporter un attribut <code lang="en">role="article"</code>.</p>
@@ -788,7 +788,7 @@
 
 				<h2 id="s">S</h2>
 
-				<h3 id="script">Script</h3>
+				<h3 id="mScript">Script</h3>
 				<p>Code généralement écrit sous forme d'une liste de commandes (par&nbsp;exemple JavaScript). Les langages interprétés côté client nécessitent un navigateur compatible sur lequel l'exécution du langage est active. Les commandes d'un langage de script côté client peuvent être embarquées ou contenues dans un fichier externe. Dans les deux cas, l'insertion se fait via la balise <code lang="en">&lt;script&gt;</code>.</p>
 
 				<h3 id="sens-de-lecture">Sens de lecture</h3>
