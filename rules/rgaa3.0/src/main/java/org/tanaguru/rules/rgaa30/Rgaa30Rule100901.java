@@ -21,6 +21,7 @@ package org.tanaguru.rules.rgaa30;
  
 import java.util.Collection;
 import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.log4j.Logger;
 import org.jsoup.nodes.Element;
 import org.tanaguru.entity.audit.TestSolution;
 import org.tanaguru.processor.SSPHandler;
@@ -39,9 +40,10 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_IF_USER_HAVE_
  
 public class Rgaa30Rule100901 extends AbstractPageRuleFromPreProcessImplementation {
  
-    /* the font-size css property key */
+    final static Logger LOGGER = Logger.getLogger(Rgaa30Rule100901.class);
+    /* the text justification css property key */
     private static final String ALIGN_TEXT_CSS_PROPERTY = "justify";
-   
+     
     /**
      * Default constructor
      */
@@ -56,12 +58,12 @@ public class Rgaa30Rule100901 extends AbstractPageRuleFromPreProcessImplementati
             );
     }
  
-    @Override
+   @Override
     protected void doSelect(
             Collection<DomElement> domElements,
             SSPHandler sspHandler) {
         for (DomElement element : domElements) {
-            if (element.getTextAlignValue().equalsIgnoreCase(ALIGN_TEXT_CSS_PROPERTY) ) {  //&& element.isTextNode()
+            if (element.getTextAlignValue().equalsIgnoreCase(ALIGN_TEXT_CSS_PROPERTY) && element.isTextNode()) {  //
                 Element el = DomElementExtractor.getElementFromDomElement(element, sspHandler);
                 if (el != null) {
                     getElements().add(el);
@@ -69,5 +71,4 @@ public class Rgaa30Rule100901 extends AbstractPageRuleFromPreProcessImplementati
             }
         }
     }  
- 
 }
