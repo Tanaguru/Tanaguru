@@ -97,5 +97,4 @@ public class Rgaa30Rule100901 extends AbstractPageRuleFromPreProcessImplementati
         }
         return false;
     }
-
 }
