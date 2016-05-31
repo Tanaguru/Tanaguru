@@ -165,6 +165,9 @@
                 <entry key="ALTERNATIVE_CONTRAST_MECHANISM">
                     <value>contrast-alternative</value>
                 </entry>
+                <entry key="ALTERNATIVE_JUSTIFY_MECHANISM">
+                    <value>justify-alternative</value>
+                </entry>
                 <entry key="CONSIDER_COOKIES">
                     <value>consider-cookies</value>
                 </entry>
@@ -209,9 +212,10 @@
                         <ref bean="informativeImageParamBuilder"/>
                     </list>
                 </entry>
-                <entry key="contrast-parameters">
+                <entry key="alternative-mechanism">
                     <list>
                         <ref bean="alternativeContrastMechanismPresentParamBuilder"/>
+                        <ref bean="alternativeJustifyMechanismPresentParamBuilder"/> 
                     </list>
                 </entry>
             </map>
@@ -233,11 +237,19 @@
                         <ref bean="screenHeightParamBuilder"/>
                     </list>
                 </entry>
-                <entry key="contrast-parameters">
+                <entry key="alternative-mechanism">
                     <list>
                         <ref bean="alternativeContrastMechanismPresentParamBuilder"/>
+                        <ref bean="alternativeJustifyMechanismPresentParamBuilder"/> 
                     </list>
                 </entry>
+<!--                
+                 <entry key="justify-parameters">
+                    <list>
+                       
+                        <ref bean="alternativeJustifyMechanismPresentParamBuilder"/>
+                    </list>
+                </entry>-->
             </map>
         </property>
         <property name="uploadOptionFormFieldBuilderMap">
@@ -301,9 +313,10 @@
                         <ref bean="screenHeightParamBuilder"/>
                     </list>
                 </entry>
-                <entry key="contrast-parameters">
+               <entry key="alternative-mechanism">
                     <list>
                         <ref bean="alternativeContrastMechanismPresentParamBuilder"/>
+                        <ref bean="alternativeJustifyMechanismPresentParamBuilder"/> 
                     </list>
                 </entry>
             </map>
