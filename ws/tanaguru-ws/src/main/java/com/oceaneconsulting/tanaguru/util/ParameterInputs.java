@@ -8,6 +8,7 @@ public class ParameterInputs {
 	public static final  String PROXY_HOST = "PROXY_HOST";
 	public static final  String CONSIDER_COOKIES = "CONSIDER_COOKIES";
 	public static final  String ALTERNATIVE_CONTRAST_MECHANISM = "ALTERNATIVE_CONTRAST_MECHANISM";
+	public static final  String ALTERNATIVE_JUSTIFY_MECHANISM = "ALTERNATIVE_JUSTIFY_MECHANISM";
 	public static final  String LEVEL = "LEVEL";
 	public static final  String INFORMATIVE_IMAGE_MARKER = "INFORMATIVE_IMAGE_MARKER";
 	public static final  String PROXY_PORT = "PROXY_PORT";
