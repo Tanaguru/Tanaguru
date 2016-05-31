@@ -66,6 +66,7 @@ public class ParameterUtils {
         parameters.add(createParameter(ParameterInputs.PROXY_HOST, ""));
         parameters.add(createParameter(ParameterInputs.CONSIDER_COOKIES, "true"));
         parameters.add(createParameter(ParameterInputs.ALTERNATIVE_CONTRAST_MECHANISM, "false"));
+        parameters.add(createParameter(ParameterInputs.ALTERNATIVE_JUSTIFY_MECHANISM, "false"));
         parameters.add(createParameter(ParameterInputs.INFORMATIVE_IMAGE_MARKER, ""));
         parameters.add(createParameter(ParameterInputs.PROXY_PORT, ""));
         parameters.add(createParameter(ParameterInputs.PRESENTATION_TABLE_MARKER, ""));
