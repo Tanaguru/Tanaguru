@@ -342,7 +342,8 @@ public final class ContractSortCommandHelper  {
                 contractInfoSet, 
                // new ContractInfoLabelSorter(Integer.valueOf(csc.getSortOptionMap().get(sortOrderKey).toString())));
                  new ContractInfoDateSorter(
-                    Integer.valueOf(csc.getSortOptionMap().get(sortOrderKey).toString())));    
+                   // Integer.valueOf(csc.getSortOptionMap().get(sortOrderKey).toString())));    
+                              2));    
         }
     }
     
