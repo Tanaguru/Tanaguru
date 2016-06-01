@@ -110,16 +110,28 @@ public class Rgaa30Rule110103 extends AbstractPageRuleMarkupImplementation {
             for (Element el : entry.getValue().get()) {
                 if (StringUtils.isNotEmpty(el.attr(ARIA_LABELLEDBY_ATTR))) {
                     ElementHandler<Element> labelHandler = new ElementHandlerImpl();
-                    labelHandler.addAll(entry.getKey().select(CssLikeSelectorBuilder
-                            .buildSelectorFromAttributeTypeAndValue(ID_ATTR, el.attr(ARIA_LABELLEDBY_ATTR))));
-                    if (labelHandler.get().isEmpty()) {
-                        inputWithoutLabel.add(el);
-                    } else if (labelHandler.get().size() > 1) {
-                        notUniqueLabel.add(el);
-                        notUniqueLabel.addAll(labelHandler.get());
+                    if (!el.attr(ARIA_LABELLEDBY_ATTR).isEmpty()) {
+                        String[] labeledbyValues = el.attr(ARIA_LABELLEDBY_ATTR).split(" ");
+                        if (labeledbyValues.length > 0) {
+                            for (String labledByValue : labeledbyValues) {
+                                if (!labledByValue.isEmpty()) {
+                                    labelHandler.addAll(entry.getKey().select(CssLikeSelectorBuilder
+                                            .buildSelectorFromAttributeTypeAndValue(ID_ATTR, labledByValue)));
+                                    if (labelHandler.get().isEmpty()) {
+                                        inputWithoutLabel.add(el);
+                                    } else if (labelHandler.get().size() > 1) {
+                                        notUniqueLabel.add(el);
+                                        notUniqueLabel.addAll(labelHandler.get());
+                                    }
+                                   
+                                    labelHandler.clean();
+                                }
+                            }
+                        }
                     }
                 }
             }
+           
 
             /* Check if the form element has a label associated */
             ElementChecker elementPresenceChecker
