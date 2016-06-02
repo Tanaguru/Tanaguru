@@ -8,10 +8,10 @@ Tanaguru is an opensource (AGPL license) website assessment tool. It is dedicate
 
 Four kinds of audit:
 
-* offline file audit
 * page audit
 * entire website audit (Heritrix crawler embedded)
 * scenario audit 
+* offline file audit
 
 (That's the DOM that is tested, thus dealing with JS/AJAX/ARIA)
  
