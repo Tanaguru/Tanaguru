@@ -50,19 +50,19 @@ What tests are covered:
 * switch of context
 * ...
 
-As of January 2014, this represents [~170 accessibility tests](http://www.tanaguru.org/en/content/accessiweb-22-coverage)
+As of June 2016, this represents [~180 accessibility tests](http://rgaa.tanaguru.com/en/criteres.html)
 
 ## Contact and discussions
 
 * [Tanaguru discussion space](http://discuss.tanaguru.org) 
-* email to `tanaguru AT tanaguru dot org` (only English, French and klingon is spoken :) ) 
+* email to `support dot tanaguru AT oceaneconsulting dot com` (only English, French and klingon is spoken :) ) 
 * [Twitter @TanaguruApp](https://twitter.com/tanaguruapp)
 
-## Content of this last version (Tanaguru 3.1.0, 2015-07-02)
+## Content of this last version (Tanaguru 3.3.0, 2016-06-02)
 
 Features :
 
-- Implementation of Rgaa3 rules (173 rules)
+- Implementation of Rgaa3 rules (180 rules)
 
 See full [Changelog](CHANGELOG.txt)
 
