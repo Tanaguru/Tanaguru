@@ -34,9 +34,11 @@ import java.util.*;
 import javax.imageio.ImageIO;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.springframework.cache.annotation.Cacheable;
 import org.tanaguru.sebuilder.interpreter.exception.TestRunException;
 import org.tanaguru.sebuilder.tools.FirefoxDriverObjectPool;
 
@@ -46,7 +48,7 @@ import org.tanaguru.sebuilder.tools.FirefoxDriverObjectPool;
  * @author jkowalczyk
  */
 public class TgTestRun extends TestRun {
-
+final static Logger LOGGER = Logger.getLogger(TgTestRun.class);
     private boolean isStepOpenNewPage = false;
     private Map<String, String> jsScriptMap;
     public Map<String, String> getJsScriptMap() {
@@ -293,11 +295,16 @@ public class TgTestRun extends TestRun {
         }
     }
     
+    
+        int i = 0;
     /**
      * 
      * @return 
      */
+//    @Cacheable("jsScriptResult")
     private Map<String, String> executeJsScripts() {
+        i++;
+       LOGGER.debug("=================>Appel exec JS: "+i);
         getLog().debug("Executing js");
         Map<String, String> jsScriptResult = new HashMap<>();
         for (Map.Entry<String, String> entry : jsScriptMap.entrySet()) {
