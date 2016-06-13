@@ -65,6 +65,7 @@ public class DomElement {
     public static final String OUTLINE_STYLE_FOCUS_KEY = 
             "outlineStyleFocus";
     public static final String NOT_EXISTING_PROPERTY = "notExisting";
+    public static final String IS_FORBIDDEN_UNIT_USED = "isForbiddenUnitUsed_NotComputed";
     
     /**
      * All the values handled by the element identified by a key that 
@@ -244,6 +245,14 @@ public class DomElement {
         } else {
             return Float.valueOf(components[3].trim());
         }
+    }
+
+   /**
+     * 
+     * @return whether the current element use forbidden units 
+     */
+    public boolean isForbiddenUnitUsed() {
+        return Boolean.valueOf(getProperty(IS_FORBIDDEN_UNIT_USED));
     }
     
 }
