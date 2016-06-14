@@ -627,7 +627,7 @@ function  getAllElementsWithForbiddenUnits( ) {
     var forbiddenUnits = ["pt", "pc", "mm", "cm", "in"];
     var propList = [];
     var elementsWithForbiddenUnits = [];
-
+try{
     for (var h = 0; h < document.styleSheets.length; h++) {
         for (var i in document.styleSheets[h].cssRules) { // boucle sur les cssRules
             var keyList = [];
@@ -647,6 +647,11 @@ function  getAllElementsWithForbiddenUnits( ) {
             }
         }
     }
+     } catch(e) {
+                if(e.name !== "SecurityError") {
+                    throw e;
+                }
+           }
 //console.log(propList);
    // var f = new Date().getTime();
 //console.log("execution : " + (f - e) + "ms")
@@ -666,7 +671,7 @@ function  getAllElementsWithForbiddenUnits( ) {
     }
     
     var reg = [];
-    for (var l in forbiddenUnits) {//regexe 
+    for (var l in forbiddenUnits) {//regex
         reg.push(new RegExp('(\\w\\s*:\\s*\\d\\d*' + forbiddenUnits[l] + ')'));
     }
     var tmpElemInLineStyle = document.querySelectorAll('*[style]'); //find all element with inligne style
