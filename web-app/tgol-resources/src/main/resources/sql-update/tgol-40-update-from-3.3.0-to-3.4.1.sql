@@ -1,0 +1,2 @@
+
+INSERT INTO `PARAMETER_ELEMENT` ( `Cd_Parameter_Element`, `Id_Parameter_Family`, `Short_Label`, `Long_Label`) VALUES ('ALTERNATIVE_JUSTIFY_MECHANISM', '3', 'Alternative Justify Mechanism', 'The page embeds a mechanism that can remove text justification');
