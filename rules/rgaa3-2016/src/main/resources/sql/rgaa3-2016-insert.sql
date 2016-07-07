@@ -60,7 +60,7 @@ INSERT IGNORE INTO `CRITERION` (`Cd_Criterion`, `Description`, `Label`, `Url`, `
 ('Rgaa32016-4-22', 'Chaque média temporel et non temporel est-il compatible avec les technologies dassistance (hors cas particuliers) ?', '4.22', '', 38),
 ('Rgaa32016-5-1', 'Chaque tableau de données complexe a-t-il un résumé ?', '5.1', '', 39),
 ('Rgaa32016-5-2', 'Pour chaque tableau de données complexe ayant un résumé, celui-ci est-il pertinent ?', '5.2', '', 40),
-('Rgaa32016-5-3', 'Pour chaque tableau de mise en forme, le contenu linéarisé reste-t-il compréhensible ?', '5.3', '', 41),
+('Rgaa32016-5-3', 'Pour chaque tableau de mise en forme, le contenu linéarisé reste-t-il compréhensible (hors cas particuliers)?', '5.3', '', 41),
 ('Rgaa32016-5-4', 'Chaque tableau de données a-t-il un titre ?', '5.4', '', 42),
 ('Rgaa32016-5-5', 'Pour chaque tableau de données ayant un titre, celui-ci est-il pertinent ?', '5.5', '', 43),
 ('Rgaa32016-5-6', 'Pour chaque tableau de données, chaque en-tête de colonnes et chaque en-tête de lignes sont-ils correctement déclarés ?', '5.6', '', 44),
