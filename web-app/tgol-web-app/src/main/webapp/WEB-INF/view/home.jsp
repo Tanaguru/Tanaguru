@@ -119,6 +119,11 @@
                                     <div class="project-status"><span class="last-audit-label"><fmt:message key="home.noAudit"/></span></div>
                                 </c:otherwise>
                             </c:choose>
+                                    
+                                       <div class="project-status">
+                                           <span class="contract-expireon"> <fmt:message key="contract.expireOn"/> : </span><fmt:formatDate type="date" value="${contract.expirationDate}" dateStyle="long"/>
+                                       </div>     
+                                  
                         </td>
                         <td class="project-actions">
                             <c:forEach var="contractAction" items="${contract.actionList}" varStatus="pContractAction">
