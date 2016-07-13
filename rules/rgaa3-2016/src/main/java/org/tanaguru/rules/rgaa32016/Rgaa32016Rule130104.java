@@ -28,12 +28,12 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-13-1-5"> 13.1.5 rule specification</a>
  */
 
-public class Rgaa32016Rule130105 extends AbstractNotTestedRuleImplementation {
+public class Rgaa32016Rule130104 extends AbstractNotTestedRuleImplementation {
 
     /**
      * Default constructor
      */
-    public Rgaa32016Rule130105 () {
+    public Rgaa32016Rule130104 () {
         super();
     }
 
