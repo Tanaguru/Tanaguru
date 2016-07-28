@@ -7,3 +7,8 @@ INSERT INTO `PARAMETER` (`Parameter_Value`, `Id_Parameter_Element`, `Is_Default`
 UPDATE TEST SET `No_Process`=b'0' WHERE 
 Cd_Test='Rgaa30-1-1-1' OR 
  ;
+
+
+
+-- test to delete ( rgaa3.0 to rgaa 3 2016)
+delete FROM TEST where Rule_Archive_Name like "%Rgaa32016" and Label='7.3.3';
