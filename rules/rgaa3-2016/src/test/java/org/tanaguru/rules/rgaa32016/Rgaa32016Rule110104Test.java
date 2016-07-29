@@ -30,13 +30,13 @@ import org.tanaguru.rules.keystore.RemarkMessageStore;
  *
  * @author jkowalczyk
  */
-public class Rgaa32016Rule110103Test extends Rgaa32016RuleImplementationTestCase {
+public class Rgaa32016Rule110104Test extends Rgaa32016RuleImplementationTestCase {
 
     /**
      * Default constructor
      * @param testName
      */
-    public Rgaa32016Rule110103Test (String testName){
+    public Rgaa32016Rule110104Test (String testName){
         super(testName);
     }
 
