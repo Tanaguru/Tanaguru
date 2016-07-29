@@ -44,15 +44,15 @@ import org.tanaguru.rules.textbuilder.TextAttributeOfElementBuilder;
 import org.tanaguru.service.ProcessRemarkService;
 
 /**
- * Implementation of the rule 6.3.4 of the referential Rgaa 3-2016.
+ * Implementation of the rule 6.3.3 of the referential Rgaa 3-2016.
  * <br/>
- * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-6-3-4">the rule 6.3.4 design page.</a>
- * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-6-3-4"> 6.3.4 rule specification</a>
+ * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-6-3-3">the rule 6.3.3 design page.</a>
+ * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-6-3-3"> 6.3.3 rule specification</a>
  *
  * @author jkowalczyk
  */
 
-public class Rgaa32016Rule060304 extends AbstractLinkRuleImplementation {
+public class Rgaa32016Rule060303 extends AbstractLinkRuleImplementation {
 
     /* the link text blacklist nomenclature name*/ 
     private static final String LINK_TEXT_BL_NOM_NAME = "LinkTextBlacklist";
@@ -82,7 +82,7 @@ public class Rgaa32016Rule060304 extends AbstractLinkRuleImplementation {
     /**
      * Default constructor
      */
-    public Rgaa32016Rule060304 () {
+    public Rgaa32016Rule060303 () {
         // context is not taken into consideration 
         super(new CompositeLinkElementSelector(false, false), 
               new LinkPertinenceChecker(
