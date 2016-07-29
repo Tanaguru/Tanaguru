@@ -24,18 +24,18 @@ import org.tanaguru.rules.elementchecker.link.LinkTitlePertinenceChecker;
 import org.tanaguru.rules.elementselector.CompositeLinkElementSelector;
 
 /**
- * Implementation of the rule 6.2.4 of the referential Rgaa 3-2016.
+ * Implementation of the rule 6.2.3 of the referential Rgaa 3-2016.
  * <br/>
- * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-6-2-4">the rule 6.2.4 design page.</a>
- * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-6-2-4"> 6.2.4 rule specification</a>
+ * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-6-2-3">the rule 6.2.3 design page.</a>
+ * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-6-2-4"> 6.2.3 rule specification</a>
  *
  */
-public class Rgaa32016Rule060204 extends AbstractPageRuleWithSelectorAndCheckerImplementation {
+public class Rgaa32016Rule060203 extends AbstractPageRuleWithSelectorAndCheckerImplementation {
 
     /**
      * Default constructor
      */
-    public Rgaa32016Rule060204 () {
+    public Rgaa32016Rule060203 () {
         super(new CompositeLinkElementSelector(false, false), new LinkTitlePertinenceChecker());
     }
 }
