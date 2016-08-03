@@ -22,18 +22,18 @@ package org.tanaguru.rules.rgaa32016;
 import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
 
 /**
- * Implementation of the rule 1.3.10 of the referential Rgaa 3-2016.
+ * Implementation of the rule 1.3.13 of the referential Rgaa 3-2016.
  *
- * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-3-10">the rule 1.3.10 design page.</a>
- * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-3-10"> 1.3.10 rule specification</a>
+ * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-3-13">the rule 1.3.13 design page.</a>
+ * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-3-13"> 1.3.13 rule specification</a>
  */
 
-public class Rgaa32016Rule010310 extends AbstractNotTestedRuleImplementation {
+public class Rgaa32016Rule010313 extends AbstractNotTestedRuleImplementation {
 
     /**
      * Default constructor
      */
-    public Rgaa32016Rule010310 () {
+    public Rgaa32016Rule010313 () {
         super();
     }
 
