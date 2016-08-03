@@ -33,22 +33,22 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_ALT_PERTINENC
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMAGE_AND_ALT_PERTINENCE_MSG;
 
 /**
- * Implementation of the rule 1.3.9 of the referential Rgaa 3-2016.
+ * Implementation of the rule 1.3.10 of the referential Rgaa 3-2016.
  *
  * For more details about the implementation, refer to
- * <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-3-9">the
- * rule 1.3.9 design page.</a>
+ * <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-3-10">the
+ * rule 1.3.10 design page.</a>
  *
  * @see
- * <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-3-9">
+ * <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-3-10">
  * 1.3.9 rule specification</a>
  */
-public class Rgaa32016Rule010309 extends AbstractMarkerPageRuleImplementation {
+public class Rgaa32016Rule010310 extends AbstractMarkerPageRuleImplementation {
 
     /**
      * Default constructor
      */
-    public Rgaa32016Rule010309() {
+    public Rgaa32016Rule010310() {
         super(
                 // the informative images are part of the scope
                 INFORMATIVE_IMAGE_MARKER,
