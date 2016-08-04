@@ -48,13 +48,13 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.INFORMATIVE_SVG_WIT
 import static org.tanaguru.rules.keystore.RemarkMessageStore.SVG_WITHOUT_ROLE_IMAGE_MSG;
 
 /**
- * Implementation of the rule 1.3.6 of the referential Rgaa 3-2016.
+ * Implementation of the rule 1.3.8 of the referential Rgaa 3-2016.
  *
- * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-3-6">the rule 1.3.6 design page.</a>
- * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-3-6"> 1.3.6 rule specification</a>
+ * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-3-6">the rule 1.3.8 design page.</a>
+ * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-3-8"> 1.3.8 rule specification</a>
  */
 
-public class Rgaa32016Rule010306 extends AbstractMarkerPageRuleImplementation {
+public class Rgaa32016Rule010308 extends AbstractMarkerPageRuleImplementation {
 
     /**
      * Contains all the informative SVG elements without the "img" role
@@ -141,7 +141,7 @@ public class Rgaa32016Rule010306 extends AbstractMarkerPageRuleImplementation {
     /**
      * Default constructor
      */
-    public Rgaa32016Rule010306 () {
+    public Rgaa32016Rule010308 () {
         super(INFORMATIVE_IMAGE_MARKER, DECORATIVE_IMAGE_MARKER);
         setElementSelector(new SimpleElementSelector(SVG_NOT_IN_LINK_CSS_LIKE_QUERY));
     }
