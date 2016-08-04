@@ -39,7 +39,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMA
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-3-12"> 1.3.12 rule specification</a>
  */
 
-public class Rgaa32016Rule010308 extends AbstractMarkerPageRuleImplementation {
+public class Rgaa32016Rule010312 extends AbstractMarkerPageRuleImplementation {
 
     /**
      * Default constructor
