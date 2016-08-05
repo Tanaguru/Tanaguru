@@ -33,18 +33,18 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_AT_RESTITUTIO
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMAGE_AND_AT_RESTITUTION_OF_PERTINENCE_MSG;
 
 /**
- * Implementation of the rule 1.7.7 of the referential Rgaa 3-2016.
+ * Implementation of the rule 1.7.8 of the referential Rgaa 3-2016.
  *
- * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-7-7">the rule 1.7.7 design page.</a>
- * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-7-7"> 1.7.7 rule specification</a>
+ * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-7-8">the rule 1.7.8 design page.</a>
+ * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-7-8"> 1.7.8 rule specification</a>
  */
 
-public class Rgaa32016Rule010707 extends AbstractMarkerPageRuleImplementation {
+public class Rgaa32016Rule010708 extends AbstractMarkerPageRuleImplementation {
 
     /**
      * Default constructor
      */
-    public Rgaa32016Rule010707() {
+    public Rgaa32016Rule010708() {
         super(
                 new ImageElementSelector(CANVAS_NOT_IN_LINK_WITH_NOT_EMPTY_CONTENT_CSS_LIKE_QUERY),
 
