@@ -32,18 +32,18 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_DETAILED_DESC
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMAGE_AND_DETAILED_DESC_AVAILABILITY_MSG;
 
 /**
- * Implementation of the rule 1.6.5 of the referential Rgaa 3-2016.
+ * Implementation of the rule 1.6.6 of the referential Rgaa 3-2016.
  *
- * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-6-5">the rule 1.6.5 design page.</a>
- * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-6-5"> 1.6.5 rule specification</a>
+ * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-6-6">the rule 1.6.6 design page.</a>
+ * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-6-6"> 1.6.6 rule specification</a>
  */
 
-public class Rgaa32016Rule010605 extends AbstractMarkerPageRuleImplementation {
+public class Rgaa32016Rule010606 extends AbstractMarkerPageRuleImplementation {
 
     /**
      * Default constructor
      */
-    public Rgaa32016Rule010605() {
+    public Rgaa32016Rule010606() {
         super(
                 new ImageElementSelector(SVG_NOT_IN_LINK_CSS_LIKE_QUERY),
 
