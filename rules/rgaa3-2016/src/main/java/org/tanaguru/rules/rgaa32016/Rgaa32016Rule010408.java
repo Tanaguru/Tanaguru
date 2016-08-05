@@ -31,18 +31,18 @@ import static org.tanaguru.rules.keystore.CssLikeQueryStore.SVG_NOT_IN_LINK_WITH
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_CAPTCHA_ALTERNATIVE_MSG;
 
 /**
- * Implementation of the rule 1.4.6 of the referential Rgaa 3-2016.
+ * Implementation of the rule 1.4.8 of the referential Rgaa 3-2016.
  *
- * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-4-6">the rule 1.4.6 design page.</a>
- * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-4-6"> 1.4.6 rule specification</a>
+ * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-4-8">the rule 1.4.8 design page.</a>
+ * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-4-6"> 1.4.8 rule specification</a>
  */
 
-public class Rgaa32016Rule010406 extends AbstractDetectionPageRuleImplementation {
+public class Rgaa32016Rule010408 extends AbstractDetectionPageRuleImplementation {
 
     /**
      * Default constructor
      */
-    public Rgaa32016Rule010406 () {
+    public Rgaa32016Rule010408 () {
         super(
                 new CaptchaElementSelector(
                     new MultipleElementSelector(
