@@ -35,16 +35,16 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMA
 /**
  * Implementation of the rule 1.7.3 of the referential Rgaa 3-2016.
  * <br/>
- * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-7-3">the rule 1.7.3 design page.</a>
- * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-7-3"> 1.7.3 rule specification</a>
+ * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-7-4">the rule 1.7.4 design page.</a>
+ * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-7-4"> 1.7.4 rule specification</a>
  *
  */
-public class Rgaa32016Rule010703 extends AbstractMarkerPageRuleImplementation {
+public class Rgaa32016Rule010704 extends AbstractMarkerPageRuleImplementation {
 
     /**
      * Default constructor
      */
-    public Rgaa32016Rule010703() {
+    public Rgaa32016Rule010704() {
         super(
                 new ImageElementSelector(EMBED_TYPE_IMG_NOT_IN_LINK_CSS_LIKE_QUERY),
 
