@@ -31,35 +31,35 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_CAPTCHA_ALTER
 import org.tanaguru.rules.rgaa32016.test.Rgaa32016RuleImplementationTestCase;
 
 /**
- * Unit test class for the implementation of the rule 1-4-7 of the referential Rgaa 3-2016.
+ * Unit test class for the implementation of the rule 1-4-9 of the referential Rgaa 3-2016.
  *
  * @author
  */
-public class Rgaa32016Rule010407Test extends Rgaa32016RuleImplementationTestCase {
+public class Rgaa32016Rule010409Test extends Rgaa32016RuleImplementationTestCase {
 
     /**
      * Default constructor
      * @param testName
      */
-    public Rgaa32016Rule010407Test (String testName){
+    public Rgaa32016Rule010409Test (String testName){
         super(testName);
     }
 
     @Override
     protected void setUpRuleImplementationClassName() {
         setRuleImplementationClassName(
-                "org.tanaguru.rules.rgaa32016.Rgaa32016Rule010407");
+                "org.tanaguru.rules.rgaa32016.Rgaa32016Rule010409");
     }
 
     @Override
     protected void setUpWebResourceMap() {
-        addWebResource("Rgaa32016.Test.1.4.7-3NMI-01");
-        addWebResource("Rgaa32016.Test.1.4.7-3NMI-02");
-        addWebResource("Rgaa32016.Test.1.4.7-3NMI-03");
-        addWebResource("Rgaa32016.Test.1.4.7-4NA-01");
-        addWebResource("Rgaa32016.Test.1.4.7-4NA-02");
-        addWebResource("Rgaa32016.Test.1.4.7-4NA-03");
-        addWebResource("Rgaa32016.Test.1.4.7-4NA-04");
+        addWebResource("Rgaa32016.Test.1.4.9-3NMI-01");
+        addWebResource("Rgaa32016.Test.1.4.9-3NMI-02");
+        addWebResource("Rgaa32016.Test.1.4.9-3NMI-03");
+        addWebResource("Rgaa32016.Test.1.4.9-4NA-01");
+        addWebResource("Rgaa32016.Test.1.4.9-4NA-02");
+        addWebResource("Rgaa32016.Test.1.4.9-4NA-03");
+        addWebResource("Rgaa32016.Test.1.4.9-4NA-04");
     }
 
     @Override
@@ -67,7 +67,7 @@ public class Rgaa32016Rule010407Test extends Rgaa32016RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------3NMI-01---------------------------------
         //----------------------------------------------------------------------
-        ProcessResult processResult = processPageTest("Rgaa32016.Test.1.4.7-3NMI-01");
+        ProcessResult processResult = processPageTest("Rgaa32016.Test.1.4.9-3NMI-01");
         checkResultIsPreQualified(processResult, 1, 1);
         checkRemarkIsPresent(
                 processResult,
@@ -81,7 +81,7 @@ public class Rgaa32016Rule010407Test extends Rgaa32016RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------3NMI-02---------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32016.Test.1.4.7-3NMI-02");
+        processResult = processPageTest("Rgaa32016.Test.1.4.9-3NMI-02");
         checkResultIsPreQualified(processResult, 1, 1);
         checkRemarkIsPresent(
                 processResult,
@@ -95,7 +95,7 @@ public class Rgaa32016Rule010407Test extends Rgaa32016RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------3NMI-03---------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32016.Test.1.4.7-3NMI-03");
+        processResult = processPageTest("Rgaa32016.Test.1.4.9-3NMI-03");
         checkResultIsPreQualified(processResult, 1, 1);
         checkRemarkIsPresent(
                 processResult,
@@ -110,22 +110,22 @@ public class Rgaa32016Rule010407Test extends Rgaa32016RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------4NA-01----------------------------------
         //----------------------------------------------------------------------
-        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.1.4.7-4NA-01"));
+        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.1.4.9-4NA-01"));
 
         //----------------------------------------------------------------------
         //------------------------------4NA-02----------------------------------
         //----------------------------------------------------------------------
-        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.1.4.7-4NA-02"));
+        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.1.4.9-4NA-02"));
 
         //----------------------------------------------------------------------
         //------------------------------4NA-03----------------------------------
         //----------------------------------------------------------------------
-        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.1.4.7-4NA-03"));
+        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.1.4.9-4NA-03"));
 
         //----------------------------------------------------------------------
         //------------------------------4NA-04----------------------------------
         //----------------------------------------------------------------------
-        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.1.4.7-4NA-04"));
+        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.1.4.9-4NA-04"));
     }
 
 }
