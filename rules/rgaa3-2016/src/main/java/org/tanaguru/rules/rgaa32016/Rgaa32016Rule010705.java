@@ -35,18 +35,18 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_DESC_PERTINEN
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMAGE_AND_DESC_PERTINENCE_MSG;
 
 /**
- * Implementation of the rule 1.7.4 of the referential Rgaa 3-2016.
+ * Implementation of the rule 1.7.5 of the referential Rgaa 3-2016.
  * <br/>
- * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-7-4">the rule 1.7.4 design page.</a>
- * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-7-4"> 1.7.4 rule specification</a>
+ * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-7-5">the rule 1.7.5 design page.</a>
+ * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-7-5"> 1.7.5 rule specification</a>
  *
  */
-public class Rgaa32016Rule010704 extends AbstractMarkerPageRuleImplementation {
+public class Rgaa32016Rule010705 extends AbstractMarkerPageRuleImplementation {
 
     /**
      * Default constructor
      */
-    public Rgaa32016Rule010704() {
+    public Rgaa32016Rule010705() {
         super(
                 new ImageElementSelector(SVG_NOT_IN_LINK_CSS_LIKE_QUERY),
 
