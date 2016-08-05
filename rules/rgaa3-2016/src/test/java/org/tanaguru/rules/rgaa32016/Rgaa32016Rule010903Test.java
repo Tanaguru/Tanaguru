@@ -28,32 +28,32 @@ import org.tanaguru.rules.keystore.HtmlElementStore;
 import org.tanaguru.rules.keystore.RemarkMessageStore;
 
 /**
- * Unit test class for the implementation of the rule 1-9-4 of the referential Rgaa 3-2016.
+ * Unit test class for the implementation of the rule 1-9-3 of the referential Rgaa 3-2016.
  *
  * @author jkowalczyk
  */
-public class Rgaa32016Rule010904Test extends Rgaa32016RuleImplementationTestCase {
+public class Rgaa32016Rule010903Test extends Rgaa32016RuleImplementationTestCase {
 
     /**
      * Default constructor
      * @param testName
      */
-    public Rgaa32016Rule010904Test (String testName){
+    public Rgaa32016Rule010903Test (String testName){
         super(testName);
     }
 
     @Override
     protected void setUpRuleImplementationClassName() {
-        setRuleImplementationClassName("org.tanaguru.rules.rgaa32016.Rgaa32016Rule010904");
+        setRuleImplementationClassName("org.tanaguru.rules.rgaa32016.Rgaa32016Rule010903");
     }
 
     @Override
     protected void setUpWebResourceMap() {
-        addWebResource("Rgaa32016.Test.01.09.04-3NMI-01");
-        addWebResource("Rgaa32016.Test.01.09.04-4NA-01");
-        addWebResource("Rgaa32016.Test.01.09.04-4NA-02");
-        addWebResource("Rgaa32016.Test.01.09.04-4NA-03");
-        addWebResource("Rgaa32016.Test.01.09.04-4NA-04");
+        addWebResource("Rgaa32016.Test.01.09.03-3NMI-01");
+        addWebResource("Rgaa32016.Test.01.09.03-4NA-01");
+        addWebResource("Rgaa32016.Test.01.09.03-4NA-02");
+        addWebResource("Rgaa32016.Test.01.09.03-4NA-03");
+        addWebResource("Rgaa32016.Test.01.09.03-4NA-04");
 
     }
 
@@ -62,7 +62,7 @@ public class Rgaa32016Rule010904Test extends Rgaa32016RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------3NMI-01------------------------------
         //----------------------------------------------------------------------
-        ProcessResult processResult = processPageTest("Rgaa32016.Test.01.09.04-3NMI-01");
+        ProcessResult processResult = processPageTest("Rgaa32016.Test.01.09.03-3NMI-01");
         checkResultIsPreQualified(processResult, 1,  1);
         checkRemarkIsPresent(
                 processResult,
@@ -75,22 +75,22 @@ public class Rgaa32016Rule010904Test extends Rgaa32016RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------4NA-01------------------------------
         //----------------------------------------------------------------------
-        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.01.09.04-4NA-01"));
+        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.01.09.03-4NA-01"));
 
         //----------------------------------------------------------------------
         //------------------------------4NA-02------------------------------
         //----------------------------------------------------------------------
-        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.01.09.04-4NA-02"));
+        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.01.09.03-4NA-02"));
 
         //----------------------------------------------------------------------
         //------------------------------4NA-03------------------------------
         //----------------------------------------------------------------------
-        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.01.09.04-4NA-03"));
+        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.01.09.03-4NA-03"));
 
         //----------------------------------------------------------------------
         //------------------------------4NA-04----------------------------------
         //----------------------------------------------------------------------
-        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.01.09.04-4NA-04"));
+        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.01.09.03-4NA-04"));
     }
 
 }

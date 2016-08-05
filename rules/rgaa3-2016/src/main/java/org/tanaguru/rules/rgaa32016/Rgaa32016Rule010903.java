@@ -29,18 +29,18 @@ import static org.tanaguru.rules.keystore.CssLikeQueryStore.OBJECT_TYPE_IMG_CSS_
 import static org.tanaguru.rules.keystore.RemarkMessageStore.MANUAL_CHECK_ON_ELEMENTS_MSG;
 
 /**
- * Implementation of the rule 1.9.5 of the referential Rgaa 3-2016.
+ * Implementation of the rule 1.9.3 of the referential Rgaa 3-2016.
  * <br/>
- * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-9-5">the rule 1.9.5 design page.</a>
- * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-9-5"> 1.9.5 rule specification</a>
+ * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-9-3">the rule 1.9.3 design page.</a>
+ * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-9-3"> 1.9.3 rule specification</a>
  *
  */
-public class Rgaa32016Rule010904 extends AbstractDetectionPageRuleImplementation {
+public class Rgaa32016Rule010903 extends AbstractDetectionPageRuleImplementation {
 
     /**
      * Default constructor
      */
-    public Rgaa32016Rule010904 () {
+    public Rgaa32016Rule010903 () {
         super(
                 new ImageElementSelector(OBJECT_TYPE_IMG_CSS_LIKE_QUERY),
                 // solution when at least one element is found
