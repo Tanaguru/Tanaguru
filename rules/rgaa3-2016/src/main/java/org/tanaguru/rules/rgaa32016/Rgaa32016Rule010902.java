@@ -29,18 +29,18 @@ import static org.tanaguru.rules.keystore.CssLikeQueryStore.FORM_BUTTON_CSS_LIKE
 import static org.tanaguru.rules.keystore.RemarkMessageStore.MANUAL_CHECK_ON_ELEMENTS_MSG;
 
 /**
- * Implementation of the rule 1.9.3 of the referential Rgaa 3-2016.
+ * Implementation of the rule 1.9.2 of the referential Rgaa 3-2016.
  * <br/>
- * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-9-3">the rule 1.9.3 design page.</a>
- * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-9-3"> 1.9.3 rule specification</a>
+ * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-9-2">the rule 1.9.2 design page.</a>
+ * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-9-2"> 1.9.2 rule specification</a>
  *
  */
-public class Rgaa32016Rule010903 extends AbstractDetectionPageRuleImplementation {
+public class Rgaa32016Rule010902 extends AbstractDetectionPageRuleImplementation {
 
     /**
      * Default constructor
      */
-    public Rgaa32016Rule010903 () {
+    public Rgaa32016Rule010902 () {
         super(
                 new ImageElementSelector(FORM_BUTTON_CSS_LIKE_QUERY),
                 // solution when at least one element is found
