@@ -29,18 +29,18 @@ import static org.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_AT_RESTITUTION_OF_ALTERNATIVE_OF_CAPTCHA_MSG;
 
 /**
- * Implementation of the rule 1.4.12 of the referential Rgaa 3-2016.
+ * Implementation of the rule 1.4.11 of the referential Rgaa 3-2016.
  *
- * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-4-12">the rule 1.4.12 design page.</a>
- * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-4-12"> 1.4.12 rule specification</a>
+ * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-4-11">the rule 1.4.11 design page.</a>
+ * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-4-11"> 1.4.11 rule specification</a>
  */
 
-public class Rgaa32016Rule010412 extends AbstractDetectionPageRuleImplementation {
+public class Rgaa32016Rule010411 extends AbstractDetectionPageRuleImplementation {
 
     /**
      * Default constructor
      */
-    public Rgaa32016Rule010412 () {
+    public Rgaa32016Rule010411 () {
         super(
                 new CaptchaElementSelector(
                     new SimpleElementSelector(CANVAS_NOT_IN_LINK_WITH_NOT_EMPTY_CONTENT_CSS_LIKE_QUERY)),
