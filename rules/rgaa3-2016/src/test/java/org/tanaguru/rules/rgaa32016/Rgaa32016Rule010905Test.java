@@ -26,31 +26,31 @@ import org.tanaguru.rules.keystore.RemarkMessageStore;
 import org.tanaguru.rules.rgaa32016.test.Rgaa32016RuleImplementationTestCase;
 
 /**
- * Unit test class for the implementation of the rule 1-9-6 of the referential Rgaa 3-2016.
+ * Unit test class for the implementation of the rule 1-9-5 of the referential Rgaa 3-2016.
  *
  * @author
  */
-public class Rgaa32016Rule010906Test extends Rgaa32016RuleImplementationTestCase {
+public class Rgaa32016Rule010905Test extends Rgaa32016RuleImplementationTestCase {
 
     /**
      * Default constructor
      * @param testName
      */
-    public Rgaa32016Rule010906Test (String testName){
+    public Rgaa32016Rule010905Test (String testName){
         super(testName);
     }
 
     @Override
     protected void setUpRuleImplementationClassName() {
         setRuleImplementationClassName(
-                "org.tanaguru.rules.rgaa32016.Rgaa32016Rule010906");
+                "org.tanaguru.rules.rgaa32016.Rgaa32016Rule010905");
     }
 
     @Override
     protected void setUpWebResourceMap() {
-        addWebResource("Rgaa32016.Test.1.9.6-3NMI-01");
-        addWebResource("Rgaa32016.Test.1.9.6-4NA-01");
-        addWebResource("Rgaa32016.Test.1.9.6-4NA-02");
+        addWebResource("Rgaa32016.Test.1.9.5-3NMI-01");
+        addWebResource("Rgaa32016.Test.1.9.5-4NA-01");
+        addWebResource("Rgaa32016.Test.1.9.5-4NA-02");
     }
 
     @Override
@@ -58,7 +58,7 @@ public class Rgaa32016Rule010906Test extends Rgaa32016RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------3NMI-01------------------------------
         //----------------------------------------------------------------------
-        ProcessResult processResult = processPageTest("Rgaa32016.Test.1.9.6-3NMI-01");
+        ProcessResult processResult = processPageTest("Rgaa32016.Test.1.9.5-3NMI-01");
         checkResultIsPreQualified(processResult, 1, 1);
         checkRemarkIsPresent(
                 processResult,
@@ -70,13 +70,13 @@ public class Rgaa32016Rule010906Test extends Rgaa32016RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------4NA-01------------------------------
         //----------------------------------------------------------------------
-        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.1.9.6-4NA-01"));
+        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.1.9.5-4NA-01"));
 
 
         //----------------------------------------------------------------------
         //------------------------------4NA-02----------------------------------
         //----------------------------------------------------------------------
-        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.1.9.6-4NA-02"));
+        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.1.9.5-4NA-02"));
     }
     
 }

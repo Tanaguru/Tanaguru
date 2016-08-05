@@ -27,18 +27,18 @@ import static org.tanaguru.rules.keystore.HtmlElementStore.CANVAS_ELEMENT;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.MANUAL_CHECK_ON_ELEMENTS_MSG;
 
 /**
- * Implementation of the rule 1.9.6 of the referential Rgaa 3-2016.
+ * Implementation of the rule 1.9.5 of the referential Rgaa 3-2016.
  *
- * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-9-6">the rule 1.9.6 design page.</a>
- * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-9-6"> 1.9.6 rule specification</a>
+ * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-9-5">the rule 1.9.5 design page.</a>
+ * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-9-5"> 1.9.5 rule specification</a>
  */
 
-public class Rgaa32016Rule010906 extends AbstractDetectionPageRuleImplementation {
+public class Rgaa32016Rule010905 extends AbstractDetectionPageRuleImplementation {
 
     /**
      * Default constructor
      */
-    public Rgaa32016Rule010906 () {
+    public Rgaa32016Rule010905 () {
         super(
                 new ImageElementSelector(CANVAS_ELEMENT),
                 // solution when at least one element is found
