@@ -34,18 +34,18 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMA
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_TEXT_STYLED_PRESENCE_OF_INFORMATIVE_IMG_MSG;
 
 /**
- * Implementation of the rule 1.8.6 of the referential Rgaa 3-2016.
+ * Implementation of the rule 1.8.4 of the referential Rgaa 3-2016.
  * <br/>
- * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-8-6">the rule 1.8.6 design page.</a>
- * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-8-6"> 1.8.6 rule specification</a>
+ * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-8-4">the rule 1.8.4 design page.</a>
+ * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-8-4"> 1.8.4 rule specification</a>
  *
  */
-public class Rgaa32016Rule010805 extends AbstractMarkerPageRuleImplementation {
+public class Rgaa32016Rule010804 extends AbstractMarkerPageRuleImplementation {
 
     /**
      * Default constructor
      */
-    public Rgaa32016Rule010805 () {
+    public Rgaa32016Rule010804 () {
         super(
                 new ImageElementSelector(EMBED_TYPE_IMG_CSS_LIKE_QUERY),
                 INFORMATIVE_IMAGE_MARKER,
