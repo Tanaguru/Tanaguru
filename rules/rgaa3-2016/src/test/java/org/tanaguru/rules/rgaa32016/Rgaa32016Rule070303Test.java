@@ -24,32 +24,32 @@ import org.tanaguru.entity.audit.ProcessResult;
 import org.tanaguru.rules.rgaa32016.test.Rgaa32016RuleImplementationTestCase;
 
 /**
- * Unit test class for the implementation of the rule 7-3-4 of the referential Rgaa 3-2016.
+ * Unit test class for the implementation of the rule 7-3-3 of the referential Rgaa 3-2016.
  *
  * @author
  */
-public class Rgaa32016Rule070304Test extends Rgaa32016RuleImplementationTestCase {
+public class Rgaa32016Rule070303Test extends Rgaa32016RuleImplementationTestCase {
 
     /**
      * Default constructor
      * @param testName
      */
-    public Rgaa32016Rule070304Test (String testName){
+    public Rgaa32016Rule070303Test (String testName){
         super(testName);
     }
 
     @Override
     protected void setUpRuleImplementationClassName() {
         setRuleImplementationClassName(
-                "org.tanaguru.rules.rgaa32016.Rgaa32016Rule070304");
+                "org.tanaguru.rules.rgaa32016.Rgaa32016Rule070303");
     }
 
     @Override
     protected void setUpWebResourceMap() {
-//        addWebResource("Rgaa32016.Test.7.3.4-1Passed-01");
-//        addWebResource("Rgaa32016.Test.7.3.4-2Failed-01");
-        addWebResource("Rgaa32016.Test.7.3.4-3NMI-01");
-//        addWebResource("Rgaa32016.Test.7.3.4-4NA-01");
+//        addWebResource("Rgaa32016.Test.7.3.3-1Passed-01");
+//        addWebResource("Rgaa32016.Test.7.3.3-2Failed-01");
+        addWebResource("Rgaa32016.Test.7.3.3-3NMI-01");
+//        addWebResource("Rgaa32016.Test.7.3.3-4NA-01");
     }
 
     @Override
@@ -57,12 +57,12 @@ public class Rgaa32016Rule070304Test extends Rgaa32016RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------1Passed-01------------------------------
         //----------------------------------------------------------------------
-//        checkResultIsPassed(processPageTest("Rgaa32016.Test.7.3.4-1Passed-01"), 1);
+//        checkResultIsPassed(processPageTest("Rgaa32016.Test.7.3.3-1Passed-01"), 1);
 
         //----------------------------------------------------------------------
         //------------------------------2Failed-01------------------------------
         //----------------------------------------------------------------------
-//        ProcessResult processResult = processPageTest("Rgaa32016.Test.7.3.4-2Failed-01");
+//        ProcessResult processResult = processPageTest("Rgaa32016.Test.7.3.3-2Failed-01");
 //        checkResultIsFailed(processResult, 1, 1);
 //        checkRemarkIsPresent(
 //                processResult,
@@ -75,7 +75,7 @@ public class Rgaa32016Rule070304Test extends Rgaa32016RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------3NMI-01---------------------------------
         //----------------------------------------------------------------------
-        ProcessResult processResult = processPageTest("Rgaa32016.Test.7.3.4-3NMI-01");
+        ProcessResult processResult = processPageTest("Rgaa32016.Test.7.3.3-3NMI-01");
         checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
 //        checkResultIsPreQualified(processResult, 2, 1);
 //        checkRemarkIsPresent(
@@ -90,7 +90,7 @@ public class Rgaa32016Rule070304Test extends Rgaa32016RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------4NA-01------------------------------
         //----------------------------------------------------------------------
-//        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.7.3.4-4NA-01"));
+//        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.7.3.3-4NA-01"));
     }
 
     @Override
@@ -100,7 +100,7 @@ public class Rgaa32016Rule070304Test extends Rgaa32016RuleImplementationTestCase
         // The assertions are automatically tested regarding the file names by 
         // the abstract parent class
         assertEquals(TestSolution.NOT_TESTED,
-                consolidate("Rgaa32016.Test.7.3.4-3NMI-01").getValue());
+                consolidate("Rgaa32016.Test.7.3.3-3NMI-01").getValue());
     }
 
 }
