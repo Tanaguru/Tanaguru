@@ -41,7 +41,7 @@ public class Rgaa32016Rule010313Test extends Rgaa32016RuleImplementationTestCase
     @Override
     protected void setUpRuleImplementationClassName() {
         setRuleImplementationClassName(
-                "org.tanaguru.rules.rgaa32016.Rgaa32016Rule010310");
+                "org.tanaguru.rules.rgaa32016.Rgaa32016Rule010313");
     }
 
     @Override
