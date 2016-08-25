@@ -340,7 +340,10 @@ public final class ContractSortCommandHelper  {
         } else {
             Collections.sort(
                 contractInfoSet, 
-                new ContractInfoLabelSorter(Integer.valueOf(csc.getSortOptionMap().get(sortOrderKey).toString())));
+               // new ContractInfoLabelSorter(Integer.valueOf(csc.getSortOptionMap().get(sortOrderKey).toString())));
+                 new ContractInfoDateSorter(
+                   // Integer.valueOf(csc.getSortOptionMap().get(sortOrderKey).toString())));    
+                              2));    
         }
     }
     

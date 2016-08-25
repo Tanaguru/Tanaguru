@@ -359,6 +359,7 @@ public final class RemarkMessageStore {
     
     // css
     public static final String BAD_UNIT_TYPE_MSG = "BadUnitType";
+    public static final String FORBIDDEN_UNIT_TYPE_MSG = "ForbiddenUnitType";
     public static final String CONTENT_CSS_PROPERTY_DETECTED_MSG = 
             "ContentCssPropertyDetected";
     
@@ -374,6 +375,8 @@ public final class RemarkMessageStore {
             "NotTreatedBackgroundColor";
     public static final String CHECK_CONTRAST_OF_IMAGE_MSG =
             "CheckTheContrastOfImagesWithText";
+    public static final String CHECK_BG_COLOR_PRESENCE =
+            "CheckBackGroundColorPresence";
     
     // scripts
     public static final String ONKEYPRESS_MISSING_MSG = "OnKeyPressMissing";

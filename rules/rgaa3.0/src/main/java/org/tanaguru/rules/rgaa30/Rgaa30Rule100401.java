@@ -19,8 +19,16 @@
  */
 package org.tanaguru.rules.rgaa30;
 
-import org.tanaguru.ruleimplementation.AbstractPageRuleCssImplementation;
-import org.tanaguru.rules.csschecker.ForbiddenUnitChecker;
+import java.util.Collection;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.jsoup.nodes.Element;
+import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.processor.SSPHandler;
+import org.tanaguru.ruleimplementation.AbstractPageRuleFromPreProcessImplementation;
+import org.tanaguru.rules.domelement.DomElement;
+import org.tanaguru.rules.domelement.extractor.DomElementExtractor;
+import org.tanaguru.rules.elementchecker.element.ElementPresenceChecker;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.FORBIDDEN_UNIT_TYPE_MSG;
 
 /**
  * Implementation of the rule 10.4.1 of the referential Rgaa 3.0.
@@ -29,10 +37,42 @@ import org.tanaguru.rules.csschecker.ForbiddenUnitChecker;
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-10-4-1"> 10.4.1 rule specification</a>
  *
  */
-public class Rgaa30Rule100401 extends AbstractPageRuleCssImplementation {
+public class Rgaa30Rule100401 extends AbstractPageRuleFromPreProcessImplementation {
 
     public Rgaa30Rule100401() {
-        super(new ForbiddenUnitChecker(),"MediaListNotAcceptingRelativeUnits");
+      super(
+                new ElementPresenceChecker(
+                    // if some elements are found
+                    new ImmutablePair(TestSolution.FAILED, FORBIDDEN_UNIT_TYPE_MSG),
+                    // if no found element
+                      new ImmutablePair(TestSolution.PASSED, "")
+                )
+            );
     }
-
+ 
+   @Override
+    protected void doSelect(
+            Collection<DomElement> domElements,
+            SSPHandler sspHandler) {
+        for (DomElement element : domElements) {
+            if (element.isForbiddenUnitUsed()) {  //
+                Element el = DomElementExtractor.getElementFromDomElement(element, sspHandler);
+                if (el != null) {
+                    getElements().add(el);
+                }
+            }
+        }
+    }  
+    
+    
 }
+
+/*
+*old implementation wich return NA  evrytime
+*/
+//public class Rgaa30Rule100401 extends AbstractPageRuleCssImplementation {
+//
+//    public Rgaa30Rule100401() {
+//        super(new ForbiddenUnitChecker(),"MediaListNotAcceptingRelativeUnits");
+//    }
+// }

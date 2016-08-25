@@ -104,6 +104,7 @@
             <list>
                 <value>Aw22</value>
                 <value>Rgaa30</value>
+                <value>Rgaa32016</value>
             </list>
         </property>
         <property name="actionHandler" ref="resultActionHandler"/>
@@ -112,6 +113,7 @@
                 <ref bean="aw22ThemeSelectFormFieldBuilder"/>
                 <ref bean="rgaa22ThemeSelectFormFieldBuilder"/>
                 <ref bean="rgaa30ThemeSelectFormFieldBuilder"/>
+                <ref bean="rgaa32016ThemeSelectFormFieldBuilder"/>
                 <ref bean="testResultCheckboxFormFieldBuilder"/>
             </list>
         </property>
@@ -165,6 +167,9 @@
                 <entry key="ALTERNATIVE_CONTRAST_MECHANISM">
                     <value>contrast-alternative</value>
                 </entry>
+                <entry key="ALTERNATIVE_JUSTIFY_MECHANISM">
+                    <value>justify-alternative</value>
+                </entry>
                 <entry key="CONSIDER_COOKIES">
                     <value>consider-cookies</value>
                 </entry>
@@ -180,7 +185,7 @@
     </bean>
     
     <bean id="auditSetUpController" class="org.tanaguru.webapp.controller.AuditSetUpController">
-        <property name="defaultReferential" value="Rgaa30"/>            
+        <property name="defaultReferential" value="Rgaa32016"/>            
         <property name="referentialAndLevelFormFieldBuilderList">
             <ref bean="levelSelectFormFieldBuilder"/>
         </property>
@@ -209,9 +214,10 @@
                         <ref bean="informativeImageParamBuilder"/>
                     </list>
                 </entry>
-                <entry key="contrast-parameters">
+                <entry key="alternative-mechanism">
                     <list>
                         <ref bean="alternativeContrastMechanismPresentParamBuilder"/>
+                        <ref bean="alternativeJustifyMechanismPresentParamBuilder"/> 
                     </list>
                 </entry>
             </map>
@@ -233,11 +239,19 @@
                         <ref bean="screenHeightParamBuilder"/>
                     </list>
                 </entry>
-                <entry key="contrast-parameters">
+                <entry key="alternative-mechanism">
                     <list>
                         <ref bean="alternativeContrastMechanismPresentParamBuilder"/>
+                        <ref bean="alternativeJustifyMechanismPresentParamBuilder"/> 
                     </list>
                 </entry>
+<!--                
+                 <entry key="justify-parameters">
+                    <list>
+                       
+                        <ref bean="alternativeJustifyMechanismPresentParamBuilder"/>
+                    </list>
+                </entry>-->
             </map>
         </property>
         <property name="uploadOptionFormFieldBuilderMap">
@@ -301,9 +315,10 @@
                         <ref bean="screenHeightParamBuilder"/>
                     </list>
                 </entry>
-                <entry key="contrast-parameters">
+               <entry key="alternative-mechanism">
                     <list>
                         <ref bean="alternativeContrastMechanismPresentParamBuilder"/>
+                        <ref bean="alternativeJustifyMechanismPresentParamBuilder"/> 
                     </list>
                 </entry>
             </map>
