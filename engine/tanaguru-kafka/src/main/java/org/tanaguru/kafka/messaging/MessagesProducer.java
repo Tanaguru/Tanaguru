@@ -37,7 +37,7 @@ public class MessagesProducer {
         props.put("zk.connect", zookeeper);
         props.put("serializer.class", "kafka.serializer.StringEncoder");
         props.put("request.required.acks", "1");
-
+        props.put("request.timeout.ms","50000");
         topic = topic_;
         ProducerConfig config = new ProducerConfig(props);
 
@@ -50,7 +50,7 @@ public class MessagesProducer {
 
         try {
             KeyedMessage<String, String> data = new KeyedMessage<String, String>(
-                    topic, message);
+                    topic,message, message);
             producer.send(data);
         } catch (Exception e) {
             logger.error("Error sending message Kafka");

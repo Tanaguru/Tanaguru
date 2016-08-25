@@ -11,20 +11,37 @@ package org.tanaguru.kafka.util;
  *
  */
 public class MessageConsumerLimit {
-    private static int currentNumberMessages = 0;
     
-    public int getCurrentNumberMessages(){
-        return this.currentNumberMessages;
-    }
-    public void setCurrentNumberMessages(int _currentNumberMessages){
-        this.currentNumberMessages = _currentNumberMessages;
-    }
+    private static int currentNumberMessagesEvent = 0;
+    private static int currentNumberMessagesRest =0;
     
-    public void messageConsumed(){
-        this.currentNumberMessages++;
+    public int getCurrentNumberMessagesEvent(){
+        return this.currentNumberMessagesEvent;
+    }
+    public int getCurrentNumberMessagesRest(){
+        return this.currentNumberMessagesRest;
     }
     
-    public void messageAudited(){
-        this.currentNumberMessages --;
+    public void setCurrentNumberMessagesEvent(int _currentNumberMessages){
+        this.currentNumberMessagesEvent = _currentNumberMessages;
+    }
+    
+    public void setCurrentNumberMessagesRest(int _currentNumberMessages){
+        this.currentNumberMessagesRest = _currentNumberMessages;
+    }
+    
+    public void messageEventConsumed(){
+        this.currentNumberMessagesEvent++;
+    }
+    public void messageRestConsumed(){
+        this.currentNumberMessagesRest++;
+    }
+    
+    public void messageEventAudited(){
+        this.currentNumberMessagesEvent --;
+    }
+    
+    public void messageRestAudited(){
+        this.currentNumberMessagesRest --;
     }
 }

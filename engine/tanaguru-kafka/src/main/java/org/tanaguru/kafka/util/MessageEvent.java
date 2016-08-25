@@ -7,13 +7,12 @@ package org.tanaguru.kafka.util;
 
 /**
  *
- * @author omokeddem at oceaneconsulting
- *
+ * @author tanaguru
  */
-public class MessageKafka {
+public class MessageEvent {
 
-    public static boolean isMessageKafka(String message) {
-        if (message.contains(";") && message.split(";").length == 7 || message.contains(";") && message.split(";").length == 3 ) {
+    public static boolean isValide(String message) {
+        if (message.contains(";") && message.split(";").length == 7) {
             return true;
         } else {
             return false;
@@ -55,8 +54,8 @@ public class MessageKafka {
     public static String getDbName(String dbUrl) {
         return dbUrl.split("jdbc:mysql://")[1].split(":")[1].split("/")[1];
     }
-    
-    public static String getDbHost(String dbUrl){
+
+    public static String getDbHost(String dbUrl) {
         return dbUrl.split("jdbc:mysql://")[1].split(":")[0];
     }
 

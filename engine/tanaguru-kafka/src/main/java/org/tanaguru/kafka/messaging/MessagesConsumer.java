@@ -5,16 +5,8 @@
  */
 package org.tanaguru.kafka.messaging;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.InetAddress;
 import java.net.MalformedURLException;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.net.URL;
-import java.net.UnknownHostException;
-import java.util.Enumeration;
 import kafka.consumer.ConsumerConfig;
 import kafka.consumer.KafkaStream;
 import kafka.javaapi.consumer.ConsumerConnector;
@@ -23,20 +15,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
-import org.tanaguru.entity.audit.Audit;
-import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.service.parameterization.ParameterDataService;
 import org.tanaguru.service.AuditService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.stereotype.Component;
-import org.tanaguru.entity.audit.ProcessResult;
 import org.tanaguru.entity.service.audit.AuditDataService;
 import org.tanaguru.entity.service.audit.ProcessRemarkDataService;
 import org.tanaguru.entity.service.audit.ProcessResultDataService;
@@ -46,8 +33,6 @@ import org.tanaguru.entity.service.subject.WebResourceDataService;
 import org.tanaguru.kafka.util.AuditPageConsumed;
 //import org.tanaguru.kafka.util.IPAddressValidator;
 import org.tanaguru.kafka.util.MessageKafka;
-import org.tanaguru.kafka.util.ParameterUtils;
-import org.tanaguru.service.AuditServiceListener;
 
 /**
  *
@@ -61,6 +46,7 @@ public class MessagesConsumer {
     private final ConsumerConnector consumer;
     private final String topic;
     private final int numThread;
+    private final String messagesType;
     private ExecutorService executor;
 
     private AuditService auditService;
@@ -71,6 +57,7 @@ public class MessagesConsumer {
     private ProcessRemarkDataService processRemarkDataService;
     private ParameterDataService parameterDataService;
     private ParameterElementDataService parameterElementDataService;
+    private ReloadableResourceBundleMessageSource messageSource;
 
     private String ref;
     private String level;
@@ -108,7 +95,7 @@ public class MessagesConsumer {
     }
 
     public void setWebResourceStatisticsDataService(WebResourceStatisticsDataService webResourceStatisticsDataService) {
-        this.webResourceStatisticsDataService = webResourceStatisticsDataService;
+        this.webResourceStatisticsDataService = webResourceStatisticsDataService;       
     }
 
     public void setProcessRemarkDataService(ProcessRemarkDataService processRemarkDataService) {
@@ -121,6 +108,9 @@ public class MessagesConsumer {
 
     public void setParameterElementDataService(ParameterElementDataService parameterElementDataService) {
         this.parameterElementDataService = parameterElementDataService;
+    }
+    public void setMessageSource(ReloadableResourceBundleMessageSource messageSource){
+        this.messageSource = messageSource;
     }
 
     public void setRef(String ref) {
@@ -150,13 +140,13 @@ public class MessagesConsumer {
         this.dbHost = MessageKafka.getDbHost(dbUrl);
     }
 
-    public MessagesConsumer(String a_zookeeper, String a_groupId, String a_topic, int a_numThreads) throws MalformedURLException, IOException {
-
+    public MessagesConsumer(String a_zookeeper, String a_groupId, String a_topic, int a_numThreads, String a_messagesType) throws MalformedURLException, IOException {
         this.consumer = kafka.consumer.Consumer
                 .createJavaConsumerConnector(createConsumerConfig(a_zookeeper, a_groupId));
 
         this.topic = a_topic;
         this.numThread = a_numThreads;
+        this.messagesType = a_messagesType;
     }
 
 
@@ -175,9 +165,10 @@ public class MessagesConsumer {
             logger.error("Interrupted during shutdown, exiting uncleanly");
         }
     }
+    
+    
 
-    public void messageConsumed() throws Exception {
-
+    public void createStreamConsumed(String topic, int numThread,String messagesType) {
         Map<String, Integer> topicCountMap = new HashMap<String, Integer>();
         topicCountMap.put(topic, new Integer(numThread));
         Map<String, List<KafkaStream<byte[], byte[]>>> consumerMap = consumer
@@ -187,7 +178,8 @@ public class MessagesConsumer {
         // now launch all the threads
         //
         AuditPageConsumed auditPageConsumed = new AuditPageConsumed(parameterDataService, auditService, parameterElementDataService,
-                auditDataService, processResultDataService, messagesProducer, dbHost, dbPort, dbUserName, dbPassword, dbName);
+                auditDataService, processResultDataService, webResourceDataService, webResourceStatisticsDataService, processRemarkDataService,
+                messagesProducer, messageSource, dbHost, dbPort, dbUserName, dbPassword, dbName);
 
         executor = Executors.newFixedThreadPool(numThread);
 
@@ -196,7 +188,7 @@ public class MessagesConsumer {
         int threadNumber = 0;
         Consumer consumer = null;
         for (final KafkaStream stream : streams) {
-            consumer = new Consumer(stream, threadNumber, parameterDataService, auditService,
+            consumer = new Consumer(stream, threadNumber, messagesType, parameterDataService, auditService,
                     parameterElementDataService, auditDataService, processResultDataService, auditPageConsumed, ref, level);
             ExecutorService es = Executors.newCachedThreadPool();
             es.execute(consumer);
@@ -209,6 +201,10 @@ public class MessagesConsumer {
             }
             threadNumber++;
         }
+    }
+    public void messageConsumed() throws Exception {
+         if(topic != null &&  !topic.equals(""))
+             createStreamConsumed(topic, numThread, messagesType);
     }
 
     private static ConsumerConfig createConsumerConfig(String a_zookeeper,
