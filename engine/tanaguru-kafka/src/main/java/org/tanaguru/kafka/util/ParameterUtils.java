@@ -69,6 +69,8 @@ public class ParameterUtils {
     public static final String EXCLUSION_REGEXP = "EXCLUSION_REGEXP";
     public static final String DEPTH = "DEPTH";
     public static final String PRESENTATION_TABLE_MARKER = "PRESENTATION_TABLE_MARKER";
+    public static final String SCREEN_WIDTH = "SCREEN_WIDTH";
+    public static final String SCREEN_HEIGHT = "SCREEN_HEIGHT";
 
     /*
      * **********************OTHER SERVICE PARAMETERS
@@ -121,7 +123,8 @@ public class ParameterUtils {
         return auditPageParamSet;
     }
 
-    public static void initializePAInputOptions(String tblMarker, String cplxTblMarker, String prTblMarker, String dcrImgMarker, String infImgMarker, Set<Parameter> parameters) {
+    public static void initializePAInputOptions(String tblMarker, String cplxTblMarker, String prTblMarker, String dcrImgMarker, String infImgMarker, 
+            String screenWidth, String screenHeight, Set<Parameter> parameters) {
 
         for (Parameter parameter : parameters) {
 
@@ -152,6 +155,17 @@ public class ParameterUtils {
                         parameter.setValue(infImgMarker);
                     }
                 }
+                if (screenWidth != null){
+                    if(SCREEN_WIDTH.equals(parameter.getParameterElement().getParameterElementCode())){
+                        parameter.setValue(screenWidth);
+                    }
+                }
+                if (screenHeight != null){
+                    if(SCREEN_HEIGHT.equals(parameter.getParameterElement().getParameterElementCode())){
+                        parameter.setValue(screenHeight);
+                    }
+                }
+
             }
         }
     }

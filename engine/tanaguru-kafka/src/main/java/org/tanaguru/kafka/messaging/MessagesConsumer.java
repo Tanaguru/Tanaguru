@@ -5,25 +5,40 @@
  */
 package org.tanaguru.kafka.messaging;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.InetAddress;
 import java.net.MalformedURLException;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.net.URL;
+import java.net.UnknownHostException;
+import java.util.Enumeration;
 import kafka.consumer.ConsumerConfig;
 import kafka.consumer.KafkaStream;
 import kafka.javaapi.consumer.ConsumerConnector;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
+import org.tanaguru.entity.audit.Audit;
+import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.service.parameterization.ParameterDataService;
 import org.tanaguru.service.AuditService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.stereotype.Component;
+import org.tanaguru.entity.audit.ProcessResult;
 import org.tanaguru.entity.service.audit.AuditDataService;
 import org.tanaguru.entity.service.audit.ProcessRemarkDataService;
 import org.tanaguru.entity.service.audit.ProcessResultDataService;
@@ -33,6 +48,10 @@ import org.tanaguru.entity.service.subject.WebResourceDataService;
 import org.tanaguru.kafka.util.AuditPageConsumed;
 //import org.tanaguru.kafka.util.IPAddressValidator;
 import org.tanaguru.kafka.util.MessageKafka;
+import org.tanaguru.kafka.util.ParameterUtils;
+import org.tanaguru.service.AuditServiceListener;
+import org.springframework.context.support.DelegatingMessageSource;
+import org.tanaguru.kafka.util.ExposedResourceMessageBundleSource;
 
 /**
  *
@@ -57,7 +76,16 @@ public class MessagesConsumer {
     private ProcessRemarkDataService processRemarkDataService;
     private ParameterDataService parameterDataService;
     private ParameterElementDataService parameterElementDataService;
-    private ReloadableResourceBundleMessageSource messageSource;
+    private ExposedResourceMessageBundleSource referentialAw22Theme;
+    private ExposedResourceMessageBundleSource referentialAw22Criterion;
+    private ExposedResourceMessageBundleSource referentialAw22Rule;
+    private ExposedResourceMessageBundleSource referentialRgaa2Theme;
+    private ExposedResourceMessageBundleSource referentialRgaa2Criterion;
+    private ExposedResourceMessageBundleSource referentialRgaa2Rule;
+    private ExposedResourceMessageBundleSource referentialRgaa3Theme;
+    private ExposedResourceMessageBundleSource referentialRgaa3Criterion;
+    private ExposedResourceMessageBundleSource referentialRgaa3Rule;
+    private ExposedResourceMessageBundleSource remarkMessage;
 
     private String ref;
     private String level;
@@ -109,8 +137,38 @@ public class MessagesConsumer {
     public void setParameterElementDataService(ParameterElementDataService parameterElementDataService) {
         this.parameterElementDataService = parameterElementDataService;
     }
-    public void setMessageSource(ReloadableResourceBundleMessageSource messageSource){
-        this.messageSource = messageSource;
+    public void setReferentialAw22Theme(ExposedResourceMessageBundleSource referentialAw22Theme){
+        this.referentialAw22Theme = referentialAw22Theme;
+    }
+    public void setReferentialAw22Criterion(ExposedResourceMessageBundleSource referentialAw22Criterion){
+        this.referentialAw22Criterion = referentialAw22Criterion;
+    }
+    public void setReferentialAw22Rule(ExposedResourceMessageBundleSource referentialAw22Rule){
+        this.referentialAw22Rule = referentialAw22Rule;
+    }
+    
+    public void setReferentialRgaa2Theme(ExposedResourceMessageBundleSource referentialRgaa2Theme){
+        this.referentialRgaa2Theme = referentialRgaa2Theme;
+    }
+    public void setReferentialRgaa2Criterion(ExposedResourceMessageBundleSource referentialRgaa2Criterion){
+        this.referentialRgaa2Criterion = referentialRgaa2Criterion;
+    }
+    public void setReferentialRgaa2Rule(ExposedResourceMessageBundleSource referentialRgaa2Rule){
+        this.referentialRgaa2Rule = referentialRgaa2Rule;
+    }
+    
+    public void setReferentialRgaa3Theme(ExposedResourceMessageBundleSource referentialRgaa3Theme){
+        this.referentialRgaa3Theme = referentialRgaa3Theme;
+    }
+    public void setReferentialRgaa3Criterion(ExposedResourceMessageBundleSource referentialRgaa3Criterion){
+        this.referentialRgaa3Criterion = referentialRgaa3Criterion;
+    }
+    public void setReferentialRgaa3Rule(ExposedResourceMessageBundleSource referentialRgaa3Rule){
+        this.referentialRgaa3Rule = referentialRgaa3Rule;
+    }
+    
+    public void setRemarkMessage(ExposedResourceMessageBundleSource remarkMessage){
+        this.remarkMessage = remarkMessage;
     }
 
     public void setRef(String ref) {
@@ -179,7 +237,9 @@ public class MessagesConsumer {
         //
         AuditPageConsumed auditPageConsumed = new AuditPageConsumed(parameterDataService, auditService, parameterElementDataService,
                 auditDataService, processResultDataService, webResourceDataService, webResourceStatisticsDataService, processRemarkDataService,
-                messagesProducer, messageSource, dbHost, dbPort, dbUserName, dbPassword, dbName);
+                messagesProducer, referentialAw22Theme, referentialAw22Criterion, referentialAw22Rule,
+                referentialRgaa2Theme, referentialRgaa2Criterion, referentialRgaa2Rule, 
+                referentialRgaa3Theme, referentialRgaa3Criterion, referentialRgaa3Rule, remarkMessage, dbHost, dbPort, dbUserName, dbPassword, dbName);
 
         executor = Executors.newFixedThreadPool(numThread);
 

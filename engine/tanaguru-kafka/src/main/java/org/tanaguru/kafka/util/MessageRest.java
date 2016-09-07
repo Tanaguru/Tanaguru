@@ -17,7 +17,7 @@ public class MessageRest {
 
     public static boolean isValide(String message) {
 //        && message.split("" + Separator).length == 8
-        if (message.contains("" + Separator) && StringUtils.countMatches(message, "" + Separator) == 10) {
+        if (message.contains("" + Separator) && StringUtils.countMatches(message, "" + Separator) == 14) {
             return true;
         } else {
             return false;
@@ -87,4 +87,37 @@ public class MessageRest {
             return "";
         }
     }
+    
+    public static Integer getScreenWidth(String message){
+        try{
+            return Integer.parseInt(message.split("" + Separator)[10]);
+        } catch(Exception e){
+            return 1920;
+        }
+    }
+    
+    public static Integer getScreenHeight(String message){
+        try{
+            return Integer.parseInt(message.split("" + Separator)[11]);
+        } catch(Exception e){
+            return 1080;
+        }
+    }
+    
+    public static Boolean getDescriptionRef(String message){
+        try{
+            return Boolean.valueOf(message.split("" + Separator)[12]);
+        } catch(Exception e){
+            return false;
+        }
+    }
+    
+    public static Boolean getHtmlTags(String message){
+        try{
+            return Boolean.valueOf(message.split("" + Separator)[13]);
+        }catch(Exception e){
+            return false;
+        }
+    }
+    
 }

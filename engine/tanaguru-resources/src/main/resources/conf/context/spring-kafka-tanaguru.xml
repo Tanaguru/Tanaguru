@@ -15,87 +15,105 @@
 
 
     <import resource="beans-tanaguru.xml"/>
+   
     
-    <!--<import resource="classpath:conf/mvc/tgol-beans-i18n.xml"/>-->
+    <!--Aw22 i18n files -->
+    <bean id="referentialAw22Theme" class="org.tanaguru.kafka.util.ExposedResourceMessageBundleSource">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="basenames">
+            <list>  
+                <value>classpath:i18n/theme-aw22-I18N</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="referentialAw22Criterion" class="org.tanaguru.kafka.util.ExposedResourceMessageBundleSource">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="basenames">
+            <list>  
+                <value>classpath:i18n/criterion-aw22-I18N</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="referentialAw22Rule" class="org.tanaguru.kafka.util.ExposedResourceMessageBundleSource">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="basenames">
+            <list>  
+                <value>classpath:i18n/rule-aw22-I18N</value>
+            </list>
+        </property>
+    </bean>
     
-    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+    <!--rgaa2.2 i18n files -->
+    <bean id="referentialRgaa2Theme" class="org.tanaguru.kafka.util.ExposedResourceMessageBundleSource">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="basenames">
+            <list>
+                <value>classpath:i18n/theme-rgaa22-I18N</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="referentialRgaa2Criterion" class="org.tanaguru.kafka.util.ExposedResourceMessageBundleSource">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="basenames">
+            <list>
+                <value>classpath:i18n/criterion-rgaa22-I18N</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="referentialRgaa2Rule" class="org.tanaguru.kafka.util.ExposedResourceMessageBundleSource">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="basenames">
+            <list>
+                <value>classpath:i18n/rule-rgaa22-I18N</value>
+            </list>
+        </property>
+    </bean>
+    
+    <!--rgaa3 i18n files -->
+    <bean id="referentialRgaa3Theme" class="org.tanaguru.kafka.util.ExposedResourceMessageBundleSource">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="basenames">
+            <list>                
+                <value>classpath:i18n/theme-rgaa30-I18N</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="referentialRgaa3Criterion" class="org.tanaguru.kafka.util.ExposedResourceMessageBundleSource">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="basenames">
+            <list>
+                <value>classpath:i18n/criterion-rgaa30-I18N</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="referentialRgaa3Rule" class="org.tanaguru.kafka.util.ExposedResourceMessageBundleSource">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="basenames">
+            <list>
+                <value>classpath:i18n/rule-rgaa30-I18N</value>
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="remarkMessage" class="org.tanaguru.kafka.util.ExposedResourceMessageBundleSource">
         <property name="defaultEncoding" value="UTF-8"/>
         <property name="basenames">
             <list>
                 
                 <!--accessiweb2.2 i18n files -->
-                <value>classpath:i18n/referential-aw22-I18N</value>
-                <value>classpath:i18n/theme-aw22-I18N</value>
-                <value>classpath:i18n/criterion-aw22-I18N</value>
-                <value>classpath:i18n/rule-aw22-I18N</value>
                 <value>classpath:i18n/rule-remark-aw22-I18N</value>
                 
                 <!--rgaa2.2 i18n files -->
-                <value>classpath:i18n/referential-rgaa22-I18N</value>
-                <value>classpath:i18n/theme-rgaa22-I18N</value>
-                <value>classpath:i18n/criterion-rgaa22-I18N</value>
-                <value>classpath:i18n/rule-rgaa22-I18N</value>
                 <value>classpath:i18n/rule-remark-rgaa22-I18N</value>
                 
                 <!--rgaa3 i18n files -->
-                <value>classpath:i18n/referential-rgaa30-I18N</value>
-                <value>classpath:i18n/theme-rgaa30-I18N</value>
-                <value>classpath:i18n/criterion-rgaa30-I18N</value>
-                <value>classpath:i18n/rule-rgaa30-I18N</value>
                 <value>classpath:i18n/rule-remark-rgaa30-I18N</value>
-                
+               
                 <!--rules-commons i18n files -->
                 <value>classpath:i18n/evidence-elements-I18N</value>
                 <value>classpath:i18n/rule-remark-I18N</value>
-                
-                <!--web-app i18n files -->
-                <value>classpath:i18n/access-denied-page-I18N</value>
-                <value>classpath:i18n/account-settings-page-I18N</value>
-                <value>classpath:i18n/adapting-error-page-I18N</value>
-                <value>classpath:i18n/add-contract-I18N</value>
-                <value>classpath:i18n/add-user-I18N</value>
-                <value>classpath:i18n/admin-I18N</value>
-                <value>classpath:i18n/audit-in-progress-page-I18N</value>
-                <value>classpath:i18n/audit-set-up-I18N</value>
-                <value>classpath:i18n/change-password-page-I18N</value>
-                <value>classpath:i18n/contract-page-I18N</value>
-                <value>classpath:i18n/delete-audits-I18N</value>
-                <value>classpath:i18n/delete-contract-I18N</value>
-                <value>classpath:i18n/delete-user-I18N</value>
-                <value>classpath:i18n/edit-contract-I18N</value>
-                <value>classpath:i18n/edit-user-I18N</value>
-                <value>classpath:i18n/export-audit-format-error-page-I18N</value>
-                <value>classpath:i18n/failed-test-list-I18N</value>
-                <value>classpath:i18n/footer-I18N</value>
-                <value>classpath:i18n/forgotten-password-page-I18N</value>
-                <value>classpath:i18n/forgotten-password-confirmation-page-I18N</value>
-                <value>classpath:i18n/graph-I18N</value>
-                <value>classpath:i18n/greedy-audit-I18N</value>
-                <value>classpath:i18n/home-page-I18N</value>
-                <value>classpath:i18n/loading-error-page-I18N</value>
-                <value>classpath:i18n/login-page-I18N</value>
-                <value>classpath:i18n/manage-contracts-I18N</value>
-                <value>classpath:i18n/mass-audit-set-up-I18N</value>
-                <value>classpath:i18n/max-file-size-error-page-I18N</value>
-                <value>classpath:i18n/no-demo-available-I18N</value>
-                <value>classpath:i18n/oups-page-I18N</value>
-                <value>classpath:i18n/page-list-page-I18N</value>
-                <value>classpath:i18n/parameters-I18N</value>
-                <value>classpath:i18n/quota-by-ip-exceeded-page-I18N</value>
-                <value>classpath:i18n/quota-exceeded-page-I18N</value>
-                <value>classpath:i18n/result-page-I18N</value>
-                <value>classpath:i18n/result-page-evidence-element-I18N</value>
-                <value>classpath:i18n/rule-error-I18N</value>
-                <value>classpath:i18n/rule-result-I18N</value>
-                <value>classpath:i18n/scenario-management-I18N</value>
-                <value>classpath:i18n/sign-up-page-I18N</value>
-                <value>classpath:i18n/sign-up-confirmation-page-I18N</value>
-                <value>classpath:i18n/sort-contract-console-I18N</value>
-                <value>classpath:i18n/source-code-page-I18N</value>
-                <value>classpath:i18n/synthesis-site-page-I18N</value>
-                <value>classpath:i18n/test-weight-I18N</value>
-	    </list>
-	</property>
+            </list>
+        </property>
     </bean>
 
     <!-- Fabrique de connexions et la consommation de Kafka  -->
@@ -110,14 +128,14 @@
           destroy-method="killProducer"> 
         <constructor-arg index="0" value="localhost:6667"/>
         <constructor-arg index="1" value="localhost:2181"/>
-        <constructor-arg index="2" value="topicRestSend"/>
+        <constructor-arg index="2" value="topicSendRest"/>
     </bean>
     
     <bean id="ObsTanaguruMessagesConsumer" class="org.tanaguru.kafka.messaging.MessagesConsumer" 
           init-method="messageConsumed" destroy-method="shutdown"> 
         
         <constructor-arg index="0" value="localhost:2181"/>
-        <constructor-arg index="1" value="groupObs"/>
+        <constructor-arg index="1" value="groupConsumer1"/>
         <constructor-arg index="2" value="topicConsumer"/>
         <constructor-arg index="3" value="1"/>
         <constructor-arg index="4" value="Event"/>
@@ -130,7 +148,16 @@
         <property name="webResourceDataService" ref="webResourceDataService"/>
         <property name="webResourceStatisticsDataService" ref="webResourceStatisticsDataService"/>
         <property name="processRemarkDataService" ref="processRemarkDataService"/>
-        <property name="messageSource" ref="messageSource" />
+        <property name="referentialAw22Theme" ref="referentialAw22Theme" />
+        <property name="referentialAw22Criterion" ref="referentialAw22Criterion" />
+        <property name="referentialAw22Rule" ref="referentialAw22Rule" />
+        <property name="referentialRgaa2Theme" ref="referentialRgaa2Theme" />
+        <property name="referentialRgaa2Criterion" ref="referentialRgaa2Criterion" />
+        <property name="referentialRgaa2Rule" ref="referentialRgaa2Rule" />
+        <property name="referentialRgaa3Theme" ref="referentialRgaa3Theme" />
+        <property name="referentialRgaa3Criterion" ref="referentialRgaa3Criterion" />
+        <property name="referentialRgaa3Rule" ref="referentialRgaa3Rule" />
+        <property name="remarkMessage" ref="remarkMessage" />
         <!--AW22_REF = "Aw22"; RGAA22_REF = "Rgaa22"; RGAA30_REF = "Rgaa30";-->
         <property name="ref" value="Rgaa30" />
         <!--BRONZE_LEVEL = "Bz";A_LEVEL = "A";SILVER_LEVEL = "Ar"; AA_LEVEL = "AA";GOLD_LEVEL = "Or";AAA_LEVEL = "AAA";-->
@@ -143,12 +170,12 @@
         <property name="dbUrl" value="${jdbc.url}"/>      
     </bean>
     
-     <bean id="RestTanaguruMessagesConsumer" class="org.tanaguru.kafka.messaging.MessagesConsumer" 
-          init-method="messageConsumed" destroy-method="shutdown"> 
+    <bean id="RestTanaguruMessagesConsumer" class="org.tanaguru.kafka.messaging.MessagesConsumer" 
+           init-method="messageConsumed" destroy-method="shutdown"> 
         
         <constructor-arg index="0" value="localhost:2181"/>
-        <constructor-arg index="1" value="groupRest"/>
-        <constructor-arg index="2" value="topicRestConsumer"/>
+        <constructor-arg index="1" value="groupConsumerRest"/>
+        <constructor-arg index="2" value="topicConsumerRest"/>
         <constructor-arg index="3" value="1"/>
         <constructor-arg index="4" value="Rest"/>
         
@@ -160,7 +187,16 @@
         <property name="webResourceDataService" ref="webResourceDataService"/>
         <property name="webResourceStatisticsDataService" ref="webResourceStatisticsDataService"/>
         <property name="processRemarkDataService" ref="processRemarkDataService"/>
-        <property name="messageSource" ref="messageSource" />
+        <property name="referentialAw22Theme" ref="referentialAw22Theme" />
+        <property name="referentialAw22Criterion" ref="referentialAw22Criterion" />
+        <property name="referentialAw22Rule" ref="referentialAw22Rule" />
+        <property name="referentialRgaa2Theme" ref="referentialRgaa2Theme" />
+        <property name="referentialRgaa2Criterion" ref="referentialRgaa2Criterion" />
+        <property name="referentialRgaa2Rule" ref="referentialRgaa2Rule" />
+        <property name="referentialRgaa3Theme" ref="referentialRgaa3Theme" />
+        <property name="referentialRgaa3Criterion" ref="referentialRgaa3Criterion" />
+        <property name="referentialRgaa3Rule" ref="referentialRgaa3Rule" />
+        <property name="remarkMessage" ref="remarkMessage" />
         
         <!--AW22_REF = "Aw22"; RGAA22_REF = "Rgaa22"; RGAA30_REF = "Rgaa30";-->
         <property name="ref" value="Rgaa30" />

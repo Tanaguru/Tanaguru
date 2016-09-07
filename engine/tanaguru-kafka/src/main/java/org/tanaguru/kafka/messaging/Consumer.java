@@ -6,12 +6,19 @@
 package org.tanaguru.kafka.messaging;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import kafka.consumer.ConsumerIterator;
 import kafka.consumer.KafkaStream;
+import org.tanaguru.entity.audit.Audit;
+import org.tanaguru.entity.parameterization.Parameter;
 
 import org.apache.log4j.Logger;
+import org.tanaguru.entity.audit.Audit;
+import org.tanaguru.entity.audit.ProcessResult;
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.service.audit.AuditDataService;
 import org.tanaguru.entity.service.audit.ProcessResultDataService;
@@ -20,9 +27,11 @@ import org.tanaguru.entity.service.parameterization.ParameterElementDataService;
 import org.tanaguru.kafka.util.AuditPageConsumed;
 import org.tanaguru.kafka.util.MessageConsumerLimit;
 import org.tanaguru.kafka.util.MessageEvent;
+import org.tanaguru.kafka.util.MessageKafka;
 import org.tanaguru.kafka.util.MessageRest;
 import org.tanaguru.service.AuditService;
 import org.tanaguru.kafka.util.ParameterUtils;
+import org.tanaguru.service.AuditServiceListener;
 
 /**
  *
@@ -80,12 +89,13 @@ public class Consumer implements Runnable {
         String level = "";
         ConsumerIterator<byte[], byte[]> it = m_stream.iterator();
         while (it.hasNext()) {
+
             if (messagesType.equals("Event") && messageConsumerLimit.getCurrentNumberMessagesEvent() < 3) {
                 String message = new String(it.next().message(), StandardCharsets.UTF_8);
+                logger.info("[AUDIT][IN] A message have been received..." + message);
 
                 if (MessageEvent.isValide(message)) {
                     messageConsumerLimit.messageEventConsumed();
-                    logger.info("[AUDIT][IN] URL received Event..." + MessageEvent.getUrl(message));
                     if (MessageEvent.getReferentiel(message).equals("")) {
                         referentiel = ref;
                     } else {
@@ -106,9 +116,9 @@ public class Consumer implements Runnable {
                 }
             } else if (messagesType.equals("Rest") && messageConsumerLimit.getCurrentNumberMessagesRest() < 3) {
                 String message = new String(it.next().message(), StandardCharsets.UTF_8);
+                logger.info("[AUDIT][IN] A message have been received..." + message);
                 if (MessageRest.isValide(message)) {
                     messageConsumerLimit.messageRestConsumed();
-                    logger.info("[AUDIT][IN] URL received Rest ..." + MessageRest.getUrl(message));
                     if (MessageRest.getReferentiel(message).equals("")) {
                         referentiel = ref;
                     } else {
@@ -122,14 +132,17 @@ public class Consumer implements Runnable {
 
                     Set<Parameter> paramSet = ParameterUtils.getParameterSetFromAuditLevel(referentiel,
                             level, parameterElementDataService, parameterDataService);
-                    Set<Parameter> parameters = ParameterUtils.getAuditPageParameterSet(paramSet, parameterElementDataService, parameterDataService);
 
+                    Set<Parameter> parameters = ParameterUtils.getAuditPageParameterSet(paramSet, parameterElementDataService, parameterDataService);
+                    
                     ParameterUtils.initializePAInputOptions(MessageRest.getDtTblMarker(message), MessageRest.getCplxTblMarker(message), MessageRest.getPrTblMarker(message),
-                            MessageRest.getDcrImgMarker(message), MessageRest.getInfImgMarker(message), parameters);
+                            MessageRest.getDcrImgMarker(message), MessageRest.getInfImgMarker(message),MessageRest.getScreenWidth(message).toString(),
+                            MessageRest.getScreenHeight(message).toString(), parameters);
+
                     auditPageConsumed.auditPageRest(message, parameters, referentiel, level);
                 }
             }
         }
-        logger.info("Shutting down Thread: " + m_threadNumber);
+        logger.error("Shutting down Thread: " + m_threadNumber);
     }
 }
