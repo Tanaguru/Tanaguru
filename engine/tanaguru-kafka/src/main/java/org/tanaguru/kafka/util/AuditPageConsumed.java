@@ -72,6 +72,9 @@ public class AuditPageConsumed implements AuditServiceListener {
     private ExposedResourceMessageBundleSource referentialRgaa3Theme;
     private ExposedResourceMessageBundleSource referentialRgaa3Criterion;
     private ExposedResourceMessageBundleSource referentialRgaa3Rule;
+    private ExposedResourceMessageBundleSource referentialRgaa32016Theme;
+    private ExposedResourceMessageBundleSource referentialRgaa32016Criterion;
+    private ExposedResourceMessageBundleSource referentialRgaa32016Rule;
     private ExposedResourceMessageBundleSource remarkMessage;
 
     private String dbHost;
@@ -118,6 +121,8 @@ public class AuditPageConsumed implements AuditServiceListener {
             ExposedResourceMessageBundleSource a_referentialRgaa2Rule,
             ExposedResourceMessageBundleSource a_referentialRgaa3Theme, ExposedResourceMessageBundleSource a_referentialRgaa3Criterion,
             ExposedResourceMessageBundleSource a_referentialRgaa3Rule,
+            ExposedResourceMessageBundleSource a_referentialRgaa32016Theme, ExposedResourceMessageBundleSource a_referentialRgaa32016Criterion,
+            ExposedResourceMessageBundleSource a_referentialRgaa32016Rule,
             ExposedResourceMessageBundleSource a_remarkMessage,
             String a_dbHost, String a_dbPort, String a_dbUserName, String a_dbPassWord, String a_dbName) {
 
@@ -140,6 +145,9 @@ public class AuditPageConsumed implements AuditServiceListener {
         referentialRgaa3Theme = a_referentialRgaa3Theme;
         referentialRgaa3Criterion = a_referentialRgaa3Criterion;
         referentialRgaa3Rule = a_referentialRgaa3Rule;
+        referentialRgaa32016Theme = a_referentialRgaa32016Theme;
+        referentialRgaa32016Criterion = a_referentialRgaa32016Criterion;
+        referentialRgaa32016Rule = a_referentialRgaa32016Rule;
         remarkMessage = a_remarkMessage;
 
         dbHost = a_dbHost;
@@ -167,6 +175,33 @@ public class AuditPageConsumed implements AuditServiceListener {
 
         Map<String, String> allMessages = null;
         switch (Ref) {
+            case "Rgaa32016":
+                switch (entity) {
+                    case "Theme":
+                        if (language.equals("fr")) {
+                            allMessages = getMessages(referentialRgaa32016Theme, Locale.FRENCH);
+                        } else if (language.equals("en")) {
+                            allMessages = getMessages(referentialRgaa32016Theme, Locale.ENGLISH);
+                        } else if (language.equals("es_fr") || language.equals("es_en")) {
+                            allMessages = getMessages(referentialRgaa32016Theme, new Locale("es"));
+                        }
+                        break;
+                    case "Criterion":
+                        if (language.equals("fr") || language.equals("es_fr")) {
+                            allMessages = getMessages(referentialRgaa32016Criterion, Locale.FRENCH);
+                        } else if (language.equals("en") || language.equals("es_en")) {
+                            allMessages = getMessages(referentialRgaa32016Criterion, Locale.ENGLISH);
+                        }
+                        break;
+                    case "Rule":
+                        if (language.equals("fr") || language.equals("es_fr")) {
+                            allMessages = getMessages(referentialRgaa32016Rule, Locale.FRENCH);
+                        } else if (language.equals("en") || language.equals("es_en")) {
+                            allMessages = getMessages(referentialRgaa32016Rule, Locale.ENGLISH);
+                        }
+                        break;
+                }
+                break;
             case "Rgaa30":
                 switch (entity) {
                     case "Theme":
@@ -476,12 +511,13 @@ public class AuditPageConsumed implements AuditServiceListener {
             }
         } catch (Exception ex) {
             logger.error("Producer Message Kafka ERROR : " + ex);
+            // messageConsumerLimit.messageAudited();
         }
     }
 
     @Override
     public void auditCrashed(Audit audit, Exception exception
-    ) { 
+    ) { //To change body of generated methods, choose Tools | Templates.
 
         logger.error("crash (id+message): " + audit.getId() + " " + exception.toString());
         if (auditType.get(audit.getId()).equals("Event")) {

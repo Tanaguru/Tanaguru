@@ -85,6 +85,9 @@ public class MessagesConsumer {
     private ExposedResourceMessageBundleSource referentialRgaa3Theme;
     private ExposedResourceMessageBundleSource referentialRgaa3Criterion;
     private ExposedResourceMessageBundleSource referentialRgaa3Rule;
+    private ExposedResourceMessageBundleSource referentialRgaa32016Theme;
+    private ExposedResourceMessageBundleSource referentialRgaa32016Criterion;
+    private ExposedResourceMessageBundleSource referentialRgaa32016Rule;
     private ExposedResourceMessageBundleSource remarkMessage;
 
     private String ref;
@@ -98,7 +101,6 @@ public class MessagesConsumer {
     private String dbPassword;
     private String dbName;
     private String dbUrl;
-    
 
     /**
      * logger
@@ -123,7 +125,7 @@ public class MessagesConsumer {
     }
 
     public void setWebResourceStatisticsDataService(WebResourceStatisticsDataService webResourceStatisticsDataService) {
-        this.webResourceStatisticsDataService = webResourceStatisticsDataService;       
+        this.webResourceStatisticsDataService = webResourceStatisticsDataService;
     }
 
     public void setProcessRemarkDataService(ProcessRemarkDataService processRemarkDataService) {
@@ -137,37 +139,56 @@ public class MessagesConsumer {
     public void setParameterElementDataService(ParameterElementDataService parameterElementDataService) {
         this.parameterElementDataService = parameterElementDataService;
     }
-    public void setReferentialAw22Theme(ExposedResourceMessageBundleSource referentialAw22Theme){
+
+    public void setReferentialAw22Theme(ExposedResourceMessageBundleSource referentialAw22Theme) {
         this.referentialAw22Theme = referentialAw22Theme;
     }
-    public void setReferentialAw22Criterion(ExposedResourceMessageBundleSource referentialAw22Criterion){
+
+    public void setReferentialAw22Criterion(ExposedResourceMessageBundleSource referentialAw22Criterion) {
         this.referentialAw22Criterion = referentialAw22Criterion;
     }
-    public void setReferentialAw22Rule(ExposedResourceMessageBundleSource referentialAw22Rule){
+
+    public void setReferentialAw22Rule(ExposedResourceMessageBundleSource referentialAw22Rule) {
         this.referentialAw22Rule = referentialAw22Rule;
     }
-    
-    public void setReferentialRgaa2Theme(ExposedResourceMessageBundleSource referentialRgaa2Theme){
+
+    public void setReferentialRgaa2Theme(ExposedResourceMessageBundleSource referentialRgaa2Theme) {
         this.referentialRgaa2Theme = referentialRgaa2Theme;
     }
-    public void setReferentialRgaa2Criterion(ExposedResourceMessageBundleSource referentialRgaa2Criterion){
+
+    public void setReferentialRgaa2Criterion(ExposedResourceMessageBundleSource referentialRgaa2Criterion) {
         this.referentialRgaa2Criterion = referentialRgaa2Criterion;
     }
-    public void setReferentialRgaa2Rule(ExposedResourceMessageBundleSource referentialRgaa2Rule){
+
+    public void setReferentialRgaa2Rule(ExposedResourceMessageBundleSource referentialRgaa2Rule) {
         this.referentialRgaa2Rule = referentialRgaa2Rule;
     }
-    
-    public void setReferentialRgaa3Theme(ExposedResourceMessageBundleSource referentialRgaa3Theme){
+
+    public void setReferentialRgaa3Theme(ExposedResourceMessageBundleSource referentialRgaa3Theme) {
         this.referentialRgaa3Theme = referentialRgaa3Theme;
     }
-    public void setReferentialRgaa3Criterion(ExposedResourceMessageBundleSource referentialRgaa3Criterion){
+
+    public void setReferentialRgaa3Criterion(ExposedResourceMessageBundleSource referentialRgaa3Criterion) {
         this.referentialRgaa3Criterion = referentialRgaa3Criterion;
     }
-    public void setReferentialRgaa3Rule(ExposedResourceMessageBundleSource referentialRgaa3Rule){
+
+    public void setReferentialRgaa3Rule(ExposedResourceMessageBundleSource referentialRgaa3Rule) {
         this.referentialRgaa3Rule = referentialRgaa3Rule;
     }
-    
-    public void setRemarkMessage(ExposedResourceMessageBundleSource remarkMessage){
+
+    public void setReferentialRgaa32016Theme(ExposedResourceMessageBundleSource referentialRgaa32016Theme) {
+        this.referentialRgaa32016Theme = referentialRgaa32016Theme;
+    }
+
+    public void setReferentialRgaa32016Criterion(ExposedResourceMessageBundleSource referentialRgaa32016Criterion) {
+        this.referentialRgaa32016Criterion = referentialRgaa32016Criterion;
+    }
+
+    public void setReferentialRgaa32016Rule(ExposedResourceMessageBundleSource referentialRgaa32016Rule) {
+        this.referentialRgaa32016Rule = referentialRgaa32016Rule;
+    }
+
+    public void setRemarkMessage(ExposedResourceMessageBundleSource remarkMessage) {
         this.remarkMessage = remarkMessage;
     }
 
@@ -207,7 +228,6 @@ public class MessagesConsumer {
         this.messagesType = a_messagesType;
     }
 
-
     public void shutdown() {
         if (consumer != null) {
             consumer.shutdown();
@@ -223,10 +243,8 @@ public class MessagesConsumer {
             logger.error("Interrupted during shutdown, exiting uncleanly");
         }
     }
-    
-    
 
-    public void createStreamConsumed(String topic, int numThread,String messagesType) {
+    public void createStreamConsumed(String topic, int numThread, String messagesType) {
         Map<String, Integer> topicCountMap = new HashMap<String, Integer>();
         topicCountMap.put(topic, new Integer(numThread));
         Map<String, List<KafkaStream<byte[], byte[]>>> consumerMap = consumer
@@ -238,8 +256,10 @@ public class MessagesConsumer {
         AuditPageConsumed auditPageConsumed = new AuditPageConsumed(parameterDataService, auditService, parameterElementDataService,
                 auditDataService, processResultDataService, webResourceDataService, webResourceStatisticsDataService, processRemarkDataService,
                 messagesProducer, referentialAw22Theme, referentialAw22Criterion, referentialAw22Rule,
-                referentialRgaa2Theme, referentialRgaa2Criterion, referentialRgaa2Rule, 
-                referentialRgaa3Theme, referentialRgaa3Criterion, referentialRgaa3Rule, remarkMessage, dbHost, dbPort, dbUserName, dbPassword, dbName);
+                referentialRgaa2Theme, referentialRgaa2Criterion, referentialRgaa2Rule,
+                referentialRgaa3Theme, referentialRgaa3Criterion, referentialRgaa3Rule, 
+                referentialRgaa32016Theme, referentialRgaa32016Criterion, referentialRgaa32016Rule, 
+                remarkMessage, dbHost, dbPort, dbUserName, dbPassword, dbName);
 
         executor = Executors.newFixedThreadPool(numThread);
 
@@ -262,9 +282,11 @@ public class MessagesConsumer {
             threadNumber++;
         }
     }
+
     public void messageConsumed() throws Exception {
-         if(topic != null &&  !topic.equals(""))
-             createStreamConsumed(topic, numThread, messagesType);
+        if (topic != null && !topic.equals("")) {
+            createStreamConsumed(topic, numThread, messagesType);
+        }
     }
 
     private static ConsumerConfig createConsumerConfig(String a_zookeeper,

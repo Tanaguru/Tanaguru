@@ -95,6 +95,32 @@
         </property>
     </bean>
     
+    <!--rgaa32016 i18n files -->
+    <bean id="referentialRgaa32016Theme" class="org.tanaguru.kafka.util.ExposedResourceMessageBundleSource">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="basenames">
+            <list>                
+                <value>classpath:i18n/theme-rgaa32016-I18N</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="referentialRgaa32016Criterion" class="org.tanaguru.kafka.util.ExposedResourceMessageBundleSource">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="basenames">
+            <list>
+                <value>classpath:i18n/criterion-rgaa32016-I18N</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="referentialRgaa32016Rule" class="org.tanaguru.kafka.util.ExposedResourceMessageBundleSource">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="basenames">
+            <list>
+                <value>classpath:i18n/rule-rgaa32016-I18N</value>
+            </list>
+        </property>
+    </bean>
+    
     <bean id="remarkMessage" class="org.tanaguru.kafka.util.ExposedResourceMessageBundleSource">
         <property name="defaultEncoding" value="UTF-8"/>
         <property name="basenames">
@@ -108,6 +134,9 @@
                 
                 <!--rgaa3 i18n files -->
                 <value>classpath:i18n/rule-remark-rgaa30-I18N</value>
+                
+                <!--rgaa32016 i18n files -->
+                <value>classpath:i18n/rule-remark-rgaa32016-I18N</value>
                
                 <!--rules-commons i18n files -->
                 <value>classpath:i18n/evidence-elements-I18N</value>
@@ -135,7 +164,7 @@
           init-method="messageConsumed" destroy-method="shutdown"> 
         
         <constructor-arg index="0" value="localhost:2181"/>
-        <constructor-arg index="1" value="groupConsumer1"/>
+        <constructor-arg index="1" value="group1"/>
         <constructor-arg index="2" value="topicConsumer"/>
         <constructor-arg index="3" value="1"/>
         <constructor-arg index="4" value="Event"/>
@@ -157,6 +186,9 @@
         <property name="referentialRgaa3Theme" ref="referentialRgaa3Theme" />
         <property name="referentialRgaa3Criterion" ref="referentialRgaa3Criterion" />
         <property name="referentialRgaa3Rule" ref="referentialRgaa3Rule" />
+        <property name="referentialRgaa32016Theme" ref="referentialRgaa32016Theme" />
+        <property name="referentialRgaa32016Criterion" ref="referentialRgaa32016Criterion" />
+        <property name="referentialRgaa32016Rule" ref="referentialRgaa32016Rule" />
         <property name="remarkMessage" ref="remarkMessage" />
         <!--AW22_REF = "Aw22"; RGAA22_REF = "Rgaa22"; RGAA30_REF = "Rgaa30";-->
         <property name="ref" value="Rgaa30" />
@@ -171,10 +203,10 @@
     </bean>
     
     <bean id="RestTanaguruMessagesConsumer" class="org.tanaguru.kafka.messaging.MessagesConsumer" 
-           init-method="messageConsumed" destroy-method="shutdown"> 
+          init-method="messageConsumed" destroy-method="shutdown"> 
         
         <constructor-arg index="0" value="localhost:2181"/>
-        <constructor-arg index="1" value="groupConsumerRest"/>
+        <constructor-arg index="1" value="group2"/>
         <constructor-arg index="2" value="topicConsumerRest"/>
         <constructor-arg index="3" value="1"/>
         <constructor-arg index="4" value="Rest"/>
@@ -196,6 +228,9 @@
         <property name="referentialRgaa3Theme" ref="referentialRgaa3Theme" />
         <property name="referentialRgaa3Criterion" ref="referentialRgaa3Criterion" />
         <property name="referentialRgaa3Rule" ref="referentialRgaa3Rule" />
+        <property name="referentialRgaa32016Theme" ref="referentialRgaa32016Theme" />
+        <property name="referentialRgaa32016Criterion" ref="referentialRgaa32016Criterion" />
+        <property name="referentialRgaa32016Rule" ref="referentialRgaa32016Rule" />
         <property name="remarkMessage" ref="remarkMessage" />
         
         <!--AW22_REF = "Aw22"; RGAA22_REF = "Rgaa22"; RGAA30_REF = "Rgaa30";-->

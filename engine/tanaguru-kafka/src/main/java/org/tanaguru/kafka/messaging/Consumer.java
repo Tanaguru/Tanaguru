@@ -89,7 +89,6 @@ public class Consumer implements Runnable {
         String level = "";
         ConsumerIterator<byte[], byte[]> it = m_stream.iterator();
         while (it.hasNext()) {
-
             if (messagesType.equals("Event") && messageConsumerLimit.getCurrentNumberMessagesEvent() < 3) {
                 String message = new String(it.next().message(), StandardCharsets.UTF_8);
                 logger.info("[AUDIT][IN] A message have been received..." + message);
@@ -134,7 +133,7 @@ public class Consumer implements Runnable {
                             level, parameterElementDataService, parameterDataService);
 
                     Set<Parameter> parameters = ParameterUtils.getAuditPageParameterSet(paramSet, parameterElementDataService, parameterDataService);
-                    
+
                     ParameterUtils.initializePAInputOptions(MessageRest.getDtTblMarker(message), MessageRest.getCplxTblMarker(message), MessageRest.getPrTblMarker(message),
                             MessageRest.getDcrImgMarker(message), MessageRest.getInfImgMarker(message),MessageRest.getScreenWidth(message).toString(),
                             MessageRest.getScreenHeight(message).toString(), parameters);

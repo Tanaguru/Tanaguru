@@ -32,6 +32,7 @@ public class ParameterUtils {
     private static final String AW22_REF = "Aw22";
     private static final String RGAA22_REF = "Rgaa22";
     private static final String RGAA30_REF = "Rgaa30";
+    private static final String RGAA32016_REF = "Rgaa32016";
     private static String REF = AW22_REF;
 
     private static final String BRONZE_LEVEL = "Bz";
