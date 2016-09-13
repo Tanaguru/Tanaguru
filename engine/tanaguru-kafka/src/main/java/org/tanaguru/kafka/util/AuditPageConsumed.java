@@ -5,7 +5,9 @@
  */
 package org.tanaguru.kafka.util;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.List;
@@ -46,6 +48,9 @@ import org.tanaguru.kafka.messaging.MessagesProducer;
 import org.tanaguru.service.AuditService;
 import org.tanaguru.service.AuditServiceListener;
 import org.xml.sax.SAXException;
+
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -297,15 +302,53 @@ public class AuditPageConsumed implements AuditServiceListener {
         return result;
     }
 
-    public JSONObject createAuditJson(Audit audit) throws JSONException {
+    public boolean w3cValidator(Audit audit) throws JSONException, ParseException {
 
+        String java8Path = "/home/tanaguru/jdk1.8.0_45/bin/java";
+        String vnuJarPath = "/home/tanaguru/Downloads/dist/vnu.jar";
+        String url = auditUrl.get(audit.getId());
+        String commandW3C = java8Path + " -jar " + vnuJarPath + " --format json --errors-only " + url;
+        String resultW3C = executeCommand(commandW3C);
+        JSONParser parser = new JSONParser();
+        Object responseObj = parser.parse(resultW3C);
+        org.json.simple.JSONObject jsonRespenseObject = (org.json.simple.JSONObject) responseObj;
+        org.json.simple.JSONArray resultList = (org.json.simple.JSONArray) jsonRespenseObject.get("messages");
+        if (resultList.size() > 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private String executeCommand(String command) {
+
+        StringBuffer output = new StringBuffer();
+        Process p;
+        try {
+            p = Runtime.getRuntime().exec(command);
+            p.waitFor();
+            BufferedReader reader
+                    = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+
+            String line = "";
+            while ((line = reader.readLine()) != null) {
+                output.append(line + "\n");
+            }
+        } catch (Exception e) {
+            logger.error("error with command execution " + e.toString());
+        }
+        return output.toString();
+    }
+
+    public JSONObject createAuditJson(Audit audit) throws JSONException, ParseException {
+        boolean w3cValidated = w3cValidator(audit);
         JSONObject auditJson = new JSONObject();
         String language = auditLanguage.get(audit.getId());
         Boolean descriptionRef = auditDescriptionRef.get(audit.getId());
         String ref = auditRef.get(audit.getId());
         Boolean htmlTags = auditHtmlTags.get(audit.getId());
-
         auditJson.put("url", auditUrl.get(audit.getId()));
+        auditJson.put("w3c_validator", w3cValidated);
         auditJson.put("status", audit.getStatus());
         auditJson.put("ref", ref);
         auditJson.put("level", auditLevel.get(audit.getId()));
@@ -474,8 +517,8 @@ public class AuditPageConsumed implements AuditServiceListener {
             if (auditType.get(audit.getId()) != null) {
                 String messageToSend = "";
                 audit = auditDataService.read(audit.getId());
-                logger.info("Audit terminated with success at " + audit.getDateOfCreation());
-                logger.info("Audit Id : " + audit.getId());
+                logger.error("Audit terminated with success at " + audit.getDateOfCreation());
+                logger.error("Audit Id : " + audit.getId());
 
                 if (auditType.get(audit.getId()).equals("Rest")) {
                     JSONObject auditJson = createAuditJson(audit);
@@ -491,6 +534,7 @@ public class AuditPageConsumed implements AuditServiceListener {
                     auditHtmlTags.remove(audit.getId());
                     auditHash.remove(audit.getId());
                     messageConsumerLimit.messageRestAudited();
+                    logger.error("number of messages Rest after auditCompleted : " + messageConsumerLimit.getCurrentNumberMessagesRest());
                 } else if (auditType.get(audit.getId()).equals("Event")) {
 
                     messageToSend = dbHost + ";" + dbPort + ";" + dbUserName + ";" + dbPassWord + ";" + dbName
@@ -505,8 +549,10 @@ public class AuditPageConsumed implements AuditServiceListener {
                     auditRef.remove(audit.getId());
                     auditLevel.remove(audit.getId());
                     messageConsumerLimit.messageEventAudited();
+                    logger.error("number of messages Event after auditCompleted : " + messageConsumerLimit.getCurrentNumberMessagesEvent());
                 }
                 messagesProducer.sendMessage(messageToSend);
+                // logger.error("send message kafka  : " + messageToSend);
 
             }
         } catch (Exception ex) {
@@ -540,6 +586,7 @@ public class AuditPageConsumed implements AuditServiceListener {
     }
 
     public void auditPageEvent(String message, Set<Parameter> parameters, String ref, String level) {
+        logger.error("number of messages audit page Event: " + messageConsumerLimit.getCurrentNumberMessagesEvent());
         compaignHash = MessageEvent.getIdCampagne(message);
         Audit audit = auditService.auditPage(MessageEvent.getUrl(message), parameters);
         auditType.put(audit.getId(), "Event");
@@ -552,6 +599,7 @@ public class AuditPageConsumed implements AuditServiceListener {
     }
 
     public void auditPageRest(String message, Set<Parameter> parameters, String ref, String level) {
+        logger.error("number of messages audit page Rest: " + messageConsumerLimit.getCurrentNumberMessagesRest());
 
         Audit audit = auditService.auditPage(MessageRest.getUrl(message), parameters);
         auditType.put(audit.getId(), "Rest");
