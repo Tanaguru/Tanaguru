@@ -306,7 +306,7 @@ public class AuditPageConsumed implements AuditServiceListener {
         return result;
     }
 
-    public boolean w3cValidator(Audit audit) throws JSONException, ParseException {
+    public int w3cValidator(Audit audit) throws JSONException, ParseException {
 
         String java8Path = "";
         if (java8Home.isEmpty()) {
@@ -322,11 +322,7 @@ public class AuditPageConsumed implements AuditServiceListener {
         Object responseObj = parser.parse(resultW3C);
         org.json.simple.JSONObject jsonRespenseObject = (org.json.simple.JSONObject) responseObj;
         org.json.simple.JSONArray resultList = (org.json.simple.JSONArray) jsonRespenseObject.get("messages");
-        if (resultList.size() > 0) {
-            return false;
-        } else {
-            return true;
-        }
+        return resultList.size();
     }
 
     private String executeCommand(String command) {
@@ -350,14 +346,14 @@ public class AuditPageConsumed implements AuditServiceListener {
     }
 
     public JSONObject createAuditJson(Audit audit) throws JSONException, ParseException {
-        boolean w3cValidated = w3cValidator(audit);
+        int nbW3cInvalidated = w3cValidator(audit);
         JSONObject auditJson = new JSONObject();
         String language = auditLanguage.get(audit.getId());
         Boolean descriptionRef = auditDescriptionRef.get(audit.getId());
         String ref = auditRef.get(audit.getId());
         Boolean htmlTags = auditHtmlTags.get(audit.getId());
         auditJson.put("url", auditUrl.get(audit.getId()));
-        auditJson.put("w3c_validator", w3cValidated);
+        auditJson.put("nb_w3c_invalidated", nbW3cInvalidated);
         auditJson.put("status", audit.getStatus());
         auditJson.put("ref", ref);
         auditJson.put("level", auditLevel.get(audit.getId()));
