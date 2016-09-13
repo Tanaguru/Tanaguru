@@ -87,6 +87,8 @@ public class AuditPageConsumed implements AuditServiceListener {
     private String dbUserName;
     private String dbPassWord;
     private String dbName;
+    private String w3cValidatorHome;
+    private String java8Home;
 
     private HashMap<Long, String> auditType = new HashMap<Long, String>();
     private HashMap<Long, String> tagsByAudit = new HashMap<Long, String>();
@@ -129,7 +131,7 @@ public class AuditPageConsumed implements AuditServiceListener {
             ExposedResourceMessageBundleSource a_referentialRgaa32016Theme, ExposedResourceMessageBundleSource a_referentialRgaa32016Criterion,
             ExposedResourceMessageBundleSource a_referentialRgaa32016Rule,
             ExposedResourceMessageBundleSource a_remarkMessage,
-            String a_dbHost, String a_dbPort, String a_dbUserName, String a_dbPassWord, String a_dbName) {
+            String a_dbHost, String a_dbPort, String a_dbUserName, String a_dbPassWord, String a_dbName, String a_w3cValidatorHome, String a_java8Home) {
 
         parameterDataService = a_parameterDataService;
         auditService = a_auditService;
@@ -160,6 +162,8 @@ public class AuditPageConsumed implements AuditServiceListener {
         dbUserName = a_dbUserName;
         dbPassWord = a_dbPassWord;
         dbName = a_dbName;
+        w3cValidatorHome = a_w3cValidatorHome;
+        java8Home = a_java8Home;
 
         auditService.add(this);
     }
@@ -304,8 +308,13 @@ public class AuditPageConsumed implements AuditServiceListener {
 
     public boolean w3cValidator(Audit audit) throws JSONException, ParseException {
 
-        String java8Path = "/home/tanaguru/jdk1.8.0_45/bin/java";
-        String vnuJarPath = "/home/tanaguru/Downloads/dist/vnu.jar";
+        String java8Path = "";
+        if (java8Home.isEmpty()) {
+            java8Path = "java";
+        } else {
+            java8Path = java8Home + "/bin/java";
+        }
+        String vnuJarPath = w3cValidatorHome + "/vnu.jar";
         String url = auditUrl.get(audit.getId());
         String commandW3C = java8Path + " -jar " + vnuJarPath + " --format json --errors-only " + url;
         String resultW3C = executeCommand(commandW3C);
@@ -517,8 +526,8 @@ public class AuditPageConsumed implements AuditServiceListener {
             if (auditType.get(audit.getId()) != null) {
                 String messageToSend = "";
                 audit = auditDataService.read(audit.getId());
-                logger.error("Audit terminated with success at " + audit.getDateOfCreation());
-                logger.error("Audit Id : " + audit.getId());
+                logger.info("Audit terminated with success at " + audit.getDateOfCreation());
+                logger.info("Audit Id : " + audit.getId());
 
                 if (auditType.get(audit.getId()).equals("Rest")) {
                     JSONObject auditJson = createAuditJson(audit);
@@ -534,7 +543,7 @@ public class AuditPageConsumed implements AuditServiceListener {
                     auditHtmlTags.remove(audit.getId());
                     auditHash.remove(audit.getId());
                     messageConsumerLimit.messageRestAudited();
-                    logger.error("number of messages Rest after auditCompleted : " + messageConsumerLimit.getCurrentNumberMessagesRest());
+
                 } else if (auditType.get(audit.getId()).equals("Event")) {
 
                     messageToSend = dbHost + ";" + dbPort + ";" + dbUserName + ";" + dbPassWord + ";" + dbName
@@ -549,7 +558,6 @@ public class AuditPageConsumed implements AuditServiceListener {
                     auditRef.remove(audit.getId());
                     auditLevel.remove(audit.getId());
                     messageConsumerLimit.messageEventAudited();
-                    logger.error("number of messages Event after auditCompleted : " + messageConsumerLimit.getCurrentNumberMessagesEvent());
                 }
                 messagesProducer.sendMessage(messageToSend);
                 // logger.error("send message kafka  : " + messageToSend);
@@ -586,7 +594,6 @@ public class AuditPageConsumed implements AuditServiceListener {
     }
 
     public void auditPageEvent(String message, Set<Parameter> parameters, String ref, String level) {
-        logger.error("number of messages audit page Event: " + messageConsumerLimit.getCurrentNumberMessagesEvent());
         compaignHash = MessageEvent.getIdCampagne(message);
         Audit audit = auditService.auditPage(MessageEvent.getUrl(message), parameters);
         auditType.put(audit.getId(), "Event");
@@ -599,7 +606,6 @@ public class AuditPageConsumed implements AuditServiceListener {
     }
 
     public void auditPageRest(String message, Set<Parameter> parameters, String ref, String level) {
-        logger.error("number of messages audit page Rest: " + messageConsumerLimit.getCurrentNumberMessagesRest());
 
         Audit audit = auditService.auditPage(MessageRest.getUrl(message), parameters);
         auditType.put(audit.getId(), "Rest");

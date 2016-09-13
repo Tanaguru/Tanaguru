@@ -101,6 +101,8 @@ public class MessagesConsumer {
     private String dbPassword;
     private String dbName;
     private String dbUrl;
+    private String w3cValidatorHome;
+    private String java8Home;
 
     /**
      * logger
@@ -211,6 +213,14 @@ public class MessagesConsumer {
     public void setDbPassword(String dbPassword) {
         this.dbPassword = dbPassword;
     }
+    
+    public void setW3cValidatorHome(String w3cValidatorHome){
+        this.w3cValidatorHome = w3cValidatorHome;
+    }
+    
+    public void setJava8Home(String java8Home){
+        this.java8Home = java8Home;
+    }
 
     public void setDbUrl(String mysqlUrl) {
         this.dbUrl = mysqlUrl;
@@ -259,7 +269,7 @@ public class MessagesConsumer {
                 referentialRgaa2Theme, referentialRgaa2Criterion, referentialRgaa2Rule,
                 referentialRgaa3Theme, referentialRgaa3Criterion, referentialRgaa3Rule, 
                 referentialRgaa32016Theme, referentialRgaa32016Criterion, referentialRgaa32016Rule, 
-                remarkMessage, dbHost, dbPort, dbUserName, dbPassword, dbName);
+                remarkMessage, dbHost, dbPort, dbUserName, dbPassword, dbName, w3cValidatorHome, java8Home);
 
         executor = Executors.newFixedThreadPool(numThread);
 

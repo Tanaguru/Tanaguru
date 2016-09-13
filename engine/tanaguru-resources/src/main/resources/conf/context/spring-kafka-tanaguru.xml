@@ -16,7 +16,6 @@
 
     <import resource="beans-tanaguru.xml"/>
    
-    
     <!--Aw22 i18n files -->
     <bean id="referentialAw22Theme" class="org.tanaguru.kafka.util.ExposedResourceMessageBundleSource">
         <property name="defaultEncoding" value="UTF-8"/>
@@ -148,24 +147,24 @@
     <!-- Fabrique de connexions et la consommation de Kafka  -->
     <bean id="TanaguruSparkMessagesProducer" class="org.tanaguru.kafka.messaging.MessagesProducer"
           destroy-method="killProducer"> 
-        <constructor-arg index="0" value="localhost:6667"/>
-        <constructor-arg index="1" value="localhost:2181"/>
-        <constructor-arg index="2" value="topicSend"/>
+        <constructor-arg index="0" value="hortonworks.exallys.org:6667"/>
+        <constructor-arg index="1" value="hortonworks.exallys.org:2181"/>
+        <constructor-arg index="2" value="TanaguruSparkMessages"/>
     </bean>
     
     <bean id="TanaguruRestMessagesProducer" class="org.tanaguru.kafka.messaging.MessagesProducer"
           destroy-method="killProducer"> 
-        <constructor-arg index="0" value="localhost:6667"/>
-        <constructor-arg index="1" value="localhost:2181"/>
-        <constructor-arg index="2" value="topicSendRest"/>
+        <constructor-arg index="0" value="hortonworks.exallys.org:6667"/>
+        <constructor-arg index="1" value="hortonworks.exallys.org:2181"/>
+        <constructor-arg index="2" value="TanaguruRestMessages"/>
     </bean>
     
     <bean id="ObsTanaguruMessagesConsumer" class="org.tanaguru.kafka.messaging.MessagesConsumer" 
           init-method="messageConsumed" destroy-method="shutdown"> 
         
-        <constructor-arg index="0" value="localhost:2181"/>
-        <constructor-arg index="1" value="group1"/>
-        <constructor-arg index="2" value="topicConsumer"/>
+        <constructor-arg index="0" value="hortonworks.exallys.org:2181"/>
+        <constructor-arg index="1" value="groupObs"/>
+        <constructor-arg index="2" value="ObsTanaguruMessages"/>
         <constructor-arg index="3" value="1"/>
         <constructor-arg index="4" value="Event"/>
         
@@ -199,15 +198,17 @@
         
         <property name="dbUserName" value="${jdbc.username}"/>
         <property name="dbPassword" value="${jdbc.password}"/>
-        <property name="dbUrl" value="${jdbc.url}"/>      
+        <property name="dbUrl" value="${jdbc.url}"/> 
+        <property name="w3cValidatorHome" value="${w3cValidatorHome}"/>
+        <property name="java8Home" value ="${java8Home}"/>     
     </bean>
     
     <bean id="RestTanaguruMessagesConsumer" class="org.tanaguru.kafka.messaging.MessagesConsumer" 
           init-method="messageConsumed" destroy-method="shutdown"> 
         
-        <constructor-arg index="0" value="localhost:2181"/>
-        <constructor-arg index="1" value="group2"/>
-        <constructor-arg index="2" value="topicConsumerRest"/>
+        <constructor-arg index="0" value="hortonworks.exallys.org:2181"/>
+        <constructor-arg index="1" value="groupRest"/>
+        <constructor-arg index="2" value="RestTanaguruMessages"/>
         <constructor-arg index="3" value="1"/>
         <constructor-arg index="4" value="Rest"/>
         
@@ -242,7 +243,9 @@
         
         <property name="dbUserName" value="${jdbc.username}"/>
         <property name="dbPassword" value="${jdbc.password}"/>
-        <property name="dbUrl" value="${jdbc.url}"/>    
+        <property name="dbUrl" value="${jdbc.url}"/> 
+        <property name="w3cValidatorHome" value="${w3cValidatorHome}"/>
+        <property name="java8Home" value ="${java8Home}"/>    
     </bean>
     
 </beans>
