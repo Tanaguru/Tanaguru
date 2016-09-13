@@ -544,7 +544,8 @@ public class AuditPageConsumed implements AuditServiceListener {
 
                     messageToSend = dbHost + ";" + dbPort + ";" + dbUserName + ";" + dbPassWord + ";" + dbName
                             + ";" + audit.getId() + ";" + tagsByAudit.get(audit.getId()) + ";" + auditName.get(audit.getId())
-                            + ";" + auditUrl.get(audit.getId()) + ";" + auditHash.get(audit.getId()) + ";" + compaignHash + ";" + audit.getStatus();
+                            + ";" + auditUrl.get(audit.getId()) + ";" + auditHash.get(audit.getId()) + ";" + compaignHash + ";" + w3cValidator(audit)
+                            + ";" + audit.getStatus();
 
                     tagsByAudit.remove(audit.getId());
                     auditHash.remove(audit.getId());
