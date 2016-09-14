@@ -147,24 +147,24 @@
     <!-- Fabrique de connexions et la consommation de Kafka  -->
     <bean id="TanaguruSparkMessagesProducer" class="org.tanaguru.kafka.messaging.MessagesProducer"
           destroy-method="killProducer"> 
-        <constructor-arg index="0" value="hortonworks.exallys.org:6667"/>
-        <constructor-arg index="1" value="hortonworks.exallys.org:2181"/>
-        <constructor-arg index="2" value="TanaguruSparkMessages"/>
+        <constructor-arg index="0" value="localhost:6667"/>
+         <constructor-arg index="1" value="localhost:2181"/>
+         <constructor-arg index="2" value="topicSend"/>
     </bean>
     
     <bean id="TanaguruRestMessagesProducer" class="org.tanaguru.kafka.messaging.MessagesProducer"
           destroy-method="killProducer"> 
-        <constructor-arg index="0" value="hortonworks.exallys.org:6667"/>
-        <constructor-arg index="1" value="hortonworks.exallys.org:2181"/>
-        <constructor-arg index="2" value="TanaguruRestMessages"/>
+        <constructor-arg index="0" value="localhost:6667"/>
+         <constructor-arg index="1" value="localhost:2181"/>
+         <constructor-arg index="2" value="topicSendRest"/>
     </bean>
     
     <bean id="ObsTanaguruMessagesConsumer" class="org.tanaguru.kafka.messaging.MessagesConsumer" 
           init-method="messageConsumed" destroy-method="shutdown"> 
         
-        <constructor-arg index="0" value="hortonworks.exallys.org:2181"/>
+        <constructor-arg index="0" value="localhost:2181"/>
         <constructor-arg index="1" value="groupObs"/>
-        <constructor-arg index="2" value="ObsTanaguruMessages"/>
+        <constructor-arg index="2" value="topicConsumer"/>
         <constructor-arg index="3" value="1"/>
         <constructor-arg index="4" value="Event"/>
         
@@ -176,6 +176,7 @@
         <property name="webResourceDataService" ref="webResourceDataService"/>
         <property name="webResourceStatisticsDataService" ref="webResourceStatisticsDataService"/>
         <property name="processRemarkDataService" ref="processRemarkDataService"/>
+        <property name="contentDataService" ref="contentDataService"/>
         <property name="referentialAw22Theme" ref="referentialAw22Theme" />
         <property name="referentialAw22Criterion" ref="referentialAw22Criterion" />
         <property name="referentialAw22Rule" ref="referentialAw22Rule" />
@@ -206,9 +207,9 @@
     <bean id="RestTanaguruMessagesConsumer" class="org.tanaguru.kafka.messaging.MessagesConsumer" 
           init-method="messageConsumed" destroy-method="shutdown"> 
         
-        <constructor-arg index="0" value="hortonworks.exallys.org:2181"/>
+        <constructor-arg index="0" value="localhost:2181"/>
         <constructor-arg index="1" value="groupRest"/>
-        <constructor-arg index="2" value="RestTanaguruMessages"/>
+        <constructor-arg index="2" value="topicConsumerRest"/>
         <constructor-arg index="3" value="1"/>
         <constructor-arg index="4" value="Rest"/>
         
@@ -220,6 +221,7 @@
         <property name="webResourceDataService" ref="webResourceDataService"/>
         <property name="webResourceStatisticsDataService" ref="webResourceStatisticsDataService"/>
         <property name="processRemarkDataService" ref="processRemarkDataService"/>
+        <property name="contentDataService" ref="contentDataService"/>
         <property name="referentialAw22Theme" ref="referentialAw22Theme" />
         <property name="referentialAw22Criterion" ref="referentialAw22Criterion" />
         <property name="referentialAw22Rule" ref="referentialAw22Rule" />
