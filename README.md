@@ -23,7 +23,7 @@ Four kinds of audit:
 
 ## Download
 
-http://www.tanaguru.org/Download/tanaguru-latest.tar.gz
+http://download.tanaguru.org/Tanaguru/tanaguru-latest.tar.gz
 
 ## Demo
 
