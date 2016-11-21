@@ -8,7 +8,11 @@ package org.tanaguru.kafka.util;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -51,6 +55,14 @@ import org.xml.sax.SAXException;
 
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+import org.tanaguru.entity.audit.Content;
+import org.tanaguru.entity.audit.RelatedContent;
+import org.tanaguru.entity.audit.SSP;
+import org.tanaguru.entity.dao.audit.ContentDAO;
+import org.tanaguru.entity.service.audit.ContentDataService;
+import org.tanaguru.entity.service.statistics.TestStatisticsDataService;
 
 /**
  *
@@ -67,6 +79,10 @@ public class AuditPageConsumed implements AuditServiceListener {
     private ProcessRemarkDataService processRemarkDataService;
     private WebResourceStatisticsDataService webResourceStatisticsDataService;
     private WebResourceDataService webResourceDataService;
+    private ContentDataService contentDataService;
+
+    private TestStatisticsDataService testStatisticsDataService;
+
     private MessagesProducer messagesProducer;
     private ExposedResourceMessageBundleSource referentialAw22Theme;
     private ExposedResourceMessageBundleSource referentialAw22Criterion;
@@ -121,7 +137,7 @@ public class AuditPageConsumed implements AuditServiceListener {
             ParameterElementDataService a_parameterElementDataService, AuditDataService a_auditDataService,
             ProcessResultDataService a_processResultDataService, WebResourceDataService a_webResourceDataService,
             WebResourceStatisticsDataService a_webResourceStatisticsDataService, ProcessRemarkDataService a_processRemarkDataService,
-            MessagesProducer a_messagesProducer,
+            ContentDataService a_contentDataService, MessagesProducer a_messagesProducer,
             ExposedResourceMessageBundleSource a_referentialAw22Theme, ExposedResourceMessageBundleSource a_referentialAw22Criterion,
             ExposedResourceMessageBundleSource a_referentialAw22Rule,
             ExposedResourceMessageBundleSource a_referentialRgaa2Theme, ExposedResourceMessageBundleSource a_referentialRgaa2Criterion,
@@ -141,7 +157,7 @@ public class AuditPageConsumed implements AuditServiceListener {
         webResourceDataService = a_webResourceDataService;
         webResourceStatisticsDataService = a_webResourceStatisticsDataService;
         processRemarkDataService = a_processRemarkDataService;
-
+        contentDataService = a_contentDataService;
         messagesProducer = a_messagesProducer;
         referentialAw22Theme = a_referentialAw22Theme;
         referentialAw22Criterion = a_referentialAw22Criterion;
@@ -162,8 +178,8 @@ public class AuditPageConsumed implements AuditServiceListener {
         dbUserName = a_dbUserName;
         dbPassWord = a_dbPassWord;
         dbName = a_dbName;
-        w3cValidatorHome = a_w3cValidatorHome;
-        java8Home = a_java8Home;
+        w3cValidatorHome = a_w3cValidatorHome.replaceAll("\\s+", "");
+        java8Home = a_java8Home.replaceAll("\\s+", "");
 
         auditService.add(this);
     }
@@ -306,54 +322,14 @@ public class AuditPageConsumed implements AuditServiceListener {
         return result;
     }
 
-    public int w3cValidator(Audit audit) throws JSONException, ParseException {
+    public JSONObject createAuditJson(Audit audit) throws JSONException, ParseException, URISyntaxException {
 
-        String java8Path = "";
-        if (java8Home.isEmpty()) {
-            java8Path = "java";
-        } else {
-            java8Path = java8Home + "/bin/java";
-        }
-        String vnuJarPath = w3cValidatorHome + "/vnu.jar";
-        String url = auditUrl.get(audit.getId());
-        String commandW3C = java8Path + " -jar " + vnuJarPath + " --format json --errors-only " + url;
-        String resultW3C = executeCommand(commandW3C);
-        JSONParser parser = new JSONParser();
-        Object responseObj = parser.parse(resultW3C);
-        org.json.simple.JSONObject jsonRespenseObject = (org.json.simple.JSONObject) responseObj;
-        org.json.simple.JSONArray resultList = (org.json.simple.JSONArray) jsonRespenseObject.get("messages");
-        return resultList.size();
-    }
-
-    private String executeCommand(String command) {
-
-        StringBuffer output = new StringBuffer();
-        Process p;
-        try {
-            p = Runtime.getRuntime().exec(command);
-            p.waitFor();
-            BufferedReader reader
-                    = new BufferedReader(new InputStreamReader(p.getErrorStream()));
-
-            String line = "";
-            while ((line = reader.readLine()) != null) {
-                output.append(line + "\n");
-            }
-        } catch (Exception e) {
-            logger.error("error with command execution " + e.toString());
-        }
-        return output.toString();
-    }
-
-    public JSONObject createAuditJson(Audit audit) throws JSONException, ParseException {
-        int nbW3cInvalidated = w3cValidator(audit);
         JSONObject auditJson = new JSONObject();
         String language = auditLanguage.get(audit.getId());
         Boolean descriptionRef = auditDescriptionRef.get(audit.getId());
         String ref = auditRef.get(audit.getId());
         Boolean htmlTags = auditHtmlTags.get(audit.getId());
         auditJson.put("url", auditUrl.get(audit.getId()));
-        auditJson.put("nb_w3c_invalidated", nbW3cInvalidated);
         auditJson.put("status", audit.getStatus());
         auditJson.put("ref", ref);
         auditJson.put("level", auditLevel.get(audit.getId()));
@@ -363,8 +339,9 @@ public class AuditPageConsumed implements AuditServiceListener {
 
         if (audit.getStatus() == AuditStatus.COMPLETED) {
             List<ProcessResult> processResultList = (List<ProcessResult>) processResultDataService.getNetResultFromAudit(audit);
+
             WebResourceStatistics webResourceStatistics = webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject());
-            int rank = audit.getSubject().getRank();
+
             auditJson.put("score", webResourceStatistics.getRawMark());
             auditJson.put("nb_passed", webResourceStatistics.getNbOfPassed());
             auditJson.put("nb_failed", webResourceStatistics.getNbOfFailed());
@@ -375,7 +352,7 @@ public class AuditPageConsumed implements AuditServiceListener {
             auditJson.put("http_status_code", webResourceStatistics.getHttpStatusCode());
             auditJson.put("nb_suspected", webResourceStatistics.getNbOfSuspected());
             auditJson.put("nb_not_tested", webResourceStatistics.getNbOfNotTested());
-            //            JSONArray testArray = new JSONArray();
+
             JSONArray remarkArray = new JSONArray();
             JSONArray testPassedArray = new JSONArray();
             JSONArray testNAArray = new JSONArray();
@@ -408,6 +385,10 @@ public class AuditPageConsumed implements AuditServiceListener {
                 }
             }
             for (ProcessResult result : processResultList) {
+                if (result.getTest().getLabel().equals("8.2.1")) {
+
+                    auditJson.put("nb_w3c_invalidated", result.getElementCounter());
+                }
                 // create testPassed object from ProcessResult
                 JSONObject testPassedObject = new JSONObject();
                 if (result.getValue().toString().equals("PASSED")) {
@@ -428,8 +409,16 @@ public class AuditPageConsumed implements AuditServiceListener {
                     testNAArray.put(testNAObject);
                 }
                 // get remark from processResult & create array of remark
+                int nbrRemarkW3c = 0;
                 Set<ProcessRemark> processRemarkList = (Set<ProcessRemark>) processRemarkDataService.findProcessRemarksFromProcessResult(result, -1);
                 for (ProcessRemark processRemark : processRemarkList) {
+
+                    if (result.getTest().getLabel().equals("8.2.1") && nbrRemarkW3c < 10) {
+                        nbrRemarkW3c++;
+                    } else {
+                        break;
+                    }
+
                     JSONObject remarkObject = new JSONObject();
                     String remark_fr, remark_en, remark_es;
                     if (htmlTags) {
@@ -522,8 +511,8 @@ public class AuditPageConsumed implements AuditServiceListener {
             if (auditType.get(audit.getId()) != null) {
                 String messageToSend = "";
                 audit = auditDataService.read(audit.getId());
-                logger.info("Audit terminated with success at " + audit.getDateOfCreation());
-                logger.info("Audit Id : " + audit.getId());
+                logger.error("Audit terminated with success at " + audit.getDateOfCreation());
+                logger.error("Audit Id : " + audit.getId());
 
                 if (auditType.get(audit.getId()).equals("Rest")) {
                     JSONObject auditJson = createAuditJson(audit);
@@ -542,10 +531,20 @@ public class AuditPageConsumed implements AuditServiceListener {
 
                 } else if (auditType.get(audit.getId()).equals("Event")) {
 
+                    messageConsumerLimit.messageEventAudited();
+                    int nbrW3cValidated = 0;
+                    if (audit.getStatus() == AuditStatus.COMPLETED) {
+                        List<ProcessResult> processResultList = (List<ProcessResult>) processResultDataService.getNetResultFromAudit(audit);
+                        for (ProcessResult result : processResultList) {
+                            if (result.getTest().getLabel().equals("8.2.1")) {
+                                nbrW3cValidated = result.getElementCounter();
+                            }
+                        }
+                    }
                     messageToSend = dbHost + ";" + dbPort + ";" + dbUserName + ";" + dbPassWord + ";" + dbName
                             + ";" + audit.getId() + ";" + tagsByAudit.get(audit.getId()) + ";" + auditName.get(audit.getId())
-                            + ";" + auditUrl.get(audit.getId()) + ";" + auditHash.get(audit.getId()) + ";" + compaignHash + ";" + w3cValidator(audit)
-                            + ";" + audit.getStatus();
+                            + ";" + auditUrl.get(audit.getId()) + ";" + auditHash.get(audit.getId()) + ";" + compaignHash + ";" + nbrW3cValidated
+                            + ";" + auditRef.get(audit.getId()) + ";" + audit.getStatus();
 
                     tagsByAudit.remove(audit.getId());
                     auditHash.remove(audit.getId());
@@ -554,43 +553,43 @@ public class AuditPageConsumed implements AuditServiceListener {
                     auditType.remove(audit.getId());
                     auditRef.remove(audit.getId());
                     auditLevel.remove(audit.getId());
-                    messageConsumerLimit.messageEventAudited();
                 }
-                messagesProducer.sendMessage(messageToSend);
-                // logger.error("send message kafka  : " + messageToSend);
 
+                messagesProducer.sendMessage(messageToSend);
+                logger.info("success audit sent to kafka");
             }
         } catch (Exception ex) {
             logger.error("Producer Message Kafka ERROR : " + ex);
-            // messageConsumerLimit.messageAudited();
         }
     }
 
     @Override
     public void auditCrashed(Audit audit, Exception exception
     ) { //To change body of generated methods, choose Tools | Templates.
-
-        logger.error("crash (id+message): " + audit.getId() + " " + exception.toString());
-        if (auditType.get(audit.getId()).equals("Event")) {
-            messageConsumerLimit.messageEventAudited();
-        } else if (auditType.get(audit.getId()).equals("Rest")) {
-            messageConsumerLimit.messageRestAudited();
+        if (auditType.get(audit.getId()) != null) {
+            logger.error("crash (id+message): " + audit.getId() + " " + exception.toString());
+            if (auditType.get(audit.getId()).equals("Event")) {
+                messageConsumerLimit.messageEventAudited();
+            } else if (auditType.get(audit.getId()).equals("Rest")) {
+                messageConsumerLimit.messageRestAudited();
+            }
+            tagsByAudit.remove(audit.getId());
+            auditHash.remove(audit.getId());
+            auditName.remove(audit.getId());
+            auditUrl.remove(audit.getId());
+            auditType.remove(audit.getId());
+            auditRef.remove(audit.getId());
+            auditLevel.remove(audit.getId());
+            auditLanguage.remove(audit.getId());
+            auditDescriptionRef.remove(audit.getId());
+            auditScreenWidth.remove(audit.getId());
+            auditScreenHeight.remove(audit.getId());
+            auditHtmlTags.remove(audit.getId());
         }
-        tagsByAudit.remove(audit.getId());
-        auditHash.remove(audit.getId());
-        auditName.remove(audit.getId());
-        auditUrl.remove(audit.getId());
-        auditType.remove(audit.getId());
-        auditRef.remove(audit.getId());
-        auditLevel.remove(audit.getId());
-        auditLanguage.remove(audit.getId());
-        auditDescriptionRef.remove(audit.getId());
-        auditScreenWidth.remove(audit.getId());
-        auditScreenHeight.remove(audit.getId());
-        auditHtmlTags.remove(audit.getId());
     }
 
     public void auditPageEvent(String message, Set<Parameter> parameters, String ref, String level) {
+
         compaignHash = MessageEvent.getIdCampagne(message);
         Audit audit = auditService.auditPage(MessageEvent.getUrl(message), parameters);
         auditType.put(audit.getId(), "Event");
