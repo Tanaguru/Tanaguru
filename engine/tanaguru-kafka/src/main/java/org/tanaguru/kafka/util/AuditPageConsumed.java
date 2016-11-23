@@ -413,22 +413,24 @@ public class AuditPageConsumed implements AuditServiceListener {
                 Set<ProcessRemark> processRemarkList = (Set<ProcessRemark>) processRemarkDataService.findProcessRemarksFromProcessResult(result, -1);
                 for (ProcessRemark processRemark : processRemarkList) {
 
-                    if (result.getTest().getLabel().equals("8.2.1") && nbrRemarkW3c < 10) {
-                        nbrRemarkW3c++;
-                    } else {
-                        break;
+                    if (result.getTest().getLabel().equals("8.2.1")) {
+                        if (nbrRemarkW3c < 10) {
+                            nbrRemarkW3c++;
+                        } else {
+                            break;
+                        }
                     }
 
                     JSONObject remarkObject = new JSONObject();
                     String remark_fr, remark_en, remark_es;
                     if (htmlTags) {
-                        remark_fr = StringEscapeUtils.unescapeHtml4(remarkMessage.getMessage(processRemark.getMessageCode(), null, Locale.FRENCH));
-                        remark_en = StringEscapeUtils.unescapeHtml4(remarkMessage.getMessage(processRemark.getMessageCode(), null, Locale.ENGLISH));
-                        remark_es = StringEscapeUtils.unescapeHtml4(remarkMessage.getMessage(processRemark.getMessageCode(), null, new Locale("es")));
+                        remark_fr = StringEscapeUtils.unescapeHtml4(remarkMessage.getMessage(processRemark.getMessageCode(), processRemark instanceof SourceCodeRemark ? new Object[]{((SourceCodeRemark) processRemark).getTarget()} : null, Locale.FRENCH));
+                        remark_en = StringEscapeUtils.unescapeHtml4(remarkMessage.getMessage(processRemark.getMessageCode(), processRemark instanceof SourceCodeRemark ? new Object[]{((SourceCodeRemark) processRemark).getTarget()} : null, Locale.ENGLISH));
+                        remark_es = StringEscapeUtils.unescapeHtml4(remarkMessage.getMessage(processRemark.getMessageCode(), processRemark instanceof SourceCodeRemark ? new Object[]{((SourceCodeRemark) processRemark).getTarget()} : null, new Locale("es")));
                     } else {
-                        remark_fr = Jsoup.parse(remarkMessage.getMessage(processRemark.getMessageCode(), null, Locale.FRENCH)).text();
-                        remark_en = Jsoup.parse(remarkMessage.getMessage(processRemark.getMessageCode(), null, Locale.ENGLISH)).text();
-                        remark_es = Jsoup.parse(remarkMessage.getMessage(processRemark.getMessageCode(), null, new Locale("es"))).text();
+                        remark_fr = Jsoup.parse(remarkMessage.getMessage(processRemark.getMessageCode(), processRemark instanceof SourceCodeRemark ? new Object[]{((SourceCodeRemark) processRemark).getTarget()} : null, Locale.FRENCH)).text();
+                        remark_en = Jsoup.parse(remarkMessage.getMessage(processRemark.getMessageCode(), processRemark instanceof SourceCodeRemark ? new Object[]{((SourceCodeRemark) processRemark).getTarget()} : null, Locale.ENGLISH)).text();
+                        remark_es = Jsoup.parse(remarkMessage.getMessage(processRemark.getMessageCode(), processRemark instanceof SourceCodeRemark ? new Object[]{((SourceCodeRemark) processRemark).getTarget()} : null, new Locale("es"))).text();
                     }
                     if (processRemark instanceof SourceCodeRemark) {
                         remarkObject.put("issue", processRemark.getIssue());
@@ -441,12 +443,12 @@ public class AuditPageConsumed implements AuditServiceListener {
                         if (language.equals("es_fr") || language.equals("es_en") || language.equals("all")) {
                             remarkObject.put("message_es", remark_es);
                         }
-                        remarkObject.put("target", ((SourceCodeRemark) processRemark).getTarget());
+                        //remarkObject.put("target", ((SourceCodeRemark) processRemark).getTarget());
                         remarkObject.put("line_number", ((SourceCodeRemark) processRemark).getLineNumber());
                         StringBuilder snippet = new StringBuilder("");
                         if (((SourceCodeRemark) processRemark).getSnippet() != null) {
                             String snippetDirty = ((SourceCodeRemark) processRemark).getSnippet();
-                            snippet.append(StringEscapeUtils.unescapeHtml4(snippetDirty));
+                            snippet.append(StringEscapeUtils.unescapeHtml4(snippetDirty.replace("\t", "")));
                         }
                         remarkObject.put("snippet", snippet);
                     } else {
