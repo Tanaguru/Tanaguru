@@ -120,7 +120,7 @@ public class SubtitleBuilderImpl implements TitleBuilder {
         refAndLevel.append(DOUBLE_DOT_KEY);
         refAndLevel.append(StringEscapeUtils.unescapeHtml4(
                 retrieveI18nValue(
-                    auditStatistics.getParametersMap().get(REF_KEY),
+                    auditStatistics.getParametersMap().get(REF_KEY)+ "-report",
                     refAndlevelValueBundleList)));
         refAndLevel.append(SEPARATOR_KEY);
         refAndLevel.append(StringEscapeUtils.unescapeHtml4(levelBundle.getString(LEVEL_KEY)));

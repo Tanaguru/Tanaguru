@@ -33,6 +33,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.export.JRCsvExporterParameter;
 import org.apache.log4j.Logger;
 import org.tanaguru.webapp.presentation.data.AuditStatistics;
 import org.tanaguru.webapp.report.format.ExportFormat;
@@ -41,17 +42,19 @@ import org.tanaguru.webapp.report.service.exception.NotSupportedExportFormatExce
 
 /**
  * Service for processing DynamicJasper reports
- * 
+ *
  * @author jkowalczyk
  */
 public final class ExportService {
 
     private static final Logger LOGGER = Logger.getLogger(ExportService.class);
-    private static final String REPORT_BASE_FILE_NAME="Report_";
+    private static final String REPORT_BASE_FILE_NAME = "Report_";
     private static final String CONTENT_DISPOSITION = "Content-Disposition";
     private static final String INLINE_FILENAME = "inline; filename=";
+    private static final String GENERAL_SEPARATOR_KEY = "ø";
 
     Map<String, ExportFormat> exportFormatMap;
+
     public Map<String, ExportFormat> getExporterMap() {
         return exportFormatMap;
     }
@@ -64,17 +67,20 @@ public final class ExportService {
      * The holder that handles the unique instance of ExportService
      */
     private static class ExportServiceHolder {
+
         private static final ExportService INSTANCE = new ExportService();
     }
-    
+
     /**
      * Private constructor
      */
-    private ExportService() {}
-    
+    private ExportService() {
+    }
+
     /**
-     * Singleton pattern based on the "Initialization-on-demand 
-     * holder idiom". See @http://en.wikipedia.org/wiki/Initialization_on_demand_holder_idiom
+     * Singleton pattern based on the "Initialization-on-demand holder idiom".
+     * See @http://en.wikipedia.org/wiki/Initialization_on_demand_holder_idiom
+     *
      * @return the unique instance of ExportService
      */
     public static ExportService getInstance() {
@@ -83,6 +89,7 @@ public final class ExportService {
 
     /**
      * Processes the download for Excel format
+     *
      * @param response
      * @param resourceId
      * @param auditStatistics
@@ -92,10 +99,10 @@ public final class ExportService {
      * @throws ColumnBuilderException
      * @throws ClassNotFoundException
      * @throws JRException
-     * @throws NotSupportedExportFormatException 
+     * @throws NotSupportedExportFormatException
      */
     @SuppressWarnings("unchecked")
-    public void export (
+    public void export(
             HttpServletResponse response,
             long resourceId,
             AuditStatistics auditStatistics,
@@ -114,9 +121,9 @@ public final class ExportService {
         JRDataSource ds = new JRBeanCollectionDataSource(dataSource);
 
         // params is used for passing extra parameters
-        JasperPrint jp =
-                DynamicJasperHelper.generateJasperPrint(dr, new ClassicLayoutManager(), ds);
-        
+        JasperPrint jp
+                = DynamicJasperHelper.generateJasperPrint(dr, new ClassicLayoutManager(), ds);
+
         // Create our output byte stream
         // This is the stream where the data will be written
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -126,9 +133,12 @@ public final class ExportService {
             exporter = (JRExporter) Class.forName(exportFormat.getExporterClassName()).newInstance();
             exporter.setParameter(JRExporterParameter.JASPER_PRINT, jp);
             exporter.setParameter(JRExporterParameter.OUTPUT_STREAM, baos);
+            if (exportFormat.getFileType().equals("text/csv")) {
+                exporter.setParameter(JRCsvExporterParameter.FIELD_DELIMITER, GENERAL_SEPARATOR_KEY);
+            }
             exporter.exportReport();
             response.setHeader(CONTENT_DISPOSITION, INLINE_FILENAME
-                + getFileName(resourceId,exportFormat.getFileExtension()));
+                    + getFileName(resourceId, exportFormat.getFileExtension()));
             // Make sure to set the correct content type
             // Each format has its own content type
             response.setContentType(exportFormat.getFileType());
@@ -161,7 +171,7 @@ public final class ExportService {
         }
     }
 
-    private String getFileName(long resourceId , String extension) {
+    private String getFileName(long resourceId, String extension) {
         StringBuilder fileName = new StringBuilder();
         fileName.append(REPORT_BASE_FILE_NAME);
         fileName.append(resourceId);

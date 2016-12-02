@@ -21,19 +21,36 @@
  */
 package org.tanaguru.webapp.report.expression.builder;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
+import org.apache.log4j.Logger;
+import org.tanaguru.webapp.report.expression.I18nExpression;
 import org.tanaguru.webapp.report.expression.ProcessRemarkCsvExtractorExpression;
+import org.tanaguru.webapp.report.expression.retriever.KeyRetriever;
 
 /**
  *
  * @author jkowalczyk
  */
-public class ProcessRemarkCsvExtractorExpressionBuilderImpl 
-    implements AbstractGenericCustomExpressionBuilder<ProcessRemarkCsvExtractorExpression>{
+public class ProcessRemarkCsvExtractorExpressionBuilderImpl
+        implements AbstractGenericCustomExpressionBuilder<ProcessRemarkCsvExtractorExpression> {
+
+    private static final Logger logger = Logger.getLogger(ProcessRemarkCsvExtractorExpressionBuilderImpl.class);
+
+    private final List<String> bundleNameList = new ArrayList<>();
+
+    public List<String> getBundleNameList() {
+        return bundleNameList;
+    }
+
+    public void setBundleNameList(List<String> bundleNameList) {
+        this.bundleNameList.addAll(bundleNameList);
+    }
 
     @Override
     public ProcessRemarkCsvExtractorExpression build(Locale locale) {
-        return new ProcessRemarkCsvExtractorExpression();
+        return new ProcessRemarkCsvExtractorExpression(bundleNameList, locale);
     }
 
 }

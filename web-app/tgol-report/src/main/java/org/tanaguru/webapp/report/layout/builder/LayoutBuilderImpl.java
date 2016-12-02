@@ -166,6 +166,7 @@ public class LayoutBuilderImpl implements LayoutBuilder {
             Locale locale, 
             String format) {
         DynamicReportBuilder report = new FastReportBuilder();
+        
         report.setTitle(titleBuilder.getTitle(auditStatistics, locale));
         report.setTitleStyle(titleStyle);
         report.setSubtitle(subtitleBuilder.getTitle(auditStatistics, locale));

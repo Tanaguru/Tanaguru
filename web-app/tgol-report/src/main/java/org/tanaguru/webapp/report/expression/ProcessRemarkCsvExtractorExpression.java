@@ -22,11 +22,12 @@
 package org.tanaguru.webapp.report.expression;
 
 import ar.com.fdvs.dj.domain.CustomExpression;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
 import org.tanaguru.webapp.presentation.data.RemarkInfos;
+import org.tanaguru.webapp.report.expression.builder.ProcessRemarkCsvExtractorExpressionBuilderImpl;
 
 /**
  *
@@ -34,6 +35,8 @@ import org.tanaguru.webapp.presentation.data.RemarkInfos;
  */
 public class ProcessRemarkCsvExtractorExpression implements CustomExpression {
 
+    private static final Logger logger = Logger.getLogger(ProcessRemarkCsvExtractorExpression.class);
+    private final List<ResourceBundle> resourceBundleList = new ArrayList();
     private static final String REMARKS_INFO_FIELD_KEY = "remarkInfosList";
     
     private static final String GENERAL_SEPARATOR_KEY = "ø";
@@ -57,15 +60,16 @@ public class ProcessRemarkCsvExtractorExpression implements CustomExpression {
     public ProcessRemarkCsvExtractorExpression(){
         
     }
-//    public ProcessRemarkCsvExtractorExpression(
-//            List<String> bundleNameList, 
-//            Locale locale) {
-//        if (bundleNameList != null) {
-//            for (String bundleName : bundleNameList) {
-//                resourceBundleList.add(ResourceBundle.getBundle(bundleName, locale));
-//            }
-//        }
-//    }
+    
+    public ProcessRemarkCsvExtractorExpression(
+            List<String> bundleNameList, 
+            Locale locale) {
+        if (bundleNameList != null) {
+            for (String bundleName : bundleNameList) {
+                resourceBundleList.add(ResourceBundle.getBundle(bundleName, locale));
+            }
+        }
+    }
 
     @Override
     public Object evaluate(Map fields, Map variables, Map parameters) {
@@ -145,7 +149,12 @@ public class ProcessRemarkCsvExtractorExpression implements CustomExpression {
     private String buildProcessRemark(RemarkInfos ri) {
         StringBuilder strb = new StringBuilder();
         strb.append(PROCESS_REMARK_OPEN_SEPARATOR_KEY);
-        strb.append(ri.getMessageCode());
+         String key = ri.getMessageCode();
+         if (!resourceBundleList.isEmpty()) {
+            String i18nValue = retrieveI18nValue(key);
+            key =  StringEscapeUtils.unescapeHtml4(i18nValue);
+        }
+        strb.append(key);
         strb.append(PROCESS_REMARK_SEPARATOR_KEY);
         strb.append(ri.getRemarkResult());
         strb.append(PROCESS_REMARK_SEPARATOR_KEY);
@@ -208,7 +217,7 @@ public class ProcessRemarkCsvExtractorExpression implements CustomExpression {
             strb.append(EE_OPEN_SEPARATOR_KEY);
             Iterator<String> iter = eeListIterator.next().values().iterator();
             while (iter.hasNext()) {
-                strb.append(escapeCsv(iter.next()));
+                strb.append(escapeCsv(StringEscapeUtils.unescapeHtml4(iter.next())));
                 if (iter.hasNext()) {
                     strb.append(EE_SEPARATOR_KEY);
                 }
@@ -244,6 +253,22 @@ public class ProcessRemarkCsvExtractorExpression implements CustomExpression {
                         strToEscape, 
                         elementToEscape, 
                         BACKSLASH_KEY+elementToEscape);
+    }
+    
+     /**
+     * Retrieve a i18n among the Collection of resourceBundle associated with
+     * the instance
+     * 
+     * @param key
+     * @return 
+     */
+    private String retrieveI18nValue(String key) {
+        for (ResourceBundle rb: resourceBundleList) {
+            if (rb.containsKey(key)) {
+                return rb.getString(key);
+            }
+        }
+        return key;
     }
     
 }

@@ -36,6 +36,7 @@
                 <value>i18n/theme-rgaa22-I18N</value>
                 <value>i18n/theme-rgaa30-I18N</value>
                 <value>i18n/theme-aw22-I18N</value>
+                <value>i18n/theme-rgaa32016-I18N</value>
             </list>
         </property>
         <property name="escapeHtml" value="false"/>
@@ -53,6 +54,7 @@
                 <value>i18n/rule-rgaa22-I18N</value>
                 <value>i18n/rule-rgaa30-I18N</value>
                 <value>i18n/rule-aw22-I18N</value>
+                 <value>i18n/rule-rgaa32016-I18N</value>
             </list>
         </property>
         <property name="escapeHtml" value="false"/>
@@ -65,6 +67,7 @@
                 <value>i18n/referential-aw22-I18N</value>
                 <value>i18n/referential-rgaa22-I18N</value>
                 <value>i18n/referential-rgaa30-I18N</value>
+                <value>i18n/referential-rgaa32016-I18N</value>
             </list>
         </property>
         <property name="escapeHtml" value="false"/>
@@ -81,7 +84,13 @@
         <property name="keyRetriever" ref="resultKeyRetriever"/>
     </bean>
 
-    <bean id="resultDetailsExpressionBuilder" class="org.tanaguru.webapp.report.expression.builder.ProcessRemarkCsvExtractorExpressionBuilderImpl"/>
+    <bean id="resultDetailsExpressionBuilder" class="org.tanaguru.webapp.report.expression.builder.ProcessRemarkCsvExtractorExpressionBuilderImpl">
+    <property name="bundleNameList">
+            <list>
+                <value>i18n/rule-remark-I18N</value>
+            </list>
+        </property>
+    </bean>
 
 <!--    <bean id="passedCustomExpressionBuilder" class="org.tanaguru.webapp.report.expression.builder.ResultCounterExpressionBuilderImpl">
         <property name="resultType" value="0"/>  ResultCounterExpression.PASSED_INDEX=0
