@@ -354,6 +354,7 @@
                                                     <c:forEach var="remarkInfosItem" items="${testResult.remarkInfosList}">
                                                         <c:set var="remarkInfosItem" scope="request" value="${remarkInfosItem}"/>
                                                         <c:set var="testCode" scope="request" value="${testResult.testCode}"/>
+                                                        <c:set var="testLabel" scope="request" value="${testResult.testShortLabel}"/>
                                                         <c:choose>
                                                             <c:when test="${testResult.testRepresentation != null}">
                                                                 <c:import url="${testResult.testRepresentation}"/>

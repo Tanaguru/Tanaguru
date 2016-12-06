@@ -11,7 +11,14 @@
                 <p id="${testCode}nmi${nmiCounter}" class="process-remarks ${remarkInfosItem.remarkResult}-pr">
                 </c:when>
                 <c:when test="${remarkInfosItem.remarkResult == 'failed'}">
-                <p id="${testCode}failed${failedCounter}" class="process-remarks ${remarkInfosItem.remarkResult}-pr">
+                    <c:choose>
+                        <c:when test="${testLabel == '8.2.1'}">
+                        <p id="${testCode}failed${failedCounter}" class="process-remarks ${remarkInfosItem.remarkResult}-pr" lang="en">
+                        </c:when>
+                        <c:otherwise>
+                        <p id="${testCode}failed${failedCounter}" class="process-remarks ${remarkInfosItem.remarkResult}-pr">
+                        </c:otherwise>
+                    </c:choose>
                 </c:when>
                 <c:otherwise>
                 <p class="process-remarks ${remarkInfosItem.remarkResult}-pr">
