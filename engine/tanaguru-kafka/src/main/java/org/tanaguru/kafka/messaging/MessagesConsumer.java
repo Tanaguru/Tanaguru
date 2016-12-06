@@ -51,6 +51,7 @@ import org.tanaguru.kafka.util.MessageKafka;
 import org.tanaguru.kafka.util.ParameterUtils;
 import org.tanaguru.service.AuditServiceListener;
 import org.springframework.context.support.DelegatingMessageSource;
+import org.tanaguru.entity.service.audit.ContentDataService;
 import org.tanaguru.kafka.util.ExposedResourceMessageBundleSource;
 
 /**
@@ -76,6 +77,7 @@ public class MessagesConsumer {
     private ProcessRemarkDataService processRemarkDataService;
     private ParameterDataService parameterDataService;
     private ParameterElementDataService parameterElementDataService;
+    private ContentDataService contentDataService;
     private ExposedResourceMessageBundleSource referentialAw22Theme;
     private ExposedResourceMessageBundleSource referentialAw22Criterion;
     private ExposedResourceMessageBundleSource referentialAw22Rule;
@@ -140,6 +142,10 @@ public class MessagesConsumer {
 
     public void setParameterElementDataService(ParameterElementDataService parameterElementDataService) {
         this.parameterElementDataService = parameterElementDataService;
+    }
+
+    public void setContentDataService(ContentDataService contentDataService) {
+        this.contentDataService = contentDataService;
     }
 
     public void setReferentialAw22Theme(ExposedResourceMessageBundleSource referentialAw22Theme) {
@@ -213,14 +219,6 @@ public class MessagesConsumer {
     public void setDbPassword(String dbPassword) {
         this.dbPassword = dbPassword;
     }
-    
-    public void setW3cValidatorHome(String w3cValidatorHome){
-        this.w3cValidatorHome = w3cValidatorHome;
-    }
-    
-    public void setJava8Home(String java8Home){
-        this.java8Home = java8Home;
-    }
 
     public void setDbUrl(String mysqlUrl) {
         this.dbUrl = mysqlUrl;
@@ -264,12 +262,12 @@ public class MessagesConsumer {
         // now launch all the threads
         //
         AuditPageConsumed auditPageConsumed = new AuditPageConsumed(parameterDataService, auditService, parameterElementDataService,
-                auditDataService, processResultDataService, webResourceDataService, webResourceStatisticsDataService, processRemarkDataService,
+                auditDataService, processResultDataService, webResourceDataService, webResourceStatisticsDataService, processRemarkDataService, contentDataService,
                 messagesProducer, referentialAw22Theme, referentialAw22Criterion, referentialAw22Rule,
                 referentialRgaa2Theme, referentialRgaa2Criterion, referentialRgaa2Rule,
-                referentialRgaa3Theme, referentialRgaa3Criterion, referentialRgaa3Rule, 
-                referentialRgaa32016Theme, referentialRgaa32016Criterion, referentialRgaa32016Rule, 
-                remarkMessage, dbHost, dbPort, dbUserName, dbPassword, dbName, w3cValidatorHome, java8Home);
+                referentialRgaa3Theme, referentialRgaa3Criterion, referentialRgaa3Rule,
+                referentialRgaa32016Theme, referentialRgaa32016Criterion, referentialRgaa32016Rule,
+                remarkMessage, dbHost, dbPort, dbUserName, dbPassword, dbName);
 
         executor = Executors.newFixedThreadPool(numThread);
 

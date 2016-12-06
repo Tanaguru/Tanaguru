@@ -89,12 +89,15 @@ public class Consumer implements Runnable {
         String level = "";
         ConsumerIterator<byte[], byte[]> it = m_stream.iterator();
         while (it.hasNext()) {
+
             if (messagesType.equals("Event") && messageConsumerLimit.getCurrentNumberMessagesEvent() < 3) {
                 String message = new String(it.next().message(), StandardCharsets.UTF_8);
-                logger.info("[AUDIT][IN] A message have been received..." + message);
+                logger.debug("[AUDIT][IN] A message have been received..." + message);
 
                 if (MessageEvent.isValide(message)) {
                     messageConsumerLimit.messageEventConsumed();
+                    logger.debug("number of messages from consumer Event : " + messageConsumerLimit.getCurrentNumberMessagesEvent());
+                    logger.debug("[AUDIT][IN] URL received Event..." + MessageEvent.getUrl(message));
                     if (MessageEvent.getReferentiel(message).equals("")) {
                         referentiel = ref;
                     } else {
@@ -115,9 +118,11 @@ public class Consumer implements Runnable {
                 }
             } else if (messagesType.equals("Rest") && messageConsumerLimit.getCurrentNumberMessagesRest() < 3) {
                 String message = new String(it.next().message(), StandardCharsets.UTF_8);
-                logger.info("[AUDIT][IN] A message have been received..." + message);
+                logger.debug("[AUDIT][IN] A message have been received..." + message);
                 if (MessageRest.isValide(message)) {
                     messageConsumerLimit.messageRestConsumed();
+                    logger.debug("number of messages from consumer Rest : " + messageConsumerLimit.getCurrentNumberMessagesRest());
+                    logger.debug("[AUDIT][IN] URL received Rest ..." + MessageRest.getUrl(message));
                     if (MessageRest.getReferentiel(message).equals("")) {
                         referentiel = ref;
                     } else {
@@ -134,8 +139,19 @@ public class Consumer implements Runnable {
 
                     Set<Parameter> parameters = ParameterUtils.getAuditPageParameterSet(paramSet, parameterElementDataService, parameterDataService);
 
+                    logger.debug("getTblMarker ..." + MessageRest.getDtTblMarker(message));
+                    logger.debug("getCplxTblMarker ..." + MessageRest.getCplxTblMarker(message));
+                    logger.debug("getPrTblMarker ..." + MessageRest.getPrTblMarker(message));
+                    logger.debug("getDcrImgMarker ..." + MessageRest.getDcrImgMarker(message));
+                    logger.debug("getInfImgMarker ..." + MessageRest.getInfImgMarker(message));
+
+                    logger.debug("getScreenWidth ..." + MessageRest.getScreenWidth(message));
+                    logger.debug("getScreenHeight ..." + MessageRest.getScreenHeight(message));
+                    logger.debug("getDescriptionRef ..." + MessageRest.getDescriptionRef(message));
+                    logger.debug("getHtmlTags ..." + MessageRest.getHtmlTags(message));
+
                     ParameterUtils.initializePAInputOptions(MessageRest.getDtTblMarker(message), MessageRest.getCplxTblMarker(message), MessageRest.getPrTblMarker(message),
-                            MessageRest.getDcrImgMarker(message), MessageRest.getInfImgMarker(message),MessageRest.getScreenWidth(message).toString(),
+                            MessageRest.getDcrImgMarker(message), MessageRest.getInfImgMarker(message), MessageRest.getScreenWidth(message).toString(),
                             MessageRest.getScreenHeight(message).toString(), parameters);
 
                     auditPageConsumed.auditPageRest(message, parameters, referentiel, level);

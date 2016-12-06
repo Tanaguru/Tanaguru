@@ -103,8 +103,6 @@ public class AuditPageConsumed implements AuditServiceListener {
     private String dbUserName;
     private String dbPassWord;
     private String dbName;
-    private String w3cValidatorHome;
-    private String java8Home;
 
     private HashMap<Long, String> auditType = new HashMap<Long, String>();
     private HashMap<Long, String> tagsByAudit = new HashMap<Long, String>();
@@ -147,7 +145,7 @@ public class AuditPageConsumed implements AuditServiceListener {
             ExposedResourceMessageBundleSource a_referentialRgaa32016Theme, ExposedResourceMessageBundleSource a_referentialRgaa32016Criterion,
             ExposedResourceMessageBundleSource a_referentialRgaa32016Rule,
             ExposedResourceMessageBundleSource a_remarkMessage,
-            String a_dbHost, String a_dbPort, String a_dbUserName, String a_dbPassWord, String a_dbName, String a_w3cValidatorHome, String a_java8Home) {
+            String a_dbHost, String a_dbPort, String a_dbUserName, String a_dbPassWord, String a_dbName) {
 
         parameterDataService = a_parameterDataService;
         auditService = a_auditService;
@@ -178,8 +176,6 @@ public class AuditPageConsumed implements AuditServiceListener {
         dbUserName = a_dbUserName;
         dbPassWord = a_dbPassWord;
         dbName = a_dbName;
-        w3cValidatorHome = a_w3cValidatorHome.replaceAll("\\s+", "");
-        java8Home = a_java8Home.replaceAll("\\s+", "");
 
         auditService.add(this);
     }
@@ -513,8 +509,7 @@ public class AuditPageConsumed implements AuditServiceListener {
             if (auditType.get(audit.getId()) != null) {
                 String messageToSend = "";
                 audit = auditDataService.read(audit.getId());
-                logger.error("Audit terminated with success at " + audit.getDateOfCreation());
-                logger.error("Audit Id : " + audit.getId());
+                logger.debug("Audit terminated with success at " + audit.getDateOfCreation());
 
                 if (auditType.get(audit.getId()).equals("Rest")) {
                     JSONObject auditJson = createAuditJson(audit);
@@ -556,9 +551,7 @@ public class AuditPageConsumed implements AuditServiceListener {
                     auditRef.remove(audit.getId());
                     auditLevel.remove(audit.getId());
                 }
-
                 messagesProducer.sendMessage(messageToSend);
-                logger.info("success audit sent to kafka");
             }
         } catch (Exception ex) {
             logger.error("Producer Message Kafka ERROR : " + ex);
