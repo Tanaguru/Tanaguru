@@ -75,6 +75,25 @@ public class UploadAuditCommandImpl extends AuditCommandImpl {
         
         this.fileMap = fileMap;
     }
+    
+    /**
+     * 
+     * @param fileMap
+     * @param paramSet
+     * @param auditDataService 
+     * @param w3cValidatorPath 
+     * @param java8Path
+     */
+    public UploadAuditCommandImpl(
+            Map<String, String> fileMap, 
+            Set<Parameter> paramSet,
+            AuditDataService auditDataService,
+            String w3cValidatorPath,
+            String java8Path) {
+        super(paramSet, auditDataService, w3cValidatorPath, java8Path);
+        
+        this.fileMap = fileMap;
+    }
 
     @Override
     public void init() {

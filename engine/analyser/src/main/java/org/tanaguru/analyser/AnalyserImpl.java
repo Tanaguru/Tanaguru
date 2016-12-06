@@ -21,22 +21,40 @@
  */
 package org.tanaguru.analyser;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import org.json.simple.parser.JSONParser;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.net.URLEncoder;
 import java.util.*;
+import java.util.logging.Level;
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.log4j.Logger;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.tanaguru.entity.audit.Audit;
+import org.tanaguru.entity.audit.ProcessRemark;
 import org.tanaguru.entity.audit.ProcessResult;
+import org.tanaguru.entity.audit.SSP;
+import org.tanaguru.entity.audit.SourceCodeRemark;
 import org.tanaguru.entity.audit.TestSolution;
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.reference.Criterion;
 import org.tanaguru.entity.reference.Test;
 import org.tanaguru.entity.reference.Theme;
 import org.tanaguru.entity.service.audit.AuditDataService;
+import org.tanaguru.entity.service.audit.ContentDataService;
+import org.tanaguru.entity.service.audit.ProcessRemarkDataService;
 import org.tanaguru.entity.service.audit.ProcessResultDataService;
 import org.tanaguru.entity.service.statistics.CriterionStatisticsDataService;
 import org.tanaguru.entity.service.statistics.TestStatisticsDataService;
 import org.tanaguru.entity.service.statistics.ThemeStatisticsDataService;
 import org.tanaguru.entity.service.statistics.WebResourceStatisticsDataService;
+import org.tanaguru.entity.service.subject.WebResourceDataService;
 import org.tanaguru.entity.statistics.CriterionStatistics;
 import org.tanaguru.entity.statistics.TestStatistics;
 import org.tanaguru.entity.statistics.ThemeStatistics;
@@ -51,6 +69,12 @@ import org.tanaguru.entity.subject.WebResource;
  */
 public class AnalyserImpl implements Analyser {
 
+    private static final Logger LOGGER = Logger.getLogger(AnalyserImpl.class);
+    private int numberW3cErrors = 0;
+    private org.json.simple.JSONArray W3cMessage;
+    private final WebResourceDataService webResourceDataService;
+    private final ProcessRemarkDataService processRemarkDataService;
+    private final ContentDataService contentDataService;
     /**
      * The webResource used to extract statistics
      */
@@ -60,48 +84,50 @@ public class AnalyserImpl implements Analyser {
      * The audit used to extract statistics
      */
     private Audit audit;
-    
+
     /**
      * The auditStatisticsDataService instance needed to retrieve and save
      * auditStatistics instances
      */
     private final WebResourceStatisticsDataService webResourceStatisticsDataService;
+
     public WebResourceStatisticsDataService getWebResourceStatisticsDataService() {
         return webResourceStatisticsDataService;
     }
-    
+
     /**
      * The ThemeStatisticsDataService instance
      */
     private final ThemeStatisticsDataService themeStatisticsDataService;
-    
+
     /**
      * The CriterionStatisticsDataService instance
      */
     private final CriterionStatisticsDataService criterionStatisticsDataService;
-    
+
     /**
      * THe testStatisticsDataService instance
      */
     private final TestStatisticsDataService testStatisticsDataService;
-    
+
     /**
      * The auditDataService instance
      */
     private final AuditDataService auditDataService;
-    
+
     /**
      * The ProcessResultDataService instance
      */
     private final ProcessResultDataService processResultDataService;
-    
+
     private Map<Criterion, Integer> criterionMap;
     private Map<Theme, Integer> themeMap;
     private Collection<Test> testSet;
     private Map<Criterion, CriterionStatistics> csMap;
     private Map<Theme, ThemeStatistics> tsMap;
-    
+
     private Collection<ProcessResult> netResultList;
+
     @Override
     public List<ProcessResult> getNetResultList() {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -125,7 +151,7 @@ public class AnalyserImpl implements Analyser {
      * the set of audit parameters that handles some overridden values for test
      * weight (needed to compute the raw mark)
      */
-    private final Collection<Parameter> paramSet; 
+    private final Collection<Parameter> paramSet;
     private static final BigDecimal ZERO = BigDecimal.valueOf(Double.valueOf(0.0));
 
     public AnalyserImpl(
@@ -135,6 +161,9 @@ public class AnalyserImpl implements Analyser {
             WebResourceStatisticsDataService webResourceStatisticsDataService,
             CriterionStatisticsDataService criterionStatisticsDataService,
             ProcessResultDataService processResultDataService,
+            ProcessRemarkDataService processRemarkDataService,
+            WebResourceDataService webResourceDataService,
+            ContentDataService contentDataService,
             WebResource webResource,
             Collection<Parameter> paramSet,
             int nbOfWr) {
@@ -144,6 +173,9 @@ public class AnalyserImpl implements Analyser {
         this.webResourceStatisticsDataService = webResourceStatisticsDataService;
         this.criterionStatisticsDataService = criterionStatisticsDataService;
         this.processResultDataService = processResultDataService;
+        this.processRemarkDataService = processRemarkDataService;
+        this.webResourceDataService = webResourceDataService;
+        this.contentDataService = contentDataService;
         this.setWebResource(webResource);
         this.paramSet = paramSet;
         this.nbOfWr = nbOfWr;
@@ -156,11 +188,21 @@ public class AnalyserImpl implements Analyser {
 
     @Override
     public void run() {
+        numberW3cErrors = 0;
         WebResourceStatistics wrStats = webResourceStatisticsDataService.create();
 
         // Regardind the webResource type the computation of the statitics is 
         // done in memory or through the db
         if (webResource instanceof Page) {
+            // Get w3c result from content table 
+            SSP content = contentDataService.findSSP(webResource, webResource.getURL());
+            if (content != null) {
+                W3cMessage = W3cJsonParser(content.getW3c());
+            } else {
+                W3cMessage = W3cJsonParser("{\"messages\":[]}");
+            }
+            numberW3cErrors = W3cMessage.size();
+
             extractTestSet(false);
             netResultList = getProcessResultWithNotTested(
                     testSet,
@@ -169,6 +211,17 @@ public class AnalyserImpl implements Analyser {
             wrStats = computeHttpStatusCode(wrStats);
         } else if (webResource instanceof Site) {
             extractTestSet(true);
+            List<WebResource> webResourceChilds = webResourceDataService.getWebResourceFromItsParent(webResource, 0, nbOfWr);
+            for (WebResource webResourceChild : webResourceChilds) {
+                SSP content = contentDataService.findSSP(webResourceChild, webResourceChild.getURL());
+                W3cMessage = W3cJsonParser(content.getW3c());
+                numberW3cErrors = W3cMessage.size();
+                IntegrateW3cTestInDB(
+                        testSet,
+                        processResultDataService.getNetResultFromAuditAndWebResource(audit, webResourceChild),
+                        webResourceChild);
+            }
+
             wrStats = computeAuditStatisticsFromDb(wrStats);
             wrStats = computeCriterionStatisticsFromDb(wrStats);
             wrStats = computeTestStatisticsFromDb(wrStats);
@@ -177,7 +230,7 @@ public class AnalyserImpl implements Analyser {
         wrStats = computeMark(wrStats);
         wrStats = computeRawMark(wrStats);
         wrStats = computeNumberOfFailedOccurrences(wrStats);
-        
+
         wrStats.setAudit(audit);
         wrStats.setWebResource(webResource);
 
@@ -224,7 +277,7 @@ public class AnalyserImpl implements Analyser {
      * @return
      */
     private WebResourceStatistics computeAuditStatisticsFromPrList(WebResourceStatistics wrStatistics) {
-        
+
         int nbOfPassed = 0;
         int nbOfFailed = 0;
         int nbOfNmi = 0;
@@ -263,6 +316,7 @@ public class AnalyserImpl implements Analyser {
         if (nbOfFailed + nbOfNa + nbOfNmi + nbOfPassed + nbOfDetected + nbOfSuspected == 0) {
             nbOfFailed = nbOfNa = nbOfNmi = nbOfPassed = nbOfSuspected = nbOfDetected = -1;
         }
+
         wrStatistics.setNbOfFailed(nbOfFailed);
         wrStatistics.setNbOfInvalidTest(nbOfFailed);
         wrStatistics.setNbOfPassed(nbOfPassed);
@@ -273,7 +327,7 @@ public class AnalyserImpl implements Analyser {
         wrStatistics.setNbOfNotTested(nbOfNt);
 
         setWeightedResult(wrStatistics);
-        
+
         // Compute criterion Result for each criterion and link each 
         // criterionStatistics to the current webResourceStatistics
         for (CriterionStatistics cs : csMap.values()) {
@@ -312,9 +366,9 @@ public class AnalyserImpl implements Analyser {
     }
 
     /**
-     * 
+     *
      * @param cs
-     * @param testSolution 
+     * @param testSolution
      */
     private void incrementCriterionCounterFromTestSolution(
             CriterionStatistics cs,
@@ -364,9 +418,9 @@ public class AnalyserImpl implements Analyser {
     }
 
     /**
-     * 
+     *
      * @param ts
-     * @param testSolution 
+     * @param testSolution
      */
     private void incrementThemeCounterFromTestSolution(
             ThemeStatistics ts,
@@ -392,7 +446,7 @@ public class AnalyserImpl implements Analyser {
                 break;
         }
     }
-    
+
     /**
      * Gather the audit statistics informations : - Number of passed results -
      * Number of failed results - Number of need_more_information results -
@@ -420,7 +474,7 @@ public class AnalyserImpl implements Analyser {
         int nbOfSuspected = webResourceStatisticsDataService.getResultCountByResultType(webResource.getId(),
                 TestSolution.SUSPECTED_FAILED).intValue()
                 + webResourceStatisticsDataService.getResultCountByResultType(webResource.getId(),
-                TestSolution.SUSPECTED_PASSED).intValue();
+                        TestSolution.SUSPECTED_PASSED).intValue();
 
         // if no test have been processed for any reason, mostly cause the source
         // code couldn't have been adapted, all theses values are set to -1
@@ -545,11 +599,11 @@ public class AnalyserImpl implements Analyser {
      * @return
      */
     private WebResourceStatistics computeNumberOfFailedOccurrences(WebResourceStatistics wrStatistics) {
-        int nbOfFailedOccurences =
-                webResourceStatisticsDataService.getNumberOfOccurrencesByWebResourceAndResultType(
-                webResource.getId(),
-                TestSolution.FAILED,
-                false).intValue();
+        int nbOfFailedOccurences
+                = webResourceStatisticsDataService.getNumberOfOccurrencesByWebResourceAndResultType(
+                        webResource.getId(),
+                        TestSolution.FAILED,
+                        false).intValue();
         wrStatistics.setNbOfFailedOccurences(nbOfFailedOccurences);
         return wrStatistics;
     }
@@ -639,7 +693,9 @@ public class AnalyserImpl implements Analyser {
      * @return
      */
     private WebResourceStatistics computeTestStatisticsFromDb(WebResourceStatistics wrStatistics) {
+
         for (Test test : testSet) {
+
             TestStatistics testStatistics = testStatisticsDataService.create();
             testStatistics.setTest(test);
 
@@ -671,7 +727,6 @@ public class AnalyserImpl implements Analyser {
         themeMap = new HashMap();
         criterionMap = new HashMap();
         for (Test test : testSet) {
-
             //Collect criterions given the set of tests for the audit, and keep
             // the number of tests for each criterion (needed to calculate the
             // not tested
@@ -737,6 +792,66 @@ public class AnalyserImpl implements Analyser {
         }
     }
 
+    private void IntegrateW3cTestInDB(
+            Collection<Test> testList,
+            Collection<ProcessResult> netResultList,
+            WebResource webResource) {
+
+        Collection<Test> testedTestList = new ArrayList();
+        for (ProcessResult pr : netResultList) {
+            testedTestList.add(pr.getTest());
+        }
+
+        for (Test test : testList) {
+            // if the test has no ProcessResult and its theme is part of the user
+            // selection, a NOT_TESTED result ProcessRemark is created
+            if (!testedTestList.contains(test)) {
+
+                TestSolution testSolution;
+                if (test.getLabel().equals("8.2.1")) {
+                    if (numberW3cErrors > 0) {
+                        testSolution = TestSolution.FAILED;
+                    } else {
+                        testSolution = TestSolution.PASSED;
+                    }
+                } else {
+                    testSolution = TestSolution.NOT_TESTED;
+                }
+
+                ProcessResult pr
+                        = processResultDataService.getDefiniteResult(
+                                test,
+                                testSolution);
+
+                if (testSolution != TestSolution.NOT_TESTED) {
+
+                    pr.setNetResultAudit(audit);
+                    pr.setElementCounter(numberW3cErrors);
+                    pr.setSubject(webResource);
+                    pr.setGrossResultAudit(audit);
+                    processResultDataService.saveOrUpdate(pr);
+
+                    for (int i = 0; i < numberW3cErrors; i++) {
+                        org.json.simple.JSONObject jsonRespenseObject = (org.json.simple.JSONObject) W3cMessage.get(i);
+                        Object snippetObject = jsonRespenseObject.get("extract");
+                        Object targetObject = jsonRespenseObject.get("message");
+
+                        if (snippetObject != null && targetObject != null) {
+                            SourceCodeRemark processRemark = processRemarkDataService.getSourceCodeRemark(testSolution, "W3cError");
+                            processRemark.setProcessResult(pr);
+                            //processRemark.setLineNumber(Integer.valueOf(jsonRespenseObject.get("lastLine").toString()));
+                            String snippet = StringEscapeUtils.escapeHtml4(snippetObject.toString());
+                            processRemark.setSnippet(snippet);
+                            processRemark.setTarget(targetObject.toString());
+
+                            processRemarkDataService.saveOrUpdate(processRemark);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     /**
      * Some tests may have not ProcessResult, but are needed to be displayed as
      * not tested test. For each test without ProcessResult, we create a new
@@ -763,14 +878,67 @@ public class AnalyserImpl implements Analyser {
             // if the test has no ProcessResult and its theme is part of the user
             // selection, a NOT_TESTED result ProcessRemark is created
             if (!testedTestList.contains(test)) {
-                ProcessResult pr = 
-                        processResultDataService.getDefiniteResult(
-                                test, 
-                                TestSolution.NOT_TESTED);
+
+                TestSolution testSolution;
+                if (test.getLabel().equals("8.2.1")) {
+                    if (numberW3cErrors > 0) {
+                        testSolution = TestSolution.FAILED;
+                    } else {
+                        testSolution = TestSolution.PASSED;
+                    }
+                } else {
+                    testSolution = TestSolution.NOT_TESTED;
+                }
+
+                ProcessResult pr
+                        = processResultDataService.getDefiniteResult(
+                                test,
+                                testSolution);
+
+                if (testSolution != TestSolution.NOT_TESTED) {
+
+                    pr.setNetResultAudit(audit);
+                    pr.setElementCounter(numberW3cErrors);
+                    pr.setSubject(webResource);
+                    pr.setGrossResultAudit(audit);
+                    processResultDataService.saveOrUpdate(pr);
+                    for (int i = 0; i < numberW3cErrors; i++) {
+
+                        org.json.simple.JSONObject jsonRespenseObject = (org.json.simple.JSONObject) W3cMessage.get(i);
+                        Object snippetObject = jsonRespenseObject.get("extract");
+                        Object targetObject = jsonRespenseObject.get("message");
+
+                        if (snippetObject != null && targetObject != null) {
+                            SourceCodeRemark processRemark = processRemarkDataService.getSourceCodeRemark(testSolution, "W3cError");
+                            processRemark.setProcessResult(pr);
+                            //processRemark.setLineNumber(Integer.valueOf(jsonRespenseObject.get("lastLine").toString()));
+                            String snippet = StringEscapeUtils.escapeHtml4(snippetObject.toString());
+                            processRemark.setSnippet(snippet);
+                            processRemark.setTarget(targetObject.toString());
+
+                            processRemarkDataService.saveOrUpdate(processRemark);
+                        }
+                    }
+                }
+
                 fullProcessResultList.add(pr);
             }
         }
         return fullProcessResultList;
+    }
+
+    public org.json.simple.JSONArray W3cJsonParser(String w3cResult) {
+        JSONParser parser = new JSONParser();
+        try {
+            Object responseObj = parser.parse(w3cResult);
+            org.json.simple.JSONObject jsonRespenseObject = (org.json.simple.JSONObject) responseObj;
+            org.json.simple.JSONArray resultList = (org.json.simple.JSONArray) jsonRespenseObject.get("messages");
+
+            return resultList;
+        } catch (Exception e) {
+            LOGGER.error("error with w3cValidator json parser");
+            return new org.json.simple.JSONArray();
+        }
     }
 
 }

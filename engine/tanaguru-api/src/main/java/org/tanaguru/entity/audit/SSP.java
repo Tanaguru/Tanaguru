@@ -53,6 +53,12 @@ public interface SSP extends TextContent {
      * @return the doctype
      */
     String getDoctype();
+    
+      /**
+     *
+     * @return the w3c result
+     */
+    String getW3c();
 
     /**
      * 
@@ -87,6 +93,13 @@ public interface SSP extends TextContent {
      *              the doctype of the SSP
      */
     void setDoctype(String doctype);
+    
+     /**
+     * 
+     * @param w3c
+     *              the w3c result of the SSP
+     */
+    void setW3c(String w3c);
 
     /**
      *

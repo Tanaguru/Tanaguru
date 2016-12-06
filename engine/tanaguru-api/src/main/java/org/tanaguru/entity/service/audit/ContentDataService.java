@@ -56,7 +56,7 @@ public interface ContentDataService extends GenericDataService<Content, Long> {
      * @return the {@link SSP} instance found
      */
     SSP findSSP(WebResource webresource, String uri);
-
+    
     /**
      *
      * @param audit

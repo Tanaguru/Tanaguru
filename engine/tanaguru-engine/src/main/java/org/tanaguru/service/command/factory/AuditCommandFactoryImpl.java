@@ -53,6 +53,7 @@ import org.tanaguru.service.command.ScenarioAuditCommandImpl;
 import org.tanaguru.service.command.SiteAuditCommandImpl;
 import org.tanaguru.service.command.UploadAuditCommandImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 
 /**
  *
@@ -60,108 +61,140 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class AuditCommandFactoryImpl implements AuditCommandFactory {
 
+    private String w3cValidatorPath;
+
+    public void setW3cValidatorPath(String w3cValidatorPath) {
+        this.w3cValidatorPath = w3cValidatorPath.replaceAll("\\s+", "");
+        Logger.getLogger(this.getClass()).debug("w3cValidatorPath: " + w3cValidatorPath);
+    }
+
+    private String java8Path;
+
+    public void setJava8Path(String java8Path) {
+        this.java8Path = java8Path.replaceAll("\\s+", "");
+        Logger.getLogger(this.getClass()).debug("Java8 path: " + java8Path);
+    }
+
     private AuditDataService auditDataService;
+
     @Autowired
     public void setAuditDataService(AuditDataService auditDataService) {
         this.auditDataService = auditDataService;
     }
 
     private WebResourceDataService webResourceDataService;
+
     @Autowired
     public void setWebResourceDataService(WebResourceDataService webResourceDataService) {
         this.webResourceDataService = webResourceDataService;
     }
 
     private TestDataService testDataService;
+
     @Autowired
     public void setTestDataService(TestDataService testDataService) {
         this.testDataService = testDataService;
     }
 
     private ParameterDataService parameterDataService;
+
     @Autowired
     public void setParameterDataService(ParameterDataService parameterDataService) {
         this.parameterDataService = parameterDataService;
     }
 
     private ContentDataService contentDataService;
+
     @Autowired
     public void setContentDataService(ContentDataService contentDataService) {
         this.contentDataService = contentDataService;
     }
 
     private ProcessResultDataService processResultDataService;
+
     @Autowired
     public void setProcessResultDataService(ProcessResultDataService processResultDataService) {
         this.processResultDataService = processResultDataService;
     }
 
     private PreProcessResultDataService preProcessResultDataService;
+
     @Autowired
     public void setPreProcessResultDataService(PreProcessResultDataService preProcessResultDataService) {
         this.preProcessResultDataService = preProcessResultDataService;
     }
 
     private CrawlerService crawlerService;
+
     @Autowired
     public void setCrawlerService(CrawlerService crawlerService) {
         this.crawlerService = crawlerService;
     }
 
     private ContentLoaderService contentLoaderService;
+
     @Autowired
     public void setContentLoaderService(ContentLoaderService contentLoaderService) {
         this.contentLoaderService = contentLoaderService;
     }
 
     private ScenarioLoaderService scenarioLoaderService;
+
     @Autowired
     public void setScenarioLoaderService(ScenarioLoaderService scenarioLoaderService) {
         this.scenarioLoaderService = scenarioLoaderService;
     }
 
     private ContentAdapterService contentAdapterService;
+
     @Autowired
     public void setContentAdapterService(ContentAdapterService contentAdapterService) {
         this.contentAdapterService = contentAdapterService;
     }
 
     private ProcessorService processorService;
+
     @Autowired
     public void setProcessorService(ProcessorService processorService) {
         this.processorService = processorService;
     }
 
     private ConsolidatorService consolidatorService;
+
     @Autowired
     public void setConsolidatorService(ConsolidatorService consolidatorService) {
         this.consolidatorService = consolidatorService;
     }
 
     private AnalyserService analyserService;
+
     @Autowired
     public void setAnalyserService(AnalyserService analyserService) {
         this.analyserService = analyserService;
     }
 
     private AdaptationListener adaptationListener;
+
     @Autowired
     public void setAdaptationListener(AdaptationListener adaptationListener) {
         this.adaptationListener = adaptationListener;
     }
 
     private TanaguruMsgOutService tanaguruMsgOutService;
+
     public void setTanaguruMsgOutService(TanaguruMsgOutService tanaguruMsgOutService) {
         this.tanaguruMsgOutService = tanaguruMsgOutService;
     }
 
     private boolean auditPageWithCrawler = false;
+
     public void setAuditPageWithCrawler(boolean auditPageWithCrawler) {
         Logger.getLogger(this.getClass()).debug("AuditPageWithCrawler " + auditPageWithCrawler);
         this.auditPageWithCrawler = auditPageWithCrawler;
     }
 
     private boolean cleanUpRelatedContent = true;
+
     public void setCleanUpRelatedContent(boolean cleanUpRelatedContent) {
         Logger.getLogger(this.getClass()).debug("CleanUpRelatedContent " + cleanUpRelatedContent);
         this.cleanUpRelatedContent = cleanUpRelatedContent;
@@ -173,21 +206,25 @@ public class AuditCommandFactoryImpl implements AuditCommandFactory {
     public static final int CONSOLIDATION_TREATMENT_WINDOW = 200;
 
     private int adaptationTreatmentWindow = ADAPTATION_TREATMENT_WINDOW;
+
     public void setAdaptationTreatmentWindow(int adaptationTreatmentWindow) {
         this.adaptationTreatmentWindow = adaptationTreatmentWindow;
     }
 
     private int analyseTreatmentWindow = ANALYSE_TREATMENT_WINDOW;
+
     public void setAnalyseTreatmentWindow(int analyseTreatmentWindow) {
         this.analyseTreatmentWindow = analyseTreatmentWindow;
     }
 
     private int consolidationTreatmentWindow = CONSOLIDATION_TREATMENT_WINDOW;
+
     public void setConsolidationTreatmentWindow(int consolidationTreatmentWindow) {
         this.consolidationTreatmentWindow = consolidationTreatmentWindow;
     }
 
     private int processingTreatmentWindow = PROCESSING_TREATMENT_WINDOW;
+
     public void setProcessingTreatmentWindow(int processingTreatmentWindow) {
         this.processingTreatmentWindow = processingTreatmentWindow;
     }
@@ -195,20 +232,20 @@ public class AuditCommandFactoryImpl implements AuditCommandFactory {
     @Override
     public AuditCommand create(String url, Set<Parameter> paramSet, boolean isSite) {
         if (isSite) {
-            SiteAuditCommandImpl auditCommand = 
-                    new SiteAuditCommandImpl(url, paramSet, auditDataService);
+            SiteAuditCommandImpl auditCommand
+                    = new SiteAuditCommandImpl(url, paramSet, auditDataService, w3cValidatorPath, java8Path);
             initCommandServices(auditCommand);
             auditCommand.setCrawlerService(crawlerService);
             return auditCommand;
         } else if (auditPageWithCrawler) {
-            PageAuditCrawlerCommandImpl auditCommand = 
-                    new PageAuditCrawlerCommandImpl(url, paramSet, auditDataService);
+            PageAuditCrawlerCommandImpl auditCommand
+                    = new PageAuditCrawlerCommandImpl(url, paramSet, auditDataService, w3cValidatorPath, java8Path);
             initCommandServices(auditCommand);
             auditCommand.setCrawlerService(crawlerService);
             return auditCommand;
         } else {
-            PageAuditCommandImpl auditCommand = 
-                    new PageAuditCommandImpl(url, paramSet, auditDataService);
+            PageAuditCommandImpl auditCommand
+                    = new PageAuditCommandImpl(url, paramSet, auditDataService, w3cValidatorPath, java8Path);
             initCommandServices(auditCommand);
             auditCommand.setScenarioLoaderService(scenarioLoaderService);
             return auditCommand;
@@ -217,8 +254,8 @@ public class AuditCommandFactoryImpl implements AuditCommandFactory {
 
     @Override
     public AuditCommand create(Map<String, String> fileMap, Set<Parameter> paramSet) {
-        UploadAuditCommandImpl auditCommand = 
-                new UploadAuditCommandImpl(fileMap, paramSet, auditDataService);
+        UploadAuditCommandImpl auditCommand
+                = new UploadAuditCommandImpl(fileMap, paramSet, auditDataService, w3cValidatorPath, java8Path);
         initCommandServices(auditCommand);
         auditCommand.setContentLoaderService(contentLoaderService);
         return auditCommand;
@@ -226,24 +263,27 @@ public class AuditCommandFactoryImpl implements AuditCommandFactory {
 
     @Override
     public AuditCommand create(String siteUrl, List<String> pageUrlList, Set<Parameter> paramSet) {
-
         if (auditPageWithCrawler) {
-            GroupOfPagesCrawlerAuditCommandImpl auditCommand = 
-                new GroupOfPagesCrawlerAuditCommandImpl(
+            GroupOfPagesCrawlerAuditCommandImpl auditCommand
+                    = new GroupOfPagesCrawlerAuditCommandImpl(
                             siteUrl,
                             pageUrlList,
                             paramSet,
-                            auditDataService);
+                            auditDataService,
+                            w3cValidatorPath,
+                            java8Path);
             initCommandServices(auditCommand);
             auditCommand.setCrawlerService(crawlerService);
             return auditCommand;
         } else {
-            GroupOfPagesAuditCommandImpl auditCommand = 
-                new GroupOfPagesAuditCommandImpl(
+            GroupOfPagesAuditCommandImpl auditCommand
+                    = new GroupOfPagesAuditCommandImpl(
                             siteUrl,
                             pageUrlList,
                             paramSet,
-                            auditDataService);
+                            auditDataService,
+                            w3cValidatorPath,
+                            java8Path);
             initCommandServices(auditCommand);
             auditCommand.setScenarioLoaderService(scenarioLoaderService);
             return auditCommand;
@@ -252,8 +292,8 @@ public class AuditCommandFactoryImpl implements AuditCommandFactory {
 
     @Override
     public AuditCommand create(String scenarioName, String scenario, Set<Parameter> paramSet) {
-        ScenarioAuditCommandImpl auditCommand = 
-                new ScenarioAuditCommandImpl(scenarioName, scenario, paramSet, auditDataService);
+        ScenarioAuditCommandImpl auditCommand
+                = new ScenarioAuditCommandImpl(scenarioName, scenario, paramSet, auditDataService, w3cValidatorPath, java8Path);
         initCommandServices(auditCommand);
         auditCommand.setScenarioLoaderService(scenarioLoaderService);
         return auditCommand;

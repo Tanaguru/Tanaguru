@@ -52,6 +52,24 @@ public final class SiteAuditCommandImpl extends CrawlAuditCommandImpl {
         setUrl(siteUrl);
     }
     
+    /**
+     * 
+     * @param siteUrl
+     * @param paramSet
+     * @param auditDataService 
+     * @param w3cValidatorPath
+     * @param java8Path
+     */
+    public SiteAuditCommandImpl(
+            String siteUrl, 
+            Set<Parameter> paramSet,
+            AuditDataService auditDataService,
+            String w3cValidatorPath,
+            String java8Path) {
+        super(paramSet, auditDataService, w3cValidatorPath, java8Path);
+        setUrl(siteUrl);
+    }
+    
     @Override
     public void callCrawlerService() {
         if (LOGGER.isInfoEnabled()) {

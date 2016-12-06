@@ -51,6 +51,24 @@ public class PageAuditCommandImpl extends AbstractScenarioAuditCommandImpl {
         super(paramSet, auditDataService);
         this.pageUrl = FileNaming.addProtocolToUrl(pageUrl);
     }
+    
+     /**
+     * 
+     * @param pageUrl
+     * @param paramSet
+     * @param auditDataService 
+     * @param w3cValidatorPath 
+     * @param java8Path
+     */
+    public PageAuditCommandImpl(
+            String pageUrl,
+            Set<Parameter> paramSet,
+            AuditDataService auditDataService,
+            String w3cValidatorPath,
+            String java8Path) {
+        super(paramSet, auditDataService, w3cValidatorPath, java8Path);
+        this.pageUrl = FileNaming.addProtocolToUrl(pageUrl);
+    }
 
     @Override
     public void init() {

@@ -49,5 +49,27 @@ public class ScenarioAuditCommandImpl extends AbstractScenarioAuditCommandImpl {
         setScenarioName(scenarioName);
         setIsPage(false);
     }
+    
+     /**
+     * 
+     * @param scenarioName
+     * @param scenario
+     * @param paramSet
+     * @param auditDataService 
+     * @param w3cValidatorPath
+     * @param java8Path
+     */
+    public ScenarioAuditCommandImpl(
+            String scenarioName,
+            String scenario,
+            Set<Parameter> paramSet, 
+            AuditDataService auditDataService,
+            String w3cValidatorPath,
+            String java8Path) {
+        super(paramSet, auditDataService, w3cValidatorPath, java8Path);
+        setScenario(scenario);
+        setScenarioName(scenarioName);
+        setIsPage(false);
+    }
 
 }

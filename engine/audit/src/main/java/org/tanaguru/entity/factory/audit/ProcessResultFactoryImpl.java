@@ -26,6 +26,7 @@ import org.tanaguru.entity.audit.DefiniteResultImpl;
 import org.tanaguru.entity.audit.IndefiniteResult;
 import org.tanaguru.entity.audit.IndefiniteResultImpl;
 import org.tanaguru.entity.audit.ProcessResult;
+import org.tanaguru.entity.audit.ProcessResultImpl;
 
 /**
  * 
@@ -39,6 +40,7 @@ public class ProcessResultFactoryImpl implements ProcessResultFactory {
 
     @Override
     public ProcessResult create() {
+       // return new ProcessResultImpl();
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

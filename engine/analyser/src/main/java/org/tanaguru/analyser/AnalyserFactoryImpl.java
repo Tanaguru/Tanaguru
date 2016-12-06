@@ -25,6 +25,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import org.apache.log4j.Logger;
 import org.tanaguru.entity.audit.Audit;
 import org.tanaguru.entity.audit.ProcessResult;
 import org.tanaguru.entity.parameterization.Parameter;
@@ -41,6 +42,9 @@ import org.tanaguru.entity.service.subject.WebResourceDataService;
 import org.tanaguru.entity.subject.Site;
 import org.tanaguru.entity.subject.WebResource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.tanaguru.entity.service.audit.ContentDataService;
+import org.tanaguru.entity.service.audit.ProcessRemarkDataService;
 
 /**
  *
@@ -49,6 +53,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class AnalyserFactoryImpl implements AnalyserFactory {// TODO Write javadoc
 
     private WebResourceStatisticsDataService webResourceStatisticsDataService;
+    private static final Logger LOGGER = Logger.getLogger(AnalyserFactoryImpl.class);
+    
+    
+    
+
     public WebResourceStatisticsDataService getWebResourceStatisticsDataService() {
         return webResourceStatisticsDataService;
     }
@@ -57,8 +66,9 @@ public class AnalyserFactoryImpl implements AnalyserFactory {// TODO Write javad
             WebResourceStatisticsDataService webResourceStatisticsDataService) {
         this.webResourceStatisticsDataService = webResourceStatisticsDataService;
     }
-    
+
     private WebResourceDataService webResourceDataService;
+
     public WebResourceDataService getWebResourceDataService() {
         return webResourceDataService;
     }
@@ -67,8 +77,9 @@ public class AnalyserFactoryImpl implements AnalyserFactory {// TODO Write javad
             WebResourceDataService webResourceDataService) {
         this.webResourceDataService = webResourceDataService;
     }
-    
+
     private final ThemeStatisticsDataService themeStatisticsDataService;
+
     public ThemeStatisticsDataService getThemeStatisticsDataService() {
         return themeStatisticsDataService;
     }
@@ -76,8 +87,9 @@ public class AnalyserFactoryImpl implements AnalyserFactory {// TODO Write javad
     public void setThemeStatisticsDataService(
             ThemeStatisticsDataService themeStatisticsDataService) {
     }
-    
+
     private final TestStatisticsDataService testStatisticsDataService;
+
     public TestStatisticsDataService getTestStatisticsDataService() {
         return testStatisticsDataService;
     }
@@ -85,8 +97,9 @@ public class AnalyserFactoryImpl implements AnalyserFactory {// TODO Write javad
     public void setTestStatisticsDataService(
             TestStatisticsDataService testStatisticsDataService) {
     }
-    
+
     private final CriterionStatisticsDataService criterionStatisticsDataService;
+
     public CriterionStatisticsDataService getCriterionStatisticsDataService() {
         return criterionStatisticsDataService;
     }
@@ -94,8 +107,9 @@ public class AnalyserFactoryImpl implements AnalyserFactory {// TODO Write javad
     public void setCriterionStatisticsDataService(
             CriterionStatisticsDataService criterionStatisticsDataService) {
     }
-    
+
     private AuditDataService auditDataService;
+
     public AuditDataService getAuditDataService() {
         return auditDataService;
     }
@@ -103,8 +117,9 @@ public class AnalyserFactoryImpl implements AnalyserFactory {// TODO Write javad
     public void setAuditDataService(AuditDataService auditDataService) {
         this.auditDataService = auditDataService;
     }
-    
+
     private ParameterDataService parameterDataService;
+
     public ParameterDataService getParameterDataService() {
         return parameterDataService;
     }
@@ -112,8 +127,9 @@ public class AnalyserFactoryImpl implements AnalyserFactory {// TODO Write javad
     public void setParameterElementDataService(ParameterDataService parameterDataService) {
         this.parameterDataService = parameterDataService;
     }
-    
+
     private ParameterFamilyDataService parameterFamilyDataService;
+
     public ParameterFamilyDataService getParameterFamilyDataService() {
         return parameterFamilyDataService;
     }
@@ -123,11 +139,13 @@ public class AnalyserFactoryImpl implements AnalyserFactory {// TODO Write javad
     }
 
     private List<String> testWeightParameterFamilyCodeList = Collections.EMPTY_LIST;
+
     public void setTestWeightParameterFamilyCodeList(List<String> testWeightParameterFamilyCodeList) {
         this.testWeightParameterFamilyCodeList = testWeightParameterFamilyCodeList;
     }
 
     private ProcessResultDataService processResultDataService;
+
     public ProcessResultDataService getProcessResultDataService() {
         return processResultDataService;
     }
@@ -135,20 +153,42 @@ public class AnalyserFactoryImpl implements AnalyserFactory {// TODO Write javad
     public void setProcessResultDataService(ProcessResultDataService processResultDataService) {
         this.processResultDataService = processResultDataService;
     }
-    
-    private Collection<ParameterFamily> testWeightParameterFamilySet ;
-    
+
+    private ProcessRemarkDataService processRemarkDataService;
+
+    public ProcessRemarkDataService getProcessRemarkDataService() {
+        return processRemarkDataService;
+    }
+
+    public void setProcessRemarkDataService(ProcessRemarkDataService processRemarkDataService) {
+        this.processRemarkDataService = processRemarkDataService;
+    }
+
+    private ContentDataService contentDataService;
+
+    public ContentDataService getContentDataService() {
+        return contentDataService;
+    }
+
+    public void setProcessRemarkDataService(ContentDataService contentDataService) {
+        this.contentDataService = contentDataService;
+    }
+
+    private Collection<ParameterFamily> testWeightParameterFamilySet;
+
     @Autowired
     public AnalyserFactoryImpl(
             AuditDataService auditDataService,
             WebResourceDataService webResourceDataService,
             TestStatisticsDataService testStatisticsDataService,
             ThemeStatisticsDataService themeStatisticsDataService,
-            WebResourceStatisticsDataService webResourceStatisticsDataService, 
-            CriterionStatisticsDataService criterionStatisticsDataService, 
+            WebResourceStatisticsDataService webResourceStatisticsDataService,
+            CriterionStatisticsDataService criterionStatisticsDataService,
             ParameterDataService parameterDataService,
             ParameterFamilyDataService parameterFamilyDataService,
-            ProcessResultDataService processResultDataService) {
+            ProcessResultDataService processResultDataService,
+            ProcessRemarkDataService processRemarkDataService,
+            ContentDataService contentDataService) {
         this.auditDataService = auditDataService;
         this.webResourceDataService = webResourceDataService;
         this.testStatisticsDataService = testStatisticsDataService;
@@ -158,14 +198,16 @@ public class AnalyserFactoryImpl implements AnalyserFactory {// TODO Write javad
         this.parameterDataService = parameterDataService;
         this.parameterFamilyDataService = parameterFamilyDataService;
         this.processResultDataService = processResultDataService;
+        this.processRemarkDataService = processRemarkDataService;
+        this.contentDataService = contentDataService;
     }
 
     @Override
     public Analyser create(WebResource webResource, Audit audit) {
         int nbOfWebResource = 1;
         if (webResource instanceof Site) {
-            nbOfWebResource = 
-                    webResourceDataService.getNumberOfChildWebResource(webResource).intValue();
+            nbOfWebResource
+                    = webResourceDataService.getNumberOfChildWebResource(webResource).intValue();
         }
         Analyser analyser = new AnalyserImpl(
                 auditDataService,
@@ -174,8 +216,11 @@ public class AnalyserFactoryImpl implements AnalyserFactory {// TODO Write javad
                 webResourceStatisticsDataService,
                 criterionStatisticsDataService,
                 processResultDataService,
+                processRemarkDataService,
+                webResourceDataService,
+                contentDataService,
                 webResource,
-                getTestWeightParamSet(audit), 
+                getTestWeightParamSet(audit),
                 nbOfWebResource);
         return analyser;
     }
@@ -184,13 +229,13 @@ public class AnalyserFactoryImpl implements AnalyserFactory {// TODO Write javad
     public Analyser create(List<ProcessResult> netResultList) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    
+
     /**
-     * 
+     *
      * @param audit
-     * @return 
-     * 
-     *  the collection of test weight parameters for the given audit
+     * @return
+     *
+     * the collection of test weight parameters for the given audit
      */
     private Collection<Parameter> getTestWeightParamSet(Audit audit) {
         if (testWeightParameterFamilySet == null) {
@@ -201,9 +246,9 @@ public class AnalyserFactoryImpl implements AnalyserFactory {// TODO Write javad
         }
         Collection<Parameter> testWeightParamSet = new HashSet<Parameter>();
         for (ParameterFamily pf : testWeightParameterFamilySet) {
-                testWeightParamSet.addAll(parameterDataService.getParameterSet(pf, audit));
+            testWeightParamSet.addAll(parameterDataService.getParameterSet(pf, audit));
         }
         return testWeightParamSet;
     }
-    
+
 }

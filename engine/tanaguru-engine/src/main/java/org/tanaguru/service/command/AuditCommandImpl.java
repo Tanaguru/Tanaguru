@@ -19,7 +19,6 @@
  * 
  *  Contact us by mail: tanaguru AT tanaguru DOT org
  */
-
 package org.tanaguru.service.command;
 
 import java.io.UnsupportedEncodingException;
@@ -28,6 +27,7 @@ import java.util.*;
 import javax.persistence.PersistenceException;
 import org.apache.http.HttpStatus;
 import org.apache.log4j.Logger;
+import org.json.simple.parser.JSONParser;
 import org.tanaguru.contentadapter.AdaptationListener;
 import org.tanaguru.entity.audit.*;
 import org.tanaguru.entity.parameterization.Parameter;
@@ -46,14 +46,26 @@ import org.tanaguru.messagin.TanaguruMsgOutService;
 import org.tanaguru.service.*;
 import org.tanaguru.util.MD5Encoder;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
+import org.springframework.stereotype.Component;
+
 /**
  *
  * @author jkowalczyk
  */
+@Component
 public abstract class AuditCommandImpl implements AuditCommand {
 
     private static final Logger LOGGER = Logger.getLogger(AuditCommandImpl.class);
-    
+
     public static final String AUDIT_STATUS_IS_LOGGER_STR = "Audit status is";
     public static final String WHILE_LOGGER_STR = " while";
     public static final String WAS_REQUIRED_LOGGER_STR = " was required";
@@ -61,165 +73,206 @@ public abstract class AuditCommandImpl implements AuditCommand {
     public static final String MS_LOGGER_STR = " ms ";
     public static final String SSP_TOOK_LOGGER_STR = " SSP took ";
     public static final String CONSOLIDATING_TOOK_LOGGER_STR = "Consolidating took ";
-    
+
     public static final int DEFAULT_ANALYSE_TREATMENT_WINDOW = 10;
     public static final int DEFAULT_PROCESSING_TREATMENT_WINDOW = 4;
     public static final int DEFAULT_ADAPTATION_TREATMENT_WINDOW = 4;
     public static final int DEFAULT_CONSOLIDATION_TREATMENT_WINDOW = 200;
-    
+
     private int adaptationTreatmentWindow = DEFAULT_ADAPTATION_TREATMENT_WINDOW;
+
     public void setAdaptationTreatmentWindow(int adaptationTreatmentWindow) {
         this.adaptationTreatmentWindow = adaptationTreatmentWindow;
     }
 
     private int analyseTreatmentWindow = DEFAULT_ANALYSE_TREATMENT_WINDOW;
+
     public void setAnalyseTreatmentWindow(int analyseTreatmentWindow) {
         this.analyseTreatmentWindow = analyseTreatmentWindow;
     }
 
     private int consolidationTreatmentWindow = DEFAULT_CONSOLIDATION_TREATMENT_WINDOW;
+
     public void setConsolidationTreatmentWindow(int consolidationTreatmentWindow) {
         this.consolidationTreatmentWindow = consolidationTreatmentWindow;
     }
 
     private int processingTreatmentWindow = DEFAULT_PROCESSING_TREATMENT_WINDOW;
+
     public void setProcessingTreatmentWindow(int processingTreatmentWindow) {
         this.processingTreatmentWindow = processingTreatmentWindow;
     }
-    
+
     private Audit audit;
+
     @Override
     public Audit getAudit() {
         return audit;
-    
+
     }
+
     @Override
     public void setAudit(Audit audit) {
         this.audit = audit;
     }
-    
+
     // The dataServices
-    
     private AuditDataService auditDataService;
+
     public AuditDataService getAuditDataService() {
         return auditDataService;
     }
+
     public void setAuditDataService(AuditDataService auditDataService) {
         this.auditDataService = auditDataService;
     }
 
     private TestDataService testDataService;
+
     public TestDataService getTestDataService() {
         return testDataService;
     }
+
     public void setTestDataService(TestDataService testDataService) {
         this.testDataService = testDataService;
     }
-    
+
     private ParameterDataService parameterDataService;
+
     public ParameterDataService getParameterDataService() {
         return parameterDataService;
     }
+
     public void setParameterDataService(ParameterDataService parameterDataService) {
         this.parameterDataService = parameterDataService;
     }
-    
+
     private WebResourceDataService webResourceDataService;
+
     public WebResourceDataService getWebResourceDataService() {
         return webResourceDataService;
     }
+
     public void setWebResourceDataService(WebResourceDataService webResourceDataService) {
         this.webResourceDataService = webResourceDataService;
     }
-    
+
     private ContentDataService contentDataService;
+
     public ContentDataService getContentDataService() {
         return contentDataService;
     }
+
     public void setContentDataService(ContentDataService contentDataService) {
         this.contentDataService = contentDataService;
     }
-    
+
     private ProcessResultDataService processResultDataService;
+
     public ProcessResultDataService getProcessResultDataService() {
         return processResultDataService;
     }
+
     public void setProcessResultDataService(ProcessResultDataService processResultDataService) {
         this.processResultDataService = processResultDataService;
     }
-    
+
     private PreProcessResultDataService preProcessResultDataService;
+
     public PreProcessResultDataService getPreProcessResultDataService() {
         return preProcessResultDataService;
     }
+
     public void setPreProcessResultDataService(PreProcessResultDataService preProcessResultDataService) {
         this.preProcessResultDataService = preProcessResultDataService;
     }
-    
+
     // The services
-    
     private ContentAdapterService contentAdapterService;
+
     public ContentAdapterService getContentAdapterService() {
         return contentAdapterService;
     }
+
     public void setContentAdapterService(ContentAdapterService contentAdapterService) {
         this.contentAdapterService = contentAdapterService;
     }
 
     private ProcessorService processorService;
+
     public ProcessorService getProcessorService() {
         return processorService;
     }
+
     public void setProcessorService(ProcessorService processorService) {
         this.processorService = processorService;
     }
-    
+
     private ConsolidatorService consolidatorService;
+
     public ConsolidatorService getConsolidatorService() {
         return consolidatorService;
     }
+
     public void setConsolidatorService(ConsolidatorService consolidatorService) {
         this.consolidatorService = consolidatorService;
     }
-    
+
     private AnalyserService analyserService;
+
     public AnalyserService getAnalyserService() {
         return analyserService;
     }
+
     public void setAnalyserService(AnalyserService analyserService) {
         this.analyserService = analyserService;
-    }   
-    
+    }
+
     //The sender
     private TanaguruMsgOutService tanaguruMsgOutService;
+
     public TanaguruMsgOutService getTanaguruMsgOutService() {
         return tanaguruMsgOutService;
     }
+
     public void setTanaguruMsgOutService(TanaguruMsgOutService tanaguruMsgOutService) {
         this.tanaguruMsgOutService = tanaguruMsgOutService;
     }
 
     // The listeners
-	private AdaptationListener adaptationListener;
+    private AdaptationListener adaptationListener;
+
     public AdaptationListener getAdaptationListener() {
         return adaptationListener;
     }
+
     public void setAdaptationListener(AdaptationListener adaptationListener) {
         this.adaptationListener = adaptationListener;
     }
-    
+
     // the options
     private boolean cleanUpRelatedContent = true;
+
     public void setCleanUpRelatedContent(boolean cleanUpRelatedContent) {
         this.cleanUpRelatedContent = cleanUpRelatedContent;
     }
+    /**
+     * The w3cValidator jar Path
+     */
+    private String w3cValidatorPath;
+
+    /**
+     * The java 8 Path
+     */
+    private String java8Path;
+
     /**
      * The audit parameters
      */
     private final Set<Parameter> paramSet;
 
     /**
-     * @param paramSet 
+     * @param paramSet
      * @param auditDataService
      */
     public AuditCommandImpl(
@@ -230,7 +283,26 @@ public abstract class AuditCommandImpl implements AuditCommand {
         audit = auditDataService.create();
         setStatusToAudit(AuditStatus.PENDING);
     }
-    
+
+    /**
+     * @param paramSet
+     * @param auditDataService
+     * @param w3cValidatorPath
+     * @param java8Path
+     */
+    public AuditCommandImpl(
+            Set<Parameter> paramSet,
+            AuditDataService auditDataService,
+            String w3cValidatorPath,
+            String java8Path) {
+        this.paramSet = paramSet;
+        this.auditDataService = auditDataService;
+        audit = auditDataService.create();
+        this.w3cValidatorPath = w3cValidatorPath;
+        this.java8Path = java8Path;
+        setStatusToAudit(AuditStatus.PENDING);
+    }
+
     @Override
     public void init() {
         // the paramSet has to be persisted
@@ -239,7 +311,7 @@ public abstract class AuditCommandImpl implements AuditCommand {
         audit.setParameterSet(paramSet);
         setStatusToAudit(AuditStatus.INITIALISATION);
     }
-    
+
     @Override
     public void adaptContent() {
         audit = auditDataService.read(audit.getId());
@@ -252,9 +324,9 @@ public abstract class AuditCommandImpl implements AuditCommand {
                     .append(WAS_REQUIRED_LOGGER_STR).toString());
             return;
         }
-        
+
         LOGGER.info("Adapting " + audit.getSubject().getURL());
-        
+
         // debug tools
         Date endRetrieveDate;
         Date endProcessDate;
@@ -270,70 +342,70 @@ public abstract class AuditCommandImpl implements AuditCommand {
         if (adaptationListener != null) {
             adaptationListener.adaptationStarted(audit);
         }
-        
+
         while (i.compareTo(nbOfContent) < 0) {
 
             LOGGER.debug(
-                        new StringBuilder("Adapting ssp from  ")
-                            .append(i)
-                            .append(TO_LOGGER_STR)
-                            .append(i + adaptationTreatmentWindow)
-                            .append(" for ")
-                            .append(audit.getSubject().getURL()).toString());
+                    new StringBuilder("Adapting ssp from  ")
+                    .append(i)
+                    .append(TO_LOGGER_STR)
+                    .append(i + adaptationTreatmentWindow)
+                    .append(" for ")
+                    .append(audit.getSubject().getURL()).toString());
 
             Collection<Content> contentList = contentDataService.getSSPFromWebResource(
-                                            webResourceId, 
-                                            i, 
-                                            adaptationTreatmentWindow, 
-                                            true);
+                    webResourceId,
+                    i,
+                    adaptationTreatmentWindow,
+                    true);
             endRetrieveDate = Calendar.getInstance().getTime();
-            
+
             Set<Content> contentSet = new HashSet<>();
             // Set the referential to the contentAdapterService due to different
             // behaviour in the implementation. Has to be removed when accessiweb 2.1
             // implementations will be based on jsoup.
             contentSet.addAll(contentAdapterService.adaptContent(contentList));
-            
+
             endProcessDate = Calendar.getInstance().getTime();
             LOGGER.debug(
                     new StringBuilder("Adapting  ")
-                            .append(contentList.size())
-                            .append(SSP_TOOK_LOGGER_STR)
-                            .append(endProcessDate.getTime() - endRetrieveDate.getTime())
-                            .append(MS_LOGGER_STR)
-                            .append(contentSet.size()).toString());
+                    .append(contentList.size())
+                    .append(SSP_TOOK_LOGGER_STR)
+                    .append(endProcessDate.getTime() - endRetrieveDate.getTime())
+                    .append(MS_LOGGER_STR)
+                    .append(contentSet.size()).toString());
 
             hasCorrectDOM = hasCorrectDOM || hasContentSetAtLeastOneCorrectDOM(contentSet);
-            
+
             this.encodeSourceAndPersistContentList(contentSet);
 
             endPersistDate = Calendar.getInstance().getTime();
             LOGGER.debug(
-                    new StringBuilder("Persisting  ") 
-                        .append(contentSet.size())
-                        .append(SSP_TOOK_LOGGER_STR) 
-                        .append(endPersistDate.getTime() - endProcessDate.getTime())
-                        .append(MS_LOGGER_STR)
-                        .append("for ")
-                        .append(audit.getSubject().getURL()).toString());
+                    new StringBuilder("Persisting  ")
+                    .append(contentSet.size())
+                    .append(SSP_TOOK_LOGGER_STR)
+                    .append(endPersistDate.getTime() - endProcessDate.getTime())
+                    .append(MS_LOGGER_STR)
+                    .append("for ")
+                    .append(audit.getSubject().getURL()).toString());
             persistenceDuration = persistenceDuration
                     + (endPersistDate.getTime() - endProcessDate.getTime());
             i = i + adaptationTreatmentWindow;
             // explicit call of the Gc
             System.gc();
         }
-        
+
         LOGGER.debug(new StringBuilder("Application spent ")
-                        .append(persistenceDuration)
-                        .append(" ms to write in Disk while adapting").toString());
-        
+                .append(persistenceDuration)
+                .append(" ms to write in Disk while adapting").toString());
+
         if (hasCorrectDOM) {
             setStatusToAudit(AuditStatus.PROCESSING);
         } else {
             Logger.getLogger(AuditServiceImpl.class).warn("Audit has no corrected DOM");
             setStatusToAudit(AuditStatus.ERROR);
         }
-        
+
         // Some actions have to be realized when the adaptation is completed
         if (adaptationListener != null) {
             adaptationListener.adaptationCompleted(audit);
@@ -342,31 +414,104 @@ public abstract class AuditCommandImpl implements AuditCommand {
     }
 
     /**
-     * 
+     *
      * @param contentSet
-     * @return 
+     * @return
      */
     private boolean hasContentSetAtLeastOneCorrectDOM(Set<Content> contentSet) {
         for (Content content : contentSet) {
             // if one SSP with not empty DOM is encountered, we return true
-            if (content instanceof SSP && 
-                !((SSP) content).getDOM().isEmpty()) {
-                
+            if (content instanceof SSP
+                    && !((SSP) content).getDOM().isEmpty()) {
+
                 return true;
             }
         }
         return false;
     }
-    
+
+    public String w3cValidator(String auditUrl) {
+
+        if (auditUrl.contains("fille://")) {
+            return "";
+        }
+
+        String java8FullPath;
+        if (java8Path.isEmpty()) {
+            java8FullPath = "java";
+        } else {
+            java8FullPath = java8Path + "/bin/java";
+        }
+        String vnuJarPath = w3cValidatorPath + "/vnu.jar";
+        String url = auditUrl;
+
+        String commandW3C = java8FullPath + " -Dnu.validator.xml.promiscuous-ssl=true -jar " + vnuJarPath + " --format json --errors-only " + url;
+        //String commandW3C = "echo '" + url + "' | " + java8Path + " -jar " + vnuJarPath + " --format json --errors-only -";
+
+        String resultW3C = executeCommand(commandW3C);
+        return resultW3C;
+    }
+
+    class StreamGobbler extends Thread {
+
+        InputStream is;
+        String type;
+        private volatile StringBuffer output = new StringBuffer();
+
+        StreamGobbler(InputStream is, String type) {
+            this.is = is;
+            this.type = type;
+        }
+
+        public void run() {
+            try {
+                InputStreamReader isr = new InputStreamReader(is);
+                BufferedReader br = new BufferedReader(isr);
+                String line = null;
+                while ((line = br.readLine()) != null) {
+                    output.append(line);
+                }
+            } catch (Exception ioe) {
+                LOGGER.error("Error reading stream exec " + ioe.toString());
+            }
+        }
+
+        public StringBuffer getOutPut() {
+            return output;
+        }
+    }
+
+    private String executeCommand(String command) {
+
+        Process p = null;
+        try {
+            p = Runtime.getRuntime().exec(command);
+            StreamGobbler errorGobbler = new StreamGobbler(p.getErrorStream(), "ERROR");
+            // any output?
+            StreamGobbler outputGobbler = new StreamGobbler(p.getInputStream(), "OUTPUT");
+            outputGobbler.start();
+            errorGobbler.start();
+            p.waitFor();
+            return errorGobbler.getOutPut().toString();
+        } catch (Throwable e) {
+            LOGGER.error("error with command execution " + e.toString());
+            return "";
+        } finally {
+            if (p != null) {
+                p.destroy();
+            }
+        }
+    }
+
     /**
      * Encode Source code and persist the content list
-     * 
-     * @param contentSet 
+     *
+     * @param contentSet
      */
     private void encodeSourceAndPersistContentList(Set<Content> contentSet) {
         for (Content content : contentSet) {
-            if (content instanceof SSP && 
-                !((SSP) content).getDOM().isEmpty()) {
+            if (content instanceof SSP
+                    && !((SSP) content).getDOM().isEmpty()) {
                 try {
                     ((SSP) content).setSource(MD5Encoder.MD5(((SSP) content).getSource()));
                 } catch (NoSuchAlgorithmException | UnsupportedEncodingException ex) {
@@ -374,18 +519,21 @@ public abstract class AuditCommandImpl implements AuditCommand {
                 }
             }
             try {
+
+                ((SSP) content).setW3c(w3cValidator(((SSP) content).getURI()));
                 contentDataService.saveOrUpdate(content);
+
             } catch (PersistenceException pe) {
-                LOGGER.warn(content.getURI() +" could not have been persisted due to "  +pe.getLocalizedMessage());
-                if (content instanceof SSP && 
-                !((SSP) content).getDOM().isEmpty()) {
+                LOGGER.warn(content.getURI() + " could not have been persisted due to " + pe.getLocalizedMessage());
+                if (content instanceof SSP
+                        && !((SSP) content).getDOM().isEmpty()) {
                     ((SSP) content).setDOM("");
                     contentDataService.saveOrUpdate(content);
                 }
             }
         }
     }
-    
+
     @Override
     public void process() {
         audit = auditDataService.getAuditWithTest(audit.getId());
@@ -412,23 +560,23 @@ public abstract class AuditCommandImpl implements AuditCommand {
         Long nbOfContent = contentDataService.getNumberOfSSPFromWebResource(audit.getSubject(), HttpStatus.SC_OK);
 
         Set<ProcessResult> processResultSet = new HashSet<>();
-        
+
         while (i.compareTo(nbOfContent) < 0) {
             if (LOGGER.isDebugEnabled()) {
                 LOGGER.debug(
                         new StringBuilder("Processing from ")
-                            .append(i)
-                            .append(TO_LOGGER_STR)
-                            .append(i+processingTreatmentWindow)
-                            .append("for ")
-                            .append(audit.getSubject().getURL()).toString());
+                        .append(i)
+                        .append(TO_LOGGER_STR)
+                        .append(i + processingTreatmentWindow)
+                        .append("for ")
+                        .append(audit.getSubject().getURL()).toString());
                 beginProcessDate = Calendar.getInstance().getTime();
             }
             Collection<Content> contentList = contentDataService.getSSPWithRelatedContentFromWebResource(
-                                            webResourceId, 
-                                            i, 
-                                            processingTreatmentWindow, 
-                                            false);
+                    webResourceId,
+                    i,
+                    processingTreatmentWindow,
+                    false);
             processResultSet.clear();
             processResultSet.addAll(processorService.process(contentList, audit.getTestList()));
             for (ProcessResult processResult : processResultSet) {
@@ -439,16 +587,16 @@ public abstract class AuditCommandImpl implements AuditCommand {
                 endProcessDate = Calendar.getInstance().getTime();
                 LOGGER.debug(
                         new StringBuilder("Processing of ")
-                            .append(processingTreatmentWindow)
-                            .append(" elements took ")
-                            .append(endProcessDate.getTime() - beginProcessDate.getTime())
-                            .append(MS_LOGGER_STR)
-                            .append("for ")
-                            .append(audit.getSubject().getURL()).toString());
+                        .append(processingTreatmentWindow)
+                        .append(" elements took ")
+                        .append(endProcessDate.getTime() - beginProcessDate.getTime())
+                        .append(MS_LOGGER_STR)
+                        .append("for ")
+                        .append(audit.getSubject().getURL()).toString());
             }
             if (LOGGER.isDebugEnabled()) {
                 for (Content content : contentList) {
-                    LOGGER.debug("Persisting result for page " +content.getURI());
+                    LOGGER.debug("Persisting result for page " + content.getURI());
                 }
             }
             processResultDataService.saveOrUpdate(processResultSet);
@@ -456,12 +604,12 @@ public abstract class AuditCommandImpl implements AuditCommand {
                 endPersistDate = Calendar.getInstance().getTime();
                 LOGGER.debug(
                         new StringBuilder("Persist processing of ")
-                            .append(processingTreatmentWindow)
-                            .append(" elements took ")
-                            .append(endPersistDate.getTime() - endProcessDate.getTime())
-                            .append(MS_LOGGER_STR)
-                            .append("for ")
-                            .append(audit.getSubject().getURL()).toString());
+                        .append(processingTreatmentWindow)
+                        .append(" elements took ")
+                        .append(endPersistDate.getTime() - endProcessDate.getTime())
+                        .append(MS_LOGGER_STR)
+                        .append("for ")
+                        .append(audit.getSubject().getURL()).toString());
                 persistenceDuration = persistenceDuration
                         + (endPersistDate.getTime() - endProcessDate.getTime());
             }
@@ -472,8 +620,8 @@ public abstract class AuditCommandImpl implements AuditCommand {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug(
                     new StringBuilder("Application spent ")
-                        .append(persistenceDuration)
-                        .append(" ms to write in Disk while processing").toString());
+                    .append(persistenceDuration)
+                    .append(" ms to write in Disk while processing").toString());
         }
 
         if (processResultDataService.getNumberOfGrossResultFromAudit(audit) > 0) {
@@ -486,7 +634,7 @@ public abstract class AuditCommandImpl implements AuditCommand {
             LOGGER.info(audit.getSubject().getURL() + " has been processed");
         }
     }
-    
+
     @Override
     public void consolidate() {
         audit = auditDataService.getAuditWithTest(audit.getId());
@@ -518,17 +666,17 @@ public abstract class AuditCommandImpl implements AuditCommand {
                 endProcessDate = Calendar.getInstance().getTime();
                 LOGGER.debug(
                         new StringBuilder(CONSOLIDATING_TOOK_LOGGER_STR)
-                            .append(endProcessDate.getTime()-beginProcessDate.getTime())
-                            .append(MS_LOGGER_STR).toString());
+                        .append(endProcessDate.getTime() - beginProcessDate.getTime())
+                        .append(MS_LOGGER_STR).toString());
             }
         } else if (audit.getSubject() instanceof Site) {
             if (contentDataService.getNumberOfSSPFromWebResource(audit.getSubject(), HttpStatus.SC_OK) > 20) {
                 List<Test> testList = new ArrayList<>();
                 for (Test test : audit.getTestList()) {
-                    if (! test.getNoProcess()) { // only consolidate if the process has been launched on the test
+                    if (!test.getNoProcess()) { // only consolidate if the process has been launched on the test
                         testList.add(test);
 
-                        Collection<ProcessResult> prList= (List<ProcessResult>) processResultDataService.
+                        Collection<ProcessResult> prList = (List<ProcessResult>) processResultDataService.
                                 getGrossResultFromAuditAndTest(audit, test);
                         consolidate(prList, testList);
                         testList.clear();
@@ -538,19 +686,19 @@ public abstract class AuditCommandImpl implements AuditCommand {
                     endProcessDate = Calendar.getInstance().getTime();
                     LOGGER.debug(
                             new StringBuilder(CONSOLIDATING_TOOK_LOGGER_STR)
-                                .append(endProcessDate.getTime()-beginProcessDate.getTime())
-                                .append(MS_LOGGER_STR).toString());
+                            .append(endProcessDate.getTime() - beginProcessDate.getTime())
+                            .append(MS_LOGGER_STR).toString());
                 }
             } else {
-                Collection<ProcessResult> prList= (List<ProcessResult>) processResultDataService.
-                            getGrossResultFromAudit(audit);
+                Collection<ProcessResult> prList = (List<ProcessResult>) processResultDataService.
+                        getGrossResultFromAudit(audit);
                 consolidate(prList, audit.getTestList());
                 if (LOGGER.isDebugEnabled()) {
                     endProcessDate = Calendar.getInstance().getTime();
                     LOGGER.debug(
                             new StringBuilder(CONSOLIDATING_TOOK_LOGGER_STR)
-                                .append(endProcessDate.getTime()-beginProcessDate.getTime())
-                                .append(MS_LOGGER_STR).toString());
+                            .append(endProcessDate.getTime() - beginProcessDate.getTime())
+                            .append(MS_LOGGER_STR).toString());
                 }
             }
         }
@@ -559,8 +707,8 @@ public abstract class AuditCommandImpl implements AuditCommand {
             endPersistDate = Calendar.getInstance().getTime();
             LOGGER.debug(
                     new StringBuilder("Persisting Consolidation of the audit took")
-                        .append(endPersistDate.getTime() - endProcessDate.getTime())
-                        .append(MS_LOGGER_STR).toString());
+                    .append(endPersistDate.getTime() - endProcessDate.getTime())
+                    .append(MS_LOGGER_STR).toString());
         }
         if (LOGGER.isInfoEnabled()) {
             LOGGER.info(audit.getSubject().getURL() + " has been consolidated");
@@ -568,9 +716,9 @@ public abstract class AuditCommandImpl implements AuditCommand {
     }
 
     /**
-     * 
+     *
      * @param prList
-     * @param testList 
+     * @param testList
      */
     private void consolidate(Collection<ProcessResult> prList, Collection<Test> testList) {
         Set<ProcessResult> processResultSet = new HashSet<>();
@@ -578,22 +726,22 @@ public abstract class AuditCommandImpl implements AuditCommand {
             if (testList.size() == 1) {
                 LOGGER.debug(
                         new StringBuilder("Consolidate ")
-                            .append(prList.size())
-                            .append(" elements for test ")
-                            .append(testList.iterator().next().getCode()).toString());
+                        .append(prList.size())
+                        .append(" elements for test ")
+                        .append(testList.iterator().next().getCode()).toString());
             } else {
                 LOGGER.debug(
                         new StringBuilder("Consolidate ")
-                            .append(prList.size())
-                            .append(" elements for ")
-                            .append(testList.size())
-                            .append(" tests ").toString());
+                        .append(prList.size())
+                        .append(" elements for ")
+                        .append(testList.size())
+                        .append(" tests ").toString());
             }
         }
         processResultSet.addAll(consolidatorService.consolidate(
                 prList,
                 testList));
-        
+
         if (!processResultSet.isEmpty()) {
             audit.setStatus(AuditStatus.ANALYSIS);
         } else {
@@ -612,9 +760,9 @@ public abstract class AuditCommandImpl implements AuditCommand {
                 if (LOGGER.isDebugEnabled()) {
                     LOGGER.debug(
                             new StringBuilder("Persisting Consolidation from ")
-                                .append(i)
-                                .append(TO_LOGGER_STR)
-                                .append(i+consolidationTreatmentWindow).toString());
+                            .append(i)
+                            .append(TO_LOGGER_STR)
+                            .append(i + consolidationTreatmentWindow).toString());
                 }
                 processResultDataService.saveOrUpdate(processResultSubset);
                 processResultSubset.clear();
@@ -635,7 +783,7 @@ public abstract class AuditCommandImpl implements AuditCommand {
                     .append(WHILE_LOGGER_STR)
                     .append(AuditStatus.ANALYSIS)
                     .append(WAS_REQUIRED_LOGGER_STR).toString());
-            return ;
+            return;
         }
         if (LOGGER.isInfoEnabled()) {
             LOGGER.info("Analysing " + audit.getSubject().getURL());
@@ -669,29 +817,29 @@ public abstract class AuditCommandImpl implements AuditCommand {
                 endPersistDate = Calendar.getInstance().getTime();
                 LOGGER.debug(
                         new StringBuilder("Persisting Analysis results of scope site ")
-                            .append(endPersistDate.getTime() - endProcessDate.getTime())
-                            .append(MS_LOGGER_STR).toString());
+                        .append(endPersistDate.getTime() - endProcessDate.getTime())
+                        .append(MS_LOGGER_STR).toString());
                 persistenceDuration = persistenceDuration
                         + (endPersistDate.getTime() - endProcessDate.getTime());
             }
 
-            Long nbOfContent =
-                    webResourceDataService.getNumberOfChildWebResource(parentWebResource);
+            Long nbOfContent
+                    = webResourceDataService.getNumberOfChildWebResource(parentWebResource);
             Long i = (long) 0;
             List<WebResource> webResourceList;
             if (LOGGER.isDebugEnabled()) {
                 LOGGER.debug(
                         new StringBuilder("Analysing ")
-                            .append(nbOfContent)
-                            .append(" elements ").toString());
+                        .append(nbOfContent)
+                        .append(" elements ").toString());
             }
             while (i.compareTo(nbOfContent) < 0) {
                 if (LOGGER.isDebugEnabled()) {
                     LOGGER.debug(
                             new StringBuilder("Analysing results of scope page from ")
-                                .append(i)
-                                .append(TO_LOGGER_STR)
-                                .append(i + analyseTreatmentWindow).toString());
+                            .append(i)
+                            .append(TO_LOGGER_STR)
+                            .append(i + analyseTreatmentWindow).toString());
                     beginProcessDate = Calendar.getInstance().getTime();
                 }
                 webResourceList = webResourceDataService.getWebResourceFromItsParent(
@@ -703,20 +851,20 @@ public abstract class AuditCommandImpl implements AuditCommand {
                         endProcessDate = Calendar.getInstance().getTime();
                         LOGGER.debug(
                                 new StringBuilder("Analysing results for page ")
-                                    .append(webResource.getURL())
-                                    .append(" took ")
-                                    .append(endProcessDate.getTime() - beginProcessDate.getTime())
-                                    .append(MS_LOGGER_STR).toString());
+                                .append(webResource.getURL())
+                                .append(" took ")
+                                .append(endProcessDate.getTime() - beginProcessDate.getTime())
+                                .append(MS_LOGGER_STR).toString());
                     }
-                    analyserService.analyse(webResource,audit);
+                    analyserService.analyse(webResource, audit);
                     if (LOGGER.isDebugEnabled()) {
                         endPersistDate = Calendar.getInstance().getTime();
                         LOGGER.debug(
                                 new StringBuilder("Persisting Analysis results for page ")
-                                    .append(webResource.getURL())
-                                    .append(" took ")
-                                    .append(endPersistDate.getTime() - endProcessDate.getTime())
-                                    .append(MS_LOGGER_STR).toString());
+                                .append(webResource.getURL())
+                                .append(" took ")
+                                .append(endPersistDate.getTime() - endProcessDate.getTime())
+                                .append(MS_LOGGER_STR).toString());
                         persistenceDuration = persistenceDuration
                                 + (endPersistDate.getTime() - endProcessDate.getTime());
                     }
@@ -739,18 +887,18 @@ public abstract class AuditCommandImpl implements AuditCommand {
             cleanUpTestData(audit);
         }
     }
-    
+
     @Override
-    public boolean sendMessageOut(String ulrPage){
+    public boolean sendMessageOut(String ulrPage) {
         if (tanaguruMsgOutService != null) {
             return tanaguruMsgOutService.send(ulrPage);
         }
         return false;
     }
-    
+
     /**
-     * 
-     * @param audit 
+     *
+     * @param audit
      */
     private void cleanUpTestData(Audit audit) {
         LOGGER.info("Cleaning-up data for " + audit.getSubject().getURL());
@@ -759,13 +907,13 @@ public abstract class AuditCommandImpl implements AuditCommand {
         Long nbOfContent = contentDataService.getNumberOfSSPFromWebResource(audit.getSubject(), HttpStatus.SC_OK);
         while (i.compareTo(nbOfContent) < 0) {
             Collection<Content> contentList = contentDataService.getSSPWithRelatedContentFromWebResource(
-                        webResourceId, 
-                        i, 
-                        processingTreatmentWindow, 
-                        true);
+                    webResourceId,
+                    i,
+                    processingTreatmentWindow,
+                    true);
             for (Content content : contentList) {
                 if (content instanceof SSP) {
-                    for (RelatedContent rc : ((SSP)content).getRelatedContentSet()) {
+                    for (RelatedContent rc : ((SSP) content).getRelatedContentSet()) {
                         contentDataService.delete(rc.getId());
                     }
                 }
@@ -780,29 +928,32 @@ public abstract class AuditCommandImpl implements AuditCommand {
         }
         LOGGER.info("Data cleaned-up for " + audit.getSubject().getURL());
     }
-    
+
     /**
      * Set a new status to the audit instance and persist it
-     * @param auditStatus 
+     *
+     * @param auditStatus
      */
     public final void setStatusToAudit(AuditStatus auditStatus) {
         audit.setStatus(auditStatus);
         audit = auditDataService.saveOrUpdate(audit);
     }
- 
+
     /**
      * Create a webResource of page type and associate it with the current audit
-     * @param url 
+     *
+     * @param url
      */
     protected void createEmptyPageResource(String url) {
         Page page = getWebResourceDataService().createPage(url);
         getAudit().setSubject(page);
         getWebResourceDataService().saveOrUpdate(page);
     }
-    
+
     /**
      * Create a webResource of site type and associate it with the current audit
-     * @param url 
+     *
+     * @param url
      */
     protected void createEmptySiteResource(String url) {
         Site site = getWebResourceDataService().createSite(url);

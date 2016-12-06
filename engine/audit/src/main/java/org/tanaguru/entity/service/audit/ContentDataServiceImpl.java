@@ -33,7 +33,7 @@ import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.sdk.entity.service.AbstractGenericDataService;
 
 /**
- * 
+ *
  * @author jkowalczyk
  */
 public class ContentDataServiceImpl extends AbstractGenericDataService<Content, Long>
@@ -55,11 +55,13 @@ public class ContentDataServiceImpl extends AbstractGenericDataService<Content, 
         return (SSP) ((ContentDAO) entityDao).find(webresource, uri);
     }
 
+   
+
     @Override
-    public Long findNumberOfSSPContentFromAudit(Audit audit){
+    public Long findNumberOfSSPContentFromAudit(Audit audit) {
         return ((ContentDAO) entityDao).findNumberOfSSPContentFromAudit(audit);
     }
-    
+
     @Override
     public boolean hasAdaptedSSP(Audit audit) {
         return ((ContentDAO) entityDao).hasAdaptedSSP(audit);
@@ -82,9 +84,9 @@ public class ContentDataServiceImpl extends AbstractGenericDataService<Content, 
             int start,
             int chunkSize) {
         return ((ContentDAO) entityDao).findOrphanContentList(
-                    webResource,
-                    start,
-                    chunkSize);
+                webResource,
+                start,
+                chunkSize);
     }
 
     @Override
@@ -99,9 +101,9 @@ public class ContentDataServiceImpl extends AbstractGenericDataService<Content, 
             int start,
             int chunkSize) {
         return ((ContentDAO) entityDao).findOrphanRelatedContentList(
-                    webResource,
-                    start,
-                    chunkSize);
+                webResource,
+                start,
+                chunkSize);
     }
 
     @Override
@@ -121,7 +123,7 @@ public class ContentDataServiceImpl extends AbstractGenericDataService<Content, 
     }
 
     @Override
-    public void saveAuditToContent(Long idContent, Long idAudit ) {
+    public void saveAuditToContent(Long idContent, Long idAudit) {
         ((ContentDAO) entityDao).saveAuditToContent(idContent, idAudit);
     }
 
@@ -148,7 +150,7 @@ public class ContentDataServiceImpl extends AbstractGenericDataService<Content, 
                 start,
                 chunkSize);
     }
-    
+
     @Override
     public Content readWithRelatedContent(Long id, boolean isFetchParameters) {
         return ((ContentDAO) entityDao).readWithRelatedContent(id, isFetchParameters);
@@ -168,7 +170,7 @@ public class ContentDataServiceImpl extends AbstractGenericDataService<Content, 
     public void deleteContentRelationShip(Long relatedContentId) {
         ((ContentDAO) entityDao).deleteContentRelationShip(relatedContentId);
     }
-    
+
     @Override
     public void deleteRelatedContentFromContent(Content content) {
         ((ContentDAO) entityDao).deleteRelatedContentFromContent(content);
@@ -176,49 +178,49 @@ public class ContentDataServiceImpl extends AbstractGenericDataService<Content, 
 
     @Override
     public Collection<Content> getSSPFromWebResource(
-            Long webResourceId, 
-            Long startValue, 
+            Long webResourceId,
+            Long startValue,
             int windowSize,
             boolean acceptContentWithNullDom) {
-        return getContentList(webResourceId, startValue, windowSize, false,acceptContentWithNullDom);
+        return getContentList(webResourceId, startValue, windowSize, false, acceptContentWithNullDom);
     }
-    
+
     @Override
     public Collection<Content> getSSPWithRelatedContentFromWebResource(
-            Long webResourceId, 
-            Long startValue, 
+            Long webResourceId,
+            Long startValue,
             int windowSize,
             boolean acceptContentWithNullDom) {
-        return getContentList(webResourceId, startValue, windowSize, true,acceptContentWithNullDom);
+        return getContentList(webResourceId, startValue, windowSize, true, acceptContentWithNullDom);
     }
-    
+
     /**
-     * 
+     *
      * @param webResourceId
      * @param startValue
      * @param windowSize
      * @param beginProcessDate
      * @param getContentWithRelatedContent
      * @param getContentWithNullDom
-     * @return 
+     * @return
      */
     private List<Content> getContentList(
-            Long webResourceId, 
-            Long startValue, 
+            Long webResourceId,
+            Long startValue,
             int windowSize,
-            boolean getContentWithRelatedContent, 
+            boolean getContentWithRelatedContent,
             boolean getContentWithNullDom) {
 
         Date beginProcessDate = Calendar.getInstance().getTime();
         List<Content> contentList = new ArrayList<>();
-        
+
         // First we retrieve a list of Ids
         Collection<Long> contentIdList = this.getSSPIdsFromWebResource(
-                                webResourceId,
-                                HttpStatus.SC_OK,
-                                startValue.intValue(),
-                                windowSize);
-        
+                webResourceId,
+                HttpStatus.SC_OK,
+                startValue.intValue(),
+                windowSize);
+
         // we retrieve each content from its ID and add it to the contentList 
         // that will be returned
         for (Long id : contentIdList) {
@@ -228,15 +230,15 @@ public class ContentDataServiceImpl extends AbstractGenericDataService<Content, 
             } else {
                 content = this.read(id);
             }
-            if (content != null && 
-                    ( getContentWithNullDom || 
-                        (!getContentWithNullDom 
-                            && content instanceof SSP 
-                            && StringUtils.isNotEmpty(((SSP)content).getDOM())))) {
+            if (content != null
+                    && (getContentWithNullDom
+                    || (!getContentWithNullDom
+                    && content instanceof SSP
+                    && StringUtils.isNotEmpty(((SSP) content).getDOM())))) {
                 contentList.add(content);
             }
         }
-        
+
         if (LOGGER.isDebugEnabled()) {
             long length = 0;
             int nbOfResources = 0;
@@ -249,12 +251,12 @@ public class ContentDataServiceImpl extends AbstractGenericDataService<Content, 
                 }
             }
             StringBuilder debugMessage = new StringBuilder("Retrieving  ")
-                        .append(contentList.size())
-                        .append(" SSP took ")
-                        .append(Calendar.getInstance().getTime().getTime() - beginProcessDate.getTime())
-                        .append(" ms and working on ")
-                        .append(length)
-                        .append(" characters");
+                    .append(contentList.size())
+                    .append(" SSP took ")
+                    .append(Calendar.getInstance().getTime().getTime() - beginProcessDate.getTime())
+                    .append(" ms and working on ")
+                    .append(length)
+                    .append(" characters");
             if (getContentWithRelatedContent) {
                 debugMessage.append(" and ");
                 debugMessage.append(nbOfResources);
@@ -286,7 +288,7 @@ public class ContentDataServiceImpl extends AbstractGenericDataService<Content, 
         saveOrUpdate(ssp);
         return ssp;
     }
-    
+
     @Override
     public SSP getSSP(Date dateOfLoading, String uri, int httpStatusCode) {
         return ((ContentFactory) entityFactory).createSSP(dateOfLoading, uri, httpStatusCode);
@@ -296,12 +298,12 @@ public class ContentDataServiceImpl extends AbstractGenericDataService<Content, 
     public SSP getSSP(Date dateOfLoading, String uri, String sourceCode, Page page, int httpStatusCode) {
         return ((ContentFactory) entityFactory).createSSP(dateOfLoading, uri, sourceCode, page, httpStatusCode);
     }
-    
+
     @Override
     public SSP getSSP(Date dateOfLoading, String uri, String sourceCode, Audit audit, Page page, int httpStatusCode) {
         SSP ssp = ((ContentFactory) entityFactory).createSSP(dateOfLoading, uri, sourceCode, page, httpStatusCode);
         ssp.setAudit(audit);
-        ssp = (SSP)saveOrUpdate(ssp);
+        ssp = (SSP) saveOrUpdate(ssp);
         return ssp;
     }
 
@@ -349,5 +351,5 @@ public class ContentDataServiceImpl extends AbstractGenericDataService<Content, 
     public RelatedContent getRelatedContent(String uri, SSP ssp) {
         return ((ContentFactory) entityFactory).createRelatedContent(uri, ssp);
     }
-    
+
 }

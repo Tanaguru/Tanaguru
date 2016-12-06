@@ -73,6 +73,20 @@ public abstract class CrawlAuditCommandImpl extends AuditCommandImpl {
         super(paramSet, auditDataService);
     }
     
+     /**
+     * 
+     * @param paramSet
+     * @param auditDataService
+     * @param w3cValidatorPath
+     */
+    public CrawlAuditCommandImpl(
+            Set<Parameter> paramSet,
+            AuditDataService auditDataService,
+            String w3cValidatorPath,
+            String java8Path) {
+        super(paramSet, auditDataService, w3cValidatorPath, java8Path);
+    }
+    
     @Override
     public void init() {
         if (HttpRequestHandler.getInstance().isUrlAccessible(url)) {

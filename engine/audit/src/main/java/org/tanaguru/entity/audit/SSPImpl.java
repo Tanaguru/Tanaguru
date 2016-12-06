@@ -32,7 +32,7 @@ import org.tanaguru.entity.subject.Page;
 import org.tanaguru.entity.subject.PageImpl;
 
 /**
- * 
+ *
  * @author jkowalczyk
  */
 @Entity
@@ -40,14 +40,14 @@ import org.tanaguru.entity.subject.PageImpl;
 public class SSPImpl extends ContentImpl implements SSP, Serializable {
 
     private static final long serialVersionUID = -7889349852989199094L;
-    @Column(name = "Adapted_Content", length=167772150)
+    @Column(name = "Adapted_Content", length = 167772150)
     private String dom;
 
     @ManyToOne
     @JoinColumn(name = "Id_Page")
     private PageImpl page;
 
-    @Column(name = "Source", length=167772150)
+    @Column(name = "Source", length = 167772150)
     private String source;
 
     @Column(name = "Doctype", length = 512)
@@ -56,11 +56,14 @@ public class SSPImpl extends ContentImpl implements SSP, Serializable {
     @Column(name = "Charset")
     private String charset;
 
+    @Column(name = "W3c", length = 167772150)
+    private String w3c;
+
     @ManyToMany
     @org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.PERSIST, org.hibernate.annotations.CascadeType.SAVE_UPDATE})
-    @JoinTable(name = "CONTENT_RELATIONSHIP", joinColumns =
-    @JoinColumn(name = "Id_Content_Parent"), inverseJoinColumns =
-    @JoinColumn(name = "Id_Content_Child"))
+    @JoinTable(name = "CONTENT_RELATIONSHIP", joinColumns
+            = @JoinColumn(name = "Id_Content_Parent"), inverseJoinColumns
+            = @JoinColumn(name = "Id_Content_Child"))
     private Set<RelatedContentImpl> relatedContentSet;
 
     public SSPImpl() {
@@ -90,7 +93,7 @@ public class SSPImpl extends ContentImpl implements SSP, Serializable {
         super(dateOfLoading, uri, httpStatusCode);
     }
 
-    public SSPImpl(Date dateOfLoading, 
+    public SSPImpl(Date dateOfLoading,
             String uri,
             String sourceCode,
             Page page,
@@ -119,7 +122,7 @@ public class SSPImpl extends ContentImpl implements SSP, Serializable {
 
     @Override
     public void setPage(Page page) {
-            this.page = (PageImpl) page;
+        this.page = (PageImpl) page;
     }
 
     @Override
@@ -142,7 +145,7 @@ public class SSPImpl extends ContentImpl implements SSP, Serializable {
         if (relatedContentSet == null) {
             relatedContentSet = new HashSet<>();
         }
-        return (Collection)relatedContentSet;
+        return (Collection) relatedContentSet;
     }
 
     @Override
@@ -152,7 +155,7 @@ public class SSPImpl extends ContentImpl implements SSP, Serializable {
         }
         for (RelatedContent content : contentList) {
             if (content instanceof RelatedContentImpl) {
-                addRelatedContent((RelatedContentImpl)content);
+                addRelatedContent((RelatedContentImpl) content);
             }
         }
     }
@@ -193,6 +196,16 @@ public class SSPImpl extends ContentImpl implements SSP, Serializable {
     @Override
     public void setDoctype(String doctype) {
         this.doctype = doctype;
+    }
+
+    @Override
+    public String getW3c() {
+        return w3c;
+    }
+
+    @Override
+    public void setW3c(String w3c) {
+        this.w3c = w3c;
     }
 
 }

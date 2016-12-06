@@ -91,6 +91,21 @@ public abstract class AbstractScenarioAuditCommandImpl extends AuditCommandImpl 
                 AuditDataService auditDataService) {
         super(paramSet, auditDataService);
     }
+    
+     /**
+     * 
+     * @param paramSet
+     * @param auditDataService 
+     * @param w3cValidatorPath 
+     * @param java8Path
+     */
+    public AbstractScenarioAuditCommandImpl(
+                Set<Parameter> paramSet,
+                AuditDataService auditDataService,
+                String w3cValidatorPath,
+                String java8Path) {
+        super(paramSet, auditDataService, w3cValidatorPath, java8Path);
+    }
 
     @Override
     public void init() {

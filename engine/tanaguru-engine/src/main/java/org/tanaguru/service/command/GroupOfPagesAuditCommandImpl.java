@@ -61,4 +61,33 @@ public class GroupOfPagesAuditCommandImpl extends AbstractScenarioAuditCommandIm
         setIsPage(false);
     }
     
+     /**
+     * 
+     * @param siteUrl
+     * @param pageUrlList
+     * @param paramSet
+     * @param auditDataService 
+     * @param w3cValidatorPath
+     * @param java8Path
+     */
+    public GroupOfPagesAuditCommandImpl(
+                String siteUrl, 
+                List<String> pageUrlList,
+                Set<Parameter> paramSet,
+                AuditDataService auditDataService,
+                String w3cValidatorPath,
+                String java8Path) {
+        
+        super(paramSet,auditDataService, w3cValidatorPath, java8Path);
+
+        List<String> localUrlList = new ArrayList<String>();
+        for (String url : pageUrlList) {
+            localUrlList.add(FileNaming.addProtocolToUrl(url));
+        }
+
+        setScenario(ScenarioBuilder.buildScenario(localUrlList));
+        setScenarioName(siteUrl);
+        setIsPage(false);
+    }
+    
 }

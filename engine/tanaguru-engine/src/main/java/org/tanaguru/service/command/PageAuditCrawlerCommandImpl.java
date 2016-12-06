@@ -52,6 +52,23 @@ public class PageAuditCrawlerCommandImpl extends CrawlAuditCommandImpl {
         super(paramSet, auditDataService);
         setUrl(FileNaming.addProtocolToUrl(pageUrl));
     }
+     /**
+     * 
+     * @param pageUrl
+     * @param paramSet
+     * @param auditDataService 
+     * @param w3cValidatorPath 
+     * @param java8Path
+     */
+     public PageAuditCrawlerCommandImpl(
+                String pageUrl,
+                Set<Parameter> paramSet,
+                AuditDataService auditDataService,
+                String w3cValidatorPath,
+                String java8Path) {
+        super(paramSet, auditDataService, w3cValidatorPath, java8Path);
+        setUrl(FileNaming.addProtocolToUrl(pageUrl));
+    }
     
     @Override
     public void callCrawlerService() {

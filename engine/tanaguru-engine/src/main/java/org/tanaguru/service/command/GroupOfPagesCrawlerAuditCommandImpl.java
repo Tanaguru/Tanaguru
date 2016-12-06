@@ -61,6 +61,32 @@ public class GroupOfPagesCrawlerAuditCommandImpl extends CrawlAuditCommandImpl {
         }
     }
     
+    
+    /**
+     * 
+     * @param siteUrl
+     * @param pageUrlList
+     * @param paramSet
+     * @param auditDataService 
+     * @param w3cValidatorPath
+     * @param java8Path
+     */
+    public GroupOfPagesCrawlerAuditCommandImpl(
+            String siteUrl, 
+            List<String> pageUrlList,
+            Set<Parameter> paramSet,
+            AuditDataService auditDataService,
+            String w3cValidatorPath,
+            String java8Path) {
+        
+        super(paramSet, auditDataService, w3cValidatorPath, java8Path);
+
+        setUrl(siteUrl);
+        for (String url : pageUrlList) {
+            this.pageUrlList.add(FileNaming.addProtocolToUrl(url));
+        }
+    }
+    
     @Override
     public void callCrawlerService() {
         getCrawlerService().crawlGroupOfPages(getAudit(), getUrl(), pageUrlList);
