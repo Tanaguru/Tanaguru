@@ -36,17 +36,17 @@ import org.tanaguru.entity.statistics.WebResourceStatistics;
  * @author jkowalczyk
  */
 public class AnalyserImplTest extends TestCase {
-    
+
     public AnalyserImplTest(String testName) {
         super(testName);
     }
 
     public void testComputeMark() {
         WebResourceStatisticsFactory webResourceStatisticsFactory = new WebResourceStatisticsFactoryImpl();
-        WebResourceStatisticsDataService webResourceStatisticsDataService =
-                new WebResourceStatisticsDataServiceImpl();
+        WebResourceStatisticsDataService webResourceStatisticsDataService
+                = new WebResourceStatisticsDataServiceImpl();
         webResourceStatisticsDataService.setEntityFactory(webResourceStatisticsFactory);
-        AnalyserImpl analyser = new AnalyserImpl(null, null, null, webResourceStatisticsDataService, null, null, null, new ArrayList<Parameter>(),1);
+        AnalyserImpl analyser = new AnalyserImpl(null, null, null, webResourceStatisticsDataService, null, null, null, null, null, null, new ArrayList<Parameter>(), 1);
 
         WebResourceStatistics wrStats = analyser.getWebResourceStatisticsDataService().create();
         wrStats.setNbOfPassed(89330);
@@ -60,12 +60,12 @@ public class AnalyserImplTest extends TestCase {
     }
 
     public void testComputeRawMark() {
-        WebResourceStatisticsFactory webResourceStatisticsFactory =
-                new WebResourceStatisticsFactoryImpl();
-        WebResourceStatisticsDataService webResourceStatisticsDataService =
-                new WebResourceStatisticsDataServiceImpl();
+        WebResourceStatisticsFactory webResourceStatisticsFactory
+                = new WebResourceStatisticsFactoryImpl();
+        WebResourceStatisticsDataService webResourceStatisticsDataService
+                = new WebResourceStatisticsDataServiceImpl();
         webResourceStatisticsDataService.setEntityFactory(webResourceStatisticsFactory);
-        AnalyserImpl analyser = new AnalyserImpl(null, null,  null, webResourceStatisticsDataService, null,  null, null, new ArrayList<Parameter>(),1);
+        AnalyserImpl analyser = new AnalyserImpl(null, null, null, webResourceStatisticsDataService, null, null, null, null, null, null, new ArrayList<Parameter>(), 1);
 
         WebResourceStatistics wrStats = analyser.getWebResourceStatisticsDataService().create();
         wrStats.setNbOfPassed(0);
@@ -76,14 +76,13 @@ public class AnalyserImplTest extends TestCase {
         wrStats.setWeightedNmi(BigDecimal.valueOf(Double.valueOf("21.1")));
         wrStats.setWeightedNa(BigDecimal.valueOf(Double.valueOf("114.2")));
         assertEquals(Double.valueOf(0).floatValue(), analyser.computeRawMark(wrStats).getRawMark());
-        
+
 //        wrStats.setWeightedPassed(BigDecimal.valueOf(Double.valueOf("44.0")));
 //        assertEquals(Double.valueOf(100).floatValue(), analyser.computeRawMark(wrStats).getRawMark().floatValue());
-        
 //        wrStats.setWeightedPassed(BigDecimal.valueOf(Double.valueOf("0")));
         wrStats.setWeightedFailed(BigDecimal.valueOf(Double.valueOf("44.0")));
         assertEquals(Double.valueOf(0).floatValue(), analyser.computeRawMark(wrStats).getRawMark());
-        
+
         wrStats.setNbOfPassed(45);
         wrStats.setNbOfFailed(84541);
         wrStats.setNbOfNmi(97541);

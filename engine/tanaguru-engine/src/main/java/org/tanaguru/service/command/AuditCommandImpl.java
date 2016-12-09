@@ -432,12 +432,12 @@ public abstract class AuditCommandImpl implements AuditCommand {
 
     public String w3cValidator(String auditUrl) {
 
-        if (auditUrl.contains("fille://")) {
+        if (auditUrl.contains("fille://") || w3cValidatorPath == null || java8Path == null) {
             return "";
         }
 
         String java8FullPath;
-        if (java8Path.isEmpty()) {
+        if (java8Path == null || java8Path.isEmpty()) {
             java8FullPath = "java";
         } else {
             java8FullPath = java8Path + "/bin/java";
