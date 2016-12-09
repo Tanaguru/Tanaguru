@@ -55,13 +55,13 @@ public class AuditCommandImplTest extends AuditCommandTestCase {
     public AuditCommandImplTest(String testName) {
         super(testName);
     }
-    
+
     @Override
     protected void setUp() throws Exception {
         super.setUp();
         mockConstructorCalls();
     }
-    
+
     @Override
     protected void tearDown() throws Exception {
         super.tearDown();
@@ -72,9 +72,9 @@ public class AuditCommandImplTest extends AuditCommandTestCase {
      */
     public void testSetGetAudit() {
         System.out.println("getAudit");
-        
+
         mockInitialisationCalls(true, null);
-        
+
         AuditCommandImpl instance = new TestAuditCommandImpl();
 
         instance.setAudit(mockAudit);
@@ -86,14 +86,14 @@ public class AuditCommandImplTest extends AuditCommandTestCase {
      */
     public void testGetAuditDataService() {
         System.out.println("getAuditDataService");
-        
+
         mockInitialisationCalls(true, null);
-        
+
         AuditCommandImpl instance = new TestAuditCommandImpl();
-        
+
         AuditDataService result = instance.getAuditDataService();
         assertEquals(mockAuditDataService, result);
-        
+
         setVerifyMode();
     }
 
@@ -102,14 +102,14 @@ public class AuditCommandImplTest extends AuditCommandTestCase {
      */
     public void testGetTestDataService() {
         System.out.println("getTestDataService");
-        
+
         mockInitialisationCalls(true, null);
-        
+
         AuditCommandImpl instance = new TestAuditCommandImpl();
-        
+
         TestDataService result = instance.getTestDataService();
         assertEquals(mockTestDataService, result);
-        
+
         setVerifyMode();
     }
 
@@ -118,14 +118,14 @@ public class AuditCommandImplTest extends AuditCommandTestCase {
      */
     public void testGetParameterDataService() {
         System.out.println("getParameterDataService");
-        
+
         mockInitialisationCalls(true, null);
-        
+
         AuditCommandImpl instance = new TestAuditCommandImpl();
 
         ParameterDataService result = instance.getParameterDataService();
         assertEquals(mockParameterDataService, result);
-        
+
         setVerifyMode();
     }
 
@@ -134,14 +134,14 @@ public class AuditCommandImplTest extends AuditCommandTestCase {
      */
     public void testGetWebResourceDataService() {
         System.out.println("getWebResourceDataService");
-        
+
         mockInitialisationCalls(true, null);
-        
+
         AuditCommandImpl instance = new TestAuditCommandImpl();
 
         WebResourceDataService result = instance.getWebResourceDataService();
         assertEquals(mockWebResourceDataService, result);
-        
+
         setVerifyMode();
     }
 
@@ -150,14 +150,14 @@ public class AuditCommandImplTest extends AuditCommandTestCase {
      */
     public void testGetContentDataService() {
         System.out.println("getContentDataService");
-        
+
         mockInitialisationCalls(true, null);
-        
+
         AuditCommandImpl instance = new TestAuditCommandImpl();
 
         ContentDataService result = instance.getContentDataService();
         assertEquals(mockContentDataService, result);
-        
+
         setVerifyMode();
     }
 
@@ -166,14 +166,14 @@ public class AuditCommandImplTest extends AuditCommandTestCase {
      */
     public void testGetProcessResultDataService() {
         System.out.println("getProcessResultDataService");
-        
+
         mockInitialisationCalls(true, null);
-        
+
         AuditCommandImpl instance = new TestAuditCommandImpl();
 
         ProcessResultDataService result = instance.getProcessResultDataService();
         assertEquals(mockProcessResultDataService, result);
-        
+
         setVerifyMode();
     }
 
@@ -182,14 +182,14 @@ public class AuditCommandImplTest extends AuditCommandTestCase {
      */
     public void testGetContentAdapterService() {
         System.out.println("getContentAdapterService");
-        
+
         mockInitialisationCalls(true, null);
-        
+
         AuditCommandImpl instance = new TestAuditCommandImpl();
 
         ContentAdapterService result = instance.getContentAdapterService();
         assertEquals(mockContentAdapterService, result);
-        
+
         setVerifyMode();
     }
 
@@ -198,14 +198,14 @@ public class AuditCommandImplTest extends AuditCommandTestCase {
      */
     public void testGetProcessorService() {
         System.out.println("getProcessorService");
-        
+
         mockInitialisationCalls(true, null);
-        
+
         AuditCommandImpl instance = new TestAuditCommandImpl();
 
         ProcessorService result = instance.getProcessorService();
         assertEquals(mockProcessorService, result);
-        
+
         setVerifyMode();
     }
 
@@ -214,14 +214,14 @@ public class AuditCommandImplTest extends AuditCommandTestCase {
      */
     public void testGetConsolidatorService() {
         System.out.println("getConsolidatorService");
-        
+
         mockInitialisationCalls(true, null);
-        
+
         AuditCommandImpl instance = new TestAuditCommandImpl();
 
         ConsolidatorService result = instance.getConsolidatorService();
         assertEquals(mockConsolidatorService, result);
-        
+
         setVerifyMode();
     }
 
@@ -230,14 +230,14 @@ public class AuditCommandImplTest extends AuditCommandTestCase {
      */
     public void testGetAnalyserService() {
         System.out.println("getAnalyserService");
-        
+
         mockInitialisationCalls(true, null);
 
         AuditCommandImpl instance = new TestAuditCommandImpl();
 
         AnalyserService result = instance.getAnalyserService();
         assertEquals(mockAnalyserService, result);
-        
+
         setVerifyMode();
     }
 
@@ -246,14 +246,14 @@ public class AuditCommandImplTest extends AuditCommandTestCase {
      */
     public void testGetAdaptationListener() {
         System.out.println("getAdaptationListener");
-        
+
         mockInitialisationCalls(true, null);
-        
+
         AuditCommandImpl instance = new TestAuditCommandImpl();
 
         AdaptationListener result = instance.getAdaptationListener();
         assertEquals(mockAdaptationListener, result);
-        
+
         setVerifyMode();
     }
 
@@ -262,67 +262,71 @@ public class AuditCommandImplTest extends AuditCommandTestCase {
      */
     public void testAdaptContent() {
         System.out.println("adaptContent");
-        
+
         mockInitialisationCalls(false, null);
 
         WebResource mockWr = createMock(WebResource.class);
-        
+
         expect(mockAudit.getId()).andReturn(Long.valueOf(1)).once();
         expect(mockAuditDataService.read(Long.valueOf(1))).andReturn(mockAudit).once();
         expect(mockAudit.getStatus()).andReturn(AuditStatus.CONTENT_ADAPTING).once();
         expect(mockAudit.getSubject()).andReturn(mockWr).anyTimes();
         expect(mockWr.getURL()).andReturn("").anyTimes();
         expect(mockWr.getId()).andReturn(Long.valueOf(1)).once();
-        
+
         expect(mockContentDataService.getNumberOfSSPFromWebResource(
-                mockWr, 
+                mockWr,
                 HttpStatus.SC_OK)).andReturn(Long.valueOf(49)).once();
-        
+
         expect(mockContentDataService.getSSPFromWebResource(
-                Long.valueOf(1), 
-                Long.valueOf(0), 
+                Long.valueOf(1),
+                Long.valueOf(0),
                 25,
                 true)).andReturn(new ArrayList<Content>()).once();
-        
+
         expect(mockContentDataService.getSSPFromWebResource(
-                Long.valueOf(1), 
-                Long.valueOf(25), 
+                Long.valueOf(1),
+                Long.valueOf(25),
                 25,
                 true)).andReturn(new ArrayList<Content>()).once();
-        
+
         // the adaptContent must return at least one non empty SSP
         SSP mockSSP = createMock(SSP.class);
         expect(mockSSP.getDOM()).andReturn("Not Empty String").times(3);
         expect(mockSSP.getSource()).andReturn("Not Empty String").times(2);
+        expect(mockSSP.getURI()).andReturn("").anyTimes();
+        //expect(mockSSP.setW3c("")).anyTimes();
         try {
             mockSSP.setSource(MD5Encoder.MD5("Not Empty String"));
+            expectLastCall().times(2);
+            mockSSP.setW3c("");
             expectLastCall().times(2);
         } catch (NoSuchAlgorithmException | UnsupportedEncodingException ex) {
             Logger.getLogger(this.getClass()).error(ex);
         }
         List<Content> mockAdaptedContentList = new ArrayList<>();
         mockAdaptedContentList.add(mockSSP);
-        
+
         expect(mockContentAdapterService.adaptContent(new ArrayList<Content>())).
                 andReturn(mockAdaptedContentList).times(2);
-        
+
         expect(mockContentDataService.saveOrUpdate(mockSSP)).
                 andReturn(mockSSP).times(2);
-        
+
         mockAudit.setStatus(AuditStatus.PROCESSING);
         expectLastCall().once();
-        
+
         expect(mockAuditDataService.saveOrUpdate(mockAudit)).andReturn(mockAudit).once();
-        
+
         replay(mockWr);
         replay(mockContentDataService);
         replay(mockContentAdapterService);
         replay(mockSSP);
-        
+
         setReplayMode();
-        
+
         AuditCommandImpl instance = new TestAuditCommandImpl();
-        
+
         instance.adaptContent();
 
         verify(mockContentDataService);
@@ -379,12 +383,12 @@ public class AuditCommandImplTest extends AuditCommandTestCase {
 
     @Override
     protected void setReplayModeOfLocalMocks() {
-        
+
     }
 
     @Override
     protected void setVerifyModeOfLocalMocks() {
-        
+
     }
 
     public class TestAuditCommandImpl extends AuditCommandImpl {
@@ -413,7 +417,6 @@ public class AuditCommandImplTest extends AuditCommandTestCase {
 //        public void init() {
 //            throw new UnsupportedOperationException("Not supported yet.");
 //        }
-
         @Override
         public void loadContent() {
             throw new UnsupportedOperationException("Not supported yet.");
