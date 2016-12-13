@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.tanaguru</groupId>
         <artifactId>tanaguru</artifactId>
-        <version>3.5.0-SNAPSHOT</version>
+        <version>4.0.0</version>
     </parent>
     <artifactId>rules</artifactId>
     <packaging>pom</packaging>
@@ -25,8 +25,8 @@
     <modules>
         <module>rules-commons</module>
         <module>accessiweb2.2</module>
-        <module>rgaa2.2</module>
-        <module>rgaa3.0</module>
+        <module>rgaa2.2</module> 
+        <module>rgaa3.0</module> 
         <module>rgaa3-2016</module>
         <module>rules-creation-demo</module>
         <module>rules-resources</module>
