@@ -1,4 +1,62 @@
 --------------------------
+Tanaguru 3.5.0, 2016-08-10
+--------------------------
+
+Features :
+
+- Implemtation of the new referential RGAA3 2016
+- Add JSON support for Kafka connector
+
+--------------------------
+Tanaguru 3.4.1, 2016-06-24
+--------------------------
+
+Features :
+
+- Implemtation of kafka connector
+- Add rule implementation: 10.5.10
+- Add rule implementation: 10.4.1
+- Fix parameter ration when accessing to Contrast-Finder
+- Fix rule rgaa30:  10.9.1
+- Fix rule rgaa30: 11.1.3
+- Add mecanisme to handel the alternate justify text
+- Change contract order sorting
+- Fix firefoxe SecurityError. 
+- New logo
+- Change user agent name of the crawler
+- Implementation of Rgaa3 rules (180 rules)
+
+--------------------------
+Tanaguru 3.3.0, 2016-04-11
+--------------------------
+
+Features :
+
+- RGAA 3.0 english translation
+- Fix build failing on windows context
+- Parametrization of tanaguru rgaa3.0 Urls target in tanaguru.conf file
+- Fix accessibility tanaguru UI
+- Fix rule : 010204
+- Add rule implementation: 04.1.3
+- Add rule implementation: 04.1.2
+- Add rule implementation: 04.1.1 
+
+--------------------------
+Tanaguru 3.2.0, 2016-03-14
+--------------------------
+
+Features :
+
+- Add control of the number of page to audit, in AUDIT PAGE SCOOP
+- Admin: add column for user profil information (user / admin)
+- Add sorter table for admin console
+- Enable or disable domain restriction on contract
+- Fix filter on manual audit
+- Add synthesis for an audit group of pages
+- Upgrade commons Validator 1.4.0 to 1.5.0
+- Add rule implementation 11.02.03
+- Fix rule 11.02.03 and add implementation of rule 11.02.04
+--------------------------
 Tanaguru 3.1.0, 2015-07-02
 --------------------------
 

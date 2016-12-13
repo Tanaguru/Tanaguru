@@ -61,6 +61,7 @@
          <dependency>
              <groupId>org.tanaguru</groupId>
              <artifactId>tanaguru-kafka</artifactId>
+
          </dependency>
         <dependency>
             <groupId>${engineGroupId}</groupId>
@@ -123,7 +124,7 @@
         <dependency>
             <groupId>${rulesGroupId}</groupId>
             <artifactId>tanaguru-rgaa3-2016</artifactId>
-            <version>1.7.0-SNAPSHOT</version>
+            <version>1.7.0</version>
         </dependency>
        
         
