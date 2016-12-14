@@ -1,4 +1,13 @@
 --------------------------
+Tanaguru 4.0.0, 2016-12-14
+--------------------------
+
+Features :
+
+- Integration of W3C Validator to Tanaguru
+- Improvement of json results
+
+--------------------------
 Tanaguru 3.5.0, 2016-08-10
 --------------------------
 
