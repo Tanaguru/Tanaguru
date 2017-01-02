@@ -444,7 +444,11 @@ public class AuditPageConsumed implements AuditServiceListener {
                         StringBuilder snippet = new StringBuilder("");
                         if (((SourceCodeRemark) processRemark).getSnippet() != null) {
                             String snippetDirty = ((SourceCodeRemark) processRemark).getSnippet();
-                            snippet.append(StringEscapeUtils.unescapeHtml4(snippetDirty.replace("\t", "")));
+                            if (htmlTags) {
+                                snippet.append(StringEscapeUtils.unescapeHtml4(StringEscapeUtils.unescapeHtml4(snippetDirty.replace("\t", ""))));
+                            } else {
+                                snippet.append(snippetDirty.replace("\t", ""));
+                            }
                         }
                         remarkObject.put("snippet", snippet);
                     } else {
