@@ -61,7 +61,6 @@
          <dependency>
              <groupId>org.tanaguru</groupId>
              <artifactId>tanaguru-kafka</artifactId>
-
          </dependency>
         <dependency>
             <groupId>${engineGroupId}</groupId>

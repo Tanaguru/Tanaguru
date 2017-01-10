@@ -42,7 +42,9 @@ The period is expressed in seconds and the format is \"nb_of_acts/period\"', b'1
 (12, 'DOMAIN_ACT_LIMITATION', 'The number of authorized acts of domain scope', b'1', 2),
 (13, 'UPLOAD_ACT_LIMITATION', 'The number of authorized acts of upload scope', b'1', 2),
 (14, 'SCENARIO_ACT_LIMITATION', 'The number of authorized acts of scenario scope', b'1', 2),
-(15, 'PRESET_CONTRACT', 'A preset contract', b'0', 4);
+(15, 'PRESET_CONTRACT', 'A preset contract', b'0', 4),
+(16,'MAX_PAGES_AUDIT_CONTROL', 'The max pages of audit in pages scope', b'1', 4),
+(17,'IS_DOMAINE_RESTRICTED_CONTRACT', 'Is the domaine restricted on domaine URL', b'1', 2);
 
 INSERT IGNORE INTO `TGSI_OPTION_ELEMENT` (`Id_Option_Element`,`OPTION_Id_Option`, `Value`) VALUES
 (1, 1, '5'),
