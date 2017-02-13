@@ -45,7 +45,7 @@
         <tanaguruCliVersion>4.0.2-SNAPSHOT</tanaguruCliVersion>
         
         <rulesGroupId>org.tanaguru</rulesGroupId>
-        <rulesVersion>1.7.0</rulesVersion>
+        <rulesVersion>1.8.0-SNAPSHOT</rulesVersion>
         
         <springGroupId>org.springframework</springGroupId>
         <springVersion>3.1.2.RELEASE</springVersion>
