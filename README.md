@@ -58,7 +58,7 @@ As of June 2016, this represents [~180 accessibility tests](http://rgaa.tanaguru
 * email to `support dot tanaguru AT oceaneconsulting dot com` (only English, French and klingon is spoken :) ) 
 * [Twitter @TanaguruApp](https://twitter.com/tanaguruapp)
 
-## Content of this last version (Tanaguru 3.4.1, 2016-06-24)
+## Content of this last version (Tanaguru 4.0.3, 2017-02-20)
 
 Features :
 
