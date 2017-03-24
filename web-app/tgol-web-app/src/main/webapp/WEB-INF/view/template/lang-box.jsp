@@ -12,16 +12,7 @@
 <c:set var="properQueryString" scope="page" value="${fn:replace(pageContext.request.queryString, '&', '&amp;')}"/>
 <c:choose>
     <c:when test="${not empty pageContext.request.queryString}">
-        <c:choose>
-            <c:when test="${fn:contains(pageContext.request.queryString, 'lang=de')}">
-                <c:set var="deUrl" scope="request" value="?${properQueryString}"/>
-                <c:set var="enUrl" scope="request" value="?${fn:replace(properQueryString, 
-                    'lang=fr', 'lang=en')}" />
-                <c:set var="frUrl" scope="request" value="?${fn:replace(properQueryString, 
-                    'lang=en', 'lang=fr')}" />
-                <c:set var="esUrl" scope="request" value="?${fn:replace(properQueryString, 
-                    'lang=en', 'lang=es')}" />
-            </c:when>
+        <c:choose>         
             <c:when test="${fn:contains(pageContext.request.queryString, 'lang=de')}">
                 <c:set var="deUrl" scope="request" value="?${properQueryString}"/>
                 <c:set var="frUrl" scope="request" value="?${fn:replace(properQueryString, 
