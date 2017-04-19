@@ -122,15 +122,20 @@ public final class CssLikeQueryStore {
     // multimedia
     public static final String AUDIO_FILE_EXTENSION
             = "WAV|CDA|MID|MP2|MP3|mp3PRO|MOD|RM|RAM|WMA|Ogg|AIF|AIFF|AA|AAC|M4A|VQF|AU|M3U|RIFF|BWF|CAF|PCM|RAW|FLAC|ALAC|AC3|ACC";
+    public static final String VIDEO_FILE_EXTENSION
+            = "MP4|avi|wmv|mov|Xvid|mkv|mka|mks|FLV|rmvb|MPA|WMA|MP2|M2P|DIF|DV|VOB|VRO|rmvb|vivo|bik|ASF|ifo|mts|mxf|nds|rv|web|wlmp|wmp";
     public static final String MEDIA_AUDIO_CSS_LIKE_QUERY
             = "audio ,"
             + "embed[src~=(?i)\\.(" + AUDIO_FILE_EXTENSION + ")] ,"
             + "object[data~=(?i)\\.(" + AUDIO_FILE_EXTENSION + ")]";
-
+    public static final String MEDIA_VIDEO_TRANS_CSS_LIKE_QUERY="video:has(track), video" ;
+    
+   public static final String MEDIA_ONLY_VIDEO_TRANS_CSS_LIKE_QUERY="video:has(track)";
+    //public static final String MEDIA_ONLY_VIDEO_TRANS_CSS_LIKE_QUERY="track[kind=captions]";
     public static final String MEDIA_VIDEO_CSS_LIKE_QUERY
             = "video ,"
-            + "object[src]:not([src~=(?i)\\.(" + AUDIO_FILE_EXTENSION + ")]) ,"
-            + "embed[src]:not([src~=(?i)\\.(" + AUDIO_FILE_EXTENSION + ")]) ,"
+            + "object[src]:not([src~=(?i)\\.(" + VIDEO_FILE_EXTENSION + ")]) ,"
+            + "embed[src]:not([src~=(?i)\\.(" + VIDEO_FILE_EXTENSION + ")]) ,"
             + "svg ,"
             + "canvas ";
             
