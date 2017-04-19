@@ -24,7 +24,6 @@ import org.tanaguru.entity.audit.TestSolution;
 import org.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
 import org.tanaguru.rules.elementchecker.attribute.AttributeWithValueOnChildElementPresenceChecker;
 import org.tanaguru.rules.elementselector.SimpleElementSelector;
-import org.tanaguru.rules.keystore.AttributeStore;
 import static org.tanaguru.rules.keystore.AttributeStore.KIND_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.KIND_VALUE;
 import static org.tanaguru.rules.keystore.CssLikeQueryStore.MEDIA_ONLY_VIDEO_TRANS_CSS_LIKE_QUERY;
@@ -48,9 +47,6 @@ public class Rgaa32016Rule040302 extends AbstractPageRuleWithSelectorAndCheckerI
      */
     public Rgaa32016Rule040302() {
         super(new SimpleElementSelector(MEDIA_ONLY_VIDEO_TRANS_CSS_LIKE_QUERY),
-                // new AttributeOnChildElementPresenceChecker(
-                //"kind",
-                // the set is not empty
                 new AttributeWithValueOnChildElementPresenceChecker(
                         KIND_ATTR,
                         KIND_VALUE,
@@ -59,22 +55,6 @@ public class Rgaa32016Rule040302 extends AbstractPageRuleWithSelectorAndCheckerI
                         new ImmutablePair(TestSolution.FAILED, CHECK_KIND_VALUE_MSG)
                 ));
 
-        // passed when attribute is found, empty message
-        //new ImmutablePair(TestSolution.PASSED, ""),
-        // failed when attribute is not found, altMissing message
-        //new ImmutablePair(TestSolution.NOT_APPLICABLE, null),
-        // TestSolution.NOT_APPLICABLE,
-        //SRC_ATTR);
     }
-//    new AttributePresenceChecker(
-//                        "kind", 
-//                        // passed when attribute is found, empty message
-//                        new ImmutablePair(TestSolution.PASSED, ""),
-//                        // failed when attribute is not found, altMissing message
-//                        new ImmutablePair(TestSolution.FAILED, "Kind attribute dos not exist"),
-//                        // evidence elements
-//                        SRC_ATTR)
-//                 
-//                        )
-
+                       
 }
