@@ -19,22 +19,62 @@
  */
 package org.tanaguru.rules.rgaa32016;
 
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
+import org.tanaguru.rules.elementchecker.attribute.AttributeWithValueOnChildElementPresenceChecker;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
+import org.tanaguru.rules.keystore.AttributeStore;
+import static org.tanaguru.rules.keystore.AttributeStore.KIND_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.KIND_VALUE;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.MEDIA_ONLY_VIDEO_TRANS_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_KIND_VALUE_MSG;
 
 /**
  * Implementation of the rule 4.3.2 of the referential Rgaa 3-2016.
  *
- * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-4-3-2">the rule 4.3.2 design page.</a>
- * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-4-3-2"> 4.3.2 rule specification</a>
+ * For more details about the implementation, refer to
+ * <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-4-3-2">the
+ * rule 4.3.2 design page.</a>
+ *
+ * @see
+ * <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-4-3-2">
+ * 4.3.2 rule specification</a>
  */
-
-public class Rgaa32016Rule040302 extends AbstractNotTestedRuleImplementation {
+public class Rgaa32016Rule040302 extends AbstractPageRuleWithSelectorAndCheckerImplementation {
 
     /**
      * Default constructor
      */
-    public Rgaa32016Rule040302 () {
-        super();
+    public Rgaa32016Rule040302() {
+        super(new SimpleElementSelector(MEDIA_ONLY_VIDEO_TRANS_CSS_LIKE_QUERY),
+                // new AttributeOnChildElementPresenceChecker(
+                //"kind",
+                // the set is not empty
+                new AttributeWithValueOnChildElementPresenceChecker(
+                        KIND_ATTR,
+                        KIND_VALUE,
+                        new ImmutablePair(TestSolution.PASSED, ""),
+                        // the set is empty 
+                        new ImmutablePair(TestSolution.FAILED, CHECK_KIND_VALUE_MSG)
+                ));
+
+        // passed when attribute is found, empty message
+        //new ImmutablePair(TestSolution.PASSED, ""),
+        // failed when attribute is not found, altMissing message
+        //new ImmutablePair(TestSolution.NOT_APPLICABLE, null),
+        // TestSolution.NOT_APPLICABLE,
+        //SRC_ATTR);
     }
+//    new AttributePresenceChecker(
+//                        "kind", 
+//                        // passed when attribute is found, empty message
+//                        new ImmutablePair(TestSolution.PASSED, ""),
+//                        // failed when attribute is not found, altMissing message
+//                        new ImmutablePair(TestSolution.FAILED, "Kind attribute dos not exist"),
+//                        // evidence elements
+//                        SRC_ATTR)
+//                 
+//                        )
 
 }
