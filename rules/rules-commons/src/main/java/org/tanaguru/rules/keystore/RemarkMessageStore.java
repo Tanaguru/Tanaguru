@@ -37,7 +37,12 @@ public final class RemarkMessageStore {
     public static final String ARIA_LABELLEDBY_EMPTY_MSG = "AriaLabelledbyEmpty";
     public static final String FOR_MISSING_MSG = "ForMissing";
     public static final String ID_NOT_UNIQUE_MSG = "IdNotUnique";
-
+    
+    
+    //multimedia
+    public static final String CHECK_TRANS_VIDEO_MSG="CheckTransVideoMsg";
+    public static final String CHECK_KIND_VALUE_MSG="checkKindValue";
+ 
     // doctype
     public static final String DOCTYPE_MISSING_MSG = "DoctypeMissing";
     public static final String BAD_DOCTYPE_LOCATION_MSG = "BadDoctypeLocation";

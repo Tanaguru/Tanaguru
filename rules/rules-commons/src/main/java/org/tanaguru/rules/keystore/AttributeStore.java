@@ -48,6 +48,7 @@ public final class AttributeStore {
     public static final String NAME_ATTR = HTML.Attribute.NAME.toString();
     public static final String ONKEYPRESS_ATTR = "onkeypress";
     public static final String ROLE_ATTR = "role";
+    public static final String KIND_ATTR = "kind";
     public static final String SRC_ATTR = HTML.Attribute.SRC.toString();
     public static final String SUMMARY_ATTR = "summary";
     public static final String TABINDEX_ATTR = "tabindex";
@@ -64,6 +65,7 @@ public final class AttributeStore {
 
     /* Value linked to an attribute */
     public static final String PRESENTATION_VALUE = "presentation";
+    public static final String KIND_VALUE = "captions";
     
     public static final String ROLE_ATTR_VALUE_MAIN = "main";
     public static final String ROLE_ATTR_VALUE_BANNER = "banner";

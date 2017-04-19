@@ -6,7 +6,11 @@
     <parent>
         <groupId>org.tanaguru</groupId>
         <artifactId>web-app</artifactId>
-        <version>4.0.3</version>
+<<<<<<< HEAD
+        <version>4.1.0</version>
+=======
+        <version>4.0.2-SNAPSHOT</version>
+>>>>>>> develop
     </parent>
     <artifactId>tgol-orchestrator</artifactId>
     <name>tgol-orchestrator</name>

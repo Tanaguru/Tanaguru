@@ -6,7 +6,11 @@
     <groupId>org.tanaguru</groupId>
     <artifactId>tanaguru</artifactId>
     <packaging>pom</packaging>
-    <version>4.0.3</version>
+<<<<<<< HEAD
+    <version>4.1.0</version>
+=======
+    <version>4.0.2-SNAPSHOT</version>
+>>>>>>> develop
     <name>tanaguru</name>
     <url>http://www.tanaguru.org</url>
     <modules>
@@ -33,19 +37,35 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <engineGroupId>org.tanaguru</engineGroupId>
-        <engineVersion>4.0.3</engineVersion>
+<<<<<<< HEAD
+        <engineVersion>4.1.0</engineVersion>
         
         <webappGroupId>org.tanaguru</webappGroupId>
-        <webappVersion>4.0.3</webappVersion>
+        <webappVersion>4.1.0</webappVersion>
         
         <testingToolsGroupId>org.tanaguru</testingToolsGroupId>
-        <testingToolsVersion>4.0.3</testingToolsVersion>
+        <testingToolsVersion>4.1.0</testingToolsVersion>
         
         <tanaguruCliGroupId>org.tanaguru</tanaguruCliGroupId>
-        <tanaguruCliVersion>4.0.3</tanaguruCliVersion>
+        <tanaguruCliVersion>4.1.0</tanaguruCliVersion>
         
         <rulesGroupId>org.tanaguru</rulesGroupId>
-        <rulesVersion>1.8.0</rulesVersion>
+        <rulesVersion>1.9.0</rulesVersion>
+=======
+        <engineVersion>4.0.2-SNAPSHOT</engineVersion>
+        
+        <webappGroupId>org.tanaguru</webappGroupId>
+        <webappVersion>4.0.2-SNAPSHOT</webappVersion>
+        
+        <testingToolsGroupId>org.tanaguru</testingToolsGroupId>
+        <testingToolsVersion>4.0.2-SNAPSHOT</testingToolsVersion>
+        
+        <tanaguruCliGroupId>org.tanaguru</tanaguruCliGroupId>
+        <tanaguruCliVersion>4.0.2-SNAPSHOT</tanaguruCliVersion>
+        
+        <rulesGroupId>org.tanaguru</rulesGroupId>
+        <rulesVersion>1.8.0-SNAPSHOT</rulesVersion>
+>>>>>>> develop
         
         <springGroupId>org.springframework</springGroupId>
         <springVersion>3.1.2.RELEASE</springVersion>
@@ -1186,7 +1206,7 @@
             <dependency>
                 <groupId>ar.com.fdvs</groupId>
                 <artifactId>DynamicJasper</artifactId>
-                <version>4.0.3</version>
+                <version>4.1.0</version>
                 <exclusions>
                     <exclusion>
                         <groupId>jasperreports</groupId>

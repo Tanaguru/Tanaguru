@@ -445,7 +445,7 @@ public abstract class AuditCommandImpl implements AuditCommand {
         String vnuJarPath = w3cValidatorPath + "/vnu.jar";
         String url = auditUrl;
 
-        String commandW3C = java8FullPath + " -Xss512k -Dnu.validator.xml.promiscuous-ssl=true -jar " + vnuJarPath + " --format json --errors-only " + url;
+        String commandW3C = java8FullPath + " -Xss1024k -Dnu.validator.xml.promiscuous-ssl=true -jar " + vnuJarPath + " --format json --errors-only " + url;
         //String commandW3C = "echo '" + url + "' | " + java8Path + " -jar " + vnuJarPath + " --format json --errors-only -";
 
         String resultW3C = executeCommand(commandW3C);
