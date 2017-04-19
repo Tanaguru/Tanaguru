@@ -8,7 +8,11 @@
     <groupId>org.tanaguru</groupId>
     <artifactId>tanaguru-ws-client</artifactId>
     <name>tanaguru-ws-client</name>
+<<<<<<< c457dccf44aeb95c56e856c1f91351877bf9661c
     <version>4.0.2-SNAPSHOT</version>
+=======
+    <version>4.1.0</version>
+>>>>>>> Bump version from 4.0.3 to 4.1.0
     <build>
         <resources>
             <resource>
