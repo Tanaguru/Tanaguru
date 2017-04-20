@@ -119,6 +119,12 @@
             <scope>runtime</scope>
         </dependency>
         <dependency>
+                <groupId>${rulesGroupId}</groupId>
+                <artifactId>tanaguru-rgaa3-2016</artifactId>
+                <version>${rulesVersion}</version>
+                <scope>runtime</scope>
+            </dependency>
+        <dependency>
             <groupId>${springGroupId}</groupId>
             <artifactId>spring-tx</artifactId>
             <scope>runtime</scope>
