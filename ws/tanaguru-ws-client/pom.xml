@@ -8,7 +8,7 @@
     <groupId>org.tanaguru</groupId>
     <artifactId>tanaguru-ws-client</artifactId>
     <name>tanaguru-ws-client</name>
-    <version>4.0.2</version>
+    <version>4.1.0</version>
     <build>
         <resources>
             <resource>
