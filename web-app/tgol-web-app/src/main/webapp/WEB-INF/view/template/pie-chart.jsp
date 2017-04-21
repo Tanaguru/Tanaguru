@@ -5,7 +5,7 @@
 <c:if test="${addSpan == 'true'}">
    <div class="span4">
 </c:if>
-   <div id="result-repartition-pie-graph"></div>
+   <div id="result-repartition-pie-graph" aria-hidden="true"></div>
    <c:set var="totalNumber" scope="page">
        ${counter.passedCount + counter.failedCount + counter.nmiCount + counter.naCount}
    </c:set>
