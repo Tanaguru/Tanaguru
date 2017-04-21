@@ -19,6 +19,7 @@
  */
 package org.tanaguru.rules.rgaa32016;
 
+import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.tanaguru.entity.audit.TestSolution;
 import org.tanaguru.entity.audit.ProcessResult;
 import org.tanaguru.rules.rgaa32016.test.Rgaa32016RuleImplementationTestCase;
@@ -49,6 +50,9 @@ public class Rgaa32016Rule040301Test extends Rgaa32016RuleImplementationTestCase
 //        addWebResource("Rgaa32016.Test.4.3.1-1Passed-01");
 //        addWebResource("Rgaa32016.Test.4.3.1-2Failed-01");
         addWebResource("Rgaa32016.Test.4.3.1-3NMI-01");
+        addWebResource("Rgaa32016.Test.4.3.1-3NMI-02");
+        addWebResource("Rgaa32016.Test.4.3.1-4NA-01");
+        
 //        addWebResource("Rgaa32016.Test.4.3.1-4NA-01");
     }
 
@@ -76,21 +80,27 @@ public class Rgaa32016Rule040301Test extends Rgaa32016RuleImplementationTestCase
         //------------------------------3NMI-01---------------------------------
         //----------------------------------------------------------------------
         ProcessResult processResult = processPageTest("Rgaa32016.Test.4.3.1-3NMI-01");
-        checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-//        checkResultIsPreQualified(processResult, 2, 1);
-//        checkRemarkIsPresent(
-//                processResult,
-//                TestSolution.NEED_MORE_INFO,
-//                "#MessageHere",
-//                "#CurrentElementHere",
-//                1,
-//                new ImmutablePair("#ExtractedAttributeAsEvidence", "#ExtractedAttributeValue"));
+//        checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
+        checkResultIsPreQualified(processResult, 1, 1);
+      // checkResultIsPreQualified(processResult, 2, 1);
+       // checkRemarkIsPresent(
+                //processResult,
+                //TestSolution.NEED_MORE_INFO,
+                //"#MessageHere",
+                //"#CurrentElementHere",
+                //1,
+               //new ImmutablePair("#ExtractedAttributeAsEvidence", "#ExtractedAttributeValue"));
 
-
+//------------------------------3NMI-02---------------------------------
+        //----------------------------------------------------------------------
+         processResult = processPageTest("Rgaa32016.Test.4.3.1-3NMI-02");
+//        checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
+        checkResultIsPreQualified(processResult, 1, 1);
         //----------------------------------------------------------------------
         //------------------------------4NA-01------------------------------
         //----------------------------------------------------------------------
-//        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.4.3.1-4NA-01"));
+       checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.4.3.1-4NA-01"));
+
     }
 
     @Override
@@ -99,8 +109,8 @@ public class Rgaa32016Rule040301Test extends Rgaa32016RuleImplementationTestCase
         // The consolidate method can be removed when real implementation is done.
         // The assertions are automatically tested regarding the file names by 
         // the abstract parent class
-        assertEquals(TestSolution.NOT_TESTED,
-                consolidate("Rgaa32016.Test.4.3.1-3NMI-01").getValue());
+        //assertEquals(TestSolution.NOT_TESTED,
+               // consolidate("Rgaa32016.Test.4.3.1-3NMI-01").getValue());
     }
 
 }

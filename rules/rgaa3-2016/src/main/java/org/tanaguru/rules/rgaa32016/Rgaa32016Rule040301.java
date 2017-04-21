@@ -19,7 +19,13 @@
  */
 package org.tanaguru.rules.rgaa32016;
 
+import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.ruleimplementation.AbstractDetectionPageRuleImplementation;
 import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.MEDIA_VIDEO_TRANS_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_TRANS_VIDEO_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.MANUAL_CHECK_ON_ELEMENTS_MSG;
 
 /**
  * Implementation of the rule 4.3.1 of the referential Rgaa 3-2016.
@@ -28,13 +34,20 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-4-3-1"> 4.3.1 rule specification</a>
  */
 
-public class Rgaa32016Rule040301 extends AbstractNotTestedRuleImplementation {
+public class Rgaa32016Rule040301 extends AbstractDetectionPageRuleImplementation {
 
     /**
      * Default constructor
      */
     public Rgaa32016Rule040301 () {
-        super();
+        super(new SimpleElementSelector(MEDIA_VIDEO_TRANS_CSS_LIKE_QUERY),
+                // solution when at least one element is found
+                TestSolution.NEED_MORE_INFO,
+                // solution when no element is found
+                TestSolution.NOT_APPLICABLE,
+                // manual check message
+                CHECK_TRANS_VIDEO_MSG,
+                null);
     }
 
 }

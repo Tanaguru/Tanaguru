@@ -46,10 +46,10 @@ public class Rgaa32016Rule040302Test extends Rgaa32016RuleImplementationTestCase
 
     @Override
     protected void setUpWebResourceMap() {
-//        addWebResource("Rgaa32016.Test.4.3.2-1Passed-01");
-//        addWebResource("Rgaa32016.Test.4.3.2-2Failed-01");
-        addWebResource("Rgaa32016.Test.4.3.2-3NMI-01");
-//        addWebResource("Rgaa32016.Test.4.3.2-4NA-01");
+        addWebResource("Rgaa32016.Test.4.3.2-1Passed-01");
+        addWebResource("Rgaa32016.Test.4.3.2-2Failed-01");
+        addWebResource("Rgaa32016.Test.4.3.2-2Failed-02");
+       addWebResource("Rgaa32016.Test.4.3.2-4NA-01");
     }
 
     @Override
@@ -57,26 +57,31 @@ public class Rgaa32016Rule040302Test extends Rgaa32016RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------1Passed-01------------------------------
         //----------------------------------------------------------------------
-//        checkResultIsPassed(processPageTest("Rgaa32016.Test.4.3.2-1Passed-01"), 1);
+        checkResultIsPassed(processPageTest("Rgaa32016.Test.4.3.2-1Passed-01"), 1);
 
         //----------------------------------------------------------------------
         //------------------------------2Failed-01------------------------------
         //----------------------------------------------------------------------
-//        ProcessResult processResult = processPageTest("Rgaa32016.Test.4.3.2-2Failed-01");
-//        checkResultIsFailed(processResult, 1, 1);
-//        checkRemarkIsPresent(
+     ProcessResult processResult = processPageTest("Rgaa32016.Test.4.3.2-2Failed-01");
+      checkResultIsFailed(processResult, 1, 1);
+ //      checkRemarkIsPresent(
 //                processResult,
 //                TestSolution.FAILED,
 //                "#MessageHere",
-//                "#CurrentElementHere",
-//                1,
-//                new ImmutablePair("#ExtractedAttributeAsEvidence", "#ExtractedAttributeValue"));
+//               "#CurrentElementHere",
+//              1,
+//               new ImmutablePair("#ExtractedAttributeAsEvidence", "#ExtractedAttributeValue"));
+
+ //------------------------------2Failed-02------------------------------
+        //----------------------------------------------------------------------
+//       processResult = processPageTest("Rgaa32016.Test.4.3.2-2Failed-02");
+      checkResultIsFailed(processResult, 1, 1);
 
         //----------------------------------------------------------------------
         //------------------------------3NMI-01---------------------------------
         //----------------------------------------------------------------------
-        ProcessResult processResult = processPageTest("Rgaa32016.Test.4.3.2-3NMI-01");
-        checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
+   //      processResult = processPageTest("Rgaa32016.Test.4.3.2-3NMI-01");
+   //     checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
 //        checkResultIsPreQualified(processResult, 2, 1);
 //        checkRemarkIsPresent(
 //                processResult,
@@ -90,7 +95,7 @@ public class Rgaa32016Rule040302Test extends Rgaa32016RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------4NA-01------------------------------
         //----------------------------------------------------------------------
-//        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.4.3.2-4NA-01"));
+//       checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.4.3.2-4NA-01"));
     }
 
     @Override
@@ -99,8 +104,8 @@ public class Rgaa32016Rule040302Test extends Rgaa32016RuleImplementationTestCase
         // The consolidate method can be removed when real implementation is done.
         // The assertions are automatically tested regarding the file names by 
         // the abstract parent class
-        assertEquals(TestSolution.NOT_TESTED,
-                consolidate("Rgaa32016.Test.4.3.2-3NMI-01").getValue());
+//        assertEquals(TestSolution.NOT_TESTED,
+//                consolidate("Rgaa32016.Test.4.3.2-3NMI-01").getValue());
     }
 
 }
