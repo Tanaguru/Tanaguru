@@ -6,9 +6,9 @@
 
 <div id="result-option-console" class="row option-console">
     <div class="span16">
-        <div id="result-option-console-title" class="option-console-title">
+        <h2 id="result-option-console-title" class="option-console-title">
             <fmt:message key="result.display"/>
-        </div>
+        </h2>
     </div>
     <div class="span16">
         <form:form modelAttribute="auditResultSortCommand" method="post" acceptCharset="UTF-8" enctype="application/x-www-form-urlencoded" class="form-stacked">

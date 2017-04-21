@@ -65,4 +65,4 @@
     </tbody>
 </table>
 
-<div id="result-by-theme-graph"></div>
+<div id="result-by-theme-graph" aria-hidden="true"></div>
