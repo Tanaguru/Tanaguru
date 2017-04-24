@@ -61,11 +61,6 @@ buildResultByThemeChart = function() {
         });
     });
 
-    /**
-     * Hide the table, overriden by the chart.
-     */
-    $('#result-by-theme').hide();
-
     /* 
      * Creation of the chart
      */ 
