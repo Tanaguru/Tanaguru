@@ -704,7 +704,10 @@ footer a {
     text-align: right;
     border-bottom: dotted 1px;
 }
-#lang-switcher > a{
+#lang-switcher li {
+    display: inline-block;
+}
+#lang-switcher a{
     display: inline;
     margin-left: 10px;
     padding-right: 0;
