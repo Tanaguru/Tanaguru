@@ -202,7 +202,7 @@ buildResultByThemeChart = function() {
             location.href = location.href + '#theme'+d.themeRank;
         }
     })
-    $('#result-by-theme').hide();    
+    // $('#result-by-theme').hide();    
 };
 
 buildPieChart = function() {
