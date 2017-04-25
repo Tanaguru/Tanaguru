@@ -1,4 +1,22 @@
 --------------------------
+Tanaguru 4.1.0, 2017-04-19
+--------------------------
+
+Features :
+ 
+ - Fix w3cValidor issues 
+ - Activate rules 4.1.1 and 4.1.2
+ - Add video file extensions
+ - Add rule implementation : 4.3.2
+ - Add rule implementation : 4.3.1
+ - Add support for PostgreSQL Database
+ - Fix Tanaguru et Contrast Finder
+ - Fix contract restriction on domain
+ - Add german translation
+ - Fix installation parameters
+ - Downgrade Spring schemaLocation
+ 
+--------------------------
 Tanaguru 4.0.0, 2016-12-14
 --------------------------
 
