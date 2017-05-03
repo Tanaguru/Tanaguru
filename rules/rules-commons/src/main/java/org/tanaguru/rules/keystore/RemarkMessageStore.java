@@ -37,6 +37,8 @@ public final class RemarkMessageStore {
     public static final String ARIA_LABELLEDBY_EMPTY_MSG = "AriaLabelledbyEmpty";
     public static final String FOR_MISSING_MSG = "ForMissing";
     public static final String ID_NOT_UNIQUE_MSG = "IdNotUnique";
+    public static final String DIR_TEXT_CKECK_MANUALLY_MSG = "DirTextCheckManually";
+    public static final String INVALID_DIR_TEXT_VALUE_MSG = "InvalidDirTextValue";
     
     
     //multimedia

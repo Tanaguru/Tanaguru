@@ -19,22 +19,46 @@
  */
 package org.tanaguru.rules.rgaa32016;
 
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
+import org.tanaguru.rules.elementchecker.attribute.AttributeWithValuesChecker;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
+import static org.tanaguru.rules.keystore.AttributeStore.DIR_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.DIR_LTR_VALUE;
+import static org.tanaguru.rules.keystore.AttributeStore.DIR_RTL_VALUE;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.TEXTUAL_NODE_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.DIR_TEXT_CKECK_MANUALLY_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.INVALID_DIR_TEXT_VALUE_MSG;
 
 /**
  * Implementation of the rule 8.10.2 of the referential Rgaa 3-2016.
  *
- * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-8-10-1">the rule 8.10.2 design page.</a>
- * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-8-10-1"> 8.10.2 rule specification</a>
+ * For more details about the implementation, refer to
+ * <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-8-10-1">the
+ * rule 8.10.2 design page.</a>
+ *
+ * @see
+ * <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-8-10-1">
+ * 8.10.2 rule specification</a>
  */
-
-public class Rgaa32016Rule081002 extends AbstractNotTestedRuleImplementation {
+public class Rgaa32016Rule081002 extends AbstractPageRuleWithSelectorAndCheckerImplementation {
 
     /**
      * Default constructor
      */
-    public Rgaa32016Rule081002 () {
-        super();
+    public Rgaa32016Rule081002() {
+        super(new SimpleElementSelector(TEXTUAL_NODE_CSS_LIKE_QUERY),
+                // the set is not empty
+                new AttributeWithValuesChecker(
+                        DIR_ATTR,
+                        DIR_LTR_VALUE,
+                        DIR_RTL_VALUE,
+                        new ImmutablePair(TestSolution.NEED_MORE_INFO,DIR_TEXT_CKECK_MANUALLY_MSG),
+                        // the set is empty 
+                        new ImmutablePair(TestSolution.FAILED,INVALID_DIR_TEXT_VALUE_MSG)
+                        
+                ));
     }
 
 }
