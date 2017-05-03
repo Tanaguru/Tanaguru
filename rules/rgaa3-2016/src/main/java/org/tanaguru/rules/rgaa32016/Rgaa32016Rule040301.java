@@ -21,11 +21,10 @@ package org.tanaguru.rules.rgaa32016;
 
 import org.tanaguru.entity.audit.TestSolution;
 import org.tanaguru.ruleimplementation.AbstractDetectionPageRuleImplementation;
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
 import org.tanaguru.rules.elementselector.SimpleElementSelector;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.MEDIA_TMP_CSS_LIKE_QUERY;
 import static org.tanaguru.rules.keystore.CssLikeQueryStore.MEDIA_VIDEO_TRANS_CSS_LIKE_QUERY;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_TRANS_VIDEO_MSG;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.MANUAL_CHECK_ON_ELEMENTS_MSG;
 
 /**
  * Implementation of the rule 4.3.1 of the referential Rgaa 3-2016.
@@ -40,7 +39,7 @@ public class Rgaa32016Rule040301 extends AbstractDetectionPageRuleImplementation
      * Default constructor
      */
     public Rgaa32016Rule040301 () {
-        super(new SimpleElementSelector(MEDIA_VIDEO_TRANS_CSS_LIKE_QUERY),
+        super(new SimpleElementSelector(MEDIA_TMP_CSS_LIKE_QUERY),
                 // solution when at least one element is found
                 TestSolution.NEED_MORE_INFO,
                 // solution when no element is found
