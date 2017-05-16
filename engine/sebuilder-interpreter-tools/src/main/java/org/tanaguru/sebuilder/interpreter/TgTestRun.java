@@ -38,6 +38,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
 import org.tanaguru.sebuilder.interpreter.exception.TestRunException;
 import org.tanaguru.sebuilder.tools.FirefoxDriverObjectPool;
@@ -49,6 +50,9 @@ import org.tanaguru.sebuilder.tools.FirefoxDriverObjectPool;
  */
 public class TgTestRun extends TestRun {
 final static Logger LOGGER = Logger.getLogger(TgTestRun.class);
+
+    @Value("${waitTime}")
+    private int waitTime;
     private boolean isStepOpenNewPage = false;
     private Map<String, String> jsScriptMap;
     public Map<String, String> getJsScriptMap() {
@@ -262,7 +266,7 @@ final static Logger LOGGER = Logger.getLogger(TgTestRun.class);
     private void getSourceCodeAndFireNewPage(String url) {
         try {
             try {
-                Thread.sleep(500);
+                Thread.sleep(12000);
             } catch (InterruptedException ex) {
                 throw new TestRunException(currentStep() + " failed.", ex, currentStep().toString(), stepIndex);
             }

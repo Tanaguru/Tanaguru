@@ -364,7 +364,7 @@ public class HttpRequestHandler {
     
     private String getEncodedUrl(String url) {
         try {
-            return URIUtil.encodeQuery(URIUtil.decode(url));
+            return URIUtil.encodeQuery(URIUtil.decode(url)).replaceAll("%23", "#");
         } catch (URIException ue) {
             LOGGER.warn("URIException on " + url);
             return url;
