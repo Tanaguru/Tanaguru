@@ -25,6 +25,7 @@ import java.util.*;
 import java.util.Map.Entry;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.validator.routines.RegexValidator;
 import org.apache.commons.validator.routines.UrlValidator;
 import org.tanaguru.webapp.command.CreateContractCommand;
 import org.tanaguru.webapp.entity.user.User;
@@ -229,7 +230,7 @@ public class CreateContractFormValidator implements Validator {
             return true;
         }
         String[] schemes = {"http","https"};
-        UrlValidator urlValidator = new UrlValidator (schemes, UrlValidator.ALLOW_2_SLASHES);
+        UrlValidator urlValidator = new UrlValidator (schemes, new RegexValidator("^.*$"), UrlValidator.ALLOW_2_SLASHES);
         if (!urlValidator.isValid(url)) {
             errors.rejectValue(CONTRACT_URL_KEY, INVALID_URL_KEY);
             return false;
