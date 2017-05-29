@@ -355,5 +355,15 @@
         <property name="parameterCode" value="SCREEN_HEIGHT"/>
         <property name="formFieldBuilder" ref="screenHeightFormFieldBuilder"/>
     </bean>
+    <bean id="waitingTimeFormFieldBuilder" class="org.tanaguru.webapp.form.builder.NumericalFormFieldBuilderImpl">
+        <property name="maxValue" value="60000"/>
+        <property name="minValue" value="500"/>
+        <property name="i18nKey" value="waiting-time"/>
+        <property name="errorI18nKey" value="waiting-time-error"/>
+    </bean>
+    <bean id="waitingTimeParamBuilder" class="org.tanaguru.webapp.form.parameterization.builder.AuditSetUpFormFieldBuilderImpl">
+        <property name="parameterCode" value="WAIT_TIME_NG_APP"/>
+        <property name="formFieldBuilder" ref="waitingTimeFormFieldBuilder"/>
+    </bean>
     
 </beans>

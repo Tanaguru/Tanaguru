@@ -245,13 +245,13 @@
                         <ref bean="alternativeJustifyMechanismPresentParamBuilder"/> 
                     </list>
                 </entry>
-<!--                
-                 <entry key="justify-parameters">
+                
+                <entry key="waiting-time-parameters">
                     <list>
-                       
-                        <ref bean="alternativeJustifyMechanismPresentParamBuilder"/>
+                        <ref bean="waitingTimeParamBuilder"/>
                     </list>
-                </entry>-->
+                </entry>
+                
             </map>
         </property>
         <property name="uploadOptionFormFieldBuilderMap">
