@@ -66,6 +66,10 @@ public class TgTestRunFactory extends TestRunFactory {
         this.screenHeight = screenHeight;
     }
     
+    int waitTimeNgApp=500;
+    public void setWaitTimeNgApp(int time) {
+        this.waitTimeNgApp = time;
+    }
     /**
      * the map that handles js scripts executed when page is loaded
      */
@@ -120,7 +124,8 @@ public class TgTestRunFactory extends TestRunFactory {
                 webDriverFactory, 
                 new HashMap<String, String>(), 
                 getImplicitlyWaitDriverTimeout(), 
-                getPageLoadDriverTimeout());
+                getPageLoadDriverTimeout(),
+                waitTimeNgApp);
         testRun.addNewPageListeners(newPageListeners);
         testRun.setJsScriptMap(jsScriptMap);
         return testRun;

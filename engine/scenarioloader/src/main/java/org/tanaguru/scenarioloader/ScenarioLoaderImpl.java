@@ -363,6 +363,10 @@ public class ScenarioLoaderImpl implements ScenarioLoader, NewPageListener {
                 Integer.valueOf(
                         parameterDataService.getParameter(
                                 webResource.getAudit(), ParameterElement.SCREEN_WIDTH_KEY).getValue()));
+        testRunFactory.setWaitTimeNgApp(
+                Integer.valueOf(
+                        parameterDataService.getParameter(
+                                webResource.getAudit(), ParameterElement.WAIT_TIME_NG_APP).getValue()));
 //      ((TgTestRunFactory)testRunFactory).setFirefoxDriverObjectPool(firefoxDriverObjectPool);
         return testRunFactory;
     }

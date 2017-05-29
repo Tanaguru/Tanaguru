@@ -32,6 +32,7 @@ public interface ParameterElement extends Entity {
 
     static String SCREEN_HEIGHT_KEY = "SCREEN_HEIGHT";
     static String SCREEN_WIDTH_KEY = "SCREEN_WIDTH";
+    static String WAIT_TIME_NG_APP = "WAIT_TIME_NG_APP";
 
     /**
      *
