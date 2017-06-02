@@ -1,8 +1,6 @@
 [![Build Status](https://travis-ci.org/Tanaguru/Tanaguru.svg?branch=develop)](https://travis-ci.org/Tanaguru/Tanaguru) 
-
-# Tanaguru
-
 [![Join the chat at https://gitter.im/Tanaguru/Tanaguru](https://badges.gitter.im/Tanaguru/Tanaguru.svg)](https://gitter.im/Tanaguru/Tanaguru?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# Tanaguru
 
 Tanaguru is an opensource (AGPL license) website assessment tool. It is dedicated to accessibility (a11y) audits, and focuses on reliability and high level of automation.
 
