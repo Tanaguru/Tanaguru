@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
     <head> 
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
@@ -19,9 +19,34 @@
             </div> 
             <div class="testcase"> 
             </div> 
+            <header role="banner">
+                <h2> Role banner in div </h2>
+            </header>
             <div class="test-explanation">
-                 Failed. 
+                <main>
+                    <h1>Pommes</h1>
+                    <main>
+                        <p role="banner">role banner dans p dans main</p>
+                    </main>
+                    <header role="navigation"> 
+                        <p> header with role navigation </p>
+                    </header>
+                    <article>
+                        <h2>Pomme rouge</h2>
+                        <p>Ce sont des pommes rouges vives très communes dans les supermarchés.</p>
+                    </article>
+                    <footer role="main">
+                        <h2>Footer avec un role main </h2>
+
+                    </footer>
+                    
+                </main>
             </div> 
+            <div role="contentinfo">
+                        <h2>Footer</h2>
+
+                    </div>
         </div>  
+
     </body>
 </html>

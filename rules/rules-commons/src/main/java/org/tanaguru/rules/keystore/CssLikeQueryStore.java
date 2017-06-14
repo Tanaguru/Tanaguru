@@ -148,8 +148,9 @@ public final class CssLikeQueryStore {
     //Text
     
     public static final String TEXTUAL_NODE_CSS_LIKE_QUERY="p[dir],H1[dir],H2[dir],H3[dir],H4[dir],H5[dir],H6[dir],a[dir]";
+    // Document Structure
     
-          
+    public static String DOC_STR_CSS_LIKE_QUERY="main ,nav[role=navigation]";
             
     public static final String MEDIA_TMP_CSS_LIKE_QUERY
             = MEDIA_AUDIO_CSS_LIKE_QUERY + "," + MEDIA_VIDEO_CSS_LIKE_QUERY;
