@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<table id="result-by-theme" class="zebra-striped">
+<table id="result-by-theme" class="zebra-striped sr-only">
     <caption>
         <fmt:message key="graph.resultRepartitionByThemeSummaryAndCaption"/>
     </caption>
