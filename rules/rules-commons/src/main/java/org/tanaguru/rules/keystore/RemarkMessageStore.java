@@ -187,6 +187,9 @@ public final class RemarkMessageStore {
             = "CheckNatureOfImageAndStyledTextPresence";
     public static final String CHECK_TEXT_STYLED_PRESENCE_OF_INFORMATIVE_IMG_MSG
             = "CheckStyledTextPresenceOfInformativeImage";
+    public static final String CHECK_OBJ_IMG_ARIA_MSG="CheckObjImgAriaMsg";
+    public static final String CHECK_CANVAS_IMG_ARIA_MSG="CheckCanvasImgAriaMsg";
+    
 
     // frames 
     public static final String NOT_PERTINENT_TITLE_OF_FRAME_MSG
