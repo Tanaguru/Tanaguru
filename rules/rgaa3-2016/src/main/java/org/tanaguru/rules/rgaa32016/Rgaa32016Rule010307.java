@@ -19,7 +19,14 @@
  */
 package org.tanaguru.rules.rgaa32016;
 
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
+import org.tanaguru.rules.elementchecker.element.ElementPresenceChecker;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.EMBED_TYPE_IMG_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_EMB_IMG_ARIA_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_OBJ_IMG_ARIA_MSG;
 
 /**
  * Implementation of the rule 1.3.07 of the referential Rgaa 3-2016.
@@ -28,13 +35,17 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-3-7"> 1.3.7 rule specification</a>
  */
 
-public class Rgaa32016Rule010307 extends AbstractNotTestedRuleImplementation {
+public class Rgaa32016Rule010307  extends AbstractPageRuleWithSelectorAndCheckerImplementation {
 
     /**
      * Default constructor
      */
     public Rgaa32016Rule010307 () {
-        super();
+       super(new SimpleElementSelector(EMBED_TYPE_IMG_CSS_LIKE_QUERY),
+                new ElementPresenceChecker(
+                new ImmutablePair(TestSolution.NEED_MORE_INFO,CHECK_EMB_IMG_ARIA_MSG),
+                new ImmutablePair(TestSolution.NOT_APPLICABLE, "")
+                ));
     }
 
 }
