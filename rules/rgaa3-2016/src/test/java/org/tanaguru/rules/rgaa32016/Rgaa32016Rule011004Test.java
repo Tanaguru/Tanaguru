@@ -49,7 +49,7 @@ public class Rgaa32016Rule011004Test extends Rgaa32016RuleImplementationTestCase
 //        addWebResource("Rgaa32016.Test.1.10.4-1Passed-01");
 //        addWebResource("Rgaa32016.Test.1.10.4-2Failed-01");
         addWebResource("Rgaa32016.Test.1.10.4-3NMI-01");
-//        addWebResource("Rgaa32016.Test.1.10.4-4NA-01");
+        addWebResource("Rgaa32016.Test.1.10.4-4NA-01");
     }
 
     @Override
@@ -76,8 +76,9 @@ public class Rgaa32016Rule011004Test extends Rgaa32016RuleImplementationTestCase
         //------------------------------3NMI-01---------------------------------
         //----------------------------------------------------------------------
         ProcessResult processResult = processPageTest("Rgaa32016.Test.1.10.4-3NMI-01");
-        checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-//        checkResultIsPreQualified(processResult, 2, 1);
+        
+        checkResultIsPreQualified(processResult, 1, 1);
+       //   checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
 //        checkRemarkIsPresent(
 //                processResult,
 //                TestSolution.NEED_MORE_INFO,
@@ -90,7 +91,7 @@ public class Rgaa32016Rule011004Test extends Rgaa32016RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------4NA-01------------------------------
         //----------------------------------------------------------------------
-//        checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.1.10.4-4NA-01"));
+       checkResultIsNotApplicable(processPageTest("Rgaa32016.Test.1.10.4-4NA-01"));
     }
 
     @Override
@@ -99,8 +100,8 @@ public class Rgaa32016Rule011004Test extends Rgaa32016RuleImplementationTestCase
         // The consolidate method can be removed when real implementation is done.
         // The assertions are automatically tested regarding the file names by 
         // the abstract parent class
-        assertEquals(TestSolution.NOT_TESTED,
-                consolidate("Rgaa32016.Test.1.10.4-3NMI-01").getValue());
+//        assertEquals(TestSolution.NOT_TESTED,
+//                consolidate("Rgaa32016.Test.1.10.4-3NMI-01").getValue());
     }
 
 }
