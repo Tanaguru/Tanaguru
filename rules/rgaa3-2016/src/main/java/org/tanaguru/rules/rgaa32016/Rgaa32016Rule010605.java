@@ -19,7 +19,13 @@
  */
 package org.tanaguru.rules.rgaa32016;
 
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
+import org.tanaguru.rules.elementchecker.element.ElementPresenceChecker;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.FORM_BUTTON_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_INPUT_IMG_ARIA_MSG;
 
 /**
  * Implementation of the rule 1.6.5 of the referential Rgaa 3-2016.
@@ -28,13 +34,17 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-6-5"> 1.6.5 rule specification</a>
  */
 
-public class Rgaa32016Rule010605 extends AbstractNotTestedRuleImplementation {
+public class Rgaa32016Rule010605 extends AbstractPageRuleWithSelectorAndCheckerImplementation {
 
     /**
      * Default constructor
      */
     public Rgaa32016Rule010605 () {
-        super();
+       super(new SimpleElementSelector(FORM_BUTTON_CSS_LIKE_QUERY ),
+                new ElementPresenceChecker(
+                new ImmutablePair(TestSolution.NEED_MORE_INFO,CHECK_INPUT_IMG_ARIA_MSG),
+                new ImmutablePair(TestSolution.NOT_APPLICABLE, "")
+                ));
     }
 
 }

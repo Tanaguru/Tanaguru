@@ -190,7 +190,12 @@ public final class RemarkMessageStore {
     public static final String CHECK_OBJ_IMG_ARIA_MSG="CheckObjImgAriaMsg";
     public static final String CHECK_CANVAS_IMG_ARIA_MSG="CheckCanvasImgAriaMsg";
     public static final String CHECK_EMB_IMG_ARIA_MSG="CheckEmbImgAriaMsg";
-    
+    public static final String CHECK_INPUT_IMG_ARIA_MSG="CheckInputImgAriaMsg";
+    public static final String CHECK_INPUT_LEGD_ARIA_MSG="CheckInputLegdAriaMsg";
+    public static final String CHECK_OBJ_LEGD_ARIA_MSG="CheckObjLegdAriaMsg";
+    public static final String CHECK_EMB_LEGD_ARIA_MSG="CheckEmbLegdAriaMsg";
+    public static final String CHECK_SVG_IMG_ARIA_MSG="CheckSvgImgAriaMsg";
+    public static final String CHECK_CANVAS_LEGD_ARIA_MSG="CheckCanvasLegdAriaMsg";
 
     // frames 
     public static final String NOT_PERTINENT_TITLE_OF_FRAME_MSG
