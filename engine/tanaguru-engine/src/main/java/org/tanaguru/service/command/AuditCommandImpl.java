@@ -27,7 +27,6 @@ import java.util.*;
 import javax.persistence.PersistenceException;
 import org.apache.http.HttpStatus;
 import org.apache.log4j.Logger;
-import org.json.simple.parser.JSONParser;
 import org.tanaguru.contentadapter.AdaptationListener;
 import org.tanaguru.entity.audit.*;
 import org.tanaguru.entity.parameterization.Parameter;
@@ -47,14 +46,8 @@ import org.tanaguru.service.*;
 import org.tanaguru.util.MD5Encoder;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
 /**
@@ -449,6 +442,9 @@ public abstract class AuditCommandImpl implements AuditCommand {
         //String commandW3C = "echo '" + url + "' | " + java8Path + " -jar " + vnuJarPath + " --format json --errors-only -";
 
         String resultW3C = executeCommand(commandW3C);
+        if (resultW3C != null) {
+            resultW3C = resultW3C.replace("“", "\"").replace("”", "\"");
+        }
         return resultW3C;
     }
 
