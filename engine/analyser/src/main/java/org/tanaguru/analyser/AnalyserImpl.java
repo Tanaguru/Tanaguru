@@ -842,7 +842,7 @@ public class AnalyserImpl implements Analyser {
                             //processRemark.setLineNumber(Integer.valueOf(jsonRespenseObject.get("lastLine").toString()));
                             String snippet = StringEscapeUtils.escapeHtml4(snippetObject.toString());
                             processRemark.setSnippet(snippet);
-                            processRemark.setTarget(targetObject.toString().replace( "“","\"").replace("”", "\""));
+                            processRemark.setTarget(targetObject.toString().replace( "“","\"").replace("”", "\"").replace("???", "\""));
 
                             processRemarkDataService.saveOrUpdate(processRemark);
                         }
@@ -914,7 +914,7 @@ public class AnalyserImpl implements Analyser {
                             //processRemark.setLineNumber(Integer.valueOf(jsonRespenseObject.get("lastLine").toString()));
                             String snippet = StringEscapeUtils.escapeHtml4(snippetObject.toString());
                             processRemark.setSnippet(snippet);
-                            processRemark.setTarget(targetObject.toString().replace( "“","\"").replace("”", "\""));
+                            processRemark.setTarget(targetObject.toString().replace( "“","\"").replace("”", "\"").replace("???", "\""));
 
                             processRemarkDataService.saveOrUpdate(processRemark);
                         }

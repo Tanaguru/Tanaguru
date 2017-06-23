@@ -443,7 +443,7 @@ public abstract class AuditCommandImpl implements AuditCommand {
 
         String resultW3C = executeCommand(commandW3C);
         if (resultW3C != null) {
-            resultW3C = resultW3C.replace("“", "\"").replace("”", "\"");
+            resultW3C = resultW3C.replace("“", "\\\"").replace("”", "\\\"");
         }
         return resultW3C;
     }
