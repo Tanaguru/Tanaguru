@@ -15,6 +15,8 @@ import org.tanaguru.entity.audit.TestSolution;
 import org.tanaguru.processor.SSPHandler;
 import org.tanaguru.ruleimplementation.TestSolutionHandler;
 import org.tanaguru.rules.elementchecker.ElementCheckerImpl;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.WRONG_USE_FOOTER_ROLE_CONTENT_INFO_ELEMENT_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.WRONG_USE_HEADER_ROLE_BANNER_ELEMENT_MSG;
 
 /**
  *
@@ -79,39 +81,43 @@ public class ForbiddenParentaAndUnicityElementChecker extends ElementCheckerImpl
             Element elementToTest,
             Elements elements,
             TestSolutionHandler testSolutionHandler) {
-        
-         TestSolution testSolution = TestSolution.NEED_MORE_INFO;//init
-        
+
+        TestSolution testSolution = TestSolution.NEED_MORE_INFO;//init
+
         if (elements.isEmpty()) {
             testSolutionHandler.addTestSolution(TestSolution.NOT_APPLICABLE);
             return;
-            
+
         }
-        else if( elements.size()>1){
-            
+        if (elements.size() > 1) {
+
             testSolution = setTestSolution(testSolution, getFailureSolution());
-                addSourceCodeRemark(getFailureSolution(),elementToTest, getFailureMsgCode());
-            
-        } 
-            
-       
+            addSourceCodeRemark(getFailureSolution(), elementToTest, getFailureMsgCode());
+
+        } else {
+
             //System.out.println(" element hello1 "+el.toString());
-        else if  (isForbiddenParent(elementToTest.parents())){
+            if (isForbiddenParent(elementToTest.parents())) {
 //              System.out.println("#++++> inside of ForbiddenParentElementChecker 1 is  :"+ isForbiddenParent(elementToTest.parents()));
 //         System.out.println(" element has forbidden parent "+elementToTest.toString());
-         
-           testSolution = setTestSolution(testSolution, getSuccessSolution());
-                addSourceCodeRemark(getSuccessSolution(),elementToTest, getSuccessMsgCode());
-             
-         }
-         else{
+
+                testSolution = setTestSolution(testSolution, getFailureSolution());
+                if (elementToTest.tagName().equals("header")){
+                    addSourceCodeRemark(getFailureSolution(), elementToTest, WRONG_USE_HEADER_ROLE_BANNER_ELEMENT_MSG);
+                }
+                else if (elementToTest.tagName().equals("footer")){
+                    addSourceCodeRemark(getFailureSolution(), elementToTest, WRONG_USE_FOOTER_ROLE_CONTENT_INFO_ELEMENT_MSG);
+                }
+                
+
+            } else {
 //             System.out.println("#++++> inside of ForbiddenParentElementChecker 2 is :"+ isForbiddenParent(elementToTest.parents()));
-             testSolution = setTestSolution(testSolution, getSuccessSolution());
-                addSourceCodeRemark(getSuccessSolution(),elementToTest, getSuccessMsgCode());
-         }
+                testSolution = setTestSolution(testSolution, getSuccessSolution());
+                addSourceCodeRemark(getSuccessSolution(), elementToTest, getSuccessMsgCode());
+            }
 
-          testSolutionHandler.addTestSolution(testSolution);
-
+        }
+        testSolutionHandler.addTestSolution(testSolution);
     }
 
     private boolean isForbiddenParent(Elements parents) {

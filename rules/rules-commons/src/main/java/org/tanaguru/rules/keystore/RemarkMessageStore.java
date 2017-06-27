@@ -71,6 +71,7 @@ public final class RemarkMessageStore {
     public static final String MISSING_ROLE_NAVIGATION_ARIA_MSG="MissingRoleNavigatioAria";
     /*Header element*/
     public static final String MISSING_HEADER_ELEMENT_MSG = "MissingHeaderElement";
+    public static final String WRONG_USE_HEADER_ROLE_BANNER_ELEMENT_MSG = "WrongUseHeaderRoleBannerElement";
     public static final String ROLE_BANNER_NOT_IN_HEADER_MSG = "RoleBannerNotInHeader";
     public static final String CHECK_HEADER_ELEMENT_MSG = "CheckHeaderElement";
     public static final String ROLE_BANNER_UNICITY_MSG = "RoleBannerUnicity";
@@ -80,6 +81,7 @@ public final class RemarkMessageStore {
     public static final String CHECK_HEADER_ELEMENT_ARIA_MSG = "CheckHeaderElementAria";
     /*Footer elements*/
     public static final String MISSING_FOOTER_ELEMENT_MSG = "MissingFooterElement";
+    public static final String WRONG_USE_FOOTER_ROLE_CONTENT_INFO_ELEMENT_MSG = "WrongUseFooterRoleContentInfoElement";
     public static final String ROLE_CONTENT_INFO_NOT_IN_FOOTER_MSG = "RoleContentInfoNotInFooter";
     public static final String CHECK_FOOTER_ELEMENT_MSG = "CheckFooterElement";
     public static final String ROLE_CONTENT_INFO_UNICITY_MSG = "RoleContentInfoUnicity";
@@ -187,15 +189,26 @@ public final class RemarkMessageStore {
             = "CheckNatureOfImageAndStyledTextPresence";
     public static final String CHECK_TEXT_STYLED_PRESENCE_OF_INFORMATIVE_IMG_MSG
             = "CheckStyledTextPresenceOfInformativeImage";
-    public static final String CHECK_OBJ_IMG_ARIA_MSG="CheckObjImgAriaMsg";
-    public static final String CHECK_CANVAS_IMG_ARIA_MSG="CheckCanvasImgAriaMsg";
-    public static final String CHECK_EMB_IMG_ARIA_MSG="CheckEmbImgAriaMsg";
-    public static final String CHECK_INPUT_IMG_ARIA_MSG="CheckInputImgAriaMsg";
-    public static final String CHECK_INPUT_LEGD_ARIA_MSG="CheckInputLegdAriaMsg";
-    public static final String CHECK_OBJ_LEGD_ARIA_MSG="CheckObjLegdAriaMsg";
-    public static final String CHECK_EMB_LEGD_ARIA_MSG="CheckEmbLegdAriaMsg";
-    public static final String CHECK_SVG_IMG_ARIA_MSG="CheckSvgImgAriaMsg";
-    public static final String CHECK_CANVAS_LEGD_ARIA_MSG="CheckCanvasLegdAriaMsg";
+    
+    public static final String CHECK_OBJ_IMG_ARIA_MSG
+            ="CheckObjImgAriaMsg";
+    public static final String CHECK_CANVAS_IMG_ARIA_MSG
+            ="CheckCanvasImgAriaMsg";
+    public static final String CHECK_EMB_IMG_ARIA_MSG
+            ="CheckEmbImgAriaMsg";
+    public static final String CHECK_INPUT_IMG_ARIA_MSG
+            ="CheckInputImgAriaMsg";
+    public static final String CHECK_INPUT_LEGD_ARIA_MSG
+            ="CheckInputLegdAriaMsg";
+    public static final String CHECK_OBJ_LEGD_ARIA_MSG
+            ="CheckObjLegdAriaMsg";
+    public static final String CHECK_EMB_LEGD_ARIA_MSG
+            ="CheckEmbLegdAriaMsg";
+    public static final String CHECK_SVG_IMG_ARIA_MSG
+            ="CheckSvgImgAriaMsg";
+    public static final String CHECK_CANVAS_LEGD_ARIA_MSG
+            ="CheckCanvasLegdAriaMsg";
+     public static final String CHECK_IMG_TAGS_MSG="CheckImgTags";
 
     // frames 
     public static final String NOT_PERTINENT_TITLE_OF_FRAME_MSG

@@ -41,8 +41,6 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_HEADER_ELEMEN
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_MAIN_ELEMENT_MULTIPLE_MISSING_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NAV_ELEMNT_WITH_NAVIGATION_ROLE_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.MISIING_ROLE_NAVIGATION_IN_NAV_MSG;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.MISSING_FOOTER_ELEMENT_MSG;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.MISSING_HEADER_ELEMENT_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.MISSING_NAV_ELEMNT_WITH_NAVIGATION_ROLE_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.MISSING_ROLE_MAIN_IN_MAIN_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.ROLE_BANNER_NOT_IN_HEADER_MSG;
@@ -142,13 +140,13 @@ public class Rgaa32016Rule090201 extends AbstractPageRuleWithDoctypeHtml5Checker
 
         // Selection of header element
         ElementSelector headerElementSelector
-                = new SimpleElementSelector("header");
+                = new SimpleElementSelector("header:not([role=banner])");
         headerElementSelector.selectElements(sspHandler, headerElementHandler);
         System.out.println("header elements size :" + headerElementHandler.size());
 
         // Selection of header element
         ElementSelector footerElementSelector
-                = new SimpleElementSelector("footer");
+                = new SimpleElementSelector("footer:not([role=contentinfo])");
         footerElementSelector.selectElements(sspHandler, footerElementHandler);
         System.out.println("footer elements size :" + footerElementHandler.size());
 
@@ -158,9 +156,9 @@ public class Rgaa32016Rule090201 extends AbstractPageRuleWithDoctypeHtml5Checker
         headerRoleBannerElementSelector.selectElements(sspHandler, headerRoleBannerElementHandler);
         System.out.println("header with role banner elements size :" + headerRoleBannerElementHandler.size());
 
-        // Selection of header with role banner element
+        // Selection of footer with role contentinfo element
         ElementSelector footerRoleContentInfoElementSelector
-                = new SimpleElementSelector("header[role=banner]");
+                = new SimpleElementSelector("footer[role=contentinfo]");
         footerRoleContentInfoElementSelector.selectElements(sspHandler, footerRoleContentInfoElementHandler);
         System.out.println("footer with role contentinfo elements size :" + footerRoleContentInfoElementHandler.size());
 
