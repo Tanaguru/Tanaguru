@@ -64,7 +64,7 @@ public class Rgaa32016Rule090201Test extends Rgaa32016RuleImplementationTestCase
         //------------------------------2Failed-01------------------------------
         //----------------------------------------------------------------------
         ProcessResult processResult = processPageTest("Rgaa32016.Test.9.2.1-2Failed-01");
-        checkResultIsFailed(processResult, 43, 8);
+        checkResultIsFailed(processResult, 43, 7);
 //        checkRemarkIsPresent(
 //                processResult,
 //                TestSolution.FAILED,
@@ -79,7 +79,7 @@ public class Rgaa32016Rule090201Test extends Rgaa32016RuleImplementationTestCase
        processResult = processPageTest("Rgaa32016.Test.9.2.1-3NMI-01");
 //       // checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
 //       // checkResultIsNotApplicable(processResult); // temporary result to make the result buildable before implementation
-       checkResultIsPreQualified(processResult, 42,8);
+       checkResultIsPreQualified(processResult, 42,7);
 //        checkRemarkIsPresent(
 //                processResult,
 //                TestSolution.NEED_MORE_INFO,
