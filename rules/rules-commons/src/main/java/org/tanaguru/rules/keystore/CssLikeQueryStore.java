@@ -68,6 +68,15 @@ public final class CssLikeQueryStore {
             = "map:has(area)[name]:not([name~=^\\s*$])";
     public static final String NOT_EMPTY_ALT_ATTR_NOT_IN_LINK_CSS_LIKE_QUERY
             = "[alt]:not([alt~=^\\s*$]):not(a [alt])";
+    public static final String ALL_IMG_TAGS_CSS_LIKE_QUERY
+            ="img ,"
+            +"canvas ,"
+            +"area ,"
+            +"svg ,"
+            + OBJECT_TYPE_IMG_CSS_LIKE_QUERY+ "," + EMBED_TYPE_IMG_CSS_LIKE_QUERY;
+            
+            
+            
 
     //aria
     public static final String ARIA_ATTRIBUTES_CSS_LIKE_QUERY = "[^aria]";

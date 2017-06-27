@@ -2,19 +2,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
     <head> 
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
-        <title>Rgaa32016 Test.1.6.5NMI 01</title> 
+        <title>Rgaa32016 Test.1.6.10NMI 01</title> 
     </head> 
     <body> 
+
         <div> 
-            <h1>Rgaa32016 Test.1.6.5 NMI 01</h1> 
-            <div class="test-detail" lang="fr"> Pour chaque image bitmap de décoration (balise 
-                <code>canvas</code>), le contenu entre 
-                <code>&lt;canvas&gt;</code> et 
-                <code>&lt;/canvas&gt;</code> doit être dépourvu de contenus textuels, cette règle est-elle respectée ? 
-            </div> 
+            <h1>Rgaa32016 Test.1.6.10 NMI 01</h1> 
+
             <div class="testcase"> 
-                <input type="image" name="image" src="/files/2917/fxlogo.png"></input>
-                <input type="image" name="image" src="fxlogo.png"></input>
+
+                <object type="image/jpeg" data="TheEarth.gif" ></object>
+                <embed type="image/jpeg" data="TheEarth.gif" ></embed>
+                <canvas width="500" height="500"></canvas>
+                <img src="planets.gif" width="145" height="126" alt="Planets" usemap="#planetmap"></img>
+
+                <map name="planetmap">
+                    <area shape="rect" coords="0,0,82,126" alt="Sun" href="sun.htm"></area>
+                </map>
+
+                <svg class="informative-image">
+                    <desc> mock svg</desc> 
+                </svg> 
+
+
             </div> 
             <div class="test-explanation">
                 NMI : One canvas is found on the page and is not identified by marker. 
