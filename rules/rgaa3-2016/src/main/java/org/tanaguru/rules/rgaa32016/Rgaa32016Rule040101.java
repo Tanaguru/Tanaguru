@@ -28,7 +28,7 @@ import org.tanaguru.rules.elementchecker.element.SiblingElementsPresenceChecker;
 import org.tanaguru.rules.elementselector.SimpleElementSelector;
 import static org.tanaguru.rules.keystore.AttributeStore.SRC_ATTR;
 import static org.tanaguru.rules.keystore.CssLikeQueryStore.MEDIA_AUDIO_CSS_LIKE_QUERY;
-import static org.tanaguru.rules.keystore.CssLikeQueryStore.MEDIA_ONLY_VIDEO_TRANS_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.MANUAL_CHECK_ON_ELEMENTS_MSG;
 import static org.tanaguru.rules.rgaa32016.Rgaa32016Rule040101.textualElementsTag;
 
 /**
@@ -77,7 +77,7 @@ public class Rgaa32016Rule040101 extends AbstractPageRuleWithSelectorAndCheckerI
                 // the set is not empty
                 new SiblingElementsPresenceChecker(
                         textualElementsTag,
-                        new ImmutablePair(TestSolution.NEED_MORE_INFO, "msg"),
+                        new ImmutablePair(TestSolution.NEED_MORE_INFO, MANUAL_CHECK_ON_ELEMENTS_MSG),
                         new ImmutablePair(TestSolution.NOT_APPLICABLE, ""),
                         SRC_ATTR));
 
