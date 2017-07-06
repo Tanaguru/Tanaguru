@@ -220,13 +220,6 @@
                 <version>${rulesVersion}</version>
                 <scope>runtime</scope>
             </dependency>
-            <dependency>
-                <groupId>${rulesGroupId}</groupId>
-                <artifactId>tanaguru-rgaa3-2016</artifactId>
-                <version>${rulesVersion}</version>
-                <scope>runtime</scope>
-            </dependency>
-
             <!-- tanaguru-engine dependencies -->
             <dependency>
                 <groupId>${engineGroupId}</groupId>
