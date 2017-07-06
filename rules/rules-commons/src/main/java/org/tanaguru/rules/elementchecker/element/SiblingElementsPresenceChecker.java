@@ -54,9 +54,10 @@ public class SiblingElementsPresenceChecker extends ElementCheckerImpl {
             SSPHandler sspHandler,
             Elements elements,
             TestSolutionHandler testSolutionHandler) {
-        for (String elementToTest : childTextualElementNames) {
-            checkChildElementPresence(elementToTest, elements, testSolutionHandler);
-        }
+//        for (String elementToTest : childTextualElementNames) {
+//            checkChildElementPresence(elementToTest, elements, testSolutionHandler);
+//        }
+        checkChildElementPresence(childTextualElementNames, elements, testSolutionHandler);
     }
 
     /**
@@ -68,7 +69,7 @@ public class SiblingElementsPresenceChecker extends ElementCheckerImpl {
      * @param testSolutionHandler
      */
     private void checkChildElementPresence(
-            String elementToTest,
+            Collection<String> elementsToTest,
             //  Element currentTestedElement,
             Elements elements,
             TestSolutionHandler testSolutionHandler) {
@@ -96,12 +97,17 @@ public class SiblingElementsPresenceChecker extends ElementCheckerImpl {
                 addSourceCodeRemark(TestSolution.FAILED, el, getFailureMsgCode());
             } else {
 
+                boolean flag = false;
                 for (Element sEl : siblingElements) {
-                    if (sEl.getElementsByTag(elementToTest).size() >= 1) {
-                        testSolution = setTestSolution(testSolution, TestSolution.NEED_MORE_INFO);
-                        addSourceCodeRemark(TestSolution.NEED_MORE_INFO, el, getSuccessMsgCode());
-
+                    for (String elementToTest : elementsToTest) {
+                        if (sEl.getElementsByTag(elementToTest).size() >= 1) {
+                            flag = true;
+                        }
                     }
+                }
+                if (flag) {
+                    testSolution = setTestSolution(testSolution, TestSolution.NEED_MORE_INFO);
+                    addSourceCodeRemark(TestSolution.NEED_MORE_INFO, el, getSuccessMsgCode());
 
                 }
 
