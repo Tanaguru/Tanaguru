@@ -23,6 +23,7 @@ package org.tanaguru.rules.rgaa32016;
 import org.tanaguru.entity.audit.TestSolution;
 import org.tanaguru.ruleimplementation.AbstractDetectionPageRuleImplementation;
 import org.tanaguru.rules.elementselector.SimpleElementSelector;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.INPUT_NOT_INSIDE_FORM_CSS_LIKE_QUERY;
 import static org.tanaguru.rules.keystore.HtmlElementStore.FORM_ELEMENT;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.MANUAL_CHECK_ON_ELEMENTS_MSG;
 
@@ -40,7 +41,7 @@ public class Rgaa32016Rule111501 extends AbstractDetectionPageRuleImplementation
      */
     public Rgaa32016Rule111501 () {
         super(
-                new SimpleElementSelector(FORM_ELEMENT),
+                new SimpleElementSelector(FORM_ELEMENT +" , "+ INPUT_NOT_INSIDE_FORM_CSS_LIKE_QUERY),
                 // solution when at least one element is found
                 TestSolution.NEED_MORE_INFO,
                 // solution when no element is found
