@@ -285,6 +285,8 @@ public final class CssLikeQueryStore {
             = "form:has(textarea) , "
             + "form:has(input[type=password]) , "
             + "form:has(input[type=text])";
+    public static final String INPUT_NOT_INSIDE_FORM_CSS_LIKE_QUERY
+            ="input:not(form input) ";
     public static final String LABEL_WITHIN_FORM_CSS_LIKE_QUERY
             = "form:has(" + FORM_ELEMENT_CSS_LIKE_QUERY + ") label";
     public static final String FORM_LABEL_WITH_INNER_FORM_ELEMENT_CSS_LIKE_QUERY
