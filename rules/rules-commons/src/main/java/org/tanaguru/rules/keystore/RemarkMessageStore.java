@@ -103,6 +103,12 @@ public final class RemarkMessageStore {
             = "DecorativeElementWithNotEmptyAltAttribute";
     public static final String DECORATIVE_ELEMENT_WITH_TITLE_ATTR_MSG
             = "DecorativeElementWithTitleAttribute";
+    public static final String DECORATIVE_ELEMENT_WITH_ARIA_LABEL_ATTR_MSG
+            = "DecorativeElementWithTAria-LabelAttribute";
+     public static final String DECORATIVE_ELEMENT_WITH_ARIA_LABELLEDBY_ATTR_MSG
+            = "DecorativeElementWithTAria-LabelledbyAttribute";
+      public static final String DECORATIVE_ELEMENT_WITH_ARIA_DESCRIBEDBY_ATTR_MSG
+            = "DecorativeElementWithAria-describedbyAttribute";
     public static final String CHECK_ALTERNATIVE_OF_DECORATIVE_ELEMENT_MSG
             = "CheckAlternativeOfDecorativeElement";
     public static final String CHECK_NATURE_AND_ALTERNATIVE_OF_ELEMENT_MSG
