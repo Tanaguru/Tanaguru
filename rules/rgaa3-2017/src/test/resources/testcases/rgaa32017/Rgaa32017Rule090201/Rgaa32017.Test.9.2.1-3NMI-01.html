@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    <head> 
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
+        <title>Rgaa32017 Test.9-2-1 NMI 01</title> 
+    </head> 
+    <body> 
+        <div> 
+            <h1>Rgaa32017 Test.9-2-1 NMI 01</h1> 
+            <div class="test-detail" lang="fr"> Dans chaque page Web, la structure du document vérifie-t-elle ces conditions ? 
+                <ul class="ssTests"> 
+                    <li>La <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#mZoneHeader">zone d&apos;en-tête de la page</a> est structurée via une balise <code>header</code></li> 
+                    <li>Les <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#mMenuNav">zones de navigation principales et secondaires</a> sont structurées via une balise <code>nav</code></li> 
+                    <li> La balise <code>nav</code> est réservée à la structuration des zones de navigations principales et secondaires</li> 
+                    <li>La <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#mZoneMain">zone de contenu principal</a> est structurée via une balise <code>main</code></li> 
+                    <li>La structure du document utilise une balise <code>main</code> unique</li> 
+                    <li>La <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#mZoneFooter">zone de pied de page</a> est structurée via une balise <code>footer</code></li> 
+                </ul> 
+            </div> 
+            <div class="testcase"> 
+                <header role="banner">
+                        <h1>header p1</h1>
+                    </header>
+                
+                <header>
+                    <h1>header principal </h1> 
+                </header>
+            </div> 
+            <div class="test-explanation">
+
+                <main role ="main">
+                    
+                </main>
+                <nav role="navigation">
+                    <p>La pomme est le fruit à pépin du pommier.</p>  
+                </nav>
+
+                <article>
+                    <div role="contentinfo">
+                        
+                    </div>
+                    <footer>
+                        <h2>footer sous article</h2>
+                    </footer>
+                    <p>Ce sont des pommes rouges vives très communes dans les supermarchés.</p>
+                </article>
+               
+                <footer>
+                    <h2>footer principal </h2>
+                </footer>
+            </div> 
+             
+        </div>  
+    </body>
+</html>
