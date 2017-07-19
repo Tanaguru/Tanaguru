@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    <head> 
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
+        <title>Rgaa32017 Test.5.2.1 Failed 03</title> 
+    </head> 
+    <body> 
+        <div> 
+            <h1>Rgaa32017 Test.5.2.1 Failed 03</h1> 
+            <div class="test-detail" lang="fr"> Pour chaque 
+                <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#mTabDonneeC">tableau de donnée complexes</a> (balise 
+                <code>table</code>) ayant un résumé, celui-ci est-il pertinent ? 
+            </div> 
+            <div class="testcase"> 
+                <table id="id-complex-table"> 
+                  <caption>       </caption>
+                </table> 
+                <table id="id-presentation-table"> 
+                  <caption>       </caption>
+                </table> 
+                <table id="id-data-table"> 
+                  <caption>       </caption>
+                </table> 
+                <table> 
+                  <caption>Caption of table without marker</caption>
+                </table> 
+                <table> 
+                  <caption>$$##&apos;&apos;&apos;&apos;</caption>
+                </table> 
+            </div> 
+            <div class="test-explanation">
+                 Failed : A table identified as complex table by marker has an empty caption. <br/>
+                 The second table with an empty caption is identified as presentation table by marker. It is out of scope.<br/>
+                 The third table with an empty caption is identified as data table by marker. It is out of scope.<br/>
+                 The fourth is not identified as complex table. Its caption needs to be checked. <br/>
+                 The fifth table is not identified as complex table and its caption is not pertinent. 
+            </div> 
+        </div>   
+    </body>
+</html>
