@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head> 
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
+        <title>Rgaa32017 Test.1.2.1 NMI 07</title> 
+    </head> 
+    <body> 
+        <div> 
+            <h1>Rgaa32017 Test.1.2.1 NMI 07</h1> 
+            <div class="test-detail" lang="fr"> Chaque 
+                <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#mimgDeco">image de décoration</a> sans 
+                <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#mLegendeImage">légende</a> (balise 
+                <code>img</code>) et ayant un attribut 
+                <code>alt</code> vérifie-t-elle ces conditions : 
+                <ul class="ssTests"> 
+                    <li>le contenu de l&apos;attribut alt est vide (<code>alt=&quot;&quot;</code>)</li> 
+                    <li>l&apos;image de décoration ne possède pas d&apos;attribut <code>title</code></li> 
+                </ul> 
+            </div> 
+            <div class="testcase"> 
+                <img src="mock-image1.jpg" alt="description image" title="description image" /> 
+                <img src="mock-image2.jpg" alt="description image" title="" /> 
+                <img src="mock-image3.jpg" alt="" title="description image" /> 
+                <img src="mock-image4.jpg" alt="" title="" /> 
+                <img src="mock-image5.jpg" alt=""/> 
+                <img id="id-decorative-image" src="mock-decorative-image5.jpg" alt="" /> 
+            </div> 
+            <p class="test-explanation"> 
+              NMI : Three images are found on the page and is not identified by marker. 
+              The first has a not empty title and alt -> Suspected informative
+              The second has an empty title and not empty alt -> Suspected informative
+              The third has a not empty title and an empty alt -> Suspected informative
+              The fourth has an empty title and alt -> Suspected decorative
+              The last image is marked as decorative and has an empty alt attribute. 
+            </p> 
+        </div>   
+    </body>
+</html>
