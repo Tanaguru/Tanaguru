@@ -184,19 +184,19 @@
                 <artifactId>tanaguru-rules-commons</artifactId>
                 <version>${rulesVersion}</version>
             </dependency>
-            <dependency>
+             <dependency>
                 <groupId>${rulesGroupId}</groupId>
                 <artifactId>tanaguru-accessiweb2.1</artifactId>
                 <version>${rulesVersion}</version>
                 <scope>runtime</scope>
             </dependency>
-            <dependency>
+           <dependency>
                 <groupId>${rulesGroupId}</groupId>
                 <artifactId>tanaguru-accessiweb2.1-i18n</artifactId>
                 <version>${rulesVersion}</version>
                 <scope>runtime</scope>
             </dependency>
-            <dependency>
+          <dependency>
                 <groupId>${rulesGroupId}</groupId>
                 <artifactId>tanaguru-accessiweb2.1-testcases</artifactId>
                 <version>${rulesVersion}</version>
@@ -217,6 +217,12 @@
             <dependency>
                 <groupId>${rulesGroupId}</groupId>
                 <artifactId>tanaguru-rgaa3.0</artifactId>
+                <version>${rulesVersion}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>${rulesGroupId}</groupId>
+                <artifactId>tanaguru-rgaa3-2017</artifactId>
                 <version>${rulesVersion}</version>
                 <scope>runtime</scope>
             </dependency>
