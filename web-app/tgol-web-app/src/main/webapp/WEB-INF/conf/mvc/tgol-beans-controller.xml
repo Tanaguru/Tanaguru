@@ -105,6 +105,7 @@
                 <value>Aw22</value>
                 <value>Rgaa30</value>
                 <value>Rgaa32016</value>
+                <value>Rgaa32017</value>
             </list>
         </property>
         <property name="actionHandler" ref="resultActionHandler"/>
@@ -114,6 +115,7 @@
                 <ref bean="rgaa22ThemeSelectFormFieldBuilder"/>
                 <ref bean="rgaa30ThemeSelectFormFieldBuilder"/>
                 <ref bean="rgaa32016ThemeSelectFormFieldBuilder"/>
+                <ref bean="rgaa32017ThemeSelectFormFieldBuilder"/>
                 <ref bean="testResultCheckboxFormFieldBuilder"/>
             </list>
         </property>
