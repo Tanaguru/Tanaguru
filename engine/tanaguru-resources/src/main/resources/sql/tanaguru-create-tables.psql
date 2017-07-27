@@ -37,6 +37,7 @@ CREATE TABLE "content" (
     "id_audit" bigint DEFAULT NULL,
     "id_page" bigint DEFAULT NULL,
     "dtype" varchar(62) NOT NULL,
+    "w3c" text,
     PRIMARY KEY ("id_content")
 );
 
