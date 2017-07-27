@@ -13,6 +13,7 @@ declare tg_admin_email=
 declare tg_admin_passwd=
 declare firefox_esr_path=
 declare display_port=
+declare tg_version=
 
 declare omit_cleanup=true
 
@@ -28,7 +29,7 @@ declare PKG_DIR=$(pwd)
 
 declare ARCH="i386"
 
-declare TG_VERSION="4.0.3"
+declare TG_VERSION=$tg_version
 declare TG_ARCHIVE="tanaguru-$TG_VERSION.$ARCH"
 declare TG_WAR_VERSION=$TG_VERSION
 declare TG_WAR="tgol-web-app-$TG_WAR_VERSION.war"
@@ -44,6 +45,7 @@ declare -a OPTIONS=(
         tg_admin_passwd
 	firefox_esr_path
 	display_port
+        tg_version
 )
 
 warn() {
@@ -108,6 +110,7 @@ Usage : $0 [-h]
         --tg-admin-passwd <tanaguru admin password>
 	--firefox-esr-path <path-to-Firefox-ESR>
 	--display-port <Xorg-display-port>
+	--tg_version <tanaguru version>
 	
 Installation options :
  --mysql-tg-user             Mysql user for Tanaguru
@@ -120,6 +123,7 @@ Installation options :
  --tg-admin-passwd           The tanaguru application admin password
  --firefox-esr-path	     Path to Firefox-ESR binary (e.g. /opt/firefox-esr/firefox)
  --display-port              Xorg display port (e.g. ":99.1")
+ --tg_version                4.1.9
 
 Script options :
  -h --help           Display this help message
@@ -196,6 +200,7 @@ echo_configuration_summary() {
 	cat << EOF
 
 Installing Tanaguru with the following configuration :
+ - The current version of tanaguru is "${tg_version}
  - All path are relative to "${prefix}"
  - The mysql user "${mysql_tg_user}" will be created and used by Tanaguru
  - The mysql database "${mysql_tg_db}" will be created and used by Tanaguru
@@ -235,10 +240,12 @@ create_tables() {
                      "password in the database."
 
 	cd "$PKG_DIR/install/rules/sql"
-	cat 10-rules-resources-insert.sql                \
-            accessiweb2.2-insert.sql               \
-            rgaa3.0-insert.sql                \
-            rgaa2.2-insert.sql |              \
+	cat 10-rules-resources-insert.sql        \
+            accessiweb2.2-insert.sql             \
+            rgaa3.0-insert.sql                   \
+            rgaa2.2-insert.sql                   \
+            rgaa3-2016-insert.sql                \
+            rgaa3-2017-insert.sql |              \
 		mysql --user=${mysql_tg_user}            \
 		      --password=${mysql_tg_passwd}      \
                       ${mysql_tg_db} ||                  \
@@ -382,7 +389,7 @@ main() {
 	echo "SQL inserts: 		.	.	OK"
 	# install configuration file
 	install_configuration
-	echo "Tanaguru config files creation: .       OK"
+	echo "Tanaguru config files creation: .         OK"
 	# install webapp
 	install_webapp
 	echo "Tanaguru webapp creation: 	.	OK"
@@ -394,7 +401,7 @@ main() {
 	echo "Tanaguru webapp configuration: 	.	OK"
 	# create first user
 	create_first_user
-	echo "Tanaguru admin creation:        .	OK"
+	echo "Tanaguru admin creation:         .	OK"
 	# update tomcat configuration
 	update_tomcat_configuration
 	echo "Tomcat configuration: 	.	.	OK"
