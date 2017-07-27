@@ -36,6 +36,7 @@ create table "content" (
     "doctype" varchar(1024) default null,
     "id_audit" bigint default null,
     "id_page" bigint default null,
+    "w3c" text,
     primary key ("id_content")
 );
 
