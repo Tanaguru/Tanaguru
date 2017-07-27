@@ -243,7 +243,6 @@ create_tables() {
 	cat 10-rules-resources-insert.sql        \
             accessiweb2.2-insert.sql             \
             rgaa3.0-insert.sql                   \
-            rgaa2.2-insert.sql                   \
             rgaa3-2016-insert.sql                \
             rgaa3-2017-insert.sql |              \
 		mysql --user=${mysql_tg_user}            \
