@@ -644,7 +644,7 @@ UPDATE `TEST` SET `Id_Criterion` = (SELECT `Id_Criterion` FROM `CRITERION` WHERE
 
 INSERT IGNORE INTO `PARAMETER` (`Id_Parameter_Element`, `Parameter_Value`, `Is_Default`) VALUES
 (5, 'Rgaa32016;LEVEL_1', b'0'),
-(5, 'Rgaa32016;LEVEL_2', b'1'),
+(5, 'Rgaa32016;LEVEL_2', b'0'),
 (5, 'Rgaa32016;LEVEL_3', b'0');
 
 UPDATE TEST SET `No_Process`=b'0' WHERE 
