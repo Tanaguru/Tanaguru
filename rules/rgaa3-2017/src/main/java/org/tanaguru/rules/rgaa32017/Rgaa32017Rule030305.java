@@ -22,18 +22,18 @@ package org.tanaguru.rules.rgaa32017;
 import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
 
 /**
- * Implementation of the rule 4.4.1 of the referential Rgaa 3-2017.
+ * Implementation of the rule 3.3.5 of the referential Rgaa 3-2017.
  *
- * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-4-4-1">the rule 4.4.1 design page.</a>
- * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-4-4-1"> 4.4.1 rule specification</a>
+ * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-3-3-5">the rule 3.3.5 design page.</a>
+ * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-3-3-5"> 3.3.5 rule specification</a>
  */
 
-public class Rgaa32017Rule040401 extends AbstractNotTestedRuleImplementation {
+public class Rgaa32017Rule030305 extends AbstractNotTestedRuleImplementation {
 
     /**
      * Default constructor
      */
-    public Rgaa32017Rule040401 () {
+    public Rgaa32017Rule030305 () {
         super();
     }
 
