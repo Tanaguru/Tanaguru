@@ -50,13 +50,13 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.ROLE_SEARCH_ARIA_UN
 import static org.tanaguru.rules.keystore.RemarkMessageStore.ROLE_SEARCH_ON_INPUT_MSG;
 
 /**
- * Implementation of the rule 12.10.4 of the referential Rgaa 3-2017.
+ * Implementation of the rule 12.10.1 of the referential Rgaa 3-2017.
  *
- * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-12-10-4">the rule 12.10.4 design page.</a>
- * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-12-10-4"> 12.10.4 rule specification</a>
+ * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-12-10-4">the rule 12.10.1 design page.</a>
+ * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-12-10-4"> 12.10.1 rule specification</a>
  */
 
-public class Rgaa32017Rule121004 extends AbstractPageRuleWithDoctypeHtml5CheckerImplementation {
+public class Rgaa32017Rule121001 extends AbstractPageRuleWithDoctypeHtml5CheckerImplementation {
 
     
      //* the main elements*/
@@ -74,7 +74,7 @@ ElementHandler<Element> missingRoleSearchElementHandler = new ElementHandlerImpl
 /* the total number of elements */
 int totalNumberOfElements = 0;
 
-    public Rgaa32017Rule121004 () {
+    public Rgaa32017Rule121001 () {
         super();
     }
 @Override
