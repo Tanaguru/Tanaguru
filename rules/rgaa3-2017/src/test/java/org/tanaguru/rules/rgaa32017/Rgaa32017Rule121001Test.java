@@ -23,17 +23,17 @@ import org.tanaguru.entity.audit.ProcessResult;
 import org.tanaguru.rules.rgaa32017.test.Rgaa32017RuleImplementationTestCase;
 
 /**
- * Unit test class for the implementation of the rule 12-10-4 of the referential Rgaa 3-2017.
+ * Unit test class for the implementation of the rule 12-10-1 of the referential Rgaa 3-2017.
  *
  * @author
  */
-public class Rgaa32017Rule121004Test extends Rgaa32017RuleImplementationTestCase {
+public class Rgaa32017Rule121001Test extends Rgaa32017RuleImplementationTestCase {
 
     /**
      * Default constructor
      * @param testName
      */
-    public Rgaa32017Rule121004Test (String testName){
+    public Rgaa32017Rule121001Test (String testName){
         super(testName);
     }
 
@@ -45,10 +45,10 @@ public class Rgaa32017Rule121004Test extends Rgaa32017RuleImplementationTestCase
 
     @Override
     protected void setUpWebResourceMap() {
-//        addWebResource("Rgaa32017.Test.12.10.4-1Passed-01");
-        addWebResource("Rgaa32017.Test.12.10.4-2Failed-01");
-        addWebResource("Rgaa32017.Test.12.10.4-3NMI-01");
-//        addWebResource("Rgaa32017.Test.12.10.4-4NA-01");
+//        addWebResource("Rgaa32017.Test.12.10.1-1Passed-01");
+        addWebResource("Rgaa32017.Test.12.10.1-2Failed-01");
+        addWebResource("Rgaa32017.Test.12.10.1-3NMI-01");
+//        addWebResource("Rgaa32017.Test.12.10.1-4NA-01");
     }
 
     @Override
@@ -56,12 +56,12 @@ public class Rgaa32017Rule121004Test extends Rgaa32017RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------1Passed-01------------------------------
         //----------------------------------------------------------------------
-//        checkResultIsPassed(processPageTest("Rgaa32017.Test.12.10.4-1Passed-01"), 1);
+//        checkResultIsPassed(processPageTest("Rgaa32017.Test.12.10.1-1Passed-01"), 1);
 
         //----------------------------------------------------------------------
         //------------------------------2Failed-01------------------------------
         //----------------------------------------------------------------------
-      ProcessResult processResult = processPageTest("Rgaa32017.Test.12.10.4-2Failed-01");
+      ProcessResult processResult = processPageTest("Rgaa32017.Test.12.10.1-2Failed-01");
         checkResultIsFailed(processResult, 0, 7);
 //        checkRemarkIsPresent(
 //                processResult,
@@ -74,7 +74,7 @@ public class Rgaa32017Rule121004Test extends Rgaa32017RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------3NMI-01---------------------------------
         //----------------------------------------------------------------------
-         processResult = processPageTest("Rgaa32017.Test.12.10.4-3NMI-01");
+         processResult = processPageTest("Rgaa32017.Test.12.10.1-3NMI-01");
         //checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
         checkResultIsPreQualified(processResult,0, 5);
 //        checkRemarkIsPresent(
@@ -89,7 +89,7 @@ public class Rgaa32017Rule121004Test extends Rgaa32017RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------4NA-01------------------------------
         //----------------------------------------------------------------------
-//        checkResultIsNotApplicable(processPageTest("Rgaa32017.Test.12.10.4-4NA-01"));
+//        checkResultIsNotApplicable(processPageTest("Rgaa32017.Test.12.10.1-4NA-01"));
     }
 
     @Override
@@ -99,7 +99,7 @@ public class Rgaa32017Rule121004Test extends Rgaa32017RuleImplementationTestCase
         // The assertions are automatically tested regarding the file names by 
         // the abstract parent class
 //        assertEquals(TestSolution.NOT_TESTED,
-//                consolidate("Rgaa32017.Test.12.10.4-3NMI-01").getValue());
+//                consolidate("Rgaa32017.Test.12.10.1-3NMI-01").getValue());
     }
 
 }
