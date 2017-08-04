@@ -33,19 +33,19 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <engineGroupId>org.tanaguru</engineGroupId>
-        <engineVersion>4.0.2-SNAPSHOT</engineVersion>
+        <engineVersion>5.0.0-SNAPSHOT</engineVersion>
         
         <webappGroupId>org.tanaguru</webappGroupId>
-        <webappVersion>4.0.2-SNAPSHOT</webappVersion>
+        <webappVersion>5.0.0-SNAPSHOT</webappVersion>
         
         <testingToolsGroupId>org.tanaguru</testingToolsGroupId>
-        <testingToolsVersion>4.0.2-SNAPSHOT</testingToolsVersion>
+        <testingToolsVersion>5.0.0-SNAPSHOT</testingToolsVersion>
         
         <tanaguruCliGroupId>org.tanaguru</tanaguruCliGroupId>
-        <tanaguruCliVersion>4.0.2-SNAPSHOT</tanaguruCliVersion>
+        <tanaguruCliVersion>5.0.0-SNAPSHOT</tanaguruCliVersion>
         
         <rulesGroupId>org.tanaguru</rulesGroupId>
-        <rulesVersion>1.8.0-SNAPSHOT</rulesVersion>
+        <rulesVersion>1.9.0-SNAPSHOT</rulesVersion>
         
         <springGroupId>org.springframework</springGroupId>
         <springVersion>3.1.2.RELEASE</springVersion>
