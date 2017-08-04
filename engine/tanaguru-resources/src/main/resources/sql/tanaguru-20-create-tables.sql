@@ -64,6 +64,7 @@ CREATE TABLE IF NOT EXISTS `CONTENT` (
   `Doctype` varchar(512) DEFAULT NULL,
   `Id_Audit` bigint(20) DEFAULT NULL,
   `Id_Page` bigint(20) DEFAULT NULL,
+  `W3c` longtext,
   PRIMARY KEY (`Id_Content`),
   KEY `FK6382C059493EC9C2` (`Id_Audit`),
   CONSTRAINT `FK6382C059493EC9C2` 
