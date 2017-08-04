@@ -77,7 +77,7 @@ public class Rgaa32016Rule040101Test extends Rgaa32016RuleImplementationTestCase
         //----------------------------------------------------------------------
         ProcessResult processResult = processPageTest("Rgaa32016.Test.4.1.1-3NMI-01");
   //      checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-        checkResultIsPreQualified(processResult, 1, 2);
+        checkResultIsPreQualified(processResult, 1, 1);
 //        checkRemarkIsPresent(
 //                processResult,
 //                TestSolution.NEED_MORE_INFO,
