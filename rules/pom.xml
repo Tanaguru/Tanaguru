@@ -25,8 +25,8 @@
     <modules>
         <module>rules-commons</module>
         <module>accessiweb2.2</module>
-<!--    <module>rgaa2.2</module>
-        <module>rgaa3.0</module>-->
+        <module>rgaa2.2</module>
+        <module>rgaa3.0</module>
         <module>rgaa3-2016</module>
         <module>rgaa3-2017</module>
         <module>rules-creation-demo</module>
