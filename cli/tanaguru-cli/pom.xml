@@ -108,7 +108,7 @@
             <artifactId>tanaguru-accessiweb2.2</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <dependency>
+<!--        <dependency>
             <groupId>${rulesGroupId}</groupId>
             <artifactId>tanaguru-rgaa2.2</artifactId>
             <scope>runtime</scope>
@@ -117,7 +117,7 @@
             <groupId>${rulesGroupId}</groupId>
             <artifactId>tanaguru-rgaa3.0</artifactId>
             <scope>runtime</scope>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>${springGroupId}</groupId>
             <artifactId>spring-tx</artifactId>
