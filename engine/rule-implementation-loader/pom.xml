@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.tanaguru</groupId>
         <artifactId>engine</artifactId>
-        <version>4.5.0</version>
+        <version>5.0.0</version>
     </parent>
     <artifactId>tanaguru-rule-implementation-loader</artifactId>
     <name>rule-implementation-loader</name>
