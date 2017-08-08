@@ -33,6 +33,8 @@ https://my.tanaguru.com/
 
 See [all Tanaguru Docs](http://tanaguru.readthedocs.org/)
 
+[Rules implementation](http://tanaguru-rules-rgaa3.readthedocs.io/en/master/)
+
 Usefull links:
 
 * [Installation](http://tanaguru.readthedocs.org/en/develop/prerequisites-webapp-doc/)
