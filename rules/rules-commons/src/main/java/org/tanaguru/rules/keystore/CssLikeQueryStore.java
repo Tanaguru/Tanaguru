@@ -69,14 +69,11 @@ public final class CssLikeQueryStore {
     public static final String NOT_EMPTY_ALT_ATTR_NOT_IN_LINK_CSS_LIKE_QUERY
             = "[alt]:not([alt~=^\\s*$]):not(a [alt])";
     public static final String ALL_IMG_TAGS_CSS_LIKE_QUERY
-            ="img ,"
-            +"canvas ,"
-            +"area ,"
-            +"svg ,"
-            + OBJECT_TYPE_IMG_CSS_LIKE_QUERY+ "," + EMBED_TYPE_IMG_CSS_LIKE_QUERY;
-            
-            
-            
+            = "img ,"
+            + "canvas ,"
+            + "area ,"
+            + "svg ,"
+            + OBJECT_TYPE_IMG_CSS_LIKE_QUERY + "," + EMBED_TYPE_IMG_CSS_LIKE_QUERY;
 
     //aria
     public static final String ARIA_ATTRIBUTES_CSS_LIKE_QUERY = "[^aria]";
@@ -135,17 +132,17 @@ public final class CssLikeQueryStore {
             = "MP4|avi|wmv|mov|Xvid|mkv|mka|mks|FLV|rmvb|MPA|WMA|MP2|M2P|DIF|DV|VOB|VRO|rmvb|vivo|bik|ASF|ifo|mts|mxf|nds|rv|web|wlmp|wmp|ogv";
     public static final String MEDIA_AUDIO_CSS_LIKE_QUERY
             = "audio ,"
-            +"video[src~=(?i)\\.(" + AUDIO_FILE_EXTENSION + ")] ,"
-            +"video:has(source[src~=(?i)\\.(" + AUDIO_FILE_EXTENSION + ")]) ,"
+            + "video[src~=(?i)\\.(" + AUDIO_FILE_EXTENSION + ")] ,"
+            + "video:has(source[src~=(?i)\\.(" + AUDIO_FILE_EXTENSION + ")]) ,"
             + "embed[src~=(?i)\\.(" + AUDIO_FILE_EXTENSION + ")] ,"
             + "object[data~=(?i)\\.(" + AUDIO_FILE_EXTENSION + ")]";
-    public static final String MEDIA_VIDEO_TRANS_CSS_LIKE_QUERY="video" ;
+    public static final String MEDIA_VIDEO_TRANS_CSS_LIKE_QUERY = "video";
     // video:has(track), 
-   public static final String MEDIA_ONLY_VIDEO_TRANS_CSS_LIKE_QUERY="video:has(track)";
+    public static final String MEDIA_ONLY_VIDEO_TRANS_CSS_LIKE_QUERY = "video:has(track)";
     //public static final String MEDIA_ONLY_VIDEO_TRANS_CSS_LIKE_QUERY="track[kind=captions]";
     public static final String MEDIA_VIDEO_CSS_LIKE_QUERY
-//            = "video:not([src~=(?i)\\.(" + AUDIO_FILE_EXTENSION + ")]) ,"
-//            + "video:has(source[src]:not([src~=(?i)\\.(" + AUDIO_FILE_EXTENSION + ")])) ,"
+            //            = "video:not([src~=(?i)\\.(" + AUDIO_FILE_EXTENSION + ")]) ,"
+            //            + "video:has(source[src]:not([src~=(?i)\\.(" + AUDIO_FILE_EXTENSION + ")])) ,"
             = "video[src~=(?i)\\.(" + VIDEO_FILE_EXTENSION + ")] ,"
             + "video:has(source[src~=(?i)\\.(" + VIDEO_FILE_EXTENSION + ")]) ,"
             + "svg ,"
@@ -153,20 +150,30 @@ public final class CssLikeQueryStore {
             + "canvas ,"
             + "object[data~=(?i)\\.(" + VIDEO_FILE_EXTENSION + ")] ,"
             + "embed[src~=(?i)\\.(" + VIDEO_FILE_EXTENSION + ")] ";
-            
+
     //Text
-    
-    public static final String TEXTUAL_NODE_CSS_LIKE_QUERY="p[dir],H1[dir],H2[dir],H3[dir],H4[dir],H5[dir],H6[dir],a[dir]";
+    public static final String TEXTUAL_NODE_CSS_LIKE_QUERY = "p[dir],H1[dir],H2[dir],H3[dir],H4[dir],H5[dir],H6[dir],a[dir]";
     // Document Structure
-    
-    public static String DOC_STR_CSS_LIKE_QUERY="main ,nav[role=navigation]";
-            
+
+    public static String DOC_STR_CSS_LIKE_QUERY = "main ,nav[role=navigation]";
+
     public static final String MEDIA_TMP_CSS_LIKE_QUERY
             = MEDIA_AUDIO_CSS_LIKE_QUERY + "," + MEDIA_VIDEO_CSS_LIKE_QUERY;
 
     // Form theme css-like queries
     public static final String FORM_WITHOUT_FIELDSET_CSS_LIKE_QUERY
             = "form:not(:has(fieldset))";
+    public static final String FORM_ARIA_CSS_LIKE_QUERY
+            = "textarea[aria-label], "
+            + "textarea[aria-labelledby], "
+            + "select[aria-label], "
+            + "select[aria-labelledby], "
+            + "datalist[aria-label], "
+            + "datalist[aria-labelledby], "
+            + "keygen[aria-label], "
+            + "keygen[aria-labelledby], "
+            + "input[aria-label]:not([type=submit]):not([type=reset]):not([type=image]):not([type=button]),"
+            + "input[aria-labelledby]:not([type=submit]):not([type=reset]):not([type=image]):not([type=button])";
     public static final String FORM_ELEMENT_CSS_LIKE_QUERY
             = "textarea , "
             + "select , "
@@ -286,7 +293,7 @@ public final class CssLikeQueryStore {
             + "form:has(input[type=password]) , "
             + "form:has(input[type=text])";
     public static final String INPUT_NOT_INSIDE_FORM_CSS_LIKE_QUERY
-            ="input:not(form input) ";
+            = "input:not(form input) ";
     public static final String LABEL_WITHIN_FORM_CSS_LIKE_QUERY
             = "form:has(" + FORM_ELEMENT_CSS_LIKE_QUERY + ") label";
     public static final String FORM_LABEL_WITH_INNER_FORM_ELEMENT_CSS_LIKE_QUERY
