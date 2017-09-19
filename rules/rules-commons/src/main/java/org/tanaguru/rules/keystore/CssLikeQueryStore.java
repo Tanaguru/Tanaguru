@@ -292,6 +292,12 @@ public final class CssLikeQueryStore {
             = "form:has(textarea) , "
             + "form:has(input[type=password]) , "
             + "form:has(input[type=text])";
+    public static final String FORM_WITH_TITLE_ATTR_CSS_LIKE_QUERY
+            = "textarea[title], "
+            + "select[title], "
+            + "datalist[title], "
+            + "keygen[title], "
+            + "input[title]:not([type=submit]):not([type=reset]):not([type=image]):not([type=button])";
     public static final String INPUT_NOT_INSIDE_FORM_CSS_LIKE_QUERY
             = "input:not(form input) ";
     public static final String LABEL_WITHIN_FORM_CSS_LIKE_QUERY

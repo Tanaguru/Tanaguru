@@ -42,150 +42,27 @@ public class Rgaa32017Rule110105Test extends Rgaa32017RuleImplementationTestCase
 
     @Override
     protected void setUpRuleImplementationClassName() {
-        setRuleImplementationClassName("org.tanaguru.rules.rgaa32017.Rgaa32017Rule110103");
+        setRuleImplementationClassName("org.tanaguru.rules.rgaa32017.Rgaa32017Rule110105");
     }
 
     @Override
     protected void setUpWebResourceMap() {
-        addWebResource("Rgaa32017.Test.11.01.03-1Passed-A01");
-        addWebResource("Rgaa32017.Test.11.01.03-1Passed-A02");
-        addWebResource("Rgaa32017.Test.11.01.03-1Passed-A03");
-        addWebResource("Rgaa32017.Test.11.01.03-1Passed-A04");
-        addWebResource("Rgaa32017.Test.11.01.03-1Passed-A05");
-        addWebResource("Rgaa32017.Test.11.01.03-1Passed-A06");
-        addWebResource("Rgaa32017.Test.11.01.03-1Passed-A07");
-        addWebResource("Rgaa32017.Test.11.01.03-1Passed-A08");
-        addWebResource("Rgaa32017.Test.11.01.03-1Passed-A09");
-        addWebResource("Rgaa32017.Test.11.01.03-2Failed-A01");
-        addWebResource("Rgaa32017.Test.11.01.03-2Failed-A02");
-        addWebResource("Rgaa32017.Test.11.01.03-2Failed-A03");
-        addWebResource("Rgaa32017.Test.11.01.03-2Failed-A04");
-        addWebResource("Rgaa32017.Test.11.01.03-2Failed-5");
-        addWebResource("Rgaa32017.Test.11.01.03-4NA-A01");
-
+        addWebResource("Rgaa32017.Test.11.01.05-4NMI-01");
+        addWebResource("Rgaa32017.Test.11.01.05-5NA-01");
     }
 
     @Override
     protected void setProcess() {
-        //----------------------------------------------------------------------
-        //------------------------------1Passed-A01-----------------------------
-        //----------------------------------------------------------------------
-        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.03-1Passed-A01"),1);
-
-        //----------------------------------------------------------------------
-        //------------------------------1Passed-A02-----------------------------
-        //----------------------------------------------------------------------
-        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.03-1Passed-A02"),1);
-
-        //----------------------------------------------------------------------
-        //------------------------------1Passed-A03-----------------------------
-        //----------------------------------------------------------------------
-        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.03-1Passed-A03"),1);
-
-        //----------------------------------------------------------------------
-        //------------------------------1Passed-A04-----------------------------
-        //----------------------------------------------------------------------
-        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.03-1Passed-A04"),1);
-
-        //----------------------------------------------------------------------
-        //------------------------------1Passed-A05-----------------------------
-        //----------------------------------------------------------------------
-        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.03-1Passed-A05"),1);
+//       
+//------------------------------3NMI-01---------------------------------
         
-        //----------------------------------------------------------------------
-        //------------------------------1Passed-A06-----------------------------
-        //----------------------------------------------------------------------
-        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.03-1Passed-A06"),1);
-
-        //----------------------------------------------------------------------
-        //------------------------------1Passed-A07-----------------------------
-        //----------------------------------------------------------------------
-        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.03-1Passed-A07"),1);
-        //----------------------------------------------------------------------
-        //------------------------------1Passed-A08-----------------------------
-        //----------------------------------------------------------------------
-       checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.03-1Passed-A08"),1);
-        //----------------------------------------------------------------------
-        //------------------------------1Passed-A09-----------------------------
-        //----------------------------------------------------------------------
-       checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.03-1Passed-A09"),1);
-
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-A01-----------------------------
-        //----------------------------------------------------------------------
-        ProcessResult processResult = processPageTest("Rgaa32017.Test.11.01.03-2Failed-A01");
-        checkResultIsFailed(processResult, 1, 1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.FAILED,
-                RemarkMessageStore.FORM_ELEMENT_WITHOUT_LABEL_MSG,
-                HtmlElementStore.INPUT_ELEMENT,
-                1);
-
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-A02-----------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.03-2Failed-A02");
-        checkResultIsFailed(processResult, 1, 1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.FAILED,
-                RemarkMessageStore.FORM_ELEMENT_WITHOUT_LABEL_MSG,
-                HtmlElementStore.INPUT_ELEMENT,
-                1);
-
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-A03-----------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.03-2Failed-A03");
-        checkResultIsFailed(processResult, 1, 3);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.FAILED,
-                RemarkMessageStore.FORM_ELEMENT_WITH_NOT_UNIQUE_LABEL_MSG,
-                HtmlElementStore.INPUT_ELEMENT,
-                1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.FAILED,
-                RemarkMessageStore.FORM_ELEMENT_WITH_NOT_UNIQUE_LABEL_MSG,
-                HtmlElementStore.SPAN_ELEMENT,
-                2);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.FAILED,
-                RemarkMessageStore.FORM_ELEMENT_WITH_NOT_UNIQUE_LABEL_MSG,
-                HtmlElementStore.SPAN_ELEMENT,
-                3);
-
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-A04-----------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.03-2Failed-A04");
-        checkResultIsFailed(processResult, 2, 1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.FAILED,
-                RemarkMessageStore.FORM_ELEMENT_WITHOUT_LABEL_MSG,
-                HtmlElementStore.INPUT_ELEMENT,
-                1);
-
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-A5-----------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.03-2Failed-5");
-        checkResultIsFailed(processResult, 1, 1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.FAILED,
-                RemarkMessageStore.ARIA_LABELLEDBY_EMPTY_MSG,
-                HtmlElementStore.INPUT_ELEMENT,
-                1);
+       ProcessResult processResult = processPageTest("Rgaa32017.Test.11.01.05-4NMI-01");
+        checkResultIsPreQualified(processResult, 1, 1);
 
         //----------------------------------------------------------------------
         //------------------------------4NA-A01---------------------------------
         //----------------------------------------------------------------------
-        checkResultIsNotApplicable(processPageTest("Rgaa32017.Test.11.01.03-4NA-A01"));
+        checkResultIsNotApplicable(processPageTest("Rgaa32017.Test.11.01.05-5NA-01"));
     }
 
 }
