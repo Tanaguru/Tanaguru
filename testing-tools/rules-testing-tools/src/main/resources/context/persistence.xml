@@ -6,6 +6,7 @@
         
         <class>org.tanaguru.entity.audit.AuditImpl</class>
         <class>org.tanaguru.entity.reference.TestImpl</class>
+        <class>org.tanaguru.entity.reference.AccedewebImpl</class>
         <class>org.tanaguru.entity.reference.CriterionImpl</class>
         <class>org.tanaguru.entity.reference.DecisionLevelImpl</class>
         <class>org.tanaguru.entity.reference.LevelImpl</class>

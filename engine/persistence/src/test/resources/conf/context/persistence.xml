@@ -35,6 +35,7 @@
     <class>org.tanaguru.entity.parameterization.ParameterImpl</class>
     <class>org.tanaguru.entity.parameterization.ParameterElementImpl</class>
     <class>org.tanaguru.entity.parameterization.ParameterFamilyImpl</class>
+    <class>org.tanaguru.entity.reference.AccedewebImpl</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="dialect" value="org.hibernate.dialect.HSQLDialect"/>
