@@ -163,7 +163,7 @@
                                         <img src="<c:url value="/Images/ico-nt-m-gray.png"/>" title="${ntTitle}" alt="${ntTitle}"/>
                                         <span class="theme-result" title="${ntTitle}">${counterByThemeMap[entry.key].ntCount}</span>
                                     </div>
-                                </div>
+                                </div >
                             </div><!-- class="span16" -->
                         </div><!-- class="row" -->
                     </c:if>
@@ -241,6 +241,44 @@
                                                         </a>
                                                     </c:if>
                                                 </div>
+                                                <div class="span1 test-solutions test-details">
+                                                       <!-- Button trigger modal --> 
+                                                       
+                                                       <c:if test="${fn:length(testResult.test.accedwebSet) > 0}">
+                                                           <a  data-toggle="modal" data-target="#myModal${testResult.testShortLabel.replace(".","-")}"  title="<fmt:message key="resultPage.ruleDesignUrl"/> ${testResult.testShortLabel} " href="#" >
+                                                               <img alt="AccedWeb Rgaa3 Test ${testResult.testShortLabel}"  src="<c:url value="/Images/icon-light.png"/>"   />
+                                                           </a>
+                                                       </c:if>
+                                                       
+                                                       <!-- Modal -->
+                                                       <div class="modal fade" id="myModal${testResult.testShortLabel.replace(".","-")}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                                           <div class="modal-dialog" role="document">
+                                                               <div class="modal-content">
+                                                                   <div class="modal-header">
+                                                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                       <h4 class="modal-title" id="myModalLabel"><fmt:message key="resultPage.accedwebnotice"/></h4>
+                                                                   </div>
+                                                                   <div class="modal-body">
+                                                                       <c:if test="${fn:length(testResult.test.accedwebSet) > 0}">
+                                                                           <span class="rule-detail-link">
+                                                                               <ul>
+                                                                                   <c:forEach var="notice" items="${testResult.test.accedwebSet}" >
+                                                                                       <li> <a target="_blank"  title="<fmt:message key="${notice.code}" /> <fmt:message key="footer.newWindow"/>" href="<fmt:message key="${notice.code}-url" /> " > <fmt:message key="${notice.code}" /> </a> </li> 
+
+                                                                                   </c:forEach>
+                                                                               </ul>
+                                                                           </span>
+                                                                       </c:if>
+                                                                   </div>
+                                                                   <div class="modal-footer">
+                                                                       <button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="resultPage.close"/></button>
+                                                                   </div>
+                                                               </div>
+                                                           </div>
+                                                       </div>  
+                                                                   
+                                                </div   >
+
                                                 <div class="${rowBgClass} span1 test-result" >
                                                     <img src="<c:url value="/Images/ico-${testResult.resultCode}-m.png"/>" alt="test ${testResult.testShortLabel} <fmt:message key="${testResult.resultCode}"/>"/> 
                                                 </div>
