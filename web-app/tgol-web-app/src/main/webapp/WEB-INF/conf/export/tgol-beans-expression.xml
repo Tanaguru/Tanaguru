@@ -55,6 +55,7 @@
                 <value>i18n/rule-rgaa30-I18N</value>
                 <value>i18n/rule-aw22-I18N</value>
                  <value>i18n/rule-rgaa32016-I18N</value>
+                 <value>i18n/accedeweb-rgaa32016-I18N</value>
             </list>
         </property>
         <property name="escapeHtml" value="false"/>

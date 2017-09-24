@@ -31,6 +31,7 @@
         <class>org.tanaguru.entity.reference.StandardMessageImpl</class>
         <class>org.tanaguru.entity.reference.TestImpl</class>
         <class>org.tanaguru.entity.reference.ThemeImpl</class>
+        <class>org.tanaguru.entity.reference.AccedewebImpl</class>
         <class>org.tanaguru.entity.audit.AuditImpl</class>
         <class>org.tanaguru.entity.audit.ContentImpl</class>
         <class>org.tanaguru.entity.audit.DefiniteResultImpl</class>

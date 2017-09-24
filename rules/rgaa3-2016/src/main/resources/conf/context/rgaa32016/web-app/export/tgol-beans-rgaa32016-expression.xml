@@ -32,6 +32,7 @@
         <property name="arguments">
              <list>
                 <value>i18n/rule-rgaa32016-I18N</value>
+                <value>i18n/accedeweb-rgaa32016-I18N</value>
             </list>
         </property>
     </bean>
