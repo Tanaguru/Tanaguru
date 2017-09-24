@@ -23,7 +23,10 @@ package org.tanaguru.entity.reference;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -75,11 +78,14 @@ public class TestImpl implements Test, Serializable {
     private ScopeImpl scope;
     @Column(name = "Rule_Design_Url")
     private String ruleDesignUrl;
-    @Column(name = "Weight", precision=2, scale=1)
+    @Column(name = "Weight", precision = 2, scale = 1)
     private BigDecimal weight;
     @Column(name = "No_Process")
     @JsonIgnore
     private boolean noProcess;
+    @OneToMany(targetEntity = AccedewebImpl.class , mappedBy = "test", fetch = FetchType.EAGER)
+    @JsonIgnore
+    private Set<Accedeweb> accedwebSet;
 
     public TestImpl() {
         super();
@@ -92,6 +98,25 @@ public class TestImpl implements Test, Serializable {
         this.description = description;
     }
 
+    @XmlElementRef(type = org.tanaguru.entity.reference.AccedewebImpl.class)
+    @Override
+    public Collection<Accedeweb> getAccedwebSet() {
+        if (this.accedwebSet == null) {
+            this.accedwebSet = new HashSet<>();
+        }
+        return (Collection) accedwebSet;
+    }
+
+    @Override
+    public void setAccedwebSet(Set<Accedeweb> accedweb) {
+        if (this.accedwebSet == null) {
+            this.accedwebSet = new HashSet<>();
+        }
+        for (Accedeweb accWeb : accedweb) {
+            this.accedwebSet.add((AccedewebImpl) accWeb);
+        }
+    }
+
     @Override
     public String getCode() {
         return this.code;
@@ -99,13 +124,13 @@ public class TestImpl implements Test, Serializable {
 
     @Override
     @XmlElementRef(type = org.tanaguru.entity.reference.CriterionImpl.class)
-    @JsonTypeInfo(use=JsonTypeInfo.Id.NAME, include=JsonTypeInfo.As.WRAPPER_OBJECT)
+    @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.WRAPPER_OBJECT)
     @JsonSubTypes({
-        @JsonSubTypes.Type(value=org.tanaguru.entity.reference.CriterionImpl.class, name="Criterion")})
+        @JsonSubTypes.Type(value = org.tanaguru.entity.reference.CriterionImpl.class, name = "Criterion")})
     public Criterion getCriterion() {
         return this.criterion;
     }
-    
+
     @Override
     @XmlElementRef(type = org.tanaguru.entity.reference.DecisionLevelImpl.class)
     public DecisionLevel getDecisionLevel() {
@@ -148,9 +173,9 @@ public class TestImpl implements Test, Serializable {
 
     @Override
     @XmlElementRef(type = org.tanaguru.entity.reference.LevelImpl.class)
-    @JsonTypeInfo(use=JsonTypeInfo.Id.NAME, include=JsonTypeInfo.As.WRAPPER_OBJECT)
+    @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.WRAPPER_OBJECT)
     @JsonSubTypes({
-        @JsonSubTypes.Type(value=org.tanaguru.entity.reference.LevelImpl.class, name="Level")})
+        @JsonSubTypes.Type(value = org.tanaguru.entity.reference.LevelImpl.class, name = "Level")})
     public Level getLevel() {
         return this.level;
     }
@@ -172,9 +197,9 @@ public class TestImpl implements Test, Serializable {
 
     @Override
     @XmlElementRef(type = org.tanaguru.entity.reference.ScopeImpl.class)
-    @JsonTypeInfo(use=JsonTypeInfo.Id.NAME, include=JsonTypeInfo.As.WRAPPER_OBJECT)
+    @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.WRAPPER_OBJECT)
     @JsonSubTypes({
-        @JsonSubTypes.Type(value=org.tanaguru.entity.reference.ScopeImpl.class, name="Scope")})
+        @JsonSubTypes.Type(value = org.tanaguru.entity.reference.ScopeImpl.class, name = "Scope")})
     public Scope getScope() {
         return this.scope;
     }
@@ -183,12 +208,12 @@ public class TestImpl implements Test, Serializable {
     public String getRuleDesignUrl() {
         return this.ruleDesignUrl;
     }
-    
+
     @Override
     public BigDecimal getWeight() {
         return this.weight;
     }
-    
+
     @Override
     public boolean getNoProcess() {
         return this.noProcess;
@@ -253,17 +278,17 @@ public class TestImpl implements Test, Serializable {
     public void setRuleDesignUrl(String ruleDesignUrl) {
         this.ruleDesignUrl = ruleDesignUrl;
     }
-    
+
     @Override
     public void setWeight(BigDecimal weight) {
         this.weight = weight;
     }
-    
+
     @Override
     public void setNoProcess(boolean noProcess) {
         this.noProcess = noProcess;
     }
- 
+
     @Override
     public int hashCode() {
         int hash = 3;
