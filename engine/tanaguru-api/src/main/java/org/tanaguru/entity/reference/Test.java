@@ -22,6 +22,8 @@
 package org.tanaguru.entity.reference;
 
 import java.math.BigDecimal;
+import java.util.Collection;
+import java.util.Set;
 import org.tanaguru.sdk.entity.Entity;
 import org.tanaguru.sdk.entity.Reorderable;
 
@@ -102,7 +104,17 @@ public interface Test extends Entity, Reorderable {
      * @return whether the test handle a process
      */
     boolean getNoProcess();
-
+    
+     /**
+     *
+     * @return the set of Accedeweb notice
+     */
+    Collection<Accedeweb> getAccedwebSet();
+    
+    
+    
+    void setAccedwebSet(Set<Accedeweb> accedweb);
+    
     /**
      *
      * @param code
@@ -186,5 +198,5 @@ public interface Test extends Entity, Reorderable {
      * 
      * @param noProcess 
      */
-    void setNoProcess(boolean noProcess);
+    void setNoProcess(boolean noProcess);   
 }
