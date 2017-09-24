@@ -24,6 +24,9 @@
 <c:set var="r2d3JsUrl" scope="request">
     <c:url value="/External-Js/r2d3.v2.min.js"/>
 </c:set> 
+<c:set var="bootstrapUrl" scope="request">
+    <c:url value="/External-Js/bootstrap.min.js"/>
+</c:set> 
 
 <!-- internal js -->
 <c:set var="resultPageChartsIEJsUrl" scope="request">
@@ -226,6 +229,7 @@
         </div><!-- class="container"-->
         <%@include file="template/footer.jsp" %>
         <script type="text/javascript" src="${jqueryUrl}"></script>
+        <script type="text/javascript" src="${bootstrapUrl}"></script>
         <script type="text/javascript" src="${testDetailsJsUrl}"></script>
         <script type="text/javascript" src="${themeDetailsJsUrl}"></script>
         <script type="text/javascript" src="${displayExternalImgJsUrl}"></script>
@@ -242,6 +246,7 @@
         </c:if>
         <!--[if lte IE 8]>
         <script type="text/javascript" src="${r2d3JsUrl}"></script>
+        <script type="text/javascript" src="${bootstrapUrl}"></script>
         <script type="text/javascript" src="${scoreIEJsUrl}"></script>
         <script type="text/javascript" src="${resultPageChartsIEJsUrl}"></script>
         <![endif]-->
