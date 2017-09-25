@@ -245,13 +245,13 @@
                                                        <!-- Button trigger modal --> 
                                                        
                                                        <c:if test="${fn:length(testResult.test.accedwebSet) > 0}">
-                                                           <a  data-toggle="modal" data-target="#myModal${testResult.testShortLabel.replace(".","-")}"  title="<fmt:message key="resultPage.ruleDesignUrl"/> ${testResult.testShortLabel} " href="#" >
+                                                           <a  data-toggle="modal" data-target="#myModal${fn:replace(testResult.testShortLabel, '.','-')}"  title="<fmt:message key="resultPage.ruleDesignUrl"/> ${testResult.testShortLabel} " href="#" >
                                                                <img alt="AccedWeb Rgaa3 Test ${testResult.testShortLabel}"  src="<c:url value="/Images/icon-light.png"/>"   />
                                                            </a>
                                                        </c:if>
                                                        
                                                        <!-- Modal -->
-                                                       <div class="modal fade" id="myModal${testResult.testShortLabel.replace(".","-")}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                                       <div class="modal fade" id="myModal${fn:replace(testResult.testShortLabel, '.','-')}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                                            <div class="modal-dialog" role="document">
                                                                <div class="modal-content">
                                                                    <div class="modal-header">
