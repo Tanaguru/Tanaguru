@@ -734,3 +734,19 @@ CREATE TABLE IF NOT EXISTS `PROCESS_RESULT_AUD` (
   KEY `FK5411075EDF74E053` (`REV`),
   CONSTRAINT `FK5411075EDF74E053` FOREIGN KEY (`REV`) REFERENCES `REVINFO` (`REV`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ---------------------------------------------------------------------------------------------------------
+-- AccedeWeb 
+-- ---------------------------------------------------------------------------------------------------------
+CREATE TABLE `ACCEDEWEB` (
+  `Id_Accedeweb` bigint(20) NOT NULL AUTO_INCREMENT,
+  `Cd_Accedeweb` varchar(255) DEFAULT NULL,
+  `Description` varchar(255) DEFAULT NULL,
+  `Label` varchar(255) DEFAULT NULL,
+  `Rank` int(11) DEFAULT NULL,
+  `Cd_Rgaa32016` varchar(255) DEFAULT NULL,
+  `Id_Test_Id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`Id_Accedeweb`),
+  KEY `fk_ACCEDEWEB_1_idx` (`Id_Test_Id`),
+  CONSTRAINT `fk_ACCEDEWEB_1` FOREIGN KEY (`Id_Test_Id`) REFERENCES `TEST` (`Id_Test`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=539 DEFAULT CHARSET=utf8;
