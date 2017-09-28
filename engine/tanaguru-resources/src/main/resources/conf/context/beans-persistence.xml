@@ -30,6 +30,7 @@
                 <prop key="hibernate.cache.region.factory_class">
                     org.hibernate.cache.ehcache.EhCacheRegionFactory
                 </prop>
+                <prop key="hibernate.physical_naming_strategy">fms.util.hibernate.ImprovedNamingStrategy</prop>
             </props>
         </property>
     </bean>
