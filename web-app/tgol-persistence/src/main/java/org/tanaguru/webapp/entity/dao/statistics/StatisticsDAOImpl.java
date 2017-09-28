@@ -119,9 +119,13 @@ public class StatisticsDAOImpl extends AbstractJPADAO<WebResourceStatistics, Lon
     private static final String RETRIEVE_MARK_QUERY =
             " FROM WEB_RESOURCE_STATISTICS "
             + "WHERE Id_Web_Resource=:idWebResource";
-    private static final String IS_AUDIT_MANUAL =
-            " AND Manual_Audit=:isManual";
-
+  
+     private static final String IS_AUDIT_MANUAL =
+           //mysql
+           // " AND  Manual_Audit=:isManual";
+           //postgress
+            " AND CAST(Manual_Audit as boolean)=:isManual ";
+    
     private static final String WEB_RESOURCE_STAT_COUNT =
             " count(Id_Web_Resource_Statistics) ";
             
