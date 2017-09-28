@@ -136,7 +136,7 @@ public class ContractInfoFactory {
      */
     protected ContractInfo setLastActInfo(Contract contract, ContractInfo contractInfo) {
         Collection<Act> lastActRequestResult = actDataService.getActsByContract(contract, 1, 2, null, false);
-        if (!lastActRequestResult.isEmpty() && lastActRequestResult.size() ==1) {
+        if (!lastActRequestResult.isEmpty() && lastActRequestResult.size() == (int)1) {
             contractInfo.setLastActInfo(ActInfoFactory.getInstance().getActInfo(lastActRequestResult.iterator().next()));
         }
         return contractInfo;
@@ -156,7 +156,7 @@ public class ContractInfoFactory {
 
         // when at least two site audits have been realized for the current
         // contract, compute the progression
-        if (lastActRequestResult.size() == 2) {
+        if (lastActRequestResult.size() == (int)2) {
             Object[] actTab = lastActRequestResult.toArray();
             if (actTab[0] instanceof Act && actTab[1] instanceof Act) {
                 int lastRawMark = ActInfoFactory.getInstance().getActInfo((Act) actTab[0]).getRawMark();
