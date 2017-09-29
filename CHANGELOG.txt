@@ -1,4 +1,36 @@
 --------------------------
+Tanaguru 5.0.0, 2017-08-04
+--------------------------
+
+Features :
+
+ - Add the newest Rggaa3 2017 referantial 
+ - Add rules 1.3.7
+ - Add rules 1.6.5
+ - Add rules 1.10.1
+ - Add rules 1.10.2
+ - Add rules 1.10.3
+ - Add rules 1.10.5
+ - Add rules 1.6.10
+ - Fix rule 9.2.1
+ - Fix rule 4.1.1
+ - Fix bug w3cValidator
+
+--------------------------
+Tanaguru 4.3.0, 2017-06-19
+--------------------------
+
+Features :
+ 
+ - Dealing with Angular JS app:url # & page loading time
+ - Add waiting time parameter 
+ - Add rule 8.10.2
+ - Add rule 4.3.1
+ - Add rule 12.10.4
+ - Add rule 1.3.5
+  -Add rule 1.3.11
+  
+--------------------------
 Tanaguru 4.1.0, 2017-04-19
 --------------------------
 
