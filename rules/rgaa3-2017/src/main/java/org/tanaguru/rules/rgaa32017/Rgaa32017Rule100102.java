@@ -19,7 +19,6 @@
  */
 package org.tanaguru.rules.rgaa32017;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import org.apache.commons.lang3.tuple.ImmutablePair;
@@ -39,8 +38,6 @@ import static org.tanaguru.rules.keystore.AttributeStore.HEIGHT_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.WIDTH_ATTR;
 import static org.tanaguru.rules.keystore.CssLikeQueryStore.ELEMENT_WITH_HEIGHT_ATTR_NOT_IMG_V2;
 import static org.tanaguru.rules.keystore.CssLikeQueryStore.ELEMENT_WITH_WITDH_ATTR_NOT_IMG_V2;
-import static org.tanaguru.rules.keystore.CssLikeQueryStore.ELEMENT_WITH_HEIGHT_ATTR_NOT_IMG;
-import static org.tanaguru.rules.keystore.CssLikeQueryStore.ELEMENT_WITH_WITDH_ATTR_NOT_IMG;
 import org.tanaguru.rules.keystore.HtmlElementStore;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.PRESENTATION_ATTR_DETECTED_MSG;
 
@@ -140,6 +137,7 @@ public class Rgaa32017Rule100102 extends AbstractPageRuleMarkupImplementation {
                         buildSelectorFromAttributeAndParentDifferentFrom(
                             HtmlElementStore.SVG_ELEMENT, 
                             attributeName));
+        strb.append(":not(link)");
         return strb.toString();
     }
     
