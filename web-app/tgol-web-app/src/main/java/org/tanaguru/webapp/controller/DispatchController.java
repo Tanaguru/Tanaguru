@@ -58,7 +58,7 @@ public class DispatchController extends AbstractController{
      * @param model
      * @return 
      */
-    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     public String displayHomePage(Model model) {
         return TgolKeyStore.HOME_VIEW_REDIRECT_NAME;
     }

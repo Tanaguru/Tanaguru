@@ -98,7 +98,7 @@ private static final Logger LOGGER = Logger.getLogger(AuditResultController.clas
      * @return
      */
     @RequestMapping(value = TgolKeyStore.AUDIT_RESULT_CONTRACT_URL, method = RequestMethod.GET)
-    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     public String displayAuditResultFromContract(
             @RequestParam(TgolKeyStore.AUDIT_ID_KEY) String auditId,
             HttpServletRequest request,
@@ -140,7 +140,7 @@ private static final Logger LOGGER = Logger.getLogger(AuditResultController.clas
      */
     @RequestMapping(value = {TgolKeyStore.PAGE_RESULT_CONTRACT_URL,
         TgolKeyStore.SITE_RESULT_CONTRACT_URL}, method = RequestMethod.GET)
-    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     public String displayPageResultFromContract(
             @RequestParam(TgolKeyStore.WEBRESOURCE_ID_KEY) String webresourceId,
             HttpServletRequest request,
@@ -171,7 +171,7 @@ private static final Logger LOGGER = Logger.getLogger(AuditResultController.clas
      * @return
      */
     @RequestMapping(value = {TgolKeyStore.CONTRACT_VIEW_NAME_REDIRECT, TgolKeyStore.PAGE_RESULT_CONTRACT_URL}, method = RequestMethod.POST)
-    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     protected String submitPageResultSorter(
             @ModelAttribute(TgolKeyStore.AUDIT_RESULT_SORT_COMMAND_KEY) AuditResultSortCommand auditResultSortCommand,
             @RequestParam(TgolKeyStore.WEBRESOURCE_ID_KEY) String webresourceId,
@@ -198,7 +198,7 @@ private static final Logger LOGGER = Logger.getLogger(AuditResultController.clas
      * @return
      */
     @RequestMapping(value = TgolKeyStore.MANUAL_AUDIT_PAGE_RESULT_CONTRACT_URL , method = RequestMethod.POST)
-    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     protected String submitManualAuditPageResultSorter(
             @ModelAttribute(TgolKeyStore.AUDIT_RESULT_SORT_COMMAND_KEY) AuditResultSortCommand auditResultSortCommand,
             @RequestParam(TgolKeyStore.WEBRESOURCE_ID_KEY) String webresourceId,
@@ -225,7 +225,7 @@ private static final Logger LOGGER = Logger.getLogger(AuditResultController.clas
      * @return
      */
     @RequestMapping(value = TgolKeyStore.SOURCE_CODE_CONTRACT_URL, method = RequestMethod.GET)
-    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     public String displaySourceCodeFromContract(
             @RequestParam(TgolKeyStore.WEBRESOURCE_ID_KEY) String webresourceId,
             HttpServletRequest request,

@@ -99,7 +99,7 @@ public class ManualAuditController extends AbstractAuditResultController {
      * @return
      */
     @RequestMapping(value = TgolKeyStore.MANUAL_AUDIT_RESULT_CONTRACT_URL, method = RequestMethod.GET)
-    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     public String displayManualAuditResultFromContract(
             @RequestParam(TgolKeyStore.AUDIT_ID_KEY) String auditId,
             HttpServletRequest request,
@@ -137,7 +137,7 @@ public class ManualAuditController extends AbstractAuditResultController {
      * @return
      */
     @RequestMapping(value = TgolKeyStore.MANUAL_AUDIT_PAGE_RESULT_CONTRACT_URL, method = RequestMethod.GET)
-    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     public String displayManualPageAuditResultFromContract(
             @RequestParam(TgolKeyStore.WEBRESOURCE_ID_KEY) String webResourceId,
             HttpServletRequest request,
@@ -168,7 +168,7 @@ public class ManualAuditController extends AbstractAuditResultController {
      * @return
      */
     @RequestMapping(value = {TgolKeyStore.UPDATE_MANUAL_RESULT_CONTRACT_URL}, method = RequestMethod.POST)
-    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     public String updateManualResult(
             @ModelAttribute(TgolKeyStore.MANUAL_AUDIT_COMMAND_KEY) ManualAuditCommand manualAuditCommand,
             @RequestParam(TgolKeyStore.WEBRESOURCE_ID_KEY) String webresourceId,

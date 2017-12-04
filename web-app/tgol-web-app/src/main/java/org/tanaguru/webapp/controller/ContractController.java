@@ -77,7 +77,7 @@ public class ContractController extends AbstractController {
      * @return 
      */
     @RequestMapping(value=TgolKeyStore.CONTRACT_URL, method=RequestMethod.GET)
-    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     public String displayContractPage (
             @RequestParam(TgolKeyStore.CONTRACT_ID_KEY) String contractId,
             HttpServletRequest request,

@@ -63,7 +63,7 @@ public class AuditSetUpController extends AbstractAuditSetUpController{
      *      The pages audit set-up form page
      */
     @RequestMapping(value = TgolKeyStore.AUDIT_PAGE_SET_UP_CONTRACT_URL, method = RequestMethod.GET)
-    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     public String displayPageAuditSetUp(
             @RequestParam(TgolKeyStore.CONTRACT_ID_KEY) String contractId,
             HttpServletRequest request,
@@ -87,7 +87,7 @@ public class AuditSetUpController extends AbstractAuditSetUpController{
      *      The pages audit set-up form page
      */
     @RequestMapping(value = TgolKeyStore.AUDIT_UPLOAD_SET_UP_CONTRACT_URL, method = RequestMethod.GET)
-    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     public String displayUploadAuditSetUp(
             @RequestParam(TgolKeyStore.CONTRACT_ID_KEY) String contractId,
             HttpServletRequest request,
@@ -111,7 +111,7 @@ public class AuditSetUpController extends AbstractAuditSetUpController{
      *      The site audit set-up form page
      */
     @RequestMapping(value = TgolKeyStore.AUDIT_SITE_SET_UP_CONTRACT_URL, method = RequestMethod.GET)
-    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     public String displaySiteAuditSetUp(
             @RequestParam(TgolKeyStore.CONTRACT_ID_KEY) String contractId,
             HttpServletRequest request,
@@ -135,7 +135,7 @@ public class AuditSetUpController extends AbstractAuditSetUpController{
      * @return 
      */
     @RequestMapping(method = RequestMethod.POST)
-    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     protected String submitAuditSetUpForm(
             @ModelAttribute(TgolKeyStore.AUDIT_SET_UP_COMMAND_KEY) AuditSetUpCommand auditSetUpCommand,
             BindingResult result,

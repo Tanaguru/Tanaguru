@@ -62,7 +62,7 @@ public class PageListController extends AbstractAuditDataHandlerController {
      * @throws java.lang.Exception
      */
     @RequestMapping(value = TgolKeyStore.PAGE_LIST_CONTRACT_URL, method = RequestMethod.GET)
-    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     public String displayPageList(
             HttpServletRequest request,
             HttpServletResponse response,

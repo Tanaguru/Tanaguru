@@ -102,7 +102,7 @@ public class AuditSynthesisController extends AbstractAuditDataHandlerController
      * @return
      */
     @RequestMapping(value = TgolKeyStore.AUDIT_SYNTHESIS_CONTRACT_URL, method = RequestMethod.GET)
-    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     public String displayAuditSynthesisFromContract(
             @RequestParam(TgolKeyStore.AUDIT_ID_KEY) String auditId,
             HttpServletRequest request,
@@ -143,7 +143,7 @@ public class AuditSynthesisController extends AbstractAuditDataHandlerController
      * @return
      */
     @RequestMapping(value = TgolKeyStore.FAILED_TEST_LIST_CONTRACT_URL, method = RequestMethod.GET)
-    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     public String displayAuditTestSynthesisFromContract(
             @RequestParam(TgolKeyStore.AUDIT_ID_KEY) String auditId,
             HttpServletRequest request,

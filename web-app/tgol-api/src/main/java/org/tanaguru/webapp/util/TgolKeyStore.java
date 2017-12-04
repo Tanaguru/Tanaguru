@@ -369,6 +369,7 @@ public final class TgolKeyStore {
     public static final String ROLE_GUEST_KEY = "ROLE_GUEST";
     public static final String ROLE_USER_KEY = "ROLE_USER";
     public static final String ROLE_ADMIN_KEY = "ROLE_ADMIN";
+    public static final String ROLE_SUPER_ADMIN_KEY = "ROLE_SUPER_ADMIN";
 
     /* extension keys */
     public static final String HTML_EXTENSION_KEY = ".html";

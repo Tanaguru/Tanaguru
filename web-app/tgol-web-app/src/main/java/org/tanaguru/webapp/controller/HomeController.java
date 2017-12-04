@@ -65,7 +65,7 @@ public class HomeController extends AbstractController {
     }
 
     @RequestMapping(value=TgolKeyStore.HOME_URL, method=RequestMethod.GET)
-    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     public String displayHomePage(Model model) {
         User user = getCurrentUser();
         model.addAttribute(
@@ -79,7 +79,7 @@ public class HomeController extends AbstractController {
     }
 
     @RequestMapping(value=TgolKeyStore.HOME_URL, method = RequestMethod.POST)
-    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     protected String submitForm(
             @ModelAttribute(TgolKeyStore.CONTRACT_SORT_COMMAND_KEY) ContractSortCommand contractDisplayCommand,
             BindingResult result,

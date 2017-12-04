@@ -108,7 +108,7 @@ public class AccountSettingsController extends AbstractUserAndContractsControlle
      * @return
      */
     @RequestMapping(value = TgolKeyStore.ACCOUNT_SETTINGS_URL, method = RequestMethod.GET)
-    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     public String displayAccountSettingsPage(Model model) {
         User user = getCurrentUser();
         if (this.forbiddenUserList.contains(user.getEmail1())) {
@@ -133,7 +133,7 @@ public class AccountSettingsController extends AbstractUserAndContractsControlle
      * @throws Exception
      */
     @RequestMapping(value = TgolKeyStore.ACCOUNT_SETTINGS_URL,method = RequestMethod.POST)
-    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     protected String submitAccountSettingForm(
             @ModelAttribute(TgolKeyStore.CREATE_USER_COMMAND_KEY) CreateUserCommand createUserCommand,
             BindingResult result,
@@ -178,7 +178,7 @@ public class AccountSettingsController extends AbstractUserAndContractsControlle
      * @return
      */
     @RequestMapping(value = TgolKeyStore.TEST_WEIGHT_URL, method = RequestMethod.GET)
-    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     public String displayChangeTestWeight(
             @RequestParam(TgolKeyStore.REFERENTIAL_CD_KEY) String refCode,
             HttpServletRequest request,
@@ -207,7 +207,7 @@ public class AccountSettingsController extends AbstractUserAndContractsControlle
      * @throws Exception 
      */
     @RequestMapping(value = TgolKeyStore.TEST_WEIGHT_URL, method = RequestMethod.POST)
-    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     public String submitChangeTestWeight (
             @RequestParam(TgolKeyStore.REFERENTIAL_CD_KEY) String refCode,
             @ModelAttribute(TgolKeyStore.CHANGE_TEST_WEIGHT_COMMAND_KEY) ChangeTestWeightCommand changeTestWeightCommand,

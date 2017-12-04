@@ -66,7 +66,7 @@ public class ContractManagementController extends AbstractUserAndContractsContro
      * @return The pages audit set-up form page
      */
     @RequestMapping(value = TgolKeyStore.MANAGE_CONTRACTS_URL, method = RequestMethod.GET)
-    @Secured({TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     public String displayManageContractsAdminPage(
             @RequestParam(TgolKeyStore.USER_ID_KEY) String userId,
             HttpServletRequest request,

@@ -3,7 +3,8 @@ INSERT IGNORE INTO `TGSI_ROLE` (`Id_Role`, `Role_Name`) VALUES
 (2, 'ROLE_USER');
 
 INSERT IGNORE INTO `TGSI_ROLE` (`Id_Role`, `Role_Name`, `ROLE_Id_Role`) VALUES
-(3, 'ROLE_ADMIN', '2');
+(3, 'ROLE_ADMIN', '2'),
+(4, 'ROLE_SUPER_ADMIN', '2');
 
 INSERT IGNORE INTO `TGSI_SCOPE` (`Id_Scope`, `Code`, `Label`) VALUES
 (1, 'GROUPOFPAGES', 'Group of pages'),

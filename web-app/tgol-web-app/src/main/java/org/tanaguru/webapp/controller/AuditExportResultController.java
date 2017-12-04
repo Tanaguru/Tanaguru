@@ -81,7 +81,7 @@ public class AuditExportResultController extends AbstractAuditDataHandlerControl
      * @return
      */
     @RequestMapping(value=TgolKeyStore.EXPORT_AUDIT_RESULT_CONTRACT_URL, method=RequestMethod.GET)
-    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY})
+    @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
     public String exportAuditResultFromContract (
             @RequestParam(value=TgolKeyStore.WEBRESOURCE_ID_KEY, required=false) String webresourceId,
             @RequestParam(value=TgolKeyStore.EXPORT_FORMAT_KEY, required=false) String format,
