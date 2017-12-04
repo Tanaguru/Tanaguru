@@ -175,7 +175,7 @@
                         <ref local="aw22GoldSelectElementBuilder"/>
                     </list>
                 </entry>
-                <entry key="Rgaa22">
+<!--                <entry key="Rgaa22">
                     <list>
                         <ref local="rgaa22ASelectElementBuilder"/>
                         <ref local="rgaa22AASelectElementBuilder"/>
@@ -188,7 +188,7 @@
                         <ref local="rgaa30AASelectElementBuilder"/>
                         <ref local="rgaa30AAASelectElementBuilder"/>
                     </list>
-                </entry>
+                </entry>-->
                 <entry key="Rgaa32016">
                     <list>
                         <ref local="rgaa32016ASelectElementBuilder"/>
