@@ -331,7 +331,8 @@ public final class AuditSetUpCommandFactory {
      * @return
      */
     private CommonsMultipartFile[] getGroupOfFileInput(Contract contract) {
-        CommonsMultipartFile[] groupOfFileInput = new CommonsMultipartFile[AuditSetUpCommand.DEFAULT_LIST_SIZE];
+         int nbOfInputs = contractDataService.getMaxPagesAuditControlFromContractOption(contract);
+        CommonsMultipartFile[] groupOfFileInput = new CommonsMultipartFile[nbOfInputs];
         return (contract.getUser() == null) ? null : groupOfFileInput;
     }
 

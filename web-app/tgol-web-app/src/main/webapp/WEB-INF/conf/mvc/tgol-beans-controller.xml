@@ -222,7 +222,12 @@
                         <ref bean="alternativeJustifyMechanismPresentParamBuilder"/> 
                     </list>
                 </entry>
-            </map>
+                <entry key="waiting-time-parameters">
+                    <list>
+                        <ref bean="waitingTimeParamBuilder"/>
+                    </list>
+                </entry>
+                </map>
         </property>
         <property name="pageOptionFormFieldBuilderMap">
             <map>
@@ -265,6 +270,24 @@
                         <ref bean="complexTableParamBuilder"/>
                         <ref bean="decorativeImageParamBuilder"/>
                         <ref bean="informativeImageParamBuilder"/>
+                    </list>
+                </entry>
+                <entry key="resolution-parameters">
+                    <list>
+                        <ref bean="screenWidthParamBuilder"/>
+                        <ref bean="screenHeightParamBuilder"/>
+                    </list>
+                </entry>
+                <entry key="alternative-mechanism">
+                    <list>
+                        <ref bean="alternativeContrastMechanismPresentParamBuilder"/>
+                        <ref bean="alternativeJustifyMechanismPresentParamBuilder"/> 
+                    </list>
+                </entry>
+                
+                <entry key="waiting-time-parameters">
+                    <list>
+                        <ref bean="waitingTimeParamBuilder"/>
                     </list>
                 </entry>
             </map>
