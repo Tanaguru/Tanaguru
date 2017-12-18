@@ -1,0 +1,116 @@
+/* --------------------------------------------------
+
+   Illustrations, images and albums
+   
+   (c) 2010-2014 Tiny Typo v1.3.3 - MIT License - tinytypo.tetue.net
+
+----------------------------------------------------- */
+
+@import "var.less";
+
+// List common types NIME
+// [fr] Liste des types NIME usuels
+// - application
+// - audio
+// - example
+// - image
+// - message
+// - model
+// - multipart
+// - text
+// - video
+// - vnd
+
+/* Make images responsive by default */
+
+img { max-width: 100%; height: auto; }
+
+@media print {
+	img { max-width: 100% !important; }
+}
+
+img { vertical-align: middle; }
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+
+[hidden],
+template {
+  display: none;
+}
+
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* thumbnail */
+.thumb,
+.thumb.left { margin: 0 10px 10px 0; }
+.thumb.right { margin: 0 0 10px 10px; }
+
+/* style effects */
+img.round { border-radius: 5px; }
+img.circle { border-radius: 50%; }
+img.border { padding: 4px; background-color: #fff; border: 1px solid #bbb; }
+img.shadow { box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7), -1px 2px 20px rgba(255, 255, 255, 0.6) inset; }
+// img.clean {}
+// img.wide {}
+
+/* figure */
+figure { margin: 0; margin-bottom: @p/2; text-align: center; }
+figure.center { margin-bottom: @p; }
+figure.left { margin-right: @gutter; }
+figure.right { margin-left: @gutter; }
+figure small {}
+
+@media (max-width: @screen-medium) {
+	figure { margin-bottom: @p; }
+	figure.center {}
+	figure.left { float: none; margin-right: 0; }
+	figure.right { float: none; margin-left: 0; }
+}
+
+figcaption {}
+
+/* album */
+.album { margin-bottom: @p; } // for figure or div
+.album ul { overflow: hidden; margin: 0; list-style: none; }
+.album li { float: left; margin: 0; margin: 0 10px 10px 0; }
+.album .thumb { margin: 0; }

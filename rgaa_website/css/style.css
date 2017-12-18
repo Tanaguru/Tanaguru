@@ -1,0 +1,1398 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* Print styles from HTML5 Boilerplate */
+@media print {
+  * {
+    text-shadow: none !important;
+    color: #000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+}
+/* --------------------------------------------------
+
+   Composition helpers
+   [fr] Aides a la composition
+   
+   (c) 2010-2014 Tiny Typo v1.3.3 - MIT License - tinytypo.tetue.net
+
+----------------------------------------------------- */
+/* Box model
+[fr] http://blog.goetter.fr/post/27612618411/box-sizing-et-pourquoi-pas
+[en] http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* Blocks */
+.block {
+  display: block;
+  margin-bottom: 1.5em;
+}
+.inline {
+  display: inline;
+}
+.inline-block {
+  display: inline-block;
+}
+/* Positioning */
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.center {
+  margin-right: auto;
+  margin-left: auto;
+}
+/* Blocks spacer
+[fr] Espaceur de blocs : http://romy.tetue.net/657 */
+.clear {
+  clear: both;
+}
+br.clear {
+  clear: both;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 0;
+  line-height: 1px;
+  font-size: 1px;
+}
+hr.clear {
+  visibility: hidden;
+}
+/* clearfix : http://www.positioniseverything.net/easyclearing.html */
+.clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  overflow: hidden;
+}
+.clearfix {
+  display: inline-table;
+}
+/* Hides from IE-mac \*/
+.clearfix {
+  height: 1%;
+}
+.clearfix {
+  display: block;
+}
+/* End hide from IE-mac */
+/* Not visible */
+.offscreen {
+  position: absolute;
+  left: -999em;
+  height: 1%;
+}
+.hidden {
+  visibility: hidden;
+}
+.none {
+  display: none;
+}
+/* debug */
+.todo {
+  opacity: 0.5;
+}
+.todo:hover {
+  opacity: 1;
+}
+.blink {
+  text-decoration: blink;
+}
+/* --------------------------------------------------
+
+   Typographical base
+   
+   (c) 2010-2014 Tiny Typo v1.3.3 - MIT License - tinytypo.tetue.net
+
+----------------------------------------------------- */
+html {
+  font-size: 100.01%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+/* Cf.: http://www.pompage.net/pompe/definir-des-tailles-de-polices-en-CSS/
+et http://forum.alsacreations.com/topic-4-54377-1.html
+[en] http://stackoverflow.com/questions/2703056/body-font-size-100-01-vs-body-font-size-100 */
+body {
+  font-size: 1em;
+  line-height: 1.5;
+}
+/* Fonts */
+.font1 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.font2 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.font3 {
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+.font4 {
+  font-family: fantasy;
+}
+/* Titraille / Intertitres */
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font-weight: normal;
+}
+h1,
+.h1 {
+  font-size: 2em;
+  line-height: 1.5;
+  margin-bottom: .75em;
+}
+h2,
+.h2 {
+  font-size: 1.5em;
+  line-height: 1;
+  margin-bottom: 1em;
+}
+h3,
+.h3 {
+  font-size: 1.25em;
+  line-height: 1.2;
+  margin-bottom: 1.2em;
+}
+h4,
+.h4 {
+  font-size: 1.1em;
+  line-height: 1.364;
+  margin-bottom: 1.364em;
+}
+h5,
+.h5 {
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 1.5em;
+}
+h6,
+.h6 {
+  font-size: 1em;
+  font-weight: bold;
+}
+h1 small,
+.h1 small,
+h2 small,
+.h2 small,
+h3 small,
+.h3 small,
+h4 small,
+.h4 small,
+h5 small,
+.h5 small,
+h6 small,
+.h6 small {
+  font-size: 60%;
+  line-height: 0;
+}
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+  margin: 1.5em 0;
+  border: solid;
+  border-width: 1px 0 0;
+}
+/* Typographical enhancements */
+em,
+i,
+.i {
+  font-style: italic;
+}
+strong,
+b,
+.b {
+  font-weight: bold;
+}
+mark,
+.mark {
+  background: #ff0;
+  color: #000;
+}
+.smaller {
+  font-size: 75%;
+}
+small,
+.small {
+  font-size: 80%;
+}
+big,
+.big {
+  font-size: 130%;
+}
+.bigger {
+  font-size: 175%;
+}
+.biggest {
+  font-size: 200%;
+}
+abbr[title],
+acronym[title] {
+  text-decoration: none;
+  border-bottom: .1em dotted;
+  cursor: help;
+}
+@media print {
+  abbr[title] {
+    border-bottom: 0;
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+}
+dfn,
+.dfn {
+  font-weight: bold;
+  font-style: italic;
+}
+s,
+strike,
+del,
+.del {
+  opacity: .5;
+  text-decoration: line-through;
+}
+ins,
+.ins {
+  background-color: rgba(255, 255, 204, 0.5);
+  text-decoration: none;
+}
+u,
+.u {
+  text-decoration: underline;
+}
+sup,
+.sup,
+sub,
+.sub {
+  position: relative;
+  font-size: 80%;
+  font-variant: normal;
+  line-height: 0;
+  vertical-align: baseline;
+}
+sup,
+.sup {
+  top: -0.5em;
+}
+sub,
+.sub {
+  bottom: -0.25em;
+}
+.lead {
+  font-size: 120%;
+}
+.caps {
+  font-variant: small-caps;
+}
+.quiet {
+  color: #555555;
+}
+/* Alignment */
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+.text-justify {
+  text-align: justify;
+  text-justify: newspaper;
+}
+/* Lists */
+ul {
+  list-style-type: disc;
+}
+ul ul {
+  list-style-type: circle;
+}
+ul ul ul {
+  list-style-type: square;
+}
+ol {
+  list-style-type: decimal;
+}
+ol ol {
+  list-style-type: lower-alpha;
+}
+ol ol ol {
+  list-style-type: lower-greek;
+}
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+ol,
+ul {
+  margin-left: 1.5em;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin-left: 1.5em;
+}
+.list-none {
+  margin-left: 0;
+  list-style: none;
+}
+.list-none li:before {
+  content: '';
+}
+.list-square {
+  margin-left: 1.5em;
+  list-style: square;
+}
+.list-square li:before {
+  content: '';
+}
+.list-disc {
+  margin-left: 1.5em;
+  list-style: disc;
+}
+.list-disc li:before {
+  content: '';
+}
+.list-circle {
+  margin-left: 1.5em;
+  list-style: circle;
+}
+.list-circle li:before {
+  content: '';
+}
+.list-decimal {
+  margin-left: 1.5em;
+  list-style: decimal;
+}
+.list-decimal li:before {
+  content: '';
+}
+.list-inline {
+  margin-left: 0;
+}
+.list-inline li {
+  display: inline-block;
+  margin: 0;
+  margin-right: 1em;
+}
+.list-inline li:Last-Child {
+  margin-right: 0;
+}
+.list-inline.list-inline-sep li {
+  margin-right: 0;
+}
+.list-inline.list-inline-sep li:after {
+  content: " | ";
+}
+.list-inline.list-inline-sep li:Last-Child:after {
+  content: '';
+}
+.list-inline.list-inline-dash li {
+  margin-right: 0;
+}
+.list-inline.list-inline-dash li:after {
+  content: " - ";
+}
+.list-inline.list-inline-dash li:Last-Child:after {
+  content: '';
+}
+.list-inline.list-inline-comma li {
+  margin-right: 0;
+}
+.list-inline.list-inline-comma li:after {
+  content: ", ";
+}
+.list-inline.list-inline-comma li:Last-Child:after {
+  content: ". ";
+}
+.list-block li {
+  display: block;
+  margin-right: 0;
+}
+/* Tables */
+table {
+  max-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.table {
+  width: 100%;
+}
+.table caption,
+.table th,
+.table td {
+  padding: 0.375em;
+}
+.table caption {
+  font-weight: bold;
+  text-align: left;
+  border-bottom: 2px solid;
+}
+.table th {
+  font-weight: bold;
+}
+.table th,
+.table td {
+  border-bottom: 1px solid;
+}
+.table thead th {
+  vertical-align: bottom;
+}
+.table tbody tr:hover td {
+  background-color: rgba(34, 34, 34, 0.050000000000000044);
+}
+.table tfoot {
+  font-style: italic;
+}
+.table tfoot td {
+  border-bottom: 0;
+  vertical-align: top;
+}
+@media (max-width: 640px) {
+  .table-responsive {
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    margin-bottom: 1.5em;
+  }
+  .table-responsive table {
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .table-responsive thead,
+  .table-responsive tbody,
+  .table-responsive tfoot,
+  .table-responsive tr,
+  .table-responsive th,
+  .table-responsive td {
+    white-space: nowrap;
+  }
+}
+/* Quotes, code and poetry */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+:lang(en) > q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+:lang(fr) > q {
+  quotes: "\00AB\A0" "\A0\00BB" "\201C" "\201D" "\2018" "\2019";
+}
+:lang(es) > q {
+  quotes: "\00AB" "\00BB" "\201C" "\201D";
+}
+:lang(it) > q {
+  quotes: "\00AB\A0" "\A0\00BB" "\201C" "\201D";
+}
+:lang(de) > q {
+  quotes: "\00BB" "\00AB" "\203A" "\2039";
+}
+:lang(no) > q {
+  quotes: "\00AB\A0" "\A0\00BB" "\2039" "\203A";
+}
+/* [en] http://en.wikipedia.org/wiki/International_variation_in_quotation_marks */
+q:before {
+  content: open-quote;
+}
+q:after {
+  content: close-quote;
+}
+blockquote {
+  z-index: 0;
+  position: relative;
+  padding-left: 1.5em;
+  border: solid rgba(34, 34, 34, 0.19999999999999996);
+  border-width: 0 0 0 5px;
+}
+blockquote:before {
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "\00AB";
+  line-height: 0;
+  font-size: 10em;
+  color: rgba(34, 34, 34, 0.09999999999999998);
+}
+cite,
+.cite {
+  font-style: italic;
+}
+address {
+  font-style: italic;
+}
+pre,
+code,
+kbd,
+samp,
+var,
+tt {
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+  font-size: 1em;
+}
+pre {
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+kbd {
+  white-space: nowrap;
+  padding: .1em .3em;
+  background-color: #eee;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px #ffffff inset;
+  color: #333;
+}
+samp {
+  font-weight: bold;
+}
+var {
+  font-style: italic;
+}
+/* Box */
+.box {
+  display: block;
+  margin-bottom: 1.5em;
+  padding: 1.5em 1.5em;
+  padding-bottom: .1em;
+  border: 1px solid;
+}
+@media print {
+  .box {
+    border: 1px solid !important;
+  }
+}
+@media (min-width: 640px) {
+  .box.right {
+    width: 33%;
+    margin-left: 10px;
+  }
+  .box.left {
+    width: 33%;
+    margin-right: 10px;
+  }
+  .box.center {
+    width: 75%;
+  }
+}
+/* Paragraphs */
+p,
+.p,
+ul,
+ol,
+dl,
+dd,
+blockquote,
+address,
+pre,
+.table,
+fieldset {
+  margin-bottom: 1.5em;
+}
+/* Typography for small screens
+[fr] http://www.alsacreations.com/astuce/lire/1177 */
+@media (max-width: 640px) {
+  /* fixer une largeur maximale  de 100 % aux elements potentiellement problematiques */
+  img,
+  table,
+  td,
+  blockquote,
+  code,
+  pre,
+  textarea,
+  input,
+  iframe,
+  object,
+  embed,
+  video {
+    max-width: 100% !important;
+  }
+  /* gestion des mots longs */
+  textarea,
+  table,
+  td,
+  th,
+  pre,
+  code,
+  samp {
+    word-wrap: break-word;
+    /* cesure forcee */
+  }
+  pre,
+  code,
+  samp {
+    white-space: pre-line;
+    /* passage a la ligne specifique pour les elements a chasse fixe */
+  }
+}
+/* orientation iOS5 font-size fix */
+@media (orientation: landscape) and (max-device-width: 640px) {
+  html,
+  body {
+    -webkit-text-size-adjust: 100%;
+  }
+}
+/* Print styles from HTML5 Boilerplate
+Inlined to avoid required HTTP connection: h5bp.com/r */
+@media print {
+  pre,
+  blockquote {
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  @page  {
+    margin: 2cm .5cm;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+/* --------------------------------------------------
+
+   Hyperlinks
+   
+   (c) 2010-2014 Tiny Typo v1.3.3 - MIT License - tinytypo.tetue.net
+
+----------------------------------------------------- */
+/* Hyperlinks
+[fr] Signalétique des hyperliens : http://letrainde13h37.fr/43/signaletique-hyperliens/ */
+a {
+  background: transparent;
+  color: inherit;
+}
+a:visited {
+  color: inherit;
+}
+a:focus {
+  outline: thin dotted;
+  background: #222222 !important;
+  border-color: #222222 !important;
+  color: #f8f5f5 !important;
+  text-shadow: none;
+}
+a:hover {
+  outline: 0;
+  cursor: pointer;
+}
+a:active {
+  outline: 0;
+}
+/* a { outline: none; }
+[en] http://www.outlinenone.com
+[fr] http://www.outlinenone.fr
+*/
+a:after,
+a:before,
+a small {
+  font-size: 90%;
+  opacity: .9;
+}
+a[hreflang]:after {
+  content: "\0000a0[" attr(hreflang) "]";
+}
+/* External Links */
+a.external:after {
+  content: "\0000a0\279A";
+}
+a[hreflang].external:after {
+  content: "\0000a0[" attr(hreflang) "]\0000a0\279A";
+}
+/* mailto / tel */
+a.mailto:after {
+  content: "\0000a0\2709";
+}
+a.tel:after {
+  content: "\0000a0\2706";
+}
+/* Documents */
+a.download:after {
+  content: "\0000a0\21A7";
+}
+a[hreflang].download:after {
+  content: "\0000a0[" attr(hreflang) "]\0000a0\21A7";
+}
+a.audio:after {
+  content: "\0000a0\266B";
+}
+a[hreflang].audio:after {
+  content: "\0000a0[" attr(hreflang) "]\0000a0\266B";
+}
+/* Linked images */
+a img {
+  border: 0;
+}
+a:focus img,
+a:active img {
+  -moz-transform: translateY(1px);
+  -webkit-transform: translateY(1px);
+  -o-transform: translateY(1px);
+  -ms-transform: translate(1px);
+  transform: translateY(1px);
+}
+@media print {
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a:after {
+    content: '';
+  }
+  a[rel="external"]:after,
+  a.external:after {
+    content: " (" attr(href) ")";
+  }
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: '';
+  }
+  /* Don't show links for images, or javascript/internal links */
+}
+/* --------------------------------------------------
+
+   Layout
+
+----------------------------------------------------- */
+body {
+  text-align: center;
+}
+.page {
+  max-width: 38em;
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: left;
+}
+@media (max-width: 640px) {
+  .page {
+    width: 80%;
+  }
+}
+@media (max-width: 480px) {
+  .page {
+    width: auto;
+    margin: 0 10px;
+  }
+}
+/* * skiplinks */
+.skiplink {
+  margin-left: 0;
+  list-style: none;
+  font-size: small;
+}
+#skiplinks {
+  margin: 5px 10px;
+  color: #222222;
+}
+main .skiplink {
+  text-align: center;
+}
+main .thematique .skiplink {
+  text-align: right;
+}
+main .skiplink a {
+  margin: 0 5px;
+}
+.skiplink .gobefore a:after,
+.skiplink .goafter a:after {
+  color: #2c699e;
+}
+.skiplink .gobefore a:after {
+  content: ' ⬆';
+}
+.skiplink .goafter a:after {
+  content: ' ⬇';
+}
+.skiplink .gotop {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+.skiplink .gotop a {
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: rgba(34, 34, 34, 0.3);
+  border: 0;
+  border-radius: 5px;
+  font-size: 30px;
+  line-height: -30px;
+  text-align: center;
+}
+.skiplink .gotop a:after {
+  color: #222222;
+}
+.skiplink .gotop a:focus,
+.skiplink .gotop a:hover {
+  background: rgba(34, 34, 34, 0.5);
+}
+.skiplink .gotop a:focus:after,
+.skiplink .gotop a:hover:after {
+  color: #ffffff;
+}
+@media (min-width: 992px) {
+  .skiplink .gotop {
+    right: 25%;
+  }
+}
+.skiplink .gotop span {
+  position: absolute;
+  left: -999em;
+  height: 1%;
+}
+@media print {
+  .skiplink {
+    display: none;
+  }
+}
+/* * header + nav */
+#header .headsite {
+  z-index: 99;
+  background: rgba(248, 245, 245, 0.9);
+  width: 100% !important;
+  height: auto;
+  text-align: center;
+  /*#nav { background: @color; }
+    #nav, #nav a { color: @color-bg; }*/
+
+}
+#header .headsite * {
+  vertical-align: middle;
+}
+#header .headsite a,
+#header .headsite .on,
+#header .headsite #logo a {
+  display: inline-block;
+  padding: 10px 0;
+  color: #2c699e;
+}
+#header .headsite #logo {
+  display: block;
+  border-bottom: 1px solid rgba(102, 102, 102, 0.2);
+}
+#header .headsite button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px 10px 0;
+}
+#header .headsite #nav {
+  display: none;
+  border-bottom: 1px solid rgba(102, 102, 102, 0.2);
+  font-size: .88em;
+}
+#header .headsite #nav ul {
+  margin-left: 0;
+  list-style: none;
+  margin: 0;
+  /*text-transform: uppercase;*/
+}
+#header .headsite #nav li a:focus,
+#header .headsite #nav li a:hover,
+#header .headsite #nav li a:active {
+  background-color: rgba(44, 105, 158, 0.2);
+}
+#header .headsite #nav li .on {
+  background-color: #2c699e;
+  color: #f8f5f5;
+  font-weight: normal;
+}
+@media (max-width: 480px) {
+  #header .headsite a,
+  #header .headsite .on {
+    display: block;
+    padding: 5px 10px;
+  }
+}
+@media (min-width: 480px) {
+  #header .headsite #nav li {
+    display: inline;
+  }
+  #header .headsite a,
+  #header .headsite .on {
+    padding: 10px 10px;
+  }
+}
+@media (min-width: 640px) {
+  #header .headsite {
+    margin-bottom: 4.5em;
+  }
+  #header .headsite #nav ul {
+    font-size: 1em;
+  }
+  #header .headsite a,
+  #header .headsite .on {
+    padding: 20px 10px;
+  }
+}
+@media (min-width: 992px) {
+  #header .headsite button {
+    margin-right: 25%;
+  }
+}
+#header .headrub {
+  clear: both;
+  padding-top: 4.5em;
+}
+#header h1 {
+  margin-bottom: 10px;
+  padding-top: 10px;
+  font-weight: bold;
+  color: #2c699e;
+}
+#header .lead {
+  margin: 0;
+  font-size: 1em;
+}
+/* * table of content */
+#navtoc {
+  padding: 1.5em 0;
+  background: rgba(248, 245, 245, 0.9);
+  font-size: .88em;
+}
+#navtoc h2 {
+  padding: 0;
+  color: #2c699e;
+  font-size: 1em;
+  font-weight: bold;
+  position: absolute;
+  left: -999em;
+  height: 1%;
+}
+#navtoc ul {
+  margin-left: 0;
+  list-style: none;
+  margin: 0;
+}
+#navtoc ul,
+#navtoc li {
+  border-color: rgba(102, 102, 102, 0.2);
+  border-style: solid;
+}
+#navtoc ul {
+  border-width: 1px 0 0;
+  margin-left: 0;
+  list-style: none;
+}
+#navtoc li {
+  border-width: 0 0 1px;
+}
+#navtoc li a {
+  display: block;
+  padding: 5px;
+}
+#navtoc li a:focus,
+#navtoc li a:hover,
+#navtoc li a:active {
+  background-color: rgba(44, 105, 158, 0.2);
+  color: inherit;
+}
+#navtoc li.on {
+  background-color: #2c699e;
+  color: #f8f5f5;
+}
+/* LARGE : menu lateral */
+@media (min-height: 34em) and (min-width: 940px) {
+  .page {
+    width: 640px;
+    padding-right: 220px !important;
+    box-sizing: content-box;
+  }
+  #header .headsite {
+    /*width: 940px;
+      max-width: 100%;
+      padding-right: 0 !important;*/
+  
+  }
+  #navtoc {
+    position: fixed;
+    width: 200px;
+    top: 50px;
+    /*margin-left: -220px;*/
+  
+    padding: 0;
+    text-align: left;
+    margin-left: 680px;
+  }
+  .gotoc {
+    display: none;
+  }
+}
+/* * main + content */
+main {
+  clear: both;
+}
+/* * footer */
+#footer {
+  margin-top: 6em;
+  padding: 1.5em 0;
+  background-color: rgba(102, 102, 102, 0.2);
+  border-top: 10px solid #2c699e;
+}
+#footer p {
+  font-size: small;
+}
+@media (min-width: 640px) {
+  #footer .page {
+    padding: 1.5em 0 0.375em;
+  }
+}
+/* * print */
+@media print {
+  #header #nav,
+  #navtoc {
+    display: none;
+  }
+  #footer {
+    border-top-width: 1px;
+  }
+}
+body {
+  background-color: #f8f5f5;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #222222;
+}
+/* * liens */
+a {
+  text-decoration: none;
+  border-width: 0 0 1px;
+  border-style: solid;
+  border-color: #86b5dd;
+}
+a:focus,
+a:hover,
+a:active {
+  color: #2c699e;
+  border-width: 0 0 2px;
+  border-color: #2c699e;
+}
+.nav a {
+  border-width: 0;
+}
+/* * titres */
+h2 {
+  padding-top: 3em;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2em;
+}
+h3 {
+  padding-top: 10px;
+  font-weight: bold;
+}
+h4 {
+  font-weight: bold;
+}
+/* * */
+pre,
+code,
+kbd,
+samp,
+var,
+tt {
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+  font-size: 90%;
+  border-radius: 4px;
+}
+pre,
+code,
+samp,
+var,
+tt {
+  padding: .1em .3em;
+  background-color: rgba(44, 105, 158, 0.05);
+  border: 1px solid rgba(44, 105, 158, 0.09999999999999998);
+}
+/* * Atténuer ce qui est annexe */
+#howto,
+#howto h3,
+.thematique p,
+.thematique aside,
+.thematique header h3,
+.thematique h4,
+.thematique .tags {
+  color: #666666;
+  font-size: small;
+}
+#howto p,
+#howto ul,
+.thematique p {
+  margin-bottom: 0;
+}
+#howto h3 {
+  margin: 0;
+  padding: 0.75em 0;
+}
+.thematique header h3,
+.thematique h4 {
+  margin: 10px 0 0;
+  padding: 0;
+}
+.thematique aside {
+  margin: 1.5em 0;
+}
+.thematique aside p {
+  margin: 0;
+}
+.thematique .tags {
+  margin-top: 10px;
+}
+.thematique .tags * {
+  display: inline;
+  margin: 0;
+}
+.thematique .tags span {
+  font-weight: bold;
+  display: none;
+}
+.thematique .tags span:after {
+  content: " : ";
+}
+.thematique .tags li:before {
+  content: " / ";
+}
+.thematique .tags li:first-child:before {
+  content: "";
+}
+.thematique aside h4 {
+  padding-top: 10px;
+  border-top: 1px dashed rgba(102, 102, 102, 0.3);
+}
+/* * thematique */
+.thematique h2 {
+  margin: 0 0 10px;
+  padding-bottom: 20px;
+  border-bottom: 10px solid #2c699e;
+  text-transform: uppercase;
+}
+.thematique header {
+  margin-bottom: 1.5em;
+}
+.thematique header nav {
+  display: block;
+  width: 100%;
+  margin: 10px 0 1.5em;
+  clear: both;
+  text-align: center;
+  font-size: 80%;
+}
+.thematique header nav li {
+  display: inline-block;
+  margin: 5px 3.3333333333333335px;
+}
+.thematique header nav li a {
+  display: block;
+  margin: 0;
+  padding: 5px 10px;
+  border: 1px solid;
+  border-radius: 5px;
+  color: #2c699e;
+  font-weight: bold;
+}
+.thematique header nav li a:focus,
+.thematique header nav li a:hover,
+.thematique header nav li a:active {
+  background-color: rgba(44, 105, 158, 0.1);
+}
+@media print {
+  .thematique header nav {
+    display: none;
+  }
+  .thematique h2 {
+    page-break-before: always;
+  }
+}
+.thematique section {
+  margin-bottom: 3em;
+}
+.thematique section h3 em {
+  color: #2c699e;
+  font-weight: normal;
+  font-style: normal;
+}
+.thematique section > ul {
+  list-style: square;
+}
+.thematique section > ul > li {
+  margin-bottom: 1.5em;
+}
+.thematique section > ul ul {
+  margin-top: 5px;
+  list-style-type: disc;
+  font-size: .8em;
+}
+.thematique section > ul ul li {
+  margin-bottom: 5px;
+}
+/* end */

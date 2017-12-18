@@ -1,0 +1,72 @@
+/* --------------------------------------------------
+
+   Composition helpers
+   [fr] Aides a la composition
+   
+   (c) 2010-2014 Tiny Typo v1.3.3 - MIT License - tinytypo.tetue.net
+
+----------------------------------------------------- */
+
+@import "var.less";
+
+/* Box model
+[fr] http://blog.goetter.fr/post/27612618411/box-sizing-et-pourquoi-pas
+[en] http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* Blocks */
+.block { display: block; margin-bottom: @p; }
+.inline { display: inline; }
+.inline-block { display: inline-block; }
+
+// /* Lists, tables and mosaics */
+// .first { margin-left: 0; padding-left: 0; }
+// .last { margin-right: 0; padding-right: 0; }
+// .top { margin-top: 0; padding-top: 0; }
+// .bottom { margin-bottom: 0; padding-bottom: 0; }
+// .odd {}
+// .even {}
+// .sep {}
+
+/* Positioning */
+.left { float: left; }
+.right { float: right; }
+.center { margin-right: auto; margin-left: auto; }
+
+/* Blocks spacer
+[fr] Espaceur de blocs : http://romy.tetue.net/657 */
+.clear { clear: both; }
+br.clear { clear: both; margin: 0; padding: 0; border: 0; height: 0; line-height: 1px; font-size: 1px; }
+hr.clear { visibility: hidden; }
+
+/* clearfix : http://www.positioniseverything.net/easyclearing.html */
+.clearfix:after {
+    content: "\0020";
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+    overflow: hidden;
+}
+.clearfix { display: inline-table; }
+
+/* Hides from IE-mac \*/
+.clearfix { height: 1%; }
+.clearfix { display: block; }
+/* End hide from IE-mac */
+
+/* Not visible */
+.offscreen { position: absolute; left: -999em; height: 1%; }
+.hidden { visibility: hidden; }
+.none { display: none; }
+
+/* debug */
+.todo { opacity: 0.5; }
+.todo:hover { opacity: 1; }
+.blink { text-decoration: blink; }

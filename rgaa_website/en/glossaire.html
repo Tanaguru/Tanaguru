@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Glossary - RGAA 3.0 (English translation)</title>
+		<meta content="English translation of the RGAA 3.0, French official accessibility guidelines. Glossary." name="description" />
+		<meta content="RGAA, RGAA 3.0, French accessibility guidelines, English translation, glossary" name="keywords" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../css/style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<a name="top" id="top"></a>
+        <header id="header" role="banner">
+            <div class="headsite nav clearfix">
+                <strong id="logo"><a href="index.html">RGAA&nbsp;3.0</a></strong>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" id="btnnav">Menu</button>
+                <nav id="nav" class="collapse navbar-collapse" role="navigation">
+                    <ul><!--
+					--><li><a href="./criteres.html">Criteria</a></li><!--
+					--><li><strong class="on">Glossary</strong></li><!--
+					--><li><a href="./cas-particuliers.html">Particular cases</a></li><!--
+					--><li><a href="./notes-techniques.html">Technical notes</a></li><!--
+					--><li><a href="./base.html">Baseline</a></li><!--
+					--><li><a href="./references.html">References</a></li><!--
+				--></ul>
+            	</nav>
+            </div>
+            <div class="headrub page">
+                <h1>RGAA 3.0 - Glossary - English translation</h1>
+				<p class="lead">The RGAA is the French government's General Accessibility Reference for Administrations. It is meant to provide a way to check compliance against <abbr title="Web Content Accessibility Guidelines, version 2.0">WCAG&nbsp;2.0</abbr>.</p>
+				<div id="navtoc">
+					<h2 id="toc">Table of Contents</h2>
+					<nav class="nav" role="navigation" aria-labelledby="toc">
+						<ul>
+							<li><a href="#a">A</a></li>
+							<li><a href="#b">B</a></li>
+							<li><a href="#c">C</a></li>
+							<li><a href="#d">D</a></li>
+							<li><a href="#e">E</a></li>
+							<li><a href="#f">F</a></li>
+							<li><a href="#h">H</a></li>
+							<li><a href="#i">I</a></li>
+							<li><a href="#l">L</a></li>
+							<li><a href="#m">M</a></li>
+							<li><a href="#n">N</a></li>
+							<li><a href="#o">O</a></li>
+							<li><a href="#p">P</a></li>
+							<li><a href="#r">R</a></li>
+							<li><a href="#s">S</a></li>
+							<li><a href="#t">T</a></li>
+							<li><a href="#u">U</a></li>
+							<li><a href="#v">V</a></li>
+							<li><a href="#w">W</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<main id="main" role="main">
+			<div class="page">
+
+				<h2 id="a">A</h2>
+				<p class="skiplink"><span class="gobefore"><a href="#b">Skip to B</a></span></p>
+
+				<h3 id="mAccColl">Access to each page (of the collection of pages)</h3>
+				<p>In the cases where the collection contains a large number of pages, it is usual to provide only links to one page in ten, for instance. This practice passes the test.</p>
+
+				<h3 id="mAAClavierSouris">Accessible and activable by keyboard and mouse</h3>
+				<ul>
+					<li> A user interface component (link, button, clickable element in a Flash movie&hellip;) is accessible by keyboard and mouse when it can receive  focus, indifferently, through the use of the mouse pointer or the Tab key.
+					</li>
+					<li>A user interface component (link, button, clickable element in Flash&hellip;) can be activated with keyboard and mouse when the user can initiate the action triggered by the user interface component indifferently with a mouse click or the Enter key.</li>
+					<li><strong>Warning</strong>: for some user interface components such as sliders (sliding or rotating button&hellip;), it is not possible to control the component only with the Enter key. In this situation, other keys (such as the arrow keys) can be used.</li>
+				</ul>
+				<p>
+					<strong>Important notice:</strong> Some technologies can make focus management too complex or unstable to rely only upon the Tab, arrow and Enter keys.
+				</p>
+				<p>In this case, keyboard shortcuts may be the only solution to make the composant usable.</p>
+				<p>The criterion can be considered as Compliant, if the keyboard shortcuts are appropriately documented, and operable for every location of the focus in the user interface.</p>
+				<p>The following WCAG Technique:  <a rel="external" class="external" href="http://www.w3.org/WAI/GL/WCAG20-TECHS/SL15.html">SL15: Providing Keyboard Shortcuts that Work Across the Entire Silverlight Application</a> provides information on this matter, for the Silverlight technology. </p>
+
+				<h3 id="mVaccessible">Accessible version (of a downloadable document)</h3>
+				<p>Downloadable documents provided in format types that are accessibility-supported must be accessible, or an alternate accessible version, or an accessible HTML version, must be provided. The document formats considered as  accessibility-supported are:</p>
+				<ul>
+					<li>Microsoft Office (Word 2003 and later, OOXML)</li>
+					<li>Open Office Org (ODF)</li>
+					<li>Adobe PDF</li>
+					<li>Epub/Daisy</li>
+				</ul>
+				<p>Contents must conform to the <a href="http://references.modernisation.gouv.fr/sites/default/files/liste-criteres-documents-bureautiques-telechargement-RGAA.odt" class="download">list of criteria for downloadable electronic documents <small>(ODT, 56 kb, in&nbsp;French)</small></a>.</p>
+				<p>
+					<strong>Note:</strong> The txt format cannot be used to provide an accessible version of a downloadable document.
+				</p>
+
+				<h3 id="mAdaptsARIADP">Adapts a design pattern defined by the ARIA API</h3>
+				<p>The ARIA API defines design patterns, for tab lists or modal windows for example, designed to provide a standardized behavior for user interface components. The application of these design patterns is required by the RGAA.</p>
+				<p>However, it is possible to adapt these design patterns, by replacing a poorly supported property by an equivalent one, or by enriching the component with properties that improve the user experience, or secure the component's behaviour.</p>
+				<p>It is the author's responsibility to check that these adaptations are consistent with the design pattern; that they do not modify the expected behavior, from a user experience point of view; and that the adapted component is correctly rendered by assistive technologies.</p>
+				<p>If these requirements are met, the component can be declared "compliant" with the design pattern.</p>
+
+				<h3 id="LienAdj">Adjacent link</h3>
+				<p>Link adjacent to an element both in the layout (CSS enabled) and in the HTML code. In the HTML code, the link must be just before or after the element it is adjacent to.</p>
+
+				<h3 id="mAlerte">Alert</h3>
+				<p>Alert message that interrupts navigation or consultation, requiring the user to click on a button or a link in order to proceed; for example, a dialog box generated via the <code>alert</code> JavaScript function. By extension, a pop-in (content presented in an overlay, is inserted in the DOM) that needs to be closed to proceed, is considered as an alert.</p>
+				<p>
+				<strong>Note:</strong> An option may be proposed  to disable the alerts before they are triggered, for example, via a user parameter. Other example:  when the first alert is displayed, a checkbox "do not display this alert anymore" can be ticked by the user. </p>
+
+				<h3 id="mMecaRempl">Alternate mechanism</h3>
+				<p>
+					Mechanism (CSS-based, generally), allowing the user to replace text with an image of text, and reversely, like a style switcher for instance. The mechanism can rely either on a server-side or client-side script language.
+				</p>
+
+				<h3 id="mAltCC">Alternative (short and concise)</h3>
+				<p>
+					Rendering a text alternative via an assistive technology (like a screen magnifier for instance), requires that it should be as short as possible. A length of 80 characters is strongly recommended; it will reduce the manipulations to read the text alternative for users of Braille displays or screen magnifiers, in particular.
+				</p>
+
+				<h3 id="mAltTexteImg">Alternative (Text alternative of an image)</h3>
+				<p>
+				A text asssociated to an image via an appropriate technique, describing the information conveyed by the image (in relation with the context of the Web content it is included in). RGAA considers four types of alternatives, depending on the purpose of the image:</p>
+				<ul>
+					<li>
+						<strong>For an image that conveys information</strong>, the text alternative provides the information needed to understand the content the image is associated with;
+					</li>
+					<li>
+						<strong>For a decorative image</strong>, the alternative must be empty (<code>alt=""</code>);
+					</li>
+					<li>
+						<strong>For an image link</strong>, the text alternative describes the purpose or the target of the link;
+					</li>
+					<li>
+						<strong>For a CAPTCHA or test image</strong>, the text alternative can not provide the information conveyed by the image without compromising  the associated security function. In this case, the alternative should only describe the nature and purpose of the image.
+					</li>
+				</ul>
+				<p><strong>Note 1:</strong> for a CAPTCHA image, the text alternative can be, for instance: "anti-spam security code", or "code to check you are human", or any other text providing the user with the ability to understand the nature and purpose of the image.
+				</p>
+				<p>
+					<strong>Note 2:</strong>Groups of non-linked images may constitute a particular case, when they provide an information as a group rather than as a single image. For example: several images of a star graphically describe the average result in an online voting system. In such cases, it is strongly recommended to provide a text alternative for the first image, that describes the purpose of the group, while the other images will be considered as decorative. On this subject, you may read this technical note: <a rel="external" class="external" href="http://www.w3.org/TR/html-alt-techniques/#a-group-of-images-that-form-a-single-larger-picture-with-no-links-1">1.10 A group of images that form a single larger picture with no links</a>. 
+				</p>
+
+				<h3 id="mAltScript">Alternative (to a script)</h3>
+				<p>
+				Text or process associated with the script, via an appropriate technique, and providing a function or a content similar to the one provided by the script.</p>
+				<p><strong>Note:</strong> when an alternative to a JavaScript functionality is available, the website must provide the way to access it. It can be a link or a button providing access to an alternative page not relying upon JavaScript, or allowing to replace the component by an alternative component that does not rely on JavaScript, for instance.</p>
+
+				<h3 id="mAudioOnly">
+					Alternative audio-only version
+				</h3>
+				<p>An audio-only version is an audio-based version of a content (in a form of a downloadable MP3 file for instance), provided as an alternative to video-only (video document with no audio information). The only impacted users, with video-only content, being users with visual impairments, WCAG considers as acceptable to provide an audio-only version.</p>
+				<p>The audio-only version must include all the useful visual information found in the video.</p>
+				<p>It is generally simpler to produce an audio version than a textual one when the video is very descriptive (the transcription requiring then a heavy workload in terms of copywriting). Authors are reminded, though, that only text transcripts provide a universal access to the information provided by the video. Indeed, video incurs potentially other barriers, like for users who do not have to ability to play the audio or video content.</p>
+
+				<h3 id="mAmbigueTtMonde">Ambiguous for everybody</h3>
+				<p>
+					the purpose cannot be determined from the link and all information of the web page presented to the user simultaneously with the link (i.e., readers without disabilities would not know what a link would do until they activated it)
+				</p>
+				<p>
+					Example: The word guava in the following sentence "One of the notable exports is guava" is a link. The link could lead to a definition of guava, a chart listing the quantity of guava exported or a photograph of people harvesting guava. Until the link is activated, all readers are unsure and the person with a disability is not at any disadvantage.
+				</p>
+
+				<h3 id="mAncreNom">Anchor</h3>
+				<p>In HTML, an anchor (also called bookmark) is composed of an <code>&lt;a&gt;</code> tag with the <code>id</code> attribute and with no <code>href</code>; for example: <code>&lt;a id="content"&gt;&lt;/a&gt;</code>. An&nbsp;anchor serves as a target for a link like <code>&lt;a href="index.html#content"&gt;skip to content&lt;/a&gt;</code>.</p>
+
+				<h3 id="mZone">Area (of an image map)</h3>
+				<p>Clickable or non clickable area of an image map.</p>
+
+				<h3 id="mZoneCliquable">Area (Clickable)</h3>
+				<p>
+					Image map with an attached behavior; for example, triggering an event by clicking on a link (for a client-side clickable area: <code>area</code> tag with a <code>href</code> attribute). The <code>area</code> tags are descendants of a <code>map</code> tag.
+				</p>
+				<p>With server-side image maps, the coordinates are stored on the server.</p>
+
+				<h3 id="mZoneNonCliquable">Area (Non clickable)</h3>
+				<p>
+					Image map with no attached behavior (for a client-side area: <code>area</code> tag with no <code>href</code> attribute). The <code>area</code> tags are descendants of a <code>map</code> tag.
+				</p>
+
+				<h3 id="mZoneTexte">Area (Text)</h3>
+				<p>
+					Image map region containing text.
+				</p>
+
+				<h3 id="mAudioDescE">Audio description (Extended)</h3>
+				<p>Audio description that is added to an audiovisual presentation by pausing the video so that there is time to add additional description.</p>
+				<p>
+					<strong>Note:</strong> This technique is only used when the sense of the video would be lost without the additional audio description and the pauses between dialogue/narration are too short.
+				</p>
+
+				<h3 id="mAudioDesc">Audio description (Synchronized, time-based media)</h3>
+				<p>
+				Narration added to the soundtrack to describe important visual details that cannot be understood from the main soundtrack alone. The audio description must be synchronized with the time-based media</p>
+				<p>
+					<strong>Note 1:</strong> Audio description of video provides information about actions, characters, scene changes, on-screen text, and other visual content.
+				</p>
+				<p>
+				<strong>Note 2:</strong> In standard audio description, narration is added during existing pauses in dialogue. (See also extended audio description.)
+				<p><strong>Note 3:</strong> Where all of the video information is already provided in existing audio, no additional audio description is necessary.</p>
+
+				<h3 id="mRedirectAuto">Automatic redirection</h3>
+				<p>
+				Process consisting in automatically redirecting the user from a page to another, on the same domain or a different domain.</p>
+
+				<h2 id="b">B</h2>
+				<ul class="skiplink">
+					<li class="gobefore"><a href="#a">Skip to A</a></li>
+					<li class="goafter"><a href="#c">Skip to C</a></li>
+				</ul>
+
+				<h3 id="mBtnForm">Button (form)</h3>
+				<p>A form element designed to perform a predefined action when activated. For instance, a submit button, when pressed, initiates the transmission of the data collected from the form to the web server. The button text must describe the action resulting in its activation (for example: "Start search", "Send your message").
+				</p>
+				<p>
+				In HTML, there are three types of button elements:</p>
+				<ul>
+					<li><code>INPUT</code> of type <code>submit</code>, <code>reset</code> or <code>button</code>,</li>
+					<li><code>INPUT</code> of type <code>image</code>,</li>
+					<li><code>BUTTON</code>.</li>
+				</ul>
+				<p>
+				There can be four types of button text:</p>
+				<ul>
+					<li>the content of the <code>value</code> attribute, for buttons of type <code>submit</code>, <code>reset</code> or <code>button</code>,</li>
+					<li>the content of the <code>alt</code> attribute for a button of type <code>image</code>,</li>
+					<li>the content of the <code>title</code> attribute when it is defined,</li>
+					<li>the content of the <code>button</code> tag.</li>
+				</ul>
+
+				<h3 id="LienEvitement">
+					Bypass or skip links
+				</h3>
+				<p>Links whose purpose is to navigate inside of content (skip link, link to  the search form or the menu).</p>
+
+				<h2 id="c">C</h2>
+				<ul class="skiplink">
+					<li class="gobefore"><a href="#b">Skip to B</a></li>
+					<li class="goafter"><a href="#d">Skip to D</a></li>
+				</ul>
+
+				<h3 id="mcaptcha">
+					CAPTCHA
+				</h3>
+				<p>
+					A CAPTCHA is a test designed to tell computers and humans apart. The test is often based on images containing distorted text, mixed with other shapes, or with altered colors. The user is requested to key in the obscured characters. Other forms of CAPTCHA can be based on logical questions or audio clips.
+				</p>
+
+				<h3 id="mChangContexte">
+					Change of context
+				</h3>
+				<p>Major changes in the content of the web page that, if made without user awareness, can disorient users who are not able to view the entire page simultaneously. Changes in context include changes of:</p>
+				<ol>
+					<li>user agent</li>
+					<li>viewport</li>
+					<li>focus</li>
+					<li>content that changes the meaning of the web page</li>
+				</ol>
+				<p><strong>Note:</strong> A change of content is not always a change of context. Changes in content, such as an expanding outline, dynamic menu, or a tab control do not necessarily change the context, unless they also change one of the elements listed above (e.g., focus).</p>
+				<p><strong>Example:</strong> Opening a new window, moving focus to a different component, going to a new page (including anything that would seem to to users as if they had moved to a new page) or significantly re-arranging the content of a page, are examples of changes of context.</p>
+
+				<h3 id="mChangeNativeRole">
+					Change of native role of an HTML element
+				</h3>
+				<p>The WAI-ARIA specification allows to modify the native role of an element, like for instance changing an <code>A</code> element (with an href attribute) into a <code>BUTTON</code> element.
+				</p>
+				<p>These modifications can be made only under certain conditions, described in the document <a rel="external" class="external" href="https://www.w3.org/TR/aria-in-html/">Notes on Using WAI-ARIA in HTML</a>, which defines several restrictions, in particular.
+				</p>
+				<p>To be considered conformant, a change of the native role of an HTML element via WAI-ARIA must comply with these restrictions.
+				</p>
+
+				<h3 id="mChangeLumi">
+					Changes in luminosity (sudden) or flashing effects
+				</h3>
+				<p>A rapid alternance of colors with very different levels of luminosity, that can cause seizures in some people, if the flashing area is large enough, and the rate of change within specific frequency ranges. 
+				</p>
+
+				<h3 id="mTailleCaractere">
+					Character size
+				</h3>
+				Size of the characters of textual content found in the page. In order to be accessible, font sizes must be defined with relative units (<code>%</code>, <code>em</code> or <code>rem</code>) or keywords (<code>xx-small</code>, <code>x-small</code>, <code>small</code>, <code>medium</code>, <code>large</code>, <code>x-large</code>, <code>xx-large</code>, <code>smaller</code>, or <code>larger</code>).
+				<p><code>Note:</code> with regards to the RGAA, the use of the pixel unit (<code>px</code>) is prohibitted.</p>
+
+				<h3 id="mCollecPage">Collection of pages</h3>
+				<p>
+				Pages linked to each other via hyperlinks, and with a common subject or nature. For example, the result pages of a search engine or the pages of a catalogue are collections of pages.</p>
+
+				<h3 id="mCoherentODL">Consistent (reading or tabbing order)</h3>
+				<p>Consistent content is readable (the elements order is logical) and understandable (the reading logic is consistent).
+				</p>
+
+				<h3 id="mContraste">
+					Contrast (color)
+				</h3>
+				<p>Significant opposition between a foreground color and a background color. The contrast ratio is based on the difference of relative luminance between background and foreground according to the rule: (L1 + 0.05) / (L2 +0.05) where L1 is the relative luminance of the lighter color, and L2 is the relative luminance of the darker  color. The luminance is calculated according to the following formula: L = 0,2126 * R + 0,7152 * G + 0,0722 * B where R, G and B are defined as:
+				<ul>
+					<li>if RsRGB >= 0,03928 then R = RsRGB/12,92 else R = ((RsRGB+0,055)/1,055) ^ 2,4</li>
+					<li> if GsRGB >= 0,03928 then --G = GsRGB/12,92 else G = ((GsRGB+0,055)/1,055) ^ 2,4</li>
+					<li>if BsRGB >= 0,03928 then B = BsRGB/12.92 else B = ((BsRGB+0,055)/1,055) ^ 2,4</li>
+				</ul>
+				<p> and RsRGB, GsRGB, and BsRGB are defined as:</p>
+				<ul>
+					<li>RsRGB = R8bit/255</li><li> GsRGB = G8bit/255</li><li> BsRGB = B8bit/255</li>
+				</ul>
+				<p> The "^" character is the exponentiation operator.</p>
+				<p><strong>Note:</strong> The contrast measurment is related to the text, the image of text, text and images of text in animations, the text in captions, and text that is embedded in videos. As far as text and images of text of animations and the text in captions and embedded text in videos are concerned, the font size must be measured according to the default displaying size, (as displayed). Text that is avaailable in the elements of an image or a video (for example a sign, a poster etc.) are not concerned.</p>
+
+				<h3 id="mControlSound">
+					Control (of autoplaying sound)
+				</h3>
+				<p>Ability for the user to pause and play an autoplaying sound. 
+				</p>
+				<p><strong>Note:</strong> when appropriate, the controlling device should be the first element in the page.</p>
+
+				<h3 id="mFonctionControle">
+					Control features (time-based media)
+				</h3>
+				<p>Functionalities enabling the user to control the playing of a time-based media, with the keyboard or the mouse, at least. The following requirements must be met:
+				</p>
+				<ul>
+					<li>List of required control features:
+						<ul>
+							<li>the time-based media must always have at least the following features: play, pause, stop;
+							</li>
+							<li>if the time-based media has sound, it must have a feature to set the sound on and off, and to control the volume;
+							</li>
+							<li>if the time-based media has captions, it must have a feature enabling to display and hide  captions;
+							</li>
+							<li>if the time-based media has an audio description, it must have a feature enabling to activate and disactivate the  audio description.
+							</li>
+						</ul>
+					</li>
+					<li>Each functionality mus be accessible with the keyboard, via the Tab key, and the mouse, at least;</li>
+					<li>Each functionality must be actionable with the keyboard or the mouse, at least.</li>
+				</ul>
+				<p><strong>Note:</strong> If a multimedia object has no sound, there is no need for a feature to control its volume.
+				</p>
+
+				<h3 id="mControleMov">
+					Control (moving or blinking content)
+				</h3>
+				<p>Ability for the user to control the display or reading of moving or blinking content at least with the keyboard and the mouse. 
+				</p>
+				<p>Every content in motion, except time-based media ruled by the "Multimedia" criteria category, are concerned: animated images (like animated GIFs), content in motion served via an <code>object</code> tag, JavaScript code, or CSS effects, for example.
+				</p>
+				<p><strong>Note 1:</strong> when appropriate, the controlling device should be the first element in the page.</p>
+				<p><strong>Note 2:</strong> the controlling device must not prevent the user from interacting with the rest of the page. Consequently, stopping or pausing a content in motion via an event triggered on focus, fails this criterion.</p>
+				<p><strong>Note 3:</strong> in some cases, the motion is part of the component, and it can not be controlled by the user. Example: a progress bar indicating by its movement the progress of an event like a download. In this case, the criterion is not applicable.</p>
+
+				<h3 id="mControleClavSour">
+					Controllable by keyboard and mouse
+				</h3>
+				<p>Controlling a functionality with the keyboard means that it can be accessed via the Tab key and activated via the Enter key, except for:
+				</p>
+				<ul>
+					<li>User interface components implementing WAI-ARIA, when a <a href="./glossaire.html#mDesignPAttern">Design Pattern</a> defines requirements for specific  keyboard interactions;
+					</li>
+					<li>When a component makes use of a technology that requires keyboard shortcuts, and the Tab key is not available.</li>
+				</ul>
+
+				<h3 id="mEnvMait">Controlled environment</h3>
+				<p>Any environment in which access to information, technologies, terms of use and users profiles can be known and controlled. The main elements for which control is essential are:
+				</p>
+				<ul>
+					<li>The browsers types and versions</li>
+					<li>The supported technologies, their versions and activation statuses (JavaScript, WAI-ARIA, Flash&hellip;)</li>
+					<li>The assistive technologies and any device used in a specific way by users with disabilities
+					</li><li>The operating systems and accessibility APIs
+					</li>
+					<li>The level of proficiency of users of assistive technologies, for any specific device (user interface, online application&hellip;) in use in this environment.</li>
+				</ul>
+				<p>Authors and administrators must guarantee that the technologies in use, and the way they are utilized by users, are compatible with their technologies (including assistive technologies). Information services or web sites, whatever their status, that provide public access cannot be considered as controlled environments.</p>
+
+				<h3 id="mCorrectlyRendered">Correctly rendered (by assistive technologies)</h3>
+				<p>When a criterion, a test or a test condition requires to verify that a device is correctly rendered by assistive technologies, it must be checked that this rendering is accessibility supported.</p>
+				<p>The test consists in checking that the rendering is relevant for at least one combination of the <a href="./base.html">Reference baseline</a> used to declare that an element, a device or an alternative is "accessibility supported".
+				For example: Test 1.3.7 requires to check that the alternative of a vector image conveying information is correctly rendered.
+				The rendering is then tested with NVDA (last version) and Firefox, JAWS (previous version) and Internet Explorer 9+, and VoiceOver (last version) and Safari.</p>
+				<p>If the alternative is correctly rendered, then the test is passed.</p>
+
+				<h3 id="mPropCouleur">CSS property defining a color</h3>
+				<p>This concerns the following CSS properties: <code>color</code>, <code>background>-color</code>, <code>background</code>, <code>border-color</code>, <code>border</code>, <code>outline-color</code>, <code>outline</code>.
+				</p>
+				<p> <strong>Note:</strong> the use of a background image to set a color (<code>bakground:url(&hellip;)</code> property) is also concerned. 
+				</p>
+
+				<h2 id="d">D</h2>
+				<ul class="skiplink">
+					<li class="gobefore"><a href="#c">Skip to C</a></li>
+					<li class="goafter"><a href="#e">Skip to E</a></li>
+				</ul>
+
+				<h3 id="mTypeDonnes">
+					Data type and format
+				</h3>
+				<p>Indication regarding expected data type and format when information is entered in a form field. For example:
+				</p>
+				<ul>
+					<li>date (yyyy/mm/dd)</li>
+					<li>Total in euros</li>
+					<li>Zip code (5 numbers: eg. 75001)</li>
+					
+				</ul>
+				<p><strong>Important note</strong>: when the type of the form field involves an input mask, like for instance fields of types <code>date</code> or <code>time</code>, the indication of expected format is not required.</p>
+
+				<h3 id="mLangueDefaut">
+					Default human language
+				</h3>
+				<p>Language specification used by the user-agent (including assistive tchnologies) to apply language-specific  rules when rendering content. The language code is provided via the <code>lang</code> and/or <code>xml:lang</code> attributes, defined for the <code>html</code> tag (container for the whole document in the web page), or every descendant tag with content to which these rules should apply. The choice of attributes depends on the Document Type Definition (DTD) used:
+				</p>
+				<ul>
+					<li>For HTML up to version 4.01:  <code>lang</code> attribute mandatory, <code>xml:lang</code> attribute not supported;
+					</li>
+					<li>For XHTML 1.0 served in "text/html": <code>lang</code> and <code>xml:lang</code> attributes mandatory;
+					</li>
+					<li>For XHTML 1.0 served in "application/xhtml+xml": <code>xml:lang</code> attribute mandatory, <code>lang</code> attribute recommended;
+					</li>
+					<li>For XHTML 1.1: <code>xml:lang</code> attribute mandatory, <code>lang</code> attribute not supported;</li>
+					<li>For HTML5: <code>lang</code> attribute mandatory.</li>
+				</ul>
+
+				<h3 id="#mDesignPattern">
+					Design Pattern
+				</h3>
+				<p>A design pattern is a model defined by the ARIA API describing the structure, roles, properties and behaviors a JavaScript component (widget) must have.</p>
+				<p>The design patterns are described in this document: <a rel="external" class="external" href="http://www.w3.org/WAI/PF/aria-practices/">WAI-ARIA 1.0 Authoring Practices</a>.
+				</p>
+				<p>A JavaScript-based component must follow the design pattern corresponding with its WAI-ARIA role.
+				</p>
+				<p><strong>Note 1</strong>: because some WAI-ARIA properties and roles are not supported by all user agents, and because of the wide variety of situations where a JavaScript component can be used, it is allowed to adapt design patterns to specific contexts or uses. In this case, the adapted design pattern must:
+				</p>
+				<ul>
+					<li>respect the general structure; for instance, a tab panel is necessarily associated with a tab list;
+					</li>
+					<li>in place of a WAI-ARIA role or property with poor support, equivalent WAI-ARIA roles or properties may be used as long as they display similar behavior and rendering by user agents
+					</li>
+				</ul>
+				<p><strong>Note 2:</strong> this does not apply to enrichments of a design pattern with WAI-ARIA roles or properties, for which accessibility support is verified through rendering tests with the reference baseline. For example, adding the <code>aria-hidden</code> property on tab panels (<code>role="tabpanel"</code>) is not considered as an adapted design pattern.
+				</p>
+
+				<h3 id="mDescDetaillee">
+					Detailed description (image)
+				</h3>
+				<p>Content related to an image in addition to its text alternative, in order to fully describe information conveyed by the image. The detailed description can be inserted via:</p>
+				<ul>
+					<li>a <code>longdesc</code> attribute containing the URL of a page, or of a content in the same page, containing the detailed description,
+					</li>
+					<li>a reference, in the <code>alt</code> attribute, to a detailed description adjacent to the image,
+					</li>
+					<li>A link adjacent to the image, to a page or a content in the same page, containing the detailed description,
+					</li>
+					<li>A chunk of text, associated to the image by means of aria-labelledby or aria-describedby properties.</li>
+				</ul>
+
+				<h3 id="mDocumentOutline">Document outline</h3>
+				<p>
+					The Test 9.2.2 requires that the structure of the sectioning elements (<code>NAV</code>), <code>SECTION</code>, <code>ARTICLE</code> for instance) in the page is coherent; meaning it's representative of the document's architecture. This structure is completed by the headings (<code>h1</code> to <code>h6</code> tags) structure, which is also a part of it.
+				</p>
+				<p>Inappropriate use of these sectioning elements could result in an incoherent document outline, through excessive use of <code>SECTION</code> or <code>ARTICLE</code> elements for example.</p>
+				<p><strong>Note 1:</strong> The document outline algorithm is progressively supported by browsers and assistive technologies. Considering that, in any case, the RGAA requires a robust and coherent headings hierarchy, <strong>it is acceptable to consider the Test 9.2.2 as not applicable</strong> when a perfectly coherent document outline can not be guaranteed. You may read this technical note: <a href="./notes-techniques.html#crit-9-2">Technical note on document outline</a>.</p>
+				<p><strong>Note 2</strong>You may read, on the same subject, the example provided in the HTML5 specification: <a rel="external" class="external" href="http://www.w3.org/TR/html5/sections.html#sample-outlines">4.3.10.2 Sample outlines</a>.
+				</p>
+
+				<h3 id="mDTD">Document type</h3>
+				<p>Set of reference data allowing user agents to know the technical characteristics of the languages used in the page (<code>doctype</code> tag).
+				</p>
+
+				<h2 id="e">E</h2>
+				<ul class="skiplink">
+					<li class="gobefore"><a href="#d">Skip to D</a></li>
+					<li class="goafter"><a href="#f">Skip to F</a></li>
+				</ul>
+
+				<!--
+					<h3 id="mEquivalentRole">
+					Equivalent WAI-ARIA role
+					</h3>
+				-->
+
+				<h3 id="mExpliciteHorsContexte">
+					Explicit out of context (link)
+				</h3>
+				<p>A link is explicit out of its context when the link text (content between <code>&lt;a href=""&gt;</code> and <code>&lt;/a&gt;</code>) provides enough information to understand the function and purpose of the link.</p>
+
+				<h2 id="f">F</h2>
+				<ul class="skiplink">
+					<li class="gobefore"><a href="#e">Skip to E</a></li>
+					<li class="goafter"><a href="#h">Skip to H</a></li>
+				</ul>
+
+				<h3 id="mPriseFocus">Focus</h3>
+				<p>Focus is the state sent by an element that receives attention after a user action. In HTML there are three means to give focus to an element:
+				</p>
+				<ul>
+					<li>Activating the element with a pointing device (mouse)</li>
+					<li>Activating the element with the Tab key</li>
+					<li>Activating the element with a keyboard shortcut (<code>accesskey</code>)</li>
+				</ul>
+				<p>Elements that receive focus natively are: <code>a</code>, <code>area</code>, <code>button</code>, <code>input</code>, <code>object</code>, <code>select</code>, <code>label</code>, <code>legend</code>, <code>optgroup</code>, <code>option</code> and <code>textarea</code>. The element's behaviour, when it is focused, depends on its nature; a link, for example, must be activated afted it has been focused (except when a script is used). On the other hand, a form element, such as <code>textarea</code>, must allow input after it has received focus. The <code>label</code> and <code>legend</code> elements can only receive focus via the mouse pointer. For the <code>label</code> element, the expected behavior is to transfer focus to the form field it is associated with.
+				</p>
+				<p><strong>Note 1:</strong> The WAI-ARIA specification extends the role assigned to the <code>tabindex</code> attribute, by defining that any HTML element can become focusable by setting <code>tabindex</code> at 0. However, no behavior is defined if <code>tabindex</code> is declared but has no set value. Setting an element's <code>tabindex</code> at -1 (minus one) removes this element from the tabbing order, inhibiting its ability to signal it has gained focus. Using <code>tabindex</code> accordingly with the WAI-ARIA specification can validate some tests related to focus management.
+				</p>
+				<p><strong>Note 2:</strong> the focus visual cue must not be degraded, meaning that its visibility is lessened compared to the user agent's default style.
+				</p>
+
+				<h3 id="mFooter">
+					Footer
+				</h3>
+				<p>
+					Container of information related to the use of the site, or legal information. This is generally where can be found links to the help page, the credits page, terms of use, and the accessibility page, potentially.
+				</p>
+				<p><strong>Note:</strong> this page footer area, unique in a page, must not be mistaken with footers of sections, defined in HTML5 with the <code>footer</code> tag.
+				</p>
+				<p>See the technical definition as defined by the ARIA API: <a rel="external" class="external" href="https://www.w3.org/WAI/PF/aria/roles#contentinfo">Contentinfo (role)</a>.
+				<h3 id="mEtiquette">
+				Form field label
+				</h3>
+				<p>Text located next to the form field describing the nature, type or format of expected input. The label can be associated with the form field in several ways: with a <code>label</code> tag, an <code>aria-label</code> property, an <code>aria-labelledby</code> property and its related text, a <code>title</code> attribute.
+				</p>
+
+				<h3 id="mChpSaisie">
+				Form input field
+				</h3>
+				<p>
+				Object, in a form, allowing the user:</p>
+				<ul>
+				<li>to enter text or pre-formatted data:
+					<ul>
+						<li><code>input type="text"</code>;</li>
+						<li><code>input type="password"</code>;</li>
+						<li><code>input type="search"</code>;</li>
+						<li><code>input type="tel"</code>;</li>
+						<li><code>input type="email"</code>;</li>
+						<li><code>input type="number"</code>;</li>
+						<li><code>input type="tel"</code>;</li>
+						<li><code>input type="url"</code>;</li>
+						<li><code>textarea</code>;</li>
+					</ul>
+				</li>
+				<li>to select predefined values:
+					<ul>
+						<li><code>input type="checkbox"</code></li>
+						<li><code>input type="radio"</code></li>
+						<li><code>input type="date"</code></li>
+						<li><code>input type="range"</code></li>
+						<li><code>input type="color"</code></li>
+						<li><code>input type="time"</code></li>
+						<li><code>select</code></li>
+						<li><code>datalist</code></li>
+						<li><code>optgroup</code></li>
+						<li><code>option</code></li>
+						<li><code>keygen</code></li>
+					</ul>
+				</li>
+				<li>to download files:
+					<ul>
+						<li><code>input type="file"</code></li>
+					</ul>
+				</li>
+				<li>or to display results:
+					<ul>
+						<li><code>output</code></li>
+						<li><code>progress</code></li>
+						<li><code>meter</code></li>
+					</ul>
+				</li>
+				</ul>
+				<p>The following form objects are not considered as form fields:</p>
+				<ul>
+				<li><code>input type="submit"</code></li>
+				<li><code>input type="reset"</code></li>
+				<li><code>input type="hidden"</code></li>
+				<li><code>input type="image"</code></li>
+				<li><code>input type="button"</code></li>
+				<li><code>button</code></li>
+				</ul>
+
+				<h3 id="mTitreCadre">
+				Frame title
+				</h3>
+				<p>Value of the <code>title</code> attribute of the  <code>iframe</code> tag, describing the nature of the content provided via the inline frame, useful when navigationg from frame to frame, or displaying the list of frames in the page, for example.
+				</p>
+				<p><strong>Note 1:</strong> some inline frames only have a purely technical purpose, like preprocessing content displayed in the page (commonly found for social networks widgets like Facebook's, for instance).
+				</p>
+				<p>If the remote content inside the frame has no title, or if it is  not relevant, generic indications may be used, like for example: "Facebook: technical contents".</p>
+				<p><strong>Note 2:</strong> If there is no impact on the functionality, these contents may be hidden to assistive technologies, via the <code>aria-hidden</code> attribute, for instance.</p>
+
+				<h2 id="h">H</h2>
+				<ul class="skiplink">
+					<li class="gobefore"><a href="#f">Skip to F</a></li>
+					<li class="goafter"><a href="#i">Skip to I</a></li>
+				</ul>
+
+				<h3 id="mCelluleTab">
+				Header cells (of a table)
+				</h3>
+				<p>
+				Cells of a data table (first cell in a row or a column, generally), serving as a title for all, or some of, the row or column other cells. A column or a row can have several headers (intermediary headers). Header cells must be coded with a <code>th</code> tag.
+				</p>
+
+				<h3 id="mTitre">
+				Heading
+				</h3>
+				<p>HTML element (h<i>n</i> tag) with 6 hierarchy levels (from <code>h1</code> for the most important heading to <code>h6</code> for the less important), allowing to define and title sections in a Web content. The hierarchy between headings must be respected on a web page, and the heading levels cannot be skipped: a <code>h3</code> heading (level&nbsp;3) cannot be the next heading after a <code>h1</code> heading (level&nbsp;1), for example. On each web page, there must be at least one <code>h1</code> heading.</p>
+				<p><strong>Note:</strong> Headings hidden via CSS are considered as available to the user, and validate <a href="criteres.html#crit-9-1">criterion&nbsp;9.1</a>.
+				</p>
+
+				<h3 id="mTexteCache">Hidden text</h3>
+				<p>Assistive technologies (in particular, screen readers) do not render content hidden via these properties:
+				</p><ul>
+				<li>(CSS) <code>display: none;</code></li>
+				<li>(CSS) <code>visibility: hidden</code></li>
+				<li>(CSS) <code>width:&nbsp;0; height:&nbsp;0;</code></li>
+				<li>(HTML) <code>width=0</code> and <code>height=0</code></li>
+				<li>(CSS) <code>font-size:&nbsp;0;</code></li>
+				<li>(CSS) <code>clip:&nbsp;0;</code></li>
+				<li>(HTML5) <code>hidden</code> attribute</li>
+				<li>(HTML+ARIA) <code>aria-hidden=true</code></li>
+				</ul>
+				<p>All text content using one or more of these properties are scoped by the <a href="criteres.html#crit-10-13">criterion&nbsp;10.13</a>.</p>
+
+				<h2 id="i">I</h2>
+				<ul class="skiplink">
+					<li class="gobefore"><a href="#h">Skip to H</a></li>
+					<li class="goafter"><a href="#l">Skip to L</a></li>
+				</ul>
+
+				<h3 id="mImgDeco">
+				Image (decorative)
+				</h3>
+				<p>An image that has no purpose and that does not convey any particular information regarding the content it is associated with. Examples:
+				</p>
+				<ul>
+				<li>An image used for layout adjustments only,</li>
+				<li>an image of a rounded corner, used to style a block,</li>
+				<li>an illustrative image that does not provide any information that helps understanding the text it is associated with.
+				</li>
+				</ul>
+
+				<h3 id="mImgObj">
+				Image (object image)
+				</h3>
+				<p>
+				Image inserted or generated via an <code>object</code> tag.
+				</p>
+
+				<h3 id="mImgTextObj">
+				Image (object text image)
+				</h3>
+				<p>
+				Image implemented via the <code>object</code> tag and displaying text.
+				</p>
+
+				<h3 id="ImageCaption">Image caption</h3>
+				<p>For an image, a caption is an adjacent text, containing information about the image (for instance a copyright, a date, an author&hellip;), or information complementary to the one conveyed by the image (for instance, text associated with an image in a gallery).</p>
+				<p>When an image has a caption, it is necessary to tie the image and its caption together via a structure relationship, so that assistive technologies can process both as a whole.</p>
+				<p>The HTML5 specification defines the <code>figure</code> (container for the image and its caption) and <code>figcaption</code> (container for the caption) tags.</p>
+				<p>An image without caption can be:
+				</p>
+				<ul>
+					<li>an image that is not included in a <code>figure</code> element;</li>
+					<li>an image included in a <code>figure</code> element, with no <code>figcaption</code> element</li>
+				</ul>
+				<p>Note: when the text adjacent to the image can serve as its alternative text, it is not required to use <code>figure</code> and <code>figcaption</code> tags; the image can be considered as decorative in this situation.</p>
+
+				<h3 id="mImgInfo">Image conveying information</h3>
+				<p>An image that conveys information needed to understand the content it is associated with.</p>
+
+				<h3 id="mInfoDonneeCouleur">Image conveying information (provided by color)</h3>
+				<p>Image for which all or part of its content conveys information visually, by means of color only.</p>
+
+				<h3 id="LienImage">Image link</h3>
+				<p>
+				Link whose content between <code>&lt;a href="&hellip;"&gt;</code> and <code>&lt;/a&gt;</code> is only constituted of an image. The link text of an image link is the content of the  text alternative of the image.
+				</p>
+				<p><strong>Note:</strong> an image link may be based on an image (<code>img</code> tag), an object image (<code>object</code> tag) or a bitmap image (<code>canvas</code> tag).</p>
+
+				<h3 id="mImgReactive">
+				Image map
+				</h3>
+				<ol>
+					<li><strong>client-side image map</strong> (<code>usemap</code> attribute): image divided into clickable or non-clickable areas (<code>nohref</code> attribute).
+					</li>
+					<li><strong>Server-side image map</strong> (<code>ismap</code> attribute) : image for which the browser sends the coordinates of the pointing device to the server, each set of coordinates corresponding to a resource (URL). The server-side image map is extremely rare.
+					</li>
+				</ol>
+				<p><strong>Note:</strong> in HTML5, the <code>ismap</code> attribute is obsolete non conformant for form buttons of type image (<code>input type="image"</code>).</p>
+
+				<h3 id="mImgText">Image of text</h3>
+				<p>Image that displays text.</p>
+
+				<h3 id="mInfoCouleur">Information conveyed by color</h3>
+				<p>Information that is visually conveyed by means of color. Indication that the required fileds of a form are in red; a change of background color to indicate the current page in a navigation menu; a change of text color to indicate that an article is unavailable, inside a list of articles; are all examples of information conveyed by color.</p>
+				<p>Information conveyed by color must be completed with another means of conveying information, that does not rely on visual perception, for users who do not perceive, or not well enough, colors and their combinations.</p>
+				<p>It is recommended to use additional text content, or images with appropriate text alternatives, to satisfy this requirement. Purely visual effects (change of style, size, boldness, typography, etc.) would not be considered sufficient, since they would not be perceived by users who do not have access to the graphical version of the page.</p>
+
+				<h3 id="mInfoShape">
+				Information conveyed by shape, size or location
+				</h3>
+				<p>It can be, for instance:</p>
+				<ul>
+				<li>a visual cue, to indicate the current page in a navigation menu (information conveyed by position),
+				</li>
+				<li>a visual effect to make the active tab in a tablist appear like it is in the foreground (information conveyed by shape);
+				</li>
+				<li>a change in text size in a tag cloud (information conveyed by size).
+				</li>
+				</ul>
+				<p>Or any other similar effect.</p>
+
+				<h3 id="mInfoMNature">Information of same nature</h3>
+				<p>
+				In a form, a set of fields that can be considered as a group because of the nature of the expected input.</p>
+				<p>Examples:</p>
+				<ul>
+				<li>Three consecutive fields to enter a date (year/month/day);</li>
+				<li>Consecutive fields for a phone number;</li>
+				<li>Fields for the name and address, when several similar blocks of input fields are available in the same form;</li>
+				<li>A set of radio buttons or checkboxes related to a question asked.</li>
+				</ul>
+				<p>These fields must be grouped together via a <code>fieldset</code> tag, and a relevant <code>legend</code> tag. In the case of radio buttons, generally, the legend is the question text.</p>
+				<p>
+				<strong>Note:</strong> When the form consists in only one block of input fields of same nature (user name and address, for example) or one single field (a search engine input field, for example), the <code>fieldset</code> tag is not required.</p>
+
+				<h3 id="mPresInfo">
+				Information presentation
+				</h3>
+				<p>Visual rendering of content via a graphic browser. Presentation concerns style, position and dimensions of HTML elements and their content. Information presentation must be performed with CSS. Are prohibited these elements: <code>basefont</code>, <code>blink</code>, <code>center</code>, <code>font</code>, <code>marquee</code>, <code>s</code>, <code>strike</code>, <code>tt</code>, <code>u</code>; and these attributes: <code>align</code>, <code>alink</code>, <code>background</code>, <code>basefont</code>, <code>bgcolor</code>, <code>border</code>, <code>color</code>, <code>link</code>, <code>text</code>, <code>vlink</code>. The <code>width</code> and <code>height</code> attributes used on other elements than images (<code>img</code> tag) are also prohibited. </p>
+
+				<h3 id="mCadreEnLigne">
+				Inline frame
+				</h3>
+				<p>
+				HTML element (<code>iframe</code> tag) providing a way to display contents from another page, inside the current web page.
+				</p>
+
+				<h3 id="mControleSaisie">
+				Input control (form)
+				</h3>
+				<p>All the processes designed to inform the user about required fields, expected types and formats, and  input errors in a form. These controls can be implemented by the content author, or rely upon HTML attributes (like <code>required</code> or <code>pattern</code>), WAI-ARIA properties (like <code>aria-required</code>) or field types automatically generating input indications or error messages (like <code>url</code>, <code>email</code>, <code>date</code>, <code>time</code>, for example).
+				</p>
+				<p>Important: after form submission with input errors, if an error handling page is displayed, the page title must include a mention like "input errors in the form".</p>
+
+				<h2 id="l">L</h2>
+				<ul class="skiplink">
+					<li class="gobefore"><a href="#i">Skip to I</a></li>
+					<li class="goafter"><a href="#m">Skip to M</a></li>
+				</ul>
+
+				<h3 id="mLanguageChange">Language change</h3>
+				<p>An indication of language change tells user agents which language-specific rules should be applied to render appropriately parts of the content   written in a human language different from the main language of the content. This includes, notably, the vocal restitution performed by speech synthesizers. Language changes apply to all contents, including some attributes like <code>title</code>.</p>
+				<p><strong>Note:</strong> in HTML, it is not technically possible to signal language changes inside an attribute value. In this case, the language change is signalled via the element bearing this attribute. For instance, an hyperlink with a <code>title</code> attribute in German, in a page whose main language is English, should have a <code>lang</code> attribute set to <code>"de"</code>. When the attribute contains several language changes, the criterion is not applicable. 
+				</p>
+
+				<h3 id="mCodeLangue">Language code</h3>
+				<p>Code with two characters (ISO 639-1) or 3 characters (ISO 639-2 and following) specifying the default language of a document or a chunk of text. The language code  is constituted of two parts separated by a dash on the model <code>lang="[code][-option]"</code>.
+				</p>
+				<ul>
+					<li>[code] represents a valid language code of 2 or 3 characters;</li>
+					<li>[option] is an indication left to the author's judgment.</li>
+				</ul>
+				<p>When the [option]  is provided, it defines a language regionalisation. For example: <code>"en-us"</code> for American English. When checking for conformance against the RGAA, only the [code] part is evaluated.</p>
+
+				<h3 id="Lien">Link</h3>
+				<p>HTML element (<code>a</code> tag) that can be activated by the user (with the mouse, the keyboard&hellip;) and that initiates an action (generally, a page or file download) or an event generated by a script. A link has at least:
+				</p>
+				<ul>
+					<li>a resource reference (<code>href</code> attribute);</li>
+					<li>a link text between <code>&lt;a href="&hellip;"&gt;</code> and <code>&lt;/a&gt;</code>.</li>
+				</ul>
+
+				<h3 id="LienComposite">
+				Link (Combined)
+				</h3>
+				<p>Link whose content between <code>&lt;a href="&hellip;"&gt;</code> and <code>&lt;/a&gt;</code> is formed with at least 2 elements of different types; for example, text and one or several images. The link text of a combined link is the whole text and the content of the text alternatives of the image(s)  between <code>&lt;a href="&hellip;"&gt;</code> and <code>&lt;/a&gt;</code>. 
+				</p>
+				<p>Important notice: having two identical adjacent links (image and text links, for instance, with the same purposes, URL and link text) is a significant inconvenience for some users? Even though this is not a non-conformity, this practice should be avoided. A way to implement this kinfd of links is to include the image into the text link, in order to obtain a combined link.</p>
+				<p>On this subject, you may read this WCAG Technique: <a rel="external" class="external" href="http://www.w3.org/TR/WCAG20-TECHS/H2.html">H2 : Combining adjacent image and text links for the same resource</a>.
+				</p>
+
+				<h3 id="mContexteLien">
+				Link context
+				</h3>
+				<p>The link context represents additional information that can be programmatically determined from relationships with a link, combined with the link text, and presented to users in different modalities. Programmatically determined contexts that can make a link explicit are the following:
+				</p>
+				<ul>
+				<li>The content of the sentence enclosing the link;</li>
+				<li>The content of the paragraph (<code>p</code> tag) containing the link;
+				</li>
+				<li>The content of the list item (<code>li</code> tag), or the content of a parent list item (<code>li</code> tag) of the list item,  containing the link;
+				</li>
+				<li>The content of the heading (<code>h1</code> to <code>h6</code> tags) that is the  closest ascendant of the link;
+				</li>
+				<li>The content of the table header cell(s) (<code>th</code> tags)  associated with the table data cell (<code>td</code> tag) containing the link;
+				</li>
+				<li>The content of the table data cell (<code>td</code> tag) containing the link;
+				</li>
+				<li>The content of the link title (<code>title</code> attribute);
+				</li>
+				<li>The content of the <code>aria-label</code> property;</li>
+				<li>The content of the chunk(s) of text associated with the link via the <code>aria-labelledby</code> property.</li>
+				</ul>
+				<p><code>Note 1:</code> One of the 9 link contexts alone must be sufficient to make the link explicit.</p>
+				<p><strong>Note 2:</strong> The RGAA considers that specific links like <code>mailto</code> links (interpreted by the user agent as a clickable e-mail address) are explicit by nature. therefore it is not required to inform the user, via a link title for instance, that the link triggers the opening of an e-mail client application. Authors are advised, however, to adapt this rule to the situation. For instance, if the page contains multiple clickable e-mail addresses, some opening thee-mail client application, other sending to a contact form, then it may be necessary to provide additional information in order to help the user understand the different uses of this type of links in this context.</p>
+
+				<h3 id="LienIdentique">
+				Links (Identical)
+				</h3>
+				<p>Two links are considered identical when link x (link text only, content of the <code>title</code> attribute or link context) is equal to link y. This definition applies to all types of links: text links, image links (identical images) and combined links.</p>
+				<p><strong>Warning:</strong> links with identical texts but with different link titles or different link contexts are not identical. Example of non-identical links: <code>&lt;a href="link_bar.html" title="click here to download the toolbar"&gt;click here&lt;/a&gt;</code> and <code>&lt;a href="link_doc.html" title="click here to download the document"&gt;click here&lt;/a&gt;</code>).
+				</p>
+
+				<h3 id="mIntituleLien">
+				Link text
+				</h3>
+				<p>
+				Textual information contained between <code>&lt;a href="&hellip;"&gt;</code> and <code>&lt;/a&gt;</code> of a link completed if necessary with context information.</p>
+				<p> The four different types of links are:</p>
+				<ul>
+				<li>text link: text between <code>&lt;a href="&hellip;"&gt;</code> and <code>&lt;/a&gt;</code>, completed, if necessary, with context information;
+				</li>
+				<li>image link: text alternative(s) of the image(s) between <code>&lt;a href="&hellip;"&gt;</code> and <code>&lt;/a&gt;</code>, completed, if necessary, with context information;
+				</li>
+				<li>combined link: text, and text alternative(s) of the image(s) between <code>&lt;a href="&hellip;"&gt;</code> and <code>&lt;/a&gt;</code>, completed, if necessary, with context information;
+				</li>
+				<li>vector link: text alternative of the vector image (<code>svg</code> tag) between <code>&lt;a href="&hellip;"&gt;</code> and <code>&lt;/a&gt;</code> completed, if necessary, with context information.
+				</li>
+				</ul>
+				<p><strong>Note 1:</strong> An image link can be based on an image (<code>img</code> tag), on image object (<code>object</code> tag) or a bitmap image (<code>canvas</code> tag).
+				</p>
+				<p><strong>Note 2:</strong> An image link with a missing <code>alt</code> attribute is considered as not applicable for <a href="criteres.html#crit-6-5">criterion&nbsp;6.5</a>.
+				</p>
+
+				<h3 id="mTitreLien">Link title</h3>
+				<p>
+				Content of the <code>title</code> attribute of a link. This content must be set only if it is necessary to identify the link target in an explicit way. A link title must duplicate the link text, and add  complementary information. A link title will be considered as not relevant in the following situations:</p>
+				<ul>
+				<li>The link title is empty (<code>title=""</code>)</li>
+				<li>The link title is identical to the link text (see note 1)</li>
+				<li>The link title does not include the link text</li>
+				</ul>
+				<p><strong>Note 1:</strong> By exception, a link title identical to the link text is  tolerated in the case of an image link (a link that only contains images), like a clickable icon, for example.
+				</p>
+				<p>Authors are warned that relying upon the <code>title</code> attribute to convey information is unsafe. Specifically, contents in <code>title</code> attributes are not rendered visually when navigating with the keyboard, a tactile interface, or when an assistive technology user settings prevent them from being rendered. therefore, they should be used only as a last resort solution.</p>
+
+				<h3 id="LienNature">Link whose nature is not obvious</h3>
+				<p>Link that can be confused with normal text, when it is indicated through color alone, by some types of users who have bad or no color perception. For example, in this text "New strike at SNCF", if the word "strike" is a link that is specified by color alone, its kind can be ignored by users who cannot perceive color and who access content with CSS enabled. On the other hand, in this text "New strike at SNCF, read more" if "read more" is a link, a user who does not perceive colors will have no difficulties to understand its nature.
+				</p><p>
+				<strong>Note:</strong> "indicated through color alone" means that the link is accompanied by no other visual indication (icon, underline, border&hellip;). As a consequence, a link of the same color as the surrounding text is targetted by this criterion.
+				</p>
+
+				<h3 id="Listes">Lists</h3>
+				<p>Sequence of elements that can be grouped in the form of a structured list as ordered, unordered or definition lists. For example, the  links in a navigation menu is an unordered list of links, the different steps in a process are an ordered list of items, the pair term/definition in a glossary is a definition list. In HTML, lists are defined using the following tags:
+				</p>
+				<ul>
+					<li>ordered list: <code>ol</code> and <code>li</code> tags (each list item is numbered incrementally)</li>
+					<li>unordered list: <code>ul</code> and <code>li</code> tags (each list item is, potentially, marked with a bullet point)</li>
+					<li>definition list: <code>dl</code>, <code>dt</code>: term(s) to be defined, and <code>dd</code>: definition data</li>
+				</ul>
+
+				<h2 id="m">M</h2>
+				<ul class="skiplink">
+					<li class="gobefore"><a href="#l">Skip to L</a></li>
+					<li class="goafter"><a href="#n">Skip to N</a></li>
+				</ul>
+
+				<h3 id="mMain">Main content area</h3>
+				<p>Container of the main contents of the page, where can be found principal information and functionalities (therefore excluding menu, the search form, or secondary content blocks contaning related news, ads, etc.).</p>
+				<p><strong>Note:</strong> there must be only one main content area. On some pages, defining what constitutes the main content can be challenging, like on homepages for instance.</p>
+				<p>See the technical definition as defined by the ARIA API: <a rel="external" class="external" href="https://www.w3.org/WAI/PF/aria/roles#main">Main (role)</a>.
+
+				<h2 id="n">N</h2>
+				<ul class="skiplink">
+					<li class="gobefore"><a href="#m">Skip to M</a></li>
+					<li class="goafter"><a href="#o">Skip to O</a></li>
+				</ul>
+
+				<h3 id="mNameRole">Name, role, value, settings and states changes</h3>
+				<p>A user interface component must have appropriate role and name; its values, states and parameters (if any) must also be available and correctly conveyed to accessibility APIs, in particular.</p>
+				<p>The name may be the component's text content, like the label of a button, for example. </p>
+				<p>The value may be the selected item of a select list, or the current value of a slider, for example.</p>
+				<p>The role of an element is defined by the HTML specification (native roles, like for the button tag for example) or the WAI-ARIA API (ARIA role="button", for example).</p>
+				<p>The settings are the information specific to a component, generally defined via the WAI-ARIA API. For example, <code>aria-controls</code> is a parameter informing the APIs that the component controls another one (referenced via its <code>id</code> attribute).</p>
+				<p>The states changes are generally conveyed via the WAI-ARIA API. For instance <code>aria-expanded</code> is a state informing the accessibility APIs that the component is "expanded" or "collapsed".</p>
+				<p><strong>Note:</strong> a state can also be conveyed by the name, when it is dynamically changed to match the current state of the component, for instance.</p>
+				<p>These parameters are not mandatory, but may be required if they are needed to make the component accessible. When testing for accessibility, the assessor must decide, based on the context where the component is used, if these parameters are required.</p>
+				<p>The assessor must also check that they are implemented according to the specifications, when they are used.</p>
+				<p><strong>Note:</strong> the ARIA roles, properties and states are implemented via attributes, like <code>role="banner"</code>, or <code>aria-hidden="true"</code> for instance.</p>
+
+				<h3 id="mBarreNav">Navigation bar</h3>
+				<p>
+				List of links providing a means to navigate in the website, in a category or in a collection of pages. The main navigation bars are:</p>
+				<ul>
+					<li>The main navigation menu</li>
+					<li>A breadcrumb trail</li>
+					<li>A navigation list of a results list</li>
+					<li>The menu of a subcategory</li>
+				</ul>
+
+				<h3 id="mMenuNav">
+					Navigation area, Navigation menu
+				</h3>
+				<p>Area with a list of links, giving access to the main parts of the website. Most of times, the navigation menus are the main and secondary menus.
+				</p>
+				<p>Note: links found in the footer, pointing to the credits page, the legal information page, the sitemap, and other site-related information pages, are not considered as a navigation menu.</p>
+				<p>See the technical definition of a navigation area provided by the WAI-ARIA API: <a rel="external" class="external" href="http://www.w3.org/WAI/PF/aria/roles#navigation">navigation (role)</a>.</p>
+
+				<h3 id="mSysNav">
+					Navigation system
+				</h3>
+				<p>Any process allowing to navigate in the website or in a page. In the RGAA, the considered  navigation systems are:
+				</p>
+				<ul>
+					<li>Main navigation menu</li>
+					<li>Table of contents</li>
+					<li>Site map</li>
+					<li>Search engine</li>
+				</ul>
+
+				<h3 id="mMediaNoTemp">
+					Non time-based media
+				</h3>
+				<p>
+				Content that is not time-dependant, that can be played via a plugin (Flash, Java, Silverlight&hellip;) or via <code>svg</code> and <code>canvas</code> tags. For example, an interactive map in Flash, a Flash-based or Java application, a user-controlled slideshow, are non time-based media. A non time-based media can contain time-based media (a Flash-based gallery of videos, for example).</p>
+				<p><strong>Note :</strong> the use of the <code>wmode</code> parameter for a Flash object with the values "<code>transparent</code>" and "<code>opaque</code>" invalidates <a href="criteres.html#crit-4-21">criterion&nbsp;4.21</a> (Can each non time-based media be controlled by the keyboard and by the mouse?). When accessed with a  screenreader, these values make the Flash movie inaccessible (the object is ignored, or can not be browsed). therefore it can not be tabbed to.</p>
+
+				<h2 id="o">O</h2>
+				<ul class="skiplink">
+					<li class="gobefore"><a href="#n">Skip to N</a></li>
+					<li class="goafter"><a href="#p">Skip to P</a></li>
+				</ul>
+
+				<!-- Only for layout -->
+
+				<h3 id="mUniquPres">
+					Only for layout
+				</h3>
+				<p>Only for layout: use of HTML tags for a purpose  different from what  is intended by specifications (with regard to the declared document type). Examples: use of <code>H<i>n</i></code> tags only to apply tyhe associated typographical effect; use of the <code>blockquote</code> tag only to indent a block of text, etc.</p>
+				<p><strong>Note 1:</strong> the use of DIV or SPAN elements for paragraphs is considered as a non conforming use of these elements, and invalidates the criterion.
+				</p>
+				<p><strong>Note 2:</strong> WAI-ARIA provides the <code>presentation</code> role, which suppresses the semantics of an element. For example: <code>&lt;h1 role=presentation"&gt;Title&lt;/h1&gt;</code>. In this example, the text content will be rendered, but not the role of heading (the rendered element will be undefined, in the form of <code>&lt;title&gt;).</code></p>
+				<p>The <code>presentation</code> role may be required for some ARIA design patterns.It can also be used to suppress semantics on an element used only for layout. For example: <code>&lt;blockquote role=presentation"&gt;</code> will have the same effect as an absence of <code>blockquote</code> element.  </p>
+				<p>Although authors are strongly advised against this technique (because it will fail for older assistive technologies that do not support ARIA, for instance), it can be considered as WCAG conformant. However, assigning a <code>presentation</code> role to an element whose nature (i.e., its semantics) is essential to understand the content, is a viloation of the WCAG recommendations (see <a rel="external" class="external" href="https://www.w3.org/TR/2015/NOTE-WCAG20-TECHS-20150226/F92">Failure F92</a>) et invalidates the criterion.</p>
+
+				<h2 id="p">P</h2>
+				<ul class="skiplink">
+					<li class="gobefore"><a href="#o">Skip to O</a></li>
+					<li class="goafter"><a href="#r">Skip to R</a></li>
+				</ul>
+
+				<h3 id="#PageHeader">
+					Page Header
+				</h3>
+				<p>
+					Also called banner. Content block, starting a web page, and containing generally the document's headline, a logo, a baseline&hellip;
+				</p>
+				<p><strong>Note:</strong> this header must not be mistaken with section headers, which can be defined in HTML5 with the <code>header</code> tag in any sectioning element.
+				</p>
+				<p>See the technical definition of a banner as defined by the ARIA API: <a rel="external" class="external" href="https://www.w3.org/WAI/PF/aria/roles#banner">Banner (role)</a>.
+				</p>
+
+				<h3 id="#FontSize">
+					Percentage of the default font size
+				</h3>
+				<p>150% and 120% of the default font size: these two dimensions define the relative font size equivalent to 18 point (non-bold), and 14 points (bold), respectively, considering that the body font size is set at 100%.
+				</p>
+				<p>
+					The default font size is defined by the author for the document body; and if not specified, the default font size for the user agent (a browser, generally). In most current browsers, the default font size is set at 16 pixels.
+				</p>
+
+				<h3 id="mDOM">
+				Properties and methods compliant with the DOM (Document Object Model) specification</h3>
+				<p>The content insertion methods compliant with the DOM specification use properties and methods of the Node object, as opposed to proprietary methods; for example <code>document.write</code>, specific to the Internet Explorer/Microsoft, for legacy IE browsers.
+				</p>
+
+				<h2 id="r">R</h2>
+				<ul class="skiplink">
+					<li class="gobefore"><a href="#p">Skip to P</a></li>
+					<li class="goafter"><a href="#s">Skip to S</a></li>
+				</ul>
+
+				<h3 id="mSensLecture">
+					Reading direction
+				</h3>
+				<p>Indicates the reading direction of the document or of a chunk of text via the <code>dir</code> attribute. The three accepted values are:</p>
+				<ul>
+					<li><code>ltr</code> (left to right) indicates a reading direction from the left to the right;</li>
+					<li><code>rtl</code> (right to left) indicates a reading direction from the right to the left;
+					</li>
+					<li><code>auto</code>, which lets the browser determine the reading direction based ont the Unicode characters it finds in content.</li>
+				</ul>
+				<p><strong>Note:</strong> When the dir attribute is not set, the default reading direction is from left to right ("<code>ltr</code>" value).
+				</p>
+
+				<h3 id="mProcedeRafraichissement">
+					Refresh process
+				</h3>
+				<p>
+				Technique aiming at modifying the content of one or several elements of the web page. The refresh process can be performed by automatic reloading of the page, or in a dynamic way without reloading the page (via AJAX, for example). The user must be able to control each refresh process in an independent way.</p>
+
+				<h3 id="mPertinence">
+					Relevance (information not conveyed through color only)
+				</h3>
+				<p>The means to retrieve information other than through color must be accessible for all. For example, in the case of a list of articles where articles with texts in yellow are discounted, the use of hidden text via CSS is a means to retrieve information "discounted", but it is not relevant because this information will remain hidden for users who browse the page with CSS enabled.
+				</p>
+				<p><strong>Note:</strong> The use of an emphasis tag (<code>strong</code> or <code>em</code>) as another means to retrieve information conveyed by color, validates the criterion, although these elements are generally not supported by assistive technologies, including screen readers.
+				</p>
+
+				<h2 id="s">S</h2>
+				<ul class="skiplink">
+					<li class="gobefore"><a href="#r">Skip to R</a></li>
+					<li class="goafter"><a href="#t">Skip to T</a></li>
+				</ul>
+
+				<h3 id="#mScript">Script</h3>
+				<p>Computer code generally presented as  a list of instructions (in JavaScript, for example). Client-side scripting languages require a compatible browser where they are enabled. The instructions of a  client-side scripting language can be either embedded  in the HTML code, or fetched from  an external file. In both cases, scripts are included  via  <code>script</code> tags.
+				</p>
+
+				<h3 id="mMoteurRecherche">
+					Search engine (internal to a website)
+				</h3>
+				<p>Component of the site with which the user can perform searches on all the site's contents.
+				</p>
+				<p><strong>Note:</strong> this site-scaled search engine should not be confused with other search engines specific to a subparts of the site's contents, like the products of an online catalogue, or the list of public calls for tenders on a purchasing platform.
+				</p>
+				<p>See the technical definition of a search engine as defined by the ARIA API: <a rel="external" class="external" href="https://www.w3.org/WAI/PF/aria/roles#search">search (role)</a>.
+				</p>
+
+				<h3 id="mListeChoix">
+					Selection list
+				</h3>
+				<p>Form field designed to select  items in a pull-down list (<code>select</code> tag with <code>option</code> tags).</p>
+
+				<h3 id="mEnsemblePages">
+					Set of pages
+				</h3>
+				<p>Pages linked to each other through links, and constituent a consistent set inside of a website. For example, the pages of an electronic payment process, the pages of a specific category, the pages of a blog, the pages to manage an account are sets of pages.
+				</p>
+				<p> <strong>Note:</strong> A website's home page can be considered as a "set of pages" (with only one element), as it can be quite  different from the rest of the site.
+				</p>
+
+				<h3 id="mPlanSite">
+					"Site map" page
+				</h3>
+				<p>Dedicated page presenting the structure of a web site, generally as lists of categories and subcategories, with links giving access to al the site's pages.
+				</p>
+				<p><strong>Note 1:</strong> the site map's links may be implemented with <code>a</code> or <code>area</code> tags.
+				</p>
+				<p><strong>Note 2:</strong> it is not necessary that the site map lists the links to all the site's pages; however, starting from the site map page, the user should be able to reach every page on the site.
+				</p>
+
+				<h3 id="mTexteStyle">
+					Styled text
+				</h3>
+				<p>Text for which presentation is entirely controlled by a style properties, as opposed to by presentational tags.</p>
+
+				<h3 id="mCompAccess">
+					Supported by assistive technologies
+				</h3>
+				<p>A content or a functionality must be supported by users' assistive technologies, as well as the accessibility features in browsers and other user agents via an accessibility API.
+				</p>
+				<p>This concerns the technology, its features and its uses at the same time:</p>
+				<ul>
+					<li> The way the  technology is used must be supported by users' assistive technology. This means that the way  the technology is used has been tested for interoperability with users' assistive technologies in the human language(s) of the content,</li>
+					<li>the technology is supported natively in widely-distributed user agents that are also accessibility supported (such as HTML and CSS) or in a widely-distributed plugin that is also accessibility supported.</li>
+				</ul>
+				Checking for support by assistive technologies requires to perform  tests that are specific to the technology used. For instance:
+				<ul>
+					<li>checking the name, role, value and states changes of user interface components;</li>
+					<li>checking that a user interface component is correctly rendered by the considered assistive technologies.</li>
+				</ul>
+
+				<h3 id="mFeuilleStyle">
+					Style sheet
+				</h3>
+				<p>Set of instructions, written in CSS, a standardized language used to defined the layout of content elements in an HTML document (examples: page background color, text size/font/color, position in the page&hellip;). Style sheets can be external (CSS file), embedded (declared in the <code>head</code>) or inline (declared via the <code>style</code> attribute of a tag).
+				</p>
+
+				<h3 id="mResumeTab">
+					Summary (of a table)
+				</h3>
+				<p>A table summary is a chunk of text associated with a complex data table. It provides information on the nature and structure of the table, in order to ease its consultation for users of assistive technologies, for instance.
+				</p>
+				<p><strong>Note:</strong> the <code>summary</code> attribute is obsolete non conformant in HTML5, and must not be used anymore.
+				</p>
+				<p>
+					Among the 5 techniques proposed by the HTML5 specification, the only one that should be used currently consists in inserting the summary in the table title (<code>caption</code> tag), and hiding it with CSS if necessary.
+				</p>
+				<p>
+					Read the <a href="./notes-techniques.html#crit-5-1">Technical note on table summaries</a>.
+				</p>
+
+				<h3 id="mSsTitreSynchro">
+					Synchronised captions (media object)
+				</h3>
+				<p>Synchronized visual and/or text alternative for both speech and non-speech audio information (including spoken dialogue, but also equivalents for non-dialogue audio information needed to understand the program content, including sound effects, music, laughter, speaker identification and location), needed to understand the media content.</p>
+				<p> <strong>Note 1:</strong> In order to differentiate audio sources (different speakers, voice off screen&hellip;), it is recommended to use an appropriate mechanism (square brackets, italics, explicit mention like "voice off screen:&hellip;").</p>
+				<p><strong>Note 2:</strong> captions should not be mistaken with subtitles, although both words may be used for the same usage in some countries. "Captions" (<code>kind="captions"</code> in HTML5) refer to  alternatives aiming at fulfilling the needs of people who are deaf or hard-of-hearing, while "subtitles" (<code>kind="subtitle"</code> in HTML5) refer to translation of spoken content in a different human language. Only captions will be considered to check conformance against the RGAA.
+				</p>
+
+				<h2 id="t">T</h2>
+				<ul class="skiplink">
+					<li class="gobefore"><a href="#s">Skip to S</a></li>
+					<li class="goafter"><a href="#u">Skip to U</a></li>
+				</ul>
+
+				<h3 id="mOrdTab">Tabbing order</h3>
+				<p>Order in which the focus moves (to the next element or to the previous element). The natural order is the order of the source code. When it is modified by the use of the <code>tabindex</code> attribute or by scripting, then the modified order is the reference.</p>
+				<p> <strong>Warning:</strong> During testing, when an element initiates a change in the document (change of context, management of hidden areas, content addition, management of form fields&hellip;) it is necessary to trigger this change and check that the consistence of the tabbing order is preserved. 
+					
+				<h3 id="mTabDonneeComplexe">Table (complex data table)</h3>
+				<p>
+					<a href="#mTabDonnee"></a>Data tables are considered as complex, in the RGAA, when they have header cells outside of the first row and/or column, or whose scope does not cover the whole row or column. For these tables it is necessary to provide a summary, to describe their nature and structure, in order to ease its consultation by assistive technologies users, in particular.
+				</p>
+
+				<h3 id="mTabDonnee">Table (data table)</h3>
+				<p>HTML element (<code>table</code> tag) allowing to structure data in rows and columns via data cells (<code>td</code> tag) and header cells (<code>th</code> tag).
+				</p>
+
+				<h3 id="mTabMiseForme">Table (for layout)</h3>
+				<p>Web design technique based on the TABLE and TD elements to position  contents on screen. 
+				</p>
+
+				<h3 id="mImgTest">
+					Test image
+				</h3>
+				<p>Image used in a test, a <a href="#mcaptcha">CAPTCHA</a> or an image used for a test in a quiz or a game. Example: a series of images present a detail from famous paintings; the title and the painter of each painting must be found. In this case, it is not possible to provide a relevant alternative (e.g. the painting title and/or painter) without making the test useless. The alternative must then only provide the ability to identify the image; for example "image 1 of the test".
+				</p>
+
+				<h3 id="LienTexte">Text link</h3>
+				<p>Link whose content between <code>&lt;a href="&hellip;"&gt;</code> and <code>&lt;/a&gt;</code> is only constituted of text (called the link text). </p>
+
+				<h3 id="mTranscriptTextuel">Text transcript (time-based media)</h3>
+				<p>
+				Text content associated with a time-based media through the appropriate technique (text in HTML, or in a text file located in the same page, or accessed via a hyperlink). Without having to play the media content, the user should be able to fully understand it, based on the audio and visual information transcripted. Only significant and useful information (audio and visual) should be included.</p>
+				<p>This textual information must be presented in the same chronological order as  in the time-based media.</p>
+				<p>Note: if the media is served via an <code>object</code> tag, then the text transcript must not be inside of the <code>object</code> tag.</p>
+
+				<h3 id="mMediaTemp">Time-based media (sound, video or synchronized)</h3>
+				<ul>
+					<li>Audio-only time-based media: audio content (Wave, MP3&hellip;)</li>
+					<li>Video-only time-based media:  images or pictures moving or played in sequence
+					</li>
+					<li> Synchronised time-based media: audio or video feed synchronised with another time-based media to present information and/or having time-based interactive components. A time-based media can be played in 2 different ways:
+						<ul>
+							<li>  a downloadable file that can be played with a client, third-party software,</li>
+							<li> content embedded in the web page and that can be played inside the web page via:
+								<ul>
+									<li>a plugin (example: a video played via a Flash-based player)</li>
+									<li>the <code>video</code> element (a video clip, for instance)</li>
+									<li>the <code>audio</code> element (a podcast, for instance)</li>
+									<li>the <code>svg</code> element (an animated vector movie, for instance)</li>
+									<li>the <code>canvas</code> element (an animated bitmap movie, for instance)</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>    
+				<p>
+				A time-based media can be broadcast live or be provided to play in an asynchronous way (prerecorded media).</p>
+				<p><strong>Note :</strong> the use of the <code>wmode</code> parameter for a Flash object with the values "<code>transparent</code>" and "<code>opaque</code>" invalidates <a href="criteres.html#crit-4-21">criterion&nbsp;4.21</a> (Can each non time-based media be controlled by the keyboard and by the mouse?). When accessed with a  screenreader, these values make the Flash movie inaccessible (the object is ignored, or can not be browsed). therefore it can not be tabbed to.</p>
+				<p>Note 2: Animated GIFs, and JavaScript-based animations  are not considered as time-based media with regards to RGAA.</p>
+
+				<h3 id="mTitreTab">Title (of a data table)</h3>
+				<p>Content of an HTML element (<code>caption</code> tag) describing the content of a data table. To be accessible the description must be relevant (clear and concise).
+				</p>
+
+				<h3 id="mTitrePage">Title (of a page)</h3>
+				<p>Content of the <code>title</code> tag of a web page, describing in a clear, concise and unique fashion, the page content/nature ("site map www.sitename.fr" for a page dedicated to the sitemap of the sitename.fr site, for example).
+				</p>
+
+				<h2 id="u">U</h2>
+				<ul class="skiplink">
+					<li class="gobefore"><a href="#t">Skip to T</a></li>
+					<li class="goafter"><a href="#v">Skip to V</a></li>
+				</ul>
+
+				<h3 id="mUrl">URL</h3>
+				<p>Uniform Resource Locator: a string of characters identifying the location of a resource and secifying the means to act upon it or obtain its representation. Also refered as "web address", on the Web it is applied to identify and provide access to HTML documents, web pages, images, sounds&hellip; 
+				</p>
+				<p><strong>Note:</strong> In the RGAA, the term URL is used instead of URI (Uniform Resource Identifier, a URL being a specific type of URI). 
+				</p>
+
+				<h2 id="v">V</h2>
+				<ul class="skiplink">
+					<li class="gobefore"><a href="#u">Skip to U</a></li>
+					<li class="goafter"><a href="#w">Skip to W</a></li>
+				</ul>
+
+				<h3 id="mCodeValide">Valid code</h3>
+				<ul>
+				<li>Case of an HTML page: code in which the implementation of tags and attributes repects the specifications of the declared document type.
+					<ul>
+						<li><strong>Note 1:</strong> Unless specified, attributes that are not defined in Web standards specifications are not applicable.</li>
+						<li><strong>Note 2:</strong> Unless specified, elements that are not defined in Web standards specifications are not applicable.</li>
+						<li><strong>Note 3:</strong> <a rel="external" class="external" href="http://www.w3.org/TR/xhtml1/#C_3">guideline C3 of the XHTML specification ("Element Minimization and Empty Element Content")</a> states that the use of minimized elements (<code>&lt;elm /&gt;</code>) for empty elements (for example &lt;p /&gt; instead of &lt;p&gt;&lt;/p&gt;) is not advised. This practice constitutes a non-conformance with regards to RGAA.
+						</li>
+					</ul>
+					<li>Case of a page that implements WAI ARIA: code in which the implementation of tags and attributes follows the specifications of the declared document type and in which WAI ARIA implementation conforms to the WAI ARIA specification.</li>
+				</ul>
+
+				<h3 id="mVectorLink">Vector link</h3>
+				<p>Link whose content between <code>&lt;a href="&hellip;"&gt;</code> and <code>&lt;/a&gt;</code> is only constituted of a vector image (svg tag). The link text of a vector link is the alternative text of the vector image.
+				</p>
+
+				<h3 id="mVisibleContent">
+					Visible content
+				</h3>
+				<p>For <a href="criteres.html#test-10-2-1">Test 10.2.1</a>: "available content" means that the visible content remains available when CSS styles have been disabled. For instance, an image conveying information, used as a background through CSS, fails this test, since information is not "available" when CSS styles are disabled. However,  an image conveying information, used as a background through CSS, but accompanied by a hidden text, passes this test because information is "available" when CSS styles are disabled.</p>
+				<p>
+					<strong>Note:</strong> authors are formally advised against using images conveying information as CSS backgrounds, even when hidden texts are available. 
+				</p>
+
+				<h2 id="w">W</h2>
+				<ul class="skiplink">
+					<li class="gobefore"><a href="#y">Skip to V</a></li>
+					<li class="gobefore gotoc"><a href="#toc">Table of contents</a></li>
+				</ul>
+
+				<h3 id="mSiteWeb">Website</h3>
+				<p>Set of web pages:</p>
+				<ul>
+					<li>linked by hyperlinks,</li>
+					<li>belonging to the same domain name (eg.: references.modernisation.gouv.fr),</li>
+					<li>constituting a coherent whole from the user point of view.
+					</li>
+				</ul>
+				<p>Particular case: pages of a subdomain. A subdomain can:</p>
+				<ul>
+					<li>either belong to the web site associated with the domain name, if the user has a similar browsing experience as with the other pages of the web site (for example: same structure, same navigation&hellip;),</li>
+					<li>or not belong to the web site associated with the domain name (for example: a blogging platform where all blogs have their own subdomain of the same domain, but bear no similiraties nor relationships with each other).</li>
+				</ul>
+			</div>
+        </main>
+        <footer id="footer" role="contentinfo">
+            <div class="page">
+                <p>This document is a property of the French government, under <a href="http://wiki.data.gouv.fr/wiki/Licence_Ouverte_/_Open_Licence" rel="external" class="external" hreflang="fr">Open License&nbsp;1.0 (in&nbsp;French)</a> or later, as all documents hosted on <a href="http://references.modernisation.gouv.fr/" rel="external" class="external" hreflang="fr">references.modernisation.gouv.fr</a>. See the terms and conditions of the license in the <a href="http://references.modernisation.gouv.fr/mentions-legales" rel="external" class="external" hreflang="fr">legal informations</a>.</p>
+                <p>The technical reference guidelines (list of criteria, glossary, particular cases, technical notes, baseline) are an adapted copy of the <a href="http://www.accessiweb.org/index.php/accessiweb-html5aria-liste-deployee.html" rel="external" class="external" hreflang="fr">AccessiWeb HTML5 / ARIA</a> guidelines - Working Version as of 12/19/2013 - Edited by BrailleNet.</p>
+                <p>Disclaimer: this translation is NOT normative. It is available for informational purposes only. The normative version is the <a href="http://references.modernisation.gouv.fr/referentiel-technique-0" rel="external" class="external" hreflang="fr">official RGAA in&nbsp;French</a>.</p>
+                <p>Although greatest care has been taken during translation, we acknowledge the fact that this text probably contains mistakes. You may write to <a href="mailto:rgaa.sgmap@modernisation.gouv.fr" class="mailto">rgaa.sgmap@modernisation.gouv.fr</a> if you feel corrections are needed.</p>
+                <p>This page is designed with <a href="http://tinytypo.tetue.net" rel="external" class="external" hreflang="fr">Tiny Typo</a>, by <a href="http://www.tanaguru.com/en/" rel="external" class="external">Tanaguru</a>, a nice dragon who is testing your web accessibility.</p>
+				<p class="skiplink"><span class="gobefore gotop"><a href="#top" title="Back to top"><span>Back to top</span></a></span></p>
+            </div>
+        </footer>
+        <script src="../js/main.js"></script>
+		</body>
+	</html>	

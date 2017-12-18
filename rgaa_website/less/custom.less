@@ -1,0 +1,100 @@
+body { background-color: @color-bg; .font1; color: @color-txt; }
+
+/* * liens */
+a { text-decoration: none; border-width: 0 0 1px; border-style: solid; border-color: lighten(@color,30); }
+a:focus,
+a:hover,
+a:active { color: @color; border-width: 0 0 2px; border-color: @color; }
+
+.nav {}
+.nav a { border-width: 0; }
+
+/* * titres */
+h2 {
+  padding-top: @p*2;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2em;
+}
+h3 {
+  padding-top: @gutter;
+  font-weight: bold;
+}
+h4 {
+  font-weight: bold;
+}
+
+/* * */
+
+pre, code, kbd, samp, var, tt { font-family: @font3; font-size: 90%; border-radius: 4px; }
+pre, code, samp, var, tt { padding: .1em .3em; background-color: fade(@color,5%); border: 1px solid fadeout(@color,90%); }
+
+/* * Atténuer ce qui est annexe */
+
+#howto,
+#howto h3,
+.thematique p,
+.thematique aside,
+.thematique header h3,
+.thematique h4,
+.thematique .tags {
+  color: @color-mid; font-size: small;
+}
+#howto p,
+#howto ul,
+.thematique p { margin-bottom: 0; }
+#howto h3 { margin: 0; padding: @p/2 0; }
+.thematique header h3,
+.thematique h4 { margin: @gutter 0 0; padding: 0; }
+
+.thematique aside {
+  margin: @p 0;
+  p { margin: 0; }
+}
+
+.thematique .tags { margin-top: @gutter; }
+.thematique .tags * { display: inline; margin: 0; }
+.thematique .tags span { font-weight: bold; display: none; }
+.thematique .tags span:after { content: " : "; }
+.thematique .tags li:before { content: " / "; }
+.thematique .tags li:first-child:before { content: ""; }
+
+.thematique aside h4 {
+  padding-top: @gutter;
+  border-top: 1px dashed fade(@color-mid, 30%);
+}
+
+/* * thematique */
+
+.thematique h2 {
+  margin: 0 0 @gutter;
+  padding-bottom: @gutter*2;
+  border-bottom: @gutter solid @color;
+  text-transform: uppercase;
+}
+
+.thematique header { margin-bottom: @p; }
+.thematique header nav {
+  display: block; width: 100%; margin: @gutter 0 @p; clear: both; text-align: center; font-size: 80%;
+  li { display: inline-block; margin: @gutter/2 @gutter/3; }
+  li a { display: block; margin: 0; padding: @gutter/2 @gutter; border: 1px solid; border-radius: @gutter/2; color: @color; font-weight: bold; }
+  li a:focus,
+  li a:hover,
+  li a:active { background-color: fade(@color, 10%); }
+}
+@media print {
+.thematique header nav { display: none; }
+.thematique h2 { page-break-before: always;}
+}
+
+.thematique section { margin-bottom: @p*2; }
+.thematique section h3 em { color: @color; font-weight: normal; font-style: normal; }
+
+.thematique section {
+  > ul { list-style: square; }
+  > ul > li { margin-bottom: @p; }
+  > ul ul { margin-top: @gutter/2; list-style-type: disc; font-size: .8em; }
+  > ul ul li { margin-bottom: @gutter/2; }
+}
+
+/* end */
