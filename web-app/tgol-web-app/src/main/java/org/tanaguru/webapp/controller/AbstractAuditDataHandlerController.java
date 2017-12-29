@@ -294,7 +294,7 @@ public abstract class AbstractAuditDataHandlerController extends AbstractControl
         }
         User user = getCurrentUser();
         Contract contract = getActDataService().getActFromAudit(audit).getContract();
-        if (isAdminUser() || (!isContractExpired(contract) && user.getId().compareTo(
+        if (isAdminUser() || isSuperAdminUser() || (!isContractExpired(contract) && user.getId().compareTo(
                 contract.getUser().getId()) == 0)) {
             return true;
         }

@@ -492,7 +492,18 @@ public class AbstractUserAndContractsController extends AbstractController{
             getActDataService().delete(act.getId());
         }
     }
+    
+    /**
+     * @param act
+     */
+    protected void deleteAuditByAct(Act act) {
+        if (act!= null){
+            if (act.getAudit() != null) {
+                getAuditDataService().delete(act.getAudit().getId());
+            }
+            getActDataService().delete(act.getId());
+        }
+    }
 
     
-
 }

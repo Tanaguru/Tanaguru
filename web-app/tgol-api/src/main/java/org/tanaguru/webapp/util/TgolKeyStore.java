@@ -58,6 +58,8 @@ public final class TgolKeyStore {
     public static final String DELETE_USER_CONFIRMATION_URL = "/admin/confirm-user-deletion";
     public static final String DELETE_CONTRACT_URL = "/admin/manage-contracts/delete-contract";
     public static final String DELETE_CONTRACT_AUDITS_URL = "/admin/manage-contracts/delete-contract-audits";
+    public static final String SHOW_CONTRACT_AUDITS_URL = "/admin/manage-contracts/show-contract-audits";
+    public static final String DELETE_CONTRACT_AUDIT_URL = "/admin/manage-contracts/delete-contract-audit";
     public static final String CONTRACT_URL = "/home/contract";
     public static final String AUDIT_SITE_SET_UP_URL = "/audit-site-set-up";
     public static final String AUDIT_SITE_SET_UP_CONTRACT_URL =
@@ -161,6 +163,8 @@ public final class TgolKeyStore {
     public static final String EDIT_USER_VIEW_NAME = "edit-user";
     public static final String DELETE_USER_VIEW_NAME = "delete-user";
     public static final String DELETE_AUDITS_VIEW_NAME = "delete-audits";
+    public static final String SHOW_AUDITS_VIEW_NAME = "show-audits";
+    public static final String DELETE_AUDIT_VIEW_NAME = "delete-audit";
     public static final String ADD_CONTRACT_VIEW_NAME = "add-contract";
     public static final String EDIT_CONTRACT_VIEW_NAME = "edit-contract";
     public static final String MANAGE_CONTRACTS_VIEW_NAME = "manage-contracts";

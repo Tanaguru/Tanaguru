@@ -135,6 +135,23 @@ public abstract class AbstractController {
         }
         return false;
     }
+    
+    /**
+     * This method determines whether the authenticated user of the current session
+     * is an Super admin user
+     * @return
+     *      true if the the authenticated user of the current session is a
+     *      Super-Admin, otherwise false.
+     */
+    protected boolean isSuperAdminUser() {
+        Collection<? extends GrantedAuthority> authorities =
+                SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+        if (authorities != null && authorities.size() == 1
+                && authorities.iterator().next().getAuthority().equalsIgnoreCase(TgolKeyStore.ROLE_SUPER_ADMIN_KEY)) {
+            return true;
+        }
+        return false;
+    }
 
     /**
      * @return the authenticated user of the current session.
