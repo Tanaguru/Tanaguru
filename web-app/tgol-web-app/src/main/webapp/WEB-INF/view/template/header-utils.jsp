@@ -88,7 +88,7 @@
             </c:choose>
             </sec:authorize>
             <c:set var="isInTopBar" scope="page" value="true"/>
-            <sec:authorize access="hasRole('ROLE_ADMIN')">
+            <sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_SUPER_ADMIN')">
                 <li ${adminActive}>
                     <a href="<c:url value="/admin.html"/>" 
                        title="<fmt:message key="home.admin"/>">

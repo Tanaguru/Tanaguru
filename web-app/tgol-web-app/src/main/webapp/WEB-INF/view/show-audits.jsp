@@ -10,6 +10,10 @@
 <%@ taglib uri="http://tagutils" prefix="tg" %>
 <!DOCTYPE html>
 
+<c:set var="deleteAudits">
+    <c:url value="/Images/bin.png"/>
+</c:set>
+
 <c:set var="imgName" scope="request">
     <fmt:message key="contract.historicSampleImgName"/>
 </c:set>
@@ -152,35 +156,8 @@
                         </c:choose>
                     </div><!-- class="project-meta-info" -->
                 </div><!-- class="span8 offset1" -->
-                <c:if test="${detailedContractInfo.lastActInfo != null}">
-                    <c:choose>
-                        <c:when test="${detailedContractInfo.lastActInfo.status == 'COMPLETED'}">
-                            <c:set var="mark" scope="page" value="${detailedContractInfo.lastActInfo.rawMark}"/>
-                            <c:set var="scoreId" scope="page" value="project-score"/>
-                            <c:set var="hasScoreFormulaLink" scope="page" value="false"/>
-                            <c:set var="spanClass" scope="page" value="span2"/>
-                            <%@include file="template/score.jsp" %>
-                        </c:when>
-                        <c:otherwise>
-                            <div class="span2">
-                                <div class="project-fail">
-                                    <fmt:message key="${detailedContractInfo.lastActInfo.status}"/>
-                                </div>
-                            </div><!-- class="span3" -->
-                        </c:otherwise>
-                    </c:choose>
-                </c:if>
-            </div><!-- class="row" -->
-            <c:if test="${displayResultTrend == 'true'}">
-                <div class="row"> 
-                    <div class="span16">
-                        <div id="holder-site-audit-history-graph"></div>
-                        <!-- <div id="site-audit-history-graph-sample" style="display : none;">
-                                <img id="site-audit-history" src="${historicSampleImgUrl}" alt="<fmt:message key="contract.historicSampleImgAltAndTitle"/>" title="<fmt:message key="contract.historicSampleImgAltAndTitle"/>"/>
-                        </div>-->
-                    </div>
-                </div>
-            </c:if>
+              
+            
             <div class="row">
                 <div id="contract-last-audit" class="span16 tg-table-title">
                     <h2>
@@ -218,6 +195,7 @@
                                         <c:if test='${detailedContractInfo.isManualAuditEnabled}'>
                                         <th id="manual" scope="col" class="tg-textual-column"><fmt:message key="contract.manual"/></th>
                                         </c:if>
+                                    <th id="delete" scope="col" class="tg-textual-column"><fmt:message key="contract.delete"/></th>
                                 </tr>
                             </thead>
                             <c:if test="${fn:length(detailedContractInfo.lastActInfoSet) > 0}">
@@ -288,6 +266,11 @@
                                                 </c:choose>
                                             </td>
                                         </c:if>
+                                            <td headers="delete" class="tg-textual-column">
+                                                <a href="<c:url value="/admin/manage-contracts/delete-contract-audit.html?cr=${contract.id}&audit=${actInfo.auditId}"/>" title="<fmt:message key="manage-contracts.deleteAuditsTitle"><fmt:param>${contract.label}</fmt:param></fmt:message>">
+                                                    <img src="${deleteAudits}" alt="<fmt:message key="manage-contracts.deleteAuditsTitle"><fmt:param>${contract.label}</fmt:param></fmt:message>"/>
+                                                </a>
+                                            </td>
                                     </tr>
                                 </c:forEach>
                                 <c:if test="${fn:length(detailedContractInfo.lastActInfoSet) > 0}">

@@ -151,36 +151,7 @@
                             </c:otherwise>
                         </c:choose>
                     </div><!-- class="project-meta-info" -->
-                </div><!-- class="span8 offset1" -->
-                <c:if test="${detailedContractInfo.lastActInfo != null}">
-                    <c:choose>
-                        <c:when test="${detailedContractInfo.lastActInfo.status == 'COMPLETED'}">
-                            <c:set var="mark" scope="page" value="${detailedContractInfo.lastActInfo.rawMark}"/>
-                            <c:set var="scoreId" scope="page" value="project-score"/>
-                            <c:set var="hasScoreFormulaLink" scope="page" value="false"/>
-                            <c:set var="spanClass" scope="page" value="span2"/>
-                            <%@include file="template/score.jsp" %>
-                        </c:when>
-                        <c:otherwise>
-                            <div class="span2">
-                                <div class="project-fail">
-                                    <fmt:message key="${detailedContractInfo.lastActInfo.status}"/>
-                                </div>
-                            </div><!-- class="span3" -->
-                        </c:otherwise>
-                    </c:choose>
-                </c:if>
-            </div><!-- class="row" -->
-            <c:if test="${displayResultTrend == 'true'}">
-                <div class="row"> 
-                    <div class="span16">
-                        <div id="holder-site-audit-history-graph"></div>
-                        <!-- <div id="site-audit-history-graph-sample" style="display : none;">
-                                <img id="site-audit-history" src="${historicSampleImgUrl}" alt="<fmt:message key="contract.historicSampleImgAltAndTitle"/>" title="<fmt:message key="contract.historicSampleImgAltAndTitle"/>"/>
-                        </div>-->
-                    </div>
-                </div>
-            </c:if>
+                </div><!-- class="span8 offset1" -->                            
             <div class="row">
                 <div id="contract-last-audit" class="span16 tg-table-title">
                     <h2>

@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 
 <c:set var="editContract">
-    <c:url value="/Images/edit.png"/>  
+    <c:url value="/Images/folder_open.png"/>  
 </c:set>
 <c:set var="deleteContract">
     <c:url value="/Images/remove.png"/>  
@@ -106,7 +106,10 @@
                                 <th id="contract-end-date" scope="col" class="col03"><fmt:message key="manage-contracts.endDate"/></th>
                                 <th id="edit-contract" scope="col" class="col04"><fmt:message key="manage-contracts.edit"/></th>
                                 <th id="delete-contract" scope="col" class="col05"><fmt:message key="manage-contracts.delete"/></th>
-                                <th id="delete-audits" scope="col" class="col06"><fmt:message key="manage-contracts.deleteAudits"/></th>
+                                  <sec:authorize access="hasRole('ROLE_SUPER_ADMIN')">
+                                <th id="delete-audits" scope="col" class="col06"><fmt:message key="manage-contracts.showAudits"/></th>
+                                  </sec:authorize>
+                                <th id="delete-audits" scope="col" class="col07"><fmt:message key="manage-contracts.deleteAudits"/></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -131,6 +134,13 @@
                                         <img src="${deleteContract}" alt="<fmt:message key="manage-contracts.deleteContractTitle"><fmt:param>${contract.label}</fmt:param></fmt:message>"/>
                                     </a>
                                 </td>
+                                 <sec:authorize access="hasRole('ROLE_SUPER_ADMIN')">
+                                 <td headers="show-audits" class="col04">
+                                    <a href="<c:url value="/admin/manage-contracts/show-contract-audits.html?cr=${contract.id}"/>" title="<fmt:message key="manage-contracts.showAuditsTitle"><fmt:param>${contract.label}</fmt:param></fmt:message>">
+                                        <img src="${editContract}" alt="<fmt:message key="manage-contracts.showAuditsTitle"><fmt:param>${contract.label}</fmt:param></fmt:message>"/>
+                                    </a>
+                                </td>
+                                 </sec:authorize>
                                 <td headers="delete-audits" class="col06">
                                     <a href="<c:url value="/admin/manage-contracts/delete-contract-audits.html?cr=${contract.id}"/>" title="<fmt:message key="manage-contracts.deleteAuditsTitle"><fmt:param>${contract.label}</fmt:param></fmt:message>">
                                         <img src="${deleteAudits}" alt="<fmt:message key="manage-contracts.deleteAuditsTitle"><fmt:param>${contract.label}</fmt:param></fmt:message>"/>

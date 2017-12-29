@@ -14,20 +14,20 @@
     <http auto-config="true" access-denied-page="/access-denied.html" disable-url-rewriting="true">
 <!--        <intercept-url pattern="/*.html*" requires-channel="https"/>-->
 <!--        <intercept-url pattern="/login.html*" filters="none"/>-->
-        <intercept-url pattern="/admin.html" access="ROLE_ADMIN, ROLE_SUPER_ADMIN"/>
+        <intercept-url pattern="/admin.html" access="ROLE_ADMIN,ROLE_SUPER_ADMIN"/>
         <intercept-url pattern="/admin/add*" access="ROLE_ADMIN, ROLE_SUPER_ADMIN"/>
-        <intercept-url pattern="/admin/edit*" access="ROLE_ADMIN, ROLE_SUPER_ADMIN"/>
-        <intercept-url pattern="/admin/delete*" access="ROLE_ADMIN, ROLE_SUPER_ADMIN"/>
-        <intercept-url pattern="/admin/manage*" access="ROLE_ADMIN, ROLE_SUPER_ADMIN"/>
-        <intercept-url pattern="/admin/manage-contracts/*" access="ROLE_ADMIN, ROLE_SUPER_ADMIN"/>
-        <intercept-url pattern="/admin/manage-contracts/add*" access="ROLE_ADMIN, ROLE_SUPER_ADMIN"/>
-        <intercept-url pattern="/admin/manage-contracts/delete*" access="ROLE_ADMIN, ROLE_SUPER_ADMIN"/>
-        <intercept-url pattern="/admin/manage-contracts/edit*" access="ROLE_ADMIN, ROLE_SUPER_ADMIN"/>
-        <intercept-url pattern="/home.html" access="ROLE_USER,ROLE_ADMIN, ROLE_SUPER_ADMIN"/>
-        <intercept-url pattern="/home/contract*" access="ROLE_USER,ROLE_ADMIN, ROLE_SUPER_ADMIN"/>
-        <intercept-url pattern="/home/contract/*" access="ROLE_USER,ROLE_ADMIN, ROLE_SUPER_ADMIN"/>
-        <intercept-url pattern="/home/contract/audit*" access="ROLE_USER,ROLE_ADMIN, ROLE_SUPER_ADMIN"/>
-        <intercept-url pattern="/home/contract/page*" access="ROLE_USER,ROLE_ADMIN, ROLE_SUPER_ADMIN"/>
+        <intercept-url pattern="/admin/edit*" access="ROLE_ADMIN,ROLE_SUPER_ADMIN"/>
+        <intercept-url pattern="/admin/delete*" access="ROLE_ADMIN,ROLE_SUPER_ADMIN"/>
+        <intercept-url pattern="/admin/manage*" access="ROLE_ADMIN,ROLE_SUPER_ADMIN"/>
+        <intercept-url pattern="/admin/manage-contracts/*" access="ROLE_ADMIN,ROLE_SUPER_ADMIN"/>
+        <intercept-url pattern="/admin/manage-contracts/add*" access="ROLE_ADMIN,ROLE_SUPER_ADMIN"/>
+        <intercept-url pattern="/admin/manage-contracts/delete*" access="ROLE_ADMIN,ROLE_SUPER_ADMIN"/>
+        <intercept-url pattern="/admin/manage-contracts/edit*" access="ROLE_ADMIN,ROLE_SUPER_ADMIN"/>
+        <intercept-url pattern="/home.html" access="ROLE_USER,ROLE_ADMIN,ROLE_SUPER_ADMIN"/>
+        <intercept-url pattern="/home/contract*" access="ROLE_USER,ROLE_ADMIN,ROLE_SUPER_ADMIN"/>
+        <intercept-url pattern="/home/contract/*" access="ROLE_USER,ROLE_ADMIN,ROLE_SUPER_ADMIN"/>
+        <intercept-url pattern="/home/contract/audit*" access="ROLE_USER,ROLE_ADMIN,ROLE_SUPER_ADMIN"/>
+        <intercept-url pattern="/home/contract/page*" access="ROLE_USER,ROLE_ADMIN,ROLE_SUPER_ADMIN"/>
         <form-login login-page="/login.html" authentication-failure-url="/login.html?error=errorOnLogin" default-target-url="/dispatch.html"/>
         <logout delete-cookies="JSESSIONID" invalidate-session="false"/>
         <session-management invalid-session-url="/login.html"  >
