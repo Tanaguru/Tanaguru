@@ -303,6 +303,31 @@ label, input, select, textarea {
     clip : inherit;
     margin : auto;
 }
+
+
+/*
+* page result : modal accedWeb
+*/
+.modal-header-acced{
+    background-color:#562980 !important; 
+    
+}
+
+ .modal-header-acced h4, .modal-header-acced button {
+   color: white !important ;
+    
+}
+
+.modal-footer-acced{
+    background-color:#F3F3F3 !important;
+    color: #646464 !important;
+}
+
+.modal-body-acced a{
+    color: #562980 !important;
+}
+
+
 /*
  * HTML tags
  * ==============================================

@@ -254,11 +254,11 @@
                                                        <div class="modal fade" id="myModal${fn:replace(testResult.testShortLabel, '.','-')}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                                            <div class="modal-dialog" role="document">
                                                                <div class="modal-content">
-                                                                   <div class="modal-header">
+                                                                   <div class="modal-header modal-header-acced">
                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                       <h4 class="modal-title" id="myModalLabel"><fmt:message key="resultPage.accedwebnotice"/></h4>
+                                                                       <h4 class="modal-title" id="myModalLabel"><strong><fmt:message key="resultPage.accedwebnotice"/> ${testResult.testShortLabel} </strong></h4>
                                                                    </div>
-                                                                   <div class="modal-body">
+                                                                   <div class="modal-body modal-body-acced">
                                                                        <c:if test="${fn:length(testResult.test.accedwebSet) > 0}">
                                                                            <span class="rule-detail-link">
                                                                                <ul>
@@ -270,7 +270,8 @@
                                                                            </span>
                                                                        </c:if>
                                                                    </div>
-                                                                   <div class="modal-footer">
+                                                                   <div class="modal-footer modal-footer-acced">
+                                                                        <h5><fmt:message key="resultPage.accedwebmodalfooter"/></h5>
                                                                        <button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="resultPage.close"/></button>
                                                                    </div>
                                                                </div>
