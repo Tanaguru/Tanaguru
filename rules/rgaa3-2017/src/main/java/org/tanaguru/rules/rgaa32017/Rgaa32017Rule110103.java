@@ -24,6 +24,7 @@ import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.tanaguru.entity.audit.TestSolution;
 import org.tanaguru.processor.SSPHandler;
 import org.tanaguru.ruleimplementation.AbstractPageRuleMarkupImplementation;
@@ -38,6 +39,7 @@ import org.tanaguru.rules.elementselector.builder.CssLikeSelectorBuilder;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABELLEDBY_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.ID_ATTR;
 import static org.tanaguru.rules.keystore.CssLikeQueryStore.INPUT_ELEMENT_WITH_ARIA_INSIDE_FORM_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.HtmlElementStore.BODY_ELEMENT;
 import static org.tanaguru.rules.keystore.HtmlElementStore.FORM_ELEMENT;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.ARIA_LABELLEDBY_EMPTY_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.FORM_ELEMENT_WITHOUT_LABEL_MSG;
@@ -115,8 +117,12 @@ public class Rgaa32017Rule110103 extends AbstractPageRuleMarkupImplementation {
                         if (labeledbyValues.length > 0) {
                             for (String labledByValue : labeledbyValues) {
                                 if (!labledByValue.isEmpty()) {
-                                    labelHandler.addAll(entry.getKey().select(CssLikeSelectorBuilder
-                                            .buildSelectorFromAttributeTypeAndValue(ID_ATTR, labledByValue)));
+                                    //labelHandler.addAll(entry.getKey().select(CssLikeSelectorBuilder
+                                    // .buildSelectorFromAttributeTypeAndValue(ID_ATTR, labledByValue)));
+                                    if (selectBodyElement(sspHandler) != null) {
+                                        labelHandler.addAll(selectBodyElement(sspHandler).select(CssLikeSelectorBuilder
+                                                .buildSelectorFromAttributeTypeAndValue(ID_ATTR, labledByValue)));
+                                    }
                                     if (labelHandler.get().isEmpty()) {
                                         inputWithoutLabel.add(el);
                                     } else if (labelHandler.get().size() > 1) {
@@ -169,6 +175,15 @@ public class Rgaa32017Rule110103 extends AbstractPageRuleMarkupImplementation {
                 tmpElement = tmpElement.parent();
             }
         }
+    }
+ 
+    public Element selectBodyElement(SSPHandler sspHandler) {
+
+        Elements elements = sspHandler.beginCssLikeSelection().
+                domCssLikeSelectNodeSet(BODY_ELEMENT).
+                getSelectedElements();
+
+        return elements.size() == 1 ? elements.get(0) : null;
     }
 
 }
