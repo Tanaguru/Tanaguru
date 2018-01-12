@@ -271,7 +271,7 @@
                                                                        </c:if>
                                                                    </div>
                                                                    <div class="modal-footer modal-footer-acced">
-                                                                        <h5><fmt:message key="resultPage.accedwebmodalfooter"/></h5>
+                                                                       <h4><span><image src="<c:url value="/Images/fleche-accede.png"/>" /></span><fmt:message key="resultPage.accedwebmodalfooter"/></h4>
                                                                        <button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="resultPage.close"/></button>
                                                                    </div>
                                                                </div>
