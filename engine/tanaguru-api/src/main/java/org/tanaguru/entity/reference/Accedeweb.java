@@ -41,13 +41,20 @@ public interface Accedeweb extends Entity {
      *
      * @return the Description
      */
-    String getCd_Rgaa32016();
+    String getCd_Rgaa3();
+    
+    /**
+     *
+     * @return a type
+     */
+    char getType();
+    
 
     /**
      *
      * @param code the code to set
      */
-    void setCd_Rgaa32016(String Cd_Rgaa32016);
+    void setCd_Rgaa3(String Cd_Rgaa32016);
 
     /**
      *

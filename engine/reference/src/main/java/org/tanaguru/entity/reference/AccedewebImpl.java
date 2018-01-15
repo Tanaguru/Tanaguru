@@ -26,8 +26,30 @@ public class AccedewebImpl implements Accedeweb, Serializable {
     @Column(name = "Cd_Accedeweb")
     private String code;
 
-    @Column(name = "Cd_Rgaa32016")
-    private String Cd_Rgaa32016;
+    @Column(name = "Cd_Rgaa3")
+    private String cd_Rgaa3;
+    
+    @Column(name = "Dtype")
+    private char type;
+
+    @Override
+    public String getCd_Rgaa3() {
+        return cd_Rgaa3;
+    }
+
+    @Override
+    public void setCd_Rgaa3(String cd_Rgaa3) {
+        this.cd_Rgaa3 = cd_Rgaa3;
+    }
+
+    @Override
+    public char getType() {
+        return type;
+    }
+
+    public void setType(char type) {
+        this.type = type;
+    }
 
     @ManyToOne(targetEntity = TestImpl.class)
 //    @JoinTable(name = "TEST", joinColumns
@@ -36,15 +58,6 @@ public class AccedewebImpl implements Accedeweb, Serializable {
     @JoinColumn(name = "Id_Test_Id")
     private Test test;
 
-    @Override
-    public String getCd_Rgaa32016() {
-        return Cd_Rgaa32016;
-    }
-
-    @Override
-    public void setCd_Rgaa32016(String Cd_Rgaa32016) {
-        this.Cd_Rgaa32016 = Cd_Rgaa32016;
-    }
 
     @Override
     public String getCode() {

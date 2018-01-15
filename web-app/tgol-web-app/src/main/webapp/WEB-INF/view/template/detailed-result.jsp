@@ -241,7 +241,11 @@
                                                         </a>
                                                     </c:if>
                                                 </div>
-                                                <div class="span1 test-solutions test-details">
+
+                                                <div class="${rowBgClass} span1 test-result" >
+                                                    <img src="<c:url value="/Images/ico-${testResult.resultCode}-m.png"/>" alt="test ${testResult.testShortLabel} <fmt:message key="${testResult.resultCode}"/>"/> 
+                                                </div>
+                                                 <div class="span1 test-solutions test-details">
                                                        <!-- Button trigger modal --> 
                                                        
                                                        <c:if test="${fn:length(testResult.test.accedwebSet) > 0}">
@@ -277,12 +281,8 @@
                                                                </div>
                                                            </div>
                                                        </div>  
-                                                                   
-                                                </div   >
-
-                                                <div class="${rowBgClass} span1 test-result" >
-                                                    <img src="<c:url value="/Images/ico-${testResult.resultCode}-m.png"/>" alt="test ${testResult.testShortLabel} <fmt:message key="${testResult.resultCode}"/>"/> 
                                                 </div>
+                                                
                                                 <c:choose>
                                                     <c:when test="${isManualAudit}">
                                                 <div class="audit-result-manual span3">
