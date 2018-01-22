@@ -321,11 +321,22 @@ label, input, select, textarea {
 .modal-footer-acced{
     background-color:#F3F3F3 !important;
     color: #646464 !important;
+    padding-left: 19px;
 }
 
 .modal-body-acced a{
     color: #562980 !important;
 }
+
+.disp-foot-modal{
+    display: inline-block ;
+    font-size: 13px;
+}
+
+.disp-foot-modal img{
+    padding-bottom: 17px !important;
+}
+
 
 
 /*

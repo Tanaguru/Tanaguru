@@ -250,7 +250,7 @@
                                                        
                                                        <c:if test="${fn:length(testResult.test.accedwebSet) > 0}">
                                                            <a  data-toggle="modal" data-target="#myModal${fn:replace(testResult.testShortLabel, '.','-')}"  title="<fmt:message key="resultPage.ruleDesignUrl"/> ${testResult.testShortLabel} " href="#" >
-                                                               <img alt="AccedWeb Rgaa3 Test ${testResult.testShortLabel}"  src="<c:url value="/Images/icon-light.png"/>"   />
+                                                               <img alt="AccedWeb Rgaa3 Test ${testResult.testShortLabel}"  src="<c:url value="/Images/ToDoList.png"/>"   />
                                                            </a>
                                                        </c:if>
                                                        
@@ -274,15 +274,17 @@
                                                                            </span>
                                                                        </c:if>
                                                                    </div>
-                                                                   <div class="modal-footer modal-footer-acced">
-                                                                       <h4><span><image src="<c:url value="/Images/fleche-accede.png"/>" /></span><fmt:message key="resultPage.accedwebmodalfooter"/></h4>
+                                                                  <div class="modal-footer modal-footer-acced">
+                                                                      <span class="disp-foot-modal">
+                                                                          <image src="<c:url value="/Images/fleche-accede.png"/>" />
+                                                                      </span>
+                                                                        <h5 class="disp-foot-modal"><fmt:message key="resultPage.accedwebmodalfooter"/></h5>
                                                                        <button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="resultPage.close"/></button>
                                                                    </div>
                                                                </div>
                                                            </div>
                                                        </div>  
                                                 </div>
-                                                
                                                 <c:choose>
                                                     <c:when test="${isManualAudit}">
                                                 <div class="audit-result-manual span3">
