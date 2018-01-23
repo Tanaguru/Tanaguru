@@ -249,7 +249,7 @@
                                                        <!-- Button trigger modal --> 
                                                        
                                                        <c:if test="${fn:length(testResult.test.accedwebSet) > 0}">
-                                                           <a  data-toggle="modal" data-target="#myModal${fn:replace(testResult.testShortLabel, '.','-')}"  title="<fmt:message key="resultPage.ruleDesignUrl"/> ${testResult.testShortLabel} " href="#" >
+                                                           <a  data-toggle="modal" data-target="#myModal${fn:replace(testResult.testShortLabel, '.','-')}"  title="<fmt:message key="resultPage.accedwebnotice"/> ${testResult.testShortLabel} " href="#" >
                                                                <img alt="AccedWeb Rgaa3 Test ${testResult.testShortLabel}"  src="<c:url value="/Images/ToDoList.png"/>"   />
                                                            </a>
                                                        </c:if>
