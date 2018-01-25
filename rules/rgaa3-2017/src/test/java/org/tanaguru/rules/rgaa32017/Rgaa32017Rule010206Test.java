@@ -22,12 +22,14 @@ package org.tanaguru.rules.rgaa32017;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.tanaguru.entity.audit.TestSolution;
 import org.tanaguru.entity.audit.ProcessResult;
+import static org.tanaguru.rules.keystore.AttributeStore.ARIA_HIDDEN_ATTR;
 import org.tanaguru.rules.keystore.HtmlElementStore;
 import static org.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
 import static org.tanaguru.rules.keystore.MarkerStore.DECORATIVE_IMAGE_MARKER;
 import static org.tanaguru.rules.keystore.MarkerStore.INFORMATIVE_IMAGE_MARKER;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_ELEMENT_WITH_EMPTY_ALT_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_ELEMENT_WITH_NOT_EMPTY_ALT_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITHOUT_ARIA_HIDDEN_TRUE_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG;
 import org.tanaguru.rules.rgaa32017.test.Rgaa32017RuleImplementationTestCase;
 
@@ -114,10 +116,10 @@ public class Rgaa32017Rule010206Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG,
-                HtmlElementStore.CANVAS_ELEMENT,
-                1,
-                new ImmutablePair(TEXT_ELEMENT2, "Un text"));
+                DECORATIVE_ELEMENT_WITHOUT_ARIA_HIDDEN_TRUE_MSG,
+                HtmlElementStore.EMBED_ELEMENT,
+                1
+                );
 
         //----------------------------------------------------------------------
         //------------------------------2Failed-02------------------------------
@@ -128,7 +130,7 @@ public class Rgaa32017Rule010206Test extends Rgaa32017RuleImplementationTestCase
                 processResult,
                 TestSolution.FAILED,
                 DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG,
-                HtmlElementStore.CANVAS_ELEMENT,
+                HtmlElementStore.EMBED_ELEMENT,
                 1,
                 new ImmutablePair(TEXT_ELEMENT2, "Un text"));
 
@@ -141,7 +143,7 @@ public class Rgaa32017Rule010206Test extends Rgaa32017RuleImplementationTestCase
                 processResult,
                 TestSolution.FAILED,
                 DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG,
-                HtmlElementStore.CANVAS_ELEMENT,
+                HtmlElementStore.EMBED_ELEMENT,
                 1,
                 new ImmutablePair(TEXT_ELEMENT2, "Un text"));
 
@@ -154,7 +156,7 @@ public class Rgaa32017Rule010206Test extends Rgaa32017RuleImplementationTestCase
                 processResult,
                 TestSolution.FAILED,
                 DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG,
-                HtmlElementStore.CANVAS_ELEMENT,
+                HtmlElementStore.EMBED_ELEMENT,
                 1,
                 new ImmutablePair(TEXT_ELEMENT2, "Un text"));
 
@@ -167,14 +169,14 @@ public class Rgaa32017Rule010206Test extends Rgaa32017RuleImplementationTestCase
                 processResult,
                 TestSolution.NEED_MORE_INFO,
                 CHECK_ELEMENT_WITH_NOT_EMPTY_ALT_MSG,
-                HtmlElementStore.CANVAS_ELEMENT,
+                HtmlElementStore.EMBED_ELEMENT,
                 1,
                 new ImmutablePair(TEXT_ELEMENT2, "Un text"));
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
                 CHECK_ELEMENT_WITH_EMPTY_ALT_MSG,
-                HtmlElementStore.CANVAS_ELEMENT,
+                HtmlElementStore.EMBED_ELEMENT,
                 2,
                 new ImmutablePair(TEXT_ELEMENT2, ""));
 
@@ -187,14 +189,14 @@ public class Rgaa32017Rule010206Test extends Rgaa32017RuleImplementationTestCase
                 processResult,
                 TestSolution.NEED_MORE_INFO,
                 CHECK_ELEMENT_WITH_EMPTY_ALT_MSG,
-                HtmlElementStore.CANVAS_ELEMENT,
+                HtmlElementStore.EMBED_ELEMENT,
                 1,
                 new ImmutablePair(TEXT_ELEMENT2, ""));
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
                 CHECK_ELEMENT_WITH_EMPTY_ALT_MSG,
-                HtmlElementStore.CANVAS_ELEMENT,
+                HtmlElementStore.EMBED_ELEMENT,
                 2,
                 new ImmutablePair(TEXT_ELEMENT2, ""));
 
