@@ -22,6 +22,7 @@ package org.tanaguru.rules.rgaa32017;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.tanaguru.entity.audit.TestSolution;
 import org.tanaguru.entity.audit.ProcessResult;
+import org.tanaguru.rules.keystore.AttributeStore;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_HIDDEN_ATTR;
 import org.tanaguru.rules.keystore.HtmlElementStore;
 import static org.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
@@ -118,8 +119,8 @@ public class Rgaa32017Rule010206Test extends Rgaa32017RuleImplementationTestCase
                 TestSolution.FAILED,
                 DECORATIVE_ELEMENT_WITHOUT_ARIA_HIDDEN_TRUE_MSG,
                 HtmlElementStore.EMBED_ELEMENT,
-                1
-                );
+                1,
+                new ImmutablePair(ARIA_HIDDEN_ATTR, AttributeStore.ABSENT_ATTRIBUTE_VALUE));
 
         //----------------------------------------------------------------------
         //------------------------------2Failed-02------------------------------
