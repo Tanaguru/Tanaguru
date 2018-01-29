@@ -102,7 +102,7 @@ public final class RemarkMessageStore {
     public static final String DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG
             = "DecorativeElementWithNotEmptyAltAttribute";
      public static final String DECORATIVE_ELEMENT_WITHOUT_ARIA_HIDDEN_TRUE_MSG
-            = "DecorativeElementWithuotAriaHiddenTrueAttribute";
+            = "DecorativeElementWithoutAriaHiddenTrueAttribute";
     public static final String DECORATIVE_ELEMENT_WITH_TITLE_ATTR_MSG
             = "DecorativeElementWithTitleAttribute";
     public static final String DECORATIVE_ELEMENT_WITH_ARIA_LABEL_ATTR_MSG
@@ -217,6 +217,10 @@ public final class RemarkMessageStore {
     public static final String CHECK_CANVAS_LEGD_ARIA_MSG
             ="CheckCanvasLegdAriaMsg";
      public static final String CHECK_IMG_TAGS_MSG="CheckImgTags";
+     public static final String SUSPECTED_DECORATIVE_EMB_WITH_ARIA_ATTRIBUTE_DETECTED
+            = "SuspectedDecorativeEmbWithAriaAttributeDetected";
+     public static final String SUSPECTED_INFORMATIVE_EMB_WITH_ARIA_ATTRIBUTE_NOT_DETECTED
+            = "SuspectedInformativeEmbWithAriaAttributeNotDetected";
 
     // frames 
     public static final String NOT_PERTINENT_TITLE_OF_FRAME_MSG
