@@ -25,7 +25,6 @@ import org.tanaguru.ruleimplementation.AbstractMarkerPageRuleImplementation;
 import org.tanaguru.rules.elementchecker.CompositeChecker;
 import org.tanaguru.rules.elementchecker.attribute.AttributePresenceChecker;
 import org.tanaguru.rules.elementchecker.attribute.AttributeWithValuePresenceChecker;
-import org.tanaguru.rules.elementchecker.text.TextEmptinessChecker;
 import org.tanaguru.rules.elementselector.ImageElementSelector;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_DESCRIBEDBY_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_HIDDEN_ATTR;
@@ -33,16 +32,14 @@ import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABELLEDBY_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABEL_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
 import org.tanaguru.rules.keystore.CssLikeQueryStore;
-import static org.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
 import static org.tanaguru.rules.keystore.MarkerStore.DECORATIVE_IMAGE_MARKER;
 import static org.tanaguru.rules.keystore.MarkerStore.INFORMATIVE_IMAGE_MARKER;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_ELEMENT_WITH_EMPTY_ALT_MSG;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_ELEMENT_WITH_NOT_EMPTY_ALT_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITHOUT_ARIA_HIDDEN_TRUE_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_ARIA_DESCRIBEDBY_ATTR_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_ARIA_LABELLEDBY_ATTR_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_ARIA_LABEL_ATTR_MSG;
-import org.tanaguru.rules.textbuilder.SimpleTextElementBuilder;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_DECORATIVE_EMB_WITH_ARIA_ATTRIBUTE_DETECTED;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_INFORMATIVE_EMB_WITH_ARIA_ATTRIBUTE_NOT_DETECTED;
 
 /**
  * Implementation of the rule 1.2.6 of the referential Rgaa 3-2017.
@@ -121,15 +118,17 @@ public class Rgaa32017Rule010206 extends AbstractMarkerPageRuleImplementation {
                 ),
                 
                 // checker for elements not identified by marker
-                new TextEmptinessChecker(
-                    // the text element builder
-                    new SimpleTextElementBuilder(),
-                    // solution when text is empty
-                    new ImmutablePair(TestSolution.NEED_MORE_INFO, CHECK_ELEMENT_WITH_EMPTY_ALT_MSG),
-                    // solution when text is notempty
-                    new ImmutablePair(TestSolution.NEED_MORE_INFO, CHECK_ELEMENT_WITH_NOT_EMPTY_ALT_MSG),
-                    // evidence elements
-                    TEXT_ELEMENT2)
+                new AttributeWithValuePresenceChecker(
+                        // attribute name
+                        ARIA_HIDDEN_ATTR,
+                        //attribute value 
+                        "true",
+                        // solution when detected
+                        new ImmutablePair(TestSolution.NEED_MORE_INFO, SUSPECTED_DECORATIVE_EMB_WITH_ARIA_ATTRIBUTE_DETECTED),
+                        // solution when not detected
+                        new ImmutablePair(TestSolution.NEED_MORE_INFO, SUSPECTED_INFORMATIVE_EMB_WITH_ARIA_ATTRIBUTE_NOT_DETECTED),
+                        // evidence elements
+                        ARIA_HIDDEN_ATTR)
             );
     }
 

@@ -32,6 +32,8 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_ELEMENT_WITH_
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_ELEMENT_WITH_NOT_EMPTY_ALT_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITHOUT_ARIA_HIDDEN_TRUE_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_DECORATIVE_EMB_WITH_ARIA_ATTRIBUTE_DETECTED;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_INFORMATIVE_EMB_WITH_ARIA_ATTRIBUTE_NOT_DETECTED;
 import org.tanaguru.rules.rgaa32017.test.Rgaa32017RuleImplementationTestCase;
 
 /**
@@ -130,10 +132,10 @@ public class Rgaa32017Rule010206Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG,
+                DECORATIVE_ELEMENT_WITHOUT_ARIA_HIDDEN_TRUE_MSG,
                 HtmlElementStore.EMBED_ELEMENT,
                 1,
-                new ImmutablePair(TEXT_ELEMENT2, "Un text"));
+               new ImmutablePair(ARIA_HIDDEN_ATTR, AttributeStore.ABSENT_ATTRIBUTE_VALUE));
 
         //----------------------------------------------------------------------
         //------------------------------2Failed-03------------------------------
@@ -143,23 +145,23 @@ public class Rgaa32017Rule010206Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG,
+                DECORATIVE_ELEMENT_WITHOUT_ARIA_HIDDEN_TRUE_MSG,
                 HtmlElementStore.EMBED_ELEMENT,
                 1,
-                new ImmutablePair(TEXT_ELEMENT2, "Un text"));
+                 new ImmutablePair(ARIA_HIDDEN_ATTR, AttributeStore.ABSENT_ATTRIBUTE_VALUE));
 
         //----------------------------------------------------------------------
         //------------------------------2Failed-04------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.1.2.6-2Failed-04");
-        checkResultIsFailed(processResult, 3, 1);
+        checkResultIsFailed(processResult, 3, 3);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG,
+                DECORATIVE_ELEMENT_WITHOUT_ARIA_HIDDEN_TRUE_MSG,
                 HtmlElementStore.EMBED_ELEMENT,
                 1,
-                new ImmutablePair(TEXT_ELEMENT2, "Un text"));
+                new ImmutablePair(ARIA_HIDDEN_ATTR, AttributeStore.ABSENT_ATTRIBUTE_VALUE));
 
         //----------------------------------------------------------------------
         //------------------------------3NMI-01---------------------------------
@@ -169,17 +171,17 @@ public class Rgaa32017Rule010206Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                CHECK_ELEMENT_WITH_NOT_EMPTY_ALT_MSG,
+                SUSPECTED_INFORMATIVE_EMB_WITH_ARIA_ATTRIBUTE_NOT_DETECTED,
                 HtmlElementStore.EMBED_ELEMENT,
                 1,
-                new ImmutablePair(TEXT_ELEMENT2, "Un text"));
+               new ImmutablePair(ARIA_HIDDEN_ATTR, AttributeStore.ABSENT_ATTRIBUTE_VALUE));
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                CHECK_ELEMENT_WITH_EMPTY_ALT_MSG,
+                SUSPECTED_DECORATIVE_EMB_WITH_ARIA_ATTRIBUTE_DETECTED,
                 HtmlElementStore.EMBED_ELEMENT,
                 2,
-                new ImmutablePair(TEXT_ELEMENT2, ""));
+                new ImmutablePair(ARIA_HIDDEN_ATTR, "true"));
 
         //----------------------------------------------------------------------
         //------------------------------3NMI-02---------------------------------
@@ -189,17 +191,17 @@ public class Rgaa32017Rule010206Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                CHECK_ELEMENT_WITH_EMPTY_ALT_MSG,
+                SUSPECTED_INFORMATIVE_EMB_WITH_ARIA_ATTRIBUTE_NOT_DETECTED,
                 HtmlElementStore.EMBED_ELEMENT,
                 1,
-                new ImmutablePair(TEXT_ELEMENT2, ""));
+                new ImmutablePair(ARIA_HIDDEN_ATTR, AttributeStore.ABSENT_ATTRIBUTE_VALUE));
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                CHECK_ELEMENT_WITH_EMPTY_ALT_MSG,
+                SUSPECTED_INFORMATIVE_EMB_WITH_ARIA_ATTRIBUTE_NOT_DETECTED,
                 HtmlElementStore.EMBED_ELEMENT,
                 2,
-                new ImmutablePair(TEXT_ELEMENT2, ""));
+               new ImmutablePair(ARIA_HIDDEN_ATTR, "false"));
 
 
         //----------------------------------------------------------------------
