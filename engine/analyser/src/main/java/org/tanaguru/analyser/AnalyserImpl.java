@@ -21,23 +21,14 @@
  */
 package org.tanaguru.analyser;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import org.json.simple.parser.JSONParser;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.net.URLEncoder;
 import java.util.*;
-import java.util.logging.Level;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.log4j.Logger;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
+import org.json.simple.parser.ParseException;
 import org.tanaguru.entity.audit.Audit;
-import org.tanaguru.entity.audit.ProcessRemark;
 import org.tanaguru.entity.audit.ProcessResult;
 import org.tanaguru.entity.audit.SSP;
 import org.tanaguru.entity.audit.SourceCodeRemark;
@@ -70,7 +61,7 @@ import org.tanaguru.entity.subject.WebResource;
 public class AnalyserImpl implements Analyser {
 
     private static final Logger LOGGER = Logger.getLogger(AnalyserImpl.class);
-    private int numberW3cErrors = 0;
+    private int numberW3cErrors = -1;
     private org.json.simple.JSONArray W3cMessage;
     private final WebResourceDataService webResourceDataService;
     private final ProcessRemarkDataService processRemarkDataService;
@@ -152,7 +143,7 @@ public class AnalyserImpl implements Analyser {
      * weight (needed to compute the raw mark)
      */
     private final Collection<Parameter> paramSet;
-    private static final BigDecimal ZERO = BigDecimal.valueOf(Double.valueOf(0.0));
+    private static final BigDecimal ZERO = BigDecimal.valueOf(0.0);
 
     public AnalyserImpl(
             AuditDataService auditDataService,
@@ -188,9 +179,7 @@ public class AnalyserImpl implements Analyser {
 
     @Override
     public void run() {
-        numberW3cErrors = 0;
         WebResourceStatistics wrStats = webResourceStatisticsDataService.create();
-
         // Regardind the webResource type the computation of the statitics is 
         // done in memory or through the db
         if (webResource instanceof Page) {
@@ -198,10 +187,12 @@ public class AnalyserImpl implements Analyser {
             SSP content = contentDataService.findSSP(webResource, webResource.getURL());
             if (content != null) {
                 W3cMessage = W3cJsonParser(content.getW3c());
+                numberW3cErrors = W3cMessage.size();
             } else {
                 W3cMessage = W3cJsonParser("{\"messages\":[]}");
+                numberW3cErrors = -1 ;
             }
-            numberW3cErrors = W3cMessage.size();
+            
 
             extractTestSet(false);
             netResultList = getProcessResultWithNotTested(
@@ -811,8 +802,10 @@ public class AnalyserImpl implements Analyser {
                 if (test.getLabel().equals("8.2.1")) {
                     if (numberW3cErrors > 0) {
                         testSolution = TestSolution.FAILED;
-                    } else {
+                    }  if (numberW3cErrors == 0) {
                         testSolution = TestSolution.PASSED;
+                    } else {
+                        testSolution = TestSolution.NOT_TESTED;
                     }
                 } else {
                     testSolution = TestSolution.NOT_TESTED;
@@ -842,7 +835,7 @@ public class AnalyserImpl implements Analyser {
                             //processRemark.setLineNumber(Integer.valueOf(jsonRespenseObject.get("lastLine").toString()));
                             String snippet = StringEscapeUtils.escapeHtml4(snippetObject.toString());
                             processRemark.setSnippet(snippet);
-                            processRemark.setTarget(targetObject.toString().replace( "“","\"").replace("”", "\"").replace("???", "\""));
+                            processRemark.setTarget(targetObject.toString().replace("|314|","\""));
 
                             processRemarkDataService.saveOrUpdate(processRemark);
                         }
@@ -883,8 +876,10 @@ public class AnalyserImpl implements Analyser {
                 if (test.getLabel().equals("8.2.1")) {
                     if (numberW3cErrors > 0) {
                         testSolution = TestSolution.FAILED;
-                    } else {
+                    } else if (numberW3cErrors == 0) {
                         testSolution = TestSolution.PASSED;
+                    } else {
+                        testSolution = TestSolution.NOT_TESTED;
                     }
                 } else {
                     testSolution = TestSolution.NOT_TESTED;
@@ -914,8 +909,7 @@ public class AnalyserImpl implements Analyser {
                             //processRemark.setLineNumber(Integer.valueOf(jsonRespenseObject.get("lastLine").toString()));
                             String snippet = StringEscapeUtils.escapeHtml4(snippetObject.toString());
                             processRemark.setSnippet(snippet);
-                            processRemark.setTarget(targetObject.toString().replace( "“","\"").replace("”", "\"").replace("???", "\""));
-
+                            processRemark.setTarget(targetObject.toString().replace("|314|","\"")); 
                             processRemarkDataService.saveOrUpdate(processRemark);
                         }
                     }
@@ -935,7 +929,7 @@ public class AnalyserImpl implements Analyser {
             org.json.simple.JSONArray resultList = (org.json.simple.JSONArray) jsonRespenseObject.get("messages");
 
             return resultList;
-        } catch (Exception e) {
+        } catch (ParseException e) {
             LOGGER.error("error with w3cValidator json parser");
             return new org.json.simple.JSONArray();
         }
