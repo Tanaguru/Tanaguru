@@ -540,7 +540,6 @@ public class ContractManagementController extends AbstractUserAndContractsContro
                 DetailedContractInfoFactory.getInstance().getDetailedContractInfo(contractToShow));
         model.addAttribute(TgolKeyStore.IS_CONTRACT_EXPIRED_KEY,
                 isContractExpired(contractToShow));
-
         return TgolKeyStore.SHOW_AUDITS_VIEW_NAME;
     }
         
@@ -553,7 +552,8 @@ public class ContractManagementController extends AbstractUserAndContractsContro
      */
     @RequestMapping(value = TgolKeyStore.DELETE_CONTRACT_AUDIT_URL, method = RequestMethod.POST)
     @Secured({TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
-    public String deleteAuditsConfirmationPage(
+    public String deleteAuditConfirmationPage(
+            @RequestParam(TgolKeyStore.AUDIT_ID_KEY) String actId,
             HttpServletRequest request,
             HttpServletResponse response,
             Model model) {
@@ -568,12 +568,21 @@ public class ContractManagementController extends AbstractUserAndContractsContro
                 throw new ForbiddenUserException();
             }
         }
+            Long lAudit;
+        try {
+            lAudit = Long.valueOf(actId);
+        } catch (NumberFormatException nfe) {
+            throw new ForbiddenUserException();
+        }
+        Act actToDelete = getActDataService().getActFromAudit(lAudit);        
         Contract contractToDelete = getContractDataService().read(lContractId);
-        deleteAllAuditsFromContract(contractToDelete);
-        request.getSession().removeAttribute(TgolKeyStore.CONTRACT_ID_TO_DELETE_KEY);
-        request.getSession().setAttribute(TgolKeyStore.DELETED_CONTRACT_AUDITS_NAME_KEY,contractToDelete.getLabel());
+        deleteAuditByAct(actToDelete);
+        //deleteAllAuditsFromContract(contractToDelete);
+//        request.getSession().removeAttribute(TgolKeyStore.CONTRACT_ID_TO_DELETE_KEY);
+//        request.getSession().setAttribute(TgolKeyStore.DELETED_CONTRACT_AUDITS_NAME_KEY,contractToDelete.getLabel());
         model.addAttribute(TgolKeyStore.USER_ID_KEY,contractToDelete.getUser().getId());
-        return TgolKeyStore.MANAGE_CONTRACTS_VIEW_REDIRECT_NAME;
+        model.addAttribute(TgolKeyStore.CONTRACT_ID_KEY,lContractId);
+        return TgolKeyStore.SHOW_AUDITS_VIEW_REDIRECT_NAME;
     }
     
     

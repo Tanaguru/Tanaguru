@@ -164,6 +164,7 @@ public final class TgolKeyStore {
     public static final String DELETE_USER_VIEW_NAME = "delete-user";
     public static final String DELETE_AUDITS_VIEW_NAME = "delete-audits";
     public static final String SHOW_AUDITS_VIEW_NAME = "show-audits";
+    public static final String SHOW_AUDITS_VIEW_REDIRECT_NAME = "show-audits-redirect";
     public static final String DELETE_AUDIT_VIEW_NAME = "delete-audit";
     public static final String ADD_CONTRACT_VIEW_NAME = "add-contract";
     public static final String EDIT_CONTRACT_VIEW_NAME = "edit-contract";

@@ -93,40 +93,6 @@
                     </h1>
                 </div><!-- class="span16" -->
             </div><!-- class="row" -->
-            <div id="audit-actions-container" class="row">
-                <div class="span16">
-                    <table id="audit-actions" class="link-underline">
-                        <tr>
-                            <!-- <div id="audit-actions">-->
-                            <c:forEach var="contractAction" items="${detailedContractInfo.actionList}" varStatus="pContractAction">
-                                <td class="action-button">
-                                    <!-- <span class="action-button">-->
-                                    <c:choose>
-                                        <c:when test="${contractAction.actionEnabled == 'false' || isContractExpired == 'true'}">
-                                            <c:set var="contractActionImgUrl">
-                                                <c:url value="${contractAction.disabledActionImageUrl}"/>
-                                            </c:set>
-                                            <img src="${contractActionImgUrl}" alt="" />
-                                            <span class="action-label"><fmt:message key="${contractAction.actionI81NCode}"/> <br/><span class="desactivated"><fmt:message key="contract.disabled"/></span></span>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <c:set var="contractActionImgUrl">
-                                                    <c:url value="${contractAction.enabledActionImageUrl}"/>
-                                                </c:set>
-                                            <a href="<c:url value="${contractAction.actionUrl}?cr=${contractIdValue}"/>">
-                                                <img src="${contractActionImgUrl}" alt="" />
-                                                <span class="action-label"><fmt:message key="${contractAction.actionI81NCode}"/></span>
-                                            </a>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <!--                            </span>-->
-                                </td>
-                            </c:forEach>
-                            <!--                        </div>-->
-                        </tr>
-                    </table>
-                </div>
-            </div>
             <div id="myproject" class="row">
                 <c:set var="url" scope="page" value="${detailedContractInfo.url}"/>
                 <c:set var="contract" scope="page" value="${detailedContractInfo}"/>
