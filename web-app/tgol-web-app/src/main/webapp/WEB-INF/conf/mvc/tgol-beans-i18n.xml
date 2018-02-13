@@ -75,6 +75,7 @@
                 <value>classpath:i18n/change-password-page-I18N</value>
                 <value>classpath:i18n/contract-page-I18N</value>
                 <value>classpath:i18n/delete-audits-I18N</value>
+                <value>classpath:i18n/delete-audit-I18N</value>
                 <value>classpath:i18n/delete-contract-I18N</value>
                 <value>classpath:i18n/delete-user-I18N</value>
                 <value>classpath:i18n/edit-contract-I18N</value>
