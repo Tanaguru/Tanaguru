@@ -80,7 +80,16 @@
         <div class="container">
             <c:set var="pageName" scope="page" value="${detailedContractInfo.label}"/>
             <ul class="breadcrumb">
-                <li><a href="<c:url value="/home.html"/>"><fmt:message key="home.h1"/></a> <span class="divider"></span></li>
+               <li><a href="<c:url value="/home.html"/>"><fmt:message key="home.h1"/></a> <span class="divider"></span></li>
+                <li><a href="<c:url value="/admin.html"/>"><fmt:message key="admin.h1"/></a> <span class="divider"></span></li>
+                <li>
+                    <a href="<c:url value="/admin/manage-contracts.html?user=${user}"/>">
+                        <fmt:message key="manage-contracts.h1">
+                            <fmt:param>${userName}</fmt:param>
+                        </fmt:message>
+                    </a>
+                    <span class="divider"></span>
+                </li>
                 <li class="active">${pageName}</li>
             </ul>
             <div class="row">

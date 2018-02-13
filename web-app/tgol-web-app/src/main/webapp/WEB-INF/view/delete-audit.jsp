@@ -21,12 +21,13 @@
     <c:set var="pageTitle" scope="page">
         <c:choose>
             <c:when test="${userNameToDelete != null}">
-                <fmt:message key="delete-audits.user-pageTitle">
+                <fmt:message key="delete-audit.user-pageTitle">
                     <fmt:param>${userNameToDelete}</fmt:param>
                 </fmt:message>
             </c:when>
             <c:when test="${contractNameToDelete != null}">
-                <fmt:message key="delete-audits.contract-pageTitle">
+                <fmt:message key="delete-audit.contract-pageTitle">
+                    <fmt:param>${audit}</fmt:param>
                     <fmt:param>${contractNameToDelete}</fmt:param>
                 </fmt:message>
             </c:when>
@@ -40,12 +41,13 @@
             <c:set var="pageName" scope="page">
                 <c:choose>
                     <c:when test="${userNameToDelete != null}">
-                        <fmt:message key="delete-audits.user-h1">
+                        <fmt:message key="delete-audit.user-h1">
                             <fmt:param>${userNameToDelete}</fmt:param>
                         </fmt:message>
                     </c:when>
                     <c:when test="${contractNameToDelete != null}">
-                        <fmt:message key="delete-audits.contract-h1">
+                        <fmt:message key="delete-audit.contract-h1">
+                            <fmt:param>${audit}</fmt:param>
                             <fmt:param>${contractNameToDelete}</fmt:param>
                         </fmt:message>
                     </c:when>
@@ -75,19 +77,20 @@
                 <div class="span16 alert-message block-message warning">
                     <c:choose>
                         <c:when test="${userNameToDelete != null}">
-                            <fmt:message key="delete-audits.user-deletion-msg">
+                            <fmt:message key="delete-audit.user-deletion-msg">
                                 <fmt:param>${userNameToDelete}</fmt:param>
                             </fmt:message>
                         </c:when>
                         <c:when test="${contractNameToDelete != null}">
-                            <fmt:message key="delete-audits.contract-deletion-msg">
+                            <fmt:message key="delete-audit.contract-deletion-msg">
+                                <fmt:param>${audit}</fmt:param>
                                 <fmt:param>${contractNameToDelete}</fmt:param>
                             </fmt:message>
                         </c:when>
                     </c:choose>
                     <div class="alert-actions">
                         <form method="post">
-                            <input type="submit" value="<fmt:message key="delete-audits.confirm-deletion"/>"/>
+                            <input type="submit" value="<fmt:message key="delete-audit.confirm-deletion"/>"/>
                         </form>
                     </div><!-- class="alert-actions"-->
                 </div>

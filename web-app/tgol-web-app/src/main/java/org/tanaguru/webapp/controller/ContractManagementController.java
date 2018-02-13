@@ -23,7 +23,6 @@ package org.tanaguru.webapp.controller;
  */
 
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -47,9 +46,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.tanaguru.entity.audit.Audit;
 import org.tanaguru.webapp.entity.contract.Act;
-import org.tanaguru.webapp.entity.contract.ScopeEnum;
 import org.tanaguru.webapp.presentation.factory.DetailedContractInfoFactory;
 
 /**
@@ -475,42 +472,6 @@ public class ContractManagementController extends AbstractUserAndContractsContro
         return TgolKeyStore.MANAGE_CONTRACTS_VIEW_REDIRECT_NAME;
     }
     
-    
-    /**
-     * 
-     * @param contractId
-     * @param request
-     * @param response
-     * @param model
-     * @return 
-     */
-    @RequestMapping(value = TgolKeyStore.DELETE_CONTRACT_AUDIT_URL, method = RequestMethod.GET)
-    @Secured(TgolKeyStore.ROLE_ADMIN_KEY)
-    public String deleteContractAuditPage(
-            @RequestParam(TgolKeyStore.CONTRACT_ID_KEY) String contractId,
-            @RequestParam(TgolKeyStore.AUDIT_ID_KEY) String auditId,
-            HttpServletRequest request,
-            HttpServletResponse response,
-            Model model) {
-        Long lContractId;
-        Long lAuditId ;
-        try {
-            lContractId = Long.valueOf(contractId);
-            lAuditId = Long.valueOf(auditId);
-        } catch (NumberFormatException nfe) {
-            throw new ForbiddenUserException();
-        }
-        Contract contractToDelete = getContractDataService().read(lContractId);
-        
-        model.addAttribute(TgolKeyStore.CONTRACT_NAME_TO_DELETE_KEY, contractToDelete.getLabel());
-        model.addAttribute(TgolKeyStore.USER_ID_KEY, contractToDelete.getUser().getId());
-        model.addAttribute(TgolKeyStore.USER_NAME_KEY, contractToDelete.getUser().getEmail1());
-        request.getSession().setAttribute(TgolKeyStore.CONTRACT_ID_TO_DELETE_KEY,contractToDelete.getId());
-        
-        return TgolKeyStore.DELETE_AUDIT_VIEW_NAME;
-    }
-    
-    
      /**
      * 
      * @param contractId
@@ -535,6 +496,8 @@ public class ContractManagementController extends AbstractUserAndContractsContro
         Contract contractToShow = getContractDataService().read(lContractId);
        // Collection<Act> listActs = getActDataService().getAllActsByContract(contractToShow);
 
+        model.addAttribute(TgolKeyStore.USER_ID_KEY, contractToShow.getUser().getId());
+        model.addAttribute(TgolKeyStore.CONTRACT_ID_VALUE, contractToShow.getId());
         model.addAttribute(TgolKeyStore.CONTRACT_ID_VALUE, contractToShow.getId());
         model.addAttribute(TgolKeyStore.DETAILED_CONTRACT_INFO,
                 DetailedContractInfoFactory.getInstance().getDetailedContractInfo(contractToShow));
@@ -543,6 +506,41 @@ public class ContractManagementController extends AbstractUserAndContractsContro
         return TgolKeyStore.SHOW_AUDITS_VIEW_NAME;
     }
         
+    
+     /**
+     * 
+     * @param contractId
+     * @param request
+     * @param response
+     * @param model
+     * @return 
+     */
+    @RequestMapping(value = TgolKeyStore.DELETE_CONTRACT_AUDIT_URL, method = RequestMethod.GET)
+    @Secured({TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
+    public String deleteContractAuditPage(
+            @RequestParam(TgolKeyStore.CONTRACT_ID_KEY) String contractId,
+            @RequestParam(TgolKeyStore.AUDIT_ID_KEY) String auditId,
+            HttpServletRequest request,
+            HttpServletResponse response,
+            Model model) {
+        Long lContractId;
+        Long lAuditId ;
+        try {
+            lContractId = Long.valueOf(contractId);
+            lAuditId = Long.valueOf(auditId);
+        } catch (NumberFormatException nfe) {
+            throw new ForbiddenUserException();
+        }
+        Contract contractToDelete = getContractDataService().read(lContractId);
+        model.addAttribute(TgolKeyStore.AUDIT_ID_KEY, lAuditId);
+        model.addAttribute(TgolKeyStore.CONTRACT_NAME_TO_DELETE_KEY, contractToDelete.getLabel());
+        model.addAttribute(TgolKeyStore.USER_ID_KEY, contractToDelete.getUser().getId());
+        model.addAttribute(TgolKeyStore.USER_NAME_KEY, contractToDelete.getUser().getEmail1());
+        request.getSession().setAttribute(TgolKeyStore.CONTRACT_ID_TO_DELETE_KEY,contractToDelete.getId());
+        
+        return TgolKeyStore.DELETE_AUDIT_VIEW_NAME;
+    }
+    
     /**
      * 
      * @param request
