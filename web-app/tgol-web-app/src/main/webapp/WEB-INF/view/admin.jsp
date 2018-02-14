@@ -29,7 +29,9 @@
     <c:set var="addContract">
         <c:url value="/Images/plus_2.png"/>
     </c:set>
-
+   <c:set var="processing">
+        <c:url value="/Images/processing.gif"/>  
+    </c:set>
     <c:set var="authenticatedUserId" scope="page">
         <sec:authentication property="principal.user.id" />
     </c:set>
@@ -141,7 +143,9 @@
                                 <!-- loading image  -->
                                 <div id="process-dialog" class="ui-dialog-content ui-widget-content" style="width: auto; min-height: 128px; max-height: none; height: auto;">
                                     <p aria-live="true" id="process-msg"> Loading... </p>
-                                    <p id="process-anim" style="display: block;"> <img alt="Your page is being processed..." src="/tanaguru/Images/processing.gif"> </p>
+                                    <p id="process-anim" style="display: block;">
+                                        <img alt="Your page is being processed..." src="${processing}" > 
+                                    </p>
                                     <p aria-live="true" id="process-msg"> Loading... </p>
                                 </div>
 
