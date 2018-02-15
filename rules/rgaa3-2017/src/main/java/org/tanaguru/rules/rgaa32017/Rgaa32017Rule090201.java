@@ -107,13 +107,13 @@ public class Rgaa32017Rule090201 extends AbstractPageRuleWithDoctypeHtml5Checker
         ElementSelector mainElementSelector
                 = new SimpleElementSelector("main");
         mainElementSelector.selectElements(sspHandler, mainElementHandler);
-        System.out.println("main elements size :" + mainElementHandler.size());
+       // System.out.println("main elements size :" + mainElementHandler.size());
 
         //Selection of wrong main element
         ElementSelector wrongMainElementSelector
                 = new SimpleElementSelector("*[role=main]:not(main)");
         wrongMainElementSelector.selectElements(sspHandler, wrongMainElementHandler);
-        System.out.println("wrong main elements size :" + wrongMainElementHandler.size());
+       // System.out.println("wrong main elements size :" + wrongMainElementHandler.size());
 
         // Selection of nav element
         ElementSelector navElementSelector
@@ -124,47 +124,47 @@ public class Rgaa32017Rule090201 extends AbstractPageRuleWithDoctypeHtml5Checker
         ElementSelector wrongNavElementSelector
                 = new SimpleElementSelector("*[role=navigation]:not(nav)");
         wrongNavElementSelector.selectElements(sspHandler, wrongNavElementHandler);
-        System.out.println("role Nav elements size :" + wrongNavElementHandler.size());
+       // System.out.println("role Nav elements size :" + wrongNavElementHandler.size());
 
         //Selection of wrong role header element
         ElementSelector wrongRoleHeaderElementSelector
                 = new SimpleElementSelector("*[role=banner]:not(header)");
         wrongRoleHeaderElementSelector.selectElements(sspHandler, wrongRoleHeaderElementHandler);
-        System.out.println(" wrong role header elements size :" + wrongRoleHeaderElementHandler.size());
+      //  System.out.println(" wrong role header elements size :" + wrongRoleHeaderElementHandler.size());
 
         //Selection of wrong role footer element
         ElementSelector wrongRoleFooterElementSelector
                 = new SimpleElementSelector("*[role=contentinfo]:not(footer)");
         wrongRoleFooterElementSelector.selectElements(sspHandler, wrongRoleFooterElementHandler);
-        System.out.println(" wrong role footer elements size :" + wrongRoleFooterElementHandler.size());
+      //  System.out.println(" wrong role footer elements size :" + wrongRoleFooterElementHandler.size());
 
         // Selection of header element
         ElementSelector headerElementSelector
                 = new SimpleElementSelector("header:not([role=banner])");
         headerElementSelector.selectElements(sspHandler, headerElementHandler);
-        System.out.println("header elements size :" + headerElementHandler.size());
+       // System.out.println("header elements size :" + headerElementHandler.size());
 
         // Selection of header element
         ElementSelector footerElementSelector
                 = new SimpleElementSelector("footer:not([role=contentinfo])");
         footerElementSelector.selectElements(sspHandler, footerElementHandler);
-        System.out.println("footer elements size :" + footerElementHandler.size());
+      //  System.out.println("footer elements size :" + footerElementHandler.size());
 
         // Selection of header with role banner element
         ElementSelector headerRoleBannerElementSelector
                 = new SimpleElementSelector("header[role=banner]");
         headerRoleBannerElementSelector.selectElements(sspHandler, headerRoleBannerElementHandler);
-        System.out.println("header with role banner elements size :" + headerRoleBannerElementHandler.size());
+      //  System.out.println("header with role banner elements size :" + headerRoleBannerElementHandler.size());
 
         // Selection of footer with role contentinfo element
         ElementSelector footerRoleContentInfoElementSelector
                 = new SimpleElementSelector("footer[role=contentinfo]");
         footerRoleContentInfoElementSelector.selectElements(sspHandler, footerRoleContentInfoElementHandler);
-        System.out.println("footer with role contentinfo elements size :" + footerRoleContentInfoElementHandler.size());
+      //  System.out.println("footer with role contentinfo elements size :" + footerRoleContentInfoElementHandler.size());
 
         //footerRoleContentInfoElementHandler
         totalNumberOfElements = sspHandler.getTotalNumberOfElements();
-        System.out.println("Total elements size :" + totalNumberOfElements);
+      //  System.out.println("Total elements size :" + totalNumberOfElements);
     }
 
     @Override
