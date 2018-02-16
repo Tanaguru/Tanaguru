@@ -929,7 +929,7 @@ public class AnalyserImpl implements Analyser {
             org.json.simple.JSONArray resultList = (org.json.simple.JSONArray) jsonRespenseObject.get("messages");
 
             return resultList;
-        } catch (ParseException e) {
+        } catch (Exception e) {
             LOGGER.error("error with w3cValidator json parser");
             return new org.json.simple.JSONArray();
         }
