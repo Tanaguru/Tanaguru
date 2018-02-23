@@ -10,7 +10,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.jms.JmsException;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
-import org.springframework.stereotype.Component;
 
 
 /**
@@ -18,7 +17,7 @@ import org.springframework.stereotype.Component;
  * @author OCEANE
  *
  */
-@Component
+//@Component
 public class TanaguruMsgOutServiceImpl implements TanaguruMsgOutService {
 
 private final static Logger LOGGER = LoggerFactory.getLogger(TanaguruMsgOutServiceImpl.class);
