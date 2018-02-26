@@ -19,22 +19,39 @@
  */
 package org.tanaguru.rules.rgaa32017;
 
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.ruleimplementation.AbstractDetectionPageRuleImplementation;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.INPUT_ELEMENT_REQUIRED_INSIDE_FORM_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.MANUAL_CHECK_ON_ELEMENTS_MSG;
 
 /**
  * Implementation of the rule 11.10.2 of the referential Rgaa 3-2017.
  *
- * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-11-10-2">the rule 11.10.2 design page.</a>
- * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-11-10-2"> 11.10.2 rule specification</a>
+ * For more details about the implementation, refer to
+ * <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-11-10-2">the
+ * rule 11.10.2 design page.</a>
+ *
+ * @see
+ * <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-11-10-2">
+ * 11.10.2 rule specification</a>
  */
-
-public class Rgaa32017Rule111002 extends AbstractNotTestedRuleImplementation {
+public class Rgaa32017Rule111002 extends AbstractDetectionPageRuleImplementation {
 
     /**
      * Default constructor
      */
-    public Rgaa32017Rule111002 () {
-        super();
+    public Rgaa32017Rule111002() {
+        super(
+                new SimpleElementSelector(INPUT_ELEMENT_REQUIRED_INSIDE_FORM_CSS_LIKE_QUERY),
+                // solution when at least one element is found
+                TestSolution.NEED_MORE_INFO,
+                // solution when no element is found
+                TestSolution.NOT_APPLICABLE,
+                // manual check message
+                MANUAL_CHECK_ON_ELEMENTS_MSG,
+                null
+            );
     }
 
 }
