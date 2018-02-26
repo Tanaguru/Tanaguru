@@ -645,7 +645,7 @@ UPDATE `TEST` SET `Id_Criterion` = (SELECT `Id_Criterion` FROM `CRITERION` WHERE
 -- ---------------------------------------------------------------------------------------------------------
 -- AccedeWeb Insert Data
 -- ---------------------------------------------------------------------------------------------------------
-INSERT IGNORE INTO `ACCEDEWEB` (`Cd_Accedeweb`, `Rank`, `Dtype`, `Cd_Rgaa32016`, `Id_Test_Id`) VALUES
+INSERT IGNORE INTO `ACCEDEWEB` (`Cd_Accedeweb`, `Rank`, `Dtype`, `Cd_Rgaa3`, `Id_Test_Id`) VALUES
 ( 'Rgaa32017-1-1-1-Accedeweb-GRAPH-2-3' ,1,'G' , 'Rgaa32017-1-1-1' ,(SELECT Id_Test FROM TEST where Cd_Test='Rgaa32017-1-1-1' )),
 ( 'Rgaa32017-1-1-1-Accedeweb-HTML-6-3' ,2,'H' , 'Rgaa32017-1-1-1' ,(SELECT Id_Test FROM TEST where Cd_Test='Rgaa32017-1-1-1' )),
 ( 'Rgaa32017-1-1-1-Accedeweb-EDIT-4-1' ,3,'E' , 'Rgaa32017-1-1-1' ,(SELECT Id_Test FROM TEST where Cd_Test='Rgaa32017-1-1-1' )),
@@ -1206,6 +1206,7 @@ Cd_Test='Rgaa32017-11-8-3' OR
 Cd_Test='Rgaa32017-11-9-1' OR 
 Cd_Test='Rgaa32017-11-9-2' OR 
 Cd_Test='Rgaa32017-11-10-1' OR 
+Cd_Test='Rgaa32017-11-10-2' OR 
 Cd_Test='Rgaa32017-11-10-4' OR 
 Cd_Test='Rgaa32017-11-10-7' OR 
 Cd_Test='Rgaa32017-11-11-1' OR 
