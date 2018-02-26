@@ -1,12 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
     <head> 
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
-        <title>Rgaa32017 Test.11-10-2 NMI 01</title> 
+        <title>Rgaa32017 Test.11-10-2 NMI 03</title> 
     </head> 
     <body> 
         <div> 
-            <h1>Rgaa32017 Test.11-10-2 NMI 01</h1> 
+            <h1>Rgaa32017 Test.11-10-2 NMI 03</h1> 
             <div class="test-detail" lang="fr"> Chaque indication de champ obligatoire qui utilise les propriétés ARIA 
                 <code>aria-label</code>, 
                 <code>aria-required</code> ou l&apos;attribut 
@@ -15,11 +15,14 @@
                 <code>aria-describedby</code> ou 
                 <code>aria-labelledby</code>, cette règle est-elle respectée ? 
             </div> 
+           </div> 
             <div class="testcase"> 
+                <form action="mock_action"> 
+                    <p> <label for="field1">Field1</label> <input type="radio" name="field1" id="field1" aria-required="true" /> <br /> <label for="field2">Female</label> <input type="radio" name="field2" id="field2" /> </p> 
+                </form> 
             </div> 
             <div class="test-explanation">
                  NMI. 
             </div> 
-        </div>  
     </body>
 </html>
