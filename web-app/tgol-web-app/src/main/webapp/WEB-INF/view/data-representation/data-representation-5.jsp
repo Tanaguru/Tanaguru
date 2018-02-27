@@ -157,13 +157,13 @@
                                 </c:set>
                                 <td class="${evidenceElement2.key}">
                                    <c:choose>
-                                    <c:when test="${testCode=='Rgaa30-3-3-3' || testCode=='Rgaa30-3-3-4' || testCode=='Rgaa32016-3-3-3' || testCode=='Rgaa32016-3-3-4'}" >
+                                    <c:when test="${testCode=='Rgaa30-3-3-3' || testCode=='Rgaa30-3-3-4' || testCode=='Rgaa32016-3-3-3' || testCode=='Rgaa32016-3-3-4'|| testCode=='Rgaa32017-3-3-4'}" >
                                      <a title="${cfLogoDescription}" target="_blank" href="${configProperties['contrastfinderServiceUrl']}/result.html?foreground=${fn:replace(fgColorHexa, "#", "%23")}&background=${fn:replace(bgColorHexa, "#", "%23")}&isBackgroundTested=false&ratio=3&algo=HSV"><img alt="${cfLogoDescription}" style="margin-left: 15px;" src="<c:url value="/Images/contrast-finder.png"/>"/></a>
                                     </c:when>
-                                      <c:when test="${testCode=='Rgaa30-3-3-1'|| testCode=='Rgaa30-3-3-2'  || testCode== 'Rgaa30-3-4-3' || testCode=='Rgaa30-3-4-4' || testCode=='Rgaa32016-3-3-1' || testCode=='Rgaa32016-3-3-2' || testCode=='Rgaa32016-3-4-3' || testCode=='Rgaa32016-3-4-4'}" >
+                                      <c:when test="${testCode=='Rgaa30-3-3-1'|| testCode=='Rgaa30-3-3-2'  || testCode== 'Rgaa30-3-4-3' || testCode=='Rgaa30-3-4-4' || testCode=='Rgaa32016-3-3-1' || testCode=='Rgaa32016-3-3-2' || testCode=='Rgaa32016-3-4-3' || testCode=='Rgaa32016-3-4-4'|| testCode=='Rgaa32017-3-3-1' || testCode=='Rgaa32017-3-3-2' || testCode=='Rgaa32017-3-4-3' || testCode=='Rgaa32017-3-4-4'}" >
                                      <a title="${cfLogoDescription}" target="_blank" href="${configProperties['contrastfinderServiceUrl']}/result.html?foreground=${fn:replace(fgColorHexa, "#", "%23")}&background=${fn:replace(bgColorHexa, "#", "%23")}&isBackgroundTested=false&ratio=4.5&algo=HSV"><img alt="${cfLogoDescription}" style="margin-left: 15px;" src="<c:url value="/Images/contrast-finder.png"/>"/></a>
                                     </c:when>
-                                      <c:when test="${testCode=='Rgaa30-3-4-1'|| testCode=='Rgaa30-3-4-2' || 'Rgaa32016-3-4-1'|| testCode=='Rgaa32016-3-4-2'}" >
+                                      <c:when test="${testCode=='Rgaa30-3-4-1'|| testCode=='Rgaa30-3-4-2' || 'Rgaa32016-3-4-1'|| testCode=='Rgaa32016-3-4-2' || 'Rgaa32017-3-4-1'|| testCode=='Rgaa32017-3-4-2'}" >
                                      <a title="${cfLogoDescription}" target="_blank" href="${configProperties['contrastfinderServiceUrl']}/result.html?foreground=${fn:replace(fgColorHexa, "#", "%23")}&background=${fn:replace(bgColorHexa, "#", "%23")}&isBackgroundTested=false&ratio=7&algo=HSV"><img alt="${cfLogoDescription}" style="margin-left: 15px;" src="<c:url value="/Images/contrast-finder.png"/>"/></a>
                                     </c:when>
                                     <c:otherwise>
