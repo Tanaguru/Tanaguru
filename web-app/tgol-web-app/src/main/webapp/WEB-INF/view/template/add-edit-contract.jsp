@@ -155,7 +155,9 @@
                             </label>
                             <form:checkbox path="referentialMap[${refKey}]" 
                                            cssErrorClass="error" 
-                                           value="${ref.value}" />
+                                           value="${ref.value}" 
+                                           checked="${(refKey=='Rgaa32017')?'true':'' }"
+                                           />
                             <form:errors path="referentialMap[${refKey}]" 
                                          cssClass="alert-message error" />
                         </span>
