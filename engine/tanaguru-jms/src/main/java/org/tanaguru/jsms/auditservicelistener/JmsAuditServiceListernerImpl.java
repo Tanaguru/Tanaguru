@@ -47,23 +47,16 @@ import org.tanaguru.service.AuditServiceListener;
 /**
  *
  * @author mkebri
- *
  */
 @Component
-public class JmsAuditServiceListernerImpl implements AuditServiceListener {
+public class JmsAuditServiceListernerImpl
+        implements AuditServiceListener {
 
     public String idCodeAudit = null;
-
     @Autowired
     private JmsMessageSender jmsMessageSenderImpl;
-
     public static final Logger LOGGER = Logger.getLogger(JmsAuditServiceListernerImpl.class);
-    public List<Long> listOfAuditLauchedFromHere = new ArrayList<>();
-
-//    @Autowired
-//    ParameterDataService parameterDataService;
-    //@Autowired
-    // private AuditService auditService;
+    public List<Long> listOfAuditLauchedFromHere = new ArrayList();
     private AuditService auditService = null;
     private AuditDataService auditDataService = null;
     private WebResourceDataService webResourceDataService = null;
@@ -78,15 +71,7 @@ public class JmsAuditServiceListernerImpl implements AuditServiceListener {
     }
 
     @Autowired
-    public JmsAuditServiceListernerImpl(AuditService auditService,
-            AuditDataService auditDataService,
-            WebResourceDataService webResourceDataService,
-            WebResourceStatisticsDataService webResourceStatisticsDataService,
-            ProcessResultDataService processResultDataService,
-            ProcessRemarkDataService processRemarkDataService,
-            ParameterDataService parameterDataService,
-            ParameterElementDataService parameterElementDataService) {
-
+    public JmsAuditServiceListernerImpl(AuditService auditService, AuditDataService auditDataService, WebResourceDataService webResourceDataService, WebResourceStatisticsDataService webResourceStatisticsDataService, ProcessResultDataService processResultDataService, ProcessRemarkDataService processRemarkDataService, ParameterDataService parameterDataService, ParameterElementDataService parameterElementDataService) {
         this.auditService = auditService;
         this.auditService = auditService;
         this.auditDataService = auditDataService;
@@ -100,76 +85,79 @@ public class JmsAuditServiceListernerImpl implements AuditServiceListener {
     }
 
     public Long launchAuditOnJmsMessageReceived(AuditModel auditmodel, Set<Parameter> parameters) {
-        idCodeAudit = auditmodel.getIdCode();   // save the value of the idCodeAudit  in the global variable 
+        this.idCodeAudit = auditmodel.getIdCode();
 
-        Audit audit = auditService.auditPage(auditmodel.getUrl(), parameters);
+        Audit audit = this.auditService.auditScenario("scenario", auditmodel.getScenario(), parameters);
 
-        //  Audit auditSc = auditService.auditScenario(url, url, parameters)
-        listOfAuditLauchedFromHere.add(audit.getId());
+        this.listOfAuditLauchedFromHere.add(audit.getId());
         return audit.getId();
     }
 
     @Override
     public void auditCompleted(Audit audit) {
-
-        if (listOfAuditLauchedFromHere.contains(audit.getId())) {
+        if (this.listOfAuditLauchedFromHere.contains(audit.getId())) {
             LOGGER.info(" Audit  id : " + audit.getId() + " on JMS call terminated");
 
-            audit = auditDataService.read(audit.getId());
-            List<ProcessResult> processResultList = (List<ProcessResult>) processResultDataService.getNetResultFromAudit(audit);
+            audit = (Audit) this.auditDataService.read(audit.getId());
+            List<ProcessResult> processResultList = (List) this.processResultDataService.getNetResultFromAudit(audit);
+
             LOGGER.info("");
-            LOGGER.info("RawMark : " + webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getRawMark() + "%");
-            LOGGER.info("WeightedMark : " + webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getMark() + "%");
-            LOGGER.info("Nb Passed : " + webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfPassed());
-            LOGGER.info("Nb Failed test : " + webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfInvalidTest());
-            LOGGER.info("Nb Failed occurences : " + webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfFailedOccurences());
-            LOGGER.info("Nb Pre-qualified : " + webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfNmi());
-            LOGGER.info("Nb Not Applicable : " + webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfNa());
-            LOGGER.info("Nb Not Tested : " + webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfNotTested());
+            LOGGER.info("RawMark : " + this.webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getRawMark() + "%");
+            LOGGER.info("WeightedMark : " + this.webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getMark() + "%");
+            LOGGER.info("Nb Passed : " + this.webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfPassed());
+            LOGGER.info("Nb Failed test : " + this.webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfInvalidTest());
+            LOGGER.info("Nb Failed occurences : " + this.webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfFailedOccurences());
+            LOGGER.info("Nb Pre-qualified : " + this.webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfNmi());
+            LOGGER.info("Nb Not Applicable : " + this.webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfNa());
+            LOGGER.info("Nb Not Tested : " + this.webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfNotTested());
 
             JSONObject jSonAuditObject = new JSONObject();
             try {
-                // jSonAuditObject.put(string, processResultList)
-                jSonAuditObject.put("RawMark : ", webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getRawMark());
-                jSonAuditObject.put("WeightedMark : ", webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getMark());
-                jSonAuditObject.put("Nb Passed : ", webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfPassed());
-                jSonAuditObject.put("Nb Failed test : ", webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfInvalidTest());
-                jSonAuditObject.put("Nb Failed occurences : ", webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfFailedOccurences());
-                jSonAuditObject.put("Nb Pre-qualified : ", webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfNmi());
-                jSonAuditObject.put("Nb Not Applicable : ", webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfNa());
-                jSonAuditObject.put("Nb Not Tested : ", webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfNotTested());
+                jSonAuditObject.put("RawMark : ", this.webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getRawMark());
+                jSonAuditObject.put("WeightedMark : ", this.webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getMark());
+                jSonAuditObject.put("Nb Passed : ", this.webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfPassed());
+                jSonAuditObject.put("Nb Failed test : ", this.webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfInvalidTest());
+                jSonAuditObject.put("Nb Failed occurences : ", this.webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfFailedOccurences());
+                jSonAuditObject.put("Nb Pre-qualified : ", this.webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfNmi());
+                jSonAuditObject.put("Nb Not Applicable : ", this.webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfNa());
+                jSonAuditObject.put("Nb Not Tested : ", this.webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfNotTested());
 
                 StringBuilder str = new StringBuilder();
                 str.append(audit.getId());
                 str.append('#');
-                str.append(webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getRawMark());
+                str.append(this.webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getRawMark());
                 str.append('#');
-                str.append(idCodeAudit);
+                str.append(this.idCodeAudit);
+                str.append('#');
+                str.append(this.webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfPassed());
+                str.append('#');
+                str.append(this.webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfInvalidTest());
+                str.append('#');
+                str.append(this.webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfNmi());
+                str.append('#');
+                str.append(this.webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfNa());
+                str.append('#');
+                str.append(this.webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfNotTested());
 
-                /**
-                 * @TODO something send resultAudit object to ActiveMq
-                 */
                 LOGGER.info(" Befor sending result to Mq");
-                jmsMessageSenderImpl.sendResult(str.toString());
-                //  jmsMessageSenderImpl.sendToR(jSonAuditObject);
+
+                this.jmsMessageSenderImpl.sendResult(str.toString());
+
                 LOGGER.info(" After sending message to Mq");
             } catch (JSONException ex) {
                 LOGGER.error(ex);
             }
-            listOfAuditLauchedFromHere.remove(audit.getId());
+            this.listOfAuditLauchedFromHere.remove(audit.getId());
         }
     }
 
-    @Override
     public void auditCrashed(Audit audit, Exception exception) {
-        if (listOfAuditLauchedFromHere.contains(audit.getId())) {
+        if (this.listOfAuditLauchedFromHere.contains(audit.getId())) {
             LOGGER.error(" Audit with id : " + audit.getId() + " on JMS call Crashed ");
-            listOfAuditLauchedFromHere.remove(audit.getId());
+            this.listOfAuditLauchedFromHere.remove(audit.getId());
         }
     }
 
     public void sendJmsJsonAuditResult(JSONObject jSONObject) {
-
     }
-
 }

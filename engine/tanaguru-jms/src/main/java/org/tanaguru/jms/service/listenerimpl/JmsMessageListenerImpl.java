@@ -47,6 +47,8 @@ import org.tanaguru.model.AuditModel;
 @Component
 public class JmsMessageListenerImpl implements JmsMesageListener {
 
+    private final static Logger LOGGER = Logger.getLogger(JmsMessageListenerImpl.class);
+
     @Autowired
     ParameterDataService parameterDataService;
 
@@ -55,8 +57,6 @@ public class JmsMessageListenerImpl implements JmsMesageListener {
 
     @Autowired
     ParameterElementDataService parameterElementDataService;
-
-    private final static Logger LOGGER = Logger.getLogger(JmsMessageListenerImpl.class);
 
     /**
      * Handle a message , within a JMS session.
@@ -90,7 +90,7 @@ public class JmsMessageListenerImpl implements JmsMesageListener {
             LOGGER.info("Initialize parameters...");
 
             ParameterElement levelParameterElement = parameterElementDataService.getParameterElement("LEVEL");
-            Parameter levelParameter = parameterDataService.getParameter(levelParameterElement, "Rgaa32016;LEVEL_2");
+            Parameter levelParameter = parameterDataService.getParameter(levelParameterElement, "Rgaa32017;LEVEL_2");
             Set<Parameter> paramSet = parameterDataService.getDefaultParameterSet();
             paramSet = parameterDataService.updateParameter(paramSet, levelParameter);
 
@@ -109,7 +109,7 @@ public class JmsMessageListenerImpl implements JmsMesageListener {
             LOGGER.info("Audit launched by calling  jmsAuditServiceListernerImpl ");
 //            LOGGER.info("Launch audit page service...");
             //launch audit 
-            Long idAudit = jmsAuditServiceListernerImpl.launchAuditOnJmsMessageReceived(auditModel, parameters);
+            Long idAudit = this.jmsAuditServiceListernerImpl.launchAuditOnJmsMessageReceived(auditModel, parameters);
             //3- persist audit information on db observatoire	
             // Long idAudit = audit.getId();
 

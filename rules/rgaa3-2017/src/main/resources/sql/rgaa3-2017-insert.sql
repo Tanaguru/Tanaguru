@@ -1090,7 +1090,6 @@ Cd_Test='Rgaa32017-1-6-6' OR
 Cd_Test='Rgaa32017-1-6-7' OR
 Cd_Test='Rgaa32017-1-6-8' OR
 Cd_Test='Rgaa32017-1-6-9' OR
---Cd_Test='Rgaa32017-1-6-10' OR
 Cd_Test='Rgaa32017-1-7-1' OR
 Cd_Test='Rgaa32017-1-7-2' OR
 Cd_Test='Rgaa32017-1-7-3' OR
