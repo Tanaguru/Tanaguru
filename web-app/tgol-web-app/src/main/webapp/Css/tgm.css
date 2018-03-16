@@ -308,9 +308,24 @@ label, input, select, textarea {
 /*
 * page result : modal accedWeb
 */
-.modal-header-acced, .modal-header-acced .close {
+.modal-header-acced {
     background-color:#562980 !important; 
     
+}
+
+.modal-header-acced .close {
+    filter: alpha(opacity=100);
+    -khtml-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+    background-color:#562980;
+}
+
+.modal-header-acced .close:hover {
+    filter: alpha(opacity=80);
+    -khtml-opacity: 0.8;
+    -moz-opacity: 0.8;
+    opacity: 0.8;
 }
 
  .modal-header-acced h4, .modal-header-acced button {
