@@ -22,6 +22,7 @@
 package org.tanaguru.jsms.auditservicelistener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 import org.apache.log4j.Logger;
@@ -52,11 +53,11 @@ import org.tanaguru.service.AuditServiceListener;
 public class JmsAuditServiceListernerImpl
         implements AuditServiceListener {
 
-    public String idCodeAudit = null;
+    public String idCodeAudit;
     @Autowired
     private JmsMessageSender jmsMessageSenderImpl;
     public static final Logger LOGGER = Logger.getLogger(JmsAuditServiceListernerImpl.class);
-    public List<Long> listOfAuditLauchedFromHere = new ArrayList();
+    public HashMap<Long,String> trackAuditLauched = new HashMap<>();
     private AuditService auditService = null;
     private AuditDataService auditDataService = null;
     private WebResourceDataService webResourceDataService = null;
@@ -85,17 +86,18 @@ public class JmsAuditServiceListernerImpl
     }
 
     public Long launchAuditOnJmsMessageReceived(AuditModel auditmodel, Set<Parameter> parameters) {
+        this.idCodeAudit= null;
         this.idCodeAudit = auditmodel.getIdCode();
 
         Audit audit = this.auditService.auditScenario("scenario", auditmodel.getScenario(), parameters);
 
-        this.listOfAuditLauchedFromHere.add(audit.getId());
+        this.trackAuditLauched.put(audit.getId(),auditmodel.getIdCode());
         return audit.getId();
     }
 
     @Override
     public void auditCompleted(Audit audit) {
-        if (this.listOfAuditLauchedFromHere.contains(audit.getId())) {
+        if (this.trackAuditLauched.containsKey(audit.getId())) {
             LOGGER.info(" Audit  id : " + audit.getId() + " on JMS call terminated");
 
             audit = (Audit) this.auditDataService.read(audit.getId());
@@ -127,7 +129,7 @@ public class JmsAuditServiceListernerImpl
                 str.append('#');
                 str.append(this.webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getRawMark());
                 str.append('#');
-                str.append(this.idCodeAudit);
+                str.append(trackAuditLauched.get(audit.getId()));
                 str.append('#');
                 str.append(this.webResourceStatisticsDataService.getWebResourceStatisticsByWebResource(audit.getSubject()).getNbOfPassed());
                 str.append('#');
@@ -147,17 +149,18 @@ public class JmsAuditServiceListernerImpl
             } catch (JSONException ex) {
                 LOGGER.error(ex);
             }
-            this.listOfAuditLauchedFromHere.remove(audit.getId());
+            this.trackAuditLauched.remove(audit.getId());
         }
     }
 
+    @Override
     public void auditCrashed(Audit audit, Exception exception) {
-        if (this.listOfAuditLauchedFromHere.contains(audit.getId())) {
+        if (this.trackAuditLauched.containsKey(audit.getId())) {
             LOGGER.error(" Audit with id : " + audit.getId() + " on JMS call Crashed ");
-            this.listOfAuditLauchedFromHere.remove(audit.getId());
+            this.trackAuditLauched.remove(audit.getId());
         }
     }
 
-    public void sendJmsJsonAuditResult(JSONObject jSONObject) {
+    public void sendJmsJsonAuditResult(JSONObject jSONObject) { //todo 
     }
 }

@@ -30,6 +30,7 @@ import javax.jms.ObjectMessage;
 import javax.jms.Session;
 import javax.jms.TextMessage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.parameterization.ParameterElement;
