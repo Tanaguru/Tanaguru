@@ -68,6 +68,9 @@
 <c:set var="applyAutoResultsJsUrl">
     <c:url value="/Js/result-page/apply-auto-results-min.js"/>  
 </c:set>
+<c:set var="orderPractices">
+    <c:url value="/Js/result-page/order-notices.js"/>  
+</c:set>
 
 <!-- external images -->
 <c:set var="testInfoLinkImg" scope="request">
@@ -261,6 +264,7 @@
         <script type="text/javascript" src="${resultPageChartsJsUrl}"></script>
         <!--<![endif]-->
         <script type="text/javascript" src="${displaySnapshotJsUrl}"></script>
+        <script type="text/javascript" src="${orderPractices}"></script>
     </body>
 </html>
 </compress:html>
