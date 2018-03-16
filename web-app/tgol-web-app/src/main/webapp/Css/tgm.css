@@ -308,7 +308,7 @@ label, input, select, textarea {
 /*
 * page result : modal accedWeb
 */
-.modal-header-acced{
+.modal-header-acced, .modal-header-acced .close {
     background-color:#562980 !important; 
     
 }
