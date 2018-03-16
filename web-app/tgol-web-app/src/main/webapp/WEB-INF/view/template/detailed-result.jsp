@@ -265,9 +265,12 @@
                                                                    <div class="modal-body modal-body-acced">
                                                                        <c:if test="${fn:length(testResult.test.accedwebSet) > 0}">
                                                                            <span class="rule-detail-link">
+                                                                               <c:choose 
+                                                                                   
+                                                                                   
                                                                                <ul>
                                                                                    <c:forEach var="notice" items="${testResult.test.accedwebSet}" >
-                                                                                       <li> <a target="_blank"  title="<fmt:message key="${notice.code}" /> <fmt:message key="footer.newWindow"/>" href="<fmt:message key="${notice.code}-url" /> " > <fmt:message key="${notice.code}" /> </a> </li> 
+                                                                                       <li class="${notice.type}" > <a target="_blank"  title="<fmt:message key="${notice.code}" /> <fmt:message key="footer.newWindow"/>" href="<fmt:message key="${notice.code}-url" /> " > <fmt:message key="${notice.code}" /> </a> </li> 
 
                                                                                    </c:forEach>
                                                                                </ul>
