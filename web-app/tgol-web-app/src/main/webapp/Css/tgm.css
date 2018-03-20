@@ -343,6 +343,27 @@ label, input, select, textarea {
     color: #562980 !important;
 }
 
+.modal-body-acced .accedeweb > li { 
+    max-width: 100%;
+    margin-bottom: 1rem;
+    list-style: none;
+}
+
+.modal-body-acced .accedeweb > li span,
+.modal-body-acced .accedeweb > li ul {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.modal-body-acced .accedeweb > li span {
+    width: 25%;
+    text-align: center;
+}
+
+.modal-body-acced .accedeweb > li ul {
+    width: 65%;
+}
+
 .disp-foot-modal{
     display: inline-block ;
     font-size: 13px;
