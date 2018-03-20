@@ -1,152 +1,128 @@
 /**
- * 
  * TODO : 
- * - Linker le script aux templates result-page.jsp
  * - Ajouter les icones svg dans le projet et les linker dans ce script
- * - Ajouter les styles suivants :  
- * .accedeweb > li { 
- *     list-style: none;
- *     margin-bottom: 1rem;
- * }
- * 
- * .accedeweb > li > span,
- * .accedeweb > li > ul {
- *     display: inline-block;
- *     vertical-align: top;
- * }
- * 
  * - Styliser les intitulés de catégories (HTML, Editorial, Graphique)
- * - Optimiser le JS
- * 
  */
 
-const buttons = document.querySelectorAll('.theme-details a[data-toggle="modal"]');
-let modals = [];
+var popupButtons = document.querySelectorAll('.theme-details a[data-toggle="modal"]');
+var modals = [];
 
-for (let i = 0; i < buttons.length; i++){
-    let modal = document.querySelector(buttons[i].dataset.target);
-    modals.push(modal);
+if (popupButtons){
+
+    // collecting all modals and store them in an array
+    for (var i = 0; i < popupButtons.length; i++){
+        var modal = document.querySelector(popupButtons[i].dataset.target);
+        modals.push(modal);
+    }
+    
+    // order and render the guidelines for the selected RGAA rule
+    popupButtons.forEach(function(btn){
+        btn.addEventListener('click', function(){
+            var target = btn.dataset.target;
+            var modal = document.querySelector(target);
+            var guides = {
+                html : {
+                    categoryName: 'HTML',
+                    className: 'H',
+                    items: [],
+                    iconUrl: ''
+                },
+                edito : {
+                    categoryName: 'Editorial',
+                    className: 'E',
+                    items: [],
+                    iconUrl : 'icons/notice_edito.svg'
+                },
+                graph : {
+                    categoryName: 'Graphique',
+                    className: 'G',
+                    items: [],
+                    iconUrl : 'icons/notice_graphique.svg'
+                }
+            }
+    
+            renderPractices(modal, guides);
+        });
+    })
 }
 
-buttons.forEach(function(btn){
-    btn.addEventListener('click', function(){
-        const target = btn.dataset.target;
-        const modal = document.querySelector(target);
-        let guidesContainer = modal.querySelector('.accedeweb');
-        let guidelines = modal.querySelectorAll('.accedeweb li');
-        let guidesHtml = {
-            items: [],
-            iconUrl: ''
-        };
-        let guidesEdit = {
-            items: [],
-            iconUrl: 'icons/notice_edito.svg'
-        } 
-        let guidesGraph = {
-            items: [],
-            iconUrl: 'icons/notice_graphique.svg'
+/**
+ * AcceDe Web Practices Pop-up
+ * Creates DOM lists to render the category title
+ * and the corresponding guidelines
+ * 
+ * DOM result :
+ * ul[container] > li[category] > span[icon + category name] + ul[guideList] 
+ * 
+ * @param {Object} container - container in which the guide list will be
+ * @param {Object} guide - object defined in var guides
+ */
+function createPracticesLists(container, guide){
+    var category = document.createElement('li');
+    var guideList = document.createElement('ul');
+
+    category.className = guide.className;
+
+    // append category icon + category name
+    category.innerHTML = '<span><img src="'
+        + guide.iconUrl
+        + '" alt="" aria-hiddent="true"/>'
+        + guide.categoryName 
+        + '</span>';
+    
+    
+    // append all guidelines ('li' elements) to list
+    for (var i = 0; i < guide.items.length; i++){
+        guideList.appendChild(guide.items[i]);
+    }
+
+    category.appendChild(guideList);
+    container.appendChild(category)
+}
+
+/**
+ * AcceDe Web Practices Pop-up
+ * Renders the guidelines list in the pop up
+ * and adds class 'is-filled' to prevent multiple rendering
+ * 
+ * @param {Object} modal - targeted modal
+ * @param {Object} guides - object containing all categories and their infos
+ */
+function renderPractices(modal, guides){
+    var guidesContainer = modal.querySelector('.accedeweb');
+    var guidelines = modal.querySelectorAll('.accedeweb li');
+
+    // only order the guidelines if pop up has been opened yet
+    if (!guidesContainer.classList.contains('is-filled')){
+
+        // collects all guidelines and classifies them
+        for (var i = 0; i < guidelines.length; i++){
+            if (guidelines[i].className == 'H'){
+                guides.html.items.push(guidelines[i]);
+            } else if (guidelines[i].className == 'E') {
+                guides.edito.items.push(guidelines[i]);
+            } else if (guidelines[i].className == 'G'){
+                guides.graph.items.push(guidelines[i])
+            } 
         }
 
+        // clear the main guidelines container
+        guidesContainer.innerHTML = '';
 
-        if (!guidesContainer.classList.contains('is-filled')) {
-            // on trie dans des tableaux distincts les règles AcceDe Web
-            for (var i = 0; i < guidelines.length; i++){
-                if (guidelines[i].className == 'H'){
-                    guidesHtml.items.push(guidelines[i]);
-                } else if (guidelines[i].className == 'E') {
-                    guidesEdit.items.push(guidelines[i]);
-                } else if (guidelines[i].className == 'G'){
-                    guidesGraph.items.push(guidelines[i])
-                } 
-            }
-            // on vide le container des notices AcceDe Web
-            guidesContainer.innerHTML = '';
-
-            /**
-             * Structure de présentation des notices AcceDe Web
-             * <ul class="accedeweb">
-             *  <li class="H">
-             *    <ul>
-             *      <li>Règles relatives au code HTML</li>
-             *      ...
-             *      </li>
-             *    </ul>
-             *  </li>
-             *  <li class="E">
-             *  ...
-             *  </li>
-             * </ul>
-             * 
-             * La partie ci-dessous a cruellement besoin d'optimisation
-             */
-
-            const catH = document.createElement('li');
-            const catE = document.createElement('li');
-            const catG = document.createElement('li');
-            catH.className = 'H';
-            catE.className = 'E';
-            catG.className = 'G';
-
-            if (guidesHtml.items.length > 0) {
-                let guideList = document.createElement('ul');
-
-                catH.innerHTML = `
-                    <span class=">
-                        <img src="${guidesHtml.iconUrl}" alt="" aria-hidden="true"/>
-                        HTML
-                    </span>
-                    `;
-
-                for (let i = 0; i < guidesHtml.items.length; i++){
-                    guideList.appendChild(guidesHtml.items[i]);
-                }
-
-                catH.appendChild(guideList);
-                guidesContainer.appendChild(catH);    
-            }
-
-            if (guidesEdit.items.length > 0){
-                let guideList = document.createElement('ul');
-                
-                catE.innerHTML = `
-                    <span>
-                        <img src="${guidesEdit.iconUrl}" alt="" aria-hidden="true"/>
-                        Editorial
-                    </span>
-                    `;
-
-                for (let i = 0; i < guidesEdit.items.length; i++){
-                    guideList.appendChild(guidesEdit.items[i]);
-                }
-
-                catE.appendChild(guideList);
-                guidesContainer.appendChild(catE);
-            }
-
-            if (guidesGraph.items.length > 0){
-                let guideList = document.createElement('ul');
-
-                catG.innerHTML = `
-                    <span>
-                        <img src="${guidesGraph.iconUrl}" alt="" aria-hidden="true"/>
-                        Graphique
-                    </span>
-                    `;
-
-                for (var i = 0; i < guidesGraph.items.length; i++){
-                    guideList.appendChild(guidesGraph.items[i]);
-                }
-
-                catG.appendChild(guideList);
-                guidesContainer.appendChild(catG);
-            }
-
-            if (!guidesContainer.classList.contains('is-filled')){
-                guidesContainer.classList.add('is-filled');
-            }
+        // generate guidelines lists if guidelines exist
+        if (guides.html.items.length > 0) {
+            createPracticesLists(guidesContainer, guides.html); 
         }
 
-    })
-})
+        if (guides.edito.items.length > 0){
+            createPracticesLists(guidesContainer, guides.edito);
+        }
 
+        if (guides.graph.items.length > 0){
+            createPracticesLists(guidesContainer, guides.graph);
+        }
 
+        // pop up has been opened
+        guidesContainer.classList.add('is-filled');
+    }
+}
