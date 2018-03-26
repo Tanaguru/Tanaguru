@@ -25,19 +25,19 @@ if (popupButtons){
                     categoryName: 'HTML',
                     className: 'H',
                     items: [],
-                    iconUrl: ''
+                    iconUrl: '/../Images/html.svg'
                 },
                 edito : {
                     categoryName: 'Editorial',
                     className: 'E',
                     items: [],
-                    iconUrl : 'icons/notice_edito.svg'
+                    iconUrl : '/../Images/edito.svg'
                 },
                 graph : {
                     categoryName: 'Graphique',
                     className: 'G',
                     items: [],
-                    iconUrl : 'icons/notice_graphique.svg'
+                    iconUrl : '/../Images/graph.svg'
                 }
             }
     
