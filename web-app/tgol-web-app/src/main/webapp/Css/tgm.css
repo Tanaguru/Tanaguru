@@ -356,12 +356,21 @@ label, input, select, textarea {
 }
 
 .modal-body-acced .accedeweb > li span {
-    width: 25%;
+    width: 12%;
+    color: #9b9b9b;
+    font-size: 0.7rem;
+    font-weight: 800;
     text-align: center;
 }
 
 .modal-body-acced .accedeweb > li ul {
-    width: 65%;
+    width: 75%;
+}
+
+.modal-body-acced .accedeweb .icon_accede { 
+    display: block;
+    width: 35px;
+    margin: auto;
 }
 
 .disp-foot-modal{
