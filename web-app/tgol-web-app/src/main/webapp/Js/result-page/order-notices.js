@@ -66,7 +66,7 @@ function createPracticesLists(container, guide){
     // append category icon + category name
     category.innerHTML = '<span><img src="'
         + guide.iconUrl
-        + '" alt="" aria-hiddent="true"/>'
+        + '" class="icon_accede" alt="" aria-hidden="true"/>'
         + guide.categoryName 
         + '</span>';
     
