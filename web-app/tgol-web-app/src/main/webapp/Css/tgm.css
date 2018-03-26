@@ -310,7 +310,6 @@ label, input, select, textarea {
 */
 .modal-header-acced {
     background-color:#562980 !important; 
-    
 }
 
 .modal-header-acced .close {
@@ -326,6 +325,10 @@ label, input, select, textarea {
     -khtml-opacity: 0.8;
     -moz-opacity: 0.8;
     opacity: 0.8;
+}
+
+.modal-header-acced .close:focus {
+    outline: thin dotted;
 }
 
  .modal-header-acced h4, .modal-header-acced button {
@@ -366,7 +369,6 @@ label, input, select, textarea {
     width: 12%;
     color: #9b9b9b;
     font-size: 0.7rem;
-    font-weight: 800;
     text-align: center;
 }
 
