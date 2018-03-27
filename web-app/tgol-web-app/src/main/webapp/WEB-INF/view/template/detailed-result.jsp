@@ -203,7 +203,7 @@
                                     <c:set var="addTestDetails" value="false"/>
                                 </c:otherwise>
                             </c:choose>
-                            <div class="row">
+                            <div class="row ${testResult.resultCode}-cssP">
                                 <div class="span16 ${ruleGeneralResultClass} ${rowBgClass}">
                                     <div class="test-result-compact row">
                                         <div class="rule-id span2">
@@ -217,7 +217,7 @@
                                             <span class="rule-detail-link">
                                                 <a target="_blank" title="<fmt:message key="resultPage.more"/> ${testResult.testShortLabel} <fmt:message key="footer.newWindow"/>" href="
                                                    <fmt:message key="${testResult.testCode}-url"> 
-                                                       <fmt:param>${rgaaTanaguruUrlFirstPart}</fmt:param> 
+                                                      <fmt:param>${rgaaTanaguruUrlFirstPart}</fmt:param> 
                                                         <fmt:param>${rgaaTanaguruUrlThirdPartCrit}</fmt:param> 
                                                    </fmt:message> ">
                                                     <img alt="<fmt:message key="resultPage.more"/> ${testResult.testShortLabel}" src="${testInfoLinkImg}">
