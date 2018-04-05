@@ -188,7 +188,7 @@ public class LoginController extends AbstractUserAndContractsController{
          HttpSession session = request.getSession(false);
          if (session != null) {
              session.invalidate();
-         }
+         }        
     }
 
 }

@@ -2028,6 +2028,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="url"]:focus,
     font-weight: normal;
     margin-top: 0;
     margin-bottom: 40px;
+    word-break:break-all;
 }
 #result-page-title h1 .two-lines{
     color: #000;
@@ -3106,3 +3107,20 @@ td.occurences {
  * highlighter
  * ------------------------------------------------- 
  */
+
+
+
+/* Just to play with animations : shrinf audits*/
+.copiedtext {
+  position: absolute;
+  left: 0; top: 0; right: 0;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(-1em);
+  color: #000;
+  transition: all .500s;
+}
+.copied .copiedtext {
+  opacity: 1;
+  transform: translateY(-2em);
+}

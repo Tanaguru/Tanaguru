@@ -22,6 +22,10 @@
 package org.tanaguru.webapp.controller;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
@@ -53,6 +57,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.tanaguru.security.tokenmanagement.TokenManager;
 
 /**
  *
@@ -74,6 +79,12 @@ private static final Logger LOGGER = Logger.getLogger(AuditResultController.clas
         this.criterionDataService = criterionDataService;
     }
 
+     private TokenManager tokenManager;
+    @Autowired
+    public final void setTokenManager(TokenManager tokenManager) {
+        this.tokenManager = tokenManager;
+    }
+    
     /**
      * The Html hightlighter.
      */
@@ -151,6 +162,7 @@ private static final Logger LOGGER = Logger.getLogger(AuditResultController.clas
         } catch (NumberFormatException nfe) {
             throw new ForbiddenPageException();
         }
+        model.addAttribute("sharedResultAuditToken",generateToken(getCurrentUser().getEmail1(), webresourceId));
 
         return dispatchDisplayResultRequest(
                 webResourceIdValue,
@@ -385,5 +397,52 @@ private static final Logger LOGGER = Logger.getLogger(AuditResultController.clas
             return highlighter.highlightSourceCode(ssp.getAdaptedContent());
         }
     }
+    
+     /**
+    * 
+    * @return 
+    */
+    private String generateToken(String userEmail,String webresourceId) {
+        if(tokenManager != null) {
+        //    tokenManager.setTokenDurationValidity(0);
+          
+            Map<String, String> parameters = new HashMap<>();
+            parameters.put(TgolKeyStore.WEBRESOURCE_ID_KEY, webresourceId );
+            String token = tokenManager.getTokenUser(userEmail, parameters);
+            try {
+                return URLEncoder.encode(token, "UTF-8");
+            } catch (UnsupportedEncodingException ex) {
+                return "";
+            }
+        }
+        return "";
+    }
 
+    
+    
+    
+    @RequestMapping(value = "/share/page-result", method = RequestMethod.GET)
+    // @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
+    public String displayPageResultShared(
+            @RequestParam(TgolKeyStore.TOKEN_KEY) String t,
+            HttpServletRequest request,
+            Model model) {
+
+        String webresourceId = tokenManager.getAttributeValueFromToken(t, TgolKeyStore.WEBRESOURCE_ID_KEY);
+
+        Long webResourceIdValue;
+        try {
+            webResourceIdValue = Long.valueOf(webresourceId);
+        } catch (NumberFormatException nfe) {
+            throw new ForbiddenPageException();
+        }
+
+        return dispatchDisplayResultRequest(
+                webResourceIdValue,
+                null,
+                model,
+                request,
+                false,
+                null);
+    }
 }
