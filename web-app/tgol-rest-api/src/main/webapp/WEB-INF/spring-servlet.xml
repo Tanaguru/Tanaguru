@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd
+           http://www.springframework.org/schema/security
+            http://www.springframework.org/schema/security/spring-security-3.1.xsd
+           http://www.springframework.org/schema/mvc 
+           http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+    <!-- This annotation needs to be defined in the servlet context to be applied
+    at the controller level -->
+    <!--    <security:global-method-security 
+    access-decision-manager-ref="accessDecisionManager"/>-->
+
+    <mvc:annotation-driven />
+
+    <context:component-scan base-package="org.tanaguru.rest.cotroller" />
+    
+    <import resource="classpath*:conf/tgol-service.xml"/>
+    
+   
+     <!-- tanaguru imports-->
+    <import resource="classpath:conf/context/beans-audit.xml"/>
+    <import resource="classpath:conf/context/beans-analyser.xml"/>
+    <import resource="classpath:conf/context/beans-consolidator.xml"/>
+    <import resource="classpath:conf/context/beans-contentloader.xml"/>
+    <import resource="classpath:conf/context/beans-contentadapter.xml"/>
+    <import resource="classpath:conf/context/beans-crawler.xml"/>
+    <import resource="classpath:conf/context/beans-factories.xml"/>
+<!--    <import resource="classpath:conf/context/beans-logging.xml"/>-->
+    <import resource="classpath:conf/context/beans-nomenclatureloader.xml"/>
+    <import resource="classpath:conf/context/beans-parameters.xml"/>
+    <import resource="classpath:conf/context/beans-processor.xml"/>
+    <import resource="classpath:conf/context/beans-reference.xml"/>
+    <import resource="classpath:conf/context/beans-ruleimplementationloader.xml"/>
+    <import resource="classpath:conf/context/beans-statistics.xml"/>
+    <import resource="classpath:conf/context/beans-scenarioloader.xml"/>
+   
+    <!-- conf jms   -->
+<!--     <import resource="classpath:conf/context/spring-jms-example.xml"/>
+ -->
+ <!-- import beans-tanaguru for normal web-app usage OR import spring-jms-tanaguru
+ to activate mqueue-->
+    <import resource="classpath:conf/context/beans-tanaguru.xml"/>
+    <!--<import resource="classpath:conf/context/spring-jms-tanaguru.xml"/>-->
+    
+   <!-- <import resource="classpath:conf/context/spring-kafka-tanaguru.xml"/> -->
+
+    <!-- tgol imports -->
+    <import resource="classpath:tgol-service.xml"/>
+    <import resource="classpath:tgol-beans-decorator.xml"/>
+    <import resource="classpath:tgol-beans-email-sender.xml"/>
+    <import resource="classpath:tgol-beans-factories.xml"/>
+    <import resource="classpath:tgol-beans-highlighter.xml"/>
+    <import resource="classpath:tgol-beans-orchestrator.xml"/>
+    <import resource="classpath:tgol-beans-persistence.xml"/>
+    <import resource="classpath:tgol-beans-tgol.xml"/>
+    
+  
+</beans>
