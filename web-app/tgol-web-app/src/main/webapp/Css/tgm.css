@@ -3124,3 +3124,98 @@ td.occurences {
   opacity: 1;
   transform: translateY(-2em);
 }
+/**
+* PRINT CSS FOR TANAGURU RESULTS PAGE
+*/
+
+@media print{
+    /* Supprime les éléments inutiles à la version print 
+    * notamment les éléments d'interactions 
+    */
+    #result-page-title .span4, 
+    #synthesis-result .span5,
+    #synthesis-result #page-source-code-link,
+    #synthesis-meta-data #master-audit-parameters,
+    #graphical-synthesis-result #result-repartition-pie-graph,
+    #result-synthetized-text tr:nth-child(2n),
+    #result-by-theme-graph,
+    #result-option-console,
+    .test-solutions > a[data-toggle="modal"],
+    .theme-result-repartition span:last-child,
+    .theme-result-repartition span:nth-child(8),
+	   .theme-result-repartition img:nth-child(9),
+    .theme-result-repartition img:nth-child(7),
+    .na-cssP,
+    .rule-detail-link,
+    #expand-all,
+    #collapse-all
+    {
+        display: none !important;
+    }
+    /* End */
+
+    /* Ouvre tous les panels de résultats */
+    .theme-details,
+    .failed-cssP .test-result-detailed{
+		display: block !important;
+    }
+    /* End */
+
+    /* Change la disposition de l'icone fleche */
+    .hide-theme-details-link-icon {
+        display: inline !important;
+    }
+
+    .show-theme-details-link-icon {
+        display: none !important;
+    }
+    /* End */
+
+    /* Réagencement de section de présentation du test 
+    * (infos sur le site audité, stats du tests, graphique)
+    */
+    #synthesis-meta-data {
+        width: 40%;
+    }
+
+    #d3-audit-score {
+        margin-top: 0;
+    }
+
+    #tgm-result-page > .container {
+        position: relative;
+    }
+
+    #barChartRepresentation {
+        width: 100%;
+    }
+
+    table#result-by-theme.sr-only {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+    #result-synthetized-text {
+        position: absolute;
+        top: 180px;
+        right: 0;
+        width: 33%;
+    }
+
+    /* End */
+
+    .rule-general-result, 
+    .rule-general-result-last {
+        padding-top: 1em;
+    }
+
+    .theme {
+        margin: 0;
+        padding-bottom: 0;
+    }
+
+    .theme-info {
+        margin-top: 20px;
+    }
+}
