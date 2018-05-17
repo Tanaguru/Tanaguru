@@ -48,6 +48,10 @@ function reorderResultsTable(){
     }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+if( document.readyState == 'complete' ) {
     reorderResultsTable();
-});
+} else {
+    document.addEventListener('DOMContentLoaded', function () {
+        reorderResultsTable();
+    });
+}
