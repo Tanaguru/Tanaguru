@@ -3163,7 +3163,9 @@ td.occurences {
     .na-cssP,
     .rule-detail-link,
     #expand-all,
-    #collapse-all
+    #collapse-all,
+    #print-results-button,
+    #launch-audit-submit
     {
         display: none !important;
     }
