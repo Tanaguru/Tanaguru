@@ -74,6 +74,9 @@
 <c:set var="reorderResultsTable">
     <c:url value="/Js/result-page/reorderResultsTable.js"/>  
 </c:set>
+<c:set var="triggerPrint">
+    <c:url value="/Js/result-page/trigger-print.js"/>  
+</c:set>
 
 <!-- external images -->
 <c:set var="testInfoLinkImg" scope="request">
@@ -275,6 +278,7 @@
         <script type="text/javascript" src="${displaySnapshotJsUrl}"></script>
         <script type="text/javascript" src="${orderPractices}"></script>
         <script type="text/javascript" src="${reorderResultsTable}"></script>
+        <script type="text/javascript" src="${triggerPrint}"></script>
     </body>
 </html>
 </compress:html>
