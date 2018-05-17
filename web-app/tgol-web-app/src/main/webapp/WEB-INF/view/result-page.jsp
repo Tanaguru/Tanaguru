@@ -162,25 +162,6 @@
                     </h1>
                 </div>
                 <div class="span4 offset1">
-                    <c:if test="${addRelaunchAction}">
-                    <div id="relaunch-action">
-                        <c:set var="postUrl">
-                            <c:url value="/home/contract/audit-page-set-up.html?cr=${auditSetUpCommand.contractId}"/>
-                        </c:set>
-                        <form:form modelAttribute="auditSetUpCommand" action="${postUrl}" method="post" enctype="multipart/form-data">
-                            <form:hidden path="urlList[0]"/>
-                            <form:hidden path="scope"/>
-                            <form:hidden path="auditParameter"/>
-                            <form:hidden path="relaunch"/>
-                            <form:hidden path="contractId"/>
-                            <form:hidden path="level"/>
-                            <div id="relaunch-audit-form-submit">
-                                <input id="launch-audit-submit" type="submit" class="relaunch-button result-page-action" value="<fmt:message key="resultPage.relaunchAudit"/>"/>
-                            </div>
-                            <%@include file="template/process-pop-up.jsp" %>
-                        </form:form>
-                    </div>
-                    </c:if>    
                     <div id="export-actions">
                         <fmt:message key="result.export"/> : 
                         <c:if test="${resultActionList != null && not empty resultActionList}">
@@ -207,8 +188,33 @@
                                 </c:choose>
                             </c:forEach>
                         </c:if>    
-                    </div>
+                    </div> 
                 </div>    
+                <div class="span3 offset2">
+                    <div class="print-button-container">
+                        <button class="print-button result-page-action" id="print-results-button">Imprimer les résultats</button>
+                    </div>
+                    
+                    <c:if test="${addRelaunchAction}">
+                    <div id="relaunch-action">
+                        <c:set var="postUrl">
+                            <c:url value="/home/contract/audit-page-set-up.html?cr=${auditSetUpCommand.contractId}"/>
+                        </c:set>
+                        <form:form modelAttribute="auditSetUpCommand" action="${postUrl}" method="post" enctype="multipart/form-data">
+                            <form:hidden path="urlList[0]"/>
+                            <form:hidden path="scope"/>
+                            <form:hidden path="auditParameter"/>
+                            <form:hidden path="relaunch"/>
+                            <form:hidden path="contractId"/>
+                            <form:hidden path="level"/>
+                            <div id="relaunch-audit-form-submit">
+                                <input id="launch-audit-submit" type="submit" class="relaunch-button result-page-action" value="<fmt:message key="resultPage.relaunchAudit"/>"/>
+                            </div>
+                            <%@include file="template/process-pop-up.jsp" %>
+                        </form:form>
+                    </div>
+                    </c:if>   
+                </div>
             </div><!-- class="row" -->
         <c:set var="showLegend" scope="request" value="true"/>
         <c:set var="showAxisLabel" scope="request" value="true"/>
