@@ -1,9 +1,3 @@
-/**
- * TODO : 
- * - Ajouter les icones svg dans le projet et les linker dans ce script
- * - Styliser les intitulés de catégories (HTML, Editorial, Graphique)
- */
-
 var popupButtons = document.querySelectorAll('.theme-details a[data-toggle="modal"]');
 var modals = [];
 
