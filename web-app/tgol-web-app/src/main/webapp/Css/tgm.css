@@ -1801,10 +1801,11 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="url"]:focus,
     display : none;
 }
 #relaunch-action, #export-actions {
-    text-align: right;
+    text-align: center;
     font-family: OpenSansLight;
     font-size : 13px;
 }
+
 #relaunch-action form {
     margin-bottom: 5px;
 }
@@ -1817,6 +1818,10 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="url"]:focus,
     padding-bottom: 2px;
     font-family: OpenSansSemibold;
     font-size: 12px;
+}
+
+#export-actions {
+  margin-bottom: 8px;
 }
 .export-action {
     margin-left: 5px;
@@ -3125,13 +3130,23 @@ td.occurences {
   transform: translateY(-2em);
 }
 /**
-* PRINT CSS FOR TANAGURU RESULTS PAGE
+* PRINT - anything related to the printing version
 */
 
+.print-button-container {
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.print-button-container .print-button {
+  padding: 2px 10px 2px;
+  font-family: OpenSansSemibold;
+  font-size: 12px;
+  font-weight: 600;
+}
+
 @media print{
-    /* Supprime les éléments inutiles à la version print 
-    * notamment les éléments d'interactions 
-    */
+    /* Hide useless interaction elements from the view */
     #result-page-title .span4, 
     #synthesis-result .span5,
     #synthesis-result #page-source-code-link,
@@ -3154,14 +3169,14 @@ td.occurences {
     }
     /* End */
 
-    /* Ouvre tous les panels de résultats */
+    /* Open all the results panels */
     .theme-details,
     .failed-cssP .test-result-detailed{
 		display: block !important;
     }
     /* End */
 
-    /* Change la disposition de l'icone fleche */
+    /* Change arrow icon orientation */
     .hide-theme-details-link-icon {
         display: inline !important;
     }
@@ -3171,8 +3186,8 @@ td.occurences {
     }
     /* End */
 
-    /* Réagencement de section de présentation du test 
-    * (infos sur le site audité, stats du tests, graphique)
+    /* Organize test presentation header 
+    * (site info, test stats, graphics)
     */
     #synthesis-meta-data {
         width: 40%;
