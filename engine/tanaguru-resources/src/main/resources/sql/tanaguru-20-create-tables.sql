@@ -8,7 +8,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 CREATE TABLE IF NOT EXISTS `AUDIT` (
   `Id_Audit` bigint(20) NOT NULL AUTO_INCREMENT,
   `Comment` varchar(255) DEFAULT NULL,
-  `Dt_Creation` datetime DEFAULT NULL,
+  `Dt_Creation` DATETIME(3) DEFAULT NULL,
   `Manual_Audit_Dt_Creation` datetime DEFAULT NULL,
   `Status` varchar(255) DEFAULT NULL, 
   PRIMARY KEY (`Id_Audit`)
