@@ -40,7 +40,7 @@
  <!-- import beans-tanaguru for normal web-app usage OR import spring-jms-tanaguru
  to activate mqueue-->
     <import resource="classpath:conf/context/beans-tanaguru.xml"/>
-    <import resource="classpath:conf/context/spring-jms-tanaguru.xml"/>
+    <!-- <import resource="classpath:conf/context/spring-jms-tanaguru.xml"/> -->
     
    <!-- <import resource="classpath:conf/context/spring-kafka-tanaguru.xml"/> -->
 
