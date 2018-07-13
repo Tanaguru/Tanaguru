@@ -6,7 +6,7 @@
     <groupId>org.tanaguru</groupId>
     <artifactId>email-sender</artifactId>
     <name>email-sender</name>
-    <version>5.2.1-SNAPSHOT</version>
+    <version>5.2.1</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 

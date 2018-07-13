@@ -4,7 +4,7 @@
      <parent>
         <groupId>org.tanaguru</groupId>
         <artifactId>rules</artifactId>
-        <version>2.3.1-SNAPSHOT</version>
+        <version>5.2.1</version>
     </parent>
     <artifactId>tanaguru-rules-commons</artifactId>
     <name>rules-commons</name>

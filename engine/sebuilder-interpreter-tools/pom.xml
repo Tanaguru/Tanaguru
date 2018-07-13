@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.tanaguru</groupId>
         <artifactId>engine</artifactId>
-        <version>5.2.1-SNAPSHOT</version>
+        <version>5.2.1</version>
     </parent>
     <artifactId>tanaguru-sebuilder-interpreter-tools</artifactId>
     <name>sebuilder-interpreter-tools</name>
