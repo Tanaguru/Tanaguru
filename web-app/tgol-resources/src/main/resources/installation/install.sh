@@ -241,9 +241,6 @@ create_tables() {
 
 	cd "$PKG_DIR/install/rules/sql"
 	cat 10-rules-resources-insert.sql        \
-            accessiweb2.2-insert.sql             \
-            rgaa3.0-insert.sql                   \
-            rgaa3-2016-insert.sql                \
             rgaa3-2017-insert.sql |              \
 		mysql --user=${mysql_tg_user}            \
 		      --password=${mysql_tg_passwd}      \
@@ -309,7 +306,7 @@ install_webapp() {
 	dirty_webapp=true
 	cd "${prefix}/${tomcat_webapps}/${tanaguru_webapp_dir}"        \
 		|| fail "Unable to go to the tanaguru webapp directory"
-	unzip -q "$PKG_DIR/install/web-app/$TG_WAR" \
+	unzip -q "$PKG_DIR/install/web-app/tgol-web-app-$tg_version.war" \
 		|| fail "Unable to extract the tanaguru war"
         sed -i -e "s#file:///#file://${prefix}/#g"              \
 	    "WEB-INF/conf/tgol-service.xml" ||                    \

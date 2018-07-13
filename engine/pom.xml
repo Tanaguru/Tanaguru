@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.tanaguru</groupId>
         <artifactId>tanaguru</artifactId>
-        <version>5.1.1</version>
+        <version>5.2.1</version>
     </parent>
     <artifactId>engine</artifactId>
     <packaging>pom</packaging>
