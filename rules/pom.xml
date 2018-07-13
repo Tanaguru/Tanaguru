@@ -4,11 +4,11 @@
     <parent>
         <groupId>org.tanaguru</groupId>
         <artifactId>tanaguru</artifactId>
-        <version>5.2.1</version>
+        <version>5.3.0-snapshot</version>
     </parent>
     <artifactId>rules</artifactId>
     <packaging>pom</packaging>
-    <version>5.2.1</version>
+    <version>5.3.0-snapshot</version>
     <name>rules</name>
     <build>
         <plugins>
