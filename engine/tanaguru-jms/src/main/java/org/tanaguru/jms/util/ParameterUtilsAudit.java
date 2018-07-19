@@ -165,36 +165,43 @@ public class ParameterUtilsAudit {
                 if (tblMarker != null) {
                     if (DATA_TABLE_MARKER.equals(parameter.getParameterElement().getParameterElementCode())) {
                         parameter.setValue(tblMarker);
+                        parameter.setDefaultParameterValue(false);
                     }
                 }
                 if (cplxTblMarker != null) {
                     if (COMPLEX_TABLE_MARKER.equals(parameter.getParameterElement().getParameterElementCode())) {
                         parameter.setValue(cplxTblMarker);
+                        parameter.setDefaultParameterValue(false);
                     }
                 }
                 if (prTblMarker != null) {
                     if (PRESENTATION_TABLE_MARKER.equals(parameter.getParameterElement().getParameterElementCode())) {
                         parameter.setValue(prTblMarker);
+                        parameter.setDefaultParameterValue(false);
                     }
                 }
                 if (dcrImgMarker != null) {
                     if (DECORATIVE_IMAGE_MARKER.equals(parameter.getParameterElement().getParameterElementCode())) {
                         parameter.setValue(dcrImgMarker);
+                        parameter.setDefaultParameterValue(false);
                     }
                 }
                 if (infImgMarker != null) {
                     if (INFORMATIVE_IMAGE_MARKER.equals(parameter.getParameterElement().getParameterElementCode())) {
                         parameter.setValue(infImgMarker);
+                        parameter.setDefaultParameterValue(false);
                     }
                 }
                 if (screenWidth != null) {
                     if (SCREEN_WIDTH.equals(parameter.getParameterElement().getParameterElementCode())) {
                         parameter.setValue(screenWidth);
+                        parameter.setDefaultParameterValue(false);
                     }
                 }
                 if (screenHeight != null) {
                     if (SCREEN_HEIGHT.equals(parameter.getParameterElement().getParameterElementCode())) {
                         parameter.setValue(screenHeight);
+                        parameter.setDefaultParameterValue(false);
                     }
                 }
 
