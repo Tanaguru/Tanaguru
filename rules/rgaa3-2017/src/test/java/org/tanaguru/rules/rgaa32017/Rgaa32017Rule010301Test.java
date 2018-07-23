@@ -251,7 +251,7 @@ public class Rgaa32017Rule010301Test extends Rgaa32017RuleImplementationTestCase
                 3,
                 new ImmutablePair(ALT_ATTR, "mock-image3"),
                 new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
-                new ImmutablePair(SRC_ATTR, "mock-image3"));
+                new ImmutablePair(SRC_ATTR, "mock-image3"));      
         checkRemarkIsPresent(
                 processResult,
                 NEED_MORE_INFO,

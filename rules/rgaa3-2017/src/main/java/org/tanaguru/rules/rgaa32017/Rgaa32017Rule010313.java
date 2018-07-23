@@ -19,7 +19,12 @@
  */
 package org.tanaguru.rules.rgaa32017;
 
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import org.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
+import org.tanaguru.rules.elementchecker.attribute.AttributeTextContentLengthChecker;
+import org.tanaguru.rules.elementselector.ImageElementSelector;
+import static org.tanaguru.rules.keystore.AttributeStore.ALT_ATTR;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.IMG_WITH_ALT_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_AT_RESTITUTION_OF_ALTERNATIVE_OF_INFORMATIVE_IMAGE_MSG;
 
 /**
  * Implementation of the rule 1.3.13 of the referential Rgaa 3-2017.
@@ -28,13 +33,25 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-3-13"> 1.3.13 rule specification</a>
  */
 
-public class Rgaa32017Rule010313 extends AbstractNotTestedRuleImplementation {
+public class Rgaa32017Rule010313  extends AbstractPageRuleWithSelectorAndCheckerImplementation {
 
     /**
      * Default constructor
      */
+
     public Rgaa32017Rule010313 () {
-        super();
+
+        super(
+                new ImageElementSelector(IMG_WITH_ALT_CSS_LIKE_QUERY, false, false),
+                new AttributeTextContentLengthChecker(
+                        ALT_ATTR, 
+                        80,
+                        CHECK_AT_RESTITUTION_OF_ALTERNATIVE_OF_INFORMATIVE_IMAGE_MSG,
+                        ALT_ATTR)
+    
+
+        );
+
     }
 
 }
