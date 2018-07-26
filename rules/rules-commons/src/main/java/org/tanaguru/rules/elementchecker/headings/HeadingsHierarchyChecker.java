@@ -96,7 +96,7 @@ public class HeadingsHierarchyChecker extends ElementCheckerImpl {
                             element,
                             HEADER_NOT_HIERARCHICALLY_WELL_DEFINED_MSG,
                             getEvidenceElement(PREVIOUS_H_TAG_INDEX_EE, getEvidenceElementMsg(previousIndex, previousElement)));
-                } else if ((currentIndex < indexOfReference) && (1==0)) { // disable this alternative
+                } else if ((currentIndex < indexOfReference)) { 
                     checkResult = TestSolution.FAILED;
                     addSourceCodeRemark(
                             TestSolution.FAILED,
