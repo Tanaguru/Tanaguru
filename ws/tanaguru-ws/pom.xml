@@ -123,12 +123,12 @@
             <artifactId>tanaguru-scenarioloader</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <dependency>
+  <!--       <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>tanaguru-accessiweb2.2</artifactId>
             <scope>runtime</scope>
         </dependency>
-<!--        <dependency>
+        <dependency>
             <groupId>${rulesGroupId}</groupId>
             <artifactId>tanaguru-rgaa2.2</artifactId>
             <scope>runtime</scope>
