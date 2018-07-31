@@ -166,6 +166,8 @@ public final class RemarkMessageStore {
     public static final String CHECK_NATURE_OF_IMAGE_AND_AT_RESTITUTION_OF_PERTINENCE_MSG
             = "CheckNatureOfImageAndAtRestitutionOfDescription";
     public static final String ALTERNATIVE_TOO_LONG_MSG = "AlternativeTooLong";
+    public static final String CHECK_NATURE_OF_IMAGE_AND_ALT_LENGTH_MSG
+            = "CheckNatureOfImageAndAltLength";
     public static final String ALT_SVG_DETECTED_MSG = "AltSvgDetect";
     public static final String DECORATIVE_SVG_WITHOUT_ROLE_IMG_ATTRIBUTE
             = "DecorativeSvgWithoutRoleImgAttribute";
