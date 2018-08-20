@@ -24,7 +24,6 @@ declare dirty_webapp=false
 declare TG_CONF_DIR="etc/tanaguru/"
 declare TG_TMP_DIR="var/tmp/tanaguru"
 declare TG_LOG_DIR="var/log/tanaguru"
-declare TOMCAT_HOME_DIR="/usr/share"
 declare PKG_DIR=$(pwd)
 
 declare ARCH="i386"
@@ -274,13 +273,16 @@ install_firefox_profile_files() {
 		"${prefix}/$TG_TMP_DIR/.gnome2_private"          \
 		|| fail "Unable to create Tanaguru directories"
 
-    ln -s "${prefix}$TG_TMP_DIR/.gconf" "${TOMCAT_HOME_DIR}/${tomcat_user}/.gconf" 
-    ln -s "${prefix}$TG_TMP_DIR/.java" "${TOMCAT_HOME_DIR}/${tomcat_user}/.java" 
-    ln -s "${prefix}$TG_TMP_DIR/.cache" "${TOMCAT_HOME_DIR}/${tomcat_user}/.cache" 
-    ln -s "${prefix}$TG_TMP_DIR/.dbus" "${TOMCAT_HOME_DIR}/${tomcat_user}/.dbus" 
-    ln -s "${prefix}$TG_TMP_DIR/.mozilla" "${TOMCAT_HOME_DIR}/${tomcat_user}/.mozilla" 
-    ln -s "${prefix}$TG_TMP_DIR/.gnome2" "${TOMCAT_HOME_DIR}/${tomcat_user}/.gnome2" 
-    ln -s "${prefix}$TG_TMP_DIR/.gnome2_private" "${TOMCAT_HOME_DIR}/${tomcat_user}/.gnome2_private" 
+	tomcat_home_dir=$(eval echo ~${tomcat_user})
+    
+    ln -s "${prefix}$TG_TMP_DIR/.gconf" "${tomcat_home_dir}/.gconf"
+    ln -s "${prefix}$TG_TMP_DIR/.java" "${tomcat_home_dir}/.java"
+    ln -s "${prefix}$TG_TMP_DIR/.cache" "${tomcat_home_dir}/.cache" 
+    ln -s "${prefix}$TG_TMP_DIR/.dbus" "${tomcat_home_dir}/.dbus" 
+    ln -s "${prefix}$TG_TMP_DIR/.mozilla" "${tomcat_home_dir}/.mozilla" 
+    ln -s "${prefix}$TG_TMP_DIR/.gnome2" "${tomcat_home_dir}/.gnome2" 
+    ln -s "${prefix}$TG_TMP_DIR/.gnome2_private" "${tomcat_home_dir}/.gnome2_private"
+
 }
 
 install_configuration() {
