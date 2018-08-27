@@ -23,10 +23,12 @@
 package org.tanaguru.service.command;
 
 import java.util.Set;
+
+import org.json.JSONException;
 import org.tanaguru.entity.audit.AuditStatus;
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.service.audit.AuditDataService;
-import org.tanaguru.sebuilder.tools.ScenarioBuilder;
+import org.tanaguru.selenese.tools.SeleneseBuilder;
 import org.tanaguru.util.FileNaming;
 import org.tanaguru.util.http.HttpRequestHandler;
 
@@ -73,7 +75,11 @@ public class PageAuditCommandImpl extends AbstractScenarioAuditCommandImpl {
     @Override
     public void init() {
         if (HttpRequestHandler.getInstance().isUrlAccessible(pageUrl)) {
-            setScenario(ScenarioBuilder.buildScenario(pageUrl));
+            try {
+                setScenario(SeleneseBuilder.buildFromUrl(getScenarioName(), pageUrl).getScenario());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
             setScenarioName(pageUrl);
             setIsPage(true);
             super.init();

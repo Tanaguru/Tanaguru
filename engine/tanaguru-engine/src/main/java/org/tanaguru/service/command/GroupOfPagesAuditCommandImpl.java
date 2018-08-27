@@ -25,9 +25,12 @@ package org.tanaguru.service.command;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+
+import org.json.JSONException;
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.service.audit.AuditDataService;
 import org.tanaguru.sebuilder.tools.ScenarioBuilder;
+import org.tanaguru.selenese.tools.SeleneseBuilder;
 import org.tanaguru.util.FileNaming;
 
 /**
@@ -56,7 +59,11 @@ public class GroupOfPagesAuditCommandImpl extends AbstractScenarioAuditCommandIm
             localUrlList.add(FileNaming.addProtocolToUrl(url));
         }
 
-        setScenario(ScenarioBuilder.buildScenario(localUrlList));
+        try {
+            setScenario(SeleneseBuilder.buildFromListOfUrls(getScenarioName(), localUrlList).getScenario());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         setScenarioName(siteUrl);
         setIsPage(false);
     }
@@ -85,7 +92,11 @@ public class GroupOfPagesAuditCommandImpl extends AbstractScenarioAuditCommandIm
             localUrlList.add(FileNaming.addProtocolToUrl(url));
         }
 
-        setScenario(ScenarioBuilder.buildScenario(localUrlList));
+        try {
+            setScenario(SeleneseBuilder.buildFromListOfUrls(getScenarioName(), localUrlList).getScenario());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         setScenarioName(siteUrl);
         setIsPage(false);
     }

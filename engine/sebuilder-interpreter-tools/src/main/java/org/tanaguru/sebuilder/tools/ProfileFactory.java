@@ -282,7 +282,7 @@ public final class ProfileFactory {
             if (StringUtils.isNotEmpty(proxyExclusionUrl)) {
                 proxy.setNoProxy(proxyExclusionUrl.replaceAll(";", ","));
             }
-            firefoxProfile.setProxyPreferences(proxy);
+            //firefoxProfile.setP
         }
     }
     

@@ -36,5 +36,6 @@
         <module>sebuilder-interpreter-tools</module>
         <module>tanaguru-jms</module>
         <module>tanaguru-kafka</module>
+        <module>selenese-runner-tools</module>
     </modules>
 </project>

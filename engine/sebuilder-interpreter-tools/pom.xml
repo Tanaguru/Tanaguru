@@ -52,5 +52,13 @@
             <artifactId>spring-context</artifactId>
             <type>jar</type>
         </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-crawler</artifactId>
+        </dependency>
     </dependencies>
 </project>

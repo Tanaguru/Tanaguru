@@ -22,8 +22,15 @@
 package org.tanaguru.scenarioloader;
 
 import java.util.List;
+import java.util.Map;
+
 import org.tanaguru.entity.audit.Content;
+import org.tanaguru.entity.service.audit.ContentDataService;
+import org.tanaguru.entity.service.audit.PreProcessResultDataService;
+import org.tanaguru.entity.service.parameterization.ParameterDataService;
+import org.tanaguru.entity.service.subject.WebResourceDataService;
 import org.tanaguru.entity.subject.WebResource;
+import org.tanaguru.util.factory.DateFactory;
 
 /**
  * 
@@ -48,4 +55,17 @@ public interface ScenarioLoader {
      */
     void setWebResource(WebResource webResource);
 
+    void setContentDataService(ContentDataService contentDataService);
+
+    void setDateFactory(DateFactory dateFactory);
+
+    void setWebResourceDataService(WebResourceDataService webResourceDataService);
+
+    void setPreProcessResultDataService(PreProcessResultDataService preProcessResultDataService);
+
+    void setJsScriptMap(Map<String,String> jsScriptMap);
+
+    void setPageLoadDriverTimeout(int pageLoadDriverTimeout);
+
+    void setParameterDataService(ParameterDataService parameterDataService);
 }

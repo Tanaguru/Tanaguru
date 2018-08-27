@@ -31,6 +31,9 @@ import org.tanaguru.entity.service.audit.PreProcessResultDataService;
 import org.tanaguru.entity.service.parameterization.ParameterDataService;
 import org.tanaguru.entity.service.subject.WebResourceDataService;
 import org.tanaguru.entity.subject.WebResource;
+import org.tanaguru.sebuilder.SeBuilderLoaderImpl;
+import org.tanaguru.selenese.SeleneseLoaderImpl;
+import org.tanaguru.selenese.tools.SeleneseHelper;
 import org.tanaguru.util.factory.DateFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -145,9 +148,16 @@ public class ScenarioLoaderFactoryImpl implements ScenarioLoaderFactory {
     
     @Override
     public ScenarioLoader create(WebResource mainWebResource, String scenario) {
-        ScenarioLoaderImpl scenarioLoader = new ScenarioLoaderImpl(
-                mainWebResource, 
-                scenario);
+
+        //Choose between sebuilder (old) and selenese runner (new)
+        ScenarioLoader scenarioLoader = null;
+
+        if(SeleneseHelper.isScenarioSelenese(scenario)){
+            scenarioLoader = new SeleneseLoaderImpl(mainWebResource, scenario);
+        }else{
+            scenarioLoader = new SeBuilderLoaderImpl(mainWebResource, scenario);
+        }
+
         scenarioLoader.setContentDataService(contentDataService);
         scenarioLoader.setDateFactory(dateFactory);
         scenarioLoader.setWebResourceDataService(webResourceDataService);
