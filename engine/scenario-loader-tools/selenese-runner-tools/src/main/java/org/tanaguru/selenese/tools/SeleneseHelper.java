@@ -15,7 +15,7 @@ public class SeleneseHelper {
 
     private static final Logger LOGGER = Logger.getLogger(SeleneseHelper.class);
 
-    public static boolean isScenarioSelenese(String scenario){
+    public static boolean isScenarioValid(String scenario){
         boolean result = true;
         Runner runner = new Runner();
         CommandFactory commandFactory = new CommandFactory(runner);
@@ -24,7 +24,7 @@ public class SeleneseHelper {
         try{
             Selenese s = Parser.parse("SeleneseValidator.side", input, commandFactory);
         }catch(Exception e){
-            LOGGER.error(e.getStackTrace());
+            LOGGER.debug(e.getStackTrace());
             result = false;
         }
 
