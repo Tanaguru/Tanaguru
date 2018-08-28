@@ -20,7 +20,7 @@
  *  Contact us by mail: tanaguru AT tanaguru DOT org
  */
 
-package org.tanaguru.sebuilder.tools;
+package org.tanaguru.scenarioloadertoolscommon;
 
 import java.io.File;
 import java.io.IOException;

@@ -13,6 +13,7 @@
     <modules>
         <module>commons-entity</module>
         <module>commons-entity-jpa</module>
+        <module>scenario-loader-tools</module>
         <module>tanaguru-api</module>
         <module>reference</module>
         <module>audit</module>
@@ -33,9 +34,7 @@
         <module>statistics</module>
 <!--        <module>tanaguru-i18n</module>-->
         <module>scenarioloader</module>
-        <module>sebuilder-interpreter-tools</module>
         <module>tanaguru-jms</module>
         <module>tanaguru-kafka</module>
-        <module>selenese-runner-tools</module>
     </modules>
 </project>

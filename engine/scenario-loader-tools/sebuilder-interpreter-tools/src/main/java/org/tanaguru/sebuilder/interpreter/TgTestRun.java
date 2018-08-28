@@ -38,10 +38,8 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.annotation.Cacheable;
+import org.tanaguru.scenarioloadertoolscommon.FirefoxDriverObjectPool;
 import org.tanaguru.sebuilder.interpreter.exception.TestRunException;
-import org.tanaguru.sebuilder.tools.FirefoxDriverObjectPool;
 
 /**
  * A single run of a test getScript().

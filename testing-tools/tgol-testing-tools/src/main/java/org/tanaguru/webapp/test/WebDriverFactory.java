@@ -27,7 +27,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.tanaguru.sebuilder.tools.ProfileFactory;
+import org.tanaguru.scenarioloadertoolscommon.ProfileFactory;
 
 /**
  * WebDriverFactory that guarantees that only one instance of webdriver is used 

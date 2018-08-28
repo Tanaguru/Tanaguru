@@ -19,7 +19,7 @@
  * 
  *  Contact us by mail: tanaguru AT tanaguru DOT org
  */
-package org.tanaguru.sebuilder.tools;
+package org.tanaguru.scenarioloadertoolscommon;
 
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.pool.PoolableObjectFactory;

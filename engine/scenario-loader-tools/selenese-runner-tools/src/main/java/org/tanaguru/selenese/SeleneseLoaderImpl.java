@@ -10,8 +10,10 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.events.WebDriverEventListener;
@@ -43,16 +45,17 @@ public class SeleneseLoaderImpl extends AbstractScenarioLoader implements WebDri
             //Initialize webdriver
             ClassLoader classLoader = getClass().getClassLoader();
             File geckodriver = new File(classLoader.getResource("geckodriver").toURI());
-            //System.setProperty("webdriver.gecko.driver",
-                   // geckodriver.getPath());
+            geckodriver.setExecutable(true);
             System.setProperty("webdriver.gecko.driver",
-                    "/opt/geckodriver");
+                    geckodriver.getPath());
 
-            //FirefoxBinary ffBinary = new FirefoxBinary();
             FirefoxOptions ffOptions = new FirefoxOptions();
-            ffOptions.setBinary("/opt/firefox/firefox");
+            FirefoxBinary ffBinary = new FirefoxBinary();
+
+            ffOptions.setBinary(ffBinary);
             ffOptions.setAcceptInsecureCerts(true);
             ffOptions.setHeadless(true);
+            ffOptions.setProfile(super.profileFactory.getOnlineProfile());
 
             RemoteWebDriver ffDriver = new FirefoxDriver(ffOptions);
             EventFiringWebDriver eventDriver = new EventFiringWebDriver(ffDriver);

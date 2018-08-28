@@ -28,31 +28,22 @@ import com.sebuilder.interpreter.factory.ScriptFactory.SuiteException;
 import com.sebuilder.interpreter.factory.TestRunFactory;
 import com.sebuilder.interpreter.steptype.Get;
 import java.io.IOException;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.http.HttpStatus;
 import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.tanaguru.crawler.util.CrawlUtils;
-import org.tanaguru.entity.audit.Audit;
-import org.tanaguru.entity.audit.PreProcessResult;
-import org.tanaguru.entity.audit.SSP;
 import org.tanaguru.entity.parameterization.ParameterElement;
-import org.tanaguru.entity.subject.Page;
-import org.tanaguru.entity.subject.Site;
 import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.exception.ScenarioLoaderException;
 import org.tanaguru.scenarioloader.AbstractScenarioLoader;
+import org.tanaguru.scenarioloadertools.FirefoxDriverObjectPool;
+import org.tanaguru.scenarioloadertools.ProfileFactory;
 import org.tanaguru.sebuilder.interpreter.NewPageListener;
 import org.tanaguru.sebuilder.interpreter.exception.TestRunException;
 import org.tanaguru.sebuilder.interpreter.factory.TgStepTypeFactory;
 import org.tanaguru.sebuilder.interpreter.factory.TgTestRunFactory;
-import org.tanaguru.sebuilder.tools.FirefoxDriverObjectPool;
-import org.tanaguru.sebuilder.tools.ProfileFactory;
 
 /**
  *
@@ -61,7 +52,6 @@ import org.tanaguru.sebuilder.tools.ProfileFactory;
 public class SeBuilderLoaderImpl extends AbstractScenarioLoader implements NewPageListener {
 
     private static final Logger LOGGER = Logger.getLogger(SeBuilderLoaderImpl.class);
-    private final ProfileFactory profileFactory;
 
     private int implicitelyWaitDriverTimeout = 1;
 
@@ -88,7 +78,6 @@ public class SeBuilderLoaderImpl extends AbstractScenarioLoader implements NewPa
             WebResource webResource,
             String scenario) {
         super(webResource, scenario);
-        this.profileFactory = ProfileFactory.getInstance();
     }
 
     @Override

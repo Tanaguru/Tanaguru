@@ -15,6 +15,7 @@ import org.tanaguru.entity.service.subject.WebResourceDataService;
 import org.tanaguru.entity.subject.Page;
 import org.tanaguru.entity.subject.Site;
 import org.tanaguru.entity.subject.WebResource;
+import org.tanaguru.scenarioloadertoolscommon.ProfileFactory;
 import org.tanaguru.util.factory.DateFactory;
 
 import java.util.ArrayList;
@@ -33,6 +34,7 @@ public abstract class AbstractScenarioLoader implements ScenarioLoader {
     protected int pageLoadDriverTimeout;
     protected int pageRank = 1;
     protected List<SSPInfo> sspInfoList = new LinkedList<>();
+    protected final ProfileFactory profileFactory;
 
     protected ContentDataService contentDataService;
     protected ParameterDataService parameterDataService;
@@ -46,6 +48,7 @@ public abstract class AbstractScenarioLoader implements ScenarioLoader {
             String scenario) {
         this.webResource = webResource;
         this.scenario = scenario;
+        this.profileFactory = ProfileFactory.getInstance();
     }
 
     @Override
