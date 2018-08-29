@@ -112,6 +112,7 @@ public class SeleneseBuilder {
     public String getScenario() {
         return scenario.toString();
     }
+    public JSONObject getScenarioJson(){return scenario;}
 
     public static SeleneseBuilder buildFromListOfUrls(String name, List<String> urls) throws JSONException {
         SeleneseBuilder builder = new SeleneseBuilder(name);
@@ -120,7 +121,7 @@ public class SeleneseBuilder {
         for (String url : urls) {
             i++;
             builder.putUrl(url)
-                    .putTest("Test url " + i, url)
+                    .putTest("Test url", url)
                     .putCommand(url, "open url : " + url, "open", url, "", null);
 
         }

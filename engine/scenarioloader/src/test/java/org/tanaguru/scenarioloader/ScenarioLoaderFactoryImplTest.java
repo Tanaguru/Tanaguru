@@ -24,6 +24,7 @@ package org.tanaguru.scenarioloader;
 import junit.framework.TestCase;
 import static org.easymock.EasyMock.*;
 import org.tanaguru.entity.subject.WebResource;
+import org.tanaguru.sebuilder.SeBuilderLoaderImpl;
 
 /**
  *
@@ -55,7 +56,7 @@ public class ScenarioLoaderFactoryImplTest extends TestCase {
         ScenarioLoaderFactoryImpl instance = new ScenarioLoaderFactoryImpl();
         
         ScenarioLoader scenarioLoader = instance.create(mockWebResource, scenario);
-        assertTrue(scenarioLoader instanceof ScenarioLoaderImpl);
+        assertTrue(scenarioLoader instanceof SeBuilderLoaderImpl);
     }
     
 }
