@@ -193,6 +193,10 @@ public final class RemarkMessageStore {
             = "SuspectedInformativeSvgWithDescOrTitleChildTag";
     public static final String SUSPECTED_INFORMATIVE_SVG_WITH_TITLE_ATTRIBUTE_ON_ELEMENT_OR_CHILD
             = "SuspectedInformativeSvgWithTitleAttributeOnElementOrChild";
+    public static final String SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG 
+    		= "SuspectedInformativeSvgWithRoleImgMissing";
+    public static final String SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG 
+			= "SuspectedDecorativeSvgWithRoleImgMissing";
     public static final String SUSPECTED_WELL_FORMATED_DECORATIVE_SVG
             = "SuspectedWellFormedDecorativeSvg";
     public static final String CHECK_NATURE_OF_IMAGE_AND_TEXT_STYLED_PRESENCE_MSG
