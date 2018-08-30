@@ -219,19 +219,13 @@ public class Rgaa32017Rule010204 extends AbstractMarkerPageRuleImplementation {
         // This control is inhibated to avoid throwing same error as 1.3.5
         // Thus, each vectorial image not determined with marker without role="img"
         // will raise a Failed, only once, in 1.3.5
-//       ec = new ElementPresenceChecker(
-//                new ImmutablePair(TestSolution.NEED_MORE_INFO, SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG), 
-//                new ImmutablePair(TestSolution.PASSED,""));
-//        
-//        if (!svgElementsWithoutRoleImage.isEmpty()) {
-//            // result is failed for sure
-//            ec.check(sspHandler, svgElementsWithoutRoleImage, testSolutionHandler);
-//        }
-        ec = new ElementPresenceChecker(
-                new ImmutablePair(NEED_MORE_INFO, SVG_WITHOUT_ROLE_IMAGE_MSG),
-                new ImmutablePair(PASSED, ""));
+       
+        
         if (!svgElementsWithoutRoleImage.isEmpty()) {
-            // result is failed for sure
+        	ec = new ElementPresenceChecker(
+                    new ImmutablePair(NEED_MORE_INFO, SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG ), 
+                    new ImmutablePair(PASSED,""));
+        	
             ec.check(sspHandler, svgElementsWithoutRoleImage, testSolutionHandler);
         }
         
