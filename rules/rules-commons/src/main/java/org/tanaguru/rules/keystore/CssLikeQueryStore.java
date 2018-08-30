@@ -415,6 +415,8 @@ public final class CssLikeQueryStore {
     // Links css-like queries
     public static final String NOT_ANCHOR_LINK_CSS_LIKE_QUERY
             = "a:not([name]):not([id])";
+    public static final String NOT_ANCHOR_LINK_WITH_HREF_CSS_LIKE_QUERY
+    		= "a[href]:not([name]):not([id])";
     public static final String TEXT_LINK_CSS_LIKE_QUERY
             = "a[href]:not(:has(*))";
     public static final String LINK_WITH_CHILDREN_CSS_LIKE_QUERY

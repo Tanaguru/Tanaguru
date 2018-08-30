@@ -34,7 +34,7 @@ import org.tanaguru.rules.elementselector.ElementSelector;
 import org.tanaguru.rules.elementselector.SimpleElementSelector;
 import static org.tanaguru.rules.keystore.AttributeStore.ALT_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.HREF_ATTR;
-import static org.tanaguru.rules.keystore.CssLikeQueryStore.NOT_ANCHOR_LINK_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.NOT_ANCHOR_LINK_WITH_HREF_CSS_LIKE_QUERY;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.EMPTY_LINK_MSG;
 
 /**
@@ -59,7 +59,7 @@ public class Rgaa32017Rule060501 extends AbstractPageRuleMarkupImplementation {
     @Override
     protected void select(SSPHandler sspHandler) {
         ElementSelector elementsSelector = 
-                new SimpleElementSelector(NOT_ANCHOR_LINK_CSS_LIKE_QUERY);
+                new SimpleElementSelector(NOT_ANCHOR_LINK_WITH_HREF_CSS_LIKE_QUERY);
         elementsSelector.selectElements(sspHandler, linksHandler);
         for (Element el : linksHandler.get()) {
             if (StringUtils.isBlank(el.text()) && 
