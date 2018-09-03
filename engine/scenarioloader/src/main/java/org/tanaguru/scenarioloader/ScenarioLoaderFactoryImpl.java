@@ -33,8 +33,10 @@ import org.tanaguru.entity.service.subject.WebResourceDataService;
 import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.exception.ScenarioLoaderException;
 import org.tanaguru.sebuilder.SeBuilderLoaderImpl;
+import org.tanaguru.sebuilder.tools.LegacyProfileFactoryImpl;
 import org.tanaguru.sebuilder.tools.SeBuilderHelper;
 import org.tanaguru.selenese.SeleneseLoaderImpl;
+import org.tanaguru.selenese.tools.ProfileFactoryImpl;
 import org.tanaguru.selenese.tools.SeleneseHelper;
 import org.tanaguru.util.factory.DateFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +46,8 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author enzolalay
  */
 public class ScenarioLoaderFactoryImpl implements ScenarioLoaderFactory {
+
+    private static final Logger LOGGER = Logger.getLogger(ScenarioLoaderFactoryImpl.class);
 
 //    private SnapshotDataService snapshotDataService;
 //    public SnapshotDataService getSnapshotDataService() {
@@ -149,18 +153,41 @@ public class ScenarioLoaderFactoryImpl implements ScenarioLoaderFactory {
     }
     
     @Override
-    public ScenarioLoader create(WebResource mainWebResource, String scenario) {
+    public ScenarioLoader create(WebResource mainWebResource, String scenario, ScenarioRunner scenarioRunner) {
 
-        //Choose between sebuilder (old) and selenese runner (new)
         ScenarioLoader scenarioLoader = null;
 
-        if(SeleneseHelper.isScenarioValid(scenario)){
-            scenarioLoader = new SeleneseLoaderImpl(mainWebResource, scenario);
-        }else if(SeBuilderHelper.isScenarioValid(scenario)){
-            scenarioLoader = new SeBuilderLoaderImpl(mainWebResource, scenario);
-        }else{
+        switch(scenarioRunner){
+            case SEBUILDER:
+                if(SeBuilderHelper.isScenarioValid(scenario)){
+                    LOGGER.debug("Choose legacy SeBuilder runner");
+                    scenarioLoader = new SeBuilderLoaderImpl(mainWebResource, scenario, LegacyProfileFactoryImpl.getInstance());
+                }else{
+                    LOGGER.error("Invalid legacy scenario");
+                    throw new ScenarioLoaderException(new Exception("Scenario does not match legacy scenario syntax"));
+                }
+                break;
+
+            case SELENESE:
+                if(SeleneseHelper.isScenarioValid(scenario)){
+                    LOGGER.debug("Choose new Selenese runner");
+                    scenarioLoader = new SeleneseLoaderImpl(mainWebResource, scenario, ProfileFactoryImpl.getInstance());
+                }else{
+                    LOGGER.error("Invalid selenese scenario");
+                    throw new ScenarioLoaderException(new Exception("Scenario does not match selenese scenario syntax"));
+                }
+                break;
+
+            //Incompatible versions
+            case INVALID:
+            default:
+                LOGGER.error("Invalid browser version, please use the latest Mozilla Firefox esr version");
+        }
+
+        //Couldn't create scenario loader
+        if(scenarioLoader == null){
             throw new ScenarioLoaderException(
-                    new Exception("Unable to create scenario loader")
+                    new Exception("Unable to create scenario loader ")
             );
         }
 
@@ -174,5 +201,7 @@ public class ScenarioLoaderFactoryImpl implements ScenarioLoaderFactory {
 //        scenarioLoader.setFirefoxDriverObjectPool(firefoxDriverObjectPool);
         return scenarioLoader;
     }
+
+
 
 }

@@ -20,7 +20,7 @@
  *  Contact us by mail: tanaguru AT tanaguru DOT org
  */
 
-package org.tanaguru.scenarioloadertoolscommon;
+package org.tanaguru.sebuilder.tools;
 
 import java.io.File;
 import java.io.IOException;
@@ -35,7 +35,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
  *
  * @author jkowalczyk
  */
-public final class ProfileFactory {
+public class LegacyProfileFactoryImpl {
 
     private List<String> extensionPathList = new ArrayList<String>();
     public void setExtensionPathList(List<String> extensionPathList) {
@@ -84,28 +84,7 @@ public final class ProfileFactory {
      */
     private Map<FirefoxProfile, String> netExportPathMap = 
             new HashMap<FirefoxProfile, String>();
-    
-    /**
-     * The holder that handles the unique instance of ProfileFactory
-     */
-    private static class ProfileFactoryHolder {
-        private static final ProfileFactory INSTANCE = new ProfileFactory();
-    }
-    
-    /**
-     * Private constructor
-     */
-    private ProfileFactory() {}
-    
-    /**
-     * Singleton pattern based on the "Initialization-on-demand 
-     * holder idiom". See @http://en.wikipedia.org/wiki/Initialization_on_demand_holder_idiom
-     * @return the unique instance of ProfileFactory
-     */
-    public static ProfileFactory getInstance() {
-        return ProfileFactoryHolder.INSTANCE;
-    }
-    
+
     /**
      * 
      * @return 
@@ -121,7 +100,10 @@ public final class ProfileFactory {
     public FirefoxProfile getOnlineProfile() {
         return getProfile(true);
     }
-    
+
+    private LegacyProfileFactoryImpl(){}
+
+
     /**
      * 
      * @return 
@@ -220,8 +202,8 @@ public final class ProfileFactory {
         for (String extensionPath : extensionPathList) {
             try {
                 firefoxProfile.addExtension(new File(extensionPath));
-            } catch (IOException ex) {
-                Logger.getLogger(this.getClass()).error(ex);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
                 
@@ -282,7 +264,6 @@ public final class ProfileFactory {
             if (StringUtils.isNotEmpty(proxyExclusionUrl)) {
                 proxy.setNoProxy(proxyExclusionUrl.replaceAll(";", ","));
             }
-            //firefoxProfile.setP
         }
     }
     
@@ -297,4 +278,11 @@ public final class ProfileFactory {
         return strb.toString();
     }
 
+    public static LegacyProfileFactoryImpl getInstance(){
+        return LegacyProfileFactoryHolder.INSTANCE;
+    }
+
+    private static class LegacyProfileFactoryHolder{
+        private static final LegacyProfileFactoryImpl INSTANCE = new LegacyProfileFactoryImpl();
+    }
 }

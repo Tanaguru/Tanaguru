@@ -26,6 +26,7 @@ import javax.xml.bind.annotation.XmlTransient;
 import org.tanaguru.entity.audit.Content;
 import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.scenarioloader.ScenarioLoaderFactory;
+import org.tanaguru.scenarioloader.ScenarioRunner;
 
 /**
  * 
@@ -40,7 +41,7 @@ public interface ScenarioLoaderService {
      * @param scenarioFile
      * @return
      */
-    List<Content> loadScenario(WebResource webResource, String scenarioFile);
+    List<Content> loadScenario(WebResource webResource, String scenarioFile, ScenarioRunner scenarioRunner);
 
     /**
      *

@@ -19,13 +19,14 @@
  * 
  *  Contact us by mail: tanaguru AT tanaguru DOT org
  */
-package org.tanaguru.scenarioloadertoolscommon;
+package org.tanaguru.sebuilder.tools;
 
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.pool.PoolableObjectFactory;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.tanaguru.sebuilder.tools.LegacyProfileFactoryImpl;
 
 /**
  * Implementation of FirefoxDriver poolable factory. Each instance of 
@@ -64,7 +65,9 @@ public class FirefoxDriverPoolableObjectFactory implements PoolableObjectFactory
             Logger.getLogger(this.getClass()).info("Setting Xvfb display with value " + System.getProperty(DISPLAY_PROPERTY_KEY));
             ffBinary.setEnvironmentProperty("DISPLAY", System.getProperty(DISPLAY_PROPERTY_KEY));
         }
-        FirefoxDriver fd = new FirefoxDriver(ffBinary, ProfileFactory.getInstance().getScenarioProfile());
+
+        LegacyProfileFactoryImpl profileFactory = LegacyProfileFactoryImpl.getInstance();
+        FirefoxDriver fd = new FirefoxDriver(ffBinary, profileFactory.getScenarioProfile());
         if (this.implicitelyWaitDriverTimeout != null) {
             fd.manage().timeouts().implicitlyWait(this.implicitelyWaitDriverTimeout.longValue(), TimeUnit.SECONDS);
         }
@@ -78,9 +81,6 @@ public class FirefoxDriverPoolableObjectFactory implements PoolableObjectFactory
     public void destroyObject(FirefoxDriver t) throws Exception {
         t.close();
         t.quit();
-        if (t != null) {
-            t.kill();
-        }
     }
 
     @Override

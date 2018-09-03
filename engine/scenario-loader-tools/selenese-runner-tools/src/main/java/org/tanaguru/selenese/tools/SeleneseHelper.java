@@ -7,8 +7,6 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import jp.vmi.selenium.selenese.result.Result;
-import jp.vmi.selenium.selenese.utils.StopWatch;
 import org.apache.log4j.Logger;
 
 public class SeleneseHelper {

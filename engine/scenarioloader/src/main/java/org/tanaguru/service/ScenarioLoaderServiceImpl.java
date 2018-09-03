@@ -28,8 +28,9 @@ import org.tanaguru.entity.service.audit.ContentDataService;
 import org.tanaguru.entity.service.subject.WebResourceDataService;
 import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.scenarioloader.ScenarioLoader;
-import org.tanaguru.scenarioloader.ScenarioLoaderFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.tanaguru.scenarioloader.ScenarioLoaderFactory;
+import org.tanaguru.scenarioloader.ScenarioRunner;
 
 /**
  * 
@@ -61,9 +62,9 @@ public class ScenarioLoaderServiceImpl implements ScenarioLoaderService {
     }
 
     @Override
-    public List<Content> loadScenario(WebResource webResource, String scenarioFile) {
+    public List<Content> loadScenario(WebResource webResource, String scenarioFile, ScenarioRunner scenarioRunner) {
         Audit audit = webResource.getAudit();
-        ScenarioLoader scenarioLoader = scenarioLoaderFactory.create(webResource, scenarioFile);
+        ScenarioLoader scenarioLoader = scenarioLoaderFactory.create(webResource, scenarioFile, scenarioRunner);
         scenarioLoader.run();
         List<Content> contentList = scenarioLoader.getResult();
         for (Content content : contentList) {

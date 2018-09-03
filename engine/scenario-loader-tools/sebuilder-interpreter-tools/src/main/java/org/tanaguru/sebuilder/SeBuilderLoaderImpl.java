@@ -38,12 +38,12 @@ import org.tanaguru.entity.parameterization.ParameterElement;
 import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.exception.ScenarioLoaderException;
 import org.tanaguru.scenarioloader.AbstractScenarioLoader;
-import org.tanaguru.scenarioloadertools.FirefoxDriverObjectPool;
-import org.tanaguru.scenarioloadertools.ProfileFactory;
 import org.tanaguru.sebuilder.interpreter.NewPageListener;
 import org.tanaguru.sebuilder.interpreter.exception.TestRunException;
 import org.tanaguru.sebuilder.interpreter.factory.TgStepTypeFactory;
 import org.tanaguru.sebuilder.interpreter.factory.TgTestRunFactory;
+import org.tanaguru.sebuilder.tools.FirefoxDriverObjectPool;
+import org.tanaguru.sebuilder.tools.LegacyProfileFactoryImpl;
 
 /**
  *
@@ -64,6 +64,7 @@ public class SeBuilderLoaderImpl extends AbstractScenarioLoader implements NewPa
 
 
     private FirefoxDriverObjectPool firefoxDriverObjectPool;
+    private LegacyProfileFactoryImpl profileFactory;
 
     public FirefoxDriverObjectPool getFirefoxDriverObjectPool() {
         return firefoxDriverObjectPool;
@@ -76,8 +77,10 @@ public class SeBuilderLoaderImpl extends AbstractScenarioLoader implements NewPa
 
     public SeBuilderLoaderImpl(
             WebResource webResource,
-            String scenario) {
+            String scenario,
+            LegacyProfileFactoryImpl profileFactory) {
         super(webResource, scenario);
+        this.profileFactory = profileFactory;
     }
 
     @Override

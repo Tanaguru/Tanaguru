@@ -22,6 +22,7 @@
 package org.tanaguru.scenarioloader;
 
 import org.tanaguru.entity.subject.WebResource;
+import org.tanaguru.scenarioloader.ScenarioLoader;
 
 /**
  *
@@ -33,11 +34,13 @@ public interface ScenarioLoaderFactory {
      * 
      * @param mainWebResource
      * @param scenarioFile
+     * @param scenarioRunner
      * @return 
      *      an instance of ContentLoader
      */
     ScenarioLoader create(
-            WebResource mainWebResource, 
-            String scenarioFile);
+            WebResource mainWebResource,
+            String scenarioFile,
+            ScenarioRunner scenarioRunner);
 
 }

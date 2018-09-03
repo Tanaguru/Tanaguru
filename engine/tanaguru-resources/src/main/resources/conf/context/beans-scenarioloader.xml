@@ -20,7 +20,8 @@
 
     <bean id="scenarioLoaderService" class="org.tanaguru.service.ScenarioLoaderServiceImpl"/>
 
-    <bean id="profileFactory" class="org.tanaguru.scenarioloadertools.ProfileFactory" factory-method="getInstance"/>
+    <bean id="legacyProfileFactoryImpl" class="org.tanaguru.sebuilder.tools.LegacyProfileFactoryImpl" factory-method="getInstance"/>
+    <bean id="profileFactoryImpl" class="org.tanaguru.selenese.tools.ProfileFactoryImpl" factory-method="getInstance"/>
 
 <!--    <bean id="firefoxDriverPoolabelObjectFactory" class="org.tanaguru.scenarioloadertools.FirefoxDriverPoolableObjectFactory">
         <property name="implicitelyWaitDriverTimeout">
@@ -52,9 +53,14 @@
         </property>
     </bean>-->
 
+    <!--            LEGACY PROFILE FACTORY          -->
+    <!--
+          File must have been duplicated, those 2 files use different versions of selenium and FirefoxProfile
+          these versions are incompatible, that is why we are usin an interface ProfileFactory and those duplicated files
+    -->
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="profileFactory"/>
+            <ref local="legacyProfileFactoryImpl"/>
         </property>
         <property name="targetMethod">
             <value>setProxyPort</value>
@@ -68,7 +74,7 @@
     
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="profileFactory"/>
+            <ref local="legacyProfileFactoryImpl"/>
         </property>
         <property name="targetMethod">
             <value>setProxyHost</value>
@@ -82,7 +88,7 @@
     
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="profileFactory"/>
+            <ref local="legacyProfileFactoryImpl"/>
         </property>
         <property name="targetMethod">
             <value>setProxyExclusionUrl</value>
@@ -96,7 +102,7 @@
     
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="profileFactory"/>
+            <ref local="legacyProfileFactoryImpl"/>
         </property>
         <property name="targetMethod">
             <value>setPathToPreSetProfile</value>
@@ -108,5 +114,62 @@
         </property>
     </bean>
 
+
+    <!--            NEW PROFILE FACTORY          -->
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject">
+            <ref local="profileFactoryImpl"/>
+        </property>
+        <property name="targetMethod">
+            <value>setProxyPort</value>
+        </property>
+        <property name="arguments">
+            <list>
+                <value>${proxyPort}</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject">
+            <ref local="profileFactoryImpl"/>
+        </property>
+        <property name="targetMethod">
+            <value>setProxyHost</value>
+        </property>
+        <property name="arguments">
+            <list>
+                <value>${proxyHost}</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject">
+            <ref local="profileFactoryImpl"/>
+        </property>
+        <property name="targetMethod">
+            <value>setProxyExclusionUrl</value>
+        </property>
+        <property name="arguments">
+            <list>
+                <value>${proxyExclusionUrl}</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject">
+            <ref local="profileFactoryImpl"/>
+        </property>
+        <property name="targetMethod">
+            <value>setPathToPreSetProfile</value>
+        </property>
+        <property name="arguments">
+            <list>
+                <value>${pathToPreSetFirefoxProfile}</value>
+            </list>
+        </property>
+    </bean>
 
 </beans>

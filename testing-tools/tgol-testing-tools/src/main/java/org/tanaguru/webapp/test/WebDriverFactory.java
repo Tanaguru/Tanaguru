@@ -27,7 +27,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.tanaguru.scenarioloadertoolscommon.ProfileFactory;
+import org.tanaguru.sebuilder.tools.LegacyProfileFactoryImpl;
 
 /**
  * WebDriverFactory that guarantees that only one instance of webdriver is used 
@@ -73,7 +73,7 @@ public class WebDriverFactory {
                 Logger.getLogger(this.getClass()).info("Setting Xvfb display with value " + display);
                 ffBinary.setEnvironmentProperty("DISPLAY", display);
             }
-            ProfileFactory pf = ProfileFactory.getInstance();
+            LegacyProfileFactoryImpl pf = LegacyProfileFactoryImpl.getInstance();
             webDriver = new FirefoxDriver(ffBinary, pf.getOnlineProfile());
             webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
             webDriver.manage().timeouts().pageLoadTimeout(310, TimeUnit.SECONDS);

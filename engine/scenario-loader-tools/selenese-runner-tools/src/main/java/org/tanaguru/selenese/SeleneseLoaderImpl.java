@@ -8,18 +8,19 @@ import jp.vmi.selenium.selenese.command.CommandFactory;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.events.WebDriverEventListener;
 import org.tanaguru.crawler.util.CrawlUtils;
 import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.scenarioloader.AbstractScenarioLoader;
+import org.tanaguru.selenese.tools.ProfileFactoryImpl;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -30,11 +31,14 @@ import java.net.URISyntaxException;
 public class SeleneseLoaderImpl extends AbstractScenarioLoader implements WebDriverEventListener {
 
     private static final Logger LOGGER = Logger.getLogger(SeleneseLoaderImpl.class);
+    private ProfileFactoryImpl profileFactory;
 
     public SeleneseLoaderImpl(
             WebResource webResource,
-            String scenario) {
+            String scenario,
+            ProfileFactoryImpl profileFactory) {
         super(webResource, scenario);
+        this.profileFactory = profileFactory;
     }
 
     @Override
@@ -48,14 +52,13 @@ public class SeleneseLoaderImpl extends AbstractScenarioLoader implements WebDri
             geckodriver.setExecutable(true);
             System.setProperty("webdriver.gecko.driver",
                     geckodriver.getPath());
-
-            FirefoxOptions ffOptions = new FirefoxOptions();
             FirefoxBinary ffBinary = new FirefoxBinary();
 
+            FirefoxOptions ffOptions = new FirefoxOptions();
             ffOptions.setBinary(ffBinary);
             ffOptions.setAcceptInsecureCerts(true);
             ffOptions.setHeadless(true);
-            ffOptions.setProfile(super.profileFactory.getOnlineProfile());
+            ffOptions.setProfile(profileFactory.getOnlineProfile());
 
             RemoteWebDriver ffDriver = new FirefoxDriver(ffOptions);
             EventFiringWebDriver eventDriver = new EventFiringWebDriver(ffDriver);
@@ -91,14 +94,19 @@ public class SeleneseLoaderImpl extends AbstractScenarioLoader implements WebDri
 
     @Override
     public void afterNavigateTo(String url, WebDriver driver) {
-        String charset = super.UTF8;
-        String source = driver.getPageSource();
         try {
-            charset = CrawlUtils.extractCharset(IOUtils.toInputStream(source));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        super.fireNewSSP(driver.getCurrentUrl(), source, null, jsScriptMap, charset);
+            String getDoctypeStr = IOUtils.toString(SeleneseLoaderImpl.class.getClassLoader()
+                        .getResourceAsStream("getDoctype.js"));
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            String jsCommand = getDoctypeStr + "return getDoctype();";
+            String doctype = (String) js.executeScript(jsCommand);
+            String source = doctype + driver.getPageSource();
+            String charset = CrawlUtils.extractCharset(IOUtils.toInputStream(source));
+
+            super.fireNewSSP(driver.getCurrentUrl(), source, null, jsScriptMap, charset);
+       } catch (IOException e) {
+           e.printStackTrace();
+       }
     }
 
     @Override

@@ -42,6 +42,14 @@
             <artifactId>json-simple</artifactId>
             <version>1.1.1</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>scenario-loader-tools-common</artifactId>
+            <version>5.3.0-snapshot</version>
+            <scope>compile</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.tanaguru</groupId>
             <artifactId>selenese-runner-tools</artifactId>

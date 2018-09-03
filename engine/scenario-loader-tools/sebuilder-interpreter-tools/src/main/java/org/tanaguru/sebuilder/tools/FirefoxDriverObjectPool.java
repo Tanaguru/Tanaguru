@@ -19,7 +19,7 @@
  * 
  *  Contact us by mail: tanaguru AT tanaguru DOT org
  */
-package org.tanaguru.scenarioloadertoolscommon;
+package org.tanaguru.sebuilder.tools;
 
 import org.apache.commons.pool.PoolableObjectFactory;
 import org.apache.commons.pool.impl.GenericObjectPool;

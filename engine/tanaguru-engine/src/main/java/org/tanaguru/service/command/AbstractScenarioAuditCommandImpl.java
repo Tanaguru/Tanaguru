@@ -28,6 +28,9 @@ import org.tanaguru.entity.audit.AuditStatus;
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.service.audit.AuditDataService;
 import org.tanaguru.entity.subject.WebResource;
+import org.tanaguru.scenarioloader.ScenarioFactory;
+import org.tanaguru.scenarioloader.ScenarioRunner;
+import org.tanaguru.scenarioloadertoolscommon.ScenarioLoaderHelper;
 import org.tanaguru.service.ScenarioLoaderService;
 
 /**
@@ -45,6 +48,8 @@ public abstract class AbstractScenarioAuditCommandImpl extends AuditCommandImpl 
      * The scenario loader Service instance
      */
     private ScenarioLoaderService scenarioLoaderService;
+    private ScenarioRunner scenarioRunner;
+
     public ScenarioLoaderService getScenarioLoaderService() {
         return scenarioLoaderService;
     }
@@ -90,6 +95,7 @@ public abstract class AbstractScenarioAuditCommandImpl extends AuditCommandImpl 
                 Set<Parameter> paramSet,
                 AuditDataService auditDataService) {
         super(paramSet, auditDataService);
+        chooseScenarioRunner();
     }
     
      /**
@@ -105,14 +111,37 @@ public abstract class AbstractScenarioAuditCommandImpl extends AuditCommandImpl 
                 String w3cValidatorPath,
                 String java8Path) {
         super(paramSet, auditDataService, w3cValidatorPath, java8Path);
+        chooseScenarioRunner();
     }
+
 
     @Override
     public void init() {
         super.init();
         setStatusToAudit(AuditStatus.SCENARIO_LOADING);
+        chooseScenarioRunner();
     }
-    
+
+    private void chooseScenarioRunner(){
+        //Choose between sebuilder (old) and selenese runner (new)
+        // Looking at firefox version and scenario compatibility
+        String ffVersion = "";
+
+        try {
+            ffVersion = ScenarioLoaderHelper.getSpecifiedFirefoxVersion();
+            LOGGER.debug("Choosing runner for : " + ffVersion);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+
+        this.scenarioRunner = ScenarioLoaderHelper.chooseScenarioRunner(ffVersion);
+        LOGGER.debug("Selected : " + scenarioRunner.name());
+    }
+
+    public ScenarioRunner getScenarioRunner() {
+        return scenarioRunner;
+    }
+
     @Override
     public void loadContent() {
         if (LOGGER.isInfoEnabled()) {
@@ -130,7 +159,8 @@ public abstract class AbstractScenarioAuditCommandImpl extends AuditCommandImpl 
         }
         // the returned content list is already persisted and associated with
         // the current audit
-        scenarioLoaderService.loadScenario(createWebResource(), scenario);
+
+        scenarioLoaderService.loadScenario(createWebResource(), scenario, scenarioRunner);
         setStatusToAudit(AuditStatus.CONTENT_ADAPTING);
         if (LOGGER.isInfoEnabled()) {
             LOGGER.info(scenarioName +" has been loaded");
