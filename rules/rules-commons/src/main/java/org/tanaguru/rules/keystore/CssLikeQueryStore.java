@@ -407,8 +407,13 @@ public final class CssLikeQueryStore {
             + "hmtl *[value]:not([value~=^\\s*$]):not([lang]):not([xml:lang])";
 
     // Mandatory elements css-like queries
-    public static final String TITLE_WITHIN_HEAD_CSS_LIKE_QUERY
-            = "head title";
+    public static final String TITLE_WITHIN_HEAD_CSS_LIKE_QUERY 
+            = "head title" ;
+    public static final String NO_TITLE_IN_HTML_PAGE 
+    		= "head:not(title)"  + "body :not title";
+    public static final String TITLE_CSS_LIKE_QUERY
+    		= "title";
+    
     public static final String HTML_WITH_LANG_CSS_LIKE_QUERY
             = "html[lang], html[xml:lang]";
 
