@@ -65,6 +65,8 @@ public class Rgaa32017Rule080501 extends AbstractPageRuleWithSelectorAndCheckerI
     
 	protected void select(SSPHandler sspHandler) {
         super.select(sspHandler);                 
+        
+        if(getElements().get() != null) {
       
 	      for (Element el : getElements().get()) {
 	    	
@@ -105,6 +107,7 @@ public class Rgaa32017Rule080501 extends AbstractPageRuleWithSelectorAndCheckerI
 		    	  			}
 		    	  		}
 		    	  	}
+	    		}
 		    }
 	     }     
 	 }
@@ -136,7 +139,7 @@ public class Rgaa32017Rule080501 extends AbstractPageRuleWithSelectorAndCheckerI
 					    TEXT_ELEMENT2);
 			    ec.check(sspHandler, titleElementInHead, testSolutionHandler);
 			    
-  			}else {
+  			}else if(!multipleTitleElementInHead.isEmpty()) {
   				
 			    ec = new ElementPresenceChecker(
 					    true,
@@ -160,9 +163,10 @@ public class Rgaa32017Rule080501 extends AbstractPageRuleWithSelectorAndCheckerI
 				     TEXT_ELEMENT2);
 			     ec.check(sspHandler, titleElementInBody, testSolutionHandler);
 			     
-			 }else {
+			 }else if(!multipleTitleElementInBody.isEmpty()){
 				 
 				 ec = new ElementPresenceChecker( 
+					 true,
 					 new ImmutablePair(FAILED,MULTIPLE_TITLE_TAG_IN_THE_BODY_MSG),
 					 new ImmutablePair(PASSED,""),
 					 MULTIPLE_TITLE_TAG_IN_THE_BODY_MSG,

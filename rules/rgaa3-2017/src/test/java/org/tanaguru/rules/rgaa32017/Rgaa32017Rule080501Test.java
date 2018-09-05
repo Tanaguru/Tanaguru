@@ -58,6 +58,7 @@ public class Rgaa32017Rule080501Test extends Rgaa32017RuleImplementationTestCase
         addWebResource("Rgaa32017.Test.08.05.01-2Failed-01");
         addWebResource("Rgaa32017.Test.08.05.01-2Failed-02");
         addWebResource("Rgaa32017.Test.08.05.01-2Failed-03");
+        addWebResource("Rgaa32017.Test.08.05.01-2Failed-04");
 
     }
 
@@ -109,7 +110,14 @@ public class Rgaa32017Rule080501Test extends Rgaa32017RuleImplementationTestCase
                 TITLE_CSS_LIKE_QUERY,
                 1,
                 new ImmutablePair(TEXT_ELEMENT2, "Rgaa32017 Test.8.5.1 Failed 03"));
+        
 
+
+        //----------------------------------------------------------------------
+        //----------------------------2Failed-04--------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.08.05.01-2Failed-04");
+        checkResultIsFailed(processResult, 2, 1);
         
     }
 
