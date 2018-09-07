@@ -9,12 +9,14 @@
         <version>5.3.0-snapshot</version>
     </parent>
 
-    <artifactId>tanaguru-sebuilder-interpreter-tools</artifactId>
+    <artifactId>sebuilder-interpreter-tools</artifactId>
     <name>sebuilder-interpreter-tools</name>
+
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
+            <version>2.39.0</version>
         </dependency>
         <dependency>
             <groupId>com.github.detro.ghostdriver</groupId>

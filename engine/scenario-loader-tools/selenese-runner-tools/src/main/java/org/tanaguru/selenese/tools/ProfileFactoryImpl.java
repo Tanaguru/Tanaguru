@@ -253,6 +253,7 @@ public class ProfileFactoryImpl {
             StringBuilder strb = new StringBuilder(proxyHost);
             strb.append(":");
             strb.append(proxyPort);
+
             Proxy proxy = new Proxy();
             proxy.setFtpProxy(strb.toString());
             proxy.setHttpProxy(strb.toString());
@@ -260,7 +261,10 @@ public class ProfileFactoryImpl {
             if (StringUtils.isNotEmpty(proxyExclusionUrl)) {
                 proxy.setNoProxy(proxyExclusionUrl.replaceAll(";", ","));
             }
-            //firefoxProfile.setP
+
+            //SetProxyPreference has been deleted
+            firefoxProfile.setPreference("network.proxy.http", proxy.getHttpProxy());
+            firefoxProfile.setPreference("network.proxy.ssl", proxy.getSslProxy());
         }
     }
     

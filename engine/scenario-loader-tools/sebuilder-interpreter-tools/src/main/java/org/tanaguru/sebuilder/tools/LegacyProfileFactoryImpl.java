@@ -264,6 +264,7 @@ public class LegacyProfileFactoryImpl {
             if (StringUtils.isNotEmpty(proxyExclusionUrl)) {
                 proxy.setNoProxy(proxyExclusionUrl.replaceAll(";", ","));
             }
+            firefoxProfile.setProxyPreferences(proxy);
         }
     }
     

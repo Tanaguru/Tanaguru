@@ -29,11 +29,13 @@
         </dependency>
         <dependency>
             <groupId>org.tanaguru</groupId>
-            <artifactId>tanaguru-sebuilder-interpreter-tools</artifactId>
+            <artifactId>sebuilder-interpreter-tools</artifactId>
+            <version>5.3.0-snapshot</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.tanaguru</groupId>
-            <artifactId>tanaguru-selenese-runner-tools</artifactId>
+            <artifactId>selenese-runner-tools</artifactId>
             <version>5.3.0-snapshot</version>
             <scope>compile</scope>
         </dependency>
