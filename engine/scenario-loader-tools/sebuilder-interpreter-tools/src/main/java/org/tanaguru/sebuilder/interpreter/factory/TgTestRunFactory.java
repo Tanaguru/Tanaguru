@@ -32,7 +32,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.logging.Log;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import org.tanaguru.sebuilder.interpreter.NewPageListener;
+import org.tanaguru.scenarioloader.NewPageListener;
 import org.tanaguru.sebuilder.interpreter.TgTestRun;
 import org.tanaguru.sebuilder.interpreter.webdriverfactory.FirefoxDriverFactory;
 

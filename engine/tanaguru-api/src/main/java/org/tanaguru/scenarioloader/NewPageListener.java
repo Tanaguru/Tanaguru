@@ -19,7 +19,7 @@
  * 
  *  Contact us by mail: tanaguru AT tanaguru DOT org
  */
-package org.tanaguru.sebuilder.interpreter;
+package org.tanaguru.scenarioloader;
 
 import java.util.Map;
 

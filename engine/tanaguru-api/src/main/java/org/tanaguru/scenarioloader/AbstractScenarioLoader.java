@@ -30,6 +30,7 @@ public abstract class AbstractScenarioLoader implements ScenarioLoader {
     protected WebResource webResource;
     protected Map<String, String> jsScriptMap;
     protected int pageLoadDriverTimeout;
+    protected static final int SCENARIO_IMPLICITELY_WAIT_TIMEOUT = 60;
     protected int pageRank = 1;
     protected List<SSPInfo> sspInfoList = new LinkedList<>();
 

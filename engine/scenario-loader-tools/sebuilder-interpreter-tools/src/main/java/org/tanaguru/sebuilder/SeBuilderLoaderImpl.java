@@ -38,7 +38,7 @@ import org.tanaguru.entity.parameterization.ParameterElement;
 import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.exception.ScenarioLoaderException;
 import org.tanaguru.scenarioloader.AbstractScenarioLoader;
-import org.tanaguru.sebuilder.interpreter.NewPageListener;
+import org.tanaguru.scenarioloader.NewPageListener;
 import org.tanaguru.sebuilder.interpreter.exception.TestRunException;
 import org.tanaguru.sebuilder.interpreter.factory.TgStepTypeFactory;
 import org.tanaguru.sebuilder.interpreter.factory.TgTestRunFactory;
@@ -54,8 +54,6 @@ public class SeBuilderLoaderImpl extends AbstractScenarioLoader implements NewPa
     private static final Logger LOGGER = Logger.getLogger(SeBuilderLoaderImpl.class);
 
     private int implicitelyWaitDriverTimeout = 1;
-
-    private static final int SCENARIO_IMPLICITELY_WAIT_TIMEOUT = 60;
 
     /** The script factory instance */
     private final ScriptFactory scriptFactory = new ScriptFactory();
@@ -151,7 +149,7 @@ public class SeBuilderLoaderImpl extends AbstractScenarioLoader implements NewPa
         if (implicitelyWaitDriverTimeout != -1) {
             testRunFactory.setImplicitlyWaitDriverTimeout(implicitelyWaitDriverTimeout);
         }
-        testRunFactory.setPageLoadDriverTimeout(pageLoadDriverTimeout);
+        testRunFactory.setPageLoadDriverTimeout(super.pageLoadDriverTimeout);
 
         testRunFactory.setScreenHeight(
                 Integer.valueOf(
