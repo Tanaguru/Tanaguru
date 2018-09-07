@@ -206,14 +206,18 @@
                             <div class="row ${testResult.resultCode}-cssP">
                                 <div class="span16 ${ruleGeneralResultClass} ${rowBgClass}">
                                     <div class="test-result-compact row">
-                                        <div class="rule-id span2">
+                                        <div class="rule-id span2 eaccessible-lvl-${testResult.test.eAccess}">
                                             <c:if test="${addTestDetails && addShowHide}">
                                                 <span class="detail-link-icon">
                                                     <img alt="<fmt:message key="resultPage.hideTestInfosOn"> <fmt:param>${testResult.testShortLabel}</fmt:param></fmt:message>" src="${expandedSmallImg}" class="hide-test-details-link-icon">
                                                     <img alt="<fmt:message key="resultPage.displayTestInfosOn"> <fmt:param>${testResult.testShortLabel}</fmt:param></fmt:message>" src="${collapsedSmallImg}" class="show-test-details-link-icon">
                                                         </span>
                                             </c:if>
-                                            <h4 id="test-${testResult.testShortLabel}">${testResult.testShortLabel} <span class="test-result sr-only"> <fmt:message key="${testResult.resultCode}"/> </span></h4>
+                                            <h4 id="test-${testResult.testShortLabel}">${testResult.testShortLabel}
+                                                <img src="<c:url value="/Images/eaccessible.png" />" alt="e-accessible" >
+                                               <span class="eaccessible-title-${testResult.test.eAccess}"> Niveau ${testResult.test.eAccess} </span>
+                                               <span class="test-result sr-only"> <fmt:message key="${testResult.resultCode}"/> </span>
+                                            </h4>
                                             <span class="rule-detail-link">
                                                 <a target="_blank" title="<fmt:message key="resultPage.more"/> ${testResult.testShortLabel} <fmt:message key="footer.newWindow"/>" href="
                                                    <fmt:message key="${testResult.testCode}-url"> 

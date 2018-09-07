@@ -64,6 +64,8 @@ public class TestImpl implements Test, Serializable {
     @ManyToOne
     @JoinColumn(name = "Id_Level")
     private LevelImpl level;
+    @Column(name = "Eaccess")
+    private Integer eAccess;
     @Column(name = "Rank")
     @JsonIgnore
     private int rank;
@@ -181,6 +183,11 @@ public class TestImpl implements Test, Serializable {
     }
 
     @Override
+    public int geteAccess() {
+        return eAccess;
+    }
+
+    @Override
     public int getRank() {
         return rank;
     }
@@ -257,6 +264,11 @@ public class TestImpl implements Test, Serializable {
     @Override
     public void setRank(int rank) {
         this.rank = rank;
+    }
+    
+    @Override
+    public void seteAccess(Integer eAccess) {
+        this.eAccess = eAccess;
     }
 
     @Override
