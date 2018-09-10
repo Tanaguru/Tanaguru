@@ -23,13 +23,12 @@
 package org.tanaguru.webapp.test;
 
 import java.util.concurrent.TimeUnit;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
+
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.tanaguru.selenese.tools.ProfileFactoryImpl;
-import org.tanaguru.selenese.tools.TanaguruDriver;
+import org.tanaguru.selenese.tools.factory.ProfileFactoryImpl;
+import org.tanaguru.selenese.tools.driver.TanaguruDriver;
 
 /**
  * WebDriverFactory that guarantees that only one instance of webdriver is used 
@@ -39,7 +38,7 @@ import org.tanaguru.selenese.tools.TanaguruDriver;
  */
 public class WebDriverFactory {
 
-    private FirefoxDriver webDriver;
+    private WebDriver webDriver;
     
     /**
      * The holder that handles the unique instance of WebDriverFactory
@@ -67,7 +66,7 @@ public class WebDriverFactory {
      * environment variable
      * @return an instance of firefoxDriver 
      */
-    public FirefoxDriver getFirefoxDriver() {
+    public WebDriver getFirefoxDriver() {
         if (webDriver == null) {
             FirefoxBinary ffBinary = new FirefoxBinary();
 

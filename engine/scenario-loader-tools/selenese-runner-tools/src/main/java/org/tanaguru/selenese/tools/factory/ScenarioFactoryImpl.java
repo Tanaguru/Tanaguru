@@ -1,9 +1,9 @@
-package org.tanaguru.scenarioloadertoolscommon;
+package org.tanaguru.selenese.tools.factory;
 
 import org.json.JSONException;
 import org.tanaguru.scenarioloader.ScenarioFactory;
 import org.tanaguru.scenarioloader.ScenarioRunner;
-import org.tanaguru.selenese.tools.SeleneseBuilder;
+import org.tanaguru.selenese.tools.helper.SeleneseBuilder;
 
 import java.util.List;
 

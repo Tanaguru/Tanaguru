@@ -20,7 +20,7 @@
  *  Contact us by mail: tanaguru AT tanaguru DOT org
  */
 
-package org.tanaguru.selenese.tools;
+package org.tanaguru.selenese.tools.factory;
 
 import org.apache.commons.io.FileDeleteStrategy;
 import org.apache.commons.lang3.StringUtils;
@@ -36,7 +36,7 @@ import java.util.*;
  *
  * @author jkowalczyk
  */
-public class ProfileFactoryImpl {
+public class ProfileFactoryImpl{
 
     private List<String> extensionPathList = new ArrayList<String>();
     public void setExtensionPathList(List<String> extensionPathList) {

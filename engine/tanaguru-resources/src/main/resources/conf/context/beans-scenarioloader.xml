@@ -20,7 +20,7 @@
 
     <bean id="scenarioLoaderService" class="org.tanaguru.service.ScenarioLoaderServiceImpl"/>
 
-    <bean id="profileFactoryImpl" class="org.tanaguru.selenese.tools.ProfileFactoryImpl" factory-method="getInstance"/>
+    <bean id="profileFactoryImpl" class="org.tanaguru.selenese.tools.factory.ProfileFactoryImpl" factory-method="getInstance"/>
 
 <!--    <bean id="firefoxDriverPoolabelObjectFactory" class="org.tanaguru.scenarioloadertools.FirefoxDriverPoolableObjectFactory">
         <property name="implicitelyWaitDriverTimeout">

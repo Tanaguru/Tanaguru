@@ -37,7 +37,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 public final class TanaguruOrchestratorFactory {
 
     /**
-     * Factory has private constructor
+     * factory has private constructor
      */
     private TanaguruOrchestratorFactory(){}
 

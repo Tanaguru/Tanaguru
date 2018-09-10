@@ -26,10 +26,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import org.json.JSONException;
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.service.audit.AuditDataService;
-import org.tanaguru.scenarioloadertoolscommon.ScenarioFactoryImpl;
+import org.tanaguru.selenese.tools.factory.ScenarioFactoryImpl;
 import org.tanaguru.util.FileNaming;
 
 /**

@@ -33,8 +33,8 @@ import org.tanaguru.entity.service.subject.WebResourceDataService;
 import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.exception.ScenarioLoaderException;
 import org.tanaguru.selenese.SeleneseLoaderImpl;
-import org.tanaguru.selenese.tools.ProfileFactoryImpl;
-import org.tanaguru.selenese.tools.SeleneseHelper;
+import org.tanaguru.selenese.tools.factory.ProfileFactoryImpl;
+import org.tanaguru.selenese.tools.helper.SeleneseHelper;
 import org.tanaguru.util.factory.DateFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 

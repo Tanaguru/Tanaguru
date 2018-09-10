@@ -1,4 +1,4 @@
-package org.tanaguru.selenese.tools;
+package org.tanaguru.selenese.tools.helper;
 
 
 import java.util.List;

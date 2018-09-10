@@ -9,13 +9,13 @@ import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.tanaguru.crawler.util.CrawlUtils;
+import org.tanaguru.entity.parameterization.ParameterElement;
 import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.scenarioloader.AbstractScenarioLoader;
 import org.tanaguru.scenarioloader.NewPageListener;
-import org.tanaguru.selenese.tools.ProfileFactoryImpl;
-import org.tanaguru.selenese.tools.TanaguruDriver;
+import org.tanaguru.selenese.tools.driver.TanaguruDriver;
+import org.tanaguru.selenese.tools.factory.ProfileFactoryImpl;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -43,6 +43,10 @@ public class SeleneseLoaderImpl extends AbstractScenarioLoader implements NewPag
 
         try {
             //Initialize webdriver
+            int ngAppWait = Integer.parseInt(parameterDataService.getParameter(
+                    webResource.getAudit(),
+                    ParameterElement.WAIT_TIME_NG_APP).getValue());
+
             ClassLoader classLoader = getClass().getClassLoader();
             File geckodriver = new File(classLoader.getResource("geckodriver").toURI());
             geckodriver.setExecutable(true);
@@ -56,9 +60,10 @@ public class SeleneseLoaderImpl extends AbstractScenarioLoader implements NewPag
             ffOptions.setHeadless(true);
             ffOptions.setProfile(profileFactory.getOnlineProfile());
 
-            RemoteWebDriver tngDriver = new TanaguruDriver(ffOptions);
-            ((TanaguruDriver) tngDriver).addNewPageListener(this);
-            ((TanaguruDriver) tngDriver).setJsScriptMap(jsScriptMap);
+            TanaguruDriver tngDriver = new TanaguruDriver(ffOptions);
+            tngDriver.addNewPageListener(this);
+            tngDriver.setJsScriptMap(jsScriptMap);
+            tngDriver.setWaitTimeNgApp(ngAppWait);
 
             //Initialize runner
             Runner runner = new Runner();

@@ -79,5 +79,11 @@
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-remote-driver</artifactId>
+            <version>3.14.0</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 </project>

@@ -28,9 +28,8 @@ import org.tanaguru.entity.audit.AuditStatus;
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.service.audit.AuditDataService;
 import org.tanaguru.entity.subject.WebResource;
-import org.tanaguru.scenarioloader.ScenarioFactory;
 import org.tanaguru.scenarioloader.ScenarioRunner;
-import org.tanaguru.scenarioloadertoolscommon.ScenarioLoaderHelper;
+import org.tanaguru.selenese.tools.helper.ScenarioLoaderHelper;
 import org.tanaguru.service.ScenarioLoaderService;
 
 /**

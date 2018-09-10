@@ -21,11 +21,12 @@
  */
 package org.tanaguru.selenese.tools;
 
-import com.google.gson.JsonObject;
 import junit.framework.TestCase;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.tanaguru.selenese.tools.helper.SeleneseBuilder;
+import org.tanaguru.selenese.tools.helper.SeleneseHelper;
 
 import java.util.LinkedList;
 import java.util.List;

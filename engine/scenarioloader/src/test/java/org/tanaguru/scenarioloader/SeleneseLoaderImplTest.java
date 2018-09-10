@@ -36,7 +36,7 @@ import org.tanaguru.entity.service.audit.ContentDataService;
 import org.tanaguru.entity.service.subject.WebResourceDataService;
 import org.tanaguru.entity.subject.Page;
 import org.tanaguru.entity.subject.Site;
-import org.tanaguru.selenese.tools.ProfileFactoryImpl;
+import org.tanaguru.selenese.tools.factory.ProfileFactoryImpl;
 import org.tanaguru.util.factory.DateFactory;
 
 /**

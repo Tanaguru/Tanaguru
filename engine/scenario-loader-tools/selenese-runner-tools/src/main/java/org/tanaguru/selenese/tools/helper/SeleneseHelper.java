@@ -1,4 +1,4 @@
-package org.tanaguru.selenese.tools;
+package org.tanaguru.selenese.tools.helper;
 
 import jp.vmi.selenium.selenese.*;
 import jp.vmi.selenium.selenese.command.CommandFactory;

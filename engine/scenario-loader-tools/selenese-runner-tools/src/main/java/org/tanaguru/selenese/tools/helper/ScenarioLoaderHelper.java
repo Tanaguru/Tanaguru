@@ -1,6 +1,5 @@
-package org.tanaguru.scenarioloadertoolscommon;
+package org.tanaguru.selenese.tools.helper;
 
-import org.tanaguru.scenarioloader.ScenarioFactory;
 import org.tanaguru.scenarioloader.ScenarioRunner;
 
 import java.io.BufferedReader;
