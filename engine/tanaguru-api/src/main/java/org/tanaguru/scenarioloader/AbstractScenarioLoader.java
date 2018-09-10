@@ -24,8 +24,8 @@ import java.util.Map;
 public abstract class AbstractScenarioLoader implements ScenarioLoader {
     private static final Logger LOGGER = Logger.getLogger(AbstractScenarioLoader.class);
     protected static final String UTF8 = "UTF-8";
-    protected final List<Content> result = new ArrayList<>();
 
+    protected List<Content> result;
     protected String scenario;
     protected WebResource webResource;
     protected Map<String, String> jsScriptMap;
@@ -46,6 +46,7 @@ public abstract class AbstractScenarioLoader implements ScenarioLoader {
             String scenario) {
         this.webResource = webResource;
         this.scenario = scenario;
+        this.result = new ArrayList<>();
     }
 
     @Override

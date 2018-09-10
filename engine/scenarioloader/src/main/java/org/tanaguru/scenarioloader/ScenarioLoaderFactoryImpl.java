@@ -32,9 +32,6 @@ import org.tanaguru.entity.service.parameterization.ParameterDataService;
 import org.tanaguru.entity.service.subject.WebResourceDataService;
 import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.exception.ScenarioLoaderException;
-import org.tanaguru.sebuilder.SeBuilderLoaderImpl;
-import org.tanaguru.sebuilder.tools.LegacyProfileFactoryImpl;
-import org.tanaguru.sebuilder.tools.SeBuilderHelper;
 import org.tanaguru.selenese.SeleneseLoaderImpl;
 import org.tanaguru.selenese.tools.ProfileFactoryImpl;
 import org.tanaguru.selenese.tools.SeleneseHelper;
@@ -158,16 +155,6 @@ public class ScenarioLoaderFactoryImpl implements ScenarioLoaderFactory {
         ScenarioLoader scenarioLoader = null;
 
         switch(scenarioRunner){
-            case SEBUILDER:
-                if(SeBuilderHelper.isScenarioValid(scenario)){
-                    LOGGER.debug("Choose legacy SeBuilder runner");
-                    scenarioLoader = new SeBuilderLoaderImpl(mainWebResource, scenario, LegacyProfileFactoryImpl.getInstance());
-                }else{
-                    LOGGER.error("Invalid legacy scenario");
-                    throw new ScenarioLoaderException(new Exception("Scenario does not match legacy scenario syntax"));
-                }
-                break;
-
             case SELENESE:
                 if(SeleneseHelper.isScenarioValid(scenario)){
                     LOGGER.debug("Choose new Selenese runner");

@@ -142,7 +142,7 @@ public abstract class AbstractTanaguruOnlineTest extends TestCase {
         formUrl = hostLocation + bundle.getString(FORM_URL_KEY) + contractId;
         logoutUrl = hostLocation + bundle.getString(LOGOUT_URL_KEY);
 
-        driver = WebDriverFactory.getInstance().getFirefoxDriver(xvfbDisplay);
+        driver = WebDriverFactory.getInstance().getFirefoxDriver();
     }
 
     /**

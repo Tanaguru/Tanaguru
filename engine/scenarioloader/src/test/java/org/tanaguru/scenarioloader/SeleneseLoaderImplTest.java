@@ -36,14 +36,14 @@ import org.tanaguru.entity.service.audit.ContentDataService;
 import org.tanaguru.entity.service.subject.WebResourceDataService;
 import org.tanaguru.entity.subject.Page;
 import org.tanaguru.entity.subject.Site;
-import org.tanaguru.scenarioloadertoolscommon.ProfileFactory;
+import org.tanaguru.selenese.tools.ProfileFactoryImpl;
 import org.tanaguru.util.factory.DateFactory;
 
 /**
  *
  * @author jkowalczyk
  */
-public class SeBuilderLoaderImplTest extends TestCase {
+public class SeleneseLoaderImplTest extends TestCase {
     
     private Map<String, String> pageMap;
     private static final String ROOT_PAGE_URL = "http://site.tgqa.org/";
@@ -51,7 +51,7 @@ public class SeBuilderLoaderImplTest extends TestCase {
     private static final String PAGE_2_URL = "http://site.tgqa.org/page-2.html";
     private static final String PAGE_ACCESS_FORBIDDEN_URL = "http://site.tgqa.org/page-access-forbidden-for-robots.html";
     
-    public SeBuilderLoaderImplTest(String testName) {
+    public SeleneseLoaderImplTest(String testName) {
         super(testName);
     }
     
@@ -64,8 +64,8 @@ public class SeBuilderLoaderImplTest extends TestCase {
         pageMap.put(PAGE_ACCESS_FORBIDDEN_URL, readFile("htmlFiles/page-access-forbidden.html", true));
         pageMap.put(PAGE_2_URL, readFile("htmlFiles/page-2.html", true));
         
-        // need to initilise properly the ProfileFactory needed by sebuilder
-        ProfileFactory.getInstance().setNetExportPath("/tmp/");
+        // need to initilise properly the ProfileFactory needed by selenese
+        ProfileFactoryImpl.getInstance().setNetExportPath("/tmp/");
         
 //        List<String> extensionList = new ArrayList<>();
 //        extensionList.add("../tanaguru-resources/src/main/resources/firefox/extensions/firebug@software.joehewitt.com.xpi");
@@ -73,7 +73,7 @@ public class SeBuilderLoaderImplTest extends TestCase {
 //        extensionList.add("../tanaguru-resources/src/main/resources/firefox/extensions/netexport@getfirebug.com.xpi");
 //        ProfileFactory.getInstance().setExtensionPathList(extensionList);
 //        ProfileFactory.getInstance().setFirebugVersion("1.9.2");
-        ProfileFactory.getInstance().setDeleteProfileData(true);
+        ProfileFactoryImpl.getInstance().setDeleteProfileData(true);
     }
     
     @Override
@@ -462,8 +462,7 @@ public class SeBuilderLoaderImplTest extends TestCase {
     }
 
     /**
-     * 
-     * @param scenarioPath
+     *
      * @return 
      */
     private String readFile(String filePath, boolean addLastReturn) {
@@ -485,11 +484,11 @@ public class SeBuilderLoaderImplTest extends TestCase {
                     file.append('\n');
                 }
             } catch (IOException ex) {
-                Logger.getLogger(SeBuilderLoaderImplTest.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(SeleneseLoaderImplTest.class.getName()).log(Level.SEVERE, null, ex);
             }
             return file.toString();
         } catch (FileNotFoundException | URISyntaxException ex) {
-            Logger.getLogger(SeBuilderLoaderImplTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SeleneseLoaderImplTest.class.getName()).log(Level.SEVERE, null, ex);
         }
         return "";
     }

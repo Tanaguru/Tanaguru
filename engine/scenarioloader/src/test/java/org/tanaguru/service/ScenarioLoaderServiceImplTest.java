@@ -32,6 +32,7 @@ import org.tanaguru.entity.service.subject.WebResourceDataService;
 import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.scenarioloader.ScenarioLoader;
 import org.tanaguru.scenarioloader.ScenarioLoaderFactory;
+import org.tanaguru.scenarioloader.ScenarioRunner;
 
 /**
  *
@@ -73,7 +74,7 @@ public class ScenarioLoaderServiceImplTest extends TestCase {
         ScenarioLoader mockScenarioLoader =  
                 createMock(ScenarioLoader.class);
         
-        expect(mockScenarioLoaderFactory.create(mockWebResource,scenarioFile))
+        expect(mockScenarioLoaderFactory.create(mockWebResource,scenarioFile, ScenarioRunner.SELENESE))
                 .andReturn(mockScenarioLoader)
                 .once();
 
@@ -107,7 +108,7 @@ public class ScenarioLoaderServiceImplTest extends TestCase {
         instance.setScenarioLoaderFactory(mockScenarioLoaderFactory);
         instance.setWebResourceDataService(mockWebResourceDataService);
         
-        instance.loadScenario(mockWebResource, scenarioFile);
+        instance.loadScenario(mockWebResource, scenarioFile, ScenarioRunner.SELENESE);
         
         verify(mockAudit);
         verify(mockWebResource);

@@ -62,10 +62,7 @@ public class ScenarioLoaderHelper {
             }
 
             //Choose SE builder for
-            if (integerSplitedFirefoxVersion[0] <= 37) {
-                result = ScenarioRunner.SEBUILDER;
-
-            } else if (integerSplitedFirefoxVersion[0] >= 45) {
+            if (integerSplitedFirefoxVersion[0] >= 45) {
                 result = ScenarioRunner.SELENESE;
             }
         }

@@ -7,13 +7,9 @@ import jp.vmi.selenium.selenese.TestProject;
 import jp.vmi.selenium.selenese.command.CommandFactory;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxBinary;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
-import org.openqa.selenium.support.events.WebDriverEventListener;
 import org.tanaguru.crawler.util.CrawlUtils;
 import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.scenarioloader.AbstractScenarioLoader;
@@ -26,10 +22,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 public class SeleneseLoaderImpl extends AbstractScenarioLoader implements NewPageListener {
 

@@ -30,8 +30,6 @@ import org.json.JSONException;
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.service.audit.AuditDataService;
 import org.tanaguru.scenarioloadertoolscommon.ScenarioFactoryImpl;
-import org.tanaguru.sebuilder.tools.ScenarioBuilder;
-import org.tanaguru.selenese.tools.SeleneseBuilder;
 import org.tanaguru.util.FileNaming;
 
 /**

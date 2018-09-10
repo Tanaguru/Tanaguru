@@ -50,10 +50,6 @@
         </dependency>
         <dependency>
             <groupId>${engineGroupId}</groupId>
-            <artifactId>tanaguru-sebuilder-interpreter-tools</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>${engineGroupId}</groupId>
             <artifactId>tanaguru-resources</artifactId>
         </dependency>
         <dependency>
@@ -131,6 +127,12 @@
         <dependency>
             <groupId>org.easymock</groupId>
             <artifactId>easymockclassextension</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-remote-driver</artifactId>
+            <version>3.13.0</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
