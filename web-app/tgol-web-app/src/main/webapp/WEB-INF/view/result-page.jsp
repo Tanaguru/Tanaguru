@@ -233,6 +233,7 @@
         <c:set var="addLinkToSourceCode" scope="request" value="true"/>
         <c:import url="template/synthesis.jsp" />
         <c:import url="template/sort-result-console.jsp" />
+        <c:import url="template/sort-result-console_e_accessible.jsp" />
         <c:set var="displayAlgorithm" scope="request" value="true"/>
         <c:set var="scope" scope="request" value="page"/>
         <c:set var="counterByThemeMap" scope="request" value="${statistics.counterByThemeMap}"/>

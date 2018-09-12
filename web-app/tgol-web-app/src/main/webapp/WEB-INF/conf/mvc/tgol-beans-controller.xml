@@ -420,6 +420,7 @@
                         <ref bean="nbMaxActsToDisplayPerContractOptionBuilder"/>
                         <ref bean="nbMaxPagesPerAuditOptionBuilder" />
                         <ref bean="isDomaineRestrictedOptionBuilder" />
+                        <ref bean="isEAccessEnabledOptionBuilder" />
                     </list>
                 </entry>
                 <entry key="crawl-options">
@@ -457,6 +458,7 @@
                         <ref bean="nbMaxActsToDisplayPerContractOptionBuilder"/>
                         <ref bean="nbMaxPagesPerAuditOptionBuilder" />
                         <ref bean="isDomaineRestrictedOptionBuilder" />
+                        <ref bean="isEAccessEnabledOptionBuilder" />
                     </list>
                 </entry>
                 <entry key="crawl-options">
