@@ -41,6 +41,7 @@ public class ContractDataServiceImpl extends AbstractGenericDataService<Contract
     private static final String PRESET_CONTRACT_OPTION_NAME = "PRESET_CONTRACT";
     private static final String MAX_PAGES_AUDIT_CONTROL_OPTION_NAME = "MAX_PAGES_AUDIT_CONTROL";
     private static final String IS_DOMAINE_RESTRICTED_CONTRACT_OPTION_NAME = "IS_DOMAINE_RESTRICTED_CONTRACT";
+    private static final String IS_EACCESS_ENABLED_CONTRACT_OPTION_NAME = "IS_EACCESS_ENABLED_CONTRACT";
     
     @Override
     public Collection<Contract> getAllContractsByUser(User user) {
@@ -97,6 +98,17 @@ public class ContractDataServiceImpl extends AbstractGenericDataService<Contract
     public boolean isContractRestrictedByDomaine(Contract contract) {
         for (OptionElement optionElement : ((ContractDAO) entityDao).read(contract.getId()).getOptionElementSet()) {
             if (StringUtils.equals(IS_DOMAINE_RESTRICTED_CONTRACT_OPTION_NAME, optionElement.getOption().getCode())) {
+                if (optionElement.getValue()!=null){
+                return Boolean.valueOf(optionElement.getValue());
+                }
+            }
+        }
+        return Boolean.FALSE;
+    }
+    @Override
+    public boolean isEAccessibleEnabled(Contract contract) {
+        for (OptionElement optionElement : ((ContractDAO) entityDao).read(contract.getId()).getOptionElementSet()) {
+            if (StringUtils.equals(IS_EACCESS_ENABLED_CONTRACT_OPTION_NAME, optionElement.getOption().getCode())) {
                 if (optionElement.getValue()!=null){
                 return Boolean.valueOf(optionElement.getValue());
                 }

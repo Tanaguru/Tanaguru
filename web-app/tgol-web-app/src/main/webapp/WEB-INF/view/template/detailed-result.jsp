@@ -214,8 +214,10 @@
                                                         </span>
                                             </c:if>
                                             <h4 id="test-${testResult.testShortLabel}">${testResult.testShortLabel}
-                                                <img src="<c:url value="/Images/eaccessible.png" />" alt="e-accessible" >
-                                               <span class="eaccessible-title-${testResult.test.eAccess}"> Niveau ${testResult.test.eAccess} </span>
+                                                <c:if test="${isEAccessibleEnabled}" >
+                                                   <img src="<c:url value="/Images/eaccessible.png" />" alt="e-accessible" >
+                                                   <span class="eaccessible-title-${testResult.test.eAccess}"><fmt:message key="resultPage.eaccessiblelevel" /> ${testResult.test.eAccess} </span>
+                                               </c:if>
                                                <span class="test-result sr-only"> <fmt:message key="${testResult.resultCode}"/> </span>
                                             </h4>
                                             <span class="rule-detail-link">

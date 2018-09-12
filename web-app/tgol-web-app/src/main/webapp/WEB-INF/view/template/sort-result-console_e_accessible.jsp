@@ -17,21 +17,21 @@
             <div class="clearfix ">
                 <label class="radiobutton" for="lvl1">
                     <input class="inputs-list" type="radio" id="lvl1" name="eaccess_lvl"  />
-                    Niveau 1
+                    <fmt:message key="resultPage.eaccessiblelevel1" />
                 </label>
 
                 <label class="radiobutton" for="lvl2">
                     <input class="inputs-list" type="radio" id="lvl2" name="eaccess_lvl" />
-                    Niveau 2
+                  <fmt:message key="resultPage.eaccessiblelevel2" />
                 </label>
 
                 <label class="radiobutton" for="lvl3">
                     <input class="inputs-list" type="radio" id="lvl3" name="eaccess_lvl" checked />
-                    Niveau 3
+                   <fmt:message key="resultPage.eaccessiblelevel3" />
                 </label>
                 <label class="radiobutton" for="lvl5">
                     <input class="inputs-list" type="radio" id="lvl5" name="eaccess_lvl" />
-                    Niveau 5
+                   <fmt:message key="resultPage.eaccessiblelevel5" />
                 </label>
             </div>
 

@@ -405,6 +405,7 @@ public final class TgolKeyStore {
     public static final String PROXY_PASSWORD_CONF_KEY = "proxyPassword";
     public static final String PROXY_EXCLUSION_URL_CONF_KEY = "proxyExclusionUrl";
     public static final String EMAIL_SENT_TO_USER_EXCLUSION_CONF_KEY = "emailSentToUserExclusionList";
+    public static final String IS_EACCESSIBLE_ENABLED = "isEAccessibleEnabled";
     
     /* url param keys */
     public static final String CRITERION_RESULT_PAGE_KEY = "criterion-result";

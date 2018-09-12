@@ -231,9 +231,12 @@
         <c:set var="hasPieChartInGraphicalResult" scope="request" value="true"/>
         <c:set var="hasBarChartInGraphicalResult" scope="request" value="true"/>
         <c:set var="addLinkToSourceCode" scope="request" value="true"/>
+        <c:set var="isEAccessibleEnabled" scope="page" value="${isEAccessibleEnabled}"/>
         <c:import url="template/synthesis.jsp" />
         <c:import url="template/sort-result-console.jsp" />
+        <c:if test="${isEAccessibleEnabled}" >
         <c:import url="template/sort-result-console_e_accessible.jsp" />
+        </c:if>
         <c:set var="displayAlgorithm" scope="request" value="true"/>
         <c:set var="scope" scope="request" value="page"/>
         <c:set var="counterByThemeMap" scope="request" value="${statistics.counterByThemeMap}"/>

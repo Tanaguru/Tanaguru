@@ -81,4 +81,10 @@ public interface ContractDataService extends GenericDataService<Contract, Long> 
      * @return 
      */
     public boolean isContractRestrictedByDomaine(Contract contract);
+    /**
+     * 
+     * @param contract
+     * @return 
+     */
+    public boolean isEAccessibleEnabled(Contract contract);
 }
