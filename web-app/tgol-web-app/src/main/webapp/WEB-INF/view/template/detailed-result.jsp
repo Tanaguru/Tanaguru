@@ -203,10 +203,10 @@
                                     <c:set var="addTestDetails" value="false"/>
                                 </c:otherwise>
                             </c:choose>
-                            <div class="row ${testResult.resultCode}-cssP">
+                            <div class="row ${testResult.resultCode}-cssP  eaccessible-lvl${testResult.test.eAccess}">
                                 <div class="span16 ${ruleGeneralResultClass} ${rowBgClass}">
                                     <div class="test-result-compact row">
-                                        <div class="rule-id span2 eaccessible-lvl-${testResult.test.eAccess}">
+                                        <div class="rule-id span2">
                                             <c:if test="${addTestDetails && addShowHide}">
                                                 <span class="detail-link-icon">
                                                     <img alt="<fmt:message key="resultPage.hideTestInfosOn"> <fmt:param>${testResult.testShortLabel}</fmt:param></fmt:message>" src="${expandedSmallImg}" class="hide-test-details-link-icon">
@@ -216,7 +216,7 @@
                                             <h4 id="test-${testResult.testShortLabel}">${testResult.testShortLabel}
                                                 <c:if test="${isEAccessibleEnabled}" >
                                                    <img src="<c:url value="/Images/eaccessible.png" />" alt="e-accessible" >
-                                                   <span class="eaccessible-title-${testResult.test.eAccess}"><fmt:message key="resultPage.eaccessiblelevel" /> ${testResult.test.eAccess} </span>
+                                                   <span class="eaccessible-title${testResult.test.eAccess}"><fmt:message key="resultPage.eaccessiblelevel" /> ${testResult.test.eAccess} </span>
                                                </c:if>
                                                <span class="test-result sr-only"> <fmt:message key="${testResult.resultCode}"/> </span>
                                             </h4>
