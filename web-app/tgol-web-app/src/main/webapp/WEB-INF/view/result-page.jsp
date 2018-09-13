@@ -77,6 +77,9 @@
 <c:set var="triggerPrint">
     <c:url value="/Js/result-page/trigger-print.js"/>  
 </c:set>
+<c:set var="eaccessibleFilter">
+    <c:url value="/Js/result-page/eaccessibleFilter.js"/>  
+</c:set>
 
 <!-- external images -->
 <c:set var="testInfoLinkImg" scope="request">
@@ -283,6 +286,7 @@
         <script type="text/javascript" src="${orderPractices}"></script>
         <script type="text/javascript" src="${reorderResultsTable}"></script>
         <script type="text/javascript" src="${triggerPrint}"></script>
+        <script type="text/javascript" src="${eaccessibleFilter}"></script>
     </body>
 </html>
 </compress:html>
