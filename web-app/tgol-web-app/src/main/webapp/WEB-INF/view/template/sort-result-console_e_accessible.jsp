@@ -7,39 +7,37 @@
 <div id="result-option-console" class="row option-console option-console-eaccessible">
     <div class="span16">
         <h2 id="result-option-console-title" class="option-console-title">
-            E-Accesible  <fmt:message key="result.display"/>
+             <fmt:message key="resultPage.eaccessibletitle"/>
         </h2>
     </div>
     <div class="span16">
         <form:form  method="post" acceptCharset="UTF-8" enctype="application/x-www-form-urlencoded" class="form-stacked">
-            View by E-Accessible label
+            <fieldset>
+                <legend><fmt:message key="resultPage.eaccessibleviewby"/></legend>
+                <div class="clearfix ">
+                    <label class="radiobutton" for="lvl1">
+                        <input class="inputs-list" type="radio" id="lvl1" name="eaccess_lvl"  />
+                        <fmt:message key="resultPage.eaccessiblelevel1" />
+                    </label>
 
-            <div class="clearfix ">
-                <label class="radiobutton" for="lvl1">
-                    <input class="inputs-list" type="radio" id="lvl1" name="eaccess_lvl"  />
-                    <fmt:message key="resultPage.eaccessiblelevel1" />
-                </label>
+                    <label class="radiobutton" for="lvl2">
+                        <input class="inputs-list" type="radio" id="lvl2" name="eaccess_lvl" />
+                        <fmt:message key="resultPage.eaccessiblelevel2" />
+                    </label>
 
-                <label class="radiobutton" for="lvl2">
-                    <input class="inputs-list" type="radio" id="lvl2" name="eaccess_lvl" />
-                  <fmt:message key="resultPage.eaccessiblelevel2" />
-                </label>
-
-                <label class="radiobutton" for="lvl3">
-                    <input class="inputs-list" type="radio" id="lvl3" name="eaccess_lvl" checked />
-                   <fmt:message key="resultPage.eaccessiblelevel3" />
-                </label>
-                <label class="radiobutton" for="lvl5">
-                    <input class="inputs-list" type="radio" id="lvl5" name="eaccess_lvl" />
-                   <fmt:message key="resultPage.eaccessiblelevel5" />
-                </label>
-            </div>
-
-            <div  class="actions option-console-update">
-                <input type="submit" class="update-action" value="<fmt:message key="pageList.update"/>"/>
-            </div> <!-- class="actions"-->
-
-
+                    <label class="radiobutton" for="lvl3">
+                        <input class="inputs-list" type="radio" id="lvl3" name="eaccess_lvl" checked />
+                        <fmt:message key="resultPage.eaccessiblelevel3" />
+                    </label>
+                    <label class="radiobutton" for="lvl5">
+                        <input class="inputs-list" type="radio" id="lvl5" name="eaccess_lvl" />
+                        <fmt:message key="resultPage.eaccessiblelevel5" />
+                    </label>
+                </div>
+                <div  class="actions option-console-update reset">
+                    <input type="submit" class="update-action" value="<fmt:message key="resultPage.eaccessiblereset"/>"/>
+                </div> 
+            </fieldset>
             <div class="clearfix ">
                 <p> Le niveau 1  ça peut aller!</p>
                 <p> Le niveau 2  ça va!</p>
