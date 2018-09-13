@@ -1897,8 +1897,14 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="url"]:focus,
 }
 
 .show-eaccessible-lvl1 .row.eaccessible-lvl1,
+.show-eaccessible-lvl2 .row.eaccessible-lvl1,
 .show-eaccessible-lvl2 .row.eaccessible-lvl2,
+.show-eaccessible-lvl3 .row.eaccessible-lvl1,
+.show-eaccessible-lvl3 .row.eaccessible-lvl2,
 .show-eaccessible-lvl3 .row.eaccessible-lvl3,
+.show-eaccessible-lvl5 .row.eaccessible-lvl1,
+.show-eaccessible-lvl5 .row.eaccessible-lvl2,
+.show-eaccessible-lvl5 .row.eaccessible-lvl3,
 .show-eaccessible-lvl5 .row.eaccessible-lvl5{
     display: block;
 }
