@@ -625,7 +625,6 @@ footer a {
 
     .option-console {
         position: fixed;
-        /*        top : 185px;*/
         right : 2%;
         background-color: #FFFFFF;
         margin-top : 0;
@@ -1852,6 +1851,58 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="url"]:focus,
 #result-option-console .actions {
     margin-top: 30px;
 }
+
+/*
+* E-Accessible Filter specific
+*/
+
+[class^="eaccessible-title"]{
+    position: relative;
+    font-size: 11px;
+    top: -5px;
+}
+
+[class*="eaccessible-lvl"] img{
+    margin-top: 10px;
+}
+
+.rule-detail-link {
+    display: none;
+}
+
+#result-option-console.option-console-eaccessible label {
+    float: none;
+    display: block;
+    width: 100%;
+}
+
+#result-option-console.option-console-eaccessible form > .clearfix {
+    margin-top: 20px;
+}
+
+#result-option-console.option-console-eaccessible .actions {
+    margin-left: 0;
+}
+
+[class*="show-eaccessible"] .theme-result-repartition{
+    display: none;
+}
+
+.show-eaccessible-lvl1 [class*="eaccessible-lvl"],
+.show-eaccessible-lvl2 [class*="eaccessible-lvl"],
+.show-eaccessible-lvl3 [class*="eaccessible-lvl"],
+.show-eaccessible-lvl5 [class*="eaccessible-lvl"]
+{
+    display: none;
+}
+
+.show-eaccessible-lvl1 .row.eaccessible-lvl1,
+.show-eaccessible-lvl2 .row.eaccessible-lvl2,
+.show-eaccessible-lvl3 .row.eaccessible-lvl3,
+.show-eaccessible-lvl5 .row.eaccessible-lvl5{
+    display: block;
+}
+
 /* threshold :
 < 1680px: display options as row under the h1
 > 1680px: display options on the right
@@ -1859,7 +1910,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="url"]:focus,
 @media screen and (min-width:1680px) {
 
     #result-option-console {
-        top : 155px;
+        top : 100px;
     }
     #result-option-console label {
         margin-bottom: 0px;
@@ -1869,6 +1920,16 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="url"]:focus,
     }
     #result-option-console .actions {
         margin-top: 10px;
+    }
+    #result-option-console.option-console-eaccessible {
+    	top: 490px; 
+    }
+    #result-option-console.option-console-eaccessible form {
+        padding: 20px;
+    }
+    #result-option-console.option-console-eaccessible .actions {
+        padding: 0 0 20px;
+        text-align: center;
     }
 }
 /*
