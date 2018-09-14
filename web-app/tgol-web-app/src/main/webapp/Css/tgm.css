@@ -1914,6 +1914,18 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="url"]:focus,
     display: block;
 }
 
+@media screen and (max-width: 1679px) {
+  #result-option-console.option-console-eaccessible fieldset > .clearfix
+  {
+      display: inline-block;
+      vertical-align: middle;
+  }
+  #result-option-console.option-console-eaccessible .actions {
+      margin: 0;
+      vertical-align: middle;
+  }
+}
+
 /* threshold :
 < 1680px: display options as row under the h1
 > 1680px: display options on the right
