@@ -4,7 +4,8 @@
     var selected = document.querySelector('input[id*="lvl"]:checked');
     var btn_expand = document.querySelector('#expand-all');
     var btn_collapse = document.querySelector('#collapse-all');
-    var btn_reset = document.querySelector('.option-console-eaccessible .update-action')
+    var btn_reset = document.querySelector('.option-console-eaccessible .update-action');
+    var audit_level = document.querySelector('#audit-level .synthesis-meta-value').textContent;
     
     ea_inputs = Array.prototype.slice.call(ea_inputs);
 
@@ -19,8 +20,9 @@
     })
 
     ea_inputs.forEach(function(input) {
-        input.addEventListener('change', function(){
+        hideInputs(input, audit_level);
 
+        input.addEventListener('change', function(){
             if (selected){
                 !selected.checked; // uncheck the previously selected
             }
@@ -46,5 +48,13 @@
             }
         })
     })
+
+    function hideInputs(item, audit_lvl){
+        if (audit_lvl == 'A' && (item.id == 'lvl3' || item.id == 'lvl5')){
+            item.parentNode.style.display = 'none';
+        } else if (audit_lvl == 'AA' && item.id == 'lvl5'){
+            item.parentNode.style.display = 'none';
+        }
+    }
 
 })();
