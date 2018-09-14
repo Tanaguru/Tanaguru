@@ -1870,6 +1870,11 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="url"]:focus,
     display: none;
 }
 
+#result-option-console.option-console-eaccessible fieldset {
+    display: inline-block;
+    width: 50%;
+}
+
 #result-option-console.option-console-eaccessible label {
     float: none;
     display: block;
