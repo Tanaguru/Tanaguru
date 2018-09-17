@@ -213,22 +213,20 @@
                                                     <img alt="<fmt:message key="resultPage.displayTestInfosOn"> <fmt:param>${testResult.testShortLabel}</fmt:param></fmt:message>" src="${collapsedSmallImg}" class="show-test-details-link-icon">
                                                         </span>
                                             </c:if>
-                                            <h4 id="test-${testResult.testShortLabel}">${testResult.testShortLabel}
+                                            <h4 id="test-${testResult.testShortLabel}">
+                                                <a target="_blank" title="<fmt:message key="resultPage.more"/> ${testResult.testShortLabel} <fmt:message key="footer.newWindow"/>" href="
+                                                   <fmt:message key="${testResult.testCode}-url"> 
+                                                      <fmt:param>${rgaaTanaguruUrlFirstPart}</fmt:param> 
+                                                        <fmt:param>${rgaaTanaguruUrlThirdPartCrit}</fmt:param> 
+                                                   </fmt:message> ">
+                                                     ${testResult.testShortLabel}
+                                                </a>
                                                 <c:if test="${isEAccessibleEnabled}" >
                                                    <img src="<c:url value="/Images/eaccessible.png" />" alt="e-accessible" >
                                                    <span class="eaccessible-title${testResult.test.eAccess}"><fmt:message key="resultPage.eaccessiblelevel" /> ${testResult.test.eAccess} </span>
                                                </c:if>
                                                <span class="test-result sr-only"> <fmt:message key="${testResult.resultCode}"/> </span>
                                             </h4>
-                                            <span class="rule-detail-link">
-                                                <a target="_blank" title="<fmt:message key="resultPage.more"/> ${testResult.testShortLabel} <fmt:message key="footer.newWindow"/>" href="
-                                                   <fmt:message key="${testResult.testCode}-url"> 
-                                                      <fmt:param>${rgaaTanaguruUrlFirstPart}</fmt:param> 
-                                                        <fmt:param>${rgaaTanaguruUrlThirdPartCrit}</fmt:param> 
-                                                   </fmt:message> ">
-                                                    <img alt="<fmt:message key="resultPage.more"/> ${testResult.testShortLabel}" src="${testInfoLinkImg}">
-                                                </a>
-                                            </span>
                                         </div>
                                         <div class="rule-label span9" ${ruleLang}>
                                             <fmt:message key="${testResult.testCode}">
