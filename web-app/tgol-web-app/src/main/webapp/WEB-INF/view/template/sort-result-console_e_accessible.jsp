@@ -39,15 +39,11 @@
                 </div> 
             </fieldset>
             <div class="clearfix eaccessible-desc ">
-                <p> You can filter the results depending on the levels of the <a href="http://references.modernisation.gouv.fr/e-accessible](http://references.modernisation.gouv.fr/e-accessible" target="blank" >e-accessible certification</a>.
+                <p> <fmt:message key="resultPage.eaccessibleDesc1"/>
                 </p>
-                <p>Reminder: In relations to the RGAA, Level 1 of the e-accessible certification is a <a href="http://references.modernisation.gouv.fr/e-accessible-50-criteres-du-niveau-1](http://references.modernisation.gouv.fr/e-accessible-50-criteres-du-niveau-1" target="blank" > selection of 50 criteria of the A level</a>. Level 2 is the equivalent of the level A. Level 3 corresponds to the validation of at least 50% of the applicable criteria of the AA level. Level 4 corresponds to the AA Level. To reach Level 5, it is necessary to have validated the Level 4 and at least one of the AAA Level criteria.
+                <p><fmt:message key="resultPage.eaccessibleDesc2"/>
                 </p>
             </div>
-
-
-
-
         </form:form>
     </div>
 </div>
