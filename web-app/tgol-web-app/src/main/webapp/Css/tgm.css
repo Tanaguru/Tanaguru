@@ -1881,6 +1881,10 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="url"]:focus,
     width: 100%;
 }
 
+#result-option-console.option-console-eaccessible .clearfix {
+    width: 40%;
+}
+
 #result-option-console.option-console-eaccessible form > .clearfix {
     margin-top: 20px;
 }
@@ -1945,7 +1949,11 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="url"]:focus,
         margin-top: 10px;
     }
     #result-option-console.option-console-eaccessible {
-    	top: 490px; 
+    	top: 450px; 
+    }
+    #result-option-console.option-console-eaccessible .clearfix,
+    #result-option-console.option-console-eaccessible fieldset {
+        width: 100%;
     }
     #result-option-console.option-console-eaccessible form {
         padding: 20px;
