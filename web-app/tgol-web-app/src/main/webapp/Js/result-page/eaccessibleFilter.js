@@ -48,6 +48,10 @@
             }
         })
     })
+    
+    /* Make sticky options console */
+    $('.option-console-eaccessible').stick_in_parent({parent: '#tgm-result-page', offset_top: 370});
+    $('.option-console-standard').stick_in_parent({parent: '#tgm-result-page', offset_top: 20});
 
     function hideInputs(item, audit_lvl){
         if (audit_lvl == 'A' && (item.id == 'lvl3' || item.id == 'lvl5')){
