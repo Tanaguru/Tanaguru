@@ -1870,26 +1870,26 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="url"]:focus,
     display: none;
 }
 
-#result-option-console.option-console-eaccessible fieldset {
+.option-console-eaccessible fieldset {
     display: inline-block;
     width: 50%;
 }
 
-#result-option-console.option-console-eaccessible label {
+.option-console-eaccessible label {
     float: none;
     display: block;
     width: 100%;
 }
 
-#result-option-console.option-console-eaccessible .clearfix {
+.option-console-eaccessible .clearfix {
     width: 40%;
 }
 
-#result-option-console.option-console-eaccessible form > .clearfix {
+.option-console-eaccessible form > .clearfix {
     margin-top: 20px;
 }
 
-#result-option-console.option-console-eaccessible .actions {
+.option-console-eaccessible .actions {
     margin-left: 0;
 }
 
@@ -1919,12 +1919,12 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="url"]:focus,
 }
 
 @media screen and (max-width: 1679px) {
-  #result-option-console.option-console-eaccessible fieldset > .clearfix
+  .option-console-eaccessible fieldset > .clearfix
   {
       display: inline-block;
       vertical-align: middle;
   }
-  #result-option-console.option-console-eaccessible .actions {
+  .option-console-eaccessible .actions {
       margin: 0;
       vertical-align: middle;
   }
@@ -1939,26 +1939,28 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="url"]:focus,
     #result-option-console {
         top : 100px;
     }
-    #result-option-console label {
+    #result-option-console label,
+    .option-console-eaccessible label {
         margin-bottom: 0px;
     }
     #result-option-console .clearfix {
         width: 280px;
     }
-    #result-option-console .actions {
+    #result-option-console .actions,
+    .option-console-eaccessible .actions {
         margin-top: 10px;
     }
-    #result-option-console.option-console-eaccessible {
+    .option-console-eaccessible {
     	top: 450px; 
     }
-    #result-option-console.option-console-eaccessible .clearfix,
-    #result-option-console.option-console-eaccessible fieldset {
+    .option-console-eaccessible .clearfix,
+    .option-console-eaccessible fieldset {
         width: 100%;
     }
-    #result-option-console.option-console-eaccessible form {
+    .option-console-eaccessible form {
         padding: 20px;
     }
-    #result-option-console.option-console-eaccessible .actions {
+    .option-console-eaccessible .actions {
         padding: 0 0 20px;
         text-align: center;
     }
