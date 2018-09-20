@@ -7,11 +7,19 @@
     var btn_reset = document.querySelector('.option-console-eaccessible .update-action');
     var audit_level = document.querySelector('#audit-level .synthesis-meta-value').textContent;
     
-    /* Make sticky options console */
-    $('.option-console-eaccessible').stick_in_parent({parent: '#tgm-result-page', offset_top: 370});
-    $('.option-console-standard').stick_in_parent({parent: '#tgm-result-page', offset_top: 20});
-    
     ea_inputs = Array.prototype.slice.call(ea_inputs);
+    
+    window.addEventListener('resize', function(){
+        if (window.matchMedia("(min-width: 1680px)").matches) {
+            /* Make sticky options console */
+            $('.option-console-eaccessible').stick_in_parent({parent: '#tgm-result-page', offset_top: 370});
+            $('.option-console-standard').stick_in_parent({parent: '#tgm-result-page', offset_top: 20});
+        } else {
+            /* Reset elements to initial position */
+            $('.option-console-eaccessible').trigger("sticky_kit:detach");
+            $('.option-console-standard').trigger("sticky_kit:detach");
+        }
+    })
 
     btn_reset.addEventListener('click', function(e){
         e.preventDefault();
