@@ -27,6 +27,9 @@
 <c:set var="bootstrapUrl" scope="request">
     <c:url value="/External-Js/bootstrap.min.js"/>
 </c:set> 
+<c:set var="stickyKitUrl" scope="request">
+    <c:url value="/External-Js/sticky-kit.min.js"/>
+</c:set>
 
 <!-- internal js -->
 <c:set var="resultPageChartsIEJsUrl" scope="request">
@@ -258,6 +261,7 @@
         <script type="text/javascript" src="${codePrettifierJsUrl}"></script>
         <script type="text/javascript" src="${prettyPrintJsUrl}"></script>
         <script type="text/javascript" src="${auditParametersDetailsJsUrl}"></script>
+        <script type="text/javascript" src="${stickyKitUrl}"></script>
         <c:if test="${addRelaunchAction}">
         <script type="text/javascript" src="${jqueryUIUrl}"></script>
         <script type="text/javascript" src="${progressBarJsUrl}"></script>
