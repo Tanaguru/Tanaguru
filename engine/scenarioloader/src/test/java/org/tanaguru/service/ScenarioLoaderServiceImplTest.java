@@ -74,11 +74,11 @@ public class ScenarioLoaderServiceImplTest extends TestCase {
         ScenarioLoader mockScenarioLoader =  
                 createMock(ScenarioLoader.class);
         
-        expect(mockScenarioLoaderFactory.create(mockWebResource,scenarioFile, ScenarioRunner.SELENESE))
+        expect(mockScenarioLoaderFactory.create(mockWebResource, ScenarioRunner.SELENESE))
                 .andReturn(mockScenarioLoader)
                 .once();
 
-        mockScenarioLoader.run();
+        mockScenarioLoader.run(scenarioFile);
         expectLastCall().once();
         
         List<Content> contentList = new ArrayList<Content>();

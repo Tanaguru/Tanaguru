@@ -27,8 +27,8 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.tanaguru.selenese.tools.factory.ProfileFactoryImpl;
-import org.tanaguru.selenese.tools.driver.TanaguruDriver;
+import org.tanaguru.webdriver.driver.TanaguruDriver;
+import org.tanaguru.webdriver.factory.ProfileFactoryImpl;
 
 /**
  * WebDriverFactory that guarantees that only one instance of webdriver is used 

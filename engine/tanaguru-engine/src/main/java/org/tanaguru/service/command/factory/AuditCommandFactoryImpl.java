@@ -36,13 +36,7 @@ import org.tanaguru.entity.service.parameterization.ParameterDataService;
 import org.tanaguru.entity.service.reference.TestDataService;
 import org.tanaguru.entity.service.subject.WebResourceDataService;
 import org.tanaguru.messagin.TanaguruMsgOutService;
-import org.tanaguru.service.AnalyserService;
-import org.tanaguru.service.ConsolidatorService;
-import org.tanaguru.service.ContentAdapterService;
-import org.tanaguru.service.ContentLoaderService;
-import org.tanaguru.service.CrawlerService;
-import org.tanaguru.service.ProcessorService;
-import org.tanaguru.service.ScenarioLoaderService;
+import org.tanaguru.service.*;
 import org.tanaguru.service.command.AuditCommand;
 import org.tanaguru.service.command.AuditCommandImpl;
 import org.tanaguru.service.command.GroupOfPagesAuditCommandImpl;
@@ -124,10 +118,10 @@ public class AuditCommandFactoryImpl implements AuditCommandFactory {
         this.preProcessResultDataService = preProcessResultDataService;
     }
 
-    private CrawlerService crawlerService;
+    private TanaguruCrawlerServiceImpl crawlerService;
 
     @Autowired
-    public void setCrawlerService(CrawlerService crawlerService) {
+    public void setCrawlerService(TanaguruCrawlerServiceImpl crawlerService) {
         this.crawlerService = crawlerService;
     }
 
@@ -235,13 +229,15 @@ public class AuditCommandFactoryImpl implements AuditCommandFactory {
             SiteAuditCommandImpl auditCommand
                     = new SiteAuditCommandImpl(url, paramSet, auditDataService, w3cValidatorPath, java8Path);
             initCommandServices(auditCommand);
-            auditCommand.setCrawlerService(crawlerService);
+            auditCommand.setTanaguruCrawlerService(crawlerService);
+            auditCommand.setScenarioLoaderService(scenarioLoaderService);
             return auditCommand;
         } else if (auditPageWithCrawler) {
             PageAuditCrawlerCommandImpl auditCommand
                     = new PageAuditCrawlerCommandImpl(url, paramSet, auditDataService, w3cValidatorPath, java8Path);
             initCommandServices(auditCommand);
-            auditCommand.setCrawlerService(crawlerService);
+            auditCommand.setTanaguruCrawlerService(crawlerService);
+            auditCommand.setScenarioLoaderService(scenarioLoaderService);
             return auditCommand;
         } else {
             PageAuditCommandImpl auditCommand
@@ -273,7 +269,7 @@ public class AuditCommandFactoryImpl implements AuditCommandFactory {
                             w3cValidatorPath,
                             java8Path);
             initCommandServices(auditCommand);
-            auditCommand.setCrawlerService(crawlerService);
+            auditCommand.setTanaguruCrawlerService(crawlerService);
             return auditCommand;
         } else {
             GroupOfPagesAuditCommandImpl auditCommand

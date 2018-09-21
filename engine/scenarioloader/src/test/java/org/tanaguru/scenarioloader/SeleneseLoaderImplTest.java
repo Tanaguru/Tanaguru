@@ -28,7 +28,6 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import junit.framework.TestCase;
-import org.apache.commons.pool.impl.GenericObjectPool.Config;
 import org.apache.http.HttpStatus;
 import static org.easymock.EasyMock.*;
 import org.tanaguru.entity.audit.SSP;
@@ -36,7 +35,7 @@ import org.tanaguru.entity.service.audit.ContentDataService;
 import org.tanaguru.entity.service.subject.WebResourceDataService;
 import org.tanaguru.entity.subject.Page;
 import org.tanaguru.entity.subject.Site;
-import org.tanaguru.selenese.tools.factory.ProfileFactoryImpl;
+import org.tanaguru.webdriver.factory.ProfileFactoryImpl;
 import org.tanaguru.util.factory.DateFactory;
 
 /**
@@ -467,7 +466,7 @@ public class SeleneseLoaderImplTest extends TestCase {
      */
     private String readFile(String filePath, boolean addLastReturn) {
         try {
-            java.net.URL url = Config.class.getClassLoader().getResource(filePath);
+            java.net.URL url = this.getClass().getClassLoader().getResource(filePath);
             BufferedReader in = new BufferedReader(new FileReader(new File(new URI(url.toString()))));
             String str;
             StringBuilder file = new StringBuilder();

@@ -28,7 +28,7 @@ import java.util.Set;
 
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.service.audit.AuditDataService;
-import org.tanaguru.selenese.tools.factory.ScenarioFactoryImpl;
+import org.tanaguru.scenarioloader.factory.ScenarioFactoryImpl;
 import org.tanaguru.util.FileNaming;
 
 /**

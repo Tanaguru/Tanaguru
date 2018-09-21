@@ -25,8 +25,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import org.tanaguru.crawler.util.CrawlUtils;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
+import org.tanaguru.tools.CrawlUtils;
 
 /**
  *

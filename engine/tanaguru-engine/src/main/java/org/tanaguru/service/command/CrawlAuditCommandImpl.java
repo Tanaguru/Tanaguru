@@ -24,12 +24,14 @@ package org.tanaguru.service.command;
 
 import java.util.Set;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.tanaguru.entity.audit.AuditStatus;
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.service.audit.AuditDataService;
 import org.tanaguru.service.AuditServiceImpl;
-import org.tanaguru.service.CrawlerService;
+import org.tanaguru.service.ScenarioLoaderService;
 import org.tanaguru.util.http.HttpRequestHandler;
+import org.tanaguru.service.TanaguruCrawlerServiceImpl;
 
 /**
  *
@@ -45,12 +47,25 @@ public abstract class CrawlAuditCommandImpl extends AuditCommandImpl {
     /**
      * The crawlerService instance
      */
-    private CrawlerService crawlerService;
-    public CrawlerService getCrawlerService() {
-        return crawlerService;
+    @Autowired
+    private TanaguruCrawlerServiceImpl tanaguruCrawlerService;
+    public TanaguruCrawlerServiceImpl getTanaguruCrawlerService() {
+        return tanaguruCrawlerService;
     }
-    public void setCrawlerService(CrawlerService crawlerService) {
-        this.crawlerService = crawlerService;
+    public void setTanaguruCrawlerService(TanaguruCrawlerServiceImpl crawlerService) {
+        this.tanaguruCrawlerService = crawlerService;
+    }
+
+    /**
+     * The scenario loader Service instance
+     */
+    private ScenarioLoaderService scenarioLoaderService;
+
+    public ScenarioLoaderService getScenarioLoaderService() {
+        return scenarioLoaderService;
+    }
+    public void setScenarioLoaderService(ScenarioLoaderService scenarioLoaderService) {
+        this.scenarioLoaderService = scenarioLoaderService;
     }
     
     private String url;
@@ -125,7 +140,8 @@ public abstract class CrawlAuditCommandImpl extends AuditCommandImpl {
      * Call the crawler service in an appropriate way regarding the audit type
      */
     abstract void callCrawlerService();
-    
+
+
     /**
      * 
      * @param url 

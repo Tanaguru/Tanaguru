@@ -47,7 +47,9 @@ public interface ScenarioLoader {
     /**
      *
      */
-    void run();
+    void run(String scenario);
+
+    void run(List<String> urlList);
 
     /**
      * 

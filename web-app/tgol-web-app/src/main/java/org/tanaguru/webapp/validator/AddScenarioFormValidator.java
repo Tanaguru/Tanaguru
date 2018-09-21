@@ -33,7 +33,7 @@ import org.apache.log4j.Logger;
 import org.apache.tika.config.TikaConfig;
 import org.apache.tika.metadata.Metadata;
 import org.apache.tika.mime.MimeTypes;
-import org.tanaguru.selenese.tools.helper.SeleneseHelper;
+import org.tanaguru.selenese.SeleneseHelper;
 import org.tanaguru.webapp.command.AddScenarioCommand;
 import org.tanaguru.webapp.command.AuditSetUpCommand;
 import org.tanaguru.webapp.entity.contract.Contract;

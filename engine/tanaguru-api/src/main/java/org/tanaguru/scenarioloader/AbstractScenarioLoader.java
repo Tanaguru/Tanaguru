@@ -26,7 +26,6 @@ public abstract class AbstractScenarioLoader implements ScenarioLoader {
     protected static final String UTF8 = "UTF-8";
 
     protected List<Content> result;
-    protected String scenario;
     protected WebResource webResource;
     protected Map<String, String> jsScriptMap;
     protected int pageLoadDriverTimeout;
@@ -42,10 +41,8 @@ public abstract class AbstractScenarioLoader implements ScenarioLoader {
 
 
     public AbstractScenarioLoader(
-            WebResource webResource,
-            String scenario) {
+            WebResource webResource) {
         this.webResource = webResource;
-        this.scenario = scenario;
         this.result = new ArrayList<>();
     }
 

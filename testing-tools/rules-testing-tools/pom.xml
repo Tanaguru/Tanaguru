@@ -30,7 +30,7 @@
         </dependency>
         <dependency>
             <groupId>${engineGroupId}</groupId>
-            <artifactId>tanaguru-crawler</artifactId>
+            <artifactId>tanaguru-crawler4j</artifactId>
         </dependency>
         <dependency>
             <groupId>${engineGroupId}</groupId>

@@ -35,7 +35,7 @@
         </dependency>
         <dependency>
             <groupId>${engineGroupId}</groupId>
-            <artifactId>tanaguru-crawler</artifactId>
+            <artifactId>tanaguru-crawler4j</artifactId>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -51,15 +51,8 @@
             <artifactId>easymockclassextension</artifactId>
         </dependency>
         <dependency>
-            <groupId>${engineGroupId}</groupId>
-            <artifactId>tanaguru-contentloader</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.tanaguru</groupId>
-            <artifactId>tanaguru-selenese-runner-tools</artifactId>
-            <version>5.3.0-snapshot</version>
-            <scope>compile</scope>
+            <groupId>jp.vmi</groupId>
+            <artifactId>selenese-runner-java</artifactId>
         </dependency>
     </dependencies>
 </project>

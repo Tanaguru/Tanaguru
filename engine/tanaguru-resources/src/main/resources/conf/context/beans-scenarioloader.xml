@@ -4,7 +4,7 @@
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="scenarioLoaderFactory" class="org.tanaguru.scenarioloader.ScenarioLoaderFactoryImpl">
+    <bean id="scenarioLoaderFactory" class="org.tanaguru.scenarioloader.factory.ScenarioLoaderFactoryImpl">
         <property name="jsScriptMap">
             <map>
                 <entry key="colorExtractor" value="/js/colorExtractor_nativeJs.js"/>
@@ -20,7 +20,7 @@
 
     <bean id="scenarioLoaderService" class="org.tanaguru.service.ScenarioLoaderServiceImpl"/>
 
-    <bean id="profileFactoryImpl" class="org.tanaguru.selenese.tools.factory.ProfileFactoryImpl" factory-method="getInstance"/>
+    <bean id="profileFactoryImpl" class="org.tanaguru.webdriver.factory.ProfileFactoryImpl" factory-method="getInstance"/>
 
 <!--    <bean id="firefoxDriverPoolabelObjectFactory" class="org.tanaguru.scenarioloadertools.FirefoxDriverPoolableObjectFactory">
         <property name="implicitelyWaitDriverTimeout">

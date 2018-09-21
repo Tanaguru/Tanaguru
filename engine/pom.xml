@@ -13,13 +13,11 @@
     <modules>
         <module>commons-entity</module>
         <module>commons-entity-jpa</module>
-        <module>scenario-loader-tools</module>
         <module>tanaguru-api</module>
         <module>reference</module>
         <module>audit</module>
         <module>rule-implementation-loader</module>
         <module>nomenclatureloader</module>
-        <module>crawler</module>
         <module>contentloader</module>
         <module>contentadapter</module>
         <module>commons-processing</module>
@@ -36,5 +34,6 @@
         <module>scenarioloader</module>
         <module>tanaguru-jms</module>
         <module>tanaguru-kafka</module>
+        <module>tanaguru-crawler4j</module>
     </modules>
 </project>

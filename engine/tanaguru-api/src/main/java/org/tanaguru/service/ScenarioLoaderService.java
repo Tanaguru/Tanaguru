@@ -45,6 +45,14 @@ public interface ScenarioLoaderService {
 
     /**
      *
+     * @param webResource
+     * @param urlList
+     * @return
+     */
+    List<Content> loadUrlListContent(WebResource webResource, List<String> urlList, ScenarioRunner scenarioRunner);
+
+    /**
+     *
      * @param scenarioLoaderFactory
      */
     void setScenarioLoaderFactory(ScenarioLoaderFactory scenarioLoaderFactory);

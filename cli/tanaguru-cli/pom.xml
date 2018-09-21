@@ -61,7 +61,7 @@
         </dependency>
         <dependency>
             <groupId>${engineGroupId}</groupId>
-            <artifactId>tanaguru-crawler</artifactId>
+            <artifactId>tanaguru-crawler4j</artifactId>
             <scope>runtime</scope>
         </dependency>
         <dependency>
@@ -176,6 +176,11 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${springVersion}</version>
         </dependency>
     </dependencies>
 </project>

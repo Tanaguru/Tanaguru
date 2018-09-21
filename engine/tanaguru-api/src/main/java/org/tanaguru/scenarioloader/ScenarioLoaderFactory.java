@@ -33,14 +33,12 @@ public interface ScenarioLoaderFactory {
     /**
      * 
      * @param mainWebResource
-     * @param scenarioFile
      * @param scenarioRunner
      * @return 
      *      an instance of ContentLoader
      */
     ScenarioLoader create(
             WebResource mainWebResource,
-            String scenarioFile,
             ScenarioRunner scenarioRunner);
 
 }

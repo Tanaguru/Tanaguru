@@ -64,8 +64,23 @@ public class ScenarioLoaderServiceImpl implements ScenarioLoaderService {
     @Override
     public List<Content> loadScenario(WebResource webResource, String scenarioFile, ScenarioRunner scenarioRunner) {
         Audit audit = webResource.getAudit();
-        ScenarioLoader scenarioLoader = scenarioLoaderFactory.create(webResource, scenarioFile, scenarioRunner);
-        scenarioLoader.run();
+        ScenarioLoader scenarioLoader = scenarioLoaderFactory.create(webResource, scenarioRunner);
+        scenarioLoader.run(scenarioFile);
+        List<Content> contentList = scenarioLoader.getResult();
+        for (Content content : contentList) {
+//            content.setAudit(audit);
+            contentDataService.saveAuditToContent(content.getId(),audit.getId());
+        }
+        // Before returning the list of content we save the webResource
+        webResourceDataService.saveOrUpdate(webResource);
+        return contentList;
+    }
+
+    @Override
+    public List<Content> loadUrlListContent(WebResource webResource, List<String> urlList, ScenarioRunner scenarioRunner) {
+        Audit audit = webResource.getAudit();
+        ScenarioLoader scenarioLoader = scenarioLoaderFactory.create(webResource, scenarioRunner);
+        scenarioLoader.run(urlList);
         List<Content> contentList = scenarioLoader.getResult();
         for (Content content : contentList) {
 //            content.setAudit(audit);
