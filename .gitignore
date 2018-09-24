@@ -108,9 +108,4 @@ crowdin.yaml
 *.orig
 # Mkdocs
 /docs/Site
-/ws/tanaguru-ws/c:/log/tanaguru/tanaguru-ws.log.2016-07-13
-/ws/tanaguru-ws/c:/log/tanaguru/tanaguru-ws.log.2016-07-18
-/ws/tanaguru-ws/c:/log/tanaguru/tanaguru-ws.log.2016-08-05
-/ws/tanaguru-ws/c:/log/tanaguru/tanaguru-ws.log.2016-07-19
-/ws/tanaguru-ws/c:/log/tanaguru/tanaguru-ws.log
-/ws/tanaguru-ws/c:/log/tanaguru/tanaguru-ws.log.2016-07-12
+/ws/tanaguru-ws/c:/log/tanaguru/

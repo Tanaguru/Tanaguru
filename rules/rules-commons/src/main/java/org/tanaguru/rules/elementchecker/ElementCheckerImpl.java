@@ -464,4 +464,19 @@ public abstract class ElementCheckerImpl implements ElementChecker {
         }
     }
     
+    /** 
+     * Permits to create a SourceCodeRemark to show the evidence for a TestSolution 
+     * Actually unsuable 
+     * Just permits to subclasses to override this method 
+     * For example, the subclass @ElementPresenceChecker.java 
+     * @param testSolution : The result solution for this test 
+     * @param element : the element of the remark 
+     * @param message : the message associate to the test for the element 
+     */ 
+    private void createSourceCodeRemark(TestSolution testSolution, Element element, String message) { 
+        addSourceCodeRemark(testSolution, element, message); 
+    } 
+     
+
+    
 }

@@ -155,15 +155,15 @@ public class Rgaa32016Rule090102Test extends Rgaa32016RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------2Failed-02------------------------------
         //----------------------------------------------------------------------
-//        processResult = processPageTest("Rgaa32016.Test.09.01.02-2Failed-02");
-//        checkResultIsFailed(processResult, 5, 1);
-//        checkRemarkIsPresent(
-//                processResult,
-//                TestSolution.FAILED,
-//                RemarkMessageStore.HEADER_NOT_HIERARCHICALLY_WELL_DEFINED_MSG,
-//                HtmlElementStore.H1_ELEMENT,
-//                1,
-//                new ImmutablePair(EvidenceStore.FIRST_H_TAG_INDEX_EE, "h2"));
+        processResult = processPageTest("Rgaa32016.Test.09.01.02-2Failed-02");
+        checkResultIsFailed(processResult, 5, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                RemarkMessageStore.HEADER_NOT_HIERARCHICALLY_WELL_DEFINED_MSG,
+                HtmlElementStore.H1_ELEMENT,
+                1,
+                new ImmutablePair(EvidenceStore.FIRST_H_TAG_INDEX_EE, "h2"));
 
         //----------------------------------------------------------------------
         //------------------------------2Failed-03------------------------------

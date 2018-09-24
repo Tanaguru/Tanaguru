@@ -166,6 +166,8 @@ public final class RemarkMessageStore {
     public static final String CHECK_NATURE_OF_IMAGE_AND_AT_RESTITUTION_OF_PERTINENCE_MSG
             = "CheckNatureOfImageAndAtRestitutionOfDescription";
     public static final String ALTERNATIVE_TOO_LONG_MSG = "AlternativeTooLong";
+    public static final String CHECK_NATURE_OF_IMAGE_AND_ALT_LENGTH_MSG
+            = "CheckNatureOfImageAndAltLength";
     public static final String ALT_SVG_DETECTED_MSG = "AltSvgDetect";
     public static final String DECORATIVE_SVG_WITHOUT_ROLE_IMG_ATTRIBUTE
             = "DecorativeSvgWithoutRoleImgAttribute";
@@ -191,6 +193,10 @@ public final class RemarkMessageStore {
             = "SuspectedInformativeSvgWithDescOrTitleChildTag";
     public static final String SUSPECTED_INFORMATIVE_SVG_WITH_TITLE_ATTRIBUTE_ON_ELEMENT_OR_CHILD
             = "SuspectedInformativeSvgWithTitleAttributeOnElementOrChild";
+    public static final String SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG 
+    		= "SuspectedInformativeSvgWithRoleImgMissing";
+    public static final String SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG 
+			= "SuspectedDecorativeSvgWithRoleImgMissing";
     public static final String SUSPECTED_WELL_FORMATED_DECORATIVE_SVG
             = "SuspectedWellFormedDecorativeSvg";
     public static final String CHECK_NATURE_OF_IMAGE_AND_TEXT_STYLED_PRESENCE_MSG
@@ -340,6 +346,8 @@ public final class RemarkMessageStore {
 
     // mandatory elements 
     public static final String TITLE_TAG_MISSING_MSG = "TitleTagMissing";
+    public static final String MULTIPLE_TITLE_TAG_IN_THE_BODY_MSG= "MultipleTitleTagMessage";
+    public static final String TITLE_TAG_IN_THE_BODY_MSG = "TitleTagInTheBody";
     public static final String NOT_PERTINENT_TITLE_MSG = "NotPertinentTitle";
     public static final String CHECK_TITLE_PERTINENCE_MSG = "CheckTitlePertinence";
     public static final String LANG_ATTRIBUTE_MISSING_ON_HTML_TAG_MSG

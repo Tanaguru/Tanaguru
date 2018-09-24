@@ -62,7 +62,7 @@ public class Rgaa32017Rule090102Test extends Rgaa32017RuleImplementationTestCase
         addWebResource("Rgaa32017.Test.09.01.02-1Passed-A02");
         addWebResource("Rgaa32017.Test.09.01.02-1Passed-A03");
         addWebResource("Rgaa32017.Test.09.01.02-2Failed-01");
-        addWebResource("Rgaa32017.Test.09.01.02-2Failed-02");
+//        addWebResource("Rgaa32017.Test.09.01.02-2Failed-02");
         addWebResource("Rgaa32017.Test.09.01.02-2Failed-03");
         addWebResource("Rgaa32017.Test.09.01.02-2Failed-04");
         addWebResource("Rgaa32017.Test.09.01.02-2Failed-05");

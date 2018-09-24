@@ -34,6 +34,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_ALT_PERTINENC
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_SVG_AND_ALT_PERTINENCE_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_SVG_WITH_NOT_PERTINENT_ALT_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.INFORMATIVE_SVG_WITH_NOT_PERTINENT_ALT_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.SVG_WITHOUT_ROLE_IMAGE_MSG;
 import org.tanaguru.rules.rgaa32017.test.Rgaa32017RuleImplementationTestCase;
 
@@ -68,18 +69,7 @@ public class Rgaa32017Rule010308Test extends Rgaa32017RuleImplementationTestCase
                 createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image;class-informative-image"));
         addWebResource("Rgaa32017.Test.1.3.8-2Failed-04",
                 createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image;class-informative-image"));
-        addWebResource("Rgaa32017.Test.1.3.8-2Failed-05");
-        addWebResource("Rgaa32017.Test.1.3.8-2Failed-06");
-        addWebResource("Rgaa32017.Test.1.3.8-2Failed-07");
-        addWebResource("Rgaa32017.Test.1.3.8-2Failed-08");
-        addWebResource("Rgaa32017.Test.1.3.8-2Failed-09");
-        addWebResource("Rgaa32017.Test.1.3.8-2Failed-10");
-        addWebResource("Rgaa32017.Test.1.3.8-2Failed-11");
-        addWebResource("Rgaa32017.Test.1.3.8-2Failed-12");
-        addWebResource("Rgaa32017.Test.1.3.8-2Failed-13");
-        addWebResource("Rgaa32017.Test.1.3.8-2Failed-14");
-        addWebResource("Rgaa32017.Test.1.3.8-2Failed-15");
-        addWebResource("Rgaa32017.Test.1.3.8-2Failed-16");
+
         addWebResource("Rgaa32017.Test.1.3.8-3NMI-01",
                 createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
         addWebResource("Rgaa32017.Test.1.3.8-3NMI-02",
@@ -116,6 +106,18 @@ public class Rgaa32017Rule010308Test extends Rgaa32017RuleImplementationTestCase
         addWebResource("Rgaa32017.Test.1.3.8-3NMI-17");
         addWebResource("Rgaa32017.Test.1.3.8-3NMI-18");
         addWebResource("Rgaa32017.Test.1.3.8-3NMI-19");
+        addWebResource("Rgaa32017.Test.1.3.8-3NMI-20");
+        addWebResource("Rgaa32017.Test.1.3.8-3NMI-21");
+        addWebResource("Rgaa32017.Test.1.3.8-3NMI-22");
+        addWebResource("Rgaa32017.Test.1.3.8-3NMI-23");
+        addWebResource("Rgaa32017.Test.1.3.8-3NMI-24");
+        addWebResource("Rgaa32017.Test.1.3.8-3NMI-25");
+        addWebResource("Rgaa32017.Test.1.3.8-3NMI-26");
+        addWebResource("Rgaa32017.Test.1.3.8-3NMI-27");
+        addWebResource("Rgaa32017.Test.1.3.8-3NMI-28");
+        addWebResource("Rgaa32017.Test.1.3.8-3NMI-29");
+        addWebResource("Rgaa32017.Test.1.3.8-3NMI-30");
+        addWebResource("Rgaa32017.Test.1.3.8-3NMI-31");
         addWebResource("Rgaa32017.Test.1.3.8-4NA-01");
         addWebResource("Rgaa32017.Test.1.3.8-4NA-02");
         addWebResource("Rgaa32017.Test.1.3.8-4NA-03",
@@ -187,254 +189,7 @@ public class Rgaa32017Rule010308Test extends Rgaa32017RuleImplementationTestCase
                 new ImmutablePair(ARIA_LABEL_ATTR, ABSENT_ATTRIBUTE_VALUE),
                 new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE));
 
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-05------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.1.3.8-2Failed-05");
-        checkResultIsFailed(processResult, 2, 2);
-        checkRemarkIsPresent(
-                processResult,
-                FAILED,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
-                SVG_ELEMENT,
-                1);
-        checkRemarkIsPresent(
-                processResult,
-                FAILED,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
-                SVG_ELEMENT,
-                2);
-        
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-06------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.1.3.8-2Failed-06");
-        checkResultIsFailed(processResult, 2, 2);
-        checkRemarkIsPresent(
-                processResult,
-                FAILED,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
-                SVG_ELEMENT,
-                1);
-        checkRemarkIsPresent(
-                processResult,
-                NEED_MORE_INFO,
-                CHECK_NATURE_OF_SVG_AND_ALT_PERTINENCE_MSG,
-                SVG_ELEMENT,
-                2,
-                new ImmutablePair(ROLE_ATTR, "img"),
-                new ImmutablePair(ARIA_LABEL_ATTR, ABSENT_ATTRIBUTE_VALUE),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE));
-        
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-07------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.1.3.8-2Failed-07");
-        checkResultIsFailed(processResult, 2, 2);
-        checkRemarkIsPresent(
-                processResult,
-                FAILED,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
-                SVG_ELEMENT,
-                1);
-        checkRemarkIsPresent(
-                processResult,
-                NEED_MORE_INFO,
-                CHECK_NATURE_OF_SVG_AND_ALT_PERTINENCE_MSG,
-                SVG_ELEMENT,
-                2,
-                new ImmutablePair(ROLE_ATTR, "img"),
-                new ImmutablePair(ARIA_LABEL_ATTR, "Un titre"),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE));
-        
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-08------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.1.3.8-2Failed-08");
-        checkResultIsFailed(processResult, 2, 2);
-        checkRemarkIsPresent(
-                processResult,
-                FAILED,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
-                SVG_ELEMENT,
-                1);
-        checkRemarkIsPresent(
-                processResult,
-                NEED_MORE_INFO,
-                CHECK_NATURE_OF_SVG_AND_ALT_PERTINENCE_MSG,
-                SVG_ELEMENT,
-                2,
-                new ImmutablePair(ROLE_ATTR, "img"),
-                new ImmutablePair(ARIA_LABEL_ATTR, ABSENT_ATTRIBUTE_VALUE),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE));
-        
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-09------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.1.3.8-2Failed-09");
-        checkResultIsFailed(processResult, 2, 2);
-        checkRemarkIsPresent(
-                processResult,
-                FAILED,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
-                SVG_ELEMENT,
-                1);
-        checkRemarkIsPresent(
-                processResult,
-                NEED_MORE_INFO,
-                CHECK_NATURE_OF_SVG_AND_ALT_PERTINENCE_MSG,
-                SVG_ELEMENT,
-                2,
-                new ImmutablePair(ROLE_ATTR, "img"),
-                new ImmutablePair(ARIA_LABEL_ATTR, "Un titre"),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE));
-        
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-10------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.1.3.8-2Failed-10");
-        checkResultIsFailed(processResult, 2, 2);
-        checkRemarkIsPresent(
-                processResult,
-                FAILED,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
-                SVG_ELEMENT,
-                1);
-        checkRemarkIsPresent(
-                processResult,
-                NEED_MORE_INFO,
-                CHECK_NATURE_OF_SVG_WITH_NOT_PERTINENT_ALT_MSG,
-                SVG_ELEMENT,
-                2,
-                new ImmutablePair(ROLE_ATTR, "img"),
-                new ImmutablePair(ARIA_LABEL_ATTR, ""),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE));
-        
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-11------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.1.3.8-2Failed-11");
-        checkResultIsFailed(processResult, 2, 2);
-        checkRemarkIsPresent(
-                processResult,
-                FAILED,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
-                SVG_ELEMENT,
-                1);
-        checkRemarkIsPresent(
-                processResult,
-                NEED_MORE_INFO,
-                CHECK_NATURE_OF_SVG_AND_ALT_PERTINENCE_MSG,
-                SVG_ELEMENT,
-                2,
-                new ImmutablePair(ROLE_ATTR, "img"),
-                new ImmutablePair(ARIA_LABEL_ATTR, "Une description"),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE));
-        
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-12------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.1.3.8-2Failed-12");
-        checkResultIsFailed(processResult, 2, 2);
-        checkRemarkIsPresent(
-                processResult,
-                FAILED,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
-                SVG_ELEMENT,
-                1);
-        checkRemarkIsPresent(
-                processResult,
-                NEED_MORE_INFO,
-                CHECK_NATURE_OF_SVG_AND_ALT_PERTINENCE_MSG,
-                SVG_ELEMENT,
-                2,
-                new ImmutablePair(ROLE_ATTR, "img"),
-                new ImmutablePair(ARIA_LABEL_ATTR, "Un titre"),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE));
-        
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-13------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.1.3.8-2Failed-13");
-        checkResultIsFailed(processResult, 2, 2);
-        checkRemarkIsPresent(
-                processResult,
-                FAILED,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
-                SVG_ELEMENT,
-                1);
-        checkRemarkIsPresent(
-                processResult,
-                NEED_MORE_INFO,
-                CHECK_NATURE_OF_SVG_AND_ALT_PERTINENCE_MSG,
-                SVG_ELEMENT,
-                2,
-                new ImmutablePair(ROLE_ATTR, "img"),
-                new ImmutablePair(ARIA_LABEL_ATTR, ABSENT_ATTRIBUTE_VALUE),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE));
-        
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-14------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.1.3.8-2Failed-14");
-        checkResultIsFailed(processResult, 2, 2);
-        checkRemarkIsPresent(
-                processResult,
-                FAILED,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
-                SVG_ELEMENT,
-                1);
-        checkRemarkIsPresent(
-                processResult,
-                NEED_MORE_INFO,
-                CHECK_NATURE_OF_SVG_AND_ALT_PERTINENCE_MSG,
-                SVG_ELEMENT,
-                2,
-                new ImmutablePair(ROLE_ATTR, "img"),
-                new ImmutablePair(ARIA_LABEL_ATTR, ABSENT_ATTRIBUTE_VALUE),
-                new ImmutablePair(TITLE_ATTR, "Un titre"));
-        
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-15------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.1.3.8-2Failed-15");
-        checkResultIsFailed(processResult, 2, 2);
-        checkRemarkIsPresent(
-                processResult,
-                FAILED,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
-                SVG_ELEMENT,
-                1);
-        checkRemarkIsPresent(
-                processResult,
-                NEED_MORE_INFO,
-                CHECK_NATURE_OF_SVG_AND_ALT_PERTINENCE_MSG,
-                SVG_ELEMENT,
-                2,
-                new ImmutablePair(ROLE_ATTR, "img"),
-                new ImmutablePair(ARIA_LABEL_ATTR, "Un titre"),
-                new ImmutablePair(TITLE_ATTR, "Un titre"));
-        
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-16------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.1.3.8-2Failed-16");
-        checkResultIsFailed(processResult, 2, 2);
-        checkRemarkIsPresent(
-                processResult,
-                FAILED,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
-                SVG_ELEMENT,
-                1);
-        checkRemarkIsPresent(
-                processResult,
-                NEED_MORE_INFO,
-                CHECK_NATURE_OF_SVG_WITH_NOT_PERTINENT_ALT_MSG,
-                SVG_ELEMENT,
-                2,
-                new ImmutablePair(ROLE_ATTR, "img"),
-                new ImmutablePair(ARIA_LABEL_ATTR, "Un autre titre"),
-                new ImmutablePair(TITLE_ATTR, "Un titre"));
+       
 
         //----------------------------------------------------------------------
         //------------------------------3NMI-01---------------------------------
@@ -720,6 +475,255 @@ public class Rgaa32017Rule010308Test extends Rgaa32017RuleImplementationTestCase
                 new ImmutablePair(ROLE_ATTR, "img"),
                 new ImmutablePair(ARIA_LABEL_ATTR, ""),
                 new ImmutablePair(TITLE_ATTR, "Un titre"));
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-05------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.1.3.8-3NMI-20");
+        checkResultIsPreQualified(processResult, 2, 2);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
+                SVG_ELEMENT,
+                1);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
+                SVG_ELEMENT,
+                2);
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-06------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.1.3.8-3NMI-21");
+        checkResultIsPreQualified(processResult, 2, 2);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
+                SVG_ELEMENT,
+                1);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_SVG_AND_ALT_PERTINENCE_MSG,
+                SVG_ELEMENT,
+                2,
+                new ImmutablePair(ROLE_ATTR, "img"),
+                new ImmutablePair(ARIA_LABEL_ATTR, ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-07------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.1.3.8-3NMI-22");
+        checkResultIsPreQualified(processResult, 2, 2);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
+                SVG_ELEMENT,
+                1);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_SVG_AND_ALT_PERTINENCE_MSG,
+                SVG_ELEMENT,
+                2,
+                new ImmutablePair(ROLE_ATTR, "img"),
+                new ImmutablePair(ARIA_LABEL_ATTR, "Un titre"),
+                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-08------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.1.3.8-3NMI-23");
+        checkResultIsPreQualified(processResult, 2, 2);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
+                SVG_ELEMENT,
+                1);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_SVG_AND_ALT_PERTINENCE_MSG,
+                SVG_ELEMENT,
+                2,
+                new ImmutablePair(ROLE_ATTR, "img"),
+                new ImmutablePair(ARIA_LABEL_ATTR, ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-09------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.1.3.8-3NMI-24");
+        checkResultIsPreQualified(processResult, 2, 2);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
+                SVG_ELEMENT,
+                1);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_SVG_AND_ALT_PERTINENCE_MSG,
+                SVG_ELEMENT,
+                2,
+                new ImmutablePair(ROLE_ATTR, "img"),
+                new ImmutablePair(ARIA_LABEL_ATTR, "Un titre"),
+                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-10------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.1.3.8-3NMI-25");
+        checkResultIsPreQualified(processResult, 2, 2);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
+                SVG_ELEMENT,
+                1);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_SVG_WITH_NOT_PERTINENT_ALT_MSG,
+                SVG_ELEMENT,
+                2,
+                new ImmutablePair(ROLE_ATTR, "img"),
+                new ImmutablePair(ARIA_LABEL_ATTR, ""),
+                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-11------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.1.3.8-3NMI-26");
+        checkResultIsPreQualified(processResult, 2, 2);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
+                SVG_ELEMENT,
+                1);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_SVG_AND_ALT_PERTINENCE_MSG,
+                SVG_ELEMENT,
+                2,
+                new ImmutablePair(ROLE_ATTR, "img"),
+                new ImmutablePair(ARIA_LABEL_ATTR, "Une description"),
+                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-12------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.1.3.8-3NMI-27");
+        checkResultIsPreQualified(processResult, 2, 2);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
+                SVG_ELEMENT,
+                1);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_SVG_AND_ALT_PERTINENCE_MSG,
+                SVG_ELEMENT,
+                2,
+                new ImmutablePair(ROLE_ATTR, "img"),
+                new ImmutablePair(ARIA_LABEL_ATTR, "Un titre"),
+                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-13------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.1.3.8-3NMI-28");
+        checkResultIsPreQualified(processResult, 2, 2);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
+                SVG_ELEMENT,
+                1);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_SVG_AND_ALT_PERTINENCE_MSG,
+                SVG_ELEMENT,
+                2,
+                new ImmutablePair(ROLE_ATTR, "img"),
+                new ImmutablePair(ARIA_LABEL_ATTR, ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-14------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.1.3.8-3NMI-29");
+        checkResultIsPreQualified(processResult, 2, 2);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
+                SVG_ELEMENT,
+                1);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_SVG_AND_ALT_PERTINENCE_MSG,
+                SVG_ELEMENT,
+                2,
+                new ImmutablePair(ROLE_ATTR, "img"),
+                new ImmutablePair(ARIA_LABEL_ATTR, ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(TITLE_ATTR, "Un titre"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-15------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.1.3.8-3NMI-30");
+        checkResultIsPreQualified(processResult, 2, 2);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
+                SVG_ELEMENT,
+                1);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_SVG_AND_ALT_PERTINENCE_MSG,
+                SVG_ELEMENT,
+                2,
+                new ImmutablePair(ROLE_ATTR, "img"),
+                new ImmutablePair(ARIA_LABEL_ATTR, "Un titre"),
+                new ImmutablePair(TITLE_ATTR, "Un titre"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-16------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.1.3.8-3NMI-31");
+        checkResultIsPreQualified(processResult, 2, 2);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
+                SVG_ELEMENT,
+                1);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_SVG_WITH_NOT_PERTINENT_ALT_MSG,
+                SVG_ELEMENT,
+                2,
+                new ImmutablePair(ROLE_ATTR, "img"),
+                new ImmutablePair(ARIA_LABEL_ATTR, "Un autre titre"),
+                new ImmutablePair(TITLE_ATTR, "Un titre"));
+        
         
         //----------------------------------------------------------------------
         //------------------------------4NA-01----------------------------------

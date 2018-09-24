@@ -19,6 +19,14 @@
  */
 package org.tanaguru.rules.rgaa32017;
 
+
+import static org.tanaguru.rules.keystore.AttributeStore.ABSENT_ATTRIBUTE_VALUE;
+import static org.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.TITLE_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.NO_TITLE_IN_HTML_PAGE;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.MULTIPLE_TITLE_TAG_IN_THE_BODY_MSG;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+
 import org.tanaguru.entity.audit.ProcessResult;
 import org.tanaguru.entity.audit.TestSolution;
 import org.tanaguru.rules.keystore.RemarkMessageStore;
@@ -50,15 +58,17 @@ public class Rgaa32017Rule080501Test extends Rgaa32017RuleImplementationTestCase
         addWebResource("Rgaa32017.Test.08.05.01-2Failed-01");
         addWebResource("Rgaa32017.Test.08.05.01-2Failed-02");
         addWebResource("Rgaa32017.Test.08.05.01-2Failed-03");
+        addWebResource("Rgaa32017.Test.08.05.01-2Failed-04");
 
     }
 
     @Override
     protected void setProcess() {
         //----------------------------------------------------------------------
-        //------------------------------1Passed-01---------------------------------
+        //------------------------------1Passed-01------------------------------
         //----------------------------------------------------------------------
-        checkResultIsPassed(processPageTest("Rgaa32017.Test.08.05.01-1Passed-01"),1);
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.08.05.01-1Passed-01"),1);        
+        
         
         //----------------------------------------------------------------------
         //----------------------------2Failed-01--------------------------------
@@ -69,21 +79,25 @@ public class Rgaa32017Rule080501Test extends Rgaa32017RuleImplementationTestCase
                 processResult,
                 TestSolution.FAILED,
                 RemarkMessageStore.TITLE_TAG_MISSING_MSG,
-                "",
-                1);
+                NO_TITLE_IN_HTML_PAGE,
+                1,
+                new ImmutablePair(TEXT_ELEMENT2, ABSENT_ATTRIBUTE_VALUE));
+        
         
         //----------------------------------------------------------------------
         //----------------------------2Failed-02--------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.08.05.01-2Failed-02");
-        checkResultIsFailed(processResult, 0, 1);
+        checkResultIsFailed(processResult, 1, 1);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                RemarkMessageStore.TITLE_TAG_MISSING_MSG,
-                "",
-                1);
+                RemarkMessageStore.TITLE_TAG_IN_THE_BODY_MSG,
+                TITLE_CSS_LIKE_QUERY,
+                1,
+                new ImmutablePair(TEXT_ELEMENT2, "Rgaa32017 Test.8.5.1 Failed 02"));
         
+
         //----------------------------------------------------------------------
         //----------------------------2Failed-03--------------------------------
         //----------------------------------------------------------------------
@@ -92,9 +106,19 @@ public class Rgaa32017Rule080501Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                RemarkMessageStore.TITLE_TAG_MISSING_MSG,
-                "",
-                1);
+                MULTIPLE_TITLE_TAG_IN_THE_BODY_MSG,
+                TITLE_CSS_LIKE_QUERY,
+                1,
+                new ImmutablePair(TEXT_ELEMENT2, "Rgaa32017 Test.8.5.1 Failed 03"));
+        
+
+
+        //----------------------------------------------------------------------
+        //----------------------------2Failed-04--------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.08.05.01-2Failed-04");
+        checkResultIsFailed(processResult, 2, 1);
+        
     }
 
 }

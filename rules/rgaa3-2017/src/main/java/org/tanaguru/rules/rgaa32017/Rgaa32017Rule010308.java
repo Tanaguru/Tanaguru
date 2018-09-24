@@ -46,6 +46,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_SVG
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_SVG_WITH_NOT_PERTINENT_ALT_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.INFORMATIVE_SVG_WITH_NOT_PERTINENT_ALT_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.SVG_WITHOUT_ROLE_IMAGE_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG ;
 
 /**
  * Implementation of the rule 1.3.8 of the referential Rgaa 3-2017.
@@ -237,7 +238,9 @@ public class Rgaa32017Rule010308 extends AbstractMarkerPageRuleImplementation {
         }
         
         if (!ariaRoleMissingOnSvg.isEmpty()) {
-            // result is failed for sure
+            ec = new ElementPresenceChecker(
+                    new ImmutablePair(NEED_MORE_INFO, SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG ), 
+                    new ImmutablePair(PASSED,""));
             ec.check(sspHandler, ariaRoleMissingOnSvg, testSolutionHandler);
         }
         

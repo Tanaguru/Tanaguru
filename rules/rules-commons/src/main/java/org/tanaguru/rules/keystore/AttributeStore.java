@@ -76,6 +76,9 @@ public final class AttributeStore {
     public static final String ROLE_ATTR_VALUE_NAVIGATION = "navigation";
     public static final String ROLE_ATTR_VALUE_CONTENTINFO = "contentinfo";
     public static final String ROLE_ATTR_VALUE_SEARCH = "search";
+    
+    /* Added */ 
+    public static final String TYPE_ATTR = HTML.Attribute.TYPE.toString(); 
 
     /**
      * Private constructor. This class handles keys and must not be instantiated

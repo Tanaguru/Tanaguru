@@ -371,6 +371,9 @@ public class AbstractAuditResultController extends AbstractAuditDataHandlerContr
                         page.getURL(),
                         getParameterDataService()
                         .getParameterSetFromAudit(audit)));
+        
+        //Add boolean to display E-Accessible label
+        model.addAttribute(TgolKeyStore.IS_EACCESSIBLE_ENABLED, getContractDataService().isEAccessibleEnabled(contract));
 
         if (StringUtils.equalsIgnoreCase(displayScope,
                 TgolKeyStore.TEST_DISPLAY_SCOPE_VALUE)) {

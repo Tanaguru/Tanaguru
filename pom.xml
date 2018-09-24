@@ -6,7 +6,7 @@
     <groupId>org.tanaguru</groupId>
     <artifactId>tanaguru</artifactId>
     <packaging>pom</packaging>
-    <version>5.2.1</version>
+    <version>5.3.0</version>
     <name>tanaguru</name>
     <url>http://www.tanaguru.org</url>
     <modules>
@@ -33,19 +33,19 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <engineGroupId>org.tanaguru</engineGroupId>
-        <engineVersion>5.2.1</engineVersion>
+        <engineVersion>5.3.0</engineVersion>
         
         <webappGroupId>org.tanaguru</webappGroupId>
-        <webappVersion>5.2.1</webappVersion>
+        <webappVersion>5.3.0</webappVersion>
         
         <testingToolsGroupId>org.tanaguru</testingToolsGroupId>
-        <testingToolsVersion>5.2.1</testingToolsVersion>
+        <testingToolsVersion>5.3.0</testingToolsVersion>
         
         <tanaguruCliGroupId>org.tanaguru</tanaguruCliGroupId>
-        <tanaguruCliVersion>5.2.1</tanaguruCliVersion>
+        <tanaguruCliVersion>5.3.0</tanaguruCliVersion>
         
         <rulesGroupId>org.tanaguru</rulesGroupId>
-        <rulesVersion>5.2.1</rulesVersion>
+        <rulesVersion>5.3.0</rulesVersion>
         
         <springGroupId>org.springframework</springGroupId>
         <springVersion>3.1.2.RELEASE</springVersion>
