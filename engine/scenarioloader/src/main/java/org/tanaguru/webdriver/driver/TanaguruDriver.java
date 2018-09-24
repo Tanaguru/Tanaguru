@@ -1,20 +1,18 @@
 package org.tanaguru.webdriver.driver;
 
+import edu.uci.ics.crawler4j.crawler.Page;
+import edu.uci.ics.crawler4j.url.WebURL;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.tanaguru.scenarioloader.NewPageListener;
-
-import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.nio.ByteBuffer;
-import java.nio.charset.StandardCharsets;
 import java.util.*;
-import java.util.concurrent.TimeoutException;
 
 public class TanaguruDriver implements WebDriver {
     private static final Logger LOGGER = Logger.getLogger(TanaguruDriver.class);
@@ -150,5 +148,34 @@ public class TanaguruDriver implements WebDriver {
         this.waitTimeNgApp = waitTimeNgApp;
     }
 
+    public boolean waitForJStoLoad() {
+
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+
+
+        // wait for jQuery to load
+        ExpectedCondition<Boolean> jQueryLoad = new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver driver) {
+                try {
+                    return ((Long)((JavascriptExecutor)driver).executeScript("return jQuery.active") == 0);
+                }
+                catch (Exception e) {
+                    return true;
+                }
+            }
+        };
+
+        // wait for Javascript to load
+        ExpectedCondition<Boolean> jsLoad = new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver driver) {
+                return ((JavascriptExecutor)driver).executeScript("return document.readyState")
+                        .toString().equals("complete");
+            }
+        };
+
+        return wait.until(jQueryLoad) && wait.until(jsLoad);
+    }
 
 }

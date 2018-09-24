@@ -17,6 +17,7 @@ public class TanaguruCrawlerControllerFactory {
         String auditDir = String.valueOf(new Date().getTime());
         crawlerConfig.setCrawlStorageFolder(outputDir + auditDir);
         crawlerConfig.setMaxPagesToFetch(maxCrawPages);
+        crawlerConfig.setMaxDepthOfCrawling(20);
 
         try {
             crawlerConfig.validate();
