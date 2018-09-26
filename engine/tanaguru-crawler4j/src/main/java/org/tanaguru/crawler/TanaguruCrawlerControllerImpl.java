@@ -15,15 +15,15 @@ public class TanaguruCrawlerControllerImpl extends CrawlController{
 
     protected List<String> result = new ArrayList<>();
 
-    protected long maxCrawlTime = 100000L;
-    protected int crawlingPagesToFetch = 10000;
+    protected long maxCrawlTime;
 
     public void run(){
         super.start(TanaguruCrawlerImpl.class, NUMBER_OF_CRAWLER);
     }
 
-    public TanaguruCrawlerControllerImpl(CrawlConfig crawlerConfig, PageFetcher pageFetcher, RobotstxtServer robotstxtServer) throws Exception {
+    public TanaguruCrawlerControllerImpl(CrawlConfig crawlerConfig, PageFetcher pageFetcher, RobotstxtServer robotstxtServer, long maxCrawlTime) throws Exception {
         super(crawlerConfig, pageFetcher, robotstxtServer);
+        this.maxCrawlTime = maxCrawlTime;
     }
 
     public List<String> getResult() {

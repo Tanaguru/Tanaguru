@@ -22,7 +22,10 @@
 package org.tanaguru.service;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.tanaguru.crawler.TanaguruCrawlerControllerImpl;
+import org.tanaguru.entity.audit.Audit;
+import org.tanaguru.entity.service.parameterization.ParameterDataService;
 import org.tanaguru.factory.TanaguruCrawlerControllerFactory;
 
 
@@ -37,10 +40,15 @@ import java.util.*;
 public class TanaguruCrawlerServiceImpl{
     private static final Logger LOGGER = Logger.getLogger(TanaguruCrawlerServiceImpl.class);
 
+    @Autowired
+    private ParameterDataService parameterDataService;
+    public void setParameterDataService(ParameterDataService parameterDataService) {
+        this.parameterDataService = parameterDataService;
+    }
 
-    public List<String> getUrlListByCrawlingFromUrlList(List<String> urlList){
-        TanaguruCrawlerControllerImpl tngCrawler = new TanaguruCrawlerControllerFactory().create(
-                100000L, 100
+    public List<String> getUrlListByCrawlingFromUrlList(Audit audit, List<String> urlList){
+        TanaguruCrawlerControllerImpl tngCrawler = new TanaguruCrawlerControllerFactory(parameterDataService).create(
+                audit
         );
 
         for(String url : urlList){
@@ -50,12 +58,13 @@ public class TanaguruCrawlerServiceImpl{
         return tngCrawler.getResult();
     }
 
-    public List<String> getUrlListByCrawlingFromUrl(String url){
-        TanaguruCrawlerControllerImpl tngCrawler = new TanaguruCrawlerControllerFactory().create(
-                100000L, 100
+    public List<String> getUrlListByCrawlingFromUrl(Audit audit, String url){
+        TanaguruCrawlerControllerImpl tngCrawler = new TanaguruCrawlerControllerFactory(parameterDataService).create(
+                audit
         );
         tngCrawler.addSeed(url);
         tngCrawler.run();
+        tngCrawler.waitUntilFinish();
         return tngCrawler.getResult();
     }
 }

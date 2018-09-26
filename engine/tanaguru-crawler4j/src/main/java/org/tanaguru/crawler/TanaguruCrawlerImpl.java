@@ -60,7 +60,7 @@ public class TanaguruCrawlerImpl extends WebCrawler {
     private void onAfterVisit(Page page){
         if(new Date().getTime() - startedTime >= ((TanaguruCrawlerControllerImpl)myController).maxCrawlTime){
             LOGGER.info("[CRAWLER - " + this.getMyId() + "] Crawler time over, stop crawling...");
-            this.getThread().interrupt();
+            myController.shutdown();
         }
     }
 
