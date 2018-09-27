@@ -29,10 +29,6 @@
             <artifactId>jasperreports</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.lowagie</groupId>
-            <artifactId>itext</artifactId>
-        </dependency>
-        <dependency>
             <groupId>net.sf.jasperreports</groupId>
             <artifactId>jasperreports-fonts</artifactId>
         </dependency>

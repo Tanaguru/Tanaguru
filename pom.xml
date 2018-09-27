@@ -1171,10 +1171,6 @@
                         <artifactId>bctsp-jdk14</artifactId>
                     </exclusion>
                     <exclusion>
-                        <groupId>com.lowagie</groupId>
-                        <artifactId>itext</artifactId>
-                    </exclusion>
-                    <exclusion>
                         <groupId>poi</groupId>
                         <artifactId>poi-ooxlm</artifactId>
                     </exclusion>
@@ -1201,25 +1197,7 @@
                 <version>4.0.0</version>
                 <scope>runtime</scope>
             </dependency>
-            <dependency>
-                <groupId>com.lowagie</groupId>
-                <artifactId>itext</artifactId>
-                <version>4.2.1</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.bouncycastle</groupId>
-                        <artifactId>bctsp-jdk14</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>bouncycastle</groupId>
-                        <artifactId>bcmail-jdk14</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>bouncycastle</groupId>
-                        <artifactId>bcprov-jdk14</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
+
 
             <!-- tika dependencies -->
             <dependency>
