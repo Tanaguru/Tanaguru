@@ -9,7 +9,7 @@ import org.apache.log4j.Logger;
 
 import java.util.*;
 
-public class TanaguruCrawlerControllerImpl extends CrawlController{
+public class TanaguruCrawlerControllerImpl extends CrawlController implements Crawler{
     private static final Logger LOGGER = Logger.getLogger(TanaguruCrawlerControllerImpl.class);
     private static final int NUMBER_OF_CRAWLER = 10;
 
