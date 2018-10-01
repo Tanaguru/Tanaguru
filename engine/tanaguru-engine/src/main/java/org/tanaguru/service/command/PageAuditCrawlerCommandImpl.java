@@ -73,13 +73,11 @@ public class PageAuditCrawlerCommandImpl extends CrawlAuditCommandImpl {
     }
     
     @Override
-    public void callCrawlerService() {
+    public List<String> callCrawlerService() {
         if (LOGGER.isInfoEnabled()) {
             LOGGER.info("Launching crawler for page " + getUrl());
         }
-        createEmptyWebResource();
-        List<String> urlList = getTanaguruCrawlerService().getUrlListByCrawlingFromUrl(getAudit(), getUrl());
-        getScenarioLoaderService().loadUrlListContent(getAudit().getSubject(), urlList, ScenarioRunner.SELENESE);
+         return getCrawlerService().getUrlListByCrawlingFromUrl(getAudit(), getUrl());
     }
 
     @Override

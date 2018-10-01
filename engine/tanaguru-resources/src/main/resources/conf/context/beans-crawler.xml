@@ -4,7 +4,8 @@
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="tanaguruCrawlerService" class="org.tanaguru.service.TanaguruCrawlerServiceImpl"/>
+    <bean id="crawlerService" class="org.tanaguru.service.TanaguruCrawlerServiceImpl"/>
+    <bean id="crawlerFactory" class="org.tanaguru.factory.TanaguruCrawlerControllerFactory"/>
     <!--
     <bean id="crawlerFactory" class="org.tanaguru.crawler.CrawlerFactoryImpl">
         <property name="outputDir" value="${heritrixHome}"/>

@@ -27,6 +27,7 @@ import org.tanaguru.crawler.CrawlerFactory;
 import org.tanaguru.entity.audit.Audit;
 import org.tanaguru.entity.service.audit.AuditDataService;
 import org.tanaguru.entity.service.audit.ContentDataService;
+import org.tanaguru.entity.service.parameterization.ParameterDataService;
 import org.tanaguru.entity.service.subject.WebResourceDataService;
 import org.tanaguru.entity.subject.WebResource;
 
@@ -37,58 +38,11 @@ import org.tanaguru.entity.subject.WebResource;
 @XmlTransient
 public interface CrawlerService {
 
-    /**
-     * @param audit  the current Audit
-     * @param siteUrl the URL to crawl
-     * @return the site crawled
-     */
-    WebResource crawlSite(Audit audit, String siteUrl);
+    void setParameterDataService(ParameterDataService parameterDataService);
 
-    /**
-     * @param audit  the current Audit
-     * @param pageUrl  the URL to crawl
-     * @return a page instance from the URL
-     */
-    WebResource crawlPage(Audit audit, String pageUrl);
-    
-    /**
-     * 
-     * @param audit  the current Audit
-     * @param siteUrl  the group of pages URL
-     * @param urlList  the list of URL to crawl
-     * @return a site instance with all the fetched resources
-     */
-    WebResource crawlGroupOfPages(Audit audit, String siteUrl, List<String> urlList);
+    List<String> getUrlListByCrawlingFromUrlList(Audit audit, List<String> urlList);
 
-    /**
-     *
-     * @param crawlerFactory
-     */
+    List<String> getUrlListByCrawlingFromUrl(Audit audit, String url);
+
     void setCrawlerFactory(CrawlerFactory crawlerFactory);
-
-    /**
-     *
-     * @param contentDataService
-     */
-    void setContentDataService(ContentDataService contentDataService);
-
-    /**
-     *
-     * @param webResourceDataService
-     */
-    void setWebResourceDataService(WebResourceDataService webResourceDataService);
-
-    /**
-     *
-     * @param auditDataService
-     */
-    void setAuditDataService(AuditDataService auditDataService);
-
-    /**
-     *
-     * @return
-     *      the webResourceDataService instance
-     */
-    WebResourceDataService getWebResourceDataService();
-
 }

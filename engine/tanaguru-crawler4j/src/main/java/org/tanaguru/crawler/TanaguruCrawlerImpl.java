@@ -3,18 +3,13 @@ package org.tanaguru.crawler;
 import edu.uci.ics.crawler4j.crawler.Page;
 import edu.uci.ics.crawler4j.crawler.WebCrawler;
 import edu.uci.ics.crawler4j.url.WebURL;
-import org.apache.http.entity.ContentType;
 import org.apache.log4j.Logger;
-import org.tanaguru.exception.CrawlerException;
-
-import javax.swing.text.html.HTML;
-import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.regex.Pattern;
 
 
 public class TanaguruCrawlerImpl extends WebCrawler {
-    private final Pattern BLACKLIST = Pattern.compile(".*(\\.(|mp3|mp4|zip|gz|txt|css|js|xml|jpg|jpeg|png|gif))$");
+    private final Pattern BLACKLIST = Pattern.compile(".*(\\.(mp3|mp4|zip|gz|txt|css|js|xml|jpg|jpeg|png|gif))$");
     private static final int HTTP_SUCCESS_RETURN_CODE = 200;
 
     private final Logger LOGGER = Logger.getLogger(TanaguruCrawlerImpl.class);
@@ -29,7 +24,16 @@ public class TanaguruCrawlerImpl extends WebCrawler {
     @Override
     public boolean shouldVisit(Page referringPage, WebURL url) {
         String href = url.getURL().toLowerCase();
+        TanaguruCrawlerControllerImpl controller = (TanaguruCrawlerControllerImpl)myController;
         boolean toVisit = ! BLACKLIST.matcher(href).matches()
+                && (
+                        controller.getExclusionRegex().pattern().isEmpty()
+                        || !controller.getExclusionRegex().matcher(url.getURL()).matches()
+                    )
+                && (
+                        controller.getInclusionRegex().pattern().isEmpty()
+                        || controller.getInclusionRegex().matcher(url.getURL()).matches()
+                )
                 && url.getDomain().equals(referringPage.getWebURL().getDomain());
 
         if(!toVisit){
@@ -48,17 +52,15 @@ public class TanaguruCrawlerImpl extends WebCrawler {
             LOGGER.error("Page content does not match html");
             return;
         }
-
-        page.getContentType();
         String url = page.getWebURL().getURL();
-        ((TanaguruCrawlerControllerImpl)myController).result.add(url);
+        ((TanaguruCrawlerControllerImpl)myController).addResult(url);
 
         onAfterVisit(page);
     }
 
 
     private void onAfterVisit(Page page){
-        if(new Date().getTime() - startedTime >= ((TanaguruCrawlerControllerImpl)myController).maxCrawlTime){
+        if(new Date().getTime() - startedTime >= ((TanaguruCrawlerControllerImpl)myController).getMaxCrawlTime()){
             LOGGER.info("[CRAWLER - " + this.getMyId() + "] Crawler time over, stop crawling...");
             myController.shutdown();
         }

@@ -58,7 +58,7 @@ public class AbstractScenarioAuditCommandImplTest extends AuditCommandTestCase {
      */
     public void testInit() {
         System.out.println("init");
-        
+
         mockAudit.setStatus(AuditStatus.SCENARIO_LOADING);
         expectLastCall().once();
         
@@ -95,9 +95,9 @@ public class AbstractScenarioAuditCommandImplTest extends AuditCommandTestCase {
         
         mockAudit.setSubject(mockPage);
         expectLastCall().once();
-        
-        expect(mockScenarioLoaderService.loadScenario(mockPage, myScenario, ScenarioRunner.INVALID)).andReturn(null).once();
-        
+
+        expect(mockScenarioLoaderService.loadScenario(mockAudit, myScenario, ScenarioRunner.INVALID)).andReturn(null).once();
+
         mockAudit.setStatus(AuditStatus.CONTENT_ADAPTING);
         expectLastCall().once();
         
@@ -142,7 +142,7 @@ public class AbstractScenarioAuditCommandImplTest extends AuditCommandTestCase {
         mockAudit.setSubject(mockSite);
         expectLastCall().once();
         
-        expect(mockScenarioLoaderService.loadScenario(mockSite, myScenario, ScenarioRunner.INVALID)).andReturn(null).once();
+        expect(mockScenarioLoaderService.loadScenario(mockAudit, myScenario, ScenarioRunner.INVALID)).andReturn(null).once();
         
         mockAudit.setStatus(AuditStatus.CONTENT_ADAPTING);
         expectLastCall().once();

@@ -118,10 +118,10 @@ public class AuditCommandFactoryImpl implements AuditCommandFactory {
         this.preProcessResultDataService = preProcessResultDataService;
     }
 
-    private TanaguruCrawlerServiceImpl crawlerService;
+    private CrawlerService crawlerService;
 
     @Autowired
-    public void setCrawlerService(TanaguruCrawlerServiceImpl crawlerService) {
+    public void setCrawlerService(CrawlerService crawlerService) {
         this.crawlerService = crawlerService;
     }
 
@@ -229,14 +229,14 @@ public class AuditCommandFactoryImpl implements AuditCommandFactory {
             SiteAuditCommandImpl auditCommand
                     = new SiteAuditCommandImpl(url, paramSet, auditDataService, w3cValidatorPath, java8Path);
             initCommandServices(auditCommand);
-            auditCommand.setTanaguruCrawlerService(crawlerService);
+            auditCommand.setCrawlerService(crawlerService);
             auditCommand.setScenarioLoaderService(scenarioLoaderService);
             return auditCommand;
         } else if (auditPageWithCrawler) {
             PageAuditCrawlerCommandImpl auditCommand
                     = new PageAuditCrawlerCommandImpl(url, paramSet, auditDataService, w3cValidatorPath, java8Path);
             initCommandServices(auditCommand);
-            auditCommand.setTanaguruCrawlerService(crawlerService);
+            auditCommand.setCrawlerService(crawlerService);
             auditCommand.setScenarioLoaderService(scenarioLoaderService);
             return auditCommand;
         } else {
@@ -269,7 +269,7 @@ public class AuditCommandFactoryImpl implements AuditCommandFactory {
                             w3cValidatorPath,
                             java8Path);
             initCommandServices(auditCommand);
-            auditCommand.setTanaguruCrawlerService(crawlerService);
+            auditCommand.setCrawlerService(crawlerService);
             return auditCommand;
         } else {
             GroupOfPagesAuditCommandImpl auditCommand

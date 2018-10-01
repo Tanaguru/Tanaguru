@@ -108,7 +108,7 @@ public class ScenarioLoaderServiceImplTest extends TestCase {
         instance.setScenarioLoaderFactory(mockScenarioLoaderFactory);
         instance.setWebResourceDataService(mockWebResourceDataService);
         
-        instance.loadScenario(mockWebResource, scenarioFile, ScenarioRunner.SELENESE);
+        instance.loadScenario(mockAudit, scenarioFile, ScenarioRunner.SELENESE);
         
         verify(mockAudit);
         verify(mockWebResource);

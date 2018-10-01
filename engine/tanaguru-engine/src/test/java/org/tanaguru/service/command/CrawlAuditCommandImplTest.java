@@ -23,7 +23,11 @@ package org.tanaguru.service.command;
 
 import org.easymock.EasyMock;
 import org.tanaguru.entity.audit.AuditStatus;
+import org.tanaguru.scenarioloader.ScenarioRunner;
 import org.tanaguru.service.CrawlerService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -75,7 +79,7 @@ public class CrawlAuditCommandImplTest extends AuditCommandTestCase {
         EasyMock.expectLastCall().once();
         
         EasyMock.expect(mockAuditDataService.saveOrUpdate(mockAudit)).andReturn(mockAudit).once();
-        
+
         setReplayMode();
         
         CrawlAuditCommandImpl instance = new TestCrawlAuditCommandImpl();
@@ -99,7 +103,9 @@ public class CrawlAuditCommandImplTest extends AuditCommandTestCase {
         
         EasyMock.expect(mockAuditDataService.saveOrUpdate(mockAudit)).andReturn(mockAudit).once();
         EasyMock.expect(mockAudit.getStatus()).andReturn(AuditStatus.CRAWLING).once();
-        
+        EasyMock.expect(mockScenarioLoaderService.loadUrlListContent(mockAudit, null, ScenarioRunner.SELENESE))
+                .andReturn(null)
+                .once();
         EasyMock.expect(mockContentDataService.hasContent(mockAudit)).andReturn(true).once();
         
         mockAudit.setStatus(AuditStatus.CONTENT_ADAPTING);
@@ -146,6 +152,7 @@ public class CrawlAuditCommandImplTest extends AuditCommandTestCase {
             setAnalyserService(mockAnalyserService);
             setAdaptationListener(mockAdaptationListener);
             setCrawlerService(mockCrawlerService);
+            setScenarioLoaderService(mockScenarioLoaderService);
             setAdaptationTreatmentWindow(5);
             setProcessingTreatmentWindow(5);
             setConsolidationTreatmentWindow(5);
@@ -153,9 +160,11 @@ public class CrawlAuditCommandImplTest extends AuditCommandTestCase {
         }
 
         @Override
-        public void callCrawlerService() {
+        public List<String> callCrawlerService() {
             System.out.println("The abstract callCrawlerService is called");
             assertTrue(true);
+            List<String> urlList = new ArrayList<>();
+            return urlList;
         }
 
         @Override

@@ -39,8 +39,11 @@ import java.util.*;
  * @author rcharre
  */
 @XmlTransient
-public class TanaguruCrawlerServiceImpl{
+public class TanaguruCrawlerServiceImpl implements CrawlerService{
     private static final Logger LOGGER = Logger.getLogger(TanaguruCrawlerServiceImpl.class);
+    private static final String BEGIN_REGEX = "(?i)(.*)(";
+    private static final String END_REGEX = ")(.*)$";
+    private static final String OR_SEPARATOR_REGEX = "|";
 
     @Autowired
     private ParameterDataService parameterDataService;
@@ -48,11 +51,18 @@ public class TanaguruCrawlerServiceImpl{
         this.parameterDataService = parameterDataService;
     }
 
+    @Autowired
+    private CrawlerFactory crawlerFactory;
+    public void setCrawlerFactory(CrawlerFactory crawlerFactory){
+        this.crawlerFactory = crawlerFactory;
+    }
+
     public List<String> getUrlListByCrawlingFromUrlList(Audit audit, List<String> urlList){
-        TanaguruCrawlerControllerFactory crawlerFactory = new TanaguruCrawlerControllerFactory();
         crawlerFactory.setMaxDepth(getMaxDepthOfCrawlPageFromAuditParameter(audit));
         crawlerFactory.setMaxDocument(getMaxNumberOfCrawlPageFromAuditParameter(audit));
         crawlerFactory.setMaxDuration(getTimeOfCrawlPageFromAuditParameter(audit));
+        crawlerFactory.setExclusionRegex(getExclusionRegexFromAuditParameter(audit));
+        crawlerFactory.setInclusionRegex(getInclusionRegexFromAuditParameter(audit));
 
         Crawler tngCrawler = crawlerFactory.create(audit);
         for(String url : urlList){
@@ -64,10 +74,11 @@ public class TanaguruCrawlerServiceImpl{
     }
 
     public List<String> getUrlListByCrawlingFromUrl(Audit audit, String url){
-        TanaguruCrawlerControllerFactory crawlerFactory = new TanaguruCrawlerControllerFactory();
         crawlerFactory.setMaxDepth(getMaxDepthOfCrawlPageFromAuditParameter(audit));
         crawlerFactory.setMaxDocument(getMaxNumberOfCrawlPageFromAuditParameter(audit));
         crawlerFactory.setMaxDuration(getTimeOfCrawlPageFromAuditParameter(audit));
+        crawlerFactory.setExclusionRegex(getExclusionRegexFromAuditParameter(audit));
+        crawlerFactory.setInclusionRegex(getInclusionRegexFromAuditParameter(audit));
 
         Crawler tngCrawler = crawlerFactory.create(audit);
 
@@ -108,5 +119,36 @@ public class TanaguruCrawlerServiceImpl{
             return -1;
         }
         return -1;
+    }
+
+    private String getExclusionRegexFromAuditParameter(Audit audit) {
+        String rawRegexList = parameterDataService.getParameter(audit, "EXCLUSION_REGEX").getValue();
+        return  buildRegexFromString(rawRegexList);
+    }
+
+    private String getInclusionRegexFromAuditParameter(Audit audit) {
+        String rawRegexList = parameterDataService.getParameter(audit, "INCLUSION_REGEX").getValue();
+        return buildRegexFromString(rawRegexList);
+    }
+
+    private String buildRegexFromString(String rawRegexList){
+        String result = "";
+        if (rawRegexList != null && !rawRegexList.isEmpty()){
+            String[] regexList = rawRegexList.split(";");
+            StringBuilder resultBuilder = new StringBuilder();
+            resultBuilder.append(BEGIN_REGEX);
+            boolean firstOccrurence = true;
+            for(String regexPart : regexList){
+                if(!firstOccrurence){
+                    resultBuilder.append(OR_SEPARATOR_REGEX);
+                }else{
+                    firstOccrurence = false;
+                }
+                resultBuilder.append(regexPart);
+            }
+            resultBuilder.append(END_REGEX);
+            result = resultBuilder.toString();
+        }
+        return result;
     }
 }

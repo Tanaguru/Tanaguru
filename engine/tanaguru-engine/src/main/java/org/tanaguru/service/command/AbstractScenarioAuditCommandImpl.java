@@ -159,7 +159,8 @@ public abstract class AbstractScenarioAuditCommandImpl extends AuditCommandImpl 
         // the returned content list is already persisted and associated with
         // the current audit
 
-        scenarioLoaderService.loadScenario(createWebResource(), scenario, scenarioRunner);
+        createWebResource();
+        scenarioLoaderService.loadScenario(getAudit(), scenario, scenarioRunner);
         setStatusToAudit(AuditStatus.CONTENT_ADAPTING);
         if (LOGGER.isInfoEnabled()) {
             LOGGER.info(scenarioName +" has been loaded");

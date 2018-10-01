@@ -22,13 +22,16 @@
 
 package org.tanaguru.service.command;
 
+import java.util.List;
 import java.util.Set;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.tanaguru.entity.audit.AuditStatus;
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.service.audit.AuditDataService;
+import org.tanaguru.scenarioloader.ScenarioRunner;
 import org.tanaguru.service.AuditServiceImpl;
+import org.tanaguru.service.CrawlerService;
 import org.tanaguru.service.ScenarioLoaderService;
 import org.tanaguru.util.http.HttpRequestHandler;
 import org.tanaguru.service.TanaguruCrawlerServiceImpl;
@@ -48,17 +51,18 @@ public abstract class CrawlAuditCommandImpl extends AuditCommandImpl {
      * The crawlerService instance
      */
     @Autowired
-    private TanaguruCrawlerServiceImpl tanaguruCrawlerService;
-    public TanaguruCrawlerServiceImpl getTanaguruCrawlerService() {
-        return tanaguruCrawlerService;
+    private CrawlerService crawlerService;
+    public CrawlerService getCrawlerService() {
+        return crawlerService;
     }
-    public void setTanaguruCrawlerService(TanaguruCrawlerServiceImpl crawlerService) {
-        this.tanaguruCrawlerService = crawlerService;
+    public void setCrawlerService(CrawlerService crawlerService) {
+        this.crawlerService = crawlerService;
     }
 
     /**
      * The scenario loader Service instance
      */
+    @Autowired
     private ScenarioLoaderService scenarioLoaderService;
 
     public ScenarioLoaderService getScenarioLoaderService() {
@@ -126,7 +130,9 @@ public abstract class CrawlAuditCommandImpl extends AuditCommandImpl {
             return;
         }
 
-        callCrawlerService();
+        List<String> urlList = callCrawlerService();
+        createEmptyWebResource();
+        getScenarioLoaderService().loadUrlListContent(getAudit(), urlList, ScenarioRunner.SELENESE);
         
         if (getContentDataService().hasContent(getAudit())) {
             setStatusToAudit(AuditStatus.CONTENT_ADAPTING);
@@ -139,7 +145,7 @@ public abstract class CrawlAuditCommandImpl extends AuditCommandImpl {
     /**
      * Call the crawler service in an appropriate way regarding the audit type
      */
-    abstract void callCrawlerService();
+    abstract List<String> callCrawlerService();
 
 
     /**

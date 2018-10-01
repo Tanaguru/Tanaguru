@@ -89,10 +89,8 @@ public class GroupOfPagesCrawlerAuditCommandImpl extends CrawlAuditCommandImpl {
     }
     
     @Override
-    public void callCrawlerService() {
-        createEmptyWebResource();
-        List<String> urlList = getTanaguruCrawlerService().getUrlListByCrawlingFromUrlList(getAudit(), pageUrlList);
-        getScenarioLoaderService().loadUrlListContent(getAudit().getSubject(), urlList, ScenarioRunner.SELENESE);
+    public List<String> callCrawlerService() {
+        return getCrawlerService().getUrlListByCrawlingFromUrlList(getAudit(), pageUrlList);
     }
 
     @Override

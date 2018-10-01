@@ -55,6 +55,10 @@ public interface CrawlerFactory {
      * @param maxDepth
      */
     void setMaxDepth(int maxDepth);
+
+    void setInclusionRegex(String inclusionRegex);
+
+    void setExclusionRegex(String exclusionRegex);
     
     /**
      *
