@@ -122,13 +122,15 @@ public class TanaguruCrawlerServiceImpl implements CrawlerService{
     }
 
     private String getExclusionRegexFromAuditParameter(Audit audit) {
-        String rawRegexList = parameterDataService.getParameter(audit, "EXCLUSION_REGEX").getValue();
-        return  buildRegexFromString(rawRegexList);
+        return parameterDataService.getParameter(audit, "EXCLUSION_REGEX") != null ?
+                buildRegexFromString(parameterDataService.getParameter(audit, "EXCLUSION_REGEX").getValue()) :
+                "";
     }
 
     private String getInclusionRegexFromAuditParameter(Audit audit) {
-        String rawRegexList = parameterDataService.getParameter(audit, "INCLUSION_REGEX").getValue();
-        return buildRegexFromString(rawRegexList);
+        return parameterDataService.getParameter(audit, "INCLUSION_REGEX") != null ?
+                buildRegexFromString(parameterDataService.getParameter(audit, "INCLUSION_REGEX").getValue()) :
+                "";
     }
 
     private String buildRegexFromString(String rawRegexList){
