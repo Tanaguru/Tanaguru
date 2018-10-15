@@ -7,6 +7,7 @@ import jp.vmi.selenium.selenese.TestProject;
 import jp.vmi.selenium.selenese.command.CommandFactory;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.Dimension;
 import org.tanaguru.entity.parameterization.ParameterElement;
 import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.exception.ScenarioLoaderException;
@@ -82,7 +83,16 @@ public class SeleneseLoaderImpl extends AbstractScenarioLoader implements NewPag
         int ngAppWait = Integer.parseInt(parameterDataService.getParameter(
                 webResource.getAudit(),
                 ParameterElement.WAIT_TIME_NG_APP).getValue());
+        int windowWidth = Integer.parseInt(parameterDataService.getParameter(
+                webResource.getAudit(),
+                ParameterElement.SCREEN_WIDTH_KEY).getValue());
+
+        int windowHeight = Integer.parseInt(parameterDataService.getParameter(
+                webResource.getAudit(),
+                ParameterElement.SCREEN_HEIGHT_KEY).getValue());
+
         tngDriver = new TanaguruDriverFactory(jsScriptMap, ngAppWait, profileFactory).createFirefoxTanaguruWebDriver();
+        tngDriver.manage().window().setSize(new Dimension(windowWidth, windowHeight));
         tngDriver.addNewPageListener(this);
     }
 

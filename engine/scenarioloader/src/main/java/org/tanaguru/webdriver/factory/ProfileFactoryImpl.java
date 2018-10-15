@@ -246,6 +246,10 @@ public class ProfileFactoryImpl{
         
         // Default log directory for auto-exported HAR files.
         firefoxProfile.setPreference("extensions.firebug.netexport.defaultLogDir", createRandomNetExportPath(firefoxProfile));
+
+        //Accept untrusted certificates
+        firefoxProfile.setAcceptUntrustedCertificates(true);
+
     }
     
     private void setUpProxy(FirefoxProfile firefoxProfile) {
