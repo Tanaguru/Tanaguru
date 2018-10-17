@@ -30,7 +30,7 @@
         </dependency>
         <dependency>
             <groupId>${engineGroupId}</groupId>
-            <artifactId>tanaguru-crawler</artifactId>
+            <artifactId>tanaguru-crawler4j</artifactId>
         </dependency>
         <dependency>
             <groupId>${engineGroupId}</groupId>
@@ -47,10 +47,6 @@
         <dependency>
             <groupId>${engineGroupId}</groupId>
             <artifactId>tanaguru-consolidator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>${engineGroupId}</groupId>
-            <artifactId>tanaguru-sebuilder-interpreter-tools</artifactId>
         </dependency>
         <dependency>
             <groupId>${engineGroupId}</groupId>
@@ -131,6 +127,12 @@
         <dependency>
             <groupId>org.easymock</groupId>
             <artifactId>easymockclassextension</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-remote-driver</artifactId>
+            <version>3.13.0</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

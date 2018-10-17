@@ -30,8 +30,7 @@ import java.nio.charset.IllegalCharsetNameException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.apache.commons.httpclient.URIException;
-import org.apache.commons.httpclient.util.URIUtil;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Header;
 import org.apache.http.HttpHost;
@@ -43,12 +42,16 @@ import org.apache.http.client.CredentialsProvider;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpHead;
+import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.client.utils.URIUtils;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
+
+import javax.print.URIException;
 
 /**
  *
@@ -361,11 +364,12 @@ public class HttpRequestHandler {
                 return 1;
         }
     }
-    
+
     private String getEncodedUrl(String url) {
         try {
-            return URIUtil.encodeQuery(URIUtil.decode(url)).replaceAll("%23", "#");
-        } catch (URIException ue) {
+            URIBuilder uriBuilder = new URIBuilder(url);
+            return uriBuilder.build().toString();
+        } catch (URISyntaxException e) {
             LOGGER.warn("URIException on " + url);
             return url;
         }

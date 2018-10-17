@@ -18,7 +18,6 @@
         <module>audit</module>
         <module>rule-implementation-loader</module>
         <module>nomenclatureloader</module>
-        <module>crawler</module>
         <module>contentloader</module>
         <module>contentadapter</module>
         <module>commons-processing</module>
@@ -32,8 +31,8 @@
         <module>parameterization</module>
         <module>statistics</module>
 <!--        <module>tanaguru-i18n</module>-->
+        <module>tanaguru-crawler4j</module>
         <module>scenarioloader</module>
-        <module>sebuilder-interpreter-tools</module>
         <module>tanaguru-jms</module>
         <module>tanaguru-kafka</module>
     </modules>

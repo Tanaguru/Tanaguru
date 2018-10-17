@@ -16,10 +16,6 @@
             <artifactId>tanaguru-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>${engineGroupId}</groupId>
-            <artifactId>tanaguru-sebuilder-interpreter-tools</artifactId>
-        </dependency>
-        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
@@ -42,7 +38,20 @@
             <artifactId>json-simple</artifactId>
             <version>1.1.1</version>
         </dependency>
-        
-        
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-crawler4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-scenarioloader</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-crawler4j</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
     </dependencies>
 </project>

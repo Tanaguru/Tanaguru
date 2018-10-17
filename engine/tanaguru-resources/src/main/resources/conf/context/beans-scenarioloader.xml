@@ -4,7 +4,7 @@
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="scenarioLoaderFactory" class="org.tanaguru.scenarioloader.ScenarioLoaderFactoryImpl">
+    <bean id="scenarioLoaderFactory" class="org.tanaguru.scenarioloader.factory.ScenarioLoaderFactoryImpl">
         <property name="jsScriptMap">
             <map>
                 <entry key="colorExtractor" value="/js/colorExtractor_nativeJs.js"/>
@@ -20,9 +20,9 @@
 
     <bean id="scenarioLoaderService" class="org.tanaguru.service.ScenarioLoaderServiceImpl"/>
 
-    <bean id="profileFactory" class="org.tanaguru.sebuilder.tools.ProfileFactory" factory-method="getInstance"/>
+    <bean id="profileFactoryImpl" class="org.tanaguru.webdriver.factory.ProfileFactoryImpl" factory-method="getInstance"/>
 
-<!--    <bean id="firefoxDriverPoolabelObjectFactory" class="org.tanaguru.sebuilder.tools.FirefoxDriverPoolableObjectFactory">
+<!--    <bean id="firefoxDriverPoolabelObjectFactory" class="org.tanaguru.scenarioloadertools.FirefoxDriverPoolableObjectFactory">
         <property name="implicitelyWaitDriverTimeout">
             <value>30</value>
         </property>
@@ -31,7 +31,7 @@
         </property>
     </bean>
 
-    <bean id="firefoxDriverObjectPool" class="org.tanaguru.sebuilder.tools.FirefoxDriverObjectPool">
+    <bean id="firefoxDriverObjectPool" class="org.tanaguru.scenarioloadertools.FirefoxDriverObjectPool">
         <property name="maxActive">
             <value>10</value>
         </property>
@@ -52,9 +52,16 @@
         </property>
     </bean>-->
 
+    <!--            LEGACY PROFILE FACTORY          -->
+    <!--
+          File must have been duplicated, those 2 files use different versions of selenium and FirefoxProfile
+          these versions are incompatible, that is why we are usin an interface ProfileFactory and those duplicated files
+    -->
+
+    <!--            NEW PROFILE FACTORY          -->
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="profileFactory"/>
+            <ref local="profileFactoryImpl"/>
         </property>
         <property name="targetMethod">
             <value>setProxyPort</value>
@@ -65,10 +72,10 @@
             </list>
         </property>
     </bean>
-    
+
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="profileFactory"/>
+            <ref local="profileFactoryImpl"/>
         </property>
         <property name="targetMethod">
             <value>setProxyHost</value>
@@ -79,10 +86,10 @@
             </list>
         </property>
     </bean>
-    
+
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="profileFactory"/>
+            <ref local="profileFactoryImpl"/>
         </property>
         <property name="targetMethod">
             <value>setProxyExclusionUrl</value>
@@ -93,10 +100,10 @@
             </list>
         </property>
     </bean>
-    
+
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="profileFactory"/>
+            <ref local="profileFactoryImpl"/>
         </property>
         <property name="targetMethod">
             <value>setPathToPreSetProfile</value>
@@ -107,6 +114,5 @@
             </list>
         </property>
     </bean>
-
 
 </beans>

@@ -25,6 +25,7 @@ import static org.easymock.EasyMock.*;
 import org.tanaguru.entity.audit.AuditStatus;
 import org.tanaguru.entity.subject.Page;
 import org.tanaguru.entity.subject.Site;
+import org.tanaguru.scenarioloader.ScenarioRunner;
 import org.tanaguru.service.ScenarioLoaderService;
 
 /**
@@ -57,7 +58,7 @@ public class AbstractScenarioAuditCommandImplTest extends AuditCommandTestCase {
      */
     public void testInit() {
         System.out.println("init");
-        
+
         mockAudit.setStatus(AuditStatus.SCENARIO_LOADING);
         expectLastCall().once();
         
@@ -94,9 +95,9 @@ public class AbstractScenarioAuditCommandImplTest extends AuditCommandTestCase {
         
         mockAudit.setSubject(mockPage);
         expectLastCall().once();
-        
-        expect(mockScenarioLoaderService.loadScenario(mockPage, myScenario)).andReturn(null).once();
-        
+
+        expect(mockScenarioLoaderService.loadScenario(mockAudit, myScenario, ScenarioRunner.INVALID)).andReturn(null).once();
+
         mockAudit.setStatus(AuditStatus.CONTENT_ADAPTING);
         expectLastCall().once();
         
@@ -141,7 +142,7 @@ public class AbstractScenarioAuditCommandImplTest extends AuditCommandTestCase {
         mockAudit.setSubject(mockSite);
         expectLastCall().once();
         
-        expect(mockScenarioLoaderService.loadScenario(mockSite, myScenario)).andReturn(null).once();
+        expect(mockScenarioLoaderService.loadScenario(mockAudit, myScenario, ScenarioRunner.INVALID)).andReturn(null).once();
         
         mockAudit.setStatus(AuditStatus.CONTENT_ADAPTING);
         expectLastCall().once();

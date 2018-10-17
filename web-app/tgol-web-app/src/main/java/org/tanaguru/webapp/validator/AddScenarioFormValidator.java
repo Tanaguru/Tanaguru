@@ -22,8 +22,6 @@
 package org.tanaguru.webapp.validator;
 
 
-import com.sebuilder.interpreter.IO;
-import com.sebuilder.interpreter.factory.ScriptFactory.SuiteException;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,7 +33,7 @@ import org.apache.log4j.Logger;
 import org.apache.tika.config.TikaConfig;
 import org.apache.tika.metadata.Metadata;
 import org.apache.tika.mime.MimeTypes;
-import org.json.JSONException;
+import org.tanaguru.selenese.SeleneseHelper;
 import org.tanaguru.webapp.command.AddScenarioCommand;
 import org.tanaguru.webapp.command.AuditSetUpCommand;
 import org.tanaguru.webapp.entity.contract.Contract;
@@ -154,9 +152,9 @@ public class AddScenarioFormValidator implements Validator {
     public void checkScenarioFileValidity(
             AddScenarioCommand addScenarioCommand, 
             Errors errors) {
-        try {
-            IO.read(addScenarioCommand.getScenarioContent());
-        } catch (JSONException | IOException | SuiteException je) {
+
+        String scenario = addScenarioCommand.getScenarioContent();
+        if(!SeleneseHelper.isScenarioValid(scenario)){
             errors.rejectValue(SCENARIO_FILE_KEY, INVALID_SCENARIO_MSG_BUNDLE_KEY);
             errors.rejectValue(GENERAL_ERROR_MSG_KEY,
                     MANDATORY_FIELD_MSG_BUNDLE_KEY);
