@@ -22,8 +22,6 @@
 package org.tanaguru.crawler;
 
 import java.util.Set;
-
-import org.tanaguru.entity.audit.Audit;
 import org.tanaguru.entity.parameterization.Parameter;
 
 /**
@@ -33,37 +31,22 @@ import org.tanaguru.entity.parameterization.Parameter;
 public interface CrawlerFactory {
 
     /**
-     * The output directory needed by the crawler to create temporary files
+     * 
+     * @param crawlConfigFilePath 
+     */
+    void setCrawlConfigFilePath(String crawlConfigFilePath);
+
+    /**
+     * The output directory needed by heritrix to create temporary files
      * during the crawl.
      */
     void setOutputDir(String outputDir);
-
-    /**
-     * Set the crawling max duration in second
-     * @param maxDuration
-     */
-    void setMaxDuration(long maxDuration);
-
-    /**
-     * Set the crawling max document to crawl
-     * @param maxDocument
-     */
-    void setMaxDocument(int maxDocument);
-
-    /**
-     * Set the crawling max depth level
-     * @param maxDepth
-     */
-    void setMaxDepth(int maxDepth);
-
-    void setInclusionRegex(String inclusionRegex);
-
-    void setExclusionRegex(String exclusionRegex);
     
     /**
-     *
+     * 
+     * @param paramSet
      * @return
      *      an initialised implementation of the crawler interface
      */
-    Crawler create(Audit audit);
+    Crawler create(Set<Parameter> paramSet, boolean persistOnTheFly);
 }

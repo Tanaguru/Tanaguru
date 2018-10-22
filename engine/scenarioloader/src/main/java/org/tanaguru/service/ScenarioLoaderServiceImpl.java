@@ -28,9 +28,8 @@ import org.tanaguru.entity.service.audit.ContentDataService;
 import org.tanaguru.entity.service.subject.WebResourceDataService;
 import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.scenarioloader.ScenarioLoader;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.tanaguru.scenarioloader.ScenarioLoaderFactory;
-import org.tanaguru.scenarioloader.ScenarioRunner;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * 
@@ -62,30 +61,17 @@ public class ScenarioLoaderServiceImpl implements ScenarioLoaderService {
     }
 
     @Override
-    public List<Content> loadScenario(Audit audit, String scenarioFile, ScenarioRunner scenarioRunner) {
-        ScenarioLoader scenarioLoader = scenarioLoaderFactory.create(audit.getSubject(), scenarioRunner);
-        scenarioLoader.run(scenarioFile);
+    public List<Content> loadScenario(WebResource webResource, String scenarioFile) {
+        Audit audit = webResource.getAudit();
+        ScenarioLoader scenarioLoader = scenarioLoaderFactory.create(webResource, scenarioFile);
+        scenarioLoader.run();
         List<Content> contentList = scenarioLoader.getResult();
         for (Content content : contentList) {
-            content.setAudit(audit);
+//            content.setAudit(audit);
             contentDataService.saveAuditToContent(content.getId(),audit.getId());
         }
         // Before returning the list of content we save the webResource
-        webResourceDataService.saveOrUpdate(audit.getSubject());
-        return contentList;
-    }
-
-    @Override
-    public List<Content> loadUrlListContent(Audit audit, List<String> urlList, ScenarioRunner scenarioRunner) {
-        ScenarioLoader scenarioLoader = scenarioLoaderFactory.create(audit.getSubject(), scenarioRunner);
-        scenarioLoader.run(urlList);
-        List<Content> contentList = scenarioLoader.getResult();
-        for (Content content : contentList) {
-            content.setAudit(audit);
-            contentDataService.saveAuditToContent(content.getId(),audit.getId());
-        }
-        // Before returning the list of content we save the webResource
-        webResourceDataService.saveOrUpdate(audit.getSubject());
+        webResourceDataService.saveOrUpdate(webResource);
         return contentList;
     }
 

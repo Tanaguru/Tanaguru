@@ -38,8 +38,10 @@ import org.tanaguru.entity.service.audit.ProcessResultDataService;
 import org.tanaguru.entity.service.parameterization.ParameterDataService;
 import org.tanaguru.entity.service.reference.TestDataService;
 import org.tanaguru.entity.service.subject.WebResourceDataService;
-import org.tanaguru.scenarioloader.ScenarioLoader;
-import org.tanaguru.service.*;
+import org.tanaguru.service.AnalyserService;
+import org.tanaguru.service.ConsolidatorService;
+import org.tanaguru.service.ContentAdapterService;
+import org.tanaguru.service.ProcessorService;
 import org.tanaguru.util.http.HttpRequestHandler;
 
 /**
@@ -61,7 +63,6 @@ public abstract class AuditCommandTestCase extends TestCase{
     public ConsolidatorService mockConsolidatorService;
     public AnalyserService mockAnalyserService;
     public AdaptationListener mockAdaptationListener;
-    public ScenarioLoaderService mockScenarioLoaderService;
     
     public AuditCommandTestCase(String testName) {
         super(testName);
@@ -83,7 +84,6 @@ public abstract class AuditCommandTestCase extends TestCase{
         mockConsolidatorService = EasyMock.createMock(ConsolidatorService.class);
         mockAnalyserService = EasyMock.createMock(AnalyserService.class);
         mockAdaptationListener = EasyMock.createMock(AdaptationListener.class);
-        mockScenarioLoaderService = EasyMock.createMock(ScenarioLoaderService.class);
         HttpRequestHandler.getInstance().setBypassCheck(Boolean.TRUE.toString());
     }
     

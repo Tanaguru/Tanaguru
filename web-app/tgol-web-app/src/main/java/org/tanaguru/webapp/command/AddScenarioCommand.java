@@ -23,8 +23,7 @@ package org.tanaguru.webapp.command;
 
 import java.io.IOException;
 import java.io.Serializable;
-
-import org.tanaguru.tools.CrawlUtils;
+import org.tanaguru.crawler.util.CrawlUtils;
 import org.tanaguru.webapp.entity.contract.ScopeEnum;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 

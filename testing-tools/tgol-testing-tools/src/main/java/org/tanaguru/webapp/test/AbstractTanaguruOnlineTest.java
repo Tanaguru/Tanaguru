@@ -25,8 +25,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import junit.framework.TestCase;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.tanaguru.entity.audit.TestSolution;
 import org.tanaguru.webapp.test.data.KrashtestResult;
 
@@ -106,7 +105,7 @@ public abstract class AbstractTanaguruOnlineTest extends TestCase {
      * The firefox driver. The webdriver.firefox.bin is supposed to passed as
      * JVM argument.
      */
-    protected WebDriver driver;
+    protected FirefoxDriver driver;
 
     /**
      * Default constructor
@@ -143,7 +142,7 @@ public abstract class AbstractTanaguruOnlineTest extends TestCase {
         formUrl = hostLocation + bundle.getString(FORM_URL_KEY) + contractId;
         logoutUrl = hostLocation + bundle.getString(LOGOUT_URL_KEY);
 
-        driver = WebDriverFactory.getInstance().getFirefoxDriver();
+        driver = WebDriverFactory.getInstance().getFirefoxDriver(xvfbDisplay);
     }
 
     /**
@@ -157,17 +156,17 @@ public abstract class AbstractTanaguruOnlineTest extends TestCase {
         login();
         driver.get(formUrl);
         if (url.length > 1) {
-            driver.findElement(By.cssSelector("form#auditSetUpCommand fieldset div.clearfix div.url-input a")).click();
+            driver.findElementByCssSelector("form#auditSetUpCommand fieldset div.clearfix div.url-input a").click();
         }
         for (int i = 0; i < url.length; i++) {
             LOGGER.info("testing   " + url[i]);
-            driver.findElement(By.id(fieldName + i)).sendKeys(url[i]);
+            driver.findElementById(fieldName + i).sendKeys(url[i]);
         }
-        driver.findElement(By.id(SUBMIT_BUTTON_NAME)).submit();
+        driver.findElementById(SUBMIT_BUTTON_NAME).submit();
         if (displayAllResult) {
-            driver.findElement(By.id("sortOptionMaptest-result5")).click();
-            driver.findElement(By.cssSelector("#result-option-console-update input")).submit();
-            driver.findElement(By.cssSelector("#expand-all")).click();
+            driver.findElementById("sortOptionMaptest-result5").click();
+            driver.findElementByCssSelector("#result-option-console-update input").submit();
+            driver.findElementByCssSelector("#expand-all").click();
         }
         String responseBody = driver.getPageSource();
         return responseBody;
@@ -201,10 +200,10 @@ public abstract class AbstractTanaguruOnlineTest extends TestCase {
      */
     protected String computeTestResult(String testName) {
         LOGGER.info("Searching result for test " + testName);
-        String result = driver.findElement(By.xpath(
+        String result = driver.findElementByXPath(
                 "//h4[text()='"
                 + testName
-                + "']/parent::*/parent::*/child::*/img")).getAttribute("alt");
+                + "']/parent::*/parent::*/child::*/img").getAttribute("alt");
         LOGGER.info("Found Result " + result);
         if (result.contains(PASSED_KEY)) {
             return TestSolution.PASSED.name();
@@ -228,9 +227,9 @@ public abstract class AbstractTanaguruOnlineTest extends TestCase {
         driver.get(loginUrl);
         try {
 
-            driver.findElement(By.id(userFieldName)).sendKeys(user);
-            driver.findElement(By.id(passwordFieldName)).sendKeys(password);
-            driver.findElement(By.name(LOGIN_BUTTON_NAME)).submit();
+            driver.findElementById(userFieldName).sendKeys(user);
+            driver.findElementById(passwordFieldName).sendKeys(password);
+            driver.findElementByName(LOGIN_BUTTON_NAME).submit();
             Thread.sleep(500);
         } catch (InterruptedException ex) {
             java.util.logging.Logger.getLogger(AbstractTanaguruOnlineTest.class.getName()).log(Level.SEVERE, null, ex);

@@ -22,12 +22,10 @@
 
 package org.tanaguru.service.command;
 
-import java.util.List;
 import java.util.Set;
 import org.apache.log4j.Logger;
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.service.audit.AuditDataService;
-import org.tanaguru.scenarioloader.ScenarioRunner;
 import org.tanaguru.util.FileNaming;
 
 /**
@@ -73,11 +71,11 @@ public class PageAuditCrawlerCommandImpl extends CrawlAuditCommandImpl {
     }
     
     @Override
-    public List<String> callCrawlerService() {
+    public void callCrawlerService() {
         if (LOGGER.isInfoEnabled()) {
             LOGGER.info("Launching crawler for page " + getUrl());
         }
-         return getCrawlerService().getUrlListByCrawlingFromUrl(getAudit(), getUrl());
+        getCrawlerService().crawlPage(getAudit(), getUrl());
     }
 
     @Override

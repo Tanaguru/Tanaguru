@@ -27,7 +27,6 @@ import java.util.List;
 import java.util.Set;
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.service.audit.AuditDataService;
-import org.tanaguru.scenarioloader.ScenarioRunner;
 import org.tanaguru.util.FileNaming;
 
 /**
@@ -89,8 +88,8 @@ public class GroupOfPagesCrawlerAuditCommandImpl extends CrawlAuditCommandImpl {
     }
     
     @Override
-    public List<String> callCrawlerService() {
-        return getCrawlerService().getUrlListByCrawlingFromUrlList(getAudit(), pageUrlList);
+    public void callCrawlerService() {
+        getCrawlerService().crawlGroupOfPages(getAudit(), getUrl(), pageUrlList);
     }
 
     @Override

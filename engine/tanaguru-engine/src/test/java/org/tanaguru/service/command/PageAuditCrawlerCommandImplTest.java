@@ -27,15 +27,13 @@ import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.service.CrawlerService;
 import org.tanaguru.util.FileNaming;
 
-import java.util.List;
-
 /**
  *
  * @author jkowalczyk
  */
 public class PageAuditCrawlerCommandImplTest extends AuditCommandTestCase {
     
-    private final String pageUrl = "Mypage";
+    private final String pageUrl = "My page";
     private CrawlerService mockCrawlerService;
     
     public PageAuditCrawlerCommandImplTest(String testName) {
@@ -62,8 +60,8 @@ public class PageAuditCrawlerCommandImplTest extends AuditCommandTestCase {
 
         mockInitialisationCalls(false, AuditStatus.CRAWLING);
         
-        EasyMock.expect(mockCrawlerService.getUrlListByCrawlingFromUrl(mockAudit, FileNaming.addProtocolToUrl(pageUrl))).
-                andReturn(EasyMock.createMock(List.class))
+        EasyMock.expect(mockCrawlerService.crawlPage(mockAudit, FileNaming.addProtocolToUrl(pageUrl))).
+                andReturn(EasyMock.createMock(WebResource.class))
                 .once();
         
         setReplayMode();

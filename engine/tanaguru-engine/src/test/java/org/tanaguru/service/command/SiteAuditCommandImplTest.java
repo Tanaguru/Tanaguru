@@ -26,15 +26,13 @@ import org.tanaguru.entity.audit.AuditStatus;
 import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.service.CrawlerService;
 
-import java.util.List;
-
 /**
  *
  * @author jkowalczyk
  */
 public class SiteAuditCommandImplTest extends AuditCommandTestCase {
     
-    private String siteUrl = "MySiteURL";
+    private String siteUrl = "My Site URL";
     private CrawlerService mockCrawlerService;
     
     public SiteAuditCommandImplTest(String testName) {
@@ -61,8 +59,8 @@ public class SiteAuditCommandImplTest extends AuditCommandTestCase {
 
         mockInitialisationCalls(false, AuditStatus.CRAWLING);
         
-        EasyMock.expect(mockCrawlerService.getUrlListByCrawlingFromUrl(mockAudit, siteUrl)).
-                andReturn(EasyMock.createMock(List.class))
+        EasyMock.expect(mockCrawlerService.crawlSite(mockAudit, siteUrl)).
+                andReturn(EasyMock.createMock(WebResource.class))
                 .once();
         setReplayMode();
         

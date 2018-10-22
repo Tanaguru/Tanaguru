@@ -25,10 +25,9 @@ package org.tanaguru.service.command;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.service.audit.AuditDataService;
-import org.tanaguru.scenarioloader.factory.ScenarioFactoryImpl;
+import org.tanaguru.sebuilder.tools.ScenarioBuilder;
 import org.tanaguru.util.FileNaming;
 
 /**
@@ -57,7 +56,7 @@ public class GroupOfPagesAuditCommandImpl extends AbstractScenarioAuditCommandIm
             localUrlList.add(FileNaming.addProtocolToUrl(url));
         }
 
-        setScenario(new ScenarioFactoryImpl().make(localUrlList, getScenarioRunner()));
+        setScenario(ScenarioBuilder.buildScenario(localUrlList));
         setScenarioName(siteUrl);
         setIsPage(false);
     }
@@ -86,7 +85,7 @@ public class GroupOfPagesAuditCommandImpl extends AbstractScenarioAuditCommandIm
             localUrlList.add(FileNaming.addProtocolToUrl(url));
         }
 
-        setScenario(new ScenarioFactoryImpl().make(localUrlList, getScenarioRunner()));
+        setScenario(ScenarioBuilder.buildScenario(localUrlList));
         setScenarioName(siteUrl);
         setIsPage(false);
     }

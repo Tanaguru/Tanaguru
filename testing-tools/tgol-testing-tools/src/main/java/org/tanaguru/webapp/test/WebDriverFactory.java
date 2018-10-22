@@ -23,12 +23,11 @@
 package org.tanaguru.webapp.test;
 
 import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.WebDriver;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.firefox.FirefoxBinary;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.tanaguru.webdriver.driver.TanaguruDriver;
-import org.tanaguru.webdriver.factory.ProfileFactoryImpl;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.tanaguru.sebuilder.tools.ProfileFactory;
 
 /**
  * WebDriverFactory that guarantees that only one instance of webdriver is used 
@@ -38,7 +37,7 @@ import org.tanaguru.webdriver.factory.ProfileFactoryImpl;
  */
 public class WebDriverFactory {
 
-    private WebDriver webDriver;
+    private FirefoxDriver webDriver;
     
     /**
      * The holder that handles the unique instance of WebDriverFactory
@@ -64,19 +63,18 @@ public class WebDriverFactory {
     /**
      * This methods creates a firefoxDriver instance and set a DISPLAY 
      * environment variable
+     * @param display
      * @return an instance of firefoxDriver 
      */
-    public WebDriver getFirefoxDriver() {
+    public FirefoxDriver getFirefoxDriver(String display) {
         if (webDriver == null) {
             FirefoxBinary ffBinary = new FirefoxBinary();
-
-            ProfileFactoryImpl pf = ProfileFactoryImpl.getInstance();
-            FirefoxOptions ffOptions = new FirefoxOptions();
-            ffOptions.setBinary(ffBinary);
-            ffOptions.setProfile(pf.getOnlineProfile());
-            ffOptions.setHeadless(true);
-
-            webDriver = new TanaguruDriver(ffOptions);
+            if (StringUtils.isNotBlank(display)) {
+                Logger.getLogger(this.getClass()).info("Setting Xvfb display with value " + display);
+                ffBinary.setEnvironmentProperty("DISPLAY", display);
+            }
+            ProfileFactory pf = ProfileFactory.getInstance();
+            webDriver = new FirefoxDriver(ffBinary, pf.getOnlineProfile());
             webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
             webDriver.manage().timeouts().pageLoadTimeout(310, TimeUnit.SECONDS);
         }

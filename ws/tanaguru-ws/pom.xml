@@ -85,7 +85,7 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>tanaguru-crawler4j</artifactId>
+            <artifactId>tanaguru-crawler</artifactId>
             <scope>runtime</scope>
         </dependency>
         <dependency>

@@ -22,8 +22,6 @@
 package org.tanaguru.crawler;
 
 import java.util.Collection;
-import java.util.List;
-
 import org.tanaguru.entity.service.audit.ContentDataService;
 import org.tanaguru.entity.service.subject.WebResourceDataService;
 import org.tanaguru.entity.subject.WebResource;
@@ -33,14 +31,14 @@ import org.tanaguru.parameterization.Parametrable;
  * 
  * @author jkowalczyk
  */
-public interface Crawler{
+public interface Crawler extends Parametrable {
 
     /**
      * 
      * @return
-     *          the crawled url list
+     *          the crawled webresource
      */
-    List<String> getResult();
+    WebResource getResult();
 
     /**
      * 
@@ -49,10 +47,52 @@ public interface Crawler{
 
     /**
      *
+     * @param webResourceURL
+     */
+    void setSiteURL(String webResourceURL);
+
+    /**
+     *
+     * @param siteName
+     * @param webResourceURL
+     */
+    void setSiteURL(String siteName, Collection<String> webResourceURL);
+
+    /**
+     *
      * @param pageURL
      */
-    void addSeed(String pageURL);
+    void setPageURL(String pageURL);
 
 
-    void waitUntilFinish();
+    /**
+     *
+     * @param contentDataService
+     */
+    void setContentDataService(ContentDataService contentDataService);
+
+    /**
+     *
+     * @param webResourceDataService
+     */
+    void setWebResourceDataService(WebResourceDataService webResourceDataService);
+
+    /**
+     *
+     * @param outputDir
+     */
+    void setOutputDir(String outputDir);
+
+    /**
+     * 
+     * @param crawlConfigFilePath
+     */
+    void setCrawlConfigFilePath(String crawlConfigFilePath);
+    
+    /**
+     * 
+     * @param persistOnTheFly
+     */
+    void setPersistOnTheFly(boolean persistOnTheFly);
+    
 }

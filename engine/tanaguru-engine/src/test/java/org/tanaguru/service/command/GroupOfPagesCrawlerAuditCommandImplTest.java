@@ -34,7 +34,7 @@ import org.tanaguru.service.CrawlerService;
  */
 public class GroupOfPagesCrawlerAuditCommandImplTest extends AuditCommandTestCase {
 
-    private final String siteUrl = "MyGroupOfPagesSiteName";
+    private final String siteUrl = "My Group of Pages site Name";
     private final List<String> urlList = new ArrayList<>();
     private CrawlerService mockCrawlerService;
 
@@ -62,8 +62,8 @@ public class GroupOfPagesCrawlerAuditCommandImplTest extends AuditCommandTestCas
 
         mockInitialisationCalls(false, AuditStatus.CRAWLING);
 
-        EasyMock.expect(mockCrawlerService.getUrlListByCrawlingFromUrlList(mockAudit, urlList)).
-                andReturn(EasyMock.createMock(List.class)).once();
+        EasyMock.expect(mockCrawlerService.crawlGroupOfPages(mockAudit, siteUrl, urlList)).
+                andReturn(EasyMock.createMock(WebResource.class)).once();
 
         setReplayMode();
 

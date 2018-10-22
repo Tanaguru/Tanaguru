@@ -23,12 +23,9 @@ package org.tanaguru.service;
 
 import java.util.List;
 import javax.xml.bind.annotation.XmlTransient;
-
-import org.tanaguru.entity.audit.Audit;
 import org.tanaguru.entity.audit.Content;
 import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.scenarioloader.ScenarioLoaderFactory;
-import org.tanaguru.scenarioloader.ScenarioRunner;
 
 /**
  * 
@@ -39,19 +36,11 @@ public interface ScenarioLoaderService {
 
     /**
      *
-     * @param audit
+     * @param webResource
      * @param scenarioFile
      * @return
      */
-    List<Content> loadScenario(Audit audit, String scenarioFile, ScenarioRunner scenarioRunner);
-
-    /**
-     *
-     * @param audit
-     * @param urlList
-     * @return
-     */
-    List<Content> loadUrlListContent(Audit audit, List<String> urlList, ScenarioRunner scenarioRunner);
+    List<Content> loadScenario(WebResource webResource, String scenarioFile);
 
     /**
      *
