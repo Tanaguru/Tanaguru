@@ -628,19 +628,27 @@ function  getAllElementsWithForbiddenUnits( ) {
     var propList = [];
     var elementsWithForbiddenUnits = [];
 try{
-    for (var h = 0; h < document.styleSheets.length; h++) {
-        for (var i in document.styleSheets[h].cssRules) { // boucle sur les cssRules
+	for (var h = 0; h < document.styleSheets.length; h++) {
+        for (var i in document.styleSheets[h].cssRules) {
+            
             var keyList = [];
             for (var j in document.styleSheets[h].cssRules[i].style) {
                 if (!isNaN(j))
-                    keyList.push(document.styleSheets[h].cssRules[i].style[j]);
+                    keyList.push(document.styleSheets[h].cssRules[i].style[j]); 
             }
+            
+            //init propList            
             for (var k in keyList) {
-                for (var l in document.styleSheets[h].cssRules[i].style[keyList[k]]) {
-                    for (var l in forbiddenUnits) {
-                        var reg = new RegExp('(\\d\\s*' + forbiddenUnits[l] + ')');
+                for (var u in forbiddenUnits) {
+                	if(document.styleSheets[h].cssRules[i].style[keyList[k]] !== undefined){                                                    
+                    	var reg = new RegExp('(\\d\\s*' + forbiddenUnits[u] + ')');
+                        
                         if (document.styleSheets[h].cssRules[i].style[keyList[k]].match(reg) !== null) {
-                            propList.push(document.styleSheets[h].cssRules[i]);
+                            propList.push(document.styleSheets[h].cssRules[i]); 
+                            console.log("Numero Règle : "+i+" - Regex: " +reg)
+                            console.log(document.styleSheets[h])
+                            console.log(document.styleSheets[h].cssRules[i])
+//                          console.log(document.styleSheets[h].cssRules[i].style[keyList[k]])
                         }
                     }
                 }
