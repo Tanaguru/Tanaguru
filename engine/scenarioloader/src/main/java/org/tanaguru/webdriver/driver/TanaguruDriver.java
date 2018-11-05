@@ -2,6 +2,7 @@ package org.tanaguru.webdriver.driver;
 
 import edu.uci.ics.crawler4j.crawler.Page;
 import edu.uci.ics.crawler4j.url.WebURL;
+import net.sourceforge.htmlunit.corejs.javascript.JavaScriptException;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
@@ -11,8 +12,10 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.tanaguru.scenarioloader.NewPageListener;
+
 import java.io.IOException;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class TanaguruDriver implements WebDriver {
     private static final Logger LOGGER = Logger.getLogger(TanaguruDriver.class);
@@ -22,16 +25,19 @@ public class TanaguruDriver implements WebDriver {
     private int waitTimeNgApp = 500;
     private RemoteWebDriver driver;
 
-    public TanaguruDriver(FirefoxOptions ffOptions){
-        driver =  new FirefoxDriver(ffOptions);
+    public TanaguruDriver(FirefoxOptions ffOptions) {
+        driver = new FirefoxDriver(ffOptions);
+        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
         this.newPageListenerList = new ArrayList<>();
     }
 
-    public void setJsScriptMap(Map<String, String> jsScriptMap){
+    public void setJsScriptMap(Map<String, String> jsScriptMap) {
         this.jsScriptMap = jsScriptMap;
     }
 
-    public void addNewPageListener(NewPageListener newPageListener){
+    public void addNewPageListener(NewPageListener newPageListener) {
         this.newPageListenerList.add(newPageListener);
     }
 
@@ -48,7 +54,10 @@ public class TanaguruDriver implements WebDriver {
             } catch (InterruptedException ex) {
                 LOGGER.error(ex);
             }
-        }finally {
+        } catch (JavaScriptException e){
+            LOGGER.warn("Javascript error on page : " + url);
+            LOGGER.warn(e.getMessage());
+        } finally {
             fireNewPage();
         }
     }
@@ -65,41 +74,54 @@ public class TanaguruDriver implements WebDriver {
 
     @Override
     public List<WebElement> findElements(By by) {
-        return  driver.findElements(by);
+        return driver.findElements(by);
     }
 
     @Override
     public WebElement findElement(By by) {
-        return  driver.findElement(by);
+        return driver.findElement(by);
     }
 
-    private void fireNewPage(){
-        for(NewPageListener newPageListener : newPageListenerList){
+    private void fireNewPage() {
+        for (NewPageListener newPageListener : newPageListenerList) {
             newPageListener.fireNewPage(getCurrentUrl(), getPageSource(), null, executeScriptMap());
         }
     }
 
-    public String getPageSource(){
-        String doctype = "";
+    public String getPageSource() {
+        Object doctype = null;
         try {
             String getDoctypeStr = IOUtils.toString(TanaguruDriver.class.getClassLoader()
                     .getResourceAsStream("getDoctype.js"));
             JavascriptExecutor js = (JavascriptExecutor) driver;
             String jsCommand = getDoctypeStr + "return getDoctype();";
-            doctype = (String) js.executeScript(jsCommand);
+            doctype = js.executeScript(jsCommand);
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (JavaScriptException e){
+            LOGGER.warn("Get doctype has failed");
+            LOGGER.warn(e.getMessage());
         }
-        return doctype + driver.getPageSource();
+        return doctype == null ? "" : doctype.toString() + driver.getPageSource();
     }
 
     @Override
     public void close() {
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         driver.close();
     }
 
     @Override
     public void quit() {
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         driver.quit();
     }
 
@@ -128,15 +150,21 @@ public class TanaguruDriver implements WebDriver {
         return driver.manage();
     }
 
-    private Map<String, String> executeScriptMap(){
+    private Map<String, String> executeScriptMap() {
         Map<String, String> jsScriptResult = new HashMap<>();
-        if(jsScriptMap != null){
+        if (jsScriptMap != null) {
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+
             for (Map.Entry<String, String> entry : jsScriptMap.entrySet()) {
                 try {
-                    jsScriptResult.put(entry.getKey(), driver.executeScript(entry.getValue()).toString());
+                    Object scriptResult = js.executeScript(entry.getValue());
+                    jsScriptResult.put(entry.getKey(), scriptResult == null ? "" : scriptResult.toString());
                 } catch (WebDriverException wde) {
                     LOGGER.warn("Script " + entry.getKey() + " has failed");
                     LOGGER.warn(wde.getMessage());
+                } catch (JavaScriptException e){
+                    LOGGER.warn("Script " + entry.getKey() + " has failed");
+                    LOGGER.warn(e.getMessage());
                 }
             }
             LOGGER.debug("Js executed");
@@ -144,7 +172,7 @@ public class TanaguruDriver implements WebDriver {
         return jsScriptResult;
     }
 
-    public void setWaitTimeNgApp(int waitTimeNgApp){
+    public void setWaitTimeNgApp(int waitTimeNgApp) {
         this.waitTimeNgApp = waitTimeNgApp;
     }
 
@@ -158,9 +186,8 @@ public class TanaguruDriver implements WebDriver {
             @Override
             public Boolean apply(WebDriver driver) {
                 try {
-                    return ((Long)((JavascriptExecutor)driver).executeScript("return jQuery.active") == 0);
-                }
-                catch (Exception e) {
+                    return ((Long) ((JavascriptExecutor) driver).executeScript("return jQuery.active") == 0);
+                } catch (Exception e) {
                     return true;
                 }
             }
@@ -170,7 +197,7 @@ public class TanaguruDriver implements WebDriver {
         ExpectedCondition<Boolean> jsLoad = new ExpectedCondition<Boolean>() {
             @Override
             public Boolean apply(WebDriver driver) {
-                return ((JavascriptExecutor)driver).executeScript("return document.readyState")
+                return ((JavascriptExecutor) driver).executeScript("return document.readyState")
                         .toString().equals("complete");
             }
         };

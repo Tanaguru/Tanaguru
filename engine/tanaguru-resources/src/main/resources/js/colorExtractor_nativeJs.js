@@ -1,6 +1,6 @@
 var resolveAppliedStyle = (function () {
     var documentElement = document.documentElement,
-            matchesSelector =
+        matchesSelector =
             documentElement.matchesSelector ||
             documentElement.mozMatchesSelector ||
             documentElement.webkitMatchesSelector ||
@@ -11,7 +11,7 @@ var resolveAppliedStyle = (function () {
         if (document.querySelectorAll) {
             matchesSelector = function (selector) {
                 var matchingElements = this.parentNode.querySelectorAll(selector),
-                        count = matchingElements.length;
+                    count = matchingElements.length;
 
                 for (var i = 0; i < count; ++i) {
                     if (matchingElements[i] === this) {
@@ -43,20 +43,20 @@ var resolveAppliedStyle = (function () {
     function resolveAppliedStyle(element, style) {
 
         var styleSheets = document.styleSheets,
-                numberOfStyleSheets = styleSheets.length,
-                styleSheet,
-                styleSheetIndex,
-                rule,
-                rules,
-                numberOfRules,
-                ruleIndex,
-                appliedRule,
-                scoredStyles = [],
-                inlineStyle,
-                potentiallyAppliedStyle,
-                cssStyleSpecificityScore,
-                styleSpecificity,
-                matchesSelectorResult;
+            numberOfStyleSheets = styleSheets.length,
+            styleSheet,
+            styleSheetIndex,
+            rule,
+            rules,
+            numberOfRules,
+            ruleIndex,
+            appliedRule,
+            scoredStyles = [],
+            inlineStyle,
+            potentiallyAppliedStyle,
+            cssStyleSpecificityScore,
+            styleSpecificity,
+            matchesSelectorResult;
 
         for (styleSheetIndex = 0; styleSheetIndex < numberOfStyleSheets; ++styleSheetIndex) {
             styleSheet = styleSheets[styleSheetIndex];
@@ -84,13 +84,13 @@ var resolveAppliedStyle = (function () {
                     if (potentiallyAppliedStyle !== undefined) {
 
                         cssStyleSpecificityScore = +(SPECIFICITY.calculate(rule.selectorText)[0]
-                                .specificity
-                                .replace(/,/g, ""));
+                            .specificity
+                            .replace(/,/g, ""));
 
                         styleSpecificity =
-                                scoredStyles.length +
-                                (cssStyleSpecificityScore * 10) +
-                                styleImportanceByRule(rule, style);
+                            scoredStyles.length +
+                            (cssStyleSpecificityScore * 10) +
+                            styleImportanceByRule(rule, style);
 
                         scoredStyles.push({
                             "selector": rule.selectorText,
@@ -133,16 +133,16 @@ var resolveAppliedStyle = (function () {
     var SPECIFICITY = (function () {
 
         var calculate,
-                calculateSingle;
+            calculateSingle;
 
 
         calculate = function (input) {
 
             var selectors,
-                    selector,
-                    i,
-                    len,
-                    results = [];
+                selector,
+                i,
+                len,
+                results = [];
 
 
 // Separate input by commas
@@ -173,27 +173,27 @@ var resolveAppliedStyle = (function () {
         calculateSingle = function (input) {
 
             var selector = input,
-                    findMatch,
-                    typeCount = {
-                        'a': 0,
-                        'b': 0,
-                        'c': 0
+                findMatch,
+                typeCount = {
+                    'a': 0,
+                    'b': 0,
+                    'c': 0
 
-                    },
-            parts = [],
+                },
+                parts = [],
 // The following regular expressions assume that selectors matching the preceding regular expressions have been removed
 
-                    attributeRegex = /(\[[^\]]+\])/g,
-                    idRegex = /(#[^\s\+>~\.\[:]+)/g,
-                    classRegex = /(\.[^\s\+>~\.\[:]+)/g,
-                    pseudoElementRegex = /(::[^\s\+>~\.\[:]+|:first-line|:first-letter|:before|:after)/gi,
+                attributeRegex = /(\[[^\]]+\])/g,
+                idRegex = /(#[^\s\+>~\.\[:]+)/g,
+                classRegex = /(\.[^\s\+>~\.\[:]+)/g,
+                pseudoElementRegex = /(::[^\s\+>~\.\[:]+|:first-line|:first-letter|:before|:after)/gi,
 // A regex for pseudo classes with brackets - :nth-child(), :nth-last-child(), :nth-of-type(), :nth-last-type(), :lang()
 
-                    pseudoClassWithBracketsRegex = /(:[\w-]+\([^\)]*\))/gi,
+                pseudoClassWithBracketsRegex = /(:[\w-]+\([^\)]*\))/gi,
 // A regex for other pseudo classes, which don't have brackets
 
-                    pseudoClassRegex = /(:[^\s\+>~\.\[:]+)/g,
-                    elementRegex = /([^\s\+>~\.\[:]+)/g;
+                pseudoClassRegex = /(:[^\s\+>~\.\[:]+)/g,
+                elementRegex = /([^\s\+>~\.\[:]+)/g;
 
 
 // Find matches for a regular expression in a string and push their details to parts
@@ -257,7 +257,7 @@ var resolveAppliedStyle = (function () {
             (function () {
 
                 var regex = /{[^]*/gm,
-                        matches, i, len, match;
+                    matches, i, len, match;
 
                 if (regex.test(selector)) {
 
@@ -422,7 +422,7 @@ function isTextNode(elem) {
     }
     for (var i = 0; i < elem.childNodes.length; i++) {
         if (elem.childNodes[i].nodeName === "#text" &&
-                elem.childNodes[i].textContent.trim().length > 0) {
+            elem.childNodes[i].textContent.trim().length > 0) {
             return true;
         }
     }
@@ -486,8 +486,8 @@ function getForegroundColor(elem) {
  */
 function isHidden(elem) {
     var isElementHidden =
-            (getStyle(elem, 'display') === 'none') ||
-            (getStyle(elem, 'visibility') === 'hidden');
+        (getStyle(elem, 'display') === 'none') ||
+        (getStyle(elem, 'visibility') === 'hidden');
     if (!isElementHidden && !isElementOfType(getElementName(elem), 'html')) {
         return isHidden(elem.parentNode);
     }
@@ -503,7 +503,7 @@ function getStyle(elem, strCssRule, pseudoSelector) {
         style = elem.currentStyle[strCssRule];
     } else if (window.getComputedStyle) {
         style = document.defaultView.getComputedStyle(elem, pseudoSelector).
-                getPropertyValue(strCssRule);
+        getPropertyValue(strCssRule);
     }
     return style;
 }
@@ -627,33 +627,41 @@ function  getAllElementsWithForbiddenUnits( ) {
     var forbiddenUnits = ["pt", "pc", "mm", "cm", "in"];
     var propList = [];
     var elementsWithForbiddenUnits = [];
-try{
-    for (var h = 0; h < document.styleSheets.length; h++) {
-        for (var i in document.styleSheets[h].cssRules) { // boucle sur les cssRules
-            var keyList = [];
-            for (var j in document.styleSheets[h].cssRules[i].style) {
-                if (!isNaN(j))
-                    keyList.push(document.styleSheets[h].cssRules[i].style[j]);
-            }
-            for (var k in keyList) {
-                for (var l in document.styleSheets[h].cssRules[i].style[keyList[k]]) {
-                    for (var l in forbiddenUnits) {
-                        var reg = new RegExp('(\\d\\s*' + forbiddenUnits[l] + ')');
-                        if (document.styleSheets[h].cssRules[i].style[keyList[k]].match(reg) !== null) {
-                            propList.push(document.styleSheets[h].cssRules[i]);
+    try{
+        for (var h = 0; h < document.styleSheets.length; h++) {
+            for (var i in document.styleSheets[h].cssRules) {
+
+                var keyList = [];
+                for (var j in document.styleSheets[h].cssRules[i].style) {
+                    if (!isNaN(j))
+                        keyList.push(document.styleSheets[h].cssRules[i].style[j]);
+                }
+
+                //init propList
+                for (var k in keyList) {
+                    for (var u in forbiddenUnits) {
+                        if(document.styleSheets[h].cssRules[i].style[keyList[k]] !== undefined){
+                            var reg = new RegExp('(\\d\\s*' + forbiddenUnits[u] + ')');
+
+                            if (document.styleSheets[h].cssRules[i].style[keyList[k]].match(reg) !== null) {
+                                propList.push(document.styleSheets[h].cssRules[i]);
+//                            console.log("Numero Règle : "+i+" - Regex: " +reg)
+//                            console.log(document.styleSheets[h])
+//                            console.log(document.styleSheets[h].cssRules[i])
+//                          console.log(document.styleSheets[h].cssRules[i].style[keyList[k]])
+                            }
                         }
                     }
                 }
             }
         }
+    } catch(e) {
+        if(e.name !== "SecurityError") {
+            throw e;
+        }
     }
-     } catch(e) {
-                if(e.name !== "SecurityError") {
-                    throw e;
-                }
-           }
 //console.log(propList);
-   // var f = new Date().getTime();
+    // var f = new Date().getTime();
 //console.log("execution : " + (f - e) + "ms")
 //var elementsWithForbiddenUnits = [];
     var tmpList = []
@@ -669,7 +677,7 @@ try{
             tmpList = [];
         }
     }
-    
+
     var reg = [];
     for (var l in forbiddenUnits) {//regex
         reg.push(new RegExp('(\\w\\s*:\\s*\\d\\d*' + forbiddenUnits[l] + ')'));
@@ -683,7 +691,7 @@ try{
             }
         }
     }
-    
+
     return elementsWithForbiddenUnits;
 }
 

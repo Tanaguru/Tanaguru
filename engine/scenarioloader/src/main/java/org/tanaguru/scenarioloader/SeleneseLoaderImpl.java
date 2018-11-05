@@ -97,7 +97,7 @@ public class SeleneseLoaderImpl extends AbstractScenarioLoader implements NewPag
     }
 
     private void endTanaguruDriver(){
-        tngDriver.close();
+        tngDriver.quit();
     }
 
     @Override

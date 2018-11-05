@@ -78,7 +78,7 @@ public class WebDriverFactory {
 
             webDriver = new TanaguruDriver(ffOptions);
             webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-            webDriver.manage().timeouts().pageLoadTimeout(310, TimeUnit.SECONDS);
+            webDriver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         }
         return webDriver;
     }

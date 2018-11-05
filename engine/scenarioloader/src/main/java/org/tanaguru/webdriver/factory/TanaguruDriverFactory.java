@@ -31,14 +31,12 @@ public class TanaguruDriverFactory {
     public TanaguruDriver createFirefoxTanaguruWebDriver(){
         ClassLoader classLoader = getClass().getClassLoader();
         File geckodriver = null;
-        try {
-            geckodriver = new File(classLoader.getResource("geckodriver").toURI());
-            geckodriver.setExecutable(true);
-            System.setProperty("webdriver.gecko.driver",
-                    geckodriver.getPath());
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
+
+        geckodriver = new File("/opt/geckodriver");
+        geckodriver.setExecutable(true);
+        System.setProperty("webdriver.gecko.driver",
+                geckodriver.getPath());
+
 
         FirefoxBinary ffBinary = new FirefoxBinary();
         FirefoxOptions ffOptions = new FirefoxOptions();
