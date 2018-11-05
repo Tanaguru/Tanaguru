@@ -645,9 +645,9 @@ try{
                         
                         if (document.styleSheets[h].cssRules[i].style[keyList[k]].match(reg) !== null) {
                             propList.push(document.styleSheets[h].cssRules[i]); 
-                            console.log("Numero Règle : "+i+" - Regex: " +reg)
-                            console.log(document.styleSheets[h])
-                            console.log(document.styleSheets[h].cssRules[i])
+//                            console.log("Numero Règle : "+i+" - Regex: " +reg)
+//                            console.log(document.styleSheets[h])
+//                            console.log(document.styleSheets[h].cssRules[i])
 //                          console.log(document.styleSheets[h].cssRules[i].style[keyList[k]])
                         }
                     }
