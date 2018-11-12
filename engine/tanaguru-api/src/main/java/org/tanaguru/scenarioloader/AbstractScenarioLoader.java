@@ -25,7 +25,7 @@ public abstract class AbstractScenarioLoader implements ScenarioLoader {
     private static final Logger LOGGER = Logger.getLogger(AbstractScenarioLoader.class);
     protected static final String UTF8 = "UTF-8";
 
-    protected List<Content> result;
+    protected List<Content> result = new ArrayList<>();
     protected WebResource webResource;
     protected Map<String, String> jsScriptMap;
     protected int pageLoadDriverTimeout;
@@ -38,13 +38,6 @@ public abstract class AbstractScenarioLoader implements ScenarioLoader {
     protected DateFactory dateFactory;
     protected WebResourceDataService webResourceDataService;
     protected PreProcessResultDataService preProcessResultDataService;
-
-
-    public AbstractScenarioLoader(
-            WebResource webResource) {
-        this.webResource = webResource;
-        this.result = new ArrayList<>();
-    }
 
     @Override
     public List<Content> getResult() {

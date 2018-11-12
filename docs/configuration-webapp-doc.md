@@ -10,7 +10,8 @@ Here is the list of the parameters you can found in the /etc/tanaguru/tanaguru.c
 |**emailSentToUserExclusionList**| The synchronousAuditDelay parameter defines a delay from which a synchronous audit will be managed as an asynchronous audit. When the audit is terminated an email is sent to the used. In some occasions, for some users, we don't want that email to be sent (for the guest user for example). The "emailSentToUserExclusionList" defines the lists of users (by their email and separated by a ";") that won't be alerted by email when the execution of one of the audits they launch has exceeded the synchronous delay. | *Empty*|
 |**enable-account-settings**     | Enable/Disable the access through the login page to the forgotten password page and the access of the user account settings page for an authentified user. | false |
 |**generatedHtmlExplanationLink**| The link that leads to the page that explains the characteristics and constraints of the generated HTML. This parameter is not supposed to be modified. | http://www.tanaguru.org/en/content/generated-html-characteristics  |
-|**heritrixHome**                | Path used by the Crawler (Heritrix) to copy its temporary files (**should't be modified**). | /var/tmp/tanaguru |
+|**crawlerHome**                 | Path used by the Crawler to copy its temporary files (**should't be modified**). | /var/tmp/tanaguru |
+|**geckodriverPath**             | Path to geckodriver. | /opt/geckodriver |
 |**hibernate.dialect**           | Represents a dialect of SQL implemented by a particular RDBMS |  |
 |**isAllowedToSendKrashReport**  | Authorize the application to send krash reports | |
 |**jdbc.driverClassName**        | JDBC driver class | com.mysql.jdbc.Driver |

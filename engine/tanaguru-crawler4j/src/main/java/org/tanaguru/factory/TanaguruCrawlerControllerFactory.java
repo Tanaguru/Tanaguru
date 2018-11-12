@@ -4,49 +4,49 @@ import edu.uci.ics.crawler4j.crawler.CrawlConfig;
 import edu.uci.ics.crawler4j.fetcher.PageFetcher;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtConfig;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.tanaguru.crawler.Crawler;
 import org.tanaguru.crawler.CrawlerFactory;
 import org.tanaguru.crawler.TanaguruCrawlerControllerImpl;
 import org.tanaguru.entity.audit.Audit;
+
+import java.io.File;
 import java.util.Date;
 
 public class TanaguruCrawlerControllerFactory implements CrawlerFactory {
     private String outputDir;
     private int maxDepth;
     private int maxDocument;
-    private long maxDuration;
+    private Long maxDuration;
     private String exclusionRegex;
     private String inclusionRegex;
 
-    public TanaguruCrawlerControllerFactory(){
-        this.outputDir = System.getProperty("user.dir") + "/output/crawler4j/";
-        this.maxDepth = 20;
-        this.maxDocument = 100000;
-        this.maxDuration = 86400L;
-        this.exclusionRegex = "";
-        this.inclusionRegex = "";
-    }
-
+    @Autowired
     public void setOutputDir(String outputDir){
         this.outputDir = outputDir;
     }
 
+    @Autowired
     public void setMaxDepth(int maxDepth){
         this.maxDepth = maxDepth;
     }
 
+    @Autowired
     public void setMaxDocument(int maxDocument){
         this.maxDocument = maxDocument;
     }
 
-    public void setMaxDuration(long maxDuration){
+    @Autowired
+    public void setMaxDuration(Long maxDuration){
         this.maxDuration = maxDuration;
     }
 
+    @Autowired
     public void setExclusionRegex(String exclusionRegex){
         this.exclusionRegex = exclusionRegex;
     }
 
+    @Autowired
     public void setInclusionRegex(String inclusionRegex){
         this.inclusionRegex = inclusionRegex;
     }
@@ -55,6 +55,16 @@ public class TanaguruCrawlerControllerFactory implements CrawlerFactory {
         TanaguruCrawlerControllerImpl controller = null;
         CrawlConfig crawlerConfig = new CrawlConfig();
         String auditDir = String.valueOf(new Date().getTime());
+
+        File outDir = new File(outputDir);
+        if(!outDir.exists()){
+            outDir.mkdirs();
+        }
+
+        if(!outDir.canWrite()){
+            outDir.setWritable(true);
+        }
+
         crawlerConfig.setCrawlStorageFolder(outputDir + auditDir);
         crawlerConfig.setMaxPagesToFetch(maxDocument);
         crawlerConfig.setMaxDepthOfCrawling(maxDepth);
@@ -69,7 +79,7 @@ public class TanaguruCrawlerControllerFactory implements CrawlerFactory {
                     crawlerConfig,
                     pageFetcher,
                     robotstxtServer,
-                    maxDuration,
+                    maxDuration.longValue(),
                     exclusionRegex,
                     inclusionRegex);
 

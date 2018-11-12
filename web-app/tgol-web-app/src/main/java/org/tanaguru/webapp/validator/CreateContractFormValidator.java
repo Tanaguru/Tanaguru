@@ -229,7 +229,7 @@ public class CreateContractFormValidator implements Validator {
             return true;
         }
         String[] schemes = {"http","https"};
-        UrlValidator urlValidator = new UrlValidator (schemes, UrlValidator.ALLOW_2_SLASHES);
+        UrlValidator urlValidator = new UrlValidator (schemes, UrlValidator.ALLOW_2_SLASHES + UrlValidator.ALLOW_LOCAL_URLS + UrlValidator.NO_FRAGMENTS);
         if (!urlValidator.isValid(url)) {
             errors.rejectValue(CONTRACT_URL_KEY, INVALID_URL_KEY);
             return false;

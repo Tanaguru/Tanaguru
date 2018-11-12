@@ -83,8 +83,11 @@ public class TanaguruDriver implements WebDriver {
     }
 
     private void fireNewPage() {
+        Map<String, String> jsScriptResult = executeScriptMap();
+        String url = getCurrentUrl();
+        String source = getPageSource();
         for (NewPageListener newPageListener : newPageListenerList) {
-            newPageListener.fireNewPage(getCurrentUrl(), getPageSource(), null, executeScriptMap());
+            newPageListener.fireNewPage(url, source, null, jsScriptResult);
         }
     }
 

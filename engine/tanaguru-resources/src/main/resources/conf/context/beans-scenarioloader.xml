@@ -22,6 +22,12 @@
 
     <bean id="profileFactoryImpl" class="org.tanaguru.webdriver.factory.ProfileFactoryImpl" factory-method="getInstance"/>
 
+    <bean id="tanaguruDriverFactory" class="org.tanaguru.webdriver.factory.TanaguruDriverFactory" factory-method="getInstance">
+        <property name="geckodriverPath">
+            <value>${geckodriverPath}</value>
+        </property>
+    </bean>
+
 <!--    <bean id="firefoxDriverPoolabelObjectFactory" class="org.tanaguru.scenarioloadertools.FirefoxDriverPoolableObjectFactory">
         <property name="implicitelyWaitDriverTimeout">
             <value>30</value>

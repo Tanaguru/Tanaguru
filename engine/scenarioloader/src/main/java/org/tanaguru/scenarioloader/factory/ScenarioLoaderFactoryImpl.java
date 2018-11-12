@@ -123,6 +123,7 @@ public class ScenarioLoaderFactoryImpl implements ScenarioLoaderFactory {
         return jsScriptMap;
     }
 
+    @Autowired
     public void setJsScriptMap(Map<String, String> jsScriptMap) {
         if (this.jsScriptMap == null) {
             this.jsScriptMap = new HashMap<>();
@@ -158,7 +159,9 @@ public class ScenarioLoaderFactoryImpl implements ScenarioLoaderFactory {
 
         switch(scenarioRunner){
             case SELENESE:
-                scenarioLoader = new SeleneseLoaderImpl(mainWebResource, ProfileFactoryImpl.getInstance());
+                scenarioLoader = new SeleneseLoaderImpl();
+                scenarioLoader.setWebResource(mainWebResource);
+                ((SeleneseLoaderImpl) scenarioLoader).setProfileFactory(ProfileFactoryImpl.getInstance());
                 break;
             //Incompatible versions
             case INVALID:

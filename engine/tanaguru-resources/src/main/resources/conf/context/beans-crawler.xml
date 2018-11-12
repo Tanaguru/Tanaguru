@@ -5,20 +5,16 @@
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
     <bean id="crawlerService" class="org.tanaguru.service.TanaguruCrawlerServiceImpl"/>
-    <bean id="crawlerFactory" class="org.tanaguru.factory.TanaguruCrawlerControllerFactory"/>
-    <!--
-    <bean id="crawlerFactory" class="org.tanaguru.crawler.CrawlerFactoryImpl">
-        <property name="outputDir" value="${heritrixHome}"/>
-        <property name="crawlConfigFilePath" value="${crawlConfigFilePath}"/>
-        <property name="keepRelCanonicalRefList">
-            <list>
-                <value>Rgaa30</value>
-                <value>Rgaa22</value>
-                <value>Aw22</value>
-            </list>
-        </property>
+    <bean id="crawlerFactory" class="org.tanaguru.factory.TanaguruCrawlerControllerFactory">
+        <property name="outputDir" value="${crawlerHome}"/>
+        <property name="maxDocument" value="100000"/>
+        <property name="maxDepth" value="20"/>
+        <property name="maxDuration" value="86400"/>
+        <property name="exclusionRegex" value=""/>
+        <property name="inclusionRegex" value=""/>
     </bean>
 
+    <!--
     <bean id="crawlerService" class="org.tanaguru.service.CrawlerServiceImpl"/>
 
     <bean id="depthModifier" class="org.tanaguru.crawler.util.HeritrixAttributeValueModifier">

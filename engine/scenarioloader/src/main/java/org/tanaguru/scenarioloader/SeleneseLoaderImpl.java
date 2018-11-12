@@ -8,6 +8,7 @@ import jp.vmi.selenium.selenese.command.CommandFactory;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Dimension;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.tanaguru.entity.parameterization.ParameterElement;
 import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.exception.ScenarioLoaderException;
@@ -28,13 +29,6 @@ public class SeleneseLoaderImpl extends AbstractScenarioLoader implements NewPag
     private static final Logger LOGGER = Logger.getLogger(SeleneseLoaderImpl.class);
     private ProfileFactoryImpl profileFactory;
     TanaguruDriver tngDriver;
-
-    public SeleneseLoaderImpl(
-            WebResource webResource,
-            ProfileFactoryImpl profileFactory) {
-        super(webResource);
-        this.profileFactory = profileFactory;
-    }
 
     @Override
     public void run(String scenario) {
@@ -78,6 +72,11 @@ public class SeleneseLoaderImpl extends AbstractScenarioLoader implements NewPag
         endTanaguruDriver();
     }
 
+    @Autowired
+    public void setProfileFactory(ProfileFactoryImpl profileFactory) {
+        this.profileFactory = profileFactory;
+    }
+
     private void initTanaguruDriver(){
         //Initialize webdriver
         int ngAppWait = Integer.parseInt(parameterDataService.getParameter(
@@ -91,7 +90,12 @@ public class SeleneseLoaderImpl extends AbstractScenarioLoader implements NewPag
                 webResource.getAudit(),
                 ParameterElement.SCREEN_HEIGHT_KEY).getValue());
 
-        tngDriver = new TanaguruDriverFactory(jsScriptMap, ngAppWait, profileFactory).createFirefoxTanaguruWebDriver();
+        TanaguruDriverFactory tngDriverFactory = TanaguruDriverFactory.getInstance();
+        tngDriverFactory.setJsScriptMap(jsScriptMap);
+        tngDriverFactory.setNgAppWait(ngAppWait);
+        tngDriverFactory.setProfileFactory(profileFactory);
+
+        tngDriver = tngDriverFactory.createFirefoxTanaguruWebDriver();
         tngDriver.manage().window().setSize(new Dimension(windowWidth, windowHeight));
         tngDriver.addNewPageListener(this);
     }
@@ -108,6 +112,6 @@ public class SeleneseLoaderImpl extends AbstractScenarioLoader implements NewPag
         } catch (IOException e) {
             e.printStackTrace();
         }
-        super.fireNewSSP(url, sourceCode, snapshot, jsScriptMap, charset);
+        super.fireNewSSP(url, sourceCode, snapshot, jsResultMap, charset);
     }
 }

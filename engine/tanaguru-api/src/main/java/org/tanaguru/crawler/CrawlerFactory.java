@@ -42,7 +42,7 @@ public interface CrawlerFactory {
      * Set the crawling max duration in second
      * @param maxDuration
      */
-    void setMaxDuration(long maxDuration);
+    void setMaxDuration(Long maxDuration);
 
     /**
      * Set the crawling max document to crawl
