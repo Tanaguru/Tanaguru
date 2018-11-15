@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
     <head> 
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
-        <title>Rgaa32017 Test.1.2.1 Passed 03</title> 
+        <title>Rgaa32017 Test.1.2.1 Failed 12</title> 
     </head> 
     <body> 
         <div> 
-            <h1>Rgaa32017 Test.1.2.1 Passed 03</h1> 
+            <h1>Rgaa32017 Test.1.2.1 Failed 12</h1> 
             <div class="test-detail" lang="fr"> Chaque 
                 <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#mimgDeco">image de décoration</a> sans 
                 <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#mLegendeImage">légende</a> (balise 
@@ -18,10 +18,10 @@
                 </ul> 
             </div> 
             <div class="testcase"> 
-                <img role="role-decorative-image" src="mock-decorative-image.jpg" alt="" /> 
+                <img id="id-decorative-image" src="mock-decorative-image.jpg" alt="not empty alt" aria-label="decorative-image"/> 
             </div> 
-            <p class="test-explanation"> Passed: One image is marked as decorative and its alt attribute is empty.
-            The role attribute has a value different that "img". </p> 
+            <p class="test-explanation"> 
+              Failed: The image of the page is marked as decorative and its alt attribute is not empty and the aria-label attribute is present. </p> 
         </div>   
     </body>
 </html>

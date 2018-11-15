@@ -101,6 +101,8 @@ public final class RemarkMessageStore {
     public static final String ALT_MISSING_MSG = "AltMissing";
     public static final String DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG
             = "DecorativeElementWithNotEmptyAltAttribute";
+    public static final String DECORATIVE_ELEMENT_WITH_ROLE_IMG_MSG
+    		= "DecorativeElementWithRoleImgAttribute";
      public static final String DECORATIVE_ELEMENT_WITHOUT_ARIA_HIDDEN_TRUE_MSG
             = "DecorativeElementWithoutAriaHiddenTrueAttribute";
     public static final String DECORATIVE_ELEMENT_WITH_TITLE_ATTR_MSG

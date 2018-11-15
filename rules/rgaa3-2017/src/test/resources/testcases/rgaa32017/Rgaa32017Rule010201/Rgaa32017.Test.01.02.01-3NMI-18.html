@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
     <head> 
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
-        <title>Rgaa32017 Test.1.2.1 Passed 03</title> 
+        <title>Rgaa32017 Test.1.2.1 NMI 18</title> 
     </head> 
     <body> 
         <div> 
-            <h1>Rgaa32017 Test.1.2.1 Passed 03</h1> 
+            <h1>Rgaa32017 Test.1.2.1 NMI 18</h1> 
             <div class="test-detail" lang="fr"> Chaque 
                 <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#mimgDeco">image de décoration</a> sans 
                 <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#mLegendeImage">légende</a> (balise 
@@ -18,10 +18,11 @@
                 </ul> 
             </div> 
             <div class="testcase"> 
-                <img role="role-decorative-image" src="mock-decorative-image.jpg" alt="" /> 
+                <img src="mock-image.jpg" alt="" aria-describedby=""/>
             </div> 
-            <p class="test-explanation"> Passed: One image is marked as decorative and its alt attribute is empty.
-            The role attribute has a value different that "img". </p> 
+            <p class="test-explanation"> 
+              NMI : One image is found on the page and is not identified by marker.
+            </p> 
         </div>   
     </body>
 </html>
