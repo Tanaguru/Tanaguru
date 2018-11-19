@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-public class TanaguruDriver implements WebDriver {
+public class TanaguruDriver implements WebDriver, JavascriptExecutor {
     private static final Logger LOGGER = Logger.getLogger(TanaguruDriver.class);
 
     List<NewPageListener> newPageListenerList;
@@ -45,15 +45,9 @@ public class TanaguruDriver implements WebDriver {
     public void get(String url) {
         try {
             driver.get(url);
-            try {
-                if (this.waitTimeNgApp <= 500) {
-                    Thread.sleep(500);
-                } else {
-                    Thread.sleep(waitTimeNgApp);
-                }
-            } catch (InterruptedException ex) {
-                LOGGER.error(ex);
-            }
+            waitForJStoLoad();
+            LOGGER.debug("Successfully loaded page : " + url);
+
         } catch (JavaScriptException e){
             LOGGER.warn("Javascript error on page : " + url);
             LOGGER.warn(e.getMessage());
@@ -82,7 +76,7 @@ public class TanaguruDriver implements WebDriver {
         return driver.findElement(by);
     }
 
-    private void fireNewPage() {
+    public void fireNewPage() {
         Map<String, String> jsScriptResult = executeScriptMap();
         String url = getCurrentUrl();
         String source = getPageSource();
@@ -208,4 +202,13 @@ public class TanaguruDriver implements WebDriver {
         return wait.until(jQueryLoad) && wait.until(jsLoad);
     }
 
+    @Override
+    public Object executeScript(String s, Object... objects) {
+        return driver.executeScript(s, objects);
+    }
+
+    @Override
+    public Object executeAsyncScript(String s, Object... objects) {
+        return driver.executeAsyncScript(s, objects);
+    }
 }

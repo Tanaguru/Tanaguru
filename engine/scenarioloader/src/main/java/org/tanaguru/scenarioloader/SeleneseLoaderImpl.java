@@ -5,14 +5,17 @@ import jp.vmi.selenium.selenese.Runner;
 import jp.vmi.selenium.selenese.Selenese;
 import jp.vmi.selenium.selenese.TestProject;
 import jp.vmi.selenium.selenese.command.CommandFactory;
+import jp.vmi.selenium.selenese.command.ICommand;
+import jp.vmi.selenium.selenese.command.ICommandFactory;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Dimension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.tanaguru.entity.parameterization.ParameterElement;
-import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.exception.ScenarioLoaderException;
 import org.tanaguru.selenese.SeleneseHelper;
+import org.tanaguru.selenese.command.SetWindowSize;
+import org.tanaguru.selenese.command.TanaguruAudit;
 import org.tanaguru.tools.CrawlUtils;
 import org.tanaguru.webdriver.driver.TanaguruDriver;
 import org.tanaguru.webdriver.factory.ProfileFactoryImpl;
@@ -37,19 +40,39 @@ public class SeleneseLoaderImpl extends AbstractScenarioLoader implements NewPag
             throw new ScenarioLoaderException(new Exception("Scenario does not match selenese scenario syntax"));
         }
 
+
         LOGGER.debug("Launch Scenario "   + scenario);
         initTanaguruDriver();
         try {
             //Initialize runner
             Runner runner = new Runner();
+            CommandFactory cf = runner.getCommandFactory();
+            cf.registerCommandFactory(new ICommandFactory() {
+                @Override
+                public ICommand newCommand(int index, String name, String... args) {
+                    ICommand res;
+                    switch (name){
+                        case "setWindowSize" :
+                            res = new SetWindowSize(index, name, args);
+                            break;
+                        case "tanaguru audit" :
+                            res = new TanaguruAudit(index, name, args);
+                            break;
+                        default:
+                            res = null;
+                    }
+
+                    return res;
+                }
+            });
+
             runner.setTimeout((SCENARIO_IMPLICITELY_WAIT_TIMEOUT)*1000);
             runner.setDriver(tngDriver);
 
             //Get scenario
             Selenese script = null;
             InputStream input = new ByteArrayInputStream(scenario.getBytes());
-            CommandFactory commandFactory = new CommandFactory(runner);
-            script =  Parser.parse("scenario.side", input, commandFactory);
+            script =  Parser.parse("scenario.side", input, cf);
             input.close();
 
             //Run scenario
