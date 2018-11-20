@@ -87,13 +87,13 @@ public class Rgaa32017Rule010303 extends AbstractPageRuleWithSelectorAndCheckerI
 
     		for (Element el : getElements().get()) {
     			    		    
-    			if(el.toString().contains(TITLE_ATTR)) {
+    			if(el.hasAttr(TITLE_ATTR)) {
     				titleElement.add(el);
     			}
-    			if(el.toString().contains(ARIA_LABELLEDBY_ATTR)) {
+    			if(el.hasAttr(ARIA_LABELLEDBY_ATTR)) {
     				ariaLabelledbyElement.add(el);
     			}
-  	    		if(el.toString().contains(ARIA_LABEL_ATTR) && !el.toString().contains(ARIA_LABELLEDBY_ATTR)) {
+  	    		if(el.hasAttr(ARIA_LABEL_ATTR)) {
   	    			ariaLabelElement.add(el);
   	    		}
     		}
