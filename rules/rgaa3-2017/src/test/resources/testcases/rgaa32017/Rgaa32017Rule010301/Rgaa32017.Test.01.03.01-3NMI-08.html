@@ -16,15 +16,14 @@
                     <li>Le contenu de l&apos;attribut <code>alt</code> est pertinent</li> 
                     <li>S&apos;il est présent, le contenu de l&apos;attribut <code>title</code> est identique au contenu de l&apos;attribut <code>alt</code></li> 
                 </ul> 
-            </div> 
+            </div>
             <div class="testcase"> 
-                <img id="id-informative-image" src="mock-image.jpg" alt="Alternative" title="Alternative"/> 
+                <img src="mock-image.jpg" alt="Alternative" aria-label="Aria-Label"/> 
             </div> 
             <div class="test-explanation">
-                 NMI : At least one image has a title attribute identical to the alt attribute. 
-                 This image is identified as informative by marker.
+                 NMI : At least one image has a aria-label attribute not identical to the alt attribute. 
                  The pertinence of the alt has to be manually checked
-            </div> 
+            </div>  
         </div>   
     </body>
 </html>

@@ -66,93 +66,50 @@ public class Rgaa32017Rule010303 extends AbstractPageRuleWithSelectorAndCheckerI
     /** The name of the nomenclature that handles the image file extensions */
     private static final String IMAGE_FILE_EXTENSION_NOM = "ImageFileExtensions";
     
-    private final ElementHandler<Element> titleElement = new ElementHandlerImpl();
-    private final ElementHandler<Element> ariaLabelElement = new ElementHandlerImpl();
-    private final ElementHandler<Element> ariaLabelledbyElement = new ElementHandlerImpl();
 
 
     /**
      * Constructor
      */
     public Rgaa32017Rule010303() {
-    	super();       
-        setElementSelector(new ImageElementSelector(FORM_BUTTON_WITH_ALT_CSS_LIKE_QUERY, true, false));
+    	super(new ImageElementSelector(FORM_BUTTON_WITH_ALT_CSS_LIKE_QUERY, true, false),
+    		  new CompositeChecker(
+    				  new AttributePertinenceChecker(
+    			                ALT_ATTR,
+    			                // check emptiness
+    			                true,
+    			                // compare with src attribute
+    			                new TextAttributeOfElementBuilder(SRC_ATTR),
+    			                // compare attribute value with nomenclature
+    			                IMAGE_FILE_EXTENSION_NOM,
+    			                // not pertinent message
+    			                NOT_PERTINENT_ALT_MSG,
+    			                // manual check message
+    			                CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
+    			                // evidence elements
+    			                ALT_ATTR, 
+    			                SRC_ATTR),
+    				  new TextNotIdenticalToAttributeChecker(
+    		                	new TextAttributeOfElementBuilder(TITLE_ATTR),
+    		                	new TextAttributeOfElementBuilder(ALT_ATTR),
+    		                	new ImmutablePair(TestSolution.NEED_MORE_INFO, ""),
+    		                	new ImmutablePair(TestSolution.FAILED, TITLE_NOT_IDENTICAL_TO_ALT_MSG),
+    		                	ALT_ATTR,SRC_ATTR,TITLE_ATTR),
+    				  new TextNotIdenticalToAttributeChecker(
+    		                	new TextAttributeOfElementBuilder(ARIA_LABEL_ATTR),
+    		                	new TextAttributeOfElementBuilder(ALT_ATTR),
+    		                	new ImmutablePair(TestSolution.NEED_MORE_INFO, ""),
+    		                	new ImmutablePair(TestSolution.FAILED, ARIA_LABEL_NOT_IDENTICAL_TO_ALT_MSG),
+    		                	ALT_ATTR,SRC_ATTR,ARIA_LABEL_ATTR),
+    				  new TextNotIdenticalToAttributeChecker(
+    		                	new TextAttributeOfElementBuilder(ARIA_LABELLEDBY_ATTR),
+    		                	new TextAttributeOfElementBuilder(ALT_ATTR),
+    		                	new ImmutablePair(TestSolution.NEED_MORE_INFO, ""),
+    		                	new ImmutablePair(TestSolution.FAILED, ARIA_LABELLEDBY_NOT_IDENTICAL_TO_ALT_MSG),
+    		                	ALT_ATTR,SRC_ATTR,ARIA_LABELLEDBY_ATTR)));
+    	CompositeChecker ec = (CompositeChecker) getElementChecker();
+    	ec.setIsOrCombinaison(false);
+    	setElementChecker(ec);
     }
 
-    protected void select(SSPHandler sspHandler) {
-    	super.select(sspHandler);
-    	
-    	    	
-    	if(getElements() != null) {    
-
-    		for (Element el : getElements().get()) {
-    			    		    
-    			if(el.hasAttr(TITLE_ATTR)) {
-    				titleElement.add(el);
-    			}
-    			if(el.hasAttr(ARIA_LABELLEDBY_ATTR)) {
-    				ariaLabelledbyElement.add(el);
-    			}
-  	    		if(el.hasAttr(ARIA_LABEL_ATTR)) {
-  	    			ariaLabelElement.add(el);
-  	    		}
-    		}
-    	}
-    }
-    
-    protected void check( SSPHandler sspHandler, TestSolutionHandler testSolutionHandler) {
-    	
-    	ElementChecker ec = 
-    			new AttributePertinenceChecker(
-	                ALT_ATTR,
-	                // check emptiness
-	                true,
-	                // compare with src attribute
-	                new TextAttributeOfElementBuilder(SRC_ATTR),
-	                // compare attribute value with nomenclature
-	                IMAGE_FILE_EXTENSION_NOM,
-	                // not pertinent message
-	                NOT_PERTINENT_ALT_MSG,
-	                // manual check message
-	                CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
-	                // evidence elements
-	                ALT_ATTR, 
-	                SRC_ATTR);
-    	setServicesToChecker(ec);
-    	ec.check(sspHandler, getElements(), testSolutionHandler);
-    	
-    	if(!titleElement.isEmpty()) {
-    		ec = new TextNotIdenticalToAttributeChecker(
-                	new TextAttributeOfElementBuilder(ALT_ATTR),
-                	new TextAttributeOfElementBuilder(TITLE_ATTR),
-                	new ImmutablePair(TestSolution.NEED_MORE_INFO, ""),
-                	new ImmutablePair(TestSolution.FAILED, TITLE_NOT_IDENTICAL_TO_ALT_MSG),
-                	ALT_ATTR,SRC_ATTR,TITLE_ATTR);
-        	setServicesToChecker(ec);
-    		ec.check(sspHandler, titleElement, testSolutionHandler);
-    	}
-    	
-    	if(!ariaLabelElement.isEmpty()) {
-    		ec = new TextNotIdenticalToAttributeChecker(
-                	new TextAttributeOfElementBuilder(ALT_ATTR),
-                	new TextAttributeOfElementBuilder(ARIA_LABEL_ATTR),
-                	new ImmutablePair(TestSolution.NEED_MORE_INFO, ""),
-                	new ImmutablePair(TestSolution.FAILED, ARIA_LABEL_NOT_IDENTICAL_TO_ALT_MSG),
-                	ALT_ATTR,SRC_ATTR,ARIA_LABEL_ATTR);
-        	setServicesToChecker(ec);
-    		ec.check(sspHandler, ariaLabelElement, testSolutionHandler);
-    	}
-    	
-    	if(!ariaLabelledbyElement.isEmpty()) {    		
-    		ec = new TextNotIdenticalToAttributeChecker(
-                	new TextAttributeOfElementBuilder(ALT_ATTR),
-                	new TextAttributeOfElementBuilder(ARIA_LABELLEDBY_ATTR),
-                	new ImmutablePair(TestSolution.NEED_MORE_INFO, ""),
-                	new ImmutablePair(TestSolution.FAILED, ARIA_LABELLEDBY_NOT_INDENTICAL_TO_ALT_MSG),
-                	ALT_ATTR,SRC_ATTR,ARIA_LABELLEDBY_ATTR);
-        	setServicesToChecker(ec);
-    		ec.check(sspHandler, ariaLabelledbyElement, testSolutionHandler);
-    	}
-    	
-    }
 }

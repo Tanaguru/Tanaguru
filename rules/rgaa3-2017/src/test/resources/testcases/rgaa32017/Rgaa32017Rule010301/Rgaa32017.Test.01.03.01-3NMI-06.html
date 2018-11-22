@@ -18,11 +18,13 @@
                 </ul> 
             </div> 
             <div class="testcase"> 
-                <img src="mock-image.jpg" alt="Not identified image alternative" /> 
+                <img id="id-informative-image" src="mock-image.jpg" alt="Alternative" aria-labelledby="Alternative"/> 
             </div> 
             <div class="test-explanation">
-                 NMI : A human check is needed to determine the pertinence of the alt attribute of the image not identified as informative by marker. 
-            </div> 
+                 NMI : At least one image has a aria-labelledby attribute identical to the alt attribute. 
+                 This image is identified as informative by marker.
+                 The pertinence of the alt has to be manually checked
+            </div>
         </div>   
     </body>
 </html>
