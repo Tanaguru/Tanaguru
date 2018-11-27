@@ -24,6 +24,15 @@ import org.tanaguru.entity.audit.*;
 import org.tanaguru.rules.rgaa32017.test.Rgaa32017RuleImplementationTestCase;
 import static org.tanaguru.rules.keystore.AttributeStore.ALT_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.SRC_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.TITLE_NOT_IDENTICAL_TO_ALT_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.ARIA_LABEL_NOT_IDENTICAL_TO_ALT_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.ARIA_LABELLEDBY_NOT_IDENTICAL_TO_ALT_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG;
+import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABEL_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABELLEDBY_ATTR;
+
+import org.tanaguru.rules.keystore.AttributeStore;
 import org.tanaguru.rules.keystore.HtmlElementStore;
 import org.tanaguru.rules.keystore.RemarkMessageStore;
 
@@ -55,7 +64,14 @@ public class Rgaa32017Rule010303Test extends Rgaa32017RuleImplementationTestCase
         addWebResource("Rgaa32017.Test.1.3.3-2Failed-02");
         addWebResource("Rgaa32017.Test.1.3.3-2Failed-03");
         addWebResource("Rgaa32017.Test.1.3.3-2Failed-04");
+        addWebResource("Rgaa32017.Test.1.3.3-2Failed-05");
+        addWebResource("Rgaa32017.Test.1.3.3-2Failed-06");
+        addWebResource("Rgaa32017.Test.1.3.3-2Failed-07");
+        addWebResource("Rgaa32017.Test.1.3.3-2Failed-08");
         addWebResource("Rgaa32017.Test.1.3.3-3NMI-01");
+        addWebResource("Rgaa32017.Test.1.3.3-3NMI-02");
+        addWebResource("Rgaa32017.Test.1.3.3-3NMI-03");
+        addWebResource("Rgaa32017.Test.1.3.3-3NMI-04");
         addWebResource("Rgaa32017.Test.1.3.3-4NA-01");
         addWebResource("Rgaa32017.Test.1.3.3-4NA-02");
         addWebResource("Rgaa32017.Test.1.3.3-4NA-03");
@@ -113,7 +129,7 @@ public class Rgaa32017Rule010303Test extends Rgaa32017RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------2Failed-04------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.1.3.3-2Failed-04");
+    	processResult = processPageTest("Rgaa32017.Test.1.3.3-2Failed-04");
         checkResultIsFailed(processResult, 1, 1);
         checkRemarkIsPresent(
                 processResult,
@@ -122,6 +138,93 @@ public class Rgaa32017Rule010303Test extends Rgaa32017RuleImplementationTestCase
                 HtmlElementStore.INPUT_ELEMENT,
                 1,
                 new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(SRC_ATTR, "mock-image"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-05------------------------------
+        //----------------------------------------------------------------------
+    	processResult = processPageTest("Rgaa32017.Test.1.3.3-2Failed-05");
+        checkResultIsFailed(processResult, 1, 2);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
+                HtmlElementStore.INPUT_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, "Informative input alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image"));
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                TITLE_NOT_IDENTICAL_TO_ALT_MSG,
+                HtmlElementStore.INPUT_ELEMENT,
+                2,
+                new ImmutablePair(ALT_ATTR, "Informative input alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image"),
+                new ImmutablePair(TITLE_ATTR, "informative input"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-06------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.1.3.3-2Failed-06");
+        checkResultIsFailed(processResult, 1, 2);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
+                HtmlElementStore.INPUT_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, "Informative input alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image"));
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                RemarkMessageStore.ARIA_LABEL_NOT_IDENTICAL_TO_ALT_MSG,
+                HtmlElementStore.INPUT_ELEMENT,
+                2,
+                new ImmutablePair(ALT_ATTR, "Informative input alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image"),
+                new ImmutablePair(ARIA_LABEL_ATTR, "informative input"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-07------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.1.3.3-2Failed-07");
+        checkResultIsFailed(processResult, 1, 2);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
+                HtmlElementStore.INPUT_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, "Informative input alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image"));
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                RemarkMessageStore.ARIA_LABELLEDBY_NOT_IDENTICAL_TO_ALT_MSG,
+                HtmlElementStore.INPUT_ELEMENT,
+                2,
+                new ImmutablePair(ALT_ATTR, "Informative input alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image"),
+                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "informative input"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-08------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.1.3.3-2Failed-08");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                RemarkMessageStore.NOT_PERTINENT_ALT_MSG,
+                HtmlElementStore.INPUT_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, "my-image.png"),
                 new ImmutablePair(SRC_ATTR, "mock-image"));
         
         
@@ -138,6 +241,52 @@ public class Rgaa32017Rule010303Test extends Rgaa32017RuleImplementationTestCase
                 1,
                 new ImmutablePair(ALT_ATTR, "Informative input alternative"),
                 new ImmutablePair(SRC_ATTR, "mock-image"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-02---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.1.3.3-3NMI-02");
+        checkResultIsPreQualified(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                RemarkMessageStore.CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
+                HtmlElementStore.INPUT_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, "Informative input alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-03---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.1.3.3-3NMI-03");
+        checkResultIsPreQualified(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                RemarkMessageStore.CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
+                HtmlElementStore.INPUT_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, "Informative input alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-04---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.1.3.3-3NMI-04");
+        checkResultIsPreQualified(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                RemarkMessageStore.CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
+                HtmlElementStore.INPUT_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, "Informative input alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image"));
+        
 
         
         //----------------------------------------------------------------------

@@ -19,13 +19,17 @@
 // */
 //package org.tanaguru.rules.rgaa32017;
 //
+//import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMAGE_AND_ALT_PERTINENCE_MSG;
+//
 //import java.util.ArrayList;
 //import java.util.List;
 //import org.apache.commons.lang3.tuple.ImmutablePair;
 //import org.tanaguru.entity.audit.ProcessResult;
 //import org.tanaguru.entity.audit.TestSolution;
 //import org.tanaguru.rules.rgaa32017.test.Rgaa32017RuleImplementationTestCase;
+//import org.tanaguru.rules.keystore.AttributeStore;
 //import org.tanaguru.rules.keystore.EvidenceStore;
+//import org.tanaguru.rules.keystore.HtmlElementStore;
 //import org.tanaguru.rules.keystore.RemarkMessageStore;
 //
 ///**
@@ -50,9 +54,9 @@
 //
 //    @Override
 //    protected void setUpWebResourceMap() {
-//        addWebResource("Rgaa32017.Test.10.04.02-4NA-01");
-//        addWebResource("Rgaa32017.Test.10.04.02-4NA-02");
-//        addWebResource("Rgaa32017.Test.10.04.02-4NA-03");
+////        addWebResource("Rgaa32017.Test.10.04.02-4NA-01");
+////        addWebResource("Rgaa32017.Test.10.04.02-4NA-02");
+////        addWebResource("Rgaa32017.Test.10.04.02-4NA-03");
 //        addWebResource("Rgaa32017.Test.10.04.02-1Passed-01");
 //        addWebResource("Rgaa32017.Test.10.04.02-1Passed-02");
 //        addWebResource("Rgaa32017.Test.10.04.02-1Passed-03");
@@ -63,36 +67,50 @@
 //        addWebResource("Rgaa32017.Test.10.04.02-1Passed-08");
 //        addWebResource("Rgaa32017.Test.10.04.02-1Passed-09");
 //        addWebResource("Rgaa32017.Test.10.04.02-1Passed-10");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-01_1");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-01_2");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-01_3");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-01_4");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-02_1");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-02_2");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-02_3");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-02_4");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-02_5");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-03_1");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-03_2");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-03_3");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-03_4");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-04_1");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-04_4");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-05_1");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-05_2");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-05_3");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-05_4");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-05_5");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-06_1");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-06_2");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-06_3");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-06_4");
-//        addWebResource("Rgaa32017.Test.10.04.02-2Failed-06_5");
+//        addWebResource("Rgaa32017.Test.10.04.02-1Passed-11");
+//        addWebResource("Rgaa32017.Test.10.04.02-1Passed-12");
+//        addWebResource("Rgaa32017.Test.10.04.02-1Passed-13");
+//        addWebResource("Rgaa32017.Test.10.04.02-1Passed-14");
+//        addWebResource("Rgaa32017.Test.10.04.02-1Passed-15");
+//        addWebResource("Rgaa32017.Test.10.04.02-1Passed-16");
+//        addWebResource("Rgaa32017.Test.10.04.02-1Passed-17");
+//        addWebResource("Rgaa32017.Test.10.04.02-1Passed-18");
+//        addWebResource("Rgaa32017.Test.10.04.02-1Passed-19");
+//        addWebResource("Rgaa32017.Test.10.04.02-1Passed-20");
+//        addWebResource("Rgaa32017.Test.10.04.02-1Passed-21");
+////        addWebResource("Rgaa32017.Test.10.04.02-1Passed-22");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-01_1");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-01_2");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-01_3");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-01_4");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-02_1");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-02_2");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-02_3");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-02_4");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-02_5");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-03_1");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-03_2");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-03_3");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-03_4");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-04_1");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-04_4");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-05_1");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-05_2");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-05_3");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-05_4");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-05_5");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-06_1");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-06_2");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-06_3");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-06_4");
+////        addWebResource("Rgaa32017.Test.10.04.02-2Failed-06_5");
+//        addWebResource("Rgaa32017.Test.10.04.02-3NMI-02");
 //        
 //        setUpRelatedContentMap();
 //    }
 //    
 //    private void setUpRelatedContentMap(){
+//    	    	
 //        List<String> relatedContent1 = new ArrayList<>();
 //        relatedContent1.add("css/Rgaa32017.Test.10.04.02-2Failed-01_1.css");
 //        getRelatedContentMap().put(getWebResourceMap().get("Rgaa32017.Test.10.04.02-2Failed-01_1"), relatedContent1);
@@ -105,6 +123,10 @@
 //        List<String> relatedContent3 = new ArrayList<>();
 //        relatedContent3.add("css/Rgaa32017.Test.10.04.02-2Failed-01_3.css");
 //        getRelatedContentMap().put(getWebResourceMap().get("Rgaa32017.Test.10.04.02-2Failed-01_3"), relatedContent3);
+//        
+//        List<String> relatedContent4 = new ArrayList<>();
+//        relatedContent1.add("css/Rgaa30.Test.10.04.02-1Passed-01_1.css");
+//        getRelatedContentMap().put(getWebResourceMap().get("Rgaa32017.Test.10.04.02-3NMI-02"), relatedContent4);
 //        
 //    }
 //
@@ -125,37 +147,37 @@
 //        //----------------------------------------------------------------------
 //        //------------------------------1Passed-03------------------------------
 //        //----------------------------------------------------------------------
-//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-03"),2);
+//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-03"),1);
 //        
 //        
 //        //----------------------------------------------------------------------
 //        //------------------------------1Passed-04------------------------------
 //        //----------------------------------------------------------------------
-//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-04"),2);
+//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-04"),1);
 //        
 //        
 //        //----------------------------------------------------------------------
 //        //------------------------------1Passed-05------------------------------
 //        //----------------------------------------------------------------------
-//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-05"),2);
+//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-05"),1);
 //
 //        
 //        //----------------------------------------------------------------------
 //        //------------------------------1Passed-06------------------------------
 //        //----------------------------------------------------------------------
-//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-06"),2);
+//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-06"),1);
 //        
 //        
 //        //----------------------------------------------------------------------
 //        //------------------------------1Passed-07------------------------------
 //        //----------------------------------------------------------------------
-//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-07"),2);
+//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-07"),1);
 //        
 //        
 //        //----------------------------------------------------------------------
 //        //------------------------------1Passed-08------------------------------
 //        //----------------------------------------------------------------------
-//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-08"),1);
+//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-08"),2);
 //        
 //        
 //        //----------------------------------------------------------------------
@@ -167,7 +189,85 @@
 //        //----------------------------------------------------------------------
 //        //------------------------------1Passed-10------------------------------
 //        //----------------------------------------------------------------------
-//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-10"),1);
+//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-10"),6);
+//        
+//        
+//        //----------------------------------------------------------------------
+//        //------------------------------1Passed-11------------------------------
+//        //----------------------------------------------------------------------
+//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-11"),1);
+//        
+//        
+//        //----------------------------------------------------------------------
+//        //------------------------------1Passed-12------------------------------
+//        //----------------------------------------------------------------------
+//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-12"),2);
+//        
+//        
+//        //----------------------------------------------------------------------
+//        //------------------------------1Passed-13------------------------------
+//        //----------------------------------------------------------------------
+//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-13"),2);
+//        
+//        
+//        //----------------------------------------------------------------------
+//        //------------------------------1Passed-14------------------------------
+//        //----------------------------------------------------------------------
+//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-14"),2);
+//        
+//        
+//        //----------------------------------------------------------------------
+//        //------------------------------1Passed-15------------------------------
+//        //----------------------------------------------------------------------
+//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-15"),1);
+//        
+//        
+//        //----------------------------------------------------------------------
+//        //------------------------------1Passed-16------------------------------
+//        //----------------------------------------------------------------------
+//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-16"),1);
+//        
+//        
+//        //----------------------------------------------------------------------
+//        //------------------------------1Passed-17------------------------------
+//        //----------------------------------------------------------------------
+//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-17"),1);
+//        
+//        
+//        //----------------------------------------------------------------------
+//        //------------------------------1Passed-18------------------------------
+//        //----------------------------------------------------------------------
+//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-18"),1);
+//        
+//        
+//        //----------------------------------------------------------------------
+//        //------------------------------1Passed-19------------------------------
+//        //----------------------------------------------------------------------
+//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-19"),1);
+//        
+//        
+//        //----------------------------------------------------------------------
+//        //------------------------------1Passed-20------------------------------
+//        //----------------------------------------------------------------------
+//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-20"),1);
+//        
+//        
+//        //----------------------------------------------------------------------
+//        //------------------------------1Passed-21------------------------------
+//        //----------------------------------------------------------------------
+//        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-21"),1);
+//        
+//        
+//        //----------------------------------------------------------------------
+//        //------------------------------1Passed-22------------------------------
+//        //----------------------------------------------------------------------
+////        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-22"),1); //Faire avec des feuilles importées de style
+//        
+//        
+//        //----------------------------------------------------------------------
+//        //------------------------------1Passed-23------------------------------
+//        //----------------------------------------------------------------------
+////        checkResultIsPassed(processPageTest("Rgaa32017.Test.10.04.02-1Passed-23"),1); //Faire avec des feuilles importées de style en css calculés
 //        
 //        //----------------------------------------------------------------------
 //        //------------------------------2Failed-01_1----------------------------
@@ -552,39 +652,53 @@
 ////                true,
 ////                new ImmutablePair(EvidenceStore.CSS_SELECTOR_EE, "div"),
 ////                new ImmutablePair(EvidenceStore.CSS_FILENAME_EE, "inline"));
-////
-////
+//
+//
 ////        //----------------------------------------------------------------------
 ////        //------------------------------2Failed-06_5----------------------------
 ////        //----------------------------------------------------------------------
-//        ProcessResult processResult = processPageTest("Rgaa32017.Test.10.04.02-2Failed-06_5");
-//        checkResultIsFailed(processResult, 1, 1);
+////        ProcessResult 
+////        processResult = processPageTest("Rgaa32017.Test.10.04.02-2Failed-06_5");
+////        checkResultIsFailed(processResult, 1, 1);
+////        checkRemarkIsPresent(
+////                processResult,
+////                TestSolution.FAILED,
+////                RemarkMessageStore.BAD_UNIT_TYPE_MSG,
+////                "px",
+////                1,
+////                true,
+////                new ImmutablePair(EvidenceStore.CSS_SELECTOR_EE, "div"),
+////                new ImmutablePair(EvidenceStore.CSS_FILENAME_EE, "inline"));
+////
+//        
+//        //----------------------------------------------------------------------
+//        //------------------------------3NMI-01---------------------------------
+//        //----------------------------------------------------------------------
+//        ProcessResult  processResult = processPageTest("Rgaa32017.Test.10.04.02-3NMI-02");
+//        checkResultIsPreQualified(processResult,0,1);
 //        checkRemarkIsPresent(
 //                processResult,
-//                TestSolution.FAILED,
-//                RemarkMessageStore.BAD_UNIT_TYPE_MSG,
-//                "pc",
+//                TestSolution.NEED_MORE_INFO,
+//                "UnTestedResource",
+//                "EMPTY_TARGET",
 //                1,
-//                true,
-//                new ImmutablePair(EvidenceStore.CSS_SELECTOR_EE, "div"),
-//                new ImmutablePair(EvidenceStore.CSS_FILENAME_EE, "inline"));
-//
-//        //----------------------------------------------------------------------
-//        //------------------------------4NA-1-----------------------------------
-//        //----------------------------------------------------------------------
-//        checkResultIsNotApplicable(processPageTest("Rgaa32017.Test.10.04.02-4NA-01"));
-//
-//
-//        //----------------------------------------------------------------------
-//        //------------------------------4NA-2-----------------------------------
-//        //----------------------------------------------------------------------
-//        checkResultIsNotApplicable(processPageTest("Rgaa32017.Test.10.04.02-4NA-02"));
-//
-//
-//        //----------------------------------------------------------------------
-//        //------------------------------4NA-3-----------------------------------
-//        //----------------------------------------------------------------------
-//        checkResultIsNotApplicable(processPageTest("Rgaa32017.Test.10.04.02-4NA-03"));
+//                new ImmutablePair(EvidenceStore.ELEMENT_NAME_EE, "css/Rgaa30.Test.10.04.02-1Passed-01_1.css"));
+////        //----------------------------------------------------------------------
+////        //------------------------------4NA-1-----------------------------------
+////        //----------------------------------------------------------------------
+////        checkResultIsNotApplicable(processPageTest("Rgaa32017.Test.10.04.02-4NA-01"));
+////
+////
+////        //----------------------------------------------------------------------
+////        //------------------------------4NA-2-----------------------------------
+////        //----------------------------------------------------------------------
+////        checkResultIsNotApplicable(processPageTest("Rgaa32017.Test.10.04.02-4NA-02"));
+////
+////
+////        //----------------------------------------------------------------------
+////        //------------------------------4NA-3-----------------------------------
+////        //----------------------------------------------------------------------
+////        checkResultIsNotApplicable(processPageTest("Rgaa32017.Test.10.04.02-4NA-03"));
 //    }
 //
 //}

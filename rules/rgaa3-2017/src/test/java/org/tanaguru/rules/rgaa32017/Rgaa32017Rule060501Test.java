@@ -59,6 +59,7 @@ public class Rgaa32017Rule060501Test extends Rgaa32017RuleImplementationTestCase
         addWebResource("Rgaa32017.Test.06.05.01-2Failed-04");
         addWebResource("Rgaa32017.Test.06.05.01-2Failed-05");
         addWebResource("Rgaa32017.Test.06.05.01-4NA-01");
+        addWebResource("Rgaa32017.Test.06.05.01-4NA-02");
     }
 
     @Override
@@ -158,6 +159,11 @@ public class Rgaa32017Rule060501Test extends Rgaa32017RuleImplementationTestCase
         //------------------------------4NA-01----------------------------------
         //----------------------------------------------------------------------
         checkResultIsNotApplicable(processPageTest("Rgaa32017.Test.06.05.01-4NA-01"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------4NA-02----------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsNotApplicable(processPageTest("Rgaa32017.Test.06.05.01-4NA-02"));
     }
 
 }

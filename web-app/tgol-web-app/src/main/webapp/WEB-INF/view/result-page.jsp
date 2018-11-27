@@ -27,6 +27,9 @@
 <c:set var="bootstrapUrl" scope="request">
     <c:url value="/External-Js/bootstrap.min.js"/>
 </c:set> 
+<c:set var="stickyKitUrl" scope="request">
+    <c:url value="/External-Js/sticky-kit.min.js"/>
+</c:set>
 
 <!-- internal js -->
 <c:set var="resultPageChartsIEJsUrl" scope="request">
@@ -76,6 +79,9 @@
 </c:set>
 <c:set var="triggerPrint">
     <c:url value="/Js/result-page/trigger-print.js"/>  
+</c:set>
+<c:set var="eaccessibleFilter">
+    <c:url value="/Js/result-page/eaccessibleFilter.js"/>  
 </c:set>
 
 <!-- external images -->
@@ -231,8 +237,12 @@
         <c:set var="hasPieChartInGraphicalResult" scope="request" value="true"/>
         <c:set var="hasBarChartInGraphicalResult" scope="request" value="true"/>
         <c:set var="addLinkToSourceCode" scope="request" value="true"/>
+        <c:set var="isEAccessibleEnabled" scope="page" value="${isEAccessibleEnabled}"/>
         <c:import url="template/synthesis.jsp" />
         <c:import url="template/sort-result-console.jsp" />
+        <c:if test="${isEAccessibleEnabled}" >
+        <c:import url="template/sort-result-console_e_accessible.jsp" />
+        </c:if>
         <c:set var="displayAlgorithm" scope="request" value="true"/>
         <c:set var="scope" scope="request" value="page"/>
         <c:set var="counterByThemeMap" scope="request" value="${statistics.counterByThemeMap}"/>
@@ -251,6 +261,7 @@
         <script type="text/javascript" src="${codePrettifierJsUrl}"></script>
         <script type="text/javascript" src="${prettyPrintJsUrl}"></script>
         <script type="text/javascript" src="${auditParametersDetailsJsUrl}"></script>
+        <script type="text/javascript" src="${stickyKitUrl}"></script>
         <c:if test="${addRelaunchAction}">
         <script type="text/javascript" src="${jqueryUIUrl}"></script>
         <script type="text/javascript" src="${progressBarJsUrl}"></script>
@@ -279,6 +290,7 @@
         <script type="text/javascript" src="${orderPractices}"></script>
         <script type="text/javascript" src="${reorderResultsTable}"></script>
         <script type="text/javascript" src="${triggerPrint}"></script>
+        <script type="text/javascript" src="${eaccessibleFilter}"></script>
     </body>
 </html>
 </compress:html>

@@ -66,6 +66,7 @@ public class DomElement {
             "outlineStyleFocus";
     public static final String NOT_EXISTING_PROPERTY = "notExisting";
     public static final String IS_FORBIDDEN_UNIT_USED = "isForbiddenUnitUsed_NotComputed";
+    public static final String IS_AUTHORIZED_UNIT_USED = "isAuthorizedUnitUsed_NotComputed";
     
     /**
      * All the values handled by the element identified by a key that 
@@ -253,6 +254,14 @@ public class DomElement {
      */
     public boolean isForbiddenUnitUsed() {
         return Boolean.valueOf(getProperty(IS_FORBIDDEN_UNIT_USED));
+    }
+    
+    /**
+     * 
+     * @return whether the current element use authorized units 
+     */
+    public boolean isNotAuthorizedUnitUsed() {
+    	return Boolean.valueOf(getProperty(IS_AUTHORIZED_UNIT_USED));
     }
     
 }

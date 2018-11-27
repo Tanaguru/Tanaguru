@@ -28,11 +28,19 @@ import static org.tanaguru.rules.keystore.AttributeStore.ALT_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.SRC_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
 import static org.tanaguru.rules.keystore.HtmlElementStore.IMG_ELEMENT;
+import static org.tanaguru.rules.keystore.AttributeStore.ROLE_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABEL_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABELLEDBY_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ARIA_DESCRIBEDBY_ATTR;
 import static org.tanaguru.rules.keystore.MarkerStore.DECORATIVE_IMAGE_MARKER;
 import static org.tanaguru.rules.keystore.MarkerStore.INFORMATIVE_IMAGE_MARKER;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMAGE_WITH_EMPTY_ALT_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMAGE_WITH_NOT_EMPTY_ALT_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_ARIA_DESCRIBEDBY_ATTR_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_ARIA_LABELLEDBY_ATTR_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_ARIA_LABEL_ATTR_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_ROLE_IMG_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_TITLE_ATTR_MSG;
 
 /**
@@ -83,6 +91,38 @@ public class Rgaa32017Rule010201Test extends Rgaa32017RuleImplementationTestCase
                     createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
         addWebResource("Rgaa32017.Test.01.02.01-2Failed-07",
                     createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
+        addWebResource("Rgaa32017.Test.01.02.01-2Failed-08",
+                	createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
+        addWebResource("Rgaa32017.Test.01.02.01-2Failed-09",
+            		createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
+        addWebResource("Rgaa32017.Test.01.02.01-2Failed-10",
+            		createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
+        addWebResource("Rgaa32017.Test.01.02.01-2Failed-11",
+            		createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
+        addWebResource("Rgaa32017.Test.01.02.01-2Failed-12",
+            		createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
+        addWebResource("Rgaa32017.Test.01.02.01-2Failed-13",
+            		createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
+        addWebResource("Rgaa32017.Test.01.02.01-2Failed-14",
+            		createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
+        addWebResource("Rgaa32017.Test.01.02.01-2Failed-15",
+            		createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
+        addWebResource("Rgaa32017.Test.01.02.01-2Failed-16",
+            		createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
+        addWebResource("Rgaa32017.Test.01.02.01-2Failed-17",
+            		createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
+        addWebResource("Rgaa32017.Test.01.02.01-2Failed-18",
+        		createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
+        addWebResource("Rgaa32017.Test.01.02.01-2Failed-19",
+        		createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
+        addWebResource("Rgaa32017.Test.01.02.01-2Failed-20",
+        		createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
+        addWebResource("Rgaa32017.Test.01.02.01-2Failed-21",
+        		createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
+        addWebResource("Rgaa32017.Test.01.02.01-2Failed-22",
+        		createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
+        addWebResource("Rgaa32017.Test.01.02.01-2Failed-23",
+        		createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
         addWebResource("Rgaa32017.Test.01.02.01-3NMI-01");
         addWebResource("Rgaa32017.Test.01.02.01-3NMI-02");
         addWebResource("Rgaa32017.Test.01.02.01-3NMI-03",
@@ -95,6 +135,22 @@ public class Rgaa32017Rule010201Test extends Rgaa32017RuleImplementationTestCase
                     createParameter("Rules", DECORATIVE_IMAGE_MARKER, "class-decorative-image"));
         addWebResource("Rgaa32017.Test.01.02.01-3NMI-07",
                     createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
+        addWebResource("Rgaa32017.Test.01.02.01-3NMI-08");
+        addWebResource("Rgaa32017.Test.01.02.01-3NMI-09");
+        addWebResource("Rgaa32017.Test.01.02.01-3NMI-10");
+        addWebResource("Rgaa32017.Test.01.02.01-3NMI-11");
+        addWebResource("Rgaa32017.Test.01.02.01-3NMI-12");
+        addWebResource("Rgaa32017.Test.01.02.01-3NMI-13");
+        addWebResource("Rgaa32017.Test.01.02.01-3NMI-14");
+        addWebResource("Rgaa32017.Test.01.02.01-3NMI-15");
+        addWebResource("Rgaa32017.Test.01.02.01-3NMI-16");
+        addWebResource("Rgaa32017.Test.01.02.01-3NMI-17");
+        addWebResource("Rgaa32017.Test.01.02.01-3NMI-18");
+        addWebResource("Rgaa32017.Test.01.02.01-3NMI-19");
+        addWebResource("Rgaa32017.Test.01.02.01-3NMI-20");
+        addWebResource("Rgaa32017.Test.01.02.01-3NMI-21");
+        addWebResource("Rgaa32017.Test.01.02.01-3NMI-22");
+        addWebResource("Rgaa32017.Test.01.02.01-3NMI-23");
         addWebResource("Rgaa32017.Test.01.02.01-4NA-01");
         addWebResource("Rgaa32017.Test.01.02.01-4NA-02");
         addWebResource("Rgaa32017.Test.01.02.01-4NA-03");
@@ -270,7 +326,422 @@ public class Rgaa32017Rule010201Test extends Rgaa32017RuleImplementationTestCase
                 new ImmutablePair(TITLE_ATTR, "not empty title"),
                 new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
         
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-08------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-2Failed-08");
+        checkResultIsFailed(processResult,1,2);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, "not empty alt"),
+                new ImmutablePair(TITLE_ATTR, ""),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_TITLE_ATTR_MSG,
+                IMG_ELEMENT, 
+                2, 
+                new ImmutablePair(ALT_ATTR, "not empty alt"),
+                new ImmutablePair(TITLE_ATTR, ""),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-09------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-2Failed-09");
+        checkResultIsFailed(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_ROLE_IMG_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(ROLE_ATTR, "img"),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-10------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-2Failed-10");
+        checkResultIsFailed(processResult,1,3);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, "not empty alt"),
+                new ImmutablePair(TITLE_ATTR, ""),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_TITLE_ATTR_MSG,
+                IMG_ELEMENT, 
+                2, 
+                new ImmutablePair(ALT_ATTR, "not empty alt"),
+                new ImmutablePair(TITLE_ATTR, ""),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_ROLE_IMG_MSG,
+                IMG_ELEMENT, 
+                3, 
+                new ImmutablePair(ALT_ATTR, "not empty alt"),
+                new ImmutablePair(ROLE_ATTR, "img"),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-11------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-2Failed-11");
+        checkResultIsFailed(processResult,1,3);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, "not empty alt"),
+                new ImmutablePair(TITLE_ATTR, "not empty title"),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_TITLE_ATTR_MSG,
+                IMG_ELEMENT, 
+                2, 
+                new ImmutablePair(ALT_ATTR, "not empty alt"),
+                new ImmutablePair(TITLE_ATTR, "not empty title"),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_ROLE_IMG_MSG,
+                IMG_ELEMENT, 
+                3, 
+                new ImmutablePair(ALT_ATTR, "not empty alt"),
+                new ImmutablePair(ROLE_ATTR, "img"),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-12------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-2Failed-12");
+        checkResultIsFailed(processResult,1,2);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, "not empty alt"),
+                new ImmutablePair(TITLE_ATTR, ""),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_ARIA_LABEL_ATTR_MSG,
+                IMG_ELEMENT, 
+                2, 
+                new ImmutablePair(ALT_ATTR, "not empty alt"),
+                new ImmutablePair(ARIA_LABEL_ATTR, "decorative-image"),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-13------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-2Failed-13");
+        checkResultIsFailed(processResult,1,3);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, "not empty alt"),
+                new ImmutablePair(TITLE_ATTR, AttributeStore.ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_ROLE_IMG_MSG,
+                IMG_ELEMENT, 
+                2, 
+                new ImmutablePair(ALT_ATTR, "not empty alt"),
+                new ImmutablePair(ROLE_ATTR, "img"),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_ARIA_LABEL_ATTR_MSG,
+                IMG_ELEMENT, 
+                3, 
+                new ImmutablePair(ALT_ATTR, "not empty alt"),
+                new ImmutablePair(ARIA_LABEL_ATTR, "decorative-image"),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-14------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-2Failed-14");
+        checkResultIsFailed(processResult,1,2);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, "not empty alt"),
+                new ImmutablePair(TITLE_ATTR, ""),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_ARIA_LABELLEDBY_ATTR_MSG,
+                IMG_ELEMENT, 
+                2, 
+                new ImmutablePair(ALT_ATTR, "not empty alt"),
+                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "decorative-image"),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-15------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-2Failed-15");
+        checkResultIsFailed(processResult,1,3);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, "not empty alt"),
+                new ImmutablePair(TITLE_ATTR, AttributeStore.ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_ROLE_IMG_MSG,
+                IMG_ELEMENT, 
+                2, 
+                new ImmutablePair(ALT_ATTR, "not empty alt"),
+                new ImmutablePair(ROLE_ATTR, "img"),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_ARIA_LABELLEDBY_ATTR_MSG,
+                IMG_ELEMENT, 
+                3, 
+                new ImmutablePair(ALT_ATTR, "not empty alt"),
+                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "decorative-image"),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-16------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-2Failed-16");
+        checkResultIsFailed(processResult,1,2);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, "not empty alt"),
+                new ImmutablePair(TITLE_ATTR, AttributeStore.ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_ARIA_DESCRIBEDBY_ATTR_MSG,
+                IMG_ELEMENT, 
+                2, 
+                new ImmutablePair(ALT_ATTR, "not empty alt"),
+                new ImmutablePair(ARIA_DESCRIBEDBY_ATTR, ""),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-17------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-2Failed-17");
+        checkResultIsFailed(processResult,1,3);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, "not empty alt"),
+                new ImmutablePair(TITLE_ATTR, AttributeStore.ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_ROLE_IMG_MSG,
+                IMG_ELEMENT, 
+                2, 
+                new ImmutablePair(ALT_ATTR, "not empty alt"),
+                new ImmutablePair(ROLE_ATTR, "img"),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_ARIA_DESCRIBEDBY_ATTR_MSG,
+                IMG_ELEMENT, 
+                3, 
+                new ImmutablePair(ALT_ATTR, "not empty alt"),
+                new ImmutablePair(ARIA_DESCRIBEDBY_ATTR, ""),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-18------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-2Failed-18");
+        checkResultIsFailed(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_ARIA_DESCRIBEDBY_ATTR_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(ARIA_DESCRIBEDBY_ATTR, ""),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-19------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-2Failed-19");
+        checkResultIsFailed(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_ARIA_LABEL_ATTR_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(ARIA_LABEL_ATTR, "decorative-image"),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-20------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-2Failed-20");
+        checkResultIsFailed(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_ARIA_LABELLEDBY_ATTR_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "decorative-image"),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-21------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-2Failed-21");
+        checkResultIsFailed(processResult,1,2);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_ROLE_IMG_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(ROLE_ATTR, "img"),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_ARIA_LABELLEDBY_ATTR_MSG,
+                IMG_ELEMENT, 
+                2, 
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "decorative-image"),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-22------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-2Failed-22");
+        checkResultIsFailed(processResult,1,2);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_ROLE_IMG_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(ROLE_ATTR, "img"),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_ARIA_DESCRIBEDBY_ATTR_MSG,
+                IMG_ELEMENT, 
+                2, 
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(ARIA_DESCRIBEDBY_ATTR, ""),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-23------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-2Failed-23");
+        checkResultIsFailed(processResult,1,2);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_ROLE_IMG_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(ROLE_ATTR, "img"),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.FAILED, 
+                DECORATIVE_ELEMENT_WITH_ARIA_LABEL_ATTR_MSG,
+                IMG_ELEMENT, 
+                2, 
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(ARIA_LABEL_ATTR, "decorative-image"),
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
 
+        
         //----------------------------------------------------------------------
         //------------------------------3NMI-01---------------------------------
         //----------------------------------------------------------------------
@@ -416,6 +887,279 @@ public class Rgaa32017Rule010201Test extends Rgaa32017RuleImplementationTestCase
                 new ImmutablePair(ALT_ATTR, ""),
                 new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
                 new ImmutablePair(SRC_ATTR, "mock-image5.jpg"));
+
+        
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-08---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-3NMI-08");
+        checkResultIsPreQualified(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.NEED_MORE_INFO, 
+                CHECK_NATURE_OF_IMAGE_WITH_NOT_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, "Not empty alt"),
+                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+       
+
+
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-09---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-3NMI-09");
+        checkResultIsPreQualified(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.NEED_MORE_INFO, 
+                CHECK_NATURE_OF_IMAGE_WITH_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+       
+
+
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-10---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-3NMI-10");
+        checkResultIsPreQualified(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.NEED_MORE_INFO, 
+                CHECK_NATURE_OF_IMAGE_WITH_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+       
+
+
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-11---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-3NMI-11");
+        checkResultIsPreQualified(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.NEED_MORE_INFO, 
+                CHECK_NATURE_OF_IMAGE_WITH_NOT_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, "Not empty alt"),
+                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+       
+
+
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-12---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-3NMI-12");
+        checkResultIsPreQualified(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.NEED_MORE_INFO, 
+                CHECK_NATURE_OF_IMAGE_WITH_NOT_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+       
+
+
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-13---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-3NMI-13");
+        checkResultIsPreQualified(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.NEED_MORE_INFO, 
+                CHECK_NATURE_OF_IMAGE_WITH_NOT_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+       
+
+
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-14---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-3NMI-14");
+        checkResultIsPreQualified(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.NEED_MORE_INFO, 
+                CHECK_NATURE_OF_IMAGE_WITH_NOT_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+       
+
+
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-15---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-3NMI-15");
+        checkResultIsPreQualified(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.NEED_MORE_INFO, 
+                CHECK_NATURE_OF_IMAGE_WITH_NOT_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, "Not empty alt"),
+                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+       
+
+
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-16---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-3NMI-16");
+        checkResultIsPreQualified(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.NEED_MORE_INFO, 
+                CHECK_NATURE_OF_IMAGE_WITH_NOT_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, "Not empty alt"),
+                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+       
+
+
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-17---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-3NMI-17");
+        checkResultIsPreQualified(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.NEED_MORE_INFO, 
+                CHECK_NATURE_OF_IMAGE_WITH_NOT_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, "Not empty alt"),
+                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg")); 
+       
+
+
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-18---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-3NMI-18");
+        checkResultIsPreQualified(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.NEED_MORE_INFO, 
+                CHECK_NATURE_OF_IMAGE_WITH_NOT_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+       
+
+
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-19---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-3NMI-19");
+        checkResultIsPreQualified(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.NEED_MORE_INFO, 
+                CHECK_NATURE_OF_IMAGE_WITH_NOT_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+       
+
+
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-20---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-3NMI-20");
+        checkResultIsPreQualified(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.NEED_MORE_INFO, 
+                CHECK_NATURE_OF_IMAGE_WITH_NOT_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+       
+
+
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-21---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-3NMI-21");
+        checkResultIsPreQualified(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.NEED_MORE_INFO, 
+                CHECK_NATURE_OF_IMAGE_WITH_NOT_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+       
+
+
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-22---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-3NMI-22");
+        checkResultIsPreQualified(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.NEED_MORE_INFO, 
+                CHECK_NATURE_OF_IMAGE_WITH_NOT_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+       
+
+
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-23---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.01-3NMI-23");
+        checkResultIsPreQualified(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult, 
+                TestSolution.NEED_MORE_INFO, 
+                CHECK_NATURE_OF_IMAGE_WITH_NOT_EMPTY_ALT_MSG,
+                IMG_ELEMENT, 
+                1, 
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));   
+
+        
         
         
         //----------------------------------------------------------------------

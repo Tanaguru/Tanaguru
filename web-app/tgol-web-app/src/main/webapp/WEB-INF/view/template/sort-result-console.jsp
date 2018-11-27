@@ -4,7 +4,7 @@
 <%@ taglib uri="http://tagutils" prefix="tg" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-<div id="result-option-console" class="row option-console">
+<div id="result-option-console" class="row option-console option-console-standard">
     <div class="span16">
         <h2 id="result-option-console-title" class="option-console-title">
             <fmt:message key="result.display"/>

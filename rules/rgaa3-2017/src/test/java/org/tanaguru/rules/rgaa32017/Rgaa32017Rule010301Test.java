@@ -28,6 +28,8 @@ import org.tanaguru.rules.rgaa32017.test.Rgaa32017RuleImplementationTestCase;
 import static org.tanaguru.rules.keystore.AttributeStore.ALT_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.SRC_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABEL_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABELLEDBY_ATTR;
 import static org.tanaguru.rules.keystore.HtmlElementStore.IMG_ELEMENT;
 import static org.tanaguru.rules.keystore.MarkerStore.DECORATIVE_IMAGE_MARKER;
 import static org.tanaguru.rules.keystore.MarkerStore.INFORMATIVE_IMAGE_MARKER;
@@ -36,6 +38,8 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMA
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.NOT_PERTINENT_ALT_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.TITLE_NOT_IDENTICAL_TO_ALT_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.ARIA_LABEL_NOT_IDENTICAL_TO_ALT_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.ARIA_LABELLEDBY_NOT_IDENTICAL_TO_ALT_MSG;
 
 /**
  * Unit test class for the implementation of the rule 1-3-1 of the referential Rgaa 3-2017.
@@ -78,17 +82,53 @@ public class Rgaa32017Rule010301Test extends Rgaa32017RuleImplementationTestCase
                     createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
         addWebResource("Rgaa32017.Test.01.03.01-2Failed-11",
                     createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
-        addWebResource("Rgaa32017.Test.01.03.01-3NMI-01");
+        addWebResource("Rgaa32017.Test.01.03.01-2Failed-12");
+        addWebResource("Rgaa32017.Test.01.03.01-2Failed-13");
+        addWebResource("Rgaa32017.Test.01.03.01-2Failed-14");
+        addWebResource("Rgaa32017.Test.01.03.01-2Failed-15");
+        addWebResource("Rgaa32017.Test.01.03.01-2Failed-16",
+                	createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-image"));
+        addWebResource("Rgaa32017.Test.01.03.01-2Failed-17",
+                	createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
+        addWebResource("Rgaa32017.Test.01.03.01-2Failed-18",
+            		createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
+        addWebResource("Rgaa32017.Test.01.03.01-2Failed-19",
+            		createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
+        addWebResource("Rgaa32017.Test.01.03.01-2Failed-20",
+            		createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
+        addWebResource("Rgaa32017.Test.01.03.01-2Failed-21",
+            		createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
+        addWebResource("Rgaa32017.Test.01.03.01-2Failed-22",
+            		createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
+        addWebResource("Rgaa32017.Test.01.03.01-2Failed-23",
+            		createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
+        addWebResource("Rgaa32017.Test.01.03.01-2Failed-24",
+            		createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
+        addWebResource("Rgaa32017.Test.01.03.01-2Failed-25");
+        addWebResource("Rgaa32017.Test.01.03.01-2Failed-26");
+        addWebResource("Rgaa32017.Test.01.03.01-2Failed-27");
+        addWebResource("Rgaa32017.Test.01.03.01-2Failed-28");
+        addWebResource("Rgaa32017.Test.01.03.01-2Failed-29");
+        addWebResource("Rgaa32017.Test.01.03.01-2Failed-30");
+        addWebResource("Rgaa32017.Test.01.03.01-3NMI-01",
+                    createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-image"));
         addWebResource("Rgaa32017.Test.01.03.01-3NMI-02");
-        addWebResource("Rgaa32017.Test.01.03.01-3NMI-03");
+        addWebResource("Rgaa32017.Test.01.03.01-3NMI-03",
+                    createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
         addWebResource("Rgaa32017.Test.01.03.01-3NMI-04");
         addWebResource("Rgaa32017.Test.01.03.01-3NMI-05",
-                    createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-image"));
-        addWebResource("Rgaa32017.Test.01.03.01-3NMI-06");
-        addWebResource("Rgaa32017.Test.01.03.01-3NMI-07",
-                    createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-image"));
-        addWebResource("Rgaa32017.Test.01.03.01-3NMI-08",
-                    createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
+                createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
+        addWebResource("Rgaa32017.Test.01.03.01-3NMI-06",
+                createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
+        addWebResource("Rgaa32017.Test.01.03.01-3NMI-07");
+        addWebResource("Rgaa32017.Test.01.03.01-3NMI-08");
+        addWebResource("Rgaa32017.Test.01.03.01-3NMI-09");
+        addWebResource("Rgaa32017.Test.01.03.01-3NMI-10",
+                createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
+        addWebResource("Rgaa32017.Test.01.03.01-3NMI-11",
+                createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
+        addWebResource("Rgaa32017.Test.01.03.01-3NMI-12",
+                createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-image"));
         addWebResource("Rgaa32017.Test.01.03.01-4NA-01");
         addWebResource("Rgaa32017.Test.01.03.01-4NA-02");
         addWebResource("Rgaa32017.Test.01.03.01-4NA-03");
@@ -112,7 +152,6 @@ public class Rgaa32017Rule010301Test extends Rgaa32017RuleImplementationTestCase
                 IMG_ELEMENT,
                 1,
                 new ImmutablePair(ALT_ATTR, "mock-image"),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
                 new ImmutablePair(SRC_ATTR, "mock-image"));
         
         //----------------------------------------------------------------------
@@ -127,7 +166,6 @@ public class Rgaa32017Rule010301Test extends Rgaa32017RuleImplementationTestCase
                 IMG_ELEMENT,
                 1,
                 new ImmutablePair(ALT_ATTR, "image.gif"),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
                 new ImmutablePair(SRC_ATTR, "mock-image"));
         
         //----------------------------------------------------------------------
@@ -142,7 +180,6 @@ public class Rgaa32017Rule010301Test extends Rgaa32017RuleImplementationTestCase
                 IMG_ELEMENT,
                 1,
                 new ImmutablePair(ALT_ATTR, "--><--"),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
                 new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
         
         //----------------------------------------------------------------------
@@ -157,7 +194,6 @@ public class Rgaa32017Rule010301Test extends Rgaa32017RuleImplementationTestCase
                 IMG_ELEMENT,
                 1,
                 new ImmutablePair(ALT_ATTR, "mock-image"),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
                 new ImmutablePair(SRC_ATTR, "images/mock-image"));
         
         //----------------------------------------------------------------------
@@ -172,7 +208,6 @@ public class Rgaa32017Rule010301Test extends Rgaa32017RuleImplementationTestCase
                 IMG_ELEMENT,
                 1,
                 new ImmutablePair(ALT_ATTR, "image.bmp"),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
                 new ImmutablePair(SRC_ATTR, "mock-image"));
         
         //----------------------------------------------------------------------
@@ -187,7 +222,6 @@ public class Rgaa32017Rule010301Test extends Rgaa32017RuleImplementationTestCase
                 IMG_ELEMENT,
                 1,
                 new ImmutablePair(ALT_ATTR, "#!/;'(|"),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
                 new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
         
         //----------------------------------------------------------------------
@@ -202,7 +236,6 @@ public class Rgaa32017Rule010301Test extends Rgaa32017RuleImplementationTestCase
                 IMG_ELEMENT,
                 1,
                 new ImmutablePair(ALT_ATTR, ""),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
                 new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
         
         //----------------------------------------------------------------------
@@ -217,7 +250,6 @@ public class Rgaa32017Rule010301Test extends Rgaa32017RuleImplementationTestCase
                 IMG_ELEMENT,
                 1,
                 new ImmutablePair(ALT_ATTR, ""),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
                 new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
         
         //----------------------------------------------------------------------
@@ -232,7 +264,6 @@ public class Rgaa32017Rule010301Test extends Rgaa32017RuleImplementationTestCase
                 IMG_ELEMENT,
                 1,
                 new ImmutablePair(ALT_ATTR, ""),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
                 new ImmutablePair(SRC_ATTR, "mock-image1.jpg"));
         checkRemarkIsPresent(
                 processResult,
@@ -241,16 +272,14 @@ public class Rgaa32017Rule010301Test extends Rgaa32017RuleImplementationTestCase
                 IMG_ELEMENT,
                 2,
                 new ImmutablePair(ALT_ATTR, "Informative image alternative"),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
                 new ImmutablePair(SRC_ATTR, "mock-image2.jpg"));
         checkRemarkIsPresent(
                 processResult,
-                NEED_MORE_INFO,
-                CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG,
+                FAILED,
+                NOT_PERTINENT_ALT_MSG,
                 IMG_ELEMENT,
                 3,
                 new ImmutablePair(ALT_ATTR, "mock-image3"),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
                 new ImmutablePair(SRC_ATTR, "mock-image3"));
         checkRemarkIsPresent(
                 processResult,
@@ -259,8 +288,8 @@ public class Rgaa32017Rule010301Test extends Rgaa32017RuleImplementationTestCase
                 IMG_ELEMENT,
                 4,
                 new ImmutablePair(ALT_ATTR, "not identified image alternative"),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
                 new ImmutablePair(SRC_ATTR, "mock-image4.jpg"));
+        
 
         //----------------------------------------------------------------------
         //------------------------------2Failed-10------------------------------
@@ -274,7 +303,6 @@ public class Rgaa32017Rule010301Test extends Rgaa32017RuleImplementationTestCase
                 IMG_ELEMENT,
                 1,
                 new ImmutablePair(ALT_ATTR, "Alternative"),
-                new ImmutablePair(TITLE_ATTR, "Title"),
                 new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
         checkRemarkIsPresent(
                 processResult,
@@ -285,6 +313,7 @@ public class Rgaa32017Rule010301Test extends Rgaa32017RuleImplementationTestCase
                 new ImmutablePair(ALT_ATTR, "Alternative"),
                 new ImmutablePair(TITLE_ATTR, "Title"),
                 new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+        
         
         //----------------------------------------------------------------------
         //------------------------------2Failed-11------------------------------
@@ -298,69 +327,387 @@ public class Rgaa32017Rule010301Test extends Rgaa32017RuleImplementationTestCase
                 IMG_ELEMENT,
                 1,
                 new ImmutablePair(ALT_ATTR, "+-*/"),
-                new ImmutablePair(TITLE_ATTR, "+-*/"),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg")); 
+        
+       
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-12------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.03.01-2Failed-12");
+        checkResultIsFailed(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult,
+                FAILED,
+                NOT_PERTINENT_ALT_MSG,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, "mock-image"),
+                new ImmutablePair(SRC_ATTR, "images/mock-image"));
+
+        	
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-13------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.03.01-2Failed-13");
+        checkResultIsFailed(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult,
+                FAILED,
+                NOT_PERTINENT_ALT_MSG,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, "image.bmp"),
+                new ImmutablePair(SRC_ATTR, "mock-image"));
+
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-14------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.03.01-2Failed-14");
+        checkResultIsFailed(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult,
+                FAILED,
+                NOT_PERTINENT_ALT_MSG,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, "#!/;'(|"),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-15------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.03.01-2Failed-15");
+        checkResultIsFailed(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult,
+                FAILED,
+                NOT_PERTINENT_ALT_MSG,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-16------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.03.01-2Failed-16");
+        checkResultIsFailed(processResult,3,3);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, "Informative image alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image2.jpg"));
+        checkRemarkIsPresent(
+                processResult,
+                FAILED,
+                NOT_PERTINENT_ALT_MSG,
+                IMG_ELEMENT,
+                2,
+                new ImmutablePair(ALT_ATTR, "mock-image3"),
+                new ImmutablePair(SRC_ATTR, "mock-image3"));
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_IMAGE_AND_ALT_PERTINENCE_MSG,
+                IMG_ELEMENT,
+                3,
+                new ImmutablePair(ALT_ATTR, "not identified image alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image4.jpg"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-17------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.03.01-2Failed-17");
+        checkResultIsFailed(processResult,1,2);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, "Alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+        checkRemarkIsPresent(
+                processResult,
+                FAILED,
+                ARIA_LABEL_NOT_IDENTICAL_TO_ALT_MSG,
+                IMG_ELEMENT,
+                2,
+                new ImmutablePair(ALT_ATTR, "Alternative"),
+                new ImmutablePair(ARIA_LABEL_ATTR, "Aria-Label"),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-18------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.03.01-2Failed-18");
+        checkResultIsFailed(processResult,1,2);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, "Alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+        checkRemarkIsPresent(
+                processResult,
+                FAILED,
+                ARIA_LABELLEDBY_NOT_IDENTICAL_TO_ALT_MSG,
+                IMG_ELEMENT,
+                2,
+                new ImmutablePair(ALT_ATTR, "Alternative"),
+                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "Aria-Labelledby"),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-19------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.03.01-2Failed-19");
+        checkResultIsFailed(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult,
+                FAILED,
+                NOT_PERTINENT_ALT_MSG,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, "mock-image.jpg"),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-20------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.03.01-2Failed-20");
+        checkResultIsFailed(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult,
+                FAILED,
+                NOT_PERTINENT_ALT_MSG,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, "mock-image.jpg"),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-21------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.03.01-2Failed-21");
+        checkResultIsFailed(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult,
+                FAILED,
+                NOT_PERTINENT_ALT_MSG,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, "mock-image.jpg"),
                 new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
         
         //----------------------------------------------------------------------
-        //------------------------------3NMI-01------------------------------
+        //------------------------------2Failed-22------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.03.01-2Failed-22");
+        checkResultIsFailed(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult,
+                FAILED,
+                NOT_PERTINENT_ALT_MSG,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-23------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.03.01-2Failed-23");
+        checkResultIsFailed(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult,
+                FAILED,
+                NOT_PERTINENT_ALT_MSG,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-24------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.03.01-2Failed-24");
+        checkResultIsFailed(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult,
+                FAILED,
+                NOT_PERTINENT_ALT_MSG,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-25------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.03.01-2Failed-25");
+        checkResultIsFailed(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult,
+                FAILED,
+                NOT_PERTINENT_ALT_MSG,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, "mock-image.jpg"),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-26------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.03.01-2Failed-26");
+        checkResultIsFailed(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult,
+                FAILED,
+                NOT_PERTINENT_ALT_MSG,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, "mock-image.jpg"),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-27------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.03.01-2Failed-27");
+        checkResultIsFailed(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult,
+                FAILED,
+                NOT_PERTINENT_ALT_MSG,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, "mock-image.jpg"),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-28------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.03.01-2Failed-28");
+        checkResultIsFailed(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult,
+                FAILED,
+                NOT_PERTINENT_ALT_MSG,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-29------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.03.01-2Failed-29");
+        checkResultIsFailed(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult,
+                FAILED,
+                NOT_PERTINENT_ALT_MSG,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-30------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.03.01-2Failed-30");
+        checkResultIsFailed(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult,
+                FAILED,
+                NOT_PERTINENT_ALT_MSG,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+        
+
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-01---------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.01.03.01-3NMI-01");
         checkResultIsPreQualified(processResult,1,1);
         checkRemarkIsPresent(
                 processResult,
                 NEED_MORE_INFO,
-                CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG,
+                CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
                 IMG_ELEMENT,
                 1,
-                new ImmutablePair(ALT_ATTR, "mock-image"),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
-                new ImmutablePair(SRC_ATTR, "images/mock-image"));
+                new ImmutablePair(ALT_ATTR, "Informative image alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+        
 
         //----------------------------------------------------------------------
-        //------------------------------3NMI-02------------------------------
+        //------------------------------3NMI-02---------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.01.03.01-3NMI-02");
         checkResultIsPreQualified(processResult,1,1);
         checkRemarkIsPresent(
                 processResult,
                 NEED_MORE_INFO,
-                CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG,
+                CHECK_NATURE_OF_IMAGE_AND_ALT_PERTINENCE_MSG,
                 IMG_ELEMENT,
                 1,
-                new ImmutablePair(ALT_ATTR, "image.bmp"),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
-                new ImmutablePair(SRC_ATTR, "mock-image"));
-
+                new ImmutablePair(ALT_ATTR, "Not identified image alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+       
+                
         //----------------------------------------------------------------------
-        //------------------------------3NMI-03------------------------------
+        //------------------------------3NMI-03---------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.01.03.01-3NMI-03");
         checkResultIsPreQualified(processResult,1,1);
         checkRemarkIsPresent(
                 processResult,
                 NEED_MORE_INFO,
-                CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG,
+                CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
                 IMG_ELEMENT,
                 1,
-                new ImmutablePair(ALT_ATTR, "#!/;'(|"),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(ALT_ATTR, "Alternative"),
                 new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
-
+       
+                
         //----------------------------------------------------------------------
-        //------------------------------3NMI-04------------------------------
+        //------------------------------3NMI-04---------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.01.03.01-3NMI-04");
         checkResultIsPreQualified(processResult,1,1);
         checkRemarkIsPresent(
                 processResult,
                 NEED_MORE_INFO,
-                CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG,
+                CHECK_NATURE_OF_IMAGE_AND_ALT_PERTINENCE_MSG,
                 IMG_ELEMENT,
                 1,
-                new ImmutablePair(ALT_ATTR, ""),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(ALT_ATTR, "Alternative"),
                 new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
-
+       
+                
         //----------------------------------------------------------------------
         //------------------------------3NMI-05---------------------------------
         //----------------------------------------------------------------------
@@ -372,10 +719,10 @@ public class Rgaa32017Rule010301Test extends Rgaa32017RuleImplementationTestCase
                 CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
                 IMG_ELEMENT,
                 1,
-                new ImmutablePair(ALT_ATTR, "Informative image alternative"),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(ALT_ATTR, "Alternative"),
                 new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
-
+       
+                
         //----------------------------------------------------------------------
         //------------------------------3NMI-06---------------------------------
         //----------------------------------------------------------------------
@@ -384,50 +731,89 @@ public class Rgaa32017Rule010301Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 NEED_MORE_INFO,
-                CHECK_NATURE_OF_IMAGE_AND_ALT_PERTINENCE_MSG,
+                CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
                 IMG_ELEMENT,
                 1,
-                new ImmutablePair(ALT_ATTR, "Not identified image alternative"),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
+                new ImmutablePair(ALT_ATTR, "Alternative"),
                 new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
-
+       
+                
         //----------------------------------------------------------------------
         //------------------------------3NMI-07---------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.01.03.01-3NMI-07");
-        checkResultIsPreQualified(processResult,3,3);
+        checkResultIsPreQualified(processResult,1,2);
         checkRemarkIsPresent(
                 processResult,
                 NEED_MORE_INFO,
-                CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
+                CHECK_NATURE_OF_IMAGE_AND_ALT_PERTINENCE_MSG,
                 IMG_ELEMENT,
                 1,
-                new ImmutablePair(ALT_ATTR, "Informative image alternative"),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
-                new ImmutablePair(SRC_ATTR, "mock-image2.jpg"));
+                new ImmutablePair(ALT_ATTR, "Alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
         checkRemarkIsPresent(
                 processResult,
                 NEED_MORE_INFO,
                 CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG,
                 IMG_ELEMENT,
                 2,
-                new ImmutablePair(ALT_ATTR, "mock-image3"),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
-                new ImmutablePair(SRC_ATTR, "mock-image3"));
+                new ImmutablePair(ALT_ATTR, "Alternative"),
+                new ImmutablePair(TITLE_ATTR, "Title"),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+       
+                
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-08---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.03.01-3NMI-08");
+        checkResultIsPreQualified(processResult,1,2);
         checkRemarkIsPresent(
                 processResult,
                 NEED_MORE_INFO,
                 CHECK_NATURE_OF_IMAGE_AND_ALT_PERTINENCE_MSG,
                 IMG_ELEMENT,
-                3,
-                new ImmutablePair(ALT_ATTR, "not identified image alternative"),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE),
-                new ImmutablePair(SRC_ATTR, "mock-image4.jpg"));
-        
+                1,
+                new ImmutablePair(ALT_ATTR, "Alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG,
+                IMG_ELEMENT,
+                2,
+                new ImmutablePair(ALT_ATTR, "Alternative"),
+                new ImmutablePair(ARIA_LABEL_ATTR, "Aria-Label"),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+       
+                
         //----------------------------------------------------------------------
-        //------------------------------3NMI-08---------------------------------
+        //------------------------------3NMI-09---------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.01.03.01-3NMI-08");
+        processResult = processPageTest("Rgaa32017.Test.01.03.01-3NMI-09");
+        checkResultIsPreQualified(processResult,1,2);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_IMAGE_AND_ALT_PERTINENCE_MSG,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, "Alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG,
+                IMG_ELEMENT,
+                2,
+                new ImmutablePair(ALT_ATTR, "Alternative"),
+                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "Aria-Labelledby"),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+       
+                
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-10---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.03.01-3NMI-10");
         checkResultIsPreQualified(processResult,1,1);
         checkRemarkIsPresent(
                 processResult,
@@ -436,8 +822,145 @@ public class Rgaa32017Rule010301Test extends Rgaa32017RuleImplementationTestCase
                 IMG_ELEMENT,
                 1,
                 new ImmutablePair(ALT_ATTR, "Alternative"),
-                new ImmutablePair(TITLE_ATTR,  "Alternative"),
                 new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+       
+                
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-11---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.03.01-3NMI-11");
+        checkResultIsPreQualified(processResult,1,1);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, "Alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+       
+                
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-12---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.03.01-3NMI-12");
+        checkResultIsPreQualified(processResult,11,14);
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, "Informative image alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image2.jpg"));
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
+                IMG_ELEMENT,
+                2,
+                new ImmutablePair(ALT_ATTR, "Informative image alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image2.jpg"));
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
+                IMG_ELEMENT,
+                3,
+                new ImmutablePair(ALT_ATTR, "Informative image alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image2.jpg"));
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
+                IMG_ELEMENT,
+                4,
+                new ImmutablePair(ALT_ATTR, "Informative image alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image2.jpg"));
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_IMAGE_AND_ALT_PERTINENCE_MSG,
+                IMG_ELEMENT,
+                5,
+                new ImmutablePair(ALT_ATTR, "not identified image alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image4.jpg"));
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_IMAGE_AND_ALT_PERTINENCE_MSG,
+                IMG_ELEMENT,
+                6,
+                new ImmutablePair(ALT_ATTR, "not identified image alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image4.jpg"));
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_IMAGE_AND_ALT_PERTINENCE_MSG,
+                IMG_ELEMENT,
+                7,
+                new ImmutablePair(ALT_ATTR, "not identified image alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image4.jpg"));
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_IMAGE_AND_ALT_PERTINENCE_MSG,
+                IMG_ELEMENT,
+                8,
+                new ImmutablePair(ALT_ATTR, "not identified image alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image4.jpg"));
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_IMAGE_AND_ALT_PERTINENCE_MSG,
+                IMG_ELEMENT,
+                9,
+                new ImmutablePair(ALT_ATTR, "not identified image alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image4.jpg"));
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG,
+                IMG_ELEMENT,
+                10,
+                new ImmutablePair(ALT_ATTR, "not identified image alternative"),
+                new ImmutablePair(TITLE_ATTR, "title"),
+                new ImmutablePair(SRC_ATTR, "mock-image4.jpg"));
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_IMAGE_AND_ALT_PERTINENCE_MSG,
+                IMG_ELEMENT,
+                11,
+                new ImmutablePair(ALT_ATTR, "not identified image alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image4.jpg"));
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG,
+                IMG_ELEMENT,
+                12,
+                new ImmutablePair(ALT_ATTR, "not identified image alternative"),
+                new ImmutablePair(ARIA_LABEL_ATTR, "aria-label"),
+                new ImmutablePair(SRC_ATTR, "mock-image4.jpg"));
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_IMAGE_AND_ALT_PERTINENCE_MSG,
+                IMG_ELEMENT,
+                13,
+                new ImmutablePair(ALT_ATTR, "not identified image alternative"),
+                new ImmutablePair(SRC_ATTR, "mock-image4.jpg"));
+        checkRemarkIsPresent(
+                processResult,
+                NEED_MORE_INFO,
+                CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG,
+                IMG_ELEMENT,
+                14,
+                new ImmutablePair(ALT_ATTR, "not identified image alternative"),
+                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "aria-labelledby"),
+                new ImmutablePair(SRC_ATTR, "mock-image4.jpg"));
+        
         
         //----------------------------------------------------------------------
         //------------------------------4NA-01----------------------------------

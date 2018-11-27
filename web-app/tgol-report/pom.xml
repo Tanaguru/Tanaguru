@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.tanaguru</groupId>
         <artifactId>web-app</artifactId>
-        <version>5.3.0-snapshot</version>
+        <version>5.4.0-SNAPSHOT</version>
     </parent>
     <artifactId>tgol-report</artifactId>
     <name>tgol-report</name>
@@ -27,10 +27,6 @@
         <dependency>
             <groupId>net.sf.jasperreports</groupId>
             <artifactId>jasperreports</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.lowagie</groupId>
-            <artifactId>itext</artifactId>
         </dependency>
         <dependency>
             <groupId>net.sf.jasperreports</groupId>

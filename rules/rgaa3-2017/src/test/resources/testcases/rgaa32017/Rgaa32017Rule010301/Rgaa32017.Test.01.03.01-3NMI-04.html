@@ -16,12 +16,14 @@
                     <li>Le contenu de l&apos;attribut <code>alt</code> est pertinent</li> 
                     <li>S&apos;il est présent, le contenu de l&apos;attribut <code>title</code> est identique au contenu de l&apos;attribut <code>alt</code></li> 
                 </ul> 
-            </div> 
+            </div>
             <div class="testcase"> 
-                <img src="mock-image.jpg" alt="" /> 
+                <img src="mock-image.jpg" alt="Alternative" title="Alternative"/> 
             </div> 
             <div class="test-explanation">
-                 NMI : The image has a suspected not pertinent alt attribute ( alt is empty) but is not identified by marker. 
+                 NMI : At least one image has a title attribute identical to the alt attribute. 
+                 This image isn't identified as informative by marker.
+                 The pertinence of the alt has to be manually checked
             </div> 
         </div>   
     </body>

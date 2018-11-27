@@ -85,10 +85,7 @@
         <property name="bundleName" value="i18n/export-report-I18N"/>
         <property name="refAndLevelValueBundleList">
             <list>
-                <value>i18n/referential-aw22-I18N</value>
-                <value>i18n/referential-rgaa22-I18N</value>
-                <value>i18n/referential-rgaa30-I18N</value>
-                <value>i18n/referential-rgaa32016-I18N</value>
+                <value>i18n/referential-rgaa32017-I18N</value>
             </list>
         </property>
         <property name="refBundleName" value="i18n/parameters-I18N"/>

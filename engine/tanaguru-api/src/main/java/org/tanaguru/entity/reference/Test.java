@@ -199,4 +199,14 @@ public interface Test extends Entity, Reorderable {
      * @param noProcess 
      */
     void setNoProcess(boolean noProcess);   
+    /**
+     * 
+     * @return eAccess lvl
+     */
+    int geteAccess();
+    /**
+     * 
+     * @param  eAccess
+     */
+    void seteAccess(Integer eAccess);
 }

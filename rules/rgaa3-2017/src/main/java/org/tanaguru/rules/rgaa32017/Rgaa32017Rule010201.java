@@ -21,22 +21,39 @@ package org.tanaguru.rules.rgaa32017;
 
 import java.util.Collections;
 import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.jsoup.nodes.Element;
+
 import static org.tanaguru.entity.audit.TestSolution.*;
+
+import org.tanaguru.processor.SSPHandler;
 import org.tanaguru.ruleimplementation.AbstractMarkerPageRuleImplementation;
+import org.tanaguru.ruleimplementation.ElementHandler;
+import org.tanaguru.ruleimplementation.ElementHandlerImpl;
+import org.tanaguru.ruleimplementation.TestSolutionHandler;
 import org.tanaguru.rules.elementchecker.CompositeChecker;
 import org.tanaguru.rules.elementchecker.ElementChecker;
 import org.tanaguru.rules.elementchecker.attribute.AttributePresenceChecker;
+import org.tanaguru.rules.elementchecker.attribute.AttributeWithValuePresenceChecker;
 import org.tanaguru.rules.elementchecker.text.TextEmptinessChecker;
 import org.tanaguru.rules.elementselector.ImageElementSelector;
+import org.tanaguru.rules.elementselector.MultipleElementSelector;
 import static org.tanaguru.rules.keystore.AttributeStore.ALT_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.SRC_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABEL_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABELLEDBY_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ARIA_DESCRIBEDBY_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ROLE_ATTR;
 import static org.tanaguru.rules.keystore.CssLikeQueryStore.IMG_WITH_ALT_NOT_IN_LINK_WITHOUT_LONGDESC_CSS_LIKE_QUERY;
 import static org.tanaguru.rules.keystore.MarkerStore.DECORATIVE_IMAGE_MARKER;
 import static org.tanaguru.rules.keystore.MarkerStore.INFORMATIVE_IMAGE_MARKER;
 import org.tanaguru.rules.keystore.RemarkMessageStore;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_TITLE_ATTR_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_ARIA_DESCRIBEDBY_ATTR_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_ARIA_LABELLEDBY_ATTR_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_ARIA_LABEL_ATTR_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_ROLE_IMG_MSG;
 import org.tanaguru.rules.textbuilder.TextAttributeOfElementBuilder;
 
 /**
@@ -52,14 +69,34 @@ import org.tanaguru.rules.textbuilder.TextAttributeOfElementBuilder;
  *
  */
 public class Rgaa32017Rule010201  extends AbstractMarkerPageRuleImplementation {
-
+	
+    /**
+     * The elements identified with the markers
+     */
+    private final ElementHandler<Element> selectionWithMarkerHandler
+            = new ElementHandlerImpl();
+        
+    /**
+     * The elements not identified by the markers
+     */
+    private final ElementHandler<Element> selectionWithoutMarkerHandler
+            = new ElementHandlerImpl();
+    
+    /**
+     * The elementChecker used by the rule for marker elements
+     */
+    private ElementChecker markerElementChecker;
+    
+    
+    
     public Rgaa32017Rule010201() {
         super(
                 // the decorative images are part of the scope
                 DECORATIVE_IMAGE_MARKER,
                 // the informative images are not part of the scope
                 INFORMATIVE_IMAGE_MARKER);
-                setElementSelector(new ImageElementSelector(IMG_WITH_ALT_NOT_IN_LINK_WITHOUT_LONGDESC_CSS_LIKE_QUERY, true, false));
+                setElementSelector(
+                		new ImageElementSelector(IMG_WITH_ALT_NOT_IN_LINK_WITHOUT_LONGDESC_CSS_LIKE_QUERY, true, false));
                 setMarkerElementChecker(getMarkerElementChecker());
                 setRegularElementChecker(getLocalRegularElementChecker());
     }
@@ -76,13 +113,42 @@ public class Rgaa32017Rule010201  extends AbstractMarkerPageRuleImplementation {
                         new ImmutablePair(FAILED,DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG),
                         ALT_ATTR,
                         TITLE_ATTR,
-                        SRC_ATTR),
+                        SRC_ATTR),                  
                     new AttributePresenceChecker(
                         TITLE_ATTR,
                         new ImmutablePair(FAILED,DECORATIVE_ELEMENT_WITH_TITLE_ATTR_MSG),
                         new ImmutablePair(PASSED,""),
                         ALT_ATTR,
                         TITLE_ATTR,
+                        SRC_ATTR), 
+                    new AttributeWithValuePresenceChecker(
+                    	ROLE_ATTR,
+                    	"img",
+                        new ImmutablePair(FAILED,DECORATIVE_ELEMENT_WITH_ROLE_IMG_MSG),
+                        new ImmutablePair(PASSED,""),
+                        ALT_ATTR,
+                        ROLE_ATTR,
+                        SRC_ATTR),
+                    new AttributePresenceChecker(
+                    	ARIA_LABEL_ATTR,
+                        new ImmutablePair(FAILED,DECORATIVE_ELEMENT_WITH_ARIA_LABEL_ATTR_MSG),
+                        new ImmutablePair(PASSED,""),
+                        ALT_ATTR,
+                        ARIA_LABEL_ATTR,
+                        SRC_ATTR),
+                    new AttributePresenceChecker(
+                    	ARIA_LABELLEDBY_ATTR,
+                        new ImmutablePair(FAILED,DECORATIVE_ELEMENT_WITH_ARIA_LABELLEDBY_ATTR_MSG),
+                        new ImmutablePair(PASSED,""),
+                        ALT_ATTR,
+                        ARIA_LABELLEDBY_ATTR,
+                        SRC_ATTR),
+                    new AttributePresenceChecker(
+                    	ARIA_DESCRIBEDBY_ATTR,
+                        new ImmutablePair(FAILED,DECORATIVE_ELEMENT_WITH_ARIA_DESCRIBEDBY_ATTR_MSG),
+                        new ImmutablePair(PASSED,""),
+                        ALT_ATTR,
+                        ARIA_DESCRIBEDBY_ATTR,
                         SRC_ATTR));
         ec.setIsOrCombinaison(false);
         return ec;
@@ -105,7 +171,29 @@ public class Rgaa32017Rule010201  extends AbstractMarkerPageRuleImplementation {
                     new AttributePresenceChecker(
                         TITLE_ATTR,
                         new ImmutablePair(FAILED,""),
+                        new ImmutablePair(PASSED,"")));        
+        compositeChecker.addChecker(
+        			new AttributeWithValuePresenceChecker(
+                    	ROLE_ATTR,
+                    	"img",
+                        new ImmutablePair(FAILED,""),
                         new ImmutablePair(PASSED,"")));
+        compositeChecker.addChecker(
+        			new AttributePresenceChecker(
+        				ARIA_LABEL_ATTR,
+                        new ImmutablePair(FAILED,""),
+                        new ImmutablePair(PASSED,"")));
+        compositeChecker.addChecker(
+        			new AttributePresenceChecker(
+                    	ARIA_LABELLEDBY_ATTR,
+                        new ImmutablePair(FAILED,""),
+                        new ImmutablePair(PASSED,"")));
+        compositeChecker.addChecker(
+        			new AttributePresenceChecker(
+                    	ARIA_DESCRIBEDBY_ATTR,
+                        new ImmutablePair(FAILED,""),
+                        new ImmutablePair(PASSED,"")));
+        
         
         compositeChecker.setIsOrCombinaison(false);
         compositeChecker.addCheckMessageFromSolution(
@@ -120,5 +208,5 @@ public class Rgaa32017Rule010201  extends AbstractMarkerPageRuleImplementation {
                         RemarkMessageStore.CHECK_NATURE_OF_IMAGE_WITH_NOT_EMPTY_ALT_MSG));
         
         return compositeChecker;
-    }
+    }    
 }

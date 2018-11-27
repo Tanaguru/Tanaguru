@@ -69,7 +69,7 @@ INSERT INTO "nomenclature" VALUES
 (6,'LinkTextWhitelist',NULL,NULL,NULL,NULL),
 (7,'LinkTextBlacklist',NULL,NULL,NULL,NULL),
 (8,'PossibleImageTags',NULL,NULL,NULL,NULL),
-(9,'RelativeCssUnits',NULL,NULL,NULL,NULL),
+(9,'UnrelativeCssUnits',NULL,NULL,NULL,NULL),
 (10,'ValidLanguageCode',NULL,NULL,NULL,NULL),
 (11,'DeprecatedRepresentationTags',NULL,NULL,NULL,NULL),
 (12,'UnexplicitPageTitle',NULL,NULL,NULL,NULL),

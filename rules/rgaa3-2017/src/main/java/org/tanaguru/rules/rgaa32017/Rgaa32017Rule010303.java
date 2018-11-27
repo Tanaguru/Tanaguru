@@ -21,13 +21,38 @@
 package org.tanaguru.rules.rgaa32017;
 
 import org.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
+import org.tanaguru.ruleimplementation.ElementHandler;
+import org.tanaguru.ruleimplementation.ElementHandlerImpl;
+import org.tanaguru.ruleimplementation.TestSolutionHandler;
+import org.tanaguru.rules.elementchecker.ElementChecker;
 import org.tanaguru.rules.elementchecker.pertinence.AttributePertinenceChecker;
 import org.tanaguru.rules.elementselector.ImageElementSelector;
+import org.tanaguru.rules.keystore.RemarkMessageStore;
+
+import static org.tanaguru.entity.audit.TestSolution.FAILED;
+import static org.tanaguru.entity.audit.TestSolution.NEED_MORE_INFO;
+import static org.tanaguru.entity.audit.TestSolution.PASSED;
 import static org.tanaguru.rules.keystore.AttributeStore.ALT_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.SRC_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABEL_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABELLEDBY_ATTR;
 import static org.tanaguru.rules.keystore.CssLikeQueryStore.FORM_BUTTON_WITH_ALT_CSS_LIKE_QUERY;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.*;
+
+import java.util.Collections;
+
+import javax.annotation.Nullable;
+
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
+import org.jsoup.nodes.Element;
+import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.processor.SSPHandler;
 import org.tanaguru.rules.textbuilder.TextAttributeOfElementBuilder;
+import org.tanaguru.rules.textbuilder.TextElementBuilder;
+import org.tanaguru.rules.elementchecker.CompositeChecker;
+import org.tanaguru.rules.elementchecker.text.TextNotIdenticalToAttributeChecker;
 
 /**
  * Implementation of the rule 1.3.3 of the referential Rgaa 3-2017.
@@ -40,31 +65,51 @@ public class Rgaa32017Rule010303 extends AbstractPageRuleWithSelectorAndCheckerI
 
     /** The name of the nomenclature that handles the image file extensions */
     private static final String IMAGE_FILE_EXTENSION_NOM = "ImageFileExtensions";
+    
+
 
     /**
      * Constructor
      */
     public Rgaa32017Rule010303() {
-        super(
-                new ImageElementSelector(FORM_BUTTON_WITH_ALT_CSS_LIKE_QUERY, true, false),
-
-                // checker for elements identified by marker
-                new AttributePertinenceChecker(
-                    ALT_ATTR,
-                    // check emptiness
-                    true,
-                    // compare with src attribute
-                    new TextAttributeOfElementBuilder(SRC_ATTR),
-                    // compare attribute value with nomenclature
-                    IMAGE_FILE_EXTENSION_NOM,
-                    // not pertinent message
-                    NOT_PERTINENT_ALT_MSG,
-                    // manual check message
-                    CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
-                    // evidence elemeents
-                    ALT_ATTR, 
-                    SRC_ATTR)
-            );
+    	super(new ImageElementSelector(FORM_BUTTON_WITH_ALT_CSS_LIKE_QUERY, true, false),
+    		  new CompositeChecker(
+    				  new AttributePertinenceChecker(
+    			                ALT_ATTR,
+    			                // check emptiness
+    			                true,
+    			                // compare with src attribute
+    			                new TextAttributeOfElementBuilder(SRC_ATTR),
+    			                // compare attribute value with nomenclature
+    			                IMAGE_FILE_EXTENSION_NOM,
+    			                // not pertinent message
+    			                NOT_PERTINENT_ALT_MSG,
+    			                // manual check message
+    			                CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
+    			                // evidence elements
+    			                ALT_ATTR, 
+    			                SRC_ATTR),
+    				  new TextNotIdenticalToAttributeChecker(
+    		                	new TextAttributeOfElementBuilder(TITLE_ATTR),
+    		                	new TextAttributeOfElementBuilder(ALT_ATTR),
+    		                	new ImmutablePair(TestSolution.NEED_MORE_INFO, ""),
+    		                	new ImmutablePair(TestSolution.FAILED, TITLE_NOT_IDENTICAL_TO_ALT_MSG),
+    		                	ALT_ATTR,SRC_ATTR,TITLE_ATTR),
+    				  new TextNotIdenticalToAttributeChecker(
+    		                	new TextAttributeOfElementBuilder(ARIA_LABEL_ATTR),
+    		                	new TextAttributeOfElementBuilder(ALT_ATTR),
+    		                	new ImmutablePair(TestSolution.NEED_MORE_INFO, ""),
+    		                	new ImmutablePair(TestSolution.FAILED, ARIA_LABEL_NOT_IDENTICAL_TO_ALT_MSG),
+    		                	ALT_ATTR,SRC_ATTR,ARIA_LABEL_ATTR),
+    				  new TextNotIdenticalToAttributeChecker(
+    		                	new TextAttributeOfElementBuilder(ARIA_LABELLEDBY_ATTR),
+    		                	new TextAttributeOfElementBuilder(ALT_ATTR),
+    		                	new ImmutablePair(TestSolution.NEED_MORE_INFO, ""),
+    		                	new ImmutablePair(TestSolution.FAILED, ARIA_LABELLEDBY_NOT_IDENTICAL_TO_ALT_MSG),
+    		                	ALT_ATTR,SRC_ATTR,ARIA_LABELLEDBY_ATTR)));
+    	CompositeChecker ec = (CompositeChecker) getElementChecker();
+    	ec.setIsOrCombinaison(false);
+    	setElementChecker(ec);
     }
-    
+
 }

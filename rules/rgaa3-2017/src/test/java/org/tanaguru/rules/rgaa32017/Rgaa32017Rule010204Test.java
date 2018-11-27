@@ -33,7 +33,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_INFORMATI
 import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_INFORMATIVE_SVG_WITH_DESC_OR_TITLE_CHILD_TAG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_INFORMATIVE_SVG_WITH_TITLE_ATTRIBUTE_ON_ELEMENT_OR_CHILD;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_WELL_FORMATED_DECORATIVE_SVG;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.SVG_WITHOUT_ROLE_IMAGE_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG;
 import org.tanaguru.rules.rgaa32017.test.Rgaa32017RuleImplementationTestCase;
 
 /**
@@ -61,8 +61,10 @@ public class Rgaa32017Rule010204Test extends Rgaa32017RuleImplementationTestCase
 
     @Override
     protected void setUpWebResourceMap() {
-        addWebResource("Rgaa32017.Test.1.2.4-1Passed-01", createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
-        addWebResource("Rgaa32017.Test.1.2.4-1Passed-02", createParameter("Rules", DECORATIVE_IMAGE_MARKER, "class-decorative-image"));
+        addWebResource("Rgaa32017.Test.1.2.4-1Passed-01", 
+        		createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
+        addWebResource("Rgaa32017.Test.1.2.4-1Passed-02", 
+        		createParameter("Rules", DECORATIVE_IMAGE_MARKER, "class-decorative-image"));
         addWebResource("Rgaa32017.Test.1.2.4-1Passed-03",
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image;class-decorative-image"));
         addWebResource("Rgaa32017.Test.1.2.4-1Passed-04",
@@ -343,7 +345,7 @@ public class Rgaa32017Rule010204Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
+                SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
@@ -356,7 +358,7 @@ public class Rgaa32017Rule010204Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
+                SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
@@ -370,7 +372,7 @@ public class Rgaa32017Rule010204Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
+                SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
@@ -384,7 +386,7 @@ public class Rgaa32017Rule010204Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
+                SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
@@ -398,7 +400,7 @@ public class Rgaa32017Rule010204Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
+                SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
@@ -411,7 +413,7 @@ public class Rgaa32017Rule010204Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
+                SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
@@ -424,7 +426,7 @@ public class Rgaa32017Rule010204Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
+                SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
@@ -438,7 +440,7 @@ public class Rgaa32017Rule010204Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
+                SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
@@ -452,7 +454,7 @@ public class Rgaa32017Rule010204Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
+                SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
@@ -466,7 +468,7 @@ public class Rgaa32017Rule010204Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
+                SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
@@ -480,7 +482,7 @@ public class Rgaa32017Rule010204Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
+                SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
@@ -494,7 +496,7 @@ public class Rgaa32017Rule010204Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SVG_WITHOUT_ROLE_IMAGE_MSG,
+                SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );

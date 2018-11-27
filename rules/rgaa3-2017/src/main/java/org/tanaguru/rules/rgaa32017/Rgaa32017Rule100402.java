@@ -20,8 +20,17 @@
 
 package org.tanaguru.rules.rgaa32017;
 
-import org.tanaguru.ruleimplementation.AbstractPageRuleCssImplementation;
-import org.tanaguru.rules.csschecker.ForbiddenUnitChecker;
+import java.util.Collection;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.jsoup.nodes.Element;
+import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.processor.SSPHandler;
+import org.tanaguru.ruleimplementation.AbstractPageRuleFromPreProcessImplementation;
+import org.tanaguru.rules.domelement.DomElement;
+import org.tanaguru.rules.domelement.extractor.DomElementExtractor;
+import org.tanaguru.rules.elementchecker.element.ElementPresenceChecker;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.FORBIDDEN_UNRELATIVE_UNIT_TYPE_MSG;
+
 
 /**
  * Implementation of the rule 10.4.2 of the referential Rgaa 3-2017.
@@ -32,16 +41,29 @@ import org.tanaguru.rules.csschecker.ForbiddenUnitChecker;
  * @author jkowalczyk
  */
 
-public class Rgaa32017Rule100402 extends AbstractPageRuleCssImplementation {
+public class Rgaa32017Rule100402 extends AbstractPageRuleFromPreProcessImplementation {
 
-    /* the font-size css property key */
-    private static final String FONT_SIZE_CSS_PROPERTY = "font-size";
-    
-    /**
-     * 
-     */
-    public Rgaa32017Rule100402() {
-        super(new ForbiddenUnitChecker(FONT_SIZE_CSS_PROPERTY), "MediaListNotAcceptingRelativeUnits");
+   public Rgaa32017Rule100402() {
+    	super(
+                new ElementPresenceChecker(
+                    // if some elements with different units are found
+                	new ImmutablePair(TestSolution.FAILED, FORBIDDEN_UNRELATIVE_UNIT_TYPE_MSG),
+                    // if no found element
+                    new ImmutablePair(TestSolution.PASSED, "")
+                )
+            );
     }
 
+	@Override
+	protected void doSelect(Collection<DomElement> domElements, SSPHandler sspHandler) {
+		
+		for (DomElement element : domElements) {
+			if (element.isNotAuthorizedUnitUsed()) {  //TODO
+                Element el = DomElementExtractor.getElementFromDomElement(element, sspHandler);
+                if (el != null) {
+                	getElements().add(el);
+                }
+            }
+        }
+	}
 }

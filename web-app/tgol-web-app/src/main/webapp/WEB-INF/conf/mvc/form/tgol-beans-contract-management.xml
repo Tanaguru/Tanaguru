@@ -158,6 +158,26 @@
         <property name="optionCode" value="IS_DOMAINE_RESTRICTED_CONTRACT"/>
         <property name="formFieldBuilder" ref="isDomaineRestrictedFormFieldBuilder"/>
     </bean>
-
     
+    <!--aa-->
+
+     <bean id="isEAccessEnabledBuilder" class="org.tanaguru.webapp.form.builder.CheckboxElementBuilderImpl">
+        <property name="enabled" value="true"/>
+        <property name="value" value="true"/>
+    </bean>
+
+    <bean id="isEAccessEnabledFormFieldBuilder" class="org.tanaguru.webapp.form.builder.CheckboxFormFieldBuilderImpl">
+        <property name="i18nKey" value="is-eaccess-enabled"/>
+        <property name="errorI18nKey" value="is-eaccess-enabled-error"/>
+        <property name="checkboxElementBuilderList">
+            <list>
+                <ref local="isEAccessEnabledBuilder"/>
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="isEAccessEnabledOptionBuilder" class="org.tanaguru.webapp.form.parameterization.builder.ContractOptionFormFieldBuilderImpl">
+        <property name="optionCode" value="IS_EACCESS_ENABLED_CONTRACT"/>
+        <property name="formFieldBuilder" ref="isEAccessEnabledFormFieldBuilder"/>
+    </bean>
 </beans>
