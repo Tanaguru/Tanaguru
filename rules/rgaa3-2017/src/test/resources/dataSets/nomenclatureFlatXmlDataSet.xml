@@ -9,7 +9,7 @@
     <NOMENCLATURE Id_Nomenclature="6" Cd_Nomenclature="LinkTextWhitelist" Description="NULL"  Long_Label="NULL" Short_Label="NULL" />
     <NOMENCLATURE Id_Nomenclature="7" Cd_Nomenclature="LinkTextBlacklist" Description="NULL"  Long_Label="NULL" Short_Label="NULL" />
     <NOMENCLATURE Id_Nomenclature="8" Cd_Nomenclature="PossibleImageTags" Description="NULL"  Long_Label="NULL" Short_Label="NULL" />
-    <NOMENCLATURE Id_Nomenclature="9" Cd_Nomenclature="RelativeCssUnits" Description="NULL"  Long_Label="NULL" Short_Label="NULL" />
+    <NOMENCLATURE Id_Nomenclature="9" Cd_Nomenclature="UnrelativeCssUnits" Description="NULL"  Long_Label="NULL" Short_Label="NULL" />
     <NOMENCLATURE Id_Nomenclature="10" Cd_Nomenclature="ValidLanguageCode" Description="NULL"  Long_Label="NULL" Short_Label="NULL" />
     <NOMENCLATURE Id_Nomenclature="11" Cd_Nomenclature="DeprecatedRepresentationTagsV2" Description="NULL"  Long_Label="NULL" Short_Label="NULL" />
     <NOMENCLATURE Id_Nomenclature="12" Cd_Nomenclature="UnexplicitPageTitle" Description="NULL"  Long_Label="NULL" Short_Label="NULL" />
@@ -23,6 +23,7 @@
     <NOMENCLATURE Id_Nomenclature="20" Cd_Nomenclature="OfficeDocumentExtensions" Description="NULL"  Long_Label="NULL" Short_Label="NULL" />
     <NOMENCLATURE Id_Nomenclature="21" Cd_Nomenclature="BrowserReadableExtensions" Description="NULL"  Long_Label="NULL" Short_Label="NULL" />
     <NOMENCLATURE Id_Nomenclature="22" Cd_Nomenclature="DownloadableDocumentExtensions" Description="NULL"  Long_Label="NULL" Short_Label="NULL" />
+    <NOMENCLATURE Id_Nomenclature="25" Cd_Nomenclature="RelativeCssUnits" Description="NULL"  Long_Label="NULL" Short_Label="NULL" />
 
     <NOMENCLATURE_ELEMENT DTYPE="NomenclatureElementImpl" Id_Nomenclature_Element="1" Label="reset"  Id_Nomenclature="1"/>
     <NOMENCLATURE_ELEMENT DTYPE="NomenclatureElementImpl" Id_Nomenclature_Element="2" Label="submit"  Id_Nomenclature="1"/>
@@ -535,7 +536,28 @@
     <NOMENCLATURE_ELEMENT DTYPE="NomenclatureElementImpl" Id_Nomenclature_Element="1092" Label=".r98" Id_Nomenclature="22"/>
     <NOMENCLATURE_ELEMENT DTYPE="NomenclatureElementImpl" Id_Nomenclature_Element="1093" Label=".r99" Id_Nomenclature="22"/>
     <NOMENCLATURE_ELEMENT DTYPE="NomenclatureElementImpl" Id_Nomenclature_Element="1094" Label=".taz" Id_Nomenclature="22"/>
-
+    <NOMENCLATURE_ELEMENT DTYPE="NomenclatureCssUnitImpl" Id_Nomenclature_Element="2000" Label="%" ShortValue="30" Id_Nomenclature="25"/>
+    <NOMENCLATURE_ELEMENT DTYPE="NomenclatureCssUnitImpl" Id_Nomenclature_Element="2001" Label="em" ShortValue="31" Id_Nomenclature="25"/>
+    <NOMENCLATURE_ELEMENT DTYPE="NomenclatureCssUnitImpl" Id_Nomenclature_Element="2002" Label="rem" ShortValue="32" Id_Nomenclature="25"/>
+    <NOMENCLATURE_ELEMENT DTYPE="NomenclatureCssUnitImpl" Id_Nomenclature_Element="2003" Label="vw" ShortValue="33" Id_Nomenclature="25"/>
+    <NOMENCLATURE_ELEMENT DTYPE="NomenclatureCssUnitImpl" Id_Nomenclature_Element="2004" Label="vh" ShortValue="34" Id_Nomenclature="25"/>
+    <NOMENCLATURE_ELEMENT DTYPE="NomenclatureCssUnitImpl" Id_Nomenclature_Element="2005" Label="vmin" ShortValue="35" Id_Nomenclature="25"/>
+    <NOMENCLATURE_ELEMENT DTYPE="NomenclatureCssUnitImpl" Id_Nomenclature_Element="2006" Label="vmax" ShortValue="36" Id_Nomenclature="25"/>
+    <NOMENCLATURE_ELEMENT DTYPE="NomenclatureCssUnitImpl" Id_Nomenclature_Element="2007" Label="xx-small" ShortValue="37" Id_Nomenclature="25"/>
+    <NOMENCLATURE_ELEMENT DTYPE="NomenclatureCssUnitImpl" Id_Nomenclature_Element="2008" Label="x-small" ShortValue="38" Id_Nomenclature="25"/>
+    <NOMENCLATURE_ELEMENT DTYPE="NomenclatureCssUnitImpl" Id_Nomenclature_Element="2009" Label="small" ShortValue="39" Id_Nomenclature="25"/>
+    <NOMENCLATURE_ELEMENT DTYPE="NomenclatureCssUnitImpl" Id_Nomenclature_Element="2010" Label="medium" ShortValue="40" Id_Nomenclature="25"/>
+    <NOMENCLATURE_ELEMENT DTYPE="NomenclatureCssUnitImpl" Id_Nomenclature_Element="2011" Label="large" ShortValue="41" Id_Nomenclature="25"/>
+    <NOMENCLATURE_ELEMENT DTYPE="NomenclatureCssUnitImpl" Id_Nomenclature_Element="2012" Label="x-large" ShortValue="42" Id_Nomenclature="25"/>
+    <NOMENCLATURE_ELEMENT DTYPE="NomenclatureCssUnitImpl" Id_Nomenclature_Element="2013" Label="xx-large" ShortValue="43" Id_Nomenclature="25"/>
+    <NOMENCLATURE_ELEMENT DTYPE="NomenclatureCssUnitImpl" Id_Nomenclature_Element="2014" Label="xsmaller" ShortValue="44" Id_Nomenclature="25"/>
+    <NOMENCLATURE_ELEMENT DTYPE="NomenclatureCssUnitImpl" Id_Nomenclature_Element="2015" Label="larger" ShortValue="45" Id_Nomenclature="25"/>
+    <NOMENCLATURE_ELEMENT DTYPE="NomenclatureCssUnitImpl" Id_Nomenclature_Element="2016" Label="pt" ShortValue="46" Id_Nomenclature="25"/>
+    <NOMENCLATURE_ELEMENT DTYPE="NomenclatureCssUnitImpl" Id_Nomenclature_Element="2017" Label="pc" ShortValue="47" Id_Nomenclature="25"/>
+    <NOMENCLATURE_ELEMENT DTYPE="NomenclatureCssUnitImpl" Id_Nomenclature_Element="2018" Label="mm" ShortValue="48" Id_Nomenclature="25"/>
+    <NOMENCLATURE_ELEMENT DTYPE="NomenclatureCssUnitImpl" Id_Nomenclature_Element="2019" Label="cm" ShortValue="49" Id_Nomenclature="25"/>
+    <NOMENCLATURE_ELEMENT DTYPE="NomenclatureCssUnitImpl" Id_Nomenclature_Element="2020" Label="in" ShortValue="50" Id_Nomenclature="25"/>
+    
 
     <EVIDENCE Id_Evidence="1" Cd_Evidence="Element-Name" Description="NULL" Long_Label="NULL" />
     <EVIDENCE Id_Evidence="2" Cd_Evidence="src" Description="NULL" Long_Label="NULL" />

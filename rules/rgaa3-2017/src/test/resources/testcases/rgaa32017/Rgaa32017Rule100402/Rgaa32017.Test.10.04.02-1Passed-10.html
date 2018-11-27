@@ -5,9 +5,18 @@
         <title>Rgaa32017 Test.10.4.2 Passed 10</title> 
         <style type="text/css">
             h1{
-                font-size: 15px;
-                padding: 0pt 0.0pt 00.00pt 0pt;
-                border-top: solid 0pt #BBB;
+            	font-size: 15px;
+                font-size: 15rem;
+            }
+            .selector{
+            	font-size: 15ch;
+                font-size: 15em;
+            }
+            @media handheld{
+            	h2{
+            		font-size: 73ex;
+                	font-size: 20%;
+                }
             }
         </style> 
     </head> 
@@ -23,7 +32,9 @@
                 <code>projection</code>, les tailles de caractères utilisent-elles uniquement des 
                 <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#mTailleCaractere">unités relatives</a> ? 
             </div> 
-            <p class="test-explanation"> Passed: the &quot;font-size&quot; property is defined with a relative unit. The &quot;pt&quot; unit is used on properties different from &quot;font-size&quot;, so they are ignored. </p> 
+            <p class="test-explanation"> Passed: the &quot;font-size&quot; property is defined with a relative unit. 
+            Even there are some &quot;px&quot; units, the last &quot;font-size&quot; property unit is used by the browser 
+            (in the case of compatibilities problems). S </p> 
         </div>   
     </body>
 </html>
