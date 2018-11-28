@@ -24,6 +24,8 @@ import org.apache.commons.lang3.tuple.ImmutablePair;
 import static org.tanaguru.entity.audit.TestSolution.FAILED;
 import static org.tanaguru.entity.audit.TestSolution.NEED_MORE_INFO;
 import static org.tanaguru.entity.audit.TestSolution.PASSED;
+
+import org.tanaguru.entity.audit.TestSolution;
 import org.tanaguru.ruleimplementation.AbstractMarkerPageRuleImplementation;
 import org.tanaguru.rules.elementchecker.CompositeChecker;
 import org.tanaguru.rules.elementchecker.ElementChecker;
@@ -32,8 +34,11 @@ import org.tanaguru.rules.elementchecker.text.TextNotIdenticalToAttributeChecker
 import org.tanaguru.rules.elementselector.AreaElementSelector;
 import org.tanaguru.rules.elementselector.ImageElementSelector;
 import static org.tanaguru.rules.keystore.AttributeStore.ALT_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABELLEDBY_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABEL_ATTR;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.*;
 import static org.tanaguru.rules.keystore.AttributeStore.HREF_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.SRC_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
 import static org.tanaguru.rules.keystore.MarkerStore.DECORATIVE_IMAGE_MARKER;
 import static org.tanaguru.rules.keystore.MarkerStore.INFORMATIVE_IMAGE_MARKER;
@@ -100,7 +105,6 @@ public class Rgaa32017Rule010302 extends AbstractMarkerPageRuleImplementation {
                         CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
                         // evidence elements
                         ALT_ATTR, 
-                        TITLE_ATTR, 
                         HREF_ATTR),
                     new TextNotIdenticalToAttributeChecker(
                         new TextAttributeOfElementBuilder(TITLE_ATTR),
@@ -110,7 +114,23 @@ public class Rgaa32017Rule010302 extends AbstractMarkerPageRuleImplementation {
                         // evidence elements
                         ALT_ATTR, 
                         TITLE_ATTR, 
-                        HREF_ATTR));
+                        HREF_ATTR),
+  				  new TextNotIdenticalToAttributeChecker(
+		                new TextAttributeOfElementBuilder(ARIA_LABEL_ATTR),
+		                new TextAttributeOfElementBuilder(ALT_ATTR),
+		                new ImmutablePair(TestSolution.PASSED, ""),
+		                new ImmutablePair(TestSolution.FAILED, ARIA_LABEL_NOT_IDENTICAL_TO_ALT_MSG),
+		                ALT_ATTR,
+		                ARIA_LABEL_ATTR,
+		                HREF_ATTR),
+				  new TextNotIdenticalToAttributeChecker(
+		                new TextAttributeOfElementBuilder(ARIA_LABELLEDBY_ATTR),
+		                new TextAttributeOfElementBuilder(ALT_ATTR),
+		                new ImmutablePair(TestSolution.PASSED, ""),
+		                new ImmutablePair(TestSolution.FAILED, ARIA_LABELLEDBY_NOT_IDENTICAL_TO_ALT_MSG),
+		                ALT_ATTR,
+		                ARIA_LABELLEDBY_ATTR,
+		                HREF_ATTR));
         ec.setIsOrCombinaison(false);
         return ec;
     }
@@ -121,10 +141,10 @@ public class Rgaa32017Rule010302 extends AbstractMarkerPageRuleImplementation {
      */
     private ElementChecker getLocalRegularElementChecker() {
         
-        CompositeChecker compositeChecker = new CompositeChecker(ALT_ATTR, TITLE_ATTR, HREF_ATTR);
-        
-        compositeChecker.addChecker(
-                new AttributePertinenceChecker(
+        CompositeChecker compositeChecker = 
+        	
+        	new CompositeChecker(
+        		new AttributePertinenceChecker(
                         ALT_ATTR,
                         // check emptiness
                         true,
@@ -135,28 +155,37 @@ public class Rgaa32017Rule010302 extends AbstractMarkerPageRuleImplementation {
                         // solution when not pertinent
                         FAILED,
                         // not pertinent message
-                        "",
+                        NOT_PERTINENT_ALT_MSG,
                         // manual check message
-                        ""));
-        compositeChecker.addChecker(
+                        RemarkMessageStore.CHECK_NATURE_OF_IMAGE_AND_ALT_PERTINENCE_MSG,
+                        ALT_ATTR, 
+                        HREF_ATTR),
                 new TextNotIdenticalToAttributeChecker(
-                        new TextAttributeOfElementBuilder(ALT_ATTR),
                         new TextAttributeOfElementBuilder(TITLE_ATTR),
-                        new ImmutablePair(FAILED,""),
-                        new ImmutablePair(PASSED,"")));
+                        new TextAttributeOfElementBuilder(ALT_ATTR),
+                        new ImmutablePair(NEED_MORE_INFO,""),
+                        new ImmutablePair(NEED_MORE_INFO,CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG),
+                        ALT_ATTR, 
+                        TITLE_ATTR, 
+                        HREF_ATTR),
+                new TextNotIdenticalToAttributeChecker(
+                        new TextAttributeOfElementBuilder(ARIA_LABEL_ATTR),
+                        new TextAttributeOfElementBuilder(ALT_ATTR),
+                    	new ImmutablePair(NEED_MORE_INFO, ""),
+                    	new ImmutablePair(NEED_MORE_INFO, CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG),
+                        ALT_ATTR, 
+                        ARIA_LABEL_ATTR, 
+                        HREF_ATTR),
+                new TextNotIdenticalToAttributeChecker(
+                        new TextAttributeOfElementBuilder(ARIA_LABELLEDBY_ATTR),
+                        new TextAttributeOfElementBuilder(ALT_ATTR),
+    	                new ImmutablePair(NEED_MORE_INFO, ""),
+    	                new ImmutablePair(NEED_MORE_INFO, CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG),
+                        ALT_ATTR, 
+                        ARIA_LABELLEDBY_ATTR, 
+                        HREF_ATTR));
         
-        compositeChecker.setIsOrCombinaison(false);
-        compositeChecker.addCheckMessageFromSolution(
-                NEED_MORE_INFO,
-                Collections.singletonMap(
-                        NEED_MORE_INFO, 
-                        RemarkMessageStore.CHECK_NATURE_OF_IMAGE_AND_ALT_PERTINENCE_MSG));
-        compositeChecker.addCheckMessageFromSolution(
-                FAILED,
-                Collections.singletonMap(
-                        NEED_MORE_INFO, 
-                        RemarkMessageStore.CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG));
-        
+        compositeChecker.setIsOrCombinaison(false);        
         return compositeChecker;
     }
     
