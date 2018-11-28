@@ -49,12 +49,12 @@ public class Rgaa32017Rule010204 extends AbstractMarkerPageRuleImplementation {
     /**
      * Contains all the decorative SVG elements without the "img" role
      */
-    private final ElementHandler<Element> decorativeSvgElementsWithoutRoleImage 
+    private final ElementHandler<Element> decorativeSvgElementsWithRole 
             = new ElementHandlerImpl();
     /*
     * Contains all the  SVG elements without the "img" role.
     */
-    private final ElementHandler<Element> svgElementsWithoutRoleImage 
+    private final ElementHandler<Element> svgElementsWithRole 
             = new ElementHandlerImpl();
     /*
     *Contains all the SVG element with title attribute or child with title attribute
@@ -112,7 +112,7 @@ public class Rgaa32017Rule010204 extends AbstractMarkerPageRuleImplementation {
         
         extractMalformedPatternDetectedElements(
                 getSelectionWithMarkerHandler(), // all svg identified as decorative by marker
-                decorativeSvgElementsWithoutRoleImage, 
+                decorativeSvgElementsWithRole, 
                 ariaAttrOnDecorativeSvgOrChild, 
                 decorativeSvgElementsWithDescOrTitleChild, 
                 titleAttrOnDecorativeSvgOrChild,
@@ -120,7 +120,7 @@ public class Rgaa32017Rule010204 extends AbstractMarkerPageRuleImplementation {
         
         extractMalformedPatternDetectedElements( // all svg that are neither decorative, nor informative by marker
                 getSelectionWithoutMarkerHandler(), 
-                svgElementsWithoutRoleImage, 
+                svgElementsWithRole, 
                 ariaAttrOnSvgOrChild, 
                 svgElementsWithDescOrTitleChild, 
                 titleAttrOnSvgOrChild,
@@ -131,22 +131,22 @@ public class Rgaa32017Rule010204 extends AbstractMarkerPageRuleImplementation {
     /**
      * 
      * @param svgElements
-     * @param svgElementsWithoutRoleImage
+     * @param svgElementsWithRole
      * @param ariaAttrOnSvgOrChild
      * @param svgElementsWithDescOrTitleChild
      * @param titleAttrOnSvgOrChild 
      */
     private void extractMalformedPatternDetectedElements (
             ElementHandler<Element> svgElements,
-            ElementHandler<Element> svgElementsWithoutRoleImage,
+            ElementHandler<Element> svgElementsWithRole,
             ElementHandler<Element> ariaAttrOnSvgOrChild,
             ElementHandler<Element> svgElementsWithDescOrTitleChild,
             ElementHandler<Element> titleAttrOnSvgOrChild,
             ElementHandler<Element> wellFormedSvgElements) {
         for(Element element : svgElements.get()) {
             boolean patternDetected= false;
-            if (!StringUtils.equalsIgnoreCase(element.attr(ROLE_ATTR), "img")) {
-                svgElementsWithoutRoleImage.add(element);
+            if (element.hasAttr(ROLE_ATTR)) {
+                svgElementsWithRole.add(element);
                 patternDetected= true;
             }
             if (element.hasAttr(ARIA_LABEL_ATTR) || 
@@ -180,16 +180,16 @@ public class Rgaa32017Rule010204 extends AbstractMarkerPageRuleImplementation {
         }
         
         ElementChecker ec = new ElementPresenceChecker(
-                new ImmutablePair(FAILED, DECORATIVE_SVG_WITHOUT_ROLE_IMG_ATTRIBUTE), 
+                new ImmutablePair(FAILED, DECORATIVE_SVG_WITH_ROLE_ATTRIBUTE), 
                 new ImmutablePair(PASSED,""));
         
-        if (!decorativeSvgElementsWithoutRoleImage.isEmpty()) {
+        if (!decorativeSvgElementsWithRole.isEmpty()) {
             // result is failed for sure
-            ec.check(sspHandler, decorativeSvgElementsWithoutRoleImage, testSolutionHandler);
+            ec.check(sspHandler, decorativeSvgElementsWithRole, testSolutionHandler);
         }
         
         ec = new ElementPresenceChecker(
-                new ImmutablePair(FAILED, DECORATIVE_SVG_OR_CHILDREN_WITH_ARWIA_ATTRIBUTE), 
+                new ImmutablePair(FAILED, DECORATIVE_SVG_OR_CHILDREN_WITH_ARIA_ATTRIBUTE), 
                 new ImmutablePair(PASSED,""));
         
         if (!ariaAttrOnDecorativeSvgOrChild.isEmpty()) {
@@ -221,12 +221,12 @@ public class Rgaa32017Rule010204 extends AbstractMarkerPageRuleImplementation {
         // will raise a Failed, only once, in 1.3.5
        
         
-        if (!svgElementsWithoutRoleImage.isEmpty()) {
+        if (!svgElementsWithRole.isEmpty()) {
         	ec = new ElementPresenceChecker(
-                    new ImmutablePair(NEED_MORE_INFO, SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG ), 
+                    new ImmutablePair(NEED_MORE_INFO, SUSPECTED_DECORATIVE_SVG_ROLE_ON_SVG ), 
                     new ImmutablePair(PASSED,""));
         	
-            ec.check(sspHandler, svgElementsWithoutRoleImage, testSolutionHandler);
+            ec.check(sspHandler, svgElementsWithRole, testSolutionHandler);
         }
         
         ec = new ElementPresenceChecker(

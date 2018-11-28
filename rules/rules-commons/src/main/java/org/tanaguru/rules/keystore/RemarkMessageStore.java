@@ -21,6 +21,8 @@
  */
 package org.tanaguru.rules.keystore;
 
+import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_DECORATIVE_SVG_ROLE_ON_SVG;
+
 /**
  * Utility class that stores remark messages keys as static String
  */
@@ -173,9 +175,9 @@ public final class RemarkMessageStore {
     public static final String CHECK_NATURE_OF_IMAGE_AND_ALT_LENGTH_MSG
             = "CheckNatureOfImageAndAltLength";
     public static final String ALT_SVG_DETECTED_MSG = "AltSvgDetect";
-    public static final String DECORATIVE_SVG_WITHOUT_ROLE_IMG_ATTRIBUTE
-            = "DecorativeSvgWithoutRoleImgAttribute";
-    public static final String DECORATIVE_SVG_OR_CHILDREN_WITH_ARWIA_ATTRIBUTE
+    public static final String DECORATIVE_SVG_WITH_ROLE_ATTRIBUTE
+            = "DecorativeSvgWithRole";
+    public static final String DECORATIVE_SVG_OR_CHILDREN_WITH_ARIA_ATTRIBUTE
             = "DecorativeSvgOrChildrenWithAriaAttribute";
     public static final String DECORATIVE_SVG_WITH_NOT_EMPTY_TITLE_OR_DESC_TAGS
             = "DecorativeSvgWithNotEmptyTitleOrDescTags";
@@ -199,8 +201,8 @@ public final class RemarkMessageStore {
             = "SuspectedInformativeSvgWithTitleAttributeOnElementOrChild";
     public static final String SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG 
     		= "SuspectedInformativeSvgWithRoleImgMissing";
-    public static final String SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG 
-			= "SuspectedDecorativeSvgWithRoleImgMissing";
+    public static final String SUSPECTED_DECORATIVE_SVG_ROLE_ON_SVG 
+			= "SuspectedDecorativeSvgWithRole";
     public static final String SUSPECTED_WELL_FORMATED_DECORATIVE_SVG
             = "SuspectedWellFormedDecorativeSvg";
     public static final String CHECK_NATURE_OF_IMAGE_AND_TEXT_STYLED_PRESENCE_MSG
