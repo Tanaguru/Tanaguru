@@ -19,10 +19,16 @@
             </div> 
             <div class="testcase"> 
                 <img alt="" src="mock-image.jpg" usemap="#mock-map" /> 
-                <map id="mock-map" name="mock-map"> <area id="id-decorative-area" alt=""></area> <area class="class-decorative-area" alt=""></area> <area role="role-decorative-area" alt=""></area> </map> 
+                <map id="mock-map" name="mock-map">
+	                 <area id="id-decorative-area" alt=""></area> 
+	                 <area class="class-informative-area" alt="Not empty alt"></area> 
+	                 <area href="mock-area.html" alt="Not empty alt"></area> 
+	                 <a href="mock-link.html"> <area alt="Not empty alt"></area> </a> 
+                </map> 
             </div> 
             <div class="test-explanation">
-                 Passed: All the &lt;area&gt; of the page are marked as decorative and their alt attribute is empty 
+                 Passed: All the &lt;area&gt; of the page are marked as decorative and their alt attribute is empty. 
+                 The other &lt;area&gt; are either within a link, either marked as informative or have a &quot;href&quot; attribute. They are all out of scope. 
             </div> 
         </div>   
     </body>

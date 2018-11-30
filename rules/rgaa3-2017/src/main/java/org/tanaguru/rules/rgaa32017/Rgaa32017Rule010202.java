@@ -37,6 +37,7 @@ import static org.tanaguru.rules.keystore.AttributeStore.ARIA_DESCRIBEDBY_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABELLEDBY_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABEL_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ROLE_ATTR;
 import static org.tanaguru.rules.keystore.MarkerStore.DECORATIVE_IMAGE_MARKER;
 import static org.tanaguru.rules.keystore.MarkerStore.INFORMATIVE_IMAGE_MARKER;
 import org.tanaguru.rules.keystore.RemarkMessageStore;
@@ -45,6 +46,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_
 import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_ARIA_LABEL_ATTR_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_TITLE_ATTR_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_ROLE_ATTR_MSG;
 import org.tanaguru.rules.textbuilder.TextAttributeOfElementBuilder;
 
 /**
@@ -110,7 +112,14 @@ public class Rgaa32017Rule010202 extends AbstractMarkerPageRuleImplementation {
                         ARIA_DESCRIBEDBY_ATTR,
                         new ImmutablePair(FAILED, DECORATIVE_ELEMENT_WITH_ARIA_DESCRIBEDBY_ATTR_MSG),
                         new ImmutablePair(PASSED, ""),
-                        ARIA_DESCRIBEDBY_ATTR));
+                        ARIA_DESCRIBEDBY_ATTR),
+                
+                //checker la présence de l'attribut role
+                new AttributePresenceChecker(
+                		ROLE_ATTR,
+                        new ImmutablePair(FAILED, DECORATIVE_ELEMENT_WITH_ROLE_ATTR_MSG),
+                        new ImmutablePair(PASSED, ""),
+                        ROLE_ATTR));
         
         ec.setIsOrCombinaison(false);
         return ec;
@@ -129,6 +138,22 @@ public class Rgaa32017Rule010202 extends AbstractMarkerPageRuleImplementation {
                         new ImmutablePair(FAILED, "")),
                 new AttributePresenceChecker(
                         TITLE_ATTR,
+                        new ImmutablePair(FAILED, ""),
+                        new ImmutablePair(PASSED, "")),
+                new AttributePresenceChecker(
+                		ARIA_LABEL_ATTR,
+                        new ImmutablePair(FAILED, ""),
+                        new ImmutablePair(PASSED, "")),
+                new AttributePresenceChecker(
+                		ARIA_LABELLEDBY_ATTR,
+                        new ImmutablePair(FAILED, ""),
+                        new ImmutablePair(PASSED, "")),
+                new AttributePresenceChecker(
+                		ARIA_DESCRIBEDBY_ATTR,
+                        new ImmutablePair(FAILED, ""),
+                        new ImmutablePair(PASSED, "")),
+                new AttributePresenceChecker(
+                		ROLE_ATTR,
                         new ImmutablePair(FAILED, ""),
                         new ImmutablePair(PASSED, "")));
 
