@@ -51,6 +51,9 @@ public final class CssLikeQueryStore {
             = "object[type^=image]:not(a object)";
     public static final String EMBED_TYPE_IMG_CSS_LIKE_QUERY
             = "embed[type^=image]";
+    public static final String EMBED_TYPE_IMG_WITH_TITLE_CSS_LIKE_QUERY 
+		    = "embed[type^=image][title][aria-label] ,"+
+		    		"embed[type^=image][title][aria-labelledby]";
     public static final String EMBED_TYPE_IMG_NOT_IN_LINK_CSS_LIKE_QUERY
             = "embed[type^=image]:not(a embed)";
     public static final String AREA_WITH_ALT_CSS_LIKE_QUERY
@@ -505,7 +508,7 @@ public final class CssLikeQueryStore {
             + ":not(input[type=button][onclick])";
 
     public static final String ELEMENT_WITH_ROLE_ATTR_CSS_LIKE_QUERY
-            = "*[role]";
+            = "*[role=checkbox], *[role=radio], *[role=textbox], *[role=combobox]";
 
     // Seo 
     public static final String META_DESC_CSS_LIKE_QUERY

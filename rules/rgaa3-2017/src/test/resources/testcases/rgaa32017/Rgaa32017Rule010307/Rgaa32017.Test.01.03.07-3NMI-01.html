@@ -13,11 +13,11 @@
                 <code>&lt;/canvas&gt;</code> doit être dépourvu de contenus textuels, cette règle est-elle respectée ? 
             </div> 
             <div class="testcase"> 
-                <embed type="image/jpeg" data="TheEarth.gif" ></embed>
-                <embed type="image/gif" data="TheEarth.gif" ></embed>
+                <embed type="image/jpeg" data="TheEarth.gif" title="earth picture" aria-label="earth picture" ></embed>
             </div> 
             <div class="test-explanation">
-                NMI : One canvas is found on the page and is not identified by marker. 
+                NMI : One canvas is found on the page and is not identified by marker.
+                The title attribute is identical to the aria-label attribute. 
             </div> 
         </div>  
     </body>

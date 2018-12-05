@@ -21,7 +21,9 @@
  */
 package org.tanaguru.rules.keystore;
 
+import static org.tanaguru.rules.keystore.RemarkMessageStore.INFORMATIVE_EMB_NOT_INDENTICAL_ATTR_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_DECORATIVE_SVG_ROLE_ON_SVG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_INFORMATIVE_EMB_DETECTED;
 
 /**
  * Utility class that stores remark messages keys as static String
@@ -231,8 +233,12 @@ public final class RemarkMessageStore {
     public static final String CHECK_CANVAS_LEGD_ARIA_MSG
             ="CheckCanvasLegdAriaMsg";
      public static final String CHECK_IMG_TAGS_MSG="CheckImgTags";
+     public static final String INFORMATIVE_EMB_NOT_INDENTICAL_ATTR_MSG
+     		= "InformativeEmbNotIdenticalAttr";
      public static final String SUSPECTED_DECORATIVE_EMB_WITH_ARIA_ATTRIBUTE_DETECTED
             = "SuspectedDecorativeEmbWithAriaAttributeDetected";
+     public static final String SUSPECTED_INFORMATIVE_EMB_DETECTED
+            = "SuspectedInformativeEmbDetected";
      public static final String SUSPECTED_INFORMATIVE_EMB_WITH_ARIA_ATTRIBUTE_NOT_DETECTED
             = "SuspectedInformativeEmbWithAriaAttributeNotDetected";
 
@@ -409,6 +415,8 @@ public final class RemarkMessageStore {
     // scripts
     public static final String CONTEXT_CHANGED_SCRIPT_MSG
             = "ContextChangedScriptDetected";
+    public static final String ARIA_FORM_LABEL_MISSING
+    		= "AriaFormLabelMissing";
 
     // consultation 
     public static final String NOT_IMMEDIATE_REDIRECT_VIA_META_MSG
