@@ -93,8 +93,8 @@ public class SiblingElementsPresenceChecker extends ElementCheckerImpl {
                 testSolutionHandler.addTestSolution(TestSolution.NOT_APPLICABLE);
                 return;
             } else if (siblingElements.size() <= 1) {
-                testSolution = setTestSolution(testSolution, TestSolution.FAILED);
-                addSourceCodeRemark(TestSolution.FAILED, el, getFailureMsgCode());
+                testSolution = setTestSolution(testSolution, getFailureSolution());
+                addSourceCodeRemark(getFailureSolution(), el, getFailureMsgCode());
             } else {
 
                 boolean flag = false;
@@ -106,8 +106,8 @@ public class SiblingElementsPresenceChecker extends ElementCheckerImpl {
                     }
                 }
                 if (flag) {
-                    testSolution = setTestSolution(testSolution, TestSolution.NEED_MORE_INFO);
-                    addSourceCodeRemark(TestSolution.NEED_MORE_INFO, el, getSuccessMsgCode());
+                    testSolution = setTestSolution(testSolution, getSuccessSolution());
+                    addSourceCodeRemark(getSuccessSolution(), el, getSuccessMsgCode());
 
                 }
 

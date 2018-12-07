@@ -33,6 +33,7 @@ public final class HtmlElementStore {
     public static final String ACRONYM_ELEMENT = "acronym";
     public static final String APPLET_ELEMENT = HTML.Tag.APPLET.toString();
     public static final String AREA_ELEMENT = HTML.Tag.AREA.toString();
+    public static final String AUDIO_ELEMENT = "audio";
     public static final String BGSOUND_ELEMENT = "bgsound";
     public static final String BLINK_ELEMENT = "blink";
     public static final String BODY_ELEMENT = HTML.Tag.BODY.toString();
