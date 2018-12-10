@@ -22,6 +22,10 @@
 package org.tanaguru.analyser;
 
 import org.json.simple.parser.JSONParser;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import java.io.StringWriter;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.*;
@@ -62,7 +66,10 @@ public class AnalyserImpl implements Analyser {
 
     private static final Logger LOGGER = Logger.getLogger(AnalyserImpl.class);
     private int numberW3cErrors = -1;
+    private int numberW3cObsolete = -1;
     private org.json.simple.JSONArray W3cMessage;
+    private ArrayList<org.json.simple.JSONObject> W3cError = new ArrayList<org.json.simple.JSONObject>();
+    private ArrayList<org.json.simple.JSONObject> W3cObsolete = new ArrayList<org.json.simple.JSONObject>();
     private final WebResourceDataService webResourceDataService;
     private final ProcessRemarkDataService processRemarkDataService;
     private final ContentDataService contentDataService;
@@ -177,6 +184,8 @@ public class AnalyserImpl implements Analyser {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    
+    // A MODIFIER
     @Override
     public void run() {
         WebResourceStatistics wrStats = webResourceStatisticsDataService.create();
@@ -186,11 +195,11 @@ public class AnalyserImpl implements Analyser {
             // Get w3c result from content table 
             SSP content = contentDataService.findSSP(webResource, webResource.getURL());
             if (content != null) {
-                W3cMessage = W3cJsonParser(content.getW3c());
-                numberW3cErrors = W3cMessage.size();
+                W3cJsonParser(content.getW3c());
+//                numberW3cErrors = W3cMessage.size();
             } else {
-                W3cMessage = W3cJsonParser("{\"messages\":[]}");
-                numberW3cErrors = -1 ;
+                W3cJsonParser("{\"messages\":[]}");
+//                numberW3cErrors = -1 ;
             }
             
 
@@ -205,8 +214,14 @@ public class AnalyserImpl implements Analyser {
             List<WebResource> webResourceChilds = webResourceDataService.getWebResourceFromItsParent(webResource, 0, nbOfWr);
             for (WebResource webResourceChild : webResourceChilds) {
                 SSP content = contentDataService.findSSP(webResourceChild, webResourceChild.getURL());
-                W3cMessage = W3cJsonParser(content.getW3c());
-                numberW3cErrors = W3cMessage.size();
+                W3cJsonParser(content.getW3c()); 
+                
+                
+                
+//                IntegrateW3cTestInDB(W3CMessage,
+//	                testSet,
+//	                processResultDataService.getNetResultFromAuditAndWebResource(audit, webResourceChild),
+//	                webResourceChild);
                 IntegrateW3cTestInDB(
                         testSet,
                         processResultDataService.getNetResultFromAuditAndWebResource(audit, webResourceChild),
@@ -782,34 +797,37 @@ public class AnalyserImpl implements Analyser {
             crs.setCriterionResult(TestSolution.NEED_MORE_INFO);
         }
     }
-
+    // A MODIFIER
     private void IntegrateW3cTestInDB(
             Collection<Test> testList,
             Collection<ProcessResult> netResultList,
             WebResource webResource) {
 
-        Collection<Test> testedTestList = new ArrayList();
+    	Collection<Test> testedTestList = new ArrayList();
         for (ProcessResult pr : netResultList) {
             testedTestList.add(pr.getTest());
+            testList.remove(pr.getTest());
         }
-
+        
+//        Collection<ProcessResult> fullProcessResultList = new ArrayList();
+//        fullProcessResultList.addAll(netResultList);
+        
+        
+        //Récupère les tests vides
         for (Test test : testList) {
-            // if the test has no ProcessResult and its theme is part of the user
-            // selection, a NOT_TESTED result ProcessRemark is created
-            if (!testedTestList.contains(test)) {
-
-                TestSolution testSolution;
-                if (test.getLabel().equals("8.2.1")) {
-                    if (numberW3cErrors > 0) {
-                        testSolution = TestSolution.FAILED;
-                    }  if (numberW3cErrors == 0) {
-                        testSolution = TestSolution.PASSED;
-                    } else {
-                        testSolution = TestSolution.NOT_TESTED;
-                    }
+        	
+            TestSolution testSolution;
+            
+            if (test.getLabel().equals("8.2.1")) {
+            	 
+            	if (numberW3cErrors > 0) {
+                    testSolution = TestSolution.FAILED;
+                } else if (numberW3cErrors == 0) {
+                    testSolution = TestSolution.PASSED;
                 } else {
                     testSolution = TestSolution.NOT_TESTED;
                 }
+                
 
                 ProcessResult pr
                         = processResultDataService.getDefiniteResult(
@@ -823,83 +841,10 @@ public class AnalyserImpl implements Analyser {
                     pr.setSubject(webResource);
                     pr.setGrossResultAudit(audit);
                     processResultDataService.saveOrUpdate(pr);
-
-                    for (int i = 0; i < numberW3cErrors; i++) {
-                        org.json.simple.JSONObject jsonRespenseObject = (org.json.simple.JSONObject) W3cMessage.get(i);
-                        Object snippetObject = jsonRespenseObject.get("extract");
-                        Object targetObject = jsonRespenseObject.get("message");
-
-                        if (snippetObject != null && targetObject != null) {
-                            SourceCodeRemark processRemark = processRemarkDataService.getSourceCodeRemark(testSolution, "W3cError");
-                            processRemark.setProcessResult(pr);
-                            //processRemark.setLineNumber(Integer.valueOf(jsonRespenseObject.get("lastLine").toString()));
-                            String snippet = StringEscapeUtils.escapeHtml4(snippetObject.toString());
-                            processRemark.setSnippet(snippet);
-                            processRemark.setTarget(targetObject.toString().replace("|314|","\""));
-
-                            processRemarkDataService.saveOrUpdate(processRemark);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    /**
-     * Some tests may have not ProcessResult, but are needed to be displayed as
-     * not tested test. For each test without ProcessResult, we create a new
-     * ProcessResult with NOT_TESTED as the result.
-     *
-     * @param testList
-     * @param themeCode
-     * @param netResultList
-     * @return
-     */
-    private Collection<ProcessResult> getProcessResultWithNotTested(
-            Collection<Test> testList,
-            Collection<ProcessResult> netResultList) {
-
-        Collection<Test> testedTestList = new ArrayList();
-        for (ProcessResult pr : netResultList) {
-            testedTestList.add(pr.getTest());
-        }
-
-        Collection<ProcessResult> fullProcessResultList = new ArrayList();
-        fullProcessResultList.addAll(netResultList);
-
-        for (Test test : testList) {
-            // if the test has no ProcessResult and its theme is part of the user
-            // selection, a NOT_TESTED result ProcessRemark is created
-            if (!testedTestList.contains(test)) {
-
-                TestSolution testSolution;
-                if (test.getLabel().equals("8.2.1")) {
-                    if (numberW3cErrors > 0) {
-                        testSolution = TestSolution.FAILED;
-                    } else if (numberW3cErrors == 0) {
-                        testSolution = TestSolution.PASSED;
-                    } else {
-                        testSolution = TestSolution.NOT_TESTED;
-                    }
-                } else {
-                    testSolution = TestSolution.NOT_TESTED;
-                }
-
-                ProcessResult pr
-                        = processResultDataService.getDefiniteResult(
-                                test,
-                                testSolution);
-
-                if (testSolution != TestSolution.NOT_TESTED) {
-
-                    pr.setNetResultAudit(audit);
-                    pr.setElementCounter(numberW3cErrors);
-                    pr.setSubject(webResource);
-                    pr.setGrossResultAudit(audit);
-                    processResultDataService.saveOrUpdate(pr);
+                    
                     for (int i = 0; i < numberW3cErrors; i++) {
 
-                        org.json.simple.JSONObject jsonRespenseObject = (org.json.simple.JSONObject) W3cMessage.get(i);
+                    	org.json.simple.JSONObject jsonRespenseObject = (org.json.simple.JSONObject) W3cError.get(i);
                         Object snippetObject = jsonRespenseObject.get("extract");
                         Object targetObject = jsonRespenseObject.get("message");
 
@@ -915,23 +860,224 @@ public class AnalyserImpl implements Analyser {
                     }
                 }
 
-                fullProcessResultList.add(pr);
+//                netResultList.add(pr);
+                
+            } else if (test.getLabel().equals("8.2.2")) {
+            	
+            	if (numberW3cObsolete > 0) {
+                    testSolution = TestSolution.FAILED;
+                } else if (numberW3cObsolete == 0) {
+                    testSolution = TestSolution.PASSED;
+                } else {
+                    testSolution = TestSolution.NOT_TESTED;
+                }
+                
+
+                ProcessResult pr
+                        = processResultDataService.getDefiniteResult(
+                                test,
+                                testSolution);
+
+                if (testSolution != TestSolution.NOT_TESTED) {
+
+                    pr.setNetResultAudit(audit);
+                    pr.setElementCounter(numberW3cObsolete);
+                    pr.setSubject(webResource);
+                    pr.setGrossResultAudit(audit);
+                    processResultDataService.saveOrUpdate(pr);
+                    
+                    for (int i = 0; i < numberW3cObsolete; i++) {
+
+                    	org.json.simple.JSONObject jsonRespenseObject = (org.json.simple.JSONObject) W3cObsolete.get(i);
+                        Object snippetObject = jsonRespenseObject.get("extract");
+                        Object targetObject = jsonRespenseObject.get("message");
+
+                        if (snippetObject != null && targetObject != null) {
+                            SourceCodeRemark processRemark = processRemarkDataService.getSourceCodeRemark(testSolution, "W3cError");
+                            processRemark.setProcessResult(pr);
+                            //processRemark.setLineNumber(Integer.valueOf(jsonRespenseObject.get("lastLine").toString()));
+                            String snippet = StringEscapeUtils.escapeHtml4(snippetObject.toString());
+                            processRemark.setSnippet(snippet);
+                            processRemark.setTarget(targetObject.toString().replace("|314|","\"")); 
+                            processRemarkDataService.saveOrUpdate(processRemark);
+                        }
+                    }
+                }
+
+//                netResultList.add(pr);
+            } else {
+            	testSolution = TestSolution.NOT_TESTED;
             }
         }
-        return fullProcessResultList;
+
     }
 
-    public org.json.simple.JSONArray W3cJsonParser(String w3cResult) {
+    
+    //A MODIFIER
+    /**
+     * Some tests may have not ProcessResult, but are needed to be displayed as
+     * not tested test. For each test without ProcessResult, we create a new
+     * ProcessResult with NOT_TESTED as the result.
+     *
+     * @param testList
+     * @param themeCode
+     * @param netResultList
+     * @return
+     */
+    private Collection<ProcessResult> getProcessResultWithNotTested(
+            Collection<Test> testList,
+            Collection<ProcessResult> netResultList) {
+    	
+    	
+    	
+    	
+    		//Récupère les tests déjà fait
+    	Collection<Test> testedTestList = new ArrayList();
+        for (ProcessResult pr : netResultList) {
+            testedTestList.add(pr.getTest());
+            testList.remove(pr.getTest());
+        }
+        
+//        Collection<ProcessResult> fullProcessResultList = new ArrayList();
+//        fullProcessResultList.addAll(netResultList);
+        
+        
+        //Récupère les tests vides
+        for (Test test : testList) {
+        	
+            TestSolution testSolution;
+            
+            if (test.getLabel().equals("8.2.1")) {
+            	 
+            	if (numberW3cErrors > 0) {
+                    testSolution = TestSolution.FAILED;
+                } else if (numberW3cErrors == 0) {
+                    testSolution = TestSolution.PASSED;
+                } else {
+                    testSolution = TestSolution.NOT_TESTED;
+                }
+                
+
+                ProcessResult pr
+                        = processResultDataService.getDefiniteResult(
+                                test,
+                                testSolution);
+
+                if (testSolution != TestSolution.NOT_TESTED) {
+
+                    pr.setNetResultAudit(audit);
+                    pr.setElementCounter(numberW3cErrors);
+                    pr.setSubject(webResource);
+                    pr.setGrossResultAudit(audit);
+                    processResultDataService.saveOrUpdate(pr);
+                    
+                    for (int i = 0; i < numberW3cErrors; i++) {
+
+                    	org.json.simple.JSONObject jsonRespenseObject = (org.json.simple.JSONObject) W3cError.get(i);
+                        Object snippetObject = jsonRespenseObject.get("extract");
+                        Object targetObject = jsonRespenseObject.get("message");
+
+                        if (snippetObject != null && targetObject != null) {
+                            SourceCodeRemark processRemark = processRemarkDataService.getSourceCodeRemark(testSolution, "W3cError");
+                            processRemark.setProcessResult(pr);
+                            //processRemark.setLineNumber(Integer.valueOf(jsonRespenseObject.get("lastLine").toString()));
+                            String snippet = StringEscapeUtils.escapeHtml4(snippetObject.toString());
+                            processRemark.setSnippet(snippet);
+                            processRemark.setTarget(targetObject.toString().replace("|314|","\"")); 
+                            processRemarkDataService.saveOrUpdate(processRemark);
+                        }
+                    }
+                }
+
+                netResultList.add(pr);
+                
+            } else if (test.getLabel().equals("8.2.2")) {
+            	
+            	if (numberW3cObsolete > 0) {
+                    testSolution = TestSolution.FAILED;
+                } else if (numberW3cObsolete == 0) {
+                    testSolution = TestSolution.PASSED;
+                } else {
+                    testSolution = TestSolution.NOT_TESTED;
+                }
+                
+
+                ProcessResult pr
+                        = processResultDataService.getDefiniteResult(
+                                test,
+                                testSolution);
+
+                if (testSolution != TestSolution.NOT_TESTED) {
+
+                    pr.setNetResultAudit(audit);
+                    pr.setElementCounter(numberW3cObsolete);
+                    pr.setSubject(webResource);
+                    pr.setGrossResultAudit(audit);
+                    processResultDataService.saveOrUpdate(pr);
+                    
+                    for (int i = 0; i < numberW3cObsolete; i++) {
+
+                    	org.json.simple.JSONObject jsonRespenseObject = (org.json.simple.JSONObject) W3cObsolete.get(i);
+                        Object snippetObject = jsonRespenseObject.get("extract");
+                        Object targetObject = jsonRespenseObject.get("message");
+
+                        if (snippetObject != null && targetObject != null) {
+                            SourceCodeRemark processRemark = processRemarkDataService.getSourceCodeRemark(testSolution, "W3cError");
+                            processRemark.setProcessResult(pr);
+                            //processRemark.setLineNumber(Integer.valueOf(jsonRespenseObject.get("lastLine").toString()));
+                            String snippet = StringEscapeUtils.escapeHtml4(snippetObject.toString());
+                            processRemark.setSnippet(snippet);
+                            processRemark.setTarget(targetObject.toString().replace("|314|","\"")); 
+                            processRemarkDataService.saveOrUpdate(processRemark);
+                        }
+                    }
+                }
+
+                netResultList.add(pr);
+            } else {
+            	testSolution = TestSolution.NOT_TESTED;
+            }
+        }
+        
+        return netResultList;
+    }
+
+    
+    //METTRE LA METHODE EN VOID
+    public void W3cJsonParser(String w3cResult) {
+    	
         JSONParser parser = new JSONParser();
         try {
-            Object responseObj = parser.parse(w3cResult);
+        	Object responseObj = parser.parse(w3cResult);
             org.json.simple.JSONObject jsonRespenseObject = (org.json.simple.JSONObject) responseObj;
             org.json.simple.JSONArray resultList = (org.json.simple.JSONArray) jsonRespenseObject.get("messages");
+             
+            numberW3cErrors = 0;
+            numberW3cObsolete = 0;                   
+            for (int i = 0; i < resultList.size(); i++ ) {           	
+            	
+                org.json.simple.JSONObject object = (org.json.simple.JSONObject) resultList.get(i);
+                Object targetObject =  object.get("message");
+                
+                if (targetObject != null) {                  	
+                	if(targetObject.toString().contains(" element is obsolete.")) {
+	            		W3cObsolete.add(object);
+	            		numberW3cObsolete++;
 
-            return resultList;
+	                }else {
+	            		W3cError.add(object);
+	            		numberW3cErrors++;
+	                }
+                }                
+            }       
+
+//            return resultList;
+            
         } catch (Exception e) {
-            LOGGER.error("error with w3cValidator json parser");
-            return new org.json.simple.JSONArray();
+        	LOGGER.error("************************************");
+        	LOGGER.error("error with w3cValidator json parser");
+        	LOGGER.error("************************************");
+//            return new org.json.simple.JSONArray();
         }
     }
 

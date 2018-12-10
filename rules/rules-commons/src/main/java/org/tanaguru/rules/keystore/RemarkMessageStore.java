@@ -21,6 +21,10 @@
  */
 package org.tanaguru.rules.keystore;
 
+import static org.tanaguru.rules.keystore.RemarkMessageStore.INFORMATIVE_EMB_NOT_INDENTICAL_ATTR_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_DECORATIVE_SVG_ROLE_ON_SVG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_INFORMATIVE_EMB_DETECTED;
+
 /**
  * Utility class that stores remark messages keys as static String
  */
@@ -103,16 +107,18 @@ public final class RemarkMessageStore {
             = "DecorativeElementWithNotEmptyAltAttribute";
     public static final String DECORATIVE_ELEMENT_WITH_ROLE_IMG_MSG
     		= "DecorativeElementWithRoleImgAttribute";
-     public static final String DECORATIVE_ELEMENT_WITHOUT_ARIA_HIDDEN_TRUE_MSG
+    public static final String DECORATIVE_ELEMENT_WITHOUT_ARIA_HIDDEN_TRUE_MSG
             = "DecorativeElementWithoutAriaHiddenTrueAttribute";
     public static final String DECORATIVE_ELEMENT_WITH_TITLE_ATTR_MSG
             = "DecorativeElementWithTitleAttribute";
     public static final String DECORATIVE_ELEMENT_WITH_ARIA_LABEL_ATTR_MSG
             = "DecorativeElementWithTAria-LabelAttribute";
-     public static final String DECORATIVE_ELEMENT_WITH_ARIA_LABELLEDBY_ATTR_MSG
+    public static final String DECORATIVE_ELEMENT_WITH_ARIA_LABELLEDBY_ATTR_MSG
             = "DecorativeElementWithTAria-LabelledbyAttribute";
-      public static final String DECORATIVE_ELEMENT_WITH_ARIA_DESCRIBEDBY_ATTR_MSG
+    public static final String DECORATIVE_ELEMENT_WITH_ARIA_DESCRIBEDBY_ATTR_MSG
             = "DecorativeElementWithAria-describedbyAttribute";
+    public static final String DECORATIVE_ELEMENT_WITH_ROLE_ATTR_MSG
+    		= "DecorativeElementWithRoleAttr";  
     public static final String CHECK_ALTERNATIVE_OF_DECORATIVE_ELEMENT_MSG
             = "CheckAlternativeOfDecorativeElement";
     public static final String CHECK_NATURE_AND_ALTERNATIVE_OF_ELEMENT_MSG
@@ -173,9 +179,9 @@ public final class RemarkMessageStore {
     public static final String CHECK_NATURE_OF_IMAGE_AND_ALT_LENGTH_MSG
             = "CheckNatureOfImageAndAltLength";
     public static final String ALT_SVG_DETECTED_MSG = "AltSvgDetect";
-    public static final String DECORATIVE_SVG_WITHOUT_ROLE_IMG_ATTRIBUTE
-            = "DecorativeSvgWithoutRoleImgAttribute";
-    public static final String DECORATIVE_SVG_OR_CHILDREN_WITH_ARWIA_ATTRIBUTE
+    public static final String DECORATIVE_SVG_WITH_ROLE_ATTRIBUTE
+            = "DecorativeSvgWithRole";
+    public static final String DECORATIVE_SVG_OR_CHILDREN_WITH_ARIA_ATTRIBUTE
             = "DecorativeSvgOrChildrenWithAriaAttribute";
     public static final String DECORATIVE_SVG_WITH_NOT_EMPTY_TITLE_OR_DESC_TAGS
             = "DecorativeSvgWithNotEmptyTitleOrDescTags";
@@ -199,8 +205,8 @@ public final class RemarkMessageStore {
             = "SuspectedInformativeSvgWithTitleAttributeOnElementOrChild";
     public static final String SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG 
     		= "SuspectedInformativeSvgWithRoleImgMissing";
-    public static final String SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG 
-			= "SuspectedDecorativeSvgWithRoleImgMissing";
+    public static final String SUSPECTED_DECORATIVE_SVG_ROLE_ON_SVG 
+			= "SuspectedDecorativeSvgWithRole";
     public static final String SUSPECTED_WELL_FORMATED_DECORATIVE_SVG
             = "SuspectedWellFormedDecorativeSvg";
     public static final String CHECK_NATURE_OF_IMAGE_AND_TEXT_STYLED_PRESENCE_MSG
@@ -227,8 +233,12 @@ public final class RemarkMessageStore {
     public static final String CHECK_CANVAS_LEGD_ARIA_MSG
             ="CheckCanvasLegdAriaMsg";
      public static final String CHECK_IMG_TAGS_MSG="CheckImgTags";
+     public static final String INFORMATIVE_EMB_NOT_INDENTICAL_ATTR_MSG
+     		= "InformativeEmbNotIdenticalAttr";
      public static final String SUSPECTED_DECORATIVE_EMB_WITH_ARIA_ATTRIBUTE_DETECTED
             = "SuspectedDecorativeEmbWithAriaAttributeDetected";
+     public static final String SUSPECTED_INFORMATIVE_EMB_DETECTED
+            = "SuspectedInformativeEmbDetected";
      public static final String SUSPECTED_INFORMATIVE_EMB_WITH_ARIA_ATTRIBUTE_NOT_DETECTED
             = "SuspectedInformativeEmbWithAriaAttributeNotDetected";
 
@@ -405,6 +415,8 @@ public final class RemarkMessageStore {
     // scripts
     public static final String CONTEXT_CHANGED_SCRIPT_MSG
             = "ContextChangedScriptDetected";
+    public static final String ARIA_FORM_LABEL_MISSING
+    		= "AriaFormLabelMissing";
 
     // consultation 
     public static final String NOT_IMMEDIATE_REDIRECT_VIA_META_MSG

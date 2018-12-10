@@ -24,10 +24,20 @@ import org.tanaguru.entity.audit.*;
 import static org.tanaguru.rules.keystore.AttributeStore.ABSENT_ATTRIBUTE_VALUE;
 import static org.tanaguru.rules.keystore.AttributeStore.ALT_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ROLE_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABEL_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABELLEDBY_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ARIA_DESCRIBEDBY_ATTR;
 import org.tanaguru.rules.rgaa32017.test.Rgaa32017RuleImplementationTestCase;
 import static org.tanaguru.rules.keystore.HtmlElementStore.AREA_ELEMENT;
 import static org.tanaguru.rules.keystore.MarkerStore.DECORATIVE_IMAGE_MARKER;
 import static org.tanaguru.rules.keystore.MarkerStore.INFORMATIVE_IMAGE_MARKER;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_ARIA_DESCRIBEDBY_ATTR_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_ARIA_LABELLEDBY_ATTR_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_ARIA_LABEL_ATTR_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_ROLE_ATTR_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_TITLE_ATTR_MSG;
+
 import org.tanaguru.rules.keystore.RemarkMessageStore;
 
 /**
@@ -59,10 +69,8 @@ public class Rgaa32017Rule010202Test extends Rgaa32017RuleImplementationTestCase
         addWebResource("Rgaa32017.Test.01.02.02-1Passed-02",
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "class-decorative-area"));
         addWebResource("Rgaa32017.Test.01.02.02-1Passed-03",
-                createParameter("Rules", DECORATIVE_IMAGE_MARKER, "role-decorative-area"));
+                createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-area;class-decorative-area"));
         addWebResource("Rgaa32017.Test.01.02.02-1Passed-04",
-                createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-area;class-decorative-area;role-decorative-area"));
-        addWebResource("Rgaa32017.Test.01.02.02-1Passed-05",
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-area"),
                 createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-area"));
         addWebResource("Rgaa32017.Test.01.02.02-2Failed-01",
@@ -72,7 +80,7 @@ public class Rgaa32017Rule010202Test extends Rgaa32017RuleImplementationTestCase
         addWebResource("Rgaa32017.Test.01.02.02-2Failed-03",
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "role-decorative-area"));
         addWebResource("Rgaa32017.Test.01.02.02-2Failed-04",
-                createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-area;class-decorative-area;role-decorative-area"));
+                createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-area;class-decorative-area"));
         addWebResource("Rgaa32017.Test.01.02.02-2Failed-05",
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-area"),
                 createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-area"));
@@ -86,6 +94,8 @@ public class Rgaa32017Rule010202Test extends Rgaa32017RuleImplementationTestCase
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "class-decorative-area"));
         addWebResource("Rgaa32017.Test.01.02.02-2Failed-10",
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "class-decorative-area"));
+        addWebResource("Rgaa32017.Test.01.02.02-2Failed-11",
+                createParameter("Rules", DECORATIVE_IMAGE_MARKER, "class-decorative-area"));
         addWebResource("Rgaa32017.Test.01.02.02-3NMI-01");
         addWebResource("Rgaa32017.Test.01.02.02-3NMI-02");
         addWebResource("Rgaa32017.Test.01.02.02-3NMI-03",
@@ -97,6 +107,14 @@ public class Rgaa32017Rule010202Test extends Rgaa32017RuleImplementationTestCase
         addWebResource("Rgaa32017.Test.01.02.02-3NMI-06",
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-area"));
         addWebResource("Rgaa32017.Test.01.02.02-3NMI-07",
+                createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-area"));
+        addWebResource("Rgaa32017.Test.01.02.02-3NMI-08",
+                createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-area"));
+        addWebResource("Rgaa32017.Test.01.02.02-3NMI-09",
+                createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-area"));
+        addWebResource("Rgaa32017.Test.01.02.02-3NMI-10",
+                createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-area"));
+        addWebResource("Rgaa32017.Test.01.02.02-3NMI-11",
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-area"));
         addWebResource("Rgaa32017.Test.01.02.02-4NA-01");
         addWebResource("Rgaa32017.Test.01.02.02-4NA-02");
@@ -132,17 +150,12 @@ public class Rgaa32017Rule010202Test extends Rgaa32017RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------1Passed-03------------------------------
         //----------------------------------------------------------------------
-        checkResultIsPassed(processPageTest("Rgaa32017.Test.01.02.02-1Passed-03"), 1);
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.01.02.02-1Passed-03"), 2);
 
         //----------------------------------------------------------------------
         //------------------------------1Passed-04------------------------------
         //----------------------------------------------------------------------
-        checkResultIsPassed(processPageTest("Rgaa32017.Test.01.02.02-1Passed-04"), 3);
-
-        //----------------------------------------------------------------------
-        //------------------------------1Passed-05------------------------------
-        //----------------------------------------------------------------------
-        checkResultIsPassed(processPageTest("Rgaa32017.Test.01.02.02-1Passed-05"), 1);
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.01.02.02-1Passed-04"), 1);
 
         //----------------------------------------------------------------------
         //------------------------------2Failed-01------------------------------
@@ -176,7 +189,7 @@ public class Rgaa32017Rule010202Test extends Rgaa32017RuleImplementationTestCase
         //------------------------------2Failed-03------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.01.02.02-2Failed-03");
-        checkResultIsFailed(processResult, 1, 1);
+        checkResultIsFailed(processResult, 1, 2);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
@@ -185,12 +198,19 @@ public class Rgaa32017Rule010202Test extends Rgaa32017RuleImplementationTestCase
                 1,
                 new ImmutablePair(ALT_ATTR, "Not empty alt"),
                 new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE));
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                RemarkMessageStore.DECORATIVE_ELEMENT_WITH_ROLE_ATTR_MSG,
+                AREA_ELEMENT,
+                2,
+                new ImmutablePair(ROLE_ATTR, "role-decorative-area"));
 
         //----------------------------------------------------------------------
         //------------------------------2Failed-04------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.01.02.02-2Failed-04");
-        checkResultIsFailed(processResult, 3, 3);
+        checkResultIsFailed(processResult, 2, 2);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
@@ -205,14 +225,6 @@ public class Rgaa32017Rule010202Test extends Rgaa32017RuleImplementationTestCase
                 RemarkMessageStore.DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG,
                 AREA_ELEMENT,
                 2,
-                new ImmutablePair(ALT_ATTR, "Not empty alt"),
-                new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE));
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.FAILED,
-                RemarkMessageStore.DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG,
-                AREA_ELEMENT,
-                3,
                 new ImmutablePair(ALT_ATTR, "Not empty alt"),
                 new ImmutablePair(TITLE_ATTR, ABSENT_ATTRIBUTE_VALUE));
 
@@ -235,25 +247,77 @@ public class Rgaa32017Rule010202Test extends Rgaa32017RuleImplementationTestCase
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.01.02.02-2Failed-06");
         checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                RemarkMessageStore.DECORATIVE_ELEMENT_WITH_TITLE_ATTR_MSG,
+                AREA_ELEMENT,
+                1,
+                new ImmutablePair(TITLE_ATTR, "title attribute"));
+        
         //----------------------------------------------------------------------
         //------------------------------2Failed-07------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.01.02.02-2Failed-07");
         checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                RemarkMessageStore.DECORATIVE_ELEMENT_WITH_TITLE_ATTR_MSG,
+                AREA_ELEMENT,
+                1,
+                new ImmutablePair(TITLE_ATTR, ""));
+        
         //----------------------------------------------------------------------
         //------------------------------2Failed-08------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.01.02.02-2Failed-08");
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                RemarkMessageStore.DECORATIVE_ELEMENT_WITH_ARIA_LABEL_ATTR_MSG,
+                AREA_ELEMENT,
+                1,
+                new ImmutablePair(ARIA_LABEL_ATTR, ""));
+        
         //----------------------------------------------------------------------
         //------------------------------2Failed-09------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.01.02.02-2Failed-09");
         checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                RemarkMessageStore.DECORATIVE_ELEMENT_WITH_ARIA_LABELLEDBY_ATTR_MSG,
+                AREA_ELEMENT,
+                1,
+                new ImmutablePair(ARIA_LABELLEDBY_ATTR, ""));
+        
         //----------------------------------------------------------------------
         //------------------------------2Failed-10------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.01.02.02-2Failed-10");
         checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                RemarkMessageStore.DECORATIVE_ELEMENT_WITH_ARIA_DESCRIBEDBY_ATTR_MSG,
+                AREA_ELEMENT,
+                1,
+                new ImmutablePair(ARIA_DESCRIBEDBY_ATTR, ""));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-11------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.02-2Failed-11");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                RemarkMessageStore.DECORATIVE_ELEMENT_WITH_ROLE_ATTR_MSG,
+                AREA_ELEMENT,
+                1,
+                new ImmutablePair(ROLE_ATTR, "img"));
 
         //----------------------------------------------------------------------
         //------------------------------3NMI-01---------------------------------
@@ -328,7 +392,7 @@ public class Rgaa32017Rule010202Test extends Rgaa32017RuleImplementationTestCase
                 1);
 
         //----------------------------------------------------------------------
-        //------------------------------3NMI-06---------------------------------
+        //------------------------------3NMI-07---------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.01.02.02-3NMI-07");
         checkResultIsPreQualified(processResult, 2, 1);
@@ -336,6 +400,54 @@ public class Rgaa32017Rule010202Test extends Rgaa32017RuleImplementationTestCase
                 processResult,
                 TestSolution.NEED_MORE_INFO,
                 RemarkMessageStore.CHECK_ELEMENT_WITH_NOT_EMPTY_ALT_MSG,
+                AREA_ELEMENT,
+                1);
+
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-08---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.02-3NMI-08");
+        checkResultIsPreQualified(processResult, 2, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                RemarkMessageStore.CHECK_NATURE_OF_IMAGE_WITH_NOT_EMPTY_ALT_MSG,
+                AREA_ELEMENT,
+                1);
+
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-09---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.02-3NMI-09");
+        checkResultIsPreQualified(processResult, 2, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                RemarkMessageStore.CHECK_NATURE_OF_IMAGE_WITH_NOT_EMPTY_ALT_MSG,
+                AREA_ELEMENT,
+                1);
+
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-10---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.02-3NMI-10");
+        checkResultIsPreQualified(processResult, 2, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                RemarkMessageStore.CHECK_NATURE_OF_IMAGE_WITH_NOT_EMPTY_ALT_MSG,
+                AREA_ELEMENT,
+                1);
+
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-11---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.02.02-3NMI-11");
+        checkResultIsPreQualified(processResult, 2, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                RemarkMessageStore.CHECK_NATURE_OF_IMAGE_WITH_NOT_EMPTY_ALT_MSG,
                 AREA_ELEMENT,
                 1);
 

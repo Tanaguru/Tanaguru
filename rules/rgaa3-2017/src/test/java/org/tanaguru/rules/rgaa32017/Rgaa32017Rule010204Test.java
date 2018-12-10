@@ -33,7 +33,9 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_INFORMATI
 import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_INFORMATIVE_SVG_WITH_DESC_OR_TITLE_CHILD_TAG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_INFORMATIVE_SVG_WITH_TITLE_ATTRIBUTE_ON_ELEMENT_OR_CHILD;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_WELL_FORMATED_DECORATIVE_SVG;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_DECORATIVE_SVG_ROLE_ON_SVG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_DECORATIVE_SVG_ROLE_ON_SVG;
+
 import org.tanaguru.rules.rgaa32017.test.Rgaa32017RuleImplementationTestCase;
 
 /**
@@ -152,7 +154,7 @@ public class Rgaa32017Rule010204Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                "DecorativeSvgWithoutRoleImgAttribute",
+                "DecorativeSvgWithRole",
                 HtmlElementStore.SVG_ELEMENT,
                 1);
         //----------------------------------------------------------------------
@@ -163,7 +165,7 @@ public class Rgaa32017Rule010204Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                "DecorativeSvgWithoutRoleImgAttribute",
+                "DecorativeSvgWithRole",
                 HtmlElementStore.SVG_ELEMENT,
                 1);
         
@@ -175,13 +177,13 @@ public class Rgaa32017Rule010204Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                "DecorativeSvgWithoutRoleImgAttribute",
+                "DecorativeSvgWithRole",
                 HtmlElementStore.SVG_ELEMENT,
                 1);
          checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                "DecorativeSvgWithoutRoleImgAttribute",
+                "DecorativeSvgWithRole",
                 HtmlElementStore.SVG_ELEMENT,
                 2);
         //----------------------------------------------------------------------
@@ -192,7 +194,7 @@ public class Rgaa32017Rule010204Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                "DecorativeSvgWithoutRoleImgAttribute",
+                "DecorativeSvgWithRole",
                 HtmlElementStore.SVG_ELEMENT,
                 1);
         
@@ -200,155 +202,310 @@ public class Rgaa32017Rule010204Test extends Rgaa32017RuleImplementationTestCase
         //------------------------------2Failed-05------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.1.2.4-2Failed-05");
-        checkResultIsFailed(processResult, 2, 1);
+        checkResultIsFailed(processResult, 2, 3);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                "DecorativeSvgWithRole",
+                HtmlElementStore.SVG_ELEMENT,
+                1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                "DecorativeSvgWithRole",
+                HtmlElementStore.SVG_ELEMENT,
+                2);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
                 "DecorativeSvgOrChildrenWithAriaAttribute",
                 HtmlElementStore.SVG_ELEMENT,
-                1);
+                3);
         //----------------------------------------------------------------------
         //------------------------------2Failed-06------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.1.2.4-2Failed-06");
-        checkResultIsFailed(processResult, 2, 1);
+        checkResultIsFailed(processResult, 2, 3);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                "DecorativeSvgOrChildrenWithAriaAttribute",          
+                "DecorativeSvgWithRole",
                 HtmlElementStore.SVG_ELEMENT,
                 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                "DecorativeSvgWithRole",
+                HtmlElementStore.SVG_ELEMENT,
+                2);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                "DecorativeSvgOrChildrenWithAriaAttribute",
+                HtmlElementStore.SVG_ELEMENT,
+                3);
         //----------------------------------------------------------------------
         //------------------------------2Failed-07------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.1.2.4-2Failed-07");
-        checkResultIsFailed(processResult, 2, 1);
+        checkResultIsFailed(processResult, 2, 3);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                "DecorativeSvgOrChildrenWithAriaAttribute",          //DecorativeSvgWithTitleAttribute
+                "DecorativeSvgWithRole",
                 HtmlElementStore.SVG_ELEMENT,
                 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                "DecorativeSvgWithRole",
+                HtmlElementStore.SVG_ELEMENT,
+                2);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                "DecorativeSvgOrChildrenWithAriaAttribute",
+                HtmlElementStore.SVG_ELEMENT,
+                3);
         //----------------------------------------------------------------------
         //------------------------------2Failed-08------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.1.2.4-2Failed-08");
-        checkResultIsFailed(processResult, 2, 1);
+        checkResultIsFailed(processResult, 2, 3);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                "DecorativeSvgOrChildrenWithAriaAttribute",          
+                "DecorativeSvgWithRole",
                 HtmlElementStore.SVG_ELEMENT,
                 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                "DecorativeSvgWithRole",
+                HtmlElementStore.SVG_ELEMENT,
+                2);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                "DecorativeSvgOrChildrenWithAriaAttribute",
+                HtmlElementStore.SVG_ELEMENT,
+                3);
         //----------------------------------------------------------------------
         //------------------------------2Failed-09------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.1.2.4-2Failed-09");
-        checkResultIsFailed(processResult, 2, 1);
+        checkResultIsFailed(processResult, 2, 3);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                "DecorativeSvgOrChildrenWithAriaAttribute",          
+                "DecorativeSvgWithRole",
                 HtmlElementStore.SVG_ELEMENT,
                 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                "DecorativeSvgWithRole",
+                HtmlElementStore.SVG_ELEMENT,
+                2);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                "DecorativeSvgOrChildrenWithAriaAttribute",
+                HtmlElementStore.SVG_ELEMENT,
+                3);
         //----------------------------------------------------------------------
         //------------------------------2Failed-10------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.1.2.4-2Failed-10");
-        checkResultIsFailed(processResult, 2, 1);
+        checkResultIsFailed(processResult, 2, 3);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                "DecorativeSvgOrChildrenWithAriaAttribute",         
+                "DecorativeSvgWithRole",
                 HtmlElementStore.SVG_ELEMENT,
                 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                "DecorativeSvgWithRole",
+                HtmlElementStore.SVG_ELEMENT,
+                2);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                "DecorativeSvgOrChildrenWithAriaAttribute",
+                HtmlElementStore.SVG_ELEMENT,
+                3);
                
         //----------------------------------------------------------------------
         //------------------------------2Failed-11------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.1.2.4-2Failed-11");
-        checkResultIsFailed(processResult, 2, 2);
+        checkResultIsFailed(processResult, 2, 4);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                "DecorativeSvgOrChildrenWithAriaAttribute",          
+                "DecorativeSvgWithRole",
                 HtmlElementStore.SVG_ELEMENT,
                 1);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                "DecorativeSvgOrChildrenWithAriaAttribute",          
+                "DecorativeSvgWithRole",
                 HtmlElementStore.SVG_ELEMENT,
                 2);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                "DecorativeSvgOrChildrenWithAriaAttribute",          
+                HtmlElementStore.SVG_ELEMENT,
+                3);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                "DecorativeSvgOrChildrenWithAriaAttribute",          
+                HtmlElementStore.SVG_ELEMENT,
+                4);
         //----------------------------------------------------------------------
         //------------------------------2Failed-12------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.1.2.4-2Failed-12");
-        checkResultIsFailed(processResult, 2, 1);
+        checkResultIsFailed(processResult, 2, 3);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                "DecorativeSvgWithRole",
+                HtmlElementStore.SVG_ELEMENT,
+                1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                "DecorativeSvgWithRole",
+                HtmlElementStore.SVG_ELEMENT,
+                2);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
                 DECORATIVE_SVG_WITH_NOT_EMPTY_TITLE_OR_DESC_TAGS,          
                 HtmlElementStore.SVG_ELEMENT,
-                1);
+                3);
         //----------------------------------------------------------------------
         //------------------------------2Failed-13------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.1.2.4-2Failed-13");
-        checkResultIsFailed(processResult, 2, 1);
+        checkResultIsFailed(processResult, 2, 3);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                "DecorativeSvgWithRole",
+                HtmlElementStore.SVG_ELEMENT,
+                1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                "DecorativeSvgWithRole",
+                HtmlElementStore.SVG_ELEMENT,
+                2);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
                 DECORATIVE_SVG_WITH_NOT_EMPTY_TITLE_OR_DESC_TAGS,          
                 HtmlElementStore.SVG_ELEMENT,
-                1);
+                3);
         //----------------------------------------------------------------------
         //------------------------------2Failed-14------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.1.2.4-2Failed-14");
-        checkResultIsFailed(processResult, 2, 1);
+        checkResultIsFailed(processResult, 2, 3);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                "DecorativeSvgWithRole",
+                HtmlElementStore.SVG_ELEMENT,
+                1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                "DecorativeSvgWithRole",
+                HtmlElementStore.SVG_ELEMENT,
+                2);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
                 DECORATIVE_SVG_WITH_NOT_EMPTY_TITLE_OR_DESC_TAGS,          
                 HtmlElementStore.SVG_ELEMENT,
-                1);
+                3);
         //----------------------------------------------------------------------
         //------------------------------2Failed-15------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.1.2.4-2Failed-15");
-        checkResultIsFailed(processResult, 2, 1);
+        checkResultIsFailed(processResult, 2, 3);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                "DecorativeSvgWithRole",
+                HtmlElementStore.SVG_ELEMENT,
+                1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                "DecorativeSvgWithRole",
+                HtmlElementStore.SVG_ELEMENT,
+                2);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
                 DECORATIVE_SVG_OR_CHILD_WITH_TITLE_ATTRIBUTE,          
                 HtmlElementStore.SVG_ELEMENT,
-                1);
+                3);
         //----------------------------------------------------------------------
         //------------------------------2Failed-16------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.1.2.4-2Failed-16");
-        checkResultIsFailed(processResult, 2, 1);
+        checkResultIsFailed(processResult, 2, 3);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                "DecorativeSvgWithRole",
+                HtmlElementStore.SVG_ELEMENT,
+                1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                "DecorativeSvgWithRole",
+                HtmlElementStore.SVG_ELEMENT,
+                2);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
                 DECORATIVE_SVG_OR_CHILD_WITH_TITLE_ATTRIBUTE,          
                 HtmlElementStore.SVG_ELEMENT,
-                1);
-
+                3);
         //----------------------------------------------------------------------
         //------------------------------3NMI-01---------------------------------
         //----------------------------------------------------------------------
          processResult = processPageTest("Rgaa32017.Test.1.2.4-3NMI-01");
        // checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-          checkResultIsPreQualified(processResult, 2, 2);
+          checkResultIsPreQualified(processResult, 2, 3);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
+                SUSPECTED_DECORATIVE_SVG_ROLE_ON_SVG,
                 HtmlElementStore.SVG_ELEMENT,
-                1
-        );
+                1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                SUSPECTED_INFORMATIVE_SVG_WITH_TITLE_ATTRIBUTE_ON_ELEMENT_OR_CHILD,
+                HtmlElementStore.SVG_ELEMENT,
+                2);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                SUSPECTED_WELL_FORMATED_DECORATIVE_SVG,
+                HtmlElementStore.SVG_ELEMENT,
+                3);
+        
         //----------------------------------------------------------------------
         //------------------------------3NMI-02---------------------------------
         //----------------------------------------------------------------------
@@ -358,24 +515,40 @@ public class Rgaa32017Rule010204Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
+                SUSPECTED_DECORATIVE_SVG_ROLE_ON_SVG,
                 HtmlElementStore.SVG_ELEMENT,
-                1
-        );
+                1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                SUSPECTED_WELL_FORMATED_DECORATIVE_SVG,
+                HtmlElementStore.SVG_ELEMENT,
+                2);
         
         //----------------------------------------------------------------------
         //------------------------------3NMI-03---------------------------------
         //----------------------------------------------------------------------
          processResult = processPageTest("Rgaa32017.Test.1.2.4-3NMI-03");
        // checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-          checkResultIsPreQualified(processResult, 2, 2);
+          checkResultIsPreQualified(processResult, 2, 3);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
+                SUSPECTED_DECORATIVE_SVG_ROLE_ON_SVG,
                 HtmlElementStore.SVG_ELEMENT,
-                1
-        );
+                1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                SUSPECTED_INFORMATIVE_SVG_WITH_ARIA_ATTRIBUTE_DETECTED_ON_ELEMENT_OR_CHILD,
+                HtmlElementStore.SVG_ELEMENT,
+                2);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                SUSPECTED_WELL_FORMATED_DECORATIVE_SVG,
+                HtmlElementStore.SVG_ELEMENT,
+                3);
         
         //----------------------------------------------------------------------
         //------------------------------3NMI-04---------------------------------
@@ -386,65 +559,93 @@ public class Rgaa32017Rule010204Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
+                SUSPECTED_INFORMATIVE_SVG_WITH_ARIA_ATTRIBUTE_DETECTED_ON_ELEMENT_OR_CHILD,
                 HtmlElementStore.SVG_ELEMENT,
-                1
-        );
+                1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                SUSPECTED_WELL_FORMATED_DECORATIVE_SVG,
+                HtmlElementStore.SVG_ELEMENT,
+                2);
         
         //----------------------------------------------------------------------
         //------------------------------3NMI-05---------------------------------
         //----------------------------------------------------------------------
          processResult = processPageTest("Rgaa32017.Test.1.2.4-3NMI-05");
        // checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-          checkResultIsPreQualified(processResult, 2, 2);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
-                HtmlElementStore.SVG_ELEMENT,
-                1
-        );
+         checkResultIsPreQualified(processResult, 2, 2);
+       checkRemarkIsPresent(
+               processResult,
+               TestSolution.NEED_MORE_INFO,
+               SUSPECTED_INFORMATIVE_SVG_WITH_ARIA_ATTRIBUTE_DETECTED_ON_ELEMENT_OR_CHILD,
+               HtmlElementStore.SVG_ELEMENT,
+               1);
+       checkRemarkIsPresent(
+               processResult,
+               TestSolution.NEED_MORE_INFO,
+               SUSPECTED_WELL_FORMATED_DECORATIVE_SVG,
+               HtmlElementStore.SVG_ELEMENT,
+               2);
+       
         //----------------------------------------------------------------------
         //------------------------------3NMI-06---------------------------------
         //----------------------------------------------------------------------
          processResult = processPageTest("Rgaa32017.Test.1.2.4-3NMI-06");
        // checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-          checkResultIsPreQualified(processResult, 2, 2);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
-                HtmlElementStore.SVG_ELEMENT,
-                1
-        );
+         checkResultIsPreQualified(processResult, 2, 2);
+       checkRemarkIsPresent(
+               processResult,
+               TestSolution.NEED_MORE_INFO,
+               SUSPECTED_INFORMATIVE_SVG_WITH_ARIA_ATTRIBUTE_DETECTED_ON_ELEMENT_OR_CHILD,
+               HtmlElementStore.SVG_ELEMENT,
+               1);
+       checkRemarkIsPresent(
+               processResult,
+               TestSolution.NEED_MORE_INFO,
+               SUSPECTED_WELL_FORMATED_DECORATIVE_SVG,
+               HtmlElementStore.SVG_ELEMENT,
+               2);
+       
         //----------------------------------------------------------------------
         //------------------------------3NMI-07---------------------------------
         //----------------------------------------------------------------------
          processResult = processPageTest("Rgaa32017.Test.1.2.4-3NMI-07");
        // checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-          checkResultIsPreQualified(processResult, 2, 2);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
-                HtmlElementStore.SVG_ELEMENT,
-                1
-        );
+         checkResultIsPreQualified(processResult, 2, 2);
+       checkRemarkIsPresent(
+               processResult,
+               TestSolution.NEED_MORE_INFO,
+               SUSPECTED_INFORMATIVE_SVG_WITH_ARIA_ATTRIBUTE_DETECTED_ON_ELEMENT_OR_CHILD,
+               HtmlElementStore.SVG_ELEMENT,
+               1);
+       checkRemarkIsPresent(
+               processResult,
+               TestSolution.NEED_MORE_INFO,
+               SUSPECTED_WELL_FORMATED_DECORATIVE_SVG,
+               HtmlElementStore.SVG_ELEMENT,
+               2);
+       
         
         //----------------------------------------------------------------------
-        //------------------------------3NMI-07---------------------------------
+        //------------------------------3NMI-08---------------------------------
         //----------------------------------------------------------------------
          processResult = processPageTest("Rgaa32017.Test.1.2.4-3NMI-08");
        // checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-          checkResultIsPreQualified(processResult, 2, 2);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
-                HtmlElementStore.SVG_ELEMENT,
-                1
-        );
-        
+         checkResultIsPreQualified(processResult, 2, 2);
+       checkRemarkIsPresent(
+               processResult,
+               TestSolution.NEED_MORE_INFO,
+               SUSPECTED_INFORMATIVE_SVG_WITH_ARIA_ATTRIBUTE_DETECTED_ON_ELEMENT_OR_CHILD,
+               HtmlElementStore.SVG_ELEMENT,
+               1);
+       checkRemarkIsPresent(
+               processResult,
+               TestSolution.NEED_MORE_INFO,
+               SUSPECTED_WELL_FORMATED_DECORATIVE_SVG,
+               HtmlElementStore.SVG_ELEMENT,
+               2);
+       
         //----------------------------------------------------------------------
         //------------------------------3NMI-09---------------------------------
         //----------------------------------------------------------------------
@@ -454,10 +655,16 @@ public class Rgaa32017Rule010204Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
+                SUSPECTED_INFORMATIVE_SVG_WITH_DESC_OR_TITLE_CHILD_TAG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                SUSPECTED_WELL_FORMATED_DECORATIVE_SVG,
+                HtmlElementStore.SVG_ELEMENT,
+                2);
         
         //----------------------------------------------------------------------
         //------------------------------3NMI-10---------------------------------
@@ -468,10 +675,16 @@ public class Rgaa32017Rule010204Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
+                SUSPECTED_INFORMATIVE_SVG_WITH_DESC_OR_TITLE_CHILD_TAG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                SUSPECTED_WELL_FORMATED_DECORATIVE_SVG,
+                HtmlElementStore.SVG_ELEMENT,
+                2);
         
         //----------------------------------------------------------------------
         //------------------------------3NMI-11---------------------------------
@@ -482,10 +695,16 @@ public class Rgaa32017Rule010204Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
+                SUSPECTED_INFORMATIVE_SVG_WITH_DESC_OR_TITLE_CHILD_TAG,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                SUSPECTED_WELL_FORMATED_DECORATIVE_SVG,
+                HtmlElementStore.SVG_ELEMENT,
+                2);
         
         //----------------------------------------------------------------------
         //------------------------------3NMI-12---------------------------------
@@ -496,10 +715,16 @@ public class Rgaa32017Rule010204Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                SUSPECTED_DECORATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG,
+                SUSPECTED_INFORMATIVE_SVG_WITH_TITLE_ATTRIBUTE_ON_ELEMENT_OR_CHILD,
                 HtmlElementStore.SVG_ELEMENT,
                 1
         );
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                SUSPECTED_WELL_FORMATED_DECORATIVE_SVG,
+                HtmlElementStore.SVG_ELEMENT,
+                2);
         
 //        //----------------------------------------------------------------------
 //        //------------------------------4NA-01----------------------------------

@@ -20,11 +20,11 @@
             <div class="testcase"> 
                 <img alt="" src="mock-image.jpg" usemap="#mock-map" /> 
                 <map id="mock-map" name="mock-map">
-                    <area class="class-informative-area" href="mock-area.html" alt="Alternative" title="Alternative"></area>
+                    <area href="mock-area.html" alt="informative-area-alternative" aria-labelledby="informative-area-alternative"></area>
                 </map> 
             </div> 
             <div class="test-explanation">
-                 NMI : At least one &lt;area&gt; has a title attribute identical to the alt attribute but its pertinence needs to be manually checked
+                 NMI : The &lt;area&gt; has a pertinent alt attribute which is identical to the aria-labelledby attribute but isn't identified by marker. 
             </div> 
         </div>   
     </body>

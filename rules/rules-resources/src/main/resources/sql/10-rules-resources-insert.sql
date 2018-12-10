@@ -53,6 +53,7 @@ INSERT IGNORE INTO `EVIDENCE` (`Id_Evidence`, `Cd_Evidence`, `Description`, `Lon
 (38, 'aria-describedby', NULL, NULL),
 (39, 'aria-hidden', NULL, NULL),
 (40, 'role', NULL, NULL),
+(41, 'type', NULL, NULL),
 (1000, 'Url', NULL, NULL),
 (1002, 'H1', NULL, NULL),
 (1003, 'MetaDescription', NULL, NULL);
