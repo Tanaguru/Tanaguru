@@ -13,9 +13,11 @@
                 <code>&lt;/canvas&gt;</code> doit être dépourvu de contenus textuels, cette règle est-elle respectée ? 
             </div> 
             <div class="testcase"> 
-                <embed id="embed-informative-image" type="image/jpeg" data="TheEarth.gif" title="earth picture" aria-labelledby="image"></embed>
-                <embed role="embed-informative-image" type="image/jpeg" data="TheEarth.gif" title="earth picture" aria-labelledby="image"></embed>
-                <embed class="embed-informative-image" type="image/jpeg" data="TheEarth.gif" title="earth picture" aria-labelledby="image"></embed>
+                <embed id="embed-informative-image" type="image/jpeg" data="TheEarth.gif" title="earth picture" aria-labelledby="txt FAILED 08"></embed>
+                <embed role="embed-informative-image" type="image/jpeg" data="TheEarth.gif" title="earth picture" aria-labelledby="txt FAILED 08"></embed>
+                <embed class="embed-informative-image" type="image/jpeg" data="TheEarth.gif" title="earth picture" aria-labelledby="txt FAILED 08"></embed>
+                <p id="txt FAILED 08">this is</p>
+                <p id="txt FAILED 08">a text</p>
             </div> 
             <div class="test-explanation">
                 FAILED : Three embed are found on the page and are identified by marker.  

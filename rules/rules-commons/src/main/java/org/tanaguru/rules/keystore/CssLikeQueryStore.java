@@ -47,6 +47,9 @@ public final class CssLikeQueryStore {
             = "applet:not(a applet)";
     public static final String OBJECT_TYPE_IMG_CSS_LIKE_QUERY
             = "object[type^=image]";
+    public static final String OBJECT_TYPE_IMG_WITH_TITLE_CSS_LIKE_QUERY
+		    = "object[type^=image][title][aria-label] ,"
+		    		+ "object[type^=image][title][aria-labelledby]"; 
     public static final String OBJECT_TYPE_IMG_NOT_IN_LINK_CSS_LIKE_QUERY
             = "object[type^=image]:not(a object)";
     public static final String EMBED_TYPE_IMG_CSS_LIKE_QUERY

@@ -25,7 +25,11 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.jsoup.nodes.Element;
+
+import static org.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
+import static org.tanaguru.rules.keystore.AttributeStore.ID_ATTR;
 
 /**
  * This implementation of the {@link TextualElementBuilder} extracts the text
@@ -76,11 +80,18 @@ public class TextAttributeOfElementBuilder implements TextElementBuilder {
         boolean elementHasAttr = false;
         StringBuilder strb = new StringBuilder();
         for (String attributeName : attributeNames) {
+        	if(StringUtils.equalsIgnoreCase(attributeName, ID_ATTR)) {
+        		elementHasAttr = true;
+        	}else
             if (element.hasAttr(attributeName)) {
                 elementHasAttr = true;
                 strb.append(element.attr(attributeName));
                 strb.append(SPACER);
-            }
+            }else if(StringUtils.equalsIgnoreCase(attributeName, TEXT_ELEMENT2)) {
+           		 elementHasAttr = true;
+                 strb.append(element.text());
+                 strb.append(SPACER);
+           	}
         }
         if (!elementHasAttr) {
             return null;
