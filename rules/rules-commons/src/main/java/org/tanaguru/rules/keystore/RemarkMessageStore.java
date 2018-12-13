@@ -216,6 +216,8 @@ public final class RemarkMessageStore {
     
     public static final String CHECK_OBJ_IMG_ARIA_MSG
             ="CheckObjImgAriaMsg";
+    public static final String CHECK_OBJ_IMG_ARIA_LABELLEDBY_MSG
+    		="CheckObjImgAriaLabelledbyMsg";
     public static final String CHECK_CANVAS_IMG_ARIA_MSG
             ="CheckCanvasImgAriaMsg";
     public static final String CHECK_EMB_IMG_ARIA_MSG
@@ -234,23 +236,27 @@ public final class RemarkMessageStore {
             ="CheckSvgImgAriaMsg";
     public static final String CHECK_CANVAS_LEGD_ARIA_MSG
             ="CheckCanvasLegdAriaMsg";
-     public static final String CHECK_IMG_TAGS_MSG="CheckImgTags";
-     public static final String INFORMATIVE_EMB_NOT_INDENTICAL_ATTR_MSG
+    public static final String CHECK_IMG_TAGS_MSG="CheckImgTags";
+    public static final String INFORMATIVE_EMB_NOT_INDENTICAL_ATTR_MSG
      		= "InformativeEmbNotIdenticalAttr";     
-     public static final String INFORMATIVE_EMB_NOT_INDENTICAL_ARIA_LABELLEDBY_MSG
-		= "InformativeEmbNotIdenticalAriaLabelledby";     
-     public static final String SUSPECTED_DECORATIVE_EMB_WITH_ARIA_ATTRIBUTE_DETECTED
+    public static final String INFORMATIVE_EMB_NOT_INDENTICAL_ARIA_LABELLEDBY_MSG
+    		= "InformativeEmbNotIdenticalAriaLabelledby";     
+    public static final String SUSPECTED_DECORATIVE_EMB_WITH_ARIA_ATTRIBUTE_DETECTED
             = "SuspectedDecorativeEmbWithAriaAttributeDetected";
-     public static final String SUSPECTED_INFORMATIVE_EMB_DETECTED
+    public static final String SUSPECTED_INFORMATIVE_EMB_DETECTED
             = "SuspectedInformativeEmbDetected";     
-     public static final String SUSPECTED_INFORMATIVE_EMB_WITH_LABELLEDBY_DETECTED
+    public static final String SUSPECTED_INFORMATIVE_EMB_WITH_LABELLEDBY_DETECTED
      		= "SuspectedInformativeEmbWithLabelledbyDetected";     
-     public static final String SUSPECTED_INFORMATIVE_EMB_WITH_ARIA_ATTRIBUTE_NOT_DETECTED
+    public static final String SUSPECTED_INFORMATIVE_EMB_WITH_ARIA_ATTRIBUTE_NOT_DETECTED
             = "SuspectedInformativeEmbWithAriaAttributeNotDetected";
-     public static final String SUSPECTED_INFORMATIVE_OBJ_DETECTED
+    public static final String SUSPECTED_INFORMATIVE_OBJ_DETECTED
 			= "SuspectedInformativeObjDetected";
- 	 public static final String INFORMATIVE_OBJ_NOT_INDENTICAL_ATTR_MSG
+    public static final String SUSPECTED_INFORMATIVE_OBJ_WITH_LABELLEDBY_DETECTED
+			= "SuspectedInformativeObjWithLabelledbyDetected";
+ 	public static final String INFORMATIVE_OBJ_NOT_INDENTICAL_ATTR_MSG
 			= "InformativeObjNotIndenticalAttr";
+ 	public static final String INFORMATIVE_OBJ_NOT_INDENTICAL_ARIA_LABELLEDBY_MSG
+			= "InformativeObjNotIndenticalAriaLabelledby";
 
     // frames 
     public static final String NOT_PERTINENT_TITLE_OF_FRAME_MSG
