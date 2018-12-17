@@ -80,9 +80,6 @@ public class TextAttributeOfElementBuilder implements TextElementBuilder {
         boolean elementHasAttr = false;
         StringBuilder strb = new StringBuilder();
         for (String attributeName : attributeNames) {
-        	if(StringUtils.equalsIgnoreCase(attributeName, ID_ATTR)) {
-        		elementHasAttr = true;
-        	}else
             if (element.hasAttr(attributeName)) {
                 elementHasAttr = true;
                 strb.append(element.attr(attributeName));

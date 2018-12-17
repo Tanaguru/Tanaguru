@@ -213,13 +213,14 @@ public final class RemarkMessageStore {
             = "CheckNatureOfImageAndStyledTextPresence";
     public static final String CHECK_TEXT_STYLED_PRESENCE_OF_INFORMATIVE_IMG_MSG
             = "CheckStyledTextPresenceOfInformativeImage";
-    
     public static final String CHECK_OBJ_IMG_ARIA_MSG
             ="CheckObjImgAriaMsg";
     public static final String CHECK_OBJ_IMG_ARIA_LABELLEDBY_MSG
     		="CheckObjImgAriaLabelledbyMsg";
     public static final String CHECK_CANVAS_IMG_ARIA_MSG
-            ="CheckCanvasImgAriaMsg";
+            ="CheckCanvasImgAriaMsg";    
+    public static final String CHECK_CANVAS_IMG_ARIA_LABELLEDBY_MSG
+    		="CheckCanvasImgAriaLabelledbyMsg";
     public static final String CHECK_EMB_IMG_ARIA_MSG
             ="CheckEmbImgAriaMsg";
     public static final String CHECK_EMB_IMG_ARIA_LABELLEDBY_MSG
@@ -257,6 +258,14 @@ public final class RemarkMessageStore {
 			= "InformativeObjNotIndenticalAttr";
  	public static final String INFORMATIVE_OBJ_NOT_INDENTICAL_ARIA_LABELLEDBY_MSG
 			= "InformativeObjNotIndenticalAriaLabelledby";
+    public static final String INFORMATIVE_CANVAS_NOT_INDENTICAL_ATTR_MSG
+			= "InformativeCanvasNotIdenticalAttr";     
+	public static final String INFORMATIVE_CANVAS_NOT_INDENTICAL_ARIA_LABELLEDBY_MSG
+			= "InformativeCanvasNotIdenticalAriaLabelledby";   
+    public static final String SUSPECTED_INFORMATIVE_CANVAS_DETECTED
+			= "SuspectedInformativeCanvasDetected";
+    public static final String SUSPECTED_INFORMATIVE_CANVAS_WITH_LABELLEDBY_DETECTED
+			= "SuspectedInformativeCanvasWithLabelledbyDetected";
 
     // frames 
     public static final String NOT_PERTINENT_TITLE_OF_FRAME_MSG

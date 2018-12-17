@@ -59,6 +59,9 @@ public final class CssLikeQueryStore {
 		    		"embed[type^=image][title][aria-labelledby]";
     public static final String EMBED_TYPE_IMG_NOT_IN_LINK_CSS_LIKE_QUERY
             = "embed[type^=image]:not(a embed)";
+    public static final String CANVAS_TYPE_IMG_WITH_TITLE_CSS_LIKE_QUERY 
+		    = "canvas[title][aria-label] ,"+
+		    		"canvas[title][aria-labelledby]";
     public static final String AREA_WITH_ALT_CSS_LIKE_QUERY
             = "area[alt]";
     public static final String AREA_WITH_ALT_NOT_IN_LINK_CSS_LIKE_QUERY
