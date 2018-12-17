@@ -22,19 +22,17 @@ package org.tanaguru.rules.rgaa32017;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.tanaguru.entity.audit.*;
 import org.tanaguru.rules.rgaa32017.test.Rgaa32017RuleImplementationTestCase;
+import org.tanaguru.rules.keystore.HtmlElementStore;
+import org.tanaguru.rules.keystore.RemarkMessageStore;
+
 import static org.tanaguru.rules.keystore.AttributeStore.ALT_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.SRC_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.TITLE_NOT_IDENTICAL_TO_ALT_MSG;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.ARIA_LABEL_NOT_IDENTICAL_TO_ALT_MSG;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.ARIA_LABELLEDBY_NOT_IDENTICAL_TO_ALT_MSG;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABEL_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABELLEDBY_ATTR;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.TITLE_NOT_IDENTICAL_TO_ALT_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG;
 
-import org.tanaguru.rules.keystore.AttributeStore;
-import org.tanaguru.rules.keystore.HtmlElementStore;
-import org.tanaguru.rules.keystore.RemarkMessageStore;
 
 
 /**
@@ -205,12 +203,11 @@ public class Rgaa32017Rule010303Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                RemarkMessageStore.ARIA_LABELLEDBY_NOT_IDENTICAL_TO_ALT_MSG,
+                RemarkMessageStore.TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG,
                 HtmlElementStore.INPUT_ELEMENT,
                 2,
-                new ImmutablePair(ALT_ATTR, "Informative input alternative"),
-                new ImmutablePair(SRC_ATTR, "mock-image"),
-                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "informative input"));
+                new ImmutablePair(ALT_ATTR,"Informative input alternative"),
+                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "Failed 07"));
         
         
         //----------------------------------------------------------------------
@@ -231,8 +228,8 @@ public class Rgaa32017Rule010303Test extends Rgaa32017RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------3NMI-01---------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.1.3.3-3NMI-01");
-        checkResultIsPreQualified(processResult, 1, 1);
+    	processResult = processPageTest("Rgaa32017.Test.1.3.3-3NMI-01");
+    	checkResultIsPreQualified(processResult, 1, 1);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
@@ -241,6 +238,14 @@ public class Rgaa32017Rule010303Test extends Rgaa32017RuleImplementationTestCase
                 1,
                 new ImmutablePair(ALT_ATTR, "Informative input alternative"),
                 new ImmutablePair(SRC_ATTR, "mock-image"));
+//        checkRemarkIsPresent(
+//                processResult,
+//                TestSolution.FAILED,
+//                RemarkMessageStore.CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
+//                HtmlElementStore.INPUT_ELEMENT,
+//                2,
+//                new ImmutablePair(ALT_ATTR, "Informative input alternative"),
+//                new ImmutablePair(SRC_ATTR, "mock-image"));
         
         
         //----------------------------------------------------------------------

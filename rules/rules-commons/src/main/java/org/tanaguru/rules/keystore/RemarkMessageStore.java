@@ -139,6 +139,8 @@ public final class RemarkMessageStore {
     public static final String TITLE_NOT_IDENTICAL_TO_ALT_MSG = "TitleNotIdenticalToAlt";
     public static final String ARIA_LABEL_NOT_IDENTICAL_TO_ALT_MSG = "AriaLabelNotIdenticalToAlt";
     public static final String ARIA_LABELLEDBY_NOT_IDENTICAL_TO_ALT_MSG = "AriaLabelledbyNotIdenticalToAlt";
+    public static final String TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG 
+    		= "TextNotIdenticalToAlt";
     public static final String CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG
             = "CheckPertinenceOfAltAttributeOfInformativeImage";
     public static final String CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG

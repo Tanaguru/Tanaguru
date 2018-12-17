@@ -27,6 +27,7 @@ import org.tanaguru.ruleimplementation.TestSolutionHandler;
 import org.tanaguru.rules.elementchecker.ElementChecker;
 import org.tanaguru.rules.elementchecker.pertinence.AttributePertinenceChecker;
 import org.tanaguru.rules.elementselector.ImageElementSelector;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
 import org.tanaguru.rules.keystore.RemarkMessageStore;
 
 import static org.tanaguru.entity.audit.TestSolution.FAILED;
@@ -36,8 +37,10 @@ import static org.tanaguru.rules.keystore.AttributeStore.ALT_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.SRC_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABEL_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ID_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABELLEDBY_ATTR;
 import static org.tanaguru.rules.keystore.CssLikeQueryStore.FORM_BUTTON_WITH_ALT_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.*;
 
 import java.util.Collections;
@@ -65,13 +68,16 @@ public class Rgaa32017Rule010303 extends AbstractPageRuleWithSelectorAndCheckerI
 
     /** The name of the nomenclature that handles the image file extensions */
     private static final String IMAGE_FILE_EXTENSION_NOM = "ImageFileExtensions";
-    
+
+	ElementHandler<Element> inputAriaLabelledby = new ElementHandlerImpl();
+	ElementHandler<Element> elementWithAriaLabelledby = new ElementHandlerImpl();
 
 
     /**
      * Constructor
      */
     public Rgaa32017Rule010303() {
+
     	super(new ImageElementSelector(FORM_BUTTON_WITH_ALT_CSS_LIKE_QUERY, true, false),
     		  new CompositeChecker(
     				  new AttributePertinenceChecker(
@@ -100,16 +106,54 @@ public class Rgaa32017Rule010303 extends AbstractPageRuleWithSelectorAndCheckerI
     		                	new TextAttributeOfElementBuilder(ALT_ATTR),
     		                	new ImmutablePair(TestSolution.NEED_MORE_INFO, ""),
     		                	new ImmutablePair(TestSolution.FAILED, ARIA_LABEL_NOT_IDENTICAL_TO_ALT_MSG),
-    		                	ALT_ATTR,SRC_ATTR,ARIA_LABEL_ATTR),
-    				  new TextNotIdenticalToAttributeChecker(
-    		                	new TextAttributeOfElementBuilder(ARIA_LABELLEDBY_ATTR),
-    		                	new TextAttributeOfElementBuilder(ALT_ATTR),
-    		                	new ImmutablePair(TestSolution.NEED_MORE_INFO, ""),
-    		                	new ImmutablePair(TestSolution.FAILED, ARIA_LABELLEDBY_NOT_IDENTICAL_TO_ALT_MSG),
-    		                	ALT_ATTR,SRC_ATTR,ARIA_LABELLEDBY_ATTR)));
+    		                	ALT_ATTR,SRC_ATTR,ARIA_LABEL_ATTR)));
     	CompositeChecker ec = (CompositeChecker) getElementChecker();
     	ec.setIsOrCombinaison(false);
     	setElementChecker(ec);
     }
+    
+    //Redefinir la selection du aria-labelledby
+    protected void select(SSPHandler sspHandler) {
+    	super.select(sspHandler); 	
 
+    	//get id attributes
+    	for(Element element : getElements().get()) {
+			if(element.hasAttr(ARIA_LABELLEDBY_ATTR)) {
+				inputAriaLabelledby.add(element);
+			}
+		}
+
+		//Select elements have got id attribute
+		ElementHandler<Element> elementPage = new ElementHandlerImpl();
+    	SimpleElementSelector ses = new SimpleElementSelector("*[id]:not(input)"); //select all element with an id except input elements
+    	ses.selectElements(sspHandler, elementPage);    	
+    	    	
+    	//select elements have id/aria-labelledby identical
+    	for (Element el : elementPage.get()) {
+        	for(Element elemAria : inputAriaLabelledby.get()) {    
+				if(elemAria.attr(ARIA_LABELLEDBY_ATTR).equals(el.id())) { //ID == ARIA-LABELLEDBY
+					elementWithAriaLabelledby.add(el);
+					break;
+				}
+        	}
+		}
+    }
+    
+    protected void check(SSPHandler sspHandler,
+            TestSolutionHandler testSolutionHandler) {
+
+    	super.check(sspHandler, testSolutionHandler);   
+    	
+    	if(!elementWithAriaLabelledby.isEmpty()) {			
+			ElementChecker ec = 
+					new TextNotIdenticalToAttributeChecker(
+							inputAriaLabelledby,
+						    new TextAttributeOfElementBuilder(ID_ATTR,TEXT_ELEMENT2),
+						    new TextAttributeOfElementBuilder(ALT_ATTR,ARIA_LABELLEDBY_ATTR),
+					        new ImmutablePair(TestSolution.PASSED, ""),
+					        new ImmutablePair(TestSolution.FAILED, TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG),
+					        ALT_ATTR,ARIA_LABELLEDBY_ATTR);
+			ec.check(sspHandler, elementWithAriaLabelledby, testSolutionHandler);
+		}
+    }
 }
