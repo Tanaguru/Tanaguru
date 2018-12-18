@@ -21,18 +21,26 @@ package org.tanaguru.rules.rgaa32017;
 
 import java.util.Collections;
 import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.jsoup.nodes.Element;
+
 import static org.tanaguru.entity.audit.TestSolution.FAILED;
 import static org.tanaguru.entity.audit.TestSolution.NEED_MORE_INFO;
 import static org.tanaguru.entity.audit.TestSolution.PASSED;
 
 import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.processor.SSPHandler;
 import org.tanaguru.ruleimplementation.AbstractMarkerPageRuleImplementation;
+import org.tanaguru.ruleimplementation.ElementHandler;
+import org.tanaguru.ruleimplementation.ElementHandlerImpl;
+import org.tanaguru.ruleimplementation.TestSolutionHandler;
 import org.tanaguru.rules.elementchecker.CompositeChecker;
 import org.tanaguru.rules.elementchecker.ElementChecker;
 import org.tanaguru.rules.elementchecker.pertinence.AttributePertinenceChecker;
 import org.tanaguru.rules.elementchecker.text.TextNotIdenticalToAttributeChecker;
 import org.tanaguru.rules.elementselector.AreaElementSelector;
 import org.tanaguru.rules.elementselector.ImageElementSelector;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
+
 import static org.tanaguru.rules.keystore.AttributeStore.ALT_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABELLEDBY_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABEL_ATTR;
@@ -40,6 +48,8 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.*;
 import static org.tanaguru.rules.keystore.AttributeStore.HREF_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.SRC_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ID_ATTR;
+import static org.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
 import static org.tanaguru.rules.keystore.MarkerStore.DECORATIVE_IMAGE_MARKER;
 import static org.tanaguru.rules.keystore.MarkerStore.INFORMATIVE_IMAGE_MARKER;
 import org.tanaguru.rules.keystore.RemarkMessageStore;
@@ -59,6 +69,11 @@ import org.tanaguru.rules.textbuilder.TextAttributeOfElementBuilder;
  */
 public class Rgaa32017Rule010302 extends AbstractMarkerPageRuleImplementation {
 
+	ElementHandler<Element> elementAriaMarker = new ElementHandlerImpl();
+	ElementHandler<Element> elementAria = new ElementHandlerImpl();
+	ElementHandler<Element> elementMarkerWithAriaLabelledby = new ElementHandlerImpl();
+	ElementHandler<Element> elementWithAriaLabelledby = new ElementHandlerImpl();
+	
     /**
      * The name of the nomenclature that handles the image file extensions
      */
@@ -122,14 +137,6 @@ public class Rgaa32017Rule010302 extends AbstractMarkerPageRuleImplementation {
 		                new ImmutablePair(TestSolution.FAILED, ARIA_LABEL_NOT_IDENTICAL_TO_ALT_MSG),
 		                ALT_ATTR,
 		                ARIA_LABEL_ATTR,
-		                HREF_ATTR),
-				  new TextNotIdenticalToAttributeChecker(
-		                new TextAttributeOfElementBuilder(ARIA_LABELLEDBY_ATTR),
-		                new TextAttributeOfElementBuilder(ALT_ATTR),
-		                new ImmutablePair(TestSolution.PASSED, ""),
-		                new ImmutablePair(TestSolution.FAILED, ARIA_LABELLEDBY_NOT_IDENTICAL_TO_ALT_MSG),
-		                ALT_ATTR,
-		                ARIA_LABELLEDBY_ATTR,
 		                HREF_ATTR));
         ec.setIsOrCombinaison(false);
         return ec;
@@ -175,18 +182,86 @@ public class Rgaa32017Rule010302 extends AbstractMarkerPageRuleImplementation {
                     	new ImmutablePair(NEED_MORE_INFO, CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG),
                         ALT_ATTR, 
                         ARIA_LABEL_ATTR, 
-                        HREF_ATTR),
-                new TextNotIdenticalToAttributeChecker(
-                        new TextAttributeOfElementBuilder(ARIA_LABELLEDBY_ATTR),
-                        new TextAttributeOfElementBuilder(ALT_ATTR),
-    	                new ImmutablePair(NEED_MORE_INFO, ""),
-    	                new ImmutablePair(NEED_MORE_INFO, CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG),
-                        ALT_ATTR, 
-                        ARIA_LABELLEDBY_ATTR, 
                         HREF_ATTR));
         
         compositeChecker.setIsOrCombinaison(false);        
         return compositeChecker;
     }
     
+    
+    protected void select(SSPHandler sspHandler) {
+    	super.select(sspHandler); 	
+    	
+    	//get aria-labelledby attributes
+    	if(!getSelectionWithoutMarkerHandler().isEmpty()) {
+			for(Element el : getSelectionWithoutMarkerHandler().get()) {
+				if(el.hasAttr(ARIA_LABELLEDBY_ATTR)) {
+					elementAria.add(el);
+				}
+			}
+    	}
+		if(!getSelectionWithMarkerHandler().isEmpty()) {
+			for(Element el : getSelectionWithMarkerHandler().get()) {
+				if(el.hasAttr(ARIA_LABELLEDBY_ATTR)) {
+					elementAriaMarker.add(el);
+				}
+			}
+		}		
+		
+		//Select elements have got id attribute
+		ElementHandler<Element> elementPage = new ElementHandlerImpl();
+    	SimpleElementSelector ses = new SimpleElementSelector("*[id]:not(area)"); //select all element with an id except canvas elements
+    	ses.selectElements(sspHandler, elementPage);    	
+    	    	
+    	//select elements have id/aria-labelledby identical
+    	for (Element el : elementPage.get()) {
+        	for(Element elemAria : elementAriaMarker.get()) {    
+				if(elemAria.attr(ARIA_LABELLEDBY_ATTR).equals(el.id())) { //ID == ARIA-LABELLEDBY
+//					System.out.println(el);
+					elementMarkerWithAriaLabelledby.add(el);
+					break;
+				}
+        	}
+            for(Element elemAria : elementAria.get()) {
+    			if(elemAria.attr(ARIA_LABELLEDBY_ATTR).equals(el.id())) { //ID == ARIA-LABELLEDBY
+    				elementWithAriaLabelledby.add(el);
+					break;
+    			}
+            }
+		}
+    	
+    }
+    
+    protected void check(SSPHandler sspHandler,
+            TestSolutionHandler testSolutionHandler) {
+
+    	super.check(sspHandler, testSolutionHandler); 
+    	
+    	if(!elementMarkerWithAriaLabelledby.isEmpty()) {
+    		ElementChecker ec = 
+      				new TextNotIdenticalToAttributeChecker(
+      						elementAriaMarker,
+    					    new TextAttributeOfElementBuilder(ID_ATTR,TEXT_ELEMENT2),
+    					    new TextAttributeOfElementBuilder(ALT_ATTR,ARIA_LABELLEDBY_ATTR),
+    				        new ImmutablePair(PASSED, ""),
+    				        new ImmutablePair(FAILED, INFORMATIVE_AREA_TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG),
+    				        ALT_ATTR,
+    				        ARIA_LABELLEDBY_ATTR);
+    		ec.check(sspHandler, elementMarkerWithAriaLabelledby, testSolutionHandler);
+    	}  
+    	
+    	if(!elementWithAriaLabelledby.isEmpty()) {			
+			ElementChecker ec = 
+					 new TextNotIdenticalToAttributeChecker(
+							elementAria,
+							new TextAttributeOfElementBuilder(ID_ATTR,TEXT_ELEMENT2),
+							new TextAttributeOfElementBuilder(ALT_ATTR,ARIA_LABELLEDBY_ATTR),
+						    new ImmutablePair(NEED_MORE_INFO, ""),
+						    new ImmutablePair(NEED_MORE_INFO, AREA_TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG),
+						    ALT_ATTR,
+						    ARIA_LABELLEDBY_ATTR);
+			ec.check(sspHandler, elementWithAriaLabelledby, testSolutionHandler);
+		}
+    	
+    }   
 }

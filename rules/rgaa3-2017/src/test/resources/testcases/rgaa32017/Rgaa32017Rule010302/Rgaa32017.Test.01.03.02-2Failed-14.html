@@ -19,9 +19,13 @@
             </div> 
             <div class="testcase"> 
                  <img alt="" src="mock-image.jpg" usemap="#mock-map" /> 
-                <map id="mock-map" name="mock-map"> <area class="class-informative-area" href="mock-area.html" alt="Alternative" aria-labelledby="aria-labelledby"></area> </map> 
+	                <map id="mock-map" name="mock-map"> 
+	                	<area class="class-informative-area" href="mock-area.html" alt="Alternative" aria-labelledby="Failed 14"></area>
+	                </map> 
+            	<p id="Failed 14" >Text</p>
             <div class="test-explanation">
-                 Failed : The &lt;area&gt; has a suspected pertinent alt attribute which is identical to the aria-labelledby attribute but is not identified by marker. 
+                 Failed : The &lt;area&gt; has a pertinent alt attribute and is identified by marker. 
+                 The element which has the same id is identical to the area aria-labelledby attribute but has not identical text to the alt attribute
             </div> 
         </div>   
     </body>

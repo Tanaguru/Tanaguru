@@ -268,6 +268,10 @@ public final class RemarkMessageStore {
 			= "SuspectedInformativeCanvasDetected";
     public static final String SUSPECTED_INFORMATIVE_CANVAS_WITH_LABELLEDBY_DETECTED
 			= "SuspectedInformativeCanvasWithLabelledbyDetected";
+    public static final String INFORMATIVE_AREA_TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG 
+			= "InformativeAreaTextNotIdenticalToAlt";
+    public static final String AREA_TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG 
+			= "AreaTextWithAriaLabelledbyNotIdenticalToAlt";
 
     // frames 
     public static final String NOT_PERTINENT_TITLE_OF_FRAME_MSG
