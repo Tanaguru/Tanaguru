@@ -36,6 +36,8 @@ import static org.tanaguru.rules.keystore.MarkerStore.INFORMATIVE_IMAGE_MARKER;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMAGE_AND_ALT_PERTINENCE_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.IMG_TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.INFORMATIVE_IMG_TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.NOT_PERTINENT_ALT_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.TITLE_NOT_IDENTICAL_TO_ALT_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.ARIA_LABEL_NOT_IDENTICAL_TO_ALT_MSG;
@@ -461,12 +463,11 @@ public class Rgaa32017Rule010301Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 FAILED,
-                ARIA_LABELLEDBY_NOT_IDENTICAL_TO_ALT_MSG,
+                INFORMATIVE_IMG_TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG,
                 IMG_ELEMENT,
                 2,
                 new ImmutablePair(ALT_ATTR, "Alternative"),
-                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "Aria-Labelledby"),
-                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "FAILED 18"));
         
         
         //----------------------------------------------------------------------
@@ -802,12 +803,11 @@ public class Rgaa32017Rule010301Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 NEED_MORE_INFO,
-                CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG,
+                IMG_TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG,
                 IMG_ELEMENT,
                 2,
                 new ImmutablePair(ALT_ATTR, "Alternative"),
-                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "Aria-Labelledby"),
-                new ImmutablePair(SRC_ATTR, "mock-image.jpg"));
+                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "NMI 09"));
        
                 
         //----------------------------------------------------------------------
@@ -954,12 +954,11 @@ public class Rgaa32017Rule010301Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 NEED_MORE_INFO,
-                CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG,
+                IMG_TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG,
                 IMG_ELEMENT,
                 14,
                 new ImmutablePair(ALT_ATTR, "not identified image alternative"),
-                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "aria-labelledby"),
-                new ImmutablePair(SRC_ATTR, "mock-image4.jpg"));
+                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "NMI 12_03"));
         
         
         //----------------------------------------------------------------------

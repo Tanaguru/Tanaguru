@@ -38,21 +38,27 @@ import org.tanaguru.rules.elementchecker.ElementChecker;
 import org.tanaguru.rules.elementchecker.pertinence.AttributePertinenceChecker;
 import org.tanaguru.rules.elementchecker.text.TextNotIdenticalToAttributeChecker;
 import org.tanaguru.rules.elementselector.ImageElementSelector;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
+
 import static org.tanaguru.rules.keystore.AttributeStore.ALT_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABELLEDBY_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABEL_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ID_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.LONGDESC_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.SRC_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
 import static org.tanaguru.rules.keystore.CssLikeQueryStore.IMG_WITH_ALT_NOT_IN_LINK_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
 import static org.tanaguru.rules.keystore.MarkerStore.DECORATIVE_IMAGE_MARKER;
 import static org.tanaguru.rules.keystore.MarkerStore.INFORMATIVE_IMAGE_MARKER;
 import org.tanaguru.rules.keystore.RemarkMessageStore;
 
+import static org.tanaguru.rules.keystore.RemarkMessageStore.IMG_TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.ARIA_LABELLEDBY_NOT_IDENTICAL_TO_ALT_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.ARIA_LABEL_NOT_IDENTICAL_TO_ALT_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.INFORMATIVE_IMG_TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.NOT_PERTINENT_ALT_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.TITLE_NOT_IDENTICAL_TO_ALT_MSG;
 import org.tanaguru.rules.textbuilder.TextAttributeOfElementBuilder;
@@ -66,9 +72,17 @@ import org.tanaguru.rules.textbuilder.TextAttributeOfElementBuilder;
  */
 public class Rgaa32017Rule010301 extends AbstractMarkerPageRuleImplementation {
 
+
+	ElementHandler<Element> elementAriaMarker = new ElementHandlerImpl();
+	ElementHandler<Element> elementAria = new ElementHandlerImpl();
+	ElementHandler<Element> elementMarkerWithAriaLabelledby = new ElementHandlerImpl();
+	ElementHandler<Element> elementWithAriaLabelledby = new ElementHandlerImpl();
+	
+	
     /** The name of the nomenclature that handles the image file extensions */
     private static final String IMAGE_FILE_EXTENSION_NOM = "ImageFileExtensions";
 
+	
     public Rgaa32017Rule010301() {
         
         super(
@@ -81,20 +95,7 @@ public class Rgaa32017Rule010301 extends AbstractMarkerPageRuleImplementation {
         setRegularElementChecker(getLocalRegularElementChecker());
     }
     
-    @Override
-    protected void select(SSPHandler sspHandler) {
-        super.select(sspHandler);
-        Iterator<Element> iter = getSelectionWithoutMarkerHandler().get().iterator();
-        // The elements with a longdesc attribute are seen as informative. 
-        // They are added to the selection with marker
-        while (iter.hasNext()) {
-            Element el = iter.next();
-            if (el.hasAttr(LONGDESC_ATTR)){
-                iter.remove();
-                getSelectionWithMarkerHandler().add(el);
-            }
-        }
-    }
+    
     
 
     /**
@@ -135,14 +136,6 @@ public class Rgaa32017Rule010301 extends AbstractMarkerPageRuleImplementation {
                     	new ImmutablePair(FAILED, ARIA_LABEL_NOT_IDENTICAL_TO_ALT_MSG),
                     	ALT_ATTR,
                     	ARIA_LABEL_ATTR,
-                    	SRC_ATTR),
-                new TextNotIdenticalToAttributeChecker(
-                    	new TextAttributeOfElementBuilder(ARIA_LABELLEDBY_ATTR),
-                    	new TextAttributeOfElementBuilder(ALT_ATTR),
-                    	new ImmutablePair(NEED_MORE_INFO, ""),
-                    	new ImmutablePair(FAILED, ARIA_LABELLEDBY_NOT_IDENTICAL_TO_ALT_MSG),
-                    	ALT_ATTR,
-                    	ARIA_LABELLEDBY_ATTR,
                     	SRC_ATTR));
         ec.setIsOrCombinaison(false);
         return ec;
@@ -181,17 +174,96 @@ public class Rgaa32017Rule010301 extends AbstractMarkerPageRuleImplementation {
                     	new TextAttributeOfElementBuilder(ALT_ATTR),
                     	new ImmutablePair(NEED_MORE_INFO, ""),
                     	new ImmutablePair(NEED_MORE_INFO, CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG),
-                    	ALT_ATTR,ARIA_LABEL_ATTR,SRC_ATTR),
-                new TextNotIdenticalToAttributeChecker(
-    	                new TextAttributeOfElementBuilder(ARIA_LABELLEDBY_ATTR),
-    	                new TextAttributeOfElementBuilder(ALT_ATTR),
-    	                new ImmutablePair(NEED_MORE_INFO, ""),
-    	                new ImmutablePair(NEED_MORE_INFO, CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG),
-    	                ALT_ATTR,ARIA_LABELLEDBY_ATTR,SRC_ATTR));
-        
+                    	ALT_ATTR,ARIA_LABEL_ATTR,SRC_ATTR));
         compositeChecker.setIsOrCombinaison(false);
-        
         return compositeChecker;
     }
     
+    protected void select(SSPHandler sspHandler) {
+    	super.select(sspHandler); 	
+
+        Iterator<Element> iter = getSelectionWithoutMarkerHandler().get().iterator();
+        // The elements with a longdesc attribute are seen as informative. 
+        // They are added to the selection with marker
+        while (iter.hasNext()) {
+            Element el = iter.next();
+            if (el.hasAttr(LONGDESC_ATTR)){
+                iter.remove();
+                getSelectionWithMarkerHandler().add(el);
+            }
+        }
+        
+        
+    	//get aria-labelledby attributes
+    	if(!getSelectionWithoutMarkerHandler().isEmpty()) {
+			for(Element el : getSelectionWithoutMarkerHandler().get()) {
+				if(el.hasAttr(ARIA_LABELLEDBY_ATTR)) {
+					elementAria.add(el);
+				}
+			}
+    	}
+		if(!getSelectionWithMarkerHandler().isEmpty()) {
+			for(Element el : getSelectionWithMarkerHandler().get()) {
+				if(el.hasAttr(ARIA_LABELLEDBY_ATTR)) {
+					elementAriaMarker.add(el);
+				}
+			}
+		}
+		
+		
+		//Select elements have got id attribute
+		ElementHandler<Element> elementPage = new ElementHandlerImpl();
+    	SimpleElementSelector ses = new SimpleElementSelector("*[id]:not(img)"); //select all element with an id except canvas elements
+    	ses.selectElements(sspHandler, elementPage);    	
+    	    	
+    	//select elements have id/aria-labelledby identical
+    	for (Element el : elementPage.get()) {
+        	for(Element elemAria : elementAriaMarker.get()) {    
+				if(elemAria.attr(ARIA_LABELLEDBY_ATTR).equals(el.id())) { //ID == ARIA-LABELLEDBY
+//					System.out.println(el);
+					elementMarkerWithAriaLabelledby.add(el);
+					break;
+				}
+        	}
+            for(Element elemAria : elementAria.get()) {
+    			if(elemAria.attr(ARIA_LABELLEDBY_ATTR).equals(el.id())) { //ID == ARIA-LABELLEDBY
+    				elementWithAriaLabelledby.add(el);
+					break;
+    			}
+            }
+		}
+    	
+    }
+    
+    protected void check(SSPHandler sspHandler,
+            TestSolutionHandler testSolutionHandler) {
+
+    	super.check(sspHandler, testSolutionHandler);   
+    	
+    	if(!elementMarkerWithAriaLabelledby.isEmpty()) {
+    		ElementChecker ec = 
+      				new TextNotIdenticalToAttributeChecker(
+      						elementAriaMarker,
+    					    new TextAttributeOfElementBuilder(ID_ATTR,TEXT_ELEMENT2),
+    					    new TextAttributeOfElementBuilder(ALT_ATTR,ARIA_LABELLEDBY_ATTR),
+    				        new ImmutablePair(PASSED, ""),
+    				        new ImmutablePair(FAILED, INFORMATIVE_IMG_TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG),
+    				        ALT_ATTR,
+    				        ARIA_LABELLEDBY_ATTR);
+    		ec.check(sspHandler, elementMarkerWithAriaLabelledby, testSolutionHandler);
+    	}  
+    	
+    	if(!elementWithAriaLabelledby.isEmpty()) {			
+			ElementChecker ec = 
+					 new TextNotIdenticalToAttributeChecker(
+							elementAria,
+							new TextAttributeOfElementBuilder(ID_ATTR,TEXT_ELEMENT2),
+							new TextAttributeOfElementBuilder(ALT_ATTR,ARIA_LABELLEDBY_ATTR),
+						    new ImmutablePair(NEED_MORE_INFO, ""),
+						    new ImmutablePair(NEED_MORE_INFO, IMG_TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG),
+						    ALT_ATTR,
+						    ARIA_LABELLEDBY_ATTR);
+			ec.check(sspHandler, elementWithAriaLabelledby, testSolutionHandler);
+		}
+    }    
 }

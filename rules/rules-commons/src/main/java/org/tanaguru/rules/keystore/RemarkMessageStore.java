@@ -21,6 +21,7 @@
  */
 package org.tanaguru.rules.keystore;
 
+import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITHOUT_ARIA_HIDDEN_TRUE_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.INFORMATIVE_EMB_NOT_INDENTICAL_ATTR_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_DECORATIVE_SVG_ROLE_ON_SVG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_INFORMATIVE_EMB_DETECTED;
@@ -272,6 +273,10 @@ public final class RemarkMessageStore {
 			= "InformativeAreaTextNotIdenticalToAlt";
     public static final String AREA_TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG 
 			= "AreaTextWithAriaLabelledbyNotIdenticalToAlt";
+    public static final String INFORMATIVE_IMG_TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG 
+		= "InformativeImgTextNotIdenticalToAlt";
+    public static final String IMG_TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG 
+			= "ImgTextWithAriaLabelledbyNotIdenticalToAlt";
 
     // frames 
     public static final String NOT_PERTINENT_TITLE_OF_FRAME_MSG
