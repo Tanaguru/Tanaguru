@@ -21,6 +21,7 @@
         <module>tgol-voter</module>
         <module>tgol-report</module>
         <module>tgol-security</module>
+        <module>tgol-rmi</module>
         <module>tgol-web-app</module>
-  </modules>
+    </modules>
 </project>

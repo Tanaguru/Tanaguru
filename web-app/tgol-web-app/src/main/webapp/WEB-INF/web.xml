@@ -12,6 +12,7 @@
         <param-value>
             /WEB-INF/conf/tgol-service.xml
             /WEB-INF/conf/tgol-security.xml
+            /WEB-INF/conf/tgol-rmi.xml
         </param-value>
     </context-param>
 
