@@ -21,11 +21,6 @@
  */
 package org.tanaguru.rules.keystore;
 
-import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITHOUT_ARIA_HIDDEN_TRUE_MSG;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.INFORMATIVE_EMB_NOT_INDENTICAL_ATTR_MSG;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_DECORATIVE_SVG_ROLE_ON_SVG;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_INFORMATIVE_EMB_DETECTED;
-
 /**
  * Utility class that stores remark messages keys as static String
  */
@@ -190,6 +185,10 @@ public final class RemarkMessageStore {
             = "DecorativeSvgWithNotEmptyTitleOrDescTags";
     public static final String DECORATIVE_SVG_OR_CHILD_WITH_TITLE_ATTRIBUTE
             = "DecorativeSvgWithTitleAttribute";
+    public static final String DECORATIVE_IMG_OR_CHILDREN_WITH_ARIA_ATTRIBUTE
+            = "DecorativeImgOrChildrenWithAriaAttribute";
+    public static final String DECORATIVE_IMG_OR_CHILD_WITH_TITLE_ATTRIBUTE
+            = "DecorativeImgWithTitleAttribute";
     public static final String SVG_WITHOUT_ROLE_IMAGE_MSG
             = "SvgWithoutRoleImage";
     public static final String INFORMATIVE_SVG_WITH_NOT_PERTINENT_ALT_MSG
@@ -206,6 +205,16 @@ public final class RemarkMessageStore {
             = "SuspectedInformativeSvgWithDescOrTitleChildTag";
     public static final String SUSPECTED_INFORMATIVE_SVG_WITH_TITLE_ATTRIBUTE_ON_ELEMENT_OR_CHILD
             = "SuspectedInformativeSvgWithTitleAttributeOnElementOrChild";
+    public static final String SUSPECTED_DECORATIVE_ELEMENT_WITHOUT_ARIA_HIDDEN_TRUE_MSG
+    		= "SuspectedDecorativeImgWithoutAriaHiddenTrueAttribute";
+    public static final String SUSPECTED_DECORATIVE_IMG_WITH_ARIA_ATTRIBUTE_DETECTED_ON_ELEMENT_OR_CHILD
+            = "SuspectedDecorativeImgWithAriaAttributeDetectedOnElementOrChild";
+    public static final String SUSPECTED_DECORATIVE_IMG_WITH_TITLE_ATTRIBUTE_ON_ELEMENT_OR_CHILD
+            = "SuspectedDecorativeImgWithTitleAttributeOnElementOrChild";
+    public static final String SUSPECTED_WELL_FORMATED_DECORATIVE_IMG
+    		= "SuspectedWellFormedDecorativeImg";
+    public static final String SUSPECTED_DECORATIVE_IMG_WITH_NOT_EMPTY_TEXT_ALT_MSG
+			= "SuspectedDecorativeImgWithNotEmptyTextualAlternativeAttribute";
     public static final String SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG 
     		= "SuspectedInformativeSvgWithRoleImgMissing";
     public static final String SUSPECTED_DECORATIVE_SVG_ROLE_ON_SVG 
@@ -453,6 +462,13 @@ public final class RemarkMessageStore {
             = "ContextChangedScriptDetected";
     public static final String ARIA_FORM_LABEL_MISSING
     		= "AriaFormLabelMissing";
+    public static final String ARIA_FORM_LABEL_EMPTY
+			= "AriaFormLabelEmpty";
+    public static final String ALT_IMG_FORM_LABEL_EMPTY
+			= "AltImgFormLabelEmpty";
+    public static final String ONKEYPRESS_MISSING_MSG = "OnKeyPressMissing";
+    public static final String CHECK_ONCLICK_DEFINTION_IN_JS_MSG
+            = "CheckOnClickDefinitionInJs";
 
     // consultation 
     public static final String NOT_IMMEDIATE_REDIRECT_VIA_META_MSG
@@ -520,12 +536,7 @@ public final class RemarkMessageStore {
     public static final String CHECK_BG_COLOR_PRESENCE
             = "CheckBackGroundColorPresence";
 
-    // scripts
-    public static final String ONKEYPRESS_MISSING_MSG = "OnKeyPressMissing";
-    public static final String CHECK_ONCLICK_DEFINTION_IN_JS_MSG
-            = "CheckOnClickDefinitionInJs";
-
-//  navigation
+    //  navigation
     public static final String SUSPECTED_MISSING_ATTRIBUTE_WITH_VALUE_BANNER
             = "SuspectedMissingTagWithRoleAttributeThatValueIsBanner";
     public static final String SUSPECTED_MISSING_ATTRIBUTE_WITH_VALUE_BANNER2
