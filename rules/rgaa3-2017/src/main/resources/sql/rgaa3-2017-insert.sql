@@ -1165,6 +1165,7 @@ Cd_Test='Rgaa32017-6-4-3' OR
 Cd_Test='Rgaa32017-6-4-4' OR 
 Cd_Test='Rgaa32017-6-4-5' OR 
 Cd_Test='Rgaa32017-6-5-1' OR
+Cd_Test='Rgaa32017-7-1-1' OR
 Cd_Test='Rgaa32017-7-4-1' OR
 Cd_Test='Rgaa32017-8-1-1' OR 
 Cd_Test='Rgaa32017-8-1-2' OR 

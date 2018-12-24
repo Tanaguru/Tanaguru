@@ -20,8 +20,12 @@
 package org.tanaguru.rules.rgaa32017;
 
 import org.tanaguru.entity.audit.TestSolution;
+import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.tanaguru.entity.audit.ProcessResult;
 import org.tanaguru.rules.rgaa32017.test.Rgaa32017RuleImplementationTestCase;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.*;
+import static org.tanaguru.rules.keystore.AttributeStore.*;
+import static org.tanaguru.rules.keystore.HtmlElementStore.*;
 
 /**
  * Unit test class for the implementation of the rule 7-1-1 of the referential Rgaa 3-2017.
@@ -46,10 +50,45 @@ public class Rgaa32017Rule070101Test extends Rgaa32017RuleImplementationTestCase
 
     @Override
     protected void setUpWebResourceMap() {
-//        addWebResource("Rgaa32017.Test.7.1.1-1Passed-01");
-//        addWebResource("Rgaa32017.Test.7.1.1-2Failed-01");
-        addWebResource("Rgaa32017.Test.7.1.1-3NMI-01");
-//        addWebResource("Rgaa32017.Test.7.1.1-4NA-01");
+        addWebResource("Rgaa32017.Test.7.1.1-1Passed-01");
+        addWebResource("Rgaa32017.Test.7.1.1-1Passed-02");
+        addWebResource("Rgaa32017.Test.7.1.1-1Passed-03");
+        addWebResource("Rgaa32017.Test.7.1.1-1Passed-04");
+        addWebResource("Rgaa32017.Test.7.1.1-1Passed-05");
+        addWebResource("Rgaa32017.Test.7.1.1-1Passed-06");
+        addWebResource("Rgaa32017.Test.7.1.1-1Passed-07");
+        addWebResource("Rgaa32017.Test.7.1.1-1Passed-08");
+        addWebResource("Rgaa32017.Test.7.1.1-1Passed-09");
+        addWebResource("Rgaa32017.Test.7.1.1-1Passed-10");
+        addWebResource("Rgaa32017.Test.7.1.1-1Passed-11");
+        addWebResource("Rgaa32017.Test.7.1.1-1Passed-12");
+        addWebResource("Rgaa32017.Test.7.1.1-1Passed-13");
+        addWebResource("Rgaa32017.Test.7.1.1-1Passed-14");
+        addWebResource("Rgaa32017.Test.7.1.1-1Passed-15");
+        addWebResource("Rgaa32017.Test.7.1.1-1Passed-16");
+        addWebResource("Rgaa32017.Test.7.1.1-2Failed-01");
+        addWebResource("Rgaa32017.Test.7.1.1-2Failed-02");
+        addWebResource("Rgaa32017.Test.7.1.1-2Failed-03");
+        addWebResource("Rgaa32017.Test.7.1.1-2Failed-04");
+        addWebResource("Rgaa32017.Test.7.1.1-2Failed-05");
+        addWebResource("Rgaa32017.Test.7.1.1-2Failed-06");
+        addWebResource("Rgaa32017.Test.7.1.1-2Failed-07");
+        addWebResource("Rgaa32017.Test.7.1.1-2Failed-08");
+        addWebResource("Rgaa32017.Test.7.1.1-2Failed-09");
+        addWebResource("Rgaa32017.Test.7.1.1-2Failed-10");
+        addWebResource("Rgaa32017.Test.7.1.1-2Failed-11");
+        addWebResource("Rgaa32017.Test.7.1.1-2Failed-12");
+        addWebResource("Rgaa32017.Test.7.1.1-2Failed-13");
+        addWebResource("Rgaa32017.Test.7.1.1-2Failed-14");
+        addWebResource("Rgaa32017.Test.7.1.1-2Failed-15");
+        addWebResource("Rgaa32017.Test.7.1.1-2Failed-16");
+        addWebResource("Rgaa32017.Test.7.1.1-2Failed-17");
+        addWebResource("Rgaa32017.Test.7.1.1-2Failed-18");
+        addWebResource("Rgaa32017.Test.7.1.1-2Failed-19");
+        addWebResource("Rgaa32017.Test.7.1.1-2Failed-20");
+        addWebResource("Rgaa32017.Test.7.1.1-4NA-01");
+        addWebResource("Rgaa32017.Test.7.1.1-4NA-02");
+        addWebResource("Rgaa32017.Test.7.1.1-4NA-03");
     }
 
     @Override
@@ -57,50 +96,361 @@ public class Rgaa32017Rule070101Test extends Rgaa32017RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------1Passed-01------------------------------
         //----------------------------------------------------------------------
-//        checkResultIsPassed(processPageTest("Rgaa32017.Test.7.1.1-1Passed-01"), 1);
-
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.7.1.1-1Passed-01"), 1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-02------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.7.1.1-1Passed-02"), 1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-03------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.7.1.1-1Passed-03"), 1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-04------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.7.1.1-1Passed-04"), 1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-05------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.7.1.1-1Passed-05"), 1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-06------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.7.1.1-1Passed-06"), 1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-07------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.7.1.1-1Passed-07"), 1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-08------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.7.1.1-1Passed-08"), 1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-09------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.7.1.1-1Passed-09"), 1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-10------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.7.1.1-1Passed-10"), 1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-11------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.7.1.1-1Passed-11"), 1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-12------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.7.1.1-1Passed-12"), 1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-13------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.7.1.1-1Passed-13"), 1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-14------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.7.1.1-1Passed-14"), 1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-15------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.7.1.1-1Passed-15"), 1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-16------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.7.1.1-1Passed-16"), 1);
+        
+        
         //----------------------------------------------------------------------
         //------------------------------2Failed-01------------------------------
         //----------------------------------------------------------------------
-//        ProcessResult processResult = processPageTest("Rgaa32017.Test.7.1.1-2Failed-01");
-//        checkResultIsFailed(processResult, 1, 1);
-//        checkRemarkIsPresent(
-//                processResult,
-//                TestSolution.FAILED,
-//                "#MessageHere",
-//                "#CurrentElementHere",
-//                1,
-//                new ImmutablePair("#ExtractedAttributeAsEvidence", "#ExtractedAttributeValue"));
+        ProcessResult processResult = processPageTest("Rgaa32017.Test.7.1.1-2Failed-01");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                ARIA_FORM_LABEL_EMPTY,
+                SPAN_ELEMENT,
+                1,
+                new ImmutablePair(ROLE_ATTR, "checkbox"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-02------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.7.1.1-2Failed-02");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                ARIA_FORM_LABEL_EMPTY,
+                SPAN_ELEMENT,
+                1,
+                new ImmutablePair(ROLE_ATTR, "checkbox"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-03------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.7.1.1-2Failed-03");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                ARIA_FORM_LABEL_EMPTY,
+                P_ELEMENT,
+                1,
+                new ImmutablePair(ID_ATTR, "FAILED 03"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-04------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.7.1.1-2Failed-04");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                ALT_IMG_FORM_LABEL_EMPTY,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ROLE_ATTR, "checkbox"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-05------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.7.1.1-2Failed-05");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                ARIA_FORM_LABEL_EMPTY,
+                DIV_ELEMENT,
+                1,
+                new ImmutablePair(ROLE_ATTR, "radio"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-06------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.7.1.1-2Failed-06");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                ARIA_FORM_LABEL_EMPTY,
+                DIV_ELEMENT,
+                1,
+                new ImmutablePair(ROLE_ATTR, "radio"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-07------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.7.1.1-2Failed-07");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                ARIA_FORM_LABEL_EMPTY,
+                P_ELEMENT,
+                1,
+                new ImmutablePair(ID_ATTR, "FAILED 07"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-08------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.7.1.1-2Failed-08");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                ALT_IMG_FORM_LABEL_EMPTY,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ROLE_ATTR, "radio"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-09------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.7.1.1-2Failed-09");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                ARIA_FORM_LABEL_EMPTY,
+                DIV_ELEMENT,
+                1,
+                new ImmutablePair(ROLE_ATTR, "textbox"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-10------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.7.1.1-2Failed-10");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                ARIA_FORM_LABEL_EMPTY,
+                DIV_ELEMENT,
+                1,
+                new ImmutablePair(ROLE_ATTR, "textbox"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-11------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.7.1.1-2Failed-11");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                ARIA_FORM_LABEL_EMPTY,
+                P_ELEMENT,
+                1,
+                new ImmutablePair(ID_ATTR, "FAILED 11"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-12------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.7.1.1-2Failed-12");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                ALT_IMG_FORM_LABEL_EMPTY,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ROLE_ATTR, "textbox"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-13------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.7.1.1-2Failed-13");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                ARIA_FORM_LABEL_EMPTY,
+                DIV_ELEMENT,
+                1,
+                new ImmutablePair(ROLE_ATTR, "combobox"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-14------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.7.1.1-2Failed-14");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                ARIA_FORM_LABEL_EMPTY,
+                DIV_ELEMENT,
+                1,
+                new ImmutablePair(ROLE_ATTR, "combobox"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-15------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.7.1.1-2Failed-15");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                ARIA_FORM_LABEL_EMPTY,
+                P_ELEMENT,
+                1,
+                new ImmutablePair(ID_ATTR, "FAILED 15"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-16------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.7.1.1-2Failed-16");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                ALT_IMG_FORM_LABEL_EMPTY,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(ROLE_ATTR, "combobox"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-17------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.7.1.1-2Failed-17");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                ARIA_FORM_LABEL_MISSING,
+                SPAN_ELEMENT,
+                1,
+                new ImmutablePair(ROLE_ATTR, "checkbox"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-18------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.7.1.1-2Failed-18");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                ARIA_FORM_LABEL_MISSING,
+                DIV_ELEMENT,
+                1,
+                new ImmutablePair(ROLE_ATTR, "radio"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-19------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.7.1.1-2Failed-19");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                ARIA_FORM_LABEL_MISSING,
+                DIV_ELEMENT,
+                1,
+                new ImmutablePair(ROLE_ATTR, "textbox"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-20------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.7.1.1-2Failed-20");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                ARIA_FORM_LABEL_MISSING,
+                DIV_ELEMENT,
+                1,
+                new ImmutablePair(ROLE_ATTR, "combobox"));
 
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-01---------------------------------
-        //----------------------------------------------------------------------
-        ProcessResult processResult = processPageTest("Rgaa32017.Test.7.1.1-3NMI-01");
-        checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-//        checkResultIsPreQualified(processResult, 2, 1);
-//        checkRemarkIsPresent(
-//                processResult,
-//                TestSolution.NEED_MORE_INFO,
-//                "#MessageHere",
-//                "#CurrentElementHere",
-//                1,
-//                new ImmutablePair("#ExtractedAttributeAsEvidence", "#ExtractedAttributeValue"));
 
 
         //----------------------------------------------------------------------
         //------------------------------4NA-01------------------------------
         //----------------------------------------------------------------------
-//        checkResultIsNotApplicable(processPageTest("Rgaa32017.Test.7.1.1-4NA-01"));
+        checkResultIsNotApplicable(processPageTest("Rgaa32017.Test.7.1.1-4NA-01"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------4NA-02------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsNotApplicable(processPageTest("Rgaa32017.Test.7.1.1-4NA-02"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------4NA-03------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsNotApplicable(processPageTest("Rgaa32017.Test.7.1.1-4NA-03"));
     }
 
-    @Override
-    protected void setConsolidate() {
-
-        // The consolidate method can be removed when real implementation is done.
-        // The assertions are automatically tested regarding the file names by 
-        // the abstract parent class
-        assertEquals(TestSolution.NOT_TESTED,
-                consolidate("Rgaa32017.Test.7.1.1-3NMI-01").getValue());
-    }
 
 }

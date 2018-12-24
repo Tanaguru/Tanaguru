@@ -30,6 +30,7 @@ import org.tanaguru.entity.audit.TestSolution;
 import org.tanaguru.processor.SSPHandler;
 import org.tanaguru.ruleimplementation.TestSolutionHandler;
 import org.tanaguru.rules.elementchecker.ElementCheckerImpl;
+import static org.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
 
 /**
  * This checker controls the presence of an attribute for a set of elements.
@@ -177,19 +178,35 @@ public class AttributeWithValuePresenceChecker extends ElementCheckerImpl {
         }
 
         TestSolution testSolution = TestSolution.PASSED;
+        
+        
+        if(attributeName.equals(TEXT_ELEMENT2)) {
+        	for (Element el : elements) {
+                if ((!el.text().equals(attributeValue))) {
 
-        for (Element el : elements) {
-            if (!el.hasAttr(attributeName)
-                    || (el.hasAttr(attributeName) && !el.attr(attributeName).equals(attributeValue))) {
-
-                testSolution = setTestSolution(testSolution, getFailureSolution());
-                createSourceCodeRemark(getFailureSolution(), el, getFailureMsgCode());
-                
-            } else if (StringUtils.isNotBlank(getSuccessMsgCode())) {
-                testSolution = setTestSolution(testSolution, getSuccessSolution());
-
-                createSourceCodeRemark(getSuccessSolution(), el, getSuccessMsgCode());
+                    testSolution = setTestSolution(testSolution, getFailureSolution());
+                    createSourceCodeRemark(getFailureSolution(), el, getFailureMsgCode());
+                    
+                } else if (StringUtils.isNotBlank(getSuccessMsgCode())) {
+                	
+                    testSolution = setTestSolution(testSolution, getSuccessSolution());
+                    createSourceCodeRemark(getSuccessSolution(), el, getSuccessMsgCode());
+                }
             }
+        }else {
+	        for (Element el : elements) {
+	            if (!el.hasAttr(attributeName)
+	                    || (el.hasAttr(attributeName) && !el.attr(attributeName).equals(attributeValue))) {
+
+	                testSolution = setTestSolution(testSolution, getFailureSolution());
+	                createSourceCodeRemark(getFailureSolution(), el, getFailureMsgCode());
+	                
+	            } else if (StringUtils.isNotBlank(getSuccessMsgCode())) {
+	            	
+	                testSolution = setTestSolution(testSolution, getSuccessSolution());	
+	                createSourceCodeRemark(getSuccessSolution(), el, getSuccessMsgCode());
+	            }
+	        }
         }
 
         testSolutionHandler.addTestSolution(testSolution);

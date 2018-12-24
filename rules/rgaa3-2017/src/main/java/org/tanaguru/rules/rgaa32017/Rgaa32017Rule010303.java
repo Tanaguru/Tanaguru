@@ -112,7 +112,7 @@ public class Rgaa32017Rule010303 extends AbstractPageRuleWithSelectorAndCheckerI
     	setElementChecker(ec);
     }
     
-    //Redefinir la selection du aria-labelledby
+    
     protected void select(SSPHandler sspHandler) {
     	super.select(sspHandler); 	
 

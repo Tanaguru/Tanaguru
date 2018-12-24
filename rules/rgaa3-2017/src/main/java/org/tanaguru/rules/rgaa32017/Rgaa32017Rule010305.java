@@ -75,57 +75,6 @@ public class Rgaa32017Rule010305 extends AbstractMarkerPageRuleImplementation {
         
         setElementSelector(new SimpleElementSelector(OBJECT_TYPE_IMG_WITH_TITLE_CSS_LIKE_QUERY));
         
-        // init of marker element Checker              
-//        TextNotIdenticalToAttributeChecker textChecker1 = 
-//     		   new TextNotIdenticalToAttributeChecker(
-// 		           	new TextAttributeOfElementBuilder(ARIA_LABEL_ATTR),
-// 		           	new TextAttributeOfElementBuilder(TITLE_ATTR),
-// 		           	new ImmutablePair(TestSolution.PASSED, ""),
-// 		           	new ImmutablePair(TestSolution.FAILED, INFORMATIVE_OBJ_NOT_INDENTICAL_ATTR_MSG),
-// 		           	TYPE_ATTR,
-// 		           	TITLE_ATTR,
-// 		           	ARIA_LABEL_ATTR);
-//        
-//        TextNotIdenticalToAttributeChecker textChecker2 = 
-// 			   new TextNotIdenticalToAttributeChecker(
-// 		            new TextAttributeOfElementBuilder(ARIA_LABELLEDBY_ATTR),
-// 		            new TextAttributeOfElementBuilder(TITLE_ATTR),
-// 		            new ImmutablePair(TestSolution.PASSED, ""),
-// 		            new ImmutablePair(TestSolution.FAILED, INFORMATIVE_OBJ_NOT_INDENTICAL_ATTR_MSG),
-// 		            TYPE_ATTR,
-// 		            TITLE_ATTR,
-// 		            ARIA_LABELLEDBY_ATTR); 
-//        
-//        CompositeChecker cc1 = new CompositeChecker( textChecker1, textChecker2);
-//        cc1.setIsOrCombinaison(false);
-//        setMarkerElementChecker(cc1);
-//        
-//        
-//        
-//        // init of not marker element checker 
-//        TextNotIdenticalToAttributeChecker textChecker3 = 
-//     		   new TextNotIdenticalToAttributeChecker(
-// 	                new TextAttributeOfElementBuilder(ARIA_LABEL_ATTR),
-// 	                new TextAttributeOfElementBuilder(TITLE_ATTR),
-// 	                new ImmutablePair(TestSolution.NEED_MORE_INFO, SUSPECTED_INFORMATIVE_OBJ_DETECTED),
-// 	                new ImmutablePair(TestSolution.NEED_MORE_INFO, CHECK_OBJ_IMG_ARIA_MSG),
-// 	                TYPE_ATTR,
-// 	                TITLE_ATTR,
-// 	                ARIA_LABEL_ATTR);   
-//        
-//        TextNotIdenticalToAttributeChecker textChecker4 = 
-//     		   new TextNotIdenticalToAttributeChecker(
-// 		            new TextAttributeOfElementBuilder(ARIA_LABELLEDBY_ATTR),
-// 		            new TextAttributeOfElementBuilder(TITLE_ATTR),
-// 		            new ImmutablePair(TestSolution.NEED_MORE_INFO, SUSPECTED_INFORMATIVE_OBJ_DETECTED),
-// 		            new ImmutablePair(TestSolution.NEED_MORE_INFO, CHECK_OBJ_IMG_ARIA_MSG),
-// 		            TYPE_ATTR,
-// 		            TITLE_ATTR,
-// 		            ARIA_LABELLEDBY_ATTR);
-//        
-//        CompositeChecker cc2 = new CompositeChecker( textChecker3, textChecker4 );
-//        cc2.setIsOrCombinaison(false);
-//        setRegularElementChecker(cc2);
     }
     
     protected void select(SSPHandler sspHandler) {
