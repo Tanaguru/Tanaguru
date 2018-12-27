@@ -162,6 +162,7 @@ public class Rgaa32017Rule010301 extends AbstractMarkerPageRuleImplementation {
                         NOT_PERTINENT_ALT_MSG,
                         // manual check message
                         RemarkMessageStore.CHECK_NATURE_OF_IMAGE_AND_ALT_PERTINENCE_MSG,
+                        // evidence elements
                         ALT_ATTR, SRC_ATTR),
                 new TextNotIdenticalToAttributeChecker(
                         new TextAttributeOfElementBuilder(TITLE_ATTR),

@@ -13,11 +13,11 @@
                 <code>title</code>, le contenu de cet attribut est-il pertinent ? 
             </div> 
             <div class="testcase">
-                <iframe src="mock-iframe.html" title=""></iframe>
+                <iframe src="mock-iframe.html" title="!§:;.,?%*\~/@()[]^_°=+-"></iframe>
             </div>
 
             <div class="test-explanation">
-                Failed : the page contains one iframe with an empty title
+              Failed : the page contains one iframe with a title that only contains not-alphanumerical characters
             </div>
         </div>  
     </body>

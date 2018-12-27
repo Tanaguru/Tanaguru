@@ -50,9 +50,8 @@ public class Rgaa32017Rule110803Test extends Rgaa32017RuleImplementationTestCase
     @Override
     protected void setUpWebResourceMap() {
         addWebResource("Rgaa32017.Test.11.08.03-2Failed-01");
-        addWebResource("Rgaa32017.Test.11.08.03-2Failed-02");
-        addWebResource("Rgaa32017.Test.11.08.03-2Failed-03");
         addWebResource("Rgaa32017.Test.11.08.03-3NMI-01");
+        addWebResource("Rgaa32017.Test.11.08.03-3NMI-02");
         addWebResource("Rgaa32017.Test.11.08.03-4NA-01");
         addWebResource("Rgaa32017.Test.11.08.03-4NA-02");
         addWebResource("Rgaa32017.Test.11.08.03-4NA-03");
@@ -61,6 +60,7 @@ public class Rgaa32017Rule110803Test extends Rgaa32017RuleImplementationTestCase
 
     @Override
     protected void setProcess() {
+        
         //----------------------------------------------------------------------
         //------------------------------2Failed-01------------------------------
         //----------------------------------------------------------------------
@@ -72,41 +72,7 @@ public class Rgaa32017Rule110803Test extends Rgaa32017RuleImplementationTestCase
                 RemarkMessageStore.NOT_PERTINENT_OPTGROUP_LABEL_MSG,
                 HtmlElementStore.OPTGROUP_ELEMENT,
                 1, 
-                new ImmutablePair(AttributeStore.LABEL_ATTR,""));
-        
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-02------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.08.03-2Failed-02");
-        checkResultIsFailed(processResult, 1, 1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.FAILED,
-                RemarkMessageStore.NOT_PERTINENT_OPTGROUP_LABEL_MSG,
-                HtmlElementStore.OPTGROUP_ELEMENT,
-                1, 
                 new ImmutablePair(AttributeStore.LABEL_ATTR,"/--*:;!:;*"));
-        
-        
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-03------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.08.03-2Failed-03");
-        checkResultIsFailed(processResult, 2, 2);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.FAILED,
-                RemarkMessageStore.NOT_PERTINENT_OPTGROUP_LABEL_MSG,
-                HtmlElementStore.OPTGROUP_ELEMENT,
-                1, 
-                new ImmutablePair(AttributeStore.LABEL_ATTR,""));
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                RemarkMessageStore.CHECK_OPTGROUP_LABEL_PERTINENCE_MSG,
-                HtmlElementStore.OPTGROUP_ELEMENT,
-                2, 
-                new ImmutablePair(AttributeStore.LABEL_ATTR,"OptGroup2"));
         
         //----------------------------------------------------------------------
         //------------------------------3NMI-01---------------------------------
@@ -126,6 +92,27 @@ public class Rgaa32017Rule110803Test extends Rgaa32017RuleImplementationTestCase
                 RemarkMessageStore.CHECK_OPTGROUP_LABEL_PERTINENCE_MSG,
                 HtmlElementStore.OPTGROUP_ELEMENT,
                 2,
+                new ImmutablePair(AttributeStore.LABEL_ATTR,"OptGroup2"));
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-02------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.11.08.03-3NMI-02");
+        checkResultIsPreQualified(processResult, 2, 2);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                RemarkMessageStore.CHECK_OPTGROUP_LABEL_PERTINENCE_MSG,
+                HtmlElementStore.OPTGROUP_ELEMENT,
+                1, 
+                new ImmutablePair(AttributeStore.LABEL_ATTR,""));
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                RemarkMessageStore.CHECK_OPTGROUP_LABEL_PERTINENCE_MSG,
+                HtmlElementStore.OPTGROUP_ELEMENT,
+                2, 
                 new ImmutablePair(AttributeStore.LABEL_ATTR,"OptGroup2"));
         
         //----------------------------------------------------------------------
