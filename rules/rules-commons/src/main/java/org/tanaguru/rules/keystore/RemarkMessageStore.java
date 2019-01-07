@@ -31,6 +31,7 @@ public final class RemarkMessageStore {
             = "ManualCheckOnElements";
     public static final String NO_PATTERN_DETECTED_MSG
             = "NoPatternDetected";
+    public static final String TABINDEX_DETECTED_MSG = "TabindexDetectedMsg";
     public static final String TITLE_ATTR_MISSING_MSG = "TitleAttributeMissing";
     public static final String ID_MISSING_MSG = "IdMissing";
     public static final String ARIA_LABELLEDBY_EMPTY_MSG = "AriaLabelledbyEmpty";
@@ -513,7 +514,7 @@ public final class RemarkMessageStore {
             = "CheckManuallyOutlineForFormElementAndIframe";
     public static final String CHECK_IF_USER_HAVE_MECHANISM_TO_DELETE_JUSTIFY_TEXT_ALIGN_MSG
             = "ChekIfUserHaveAMechanismToDeleteJustifyTextAlign";
-
+    
     // css
     public static final String BAD_UNIT_TYPE_MSG = "BadUnitType";
     public static final String FORBIDDEN_UNIT_TYPE_MSG = "ForbiddenUnitType";
