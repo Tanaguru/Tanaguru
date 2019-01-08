@@ -47,6 +47,9 @@ public class SSPImpl extends ContentImpl implements SSP, Serializable {
     @JoinColumn(name = "Id_Page")
     private PageImpl page;
 
+    @Column(name = "Id_Page", insertable = false, updatable = false)
+    private long id_Page;
+
     @Column(name = "Source", length = 167772150)
     private String source;
 
@@ -107,6 +110,8 @@ public class SSPImpl extends ContentImpl implements SSP, Serializable {
     public String getDOM() {
         return dom;
     }
+
+    public long getIdPage(){return id_Page;}
 
     @XmlElementRef(type = org.tanaguru.entity.subject.PageImpl.class)
     @Override

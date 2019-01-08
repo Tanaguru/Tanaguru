@@ -38,6 +38,12 @@ public interface TestStatistics extends Entity, ResultCounter {
 
     /**
      *
+     * @return Web Resource Statistics id
+     */
+    long getIdWebResourceStatistics();
+
+    /**
+     *
      * @param webResourceStatistics
      */
     void setWebResourceStatistics(WebResourceStatistics webResourceStatistics);

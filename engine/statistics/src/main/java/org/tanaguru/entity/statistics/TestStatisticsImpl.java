@@ -73,6 +73,9 @@ public class TestStatisticsImpl
     @JoinColumn(name = "Id_Web_Resource_Statistics")
     private WebResourceStatisticsImpl webResourceStatistics;
 
+    @Column(name = "Id_Web_Resource_Statistics", insertable = false, updatable = false)
+    private long idWebResourceStatistics;
+
     @Override
     public Long getId() {
         return id;
@@ -173,4 +176,12 @@ public class TestStatisticsImpl
         this.webResourceStatistics = (WebResourceStatisticsImpl)webResourceStatistics;
     }
 
+    @Override
+    public long getIdWebResourceStatistics() {
+        return idWebResourceStatistics;
+    }
+
+    public void setIdWebResourceStatistics(long idWebResourceStatistics) {
+        this.idWebResourceStatistics = idWebResourceStatistics;
+    }
 }

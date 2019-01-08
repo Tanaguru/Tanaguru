@@ -50,11 +50,6 @@
             <groupId>${webappGroupId}</groupId>
             <artifactId>security</artifactId>
         </dependency>
-        <dependency>
-            <groupId>${webappGroupId}</groupId>
-            <artifactId>tgol-rmi</artifactId>
-            <version>5.4.0-SNAPSHOT</version>
-        </dependency>
         <!-- tanaguru dependencies-->
         <dependency>
             <groupId>${engineGroupId}</groupId>

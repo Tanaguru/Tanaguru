@@ -38,6 +38,12 @@ public interface SSP extends TextContent {
 
     /**
      *
+     * @return the page id
+     */
+    long getIdPage();
+
+    /**
+     *
      * @return the page
      */
     Page getPage();
