@@ -6,15 +6,14 @@
 package org.tanaguru.rules.rgaa32017;
 
 import static org.tanaguru.entity.audit.TestSolution.NEED_MORE_INFO;
-import static org.tanaguru.rules.keystore.AttributeStore.TYPE_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABEL_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABELLEDBY_ATTR;
 import static org.tanaguru.rules.keystore.HtmlElementStore.EMBED_ELEMENT;
 import static org.tanaguru.rules.keystore.MarkerStore.INFORMATIVE_IMAGE_MARKER;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_EMB_IMG_ARIA_LABELLEDBY_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_INFORMATIVE_EMB_WITH_LABELLEDBY_DETECTED;
 import static org.tanaguru.rules.keystore.MarkerStore.DECORATIVE_IMAGE_MARKER;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_PRESENCE_OF_ALTERNATIVE_MECHANISM_FOR_INFORMATIVE_IMG_MSG;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_INFORMATIVE_EMB_DETECTED;
 
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.tanaguru.entity.audit.ProcessResult;
@@ -149,7 +148,6 @@ public class Rgaa32017Rule010307Test extends Rgaa32017RuleImplementationTestCase
                 RemarkMessageStore.INFORMATIVE_EMB_NOT_INDENTICAL_ATTR_MSG,
                 HtmlElementStore.EMBED_ELEMENT,
                 1,
-                new ImmutablePair(TYPE_ATTR, "image/jpeg"),
                 new ImmutablePair(TITLE_ATTR, "earth picture"),
                 new ImmutablePair(ARIA_LABEL_ATTR, "image"));           
         
@@ -165,7 +163,6 @@ public class Rgaa32017Rule010307Test extends Rgaa32017RuleImplementationTestCase
                 RemarkMessageStore.INFORMATIVE_EMB_NOT_INDENTICAL_ATTR_MSG,
                 HtmlElementStore.EMBED_ELEMENT,
                 1,
-                new ImmutablePair(TYPE_ATTR, "image/jpeg"),
                 new ImmutablePair(TITLE_ATTR, "earth picture"),
                 new ImmutablePair(ARIA_LABEL_ATTR, "image"));             
         
@@ -181,7 +178,6 @@ public class Rgaa32017Rule010307Test extends Rgaa32017RuleImplementationTestCase
                 RemarkMessageStore.INFORMATIVE_EMB_NOT_INDENTICAL_ATTR_MSG,
                 HtmlElementStore.EMBED_ELEMENT,
                 1,
-                new ImmutablePair(TYPE_ATTR, "image/jpeg"),
                 new ImmutablePair(TITLE_ATTR, "earth picture"),
                 new ImmutablePair(ARIA_LABEL_ATTR, "image"));             
         
@@ -197,7 +193,6 @@ public class Rgaa32017Rule010307Test extends Rgaa32017RuleImplementationTestCase
                 RemarkMessageStore.INFORMATIVE_EMB_NOT_INDENTICAL_ATTR_MSG,
                 HtmlElementStore.EMBED_ELEMENT,
                 1,
-                new ImmutablePair(TYPE_ATTR, "image/jpeg"),
                 new ImmutablePair(TITLE_ATTR, "earth picture"),
                 new ImmutablePair(ARIA_LABEL_ATTR, "image"));    
         checkRemarkIsPresent(
@@ -206,7 +201,6 @@ public class Rgaa32017Rule010307Test extends Rgaa32017RuleImplementationTestCase
                 RemarkMessageStore.INFORMATIVE_EMB_NOT_INDENTICAL_ATTR_MSG,
                 HtmlElementStore.EMBED_ELEMENT,
                 2,
-                new ImmutablePair(TYPE_ATTR, "image/jpeg"),
                 new ImmutablePair(TITLE_ATTR, "earth picture"),
                 new ImmutablePair(ARIA_LABEL_ATTR, "image")); 
         checkRemarkIsPresent(
@@ -215,7 +209,6 @@ public class Rgaa32017Rule010307Test extends Rgaa32017RuleImplementationTestCase
                 RemarkMessageStore.INFORMATIVE_EMB_NOT_INDENTICAL_ATTR_MSG,
                 HtmlElementStore.EMBED_ELEMENT,
                 3,
-                new ImmutablePair(TYPE_ATTR, "image/jpeg"),
                 new ImmutablePair(TITLE_ATTR, "earth picture"),
                 new ImmutablePair(ARIA_LABEL_ATTR, "image"));          
         
@@ -228,12 +221,11 @@ public class Rgaa32017Rule010307Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                RemarkMessageStore.INFORMATIVE_EMB_NOT_INDENTICAL_ATTR_MSG,
+                RemarkMessageStore.INFORMATIVE_EMB_NOT_INDENTICAL_ARIA_LABELLEDBY_MSG,
                 HtmlElementStore.EMBED_ELEMENT,
                 1,
-                new ImmutablePair(TYPE_ATTR, "image/jpeg"),
                 new ImmutablePair(TITLE_ATTR, "earth picture"),
-                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "image"));             
+                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "txt FAILED 05"));             
         
 
         //----------------------------------------------------------------------
@@ -244,12 +236,11 @@ public class Rgaa32017Rule010307Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                RemarkMessageStore.INFORMATIVE_EMB_NOT_INDENTICAL_ATTR_MSG,
+                RemarkMessageStore.INFORMATIVE_EMB_NOT_INDENTICAL_ARIA_LABELLEDBY_MSG,
                 HtmlElementStore.EMBED_ELEMENT,
                 1,
-                new ImmutablePair(TYPE_ATTR, "image/jpeg"),
                 new ImmutablePair(TITLE_ATTR, "earth picture"),
-                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "image"));             
+                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "txt FAILED 06"));             
         
 
         //----------------------------------------------------------------------
@@ -260,12 +251,11 @@ public class Rgaa32017Rule010307Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                RemarkMessageStore.INFORMATIVE_EMB_NOT_INDENTICAL_ATTR_MSG,
+                RemarkMessageStore.INFORMATIVE_EMB_NOT_INDENTICAL_ARIA_LABELLEDBY_MSG,
                 HtmlElementStore.EMBED_ELEMENT,
                 1,
-                new ImmutablePair(TYPE_ATTR, "image/jpeg"),
                 new ImmutablePair(TITLE_ATTR, "earth picture"),
-                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "image"));             
+                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "txt FAILED 07"));             
         
 
         //----------------------------------------------------------------------
@@ -276,31 +266,28 @@ public class Rgaa32017Rule010307Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                RemarkMessageStore.INFORMATIVE_EMB_NOT_INDENTICAL_ATTR_MSG,
+                RemarkMessageStore.INFORMATIVE_EMB_NOT_INDENTICAL_ARIA_LABELLEDBY_MSG,
                 HtmlElementStore.EMBED_ELEMENT,
                 1,
-                new ImmutablePair(TYPE_ATTR, "image/jpeg"),
                 new ImmutablePair(TITLE_ATTR, "earth picture"),
-                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "image")); 
+                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "txt FAILED 08")); 
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                RemarkMessageStore.INFORMATIVE_EMB_NOT_INDENTICAL_ATTR_MSG,
+                RemarkMessageStore.INFORMATIVE_EMB_NOT_INDENTICAL_ARIA_LABELLEDBY_MSG,
                 HtmlElementStore.EMBED_ELEMENT,
                 2,
-                new ImmutablePair(TYPE_ATTR, "image/jpeg"),
                 new ImmutablePair(TITLE_ATTR, "earth picture"),
-                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "image"));  
+                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "txt FAILED 08"));  
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                RemarkMessageStore.INFORMATIVE_EMB_NOT_INDENTICAL_ATTR_MSG,
+                RemarkMessageStore.INFORMATIVE_EMB_NOT_INDENTICAL_ARIA_LABELLEDBY_MSG,
                 HtmlElementStore.EMBED_ELEMENT,
                 3,
-                new ImmutablePair(TYPE_ATTR, "image/jpeg"),
                 new ImmutablePair(TITLE_ATTR, "earth picture"),
-                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "image"));   
-        
+                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "txt FAILED 08"));               
+                
         
         
        //----------------------------------------------------------------------
@@ -314,7 +301,6 @@ public class Rgaa32017Rule010307Test extends Rgaa32017RuleImplementationTestCase
                 RemarkMessageStore.SUSPECTED_INFORMATIVE_EMB_DETECTED,
                 EMBED_ELEMENT,
                 1,
-                new ImmutablePair(TYPE_ATTR, "image/jpeg"),
                 new ImmutablePair(TITLE_ATTR, "earth picture"),
                 new ImmutablePair(ARIA_LABEL_ATTR, "earth picture"));
         
@@ -331,7 +317,6 @@ public class Rgaa32017Rule010307Test extends Rgaa32017RuleImplementationTestCase
                 RemarkMessageStore.CHECK_EMB_IMG_ARIA_MSG,
                 EMBED_ELEMENT,
                 1,
-                new ImmutablePair(TYPE_ATTR, "image/jpeg"),
                 new ImmutablePair(TITLE_ATTR, "earth picture"),
                 new ImmutablePair(ARIA_LABEL_ATTR, "image"));
         
@@ -345,12 +330,11 @@ public class Rgaa32017Rule010307Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 NEED_MORE_INFO,
-                RemarkMessageStore.SUSPECTED_INFORMATIVE_EMB_DETECTED,
+                RemarkMessageStore.SUSPECTED_INFORMATIVE_EMB_WITH_LABELLEDBY_DETECTED,
                 EMBED_ELEMENT,
                 1,
-                new ImmutablePair(TYPE_ATTR, "image/jpeg"),
                 new ImmutablePair(TITLE_ATTR, "earth picture"),
-                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "earth picture"));
+                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "txt NMI 03"));
         
         
         
@@ -362,12 +346,11 @@ public class Rgaa32017Rule010307Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 NEED_MORE_INFO,
-                RemarkMessageStore.CHECK_EMB_IMG_ARIA_MSG,
+                RemarkMessageStore.CHECK_EMB_IMG_ARIA_LABELLEDBY_MSG,
                 EMBED_ELEMENT,
                 1,
-                new ImmutablePair(TYPE_ATTR, "image/jpeg"),
                 new ImmutablePair(TITLE_ATTR, "earth picture"),
-                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "image"));       
+                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "txt NMI 04"));       
         
         
         

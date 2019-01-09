@@ -91,18 +91,23 @@ public class AttributeOnChildElementPresenceChecker extends ElementCheckerImpl {
         TestSolution testSolution = TestSolution.PASSED;
 
         for (Element el : elements) {
-
-            if (!el.getElementsByAttribute(attributeName).isEmpty()) {
-
-                testSolution = setTestSolution(testSolution, getSuccessSolution());
-                addSourceCodeRemark(getSuccessSolution(),el, getSuccessMsgCode());
-                
-            } else {
-                
-                testSolution = setTestSolution(testSolution, getFailureSolution());
-                addSourceCodeRemark(getFailureSolution(),el, getFailureMsgCode());
-
-            }
+        	
+        	if(!el.children().isEmpty()) {
+        		for(Element elChild : el.children()) {
+        			if (elChild.hasAttr(attributeName)) {
+	
+		                testSolution = setTestSolution(testSolution, getSuccessSolution());
+		                addSourceCodeRemark(getSuccessSolution(),elChild, getSuccessMsgCode());
+		                
+		            } else {
+		                
+		                testSolution = setTestSolution(testSolution, getFailureSolution());
+		                addSourceCodeRemark(getFailureSolution(),elChild, getFailureMsgCode());
+		
+		            }
+        		}
+	            
+        	}
         }
 
         testSolutionHandler.addTestSolution(testSolution);

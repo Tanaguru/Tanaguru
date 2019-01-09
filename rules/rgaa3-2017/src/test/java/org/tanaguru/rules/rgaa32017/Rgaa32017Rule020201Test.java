@@ -51,15 +51,16 @@ public class Rgaa32017Rule020201Test extends Rgaa32017RuleImplementationTestCase
     protected void setUpWebResourceMap() {
         addWebResource("Rgaa32017.Test.2.2.1-2Failed-01");
         addWebResource("Rgaa32017.Test.2.2.1-2Failed-02");
-        addWebResource("Rgaa32017.Test.2.2.1-2Failed-03");
-        addWebResource("Rgaa32017.Test.2.2.1-2Failed-04");
         addWebResource("Rgaa32017.Test.2.2.1-3NMI-01");
+        addWebResource("Rgaa32017.Test.2.2.1-3NMI-02");
+        addWebResource("Rgaa32017.Test.2.2.1-3NMI-03");
         addWebResource("Rgaa32017.Test.2.2.1-4NA-01");
         addWebResource("Rgaa32017.Test.2.2.1-4NA-02");
     }
 
     @Override
     protected void setProcess() {
+    	
         //----------------------------------------------------------------------
         //------------------------------2Failed-01------------------------------
         //----------------------------------------------------------------------
@@ -71,41 +72,12 @@ public class Rgaa32017Rule020201Test extends Rgaa32017RuleImplementationTestCase
                 RemarkMessageStore.NOT_PERTINENT_TITLE_OF_IFRAME_MSG,
                 HtmlElementStore.IFRAME_ELEMENT,
                 1,
-                new ImmutablePair(TITLE_ATTR, ""));
-        
+                new ImmutablePair(TITLE_ATTR, "!§:;.,?%*\\~/@()[]^_°=+-"));        
         
         //----------------------------------------------------------------------
         //------------------------------2Failed-02------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.2.2.1-2Failed-02");
-        checkResultIsFailed(processResult, 1, 1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.FAILED,
-                RemarkMessageStore.NOT_PERTINENT_TITLE_OF_IFRAME_MSG,
-                HtmlElementStore.IFRAME_ELEMENT,
-                1,
-                new ImmutablePair(TITLE_ATTR, ""));
-        
-        
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-03------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.2.2.1-2Failed-03");
-        checkResultIsFailed(processResult, 1, 1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.FAILED,
-                RemarkMessageStore.NOT_PERTINENT_TITLE_OF_IFRAME_MSG,
-                HtmlElementStore.IFRAME_ELEMENT,
-                1,
-                new ImmutablePair(TITLE_ATTR, "!§:;.,?%*\\~/@()[]^_°=+-"));
-
-        
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-04------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.2.2.1-2Failed-04");
         checkResultIsFailed(processResult, 1, 1);
         checkRemarkIsPresent(
                 processResult,
@@ -127,6 +99,32 @@ public class Rgaa32017Rule020201Test extends Rgaa32017RuleImplementationTestCase
                 HtmlElementStore.IFRAME_ELEMENT,
                 1,
                 new ImmutablePair(TITLE_ATTR, "title of iframe"));
+        
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-02---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.2.2.1-3NMI-02");
+        checkResultIsPreQualified(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                RemarkMessageStore.CHECK_TITLE_OF_IFRAME_PERTINENCE_MSG,
+                HtmlElementStore.IFRAME_ELEMENT,
+                1,
+                new ImmutablePair(TITLE_ATTR, ""));
+        
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-03---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.2.2.1-3NMI-03");
+        checkResultIsPreQualified(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                RemarkMessageStore.CHECK_TITLE_OF_IFRAME_PERTINENCE_MSG,
+                HtmlElementStore.IFRAME_ELEMENT,
+                1,
+                new ImmutablePair(TITLE_ATTR, ""));
 
         //----------------------------------------------------------------------
         //------------------------------4NA-01----------------------------------

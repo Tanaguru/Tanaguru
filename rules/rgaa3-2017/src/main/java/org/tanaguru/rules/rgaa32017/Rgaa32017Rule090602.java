@@ -19,7 +19,16 @@
  */
 package org.tanaguru.rules.rgaa32017;
 
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import org.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
+import org.tanaguru.rules.elementchecker.element.ElementPresenceChecker;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
+
+import static org.tanaguru.entity.audit.TestSolution.NEED_MORE_INFO;
+import static org.tanaguru.entity.audit.TestSolution.NOT_APPLICABLE;
+import static org.tanaguru.rules.keystore.HtmlElementStore.BLOCKQUOTE_ELEMENT;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.BLOCKQUOTE_DETECTED_MSG;
+
+import org.apache.commons.lang3.tuple.ImmutablePair;
 
 /**
  * Implementation of the rule 9.6.2 of the referential Rgaa 3-2017.
@@ -28,13 +37,17 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-9-6-2"> 9.6.2 rule specification</a>
  */
 
-public class Rgaa32017Rule090602 extends AbstractNotTestedRuleImplementation {
+public class Rgaa32017Rule090602 extends AbstractPageRuleWithSelectorAndCheckerImplementation {
 
     /**
      * Default constructor
      */
     public Rgaa32017Rule090602 () {
-        super();
+        super(
+        		new SimpleElementSelector(BLOCKQUOTE_ELEMENT),
+        		new ElementPresenceChecker(
+        				new ImmutablePair(NEED_MORE_INFO, BLOCKQUOTE_DETECTED_MSG), 
+        				new ImmutablePair(NOT_APPLICABLE,"")));
     }
 
 }

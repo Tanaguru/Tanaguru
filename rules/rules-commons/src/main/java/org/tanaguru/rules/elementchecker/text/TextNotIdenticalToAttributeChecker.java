@@ -28,6 +28,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.tanaguru.entity.audit.TestSolution;
 import org.tanaguru.processor.SSPHandler;
+import org.tanaguru.ruleimplementation.ElementHandler;
 import org.tanaguru.ruleimplementation.TestSolutionHandler;
 import org.tanaguru.rules.elementchecker.ElementCheckerImpl;
 import org.tanaguru.rules.textbuilder.TextElementBuilder;
@@ -45,7 +46,10 @@ public class TextNotIdenticalToAttributeChecker extends ElementCheckerImpl {
     
     /* The attr element builder needed to retrieve the attribute to compare with*/
     private final TextElementBuilder attrElementBuilder;
-
+    
+    /* Elements to compare their attribute*/
+    private ElementHandler<Element> elementAttrToCompare;
+    
     /* 
      * Boolean that enables to determine the kind of control : contains or equals.
      * Contains is the default 
@@ -77,18 +81,51 @@ public class TextNotIdenticalToAttributeChecker extends ElementCheckerImpl {
         this.testableTextBuilder = testableTextBuilder;
         this.attrElementBuilder = testableTextBuilderToCompareWith;
     }
+
+    
+    /**
+     * Constructor.
+     * 
+     * @param elementMarkerWithAriaLabelledby
+     * @param testableTextBuilderToCompareWith
+     * @param textAttributeOfElementBuilder
+     * @param notDetectedSolutionPair
+     * @param immutablePair 
+     */
+    public TextNotIdenticalToAttributeChecker(
+            ElementHandler<Element> elementAttrToCompare,
+            TextElementBuilder testableTextBuilder,
+            TextElementBuilder testableTextBuilderToCompareWith, 
+            Pair<TestSolution, String> detectedSolutionPair,
+            Pair<TestSolution, String> notDetectedSolutionPair,
+            String... eeAttributeNameList) {
+        super(  notDetectedSolutionPair, 
+                detectedSolutionPair,
+                eeAttributeNameList);
+        
+        this.elementAttrToCompare = elementAttrToCompare;
+        this.testableTextBuilder = testableTextBuilder;
+        this.attrElementBuilder = testableTextBuilderToCompareWith;
+    }
+        
     
     @Override
     public void doCheck(
             SSPHandler sspHandler, 
             Elements elements, 
             TestSolutionHandler testSolutionHandler) {
-        for (Element el : elements) {
-            testSolutionHandler.addTestSolution(
-                    checkTextElementNotIdenticalToAnother(
-                        el, 
-                        testableTextBuilder.buildTextFromElement(el)));
-        }
+
+    	if(elementAttrToCompare != null) {
+    		testSolutionHandler.addTestSolution(
+    				checkTextMultipleElementNotIdenticalToAnother(elements, (Elements)elementAttrToCompare.get()));
+    	}else {
+    		for (Element el : elements) {
+    			testSolutionHandler.addTestSolution(
+    					checkTextElementNotIdenticalToAnother(
+    							el, 
+    							testableTextBuilder.buildTextFromElement(el)));
+	        }
+    	}
     }
 
     /**
@@ -103,24 +140,71 @@ public class TextNotIdenticalToAttributeChecker extends ElementCheckerImpl {
             Element element,
             String elementText) {
         
-        if (elementText == null) {
-            return getFailureSolution();
-        }
+       if (elementText == null) {
+           return TestSolution.NOT_APPLICABLE;
+       }
 
-        String otherAttributeContent = attrElementBuilder.buildTextFromElement(element);
+       String otherAttributeContent = attrElementBuilder.buildTextFromElement(element);
         
-        if ( (strictEquality && 
+       if ( (strictEquality && 
                 StringUtils.equalsIgnoreCase(otherAttributeContent, elementText)) || 
              ((!strictEquality && 
                 StringUtils.contains(otherAttributeContent, elementText)))   ) {
-            
+    	   
             addSourceCodeRemark(getFailureSolution(),element,getFailureMsgCode());
             return getFailureSolution();
-            
+
         } else {
             addSourceCodeRemark(getSuccessSolution(),element,getSuccessMsgCode());
             return getSuccessSolution();
         }
     }
+    
+    /**
+     * 
+     * @param element
+     * @param elementText
+     * @return failed when a given text is identical to an attribute content, 
+     * not applicable when the text is seen as null, NMI instead
+     * 
+     */
+    private TestSolution checkTextMultipleElementNotIdenticalToAnother(
+            Elements elementToTest,
+            Elements elementToCompare) {
+    	
+    	boolean isNotOk = false;
+    	boolean haveSuccess = false;
+    	
+    	
+    	for (Element elemToCompare :  elementToCompare) {
+    		String otherAttributeContent = attrElementBuilder.buildTextFromElement(elemToCompare);
+    		if (otherAttributeContent == null) {
+	    		return TestSolution.NOT_APPLICABLE;
+	    	}
+    		isNotOk = false;
+    		for(Element elemToTest : elementToTest) {    			
+    			String attributeContent = testableTextBuilder.buildTextFromElement(elemToTest);
+    			
+	    		if ( (strictEquality && 
+	    				StringUtils.equalsIgnoreCase(otherAttributeContent, attributeContent)) || 
+		             (!strictEquality && 
+		                StringUtils.contains(otherAttributeContent, attributeContent))   ) {
 
+		            isNotOk = true;
+		        }
+    		
+    		}
+    		if(isNotOk) {
+    			addSourceCodeRemark(getFailureSolution(),elemToCompare,getFailureMsgCode());
+    		}else {
+    			addSourceCodeRemark(getSuccessSolution(),elemToCompare,getSuccessMsgCode());
+    			haveSuccess = true;
+    		}
+    	}
+    	if(!haveSuccess) {
+    		return getFailureSolution();    		
+    	}else {
+    		return getSuccessSolution();    		
+    	}
+	}
 }

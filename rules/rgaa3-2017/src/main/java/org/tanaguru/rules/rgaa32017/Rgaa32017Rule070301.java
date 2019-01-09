@@ -19,7 +19,17 @@
  */
 package org.tanaguru.rules.rgaa32017;
 
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import static org.tanaguru.entity.audit.TestSolution.PASSED;
+import static org.tanaguru.entity.audit.TestSolution.FAILED;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.ELEMENT_WITH_ROLE_ATTR_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.TABINDEX_DETECTED_MSG;
+import static org.tanaguru.rules.keystore.AttributeStore.TABINDEX_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ROLE_ATTR;
+
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
+import org.tanaguru.rules.elementchecker.attribute.AttributePresenceChecker;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
 
 /**
  * Implementation of the rule 7.3.1 of the referential Rgaa 3-2017.
@@ -28,13 +38,22 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-7-3-1"> 7.3.1 rule specification</a>
  */
 
-public class Rgaa32017Rule070301 extends AbstractNotTestedRuleImplementation {
-
+public class Rgaa32017Rule070301 extends AbstractPageRuleWithSelectorAndCheckerImplementation {
+	    
     /**
      * Default constructor
      */
     public Rgaa32017Rule070301 () {
-        super();
+        super(
+        		new SimpleElementSelector(ELEMENT_WITH_ROLE_ATTR_CSS_LIKE_QUERY),        		
+		        new AttributePresenceChecker(
+		        		TABINDEX_ATTR, 
+		                // IF DETECTED
+		        		new ImmutablePair(FAILED, TABINDEX_DETECTED_MSG),
+		                // IF NOT DETECTED
+		        		new ImmutablePair(PASSED,""),
+		                // evidence elements
+		                ROLE_ATTR,TABINDEX_ATTR));
     }
 
 }

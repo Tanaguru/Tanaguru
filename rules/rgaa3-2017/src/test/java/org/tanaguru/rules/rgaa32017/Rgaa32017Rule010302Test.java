@@ -34,9 +34,11 @@ import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABEL_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABELLEDBY_ATTR;
 import static org.tanaguru.rules.keystore.HtmlElementStore.AREA_ELEMENT;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.AREA_TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.ARIA_LABELLEDBY_NOT_IDENTICAL_TO_ALT_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.ARIA_LABEL_NOT_IDENTICAL_TO_ALT_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.INFORMATIVE_AREA_TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG;
 
 /**
  * Unit test class for the implementation of the rule 1-3-2 of the referential Rgaa 3-2017.
@@ -66,8 +68,8 @@ public class Rgaa32017Rule010302Test extends Rgaa32017RuleImplementationTestCase
                     createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-area"));
         addWebResource("Rgaa32017.Test.01.03.02-2Failed-03",
                     createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-area"));
-        addWebResource("Rgaa32017.Test.01.03.02-2Failed-04",
-                    createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-area"));
+//        addWebResource("Rgaa32017.Test.01.03.02-2Failed-04",
+//                    createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-area"));
         addWebResource("Rgaa32017.Test.01.03.02-2Failed-05",
                     createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-area"),
                     createParameter("Rules", DECORATIVE_IMAGE_MARKER, "class-decorative-area"));
@@ -79,30 +81,32 @@ public class Rgaa32017Rule010302Test extends Rgaa32017RuleImplementationTestCase
         addWebResource("Rgaa32017.Test.01.03.02-2Failed-09");
         addWebResource("Rgaa32017.Test.01.03.02-2Failed-10");
         addWebResource("Rgaa32017.Test.01.03.02-2Failed-11",
-                createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-area"),
-                createParameter("Rules", DECORATIVE_IMAGE_MARKER, "class-decorative-area"));
+                	createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-area"),
+                	createParameter("Rules", DECORATIVE_IMAGE_MARKER, "class-decorative-area"));
         addWebResource("Rgaa32017.Test.01.03.02-2Failed-12");
         addWebResource("Rgaa32017.Test.01.03.02-2Failed-13",
-                createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-area"));
+                	createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-area"));
         addWebResource("Rgaa32017.Test.01.03.02-2Failed-14",
-                createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-area"));
+        			createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-area"));
         addWebResource("Rgaa32017.Test.01.03.02-3NMI-01",
-                createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-area"));
+        			createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-area"));
         addWebResource("Rgaa32017.Test.01.03.02-3NMI-02",
-                createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-area"));
+                	createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-area"));
         addWebResource("Rgaa32017.Test.01.03.02-3NMI-03",
-                createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-area"));
+                	createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-area"));
         addWebResource("Rgaa32017.Test.01.03.02-3NMI-04",
                     createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-area"));
         addWebResource("Rgaa32017.Test.01.03.02-3NMI-05");
         addWebResource("Rgaa32017.Test.01.03.02-3NMI-06");
         addWebResource("Rgaa32017.Test.01.03.02-3NMI-07");
         addWebResource("Rgaa32017.Test.01.03.02-3NMI-08");
+        addWebResource("Rgaa32017.Test.01.03.02-3NMI-09",
+        			createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "class-informative-area"));
         addWebResource("Rgaa32017.Test.01.03.02-4NA-01");
         addWebResource("Rgaa32017.Test.01.03.02-4NA-02");
         addWebResource("Rgaa32017.Test.01.03.02-4NA-03");
         addWebResource("Rgaa32017.Test.01.03.02-4NA-04");
-
+        
     }
 
     @Override
@@ -149,19 +153,19 @@ public class Rgaa32017Rule010302Test extends Rgaa32017RuleImplementationTestCase
                 new ImmutablePair(ALT_ATTR, "--><--"),
                 new ImmutablePair(HREF_ATTR, "mock-area.html"));        
         
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-04------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.01.03.02-2Failed-04");
-        checkResultIsFailed(processResult, 1, 1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.FAILED,
-                RemarkMessageStore.NOT_PERTINENT_ALT_MSG,
-                HtmlElementStore.AREA_ELEMENT,
-                1,
-                new ImmutablePair(ALT_ATTR, ""),
-                new ImmutablePair(HREF_ATTR, "mock-area.html"));        
+//        //----------------------------------------------------------------------
+//        //------------------------------2Failed-04------------------------------
+//        //----------------------------------------------------------------------
+//        processResult = processPageTest("Rgaa32017.Test.01.03.02-2Failed-04");
+//        checkResultIsFailed(processResult, 1, 1);
+//        checkRemarkIsPresent(
+//                processResult,
+//                TestSolution.FAILED,
+//                RemarkMessageStore.NOT_PERTINENT_ALT_MSG,
+//                HtmlElementStore.AREA_ELEMENT,
+//                1,
+//                new ImmutablePair(ALT_ATTR, ""),
+//                new ImmutablePair(HREF_ATTR, "mock-area.html"));        
         
         //----------------------------------------------------------------------
         //------------------------------2Failed-05------------------------------
@@ -170,8 +174,8 @@ public class Rgaa32017Rule010302Test extends Rgaa32017RuleImplementationTestCase
         checkResultIsFailed(processResult, 4, 4);
         checkRemarkIsPresent(
                 processResult,
-                TestSolution.FAILED,
-                RemarkMessageStore.NOT_PERTINENT_ALT_MSG,
+                TestSolution.NEED_MORE_INFO,
+                RemarkMessageStore.CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
                 HtmlElementStore.AREA_ELEMENT,
                 1,
                 new ImmutablePair(ALT_ATTR, ""),
@@ -354,7 +358,7 @@ public class Rgaa32017Rule010302Test extends Rgaa32017RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------2Failed-14---------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.01.03.02-2Failed-14");
+    	processResult = processPageTest("Rgaa32017.Test.01.03.02-2Failed-14");
         checkResultIsFailed(processResult, 1, 2);
         checkRemarkIsPresent(
                 processResult,
@@ -367,12 +371,12 @@ public class Rgaa32017Rule010302Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                RemarkMessageStore.ARIA_LABELLEDBY_NOT_IDENTICAL_TO_ALT_MSG,
+                RemarkMessageStore.INFORMATIVE_AREA_TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG,
                 HtmlElementStore.AREA_ELEMENT,
                 2,
                 new ImmutablePair(ALT_ATTR, "Alternative"),
-                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "aria-labelledby"),
-                new ImmutablePair(HREF_ATTR, "mock-area.html")); 
+                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "Failed 14")); 
+        
         
 
         //----------------------------------------------------------------------
@@ -428,8 +432,8 @@ public class Rgaa32017Rule010302Test extends Rgaa32017RuleImplementationTestCase
                 RemarkMessageStore.CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
                 HtmlElementStore.AREA_ELEMENT,
                 1,
-                new ImmutablePair(ALT_ATTR, "Informative area alternative"),
-                new ImmutablePair(HREF_ATTR, "mock-area.html"));        
+                new ImmutablePair(ALT_ATTR, "HOLA"),
+                new ImmutablePair(HREF_ATTR, "mock-area.html"));    
 
         //----------------------------------------------------------------------
         //------------------------------3NMI-05---------------------------------
@@ -484,8 +488,23 @@ public class Rgaa32017Rule010302Test extends Rgaa32017RuleImplementationTestCase
                 RemarkMessageStore.CHECK_NATURE_OF_IMAGE_AND_ALT_PERTINENCE_MSG,
                 HtmlElementStore.AREA_ELEMENT,
                 1,
-                new ImmutablePair(ALT_ATTR, "informative-area-alternative"),
-                new ImmutablePair(HREF_ATTR, "mock-area.html")); 
+                new ImmutablePair(ALT_ATTR, "Alternative"),
+                new ImmutablePair(HREF_ATTR, "mock-area.html"));         
+
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-09------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.01.03.02-3NMI-09");
+        checkResultIsPreQualified(processResult, 1,  1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                RemarkMessageStore.CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG,
+                HtmlElementStore.AREA_ELEMENT,
+                1,
+                new ImmutablePair(ALT_ATTR, ""),
+                new ImmutablePair(HREF_ATTR, "mock-area.html"));
+        
         
         //----------------------------------------------------------------------
         //------------------------------4NA-01----------------------------------

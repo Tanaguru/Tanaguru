@@ -15,10 +15,11 @@
                     <li> Un élément <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#mAAClavierSouris">accessible par le clavier et la souris</a> permettant de réaliser la même action est présent dans la page</li> 
                 </ul> 
             </div> 
-            <div class="testcase"> 
+            <div class="testcase">             
+                <input type="image" src="image/mock-image" alt="Informative input alternative" tabindex="0"/>  
             </div> 
             <div class="test-explanation">
-                 NA. 
+                 NA. tabindex present on the input element but without expected role attribute, so it's out of scope
             </div> 
         </div>  
     </body>

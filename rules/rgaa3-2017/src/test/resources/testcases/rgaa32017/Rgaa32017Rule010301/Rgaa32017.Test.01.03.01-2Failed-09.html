@@ -18,23 +18,10 @@
                 </ul> 
             </div> 
             <div class="testcase"> 
-                <img class="class-informative-image" src="mock-image1.jpg" alt="" /> 
-                <img class="class-informative-image" src="mock-image2.jpg" alt="Informative image alternative" /> 
-                <img src="images/mock-image3" alt="mock-image3" /> 
-                <img src="mock-image4.jpg" alt="not identified image alternative" />
-                <img src="catpcha.jpg" alt="captcha image" /> 
-                <a href="mock-link.html"> <img src="mock-image5.jpg" alt="image  within a link" /> </a> 
-                <img class="class-decorative-image" src="mock-image6.jpg" alt="" /> 
+                <img id="id-informative-image" src="mock-image.jpg" alt="+-*/" title="+-*/"/> 
             </div> 
             <div class="test-explanation">
-                 Failed : 
-                 Two &lt;img&gt; are identified by marker. 
-                 One has an empty alt attribute, the other needs a human check. 
-                 The third &lt;img&gt; is not identified by marker and the value of its alt attribute is contained in the src attribute. It is suspected failed. 
-                 The fourth &lt;img&gt; is a combined link, it is part of the scope and the pertinence of the its alt attribute needs to be humanly check. 
-                 The fifth &lt;img&gt; is seen as a captcha, it is out of scope. 
-                 The sixth &lt;img&gt; is within a link, it is out of scope. 
-                 The seventh &lt;img&gt; is identified as decorative by marker usage. 
+                 Failed : At least one image has a title attribute identical to the alt attribute. This image is identified as informative by marker but the alt attribute is empty 
             </div> 
         </div>   
     </body>

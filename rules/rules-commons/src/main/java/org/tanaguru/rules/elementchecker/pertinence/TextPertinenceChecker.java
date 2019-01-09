@@ -65,6 +65,8 @@ public class TextPertinenceChecker extends CompositeChecker {
     private String blacklistNameToCompareWith = null;
     /* not pertinent message code */
     String notPertinentMessageCode = null;
+    /* manual ckeck message code */
+    String manualCheckMessage = null;
     
     /**
      * constructor.
@@ -96,6 +98,7 @@ public class TextPertinenceChecker extends CompositeChecker {
         this.textElementBuilderToCompareWith = textElementBuilderToCompareWith;
         this.blacklistNameToCompareWith = blacklistNameToCompareWith;
         this.notPertinentMessageCode = notPertinentMessageCode;
+        this.manualCheckMessage = manualCheckMessage;
 
         addCheckers();
     }
@@ -126,6 +129,7 @@ public class TextPertinenceChecker extends CompositeChecker {
              manualCheckMessage, 
              eeAttributeNameList);
     }
+    
     /**
      * Constructor.
      * Returns FAILED when the attribute is not pertinent.
@@ -157,6 +161,7 @@ public class TextPertinenceChecker extends CompositeChecker {
         this.blacklistNameToCompareWith = blacklistNameToCompareWith;
         this.notPertinentMessageCode = notPertinentMessageCode;
         this.textElementBuilder = textElementBuilder;
+        this.manualCheckMessage = manualCheckMessage;
         
         addCheckers();
     }
@@ -193,7 +198,10 @@ public class TextPertinenceChecker extends CompositeChecker {
         addBlackListChecker();
         addTextNonAlphanumChecker();
         addAttributeComparisonChecker();
+//    	super.setIsOrCombinaison(false);
     }
+    
+ 
     
     /**
      * Add a {@link TextEmptinessChecker} to the checker collection
@@ -202,11 +210,11 @@ public class TextPertinenceChecker extends CompositeChecker {
         // The first check, when requested, is the consists in verifying
         // the element content emptiness
         if (checkEmptiness) {
-            addChecker(new TextEmptinessChecker(
-                            getTextElementBuilder(),
-                            new ImmutablePair(getFailureSolution(), notPertinentMessageCode),
-                            new ImmutablePair(TestSolution.PASSED,""), 
-                            getEeAttributeNames()));
+	        addChecker(new TextEmptinessChecker(
+	                getTextElementBuilder(),
+	                new ImmutablePair(TestSolution.NEED_MORE_INFO, manualCheckMessage), 
+	                new ImmutablePair(TestSolution.PASSED,""), 
+	                getEeAttributeNames()));
         }
     }
 

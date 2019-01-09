@@ -21,10 +21,6 @@
  */
 package org.tanaguru.rules.keystore;
 
-import static org.tanaguru.rules.keystore.RemarkMessageStore.INFORMATIVE_EMB_NOT_INDENTICAL_ATTR_MSG;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_DECORATIVE_SVG_ROLE_ON_SVG;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_INFORMATIVE_EMB_DETECTED;
-
 /**
  * Utility class that stores remark messages keys as static String
  */
@@ -35,6 +31,7 @@ public final class RemarkMessageStore {
             = "ManualCheckOnElements";
     public static final String NO_PATTERN_DETECTED_MSG
             = "NoPatternDetected";
+    public static final String TABINDEX_DETECTED_MSG = "TabindexDetectedMsg";
     public static final String TITLE_ATTR_MISSING_MSG = "TitleAttributeMissing";
     public static final String ID_MISSING_MSG = "IdMissing";
     public static final String ARIA_LABELLEDBY_EMPTY_MSG = "AriaLabelledbyEmpty";
@@ -139,6 +136,8 @@ public final class RemarkMessageStore {
     public static final String TITLE_NOT_IDENTICAL_TO_ALT_MSG = "TitleNotIdenticalToAlt";
     public static final String ARIA_LABEL_NOT_IDENTICAL_TO_ALT_MSG = "AriaLabelNotIdenticalToAlt";
     public static final String ARIA_LABELLEDBY_NOT_IDENTICAL_TO_ALT_MSG = "AriaLabelledbyNotIdenticalToAlt";
+    public static final String TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG 
+    		= "TextNotIdenticalToAlt";
     public static final String CHECK_ALT_PERTINENCE_OF_INFORMATIVE_IMG_MSG
             = "CheckPertinenceOfAltAttributeOfInformativeImage";
     public static final String CHECK_NATURE_OF_IMAGE_WITH_NOT_PERTINENT_ALT_MSG
@@ -187,6 +186,10 @@ public final class RemarkMessageStore {
             = "DecorativeSvgWithNotEmptyTitleOrDescTags";
     public static final String DECORATIVE_SVG_OR_CHILD_WITH_TITLE_ATTRIBUTE
             = "DecorativeSvgWithTitleAttribute";
+    public static final String DECORATIVE_IMG_OR_CHILDREN_WITH_ARIA_ATTRIBUTE
+            = "DecorativeImgOrChildrenWithAriaAttribute";
+    public static final String DECORATIVE_IMG_OR_CHILD_WITH_TITLE_ATTRIBUTE
+            = "DecorativeImgWithTitleAttribute";
     public static final String SVG_WITHOUT_ROLE_IMAGE_MSG
             = "SvgWithoutRoleImage";
     public static final String INFORMATIVE_SVG_WITH_NOT_PERTINENT_ALT_MSG
@@ -203,6 +206,16 @@ public final class RemarkMessageStore {
             = "SuspectedInformativeSvgWithDescOrTitleChildTag";
     public static final String SUSPECTED_INFORMATIVE_SVG_WITH_TITLE_ATTRIBUTE_ON_ELEMENT_OR_CHILD
             = "SuspectedInformativeSvgWithTitleAttributeOnElementOrChild";
+    public static final String SUSPECTED_DECORATIVE_ELEMENT_WITHOUT_ARIA_HIDDEN_TRUE_MSG
+    		= "SuspectedDecorativeImgWithoutAriaHiddenTrueAttribute";
+    public static final String SUSPECTED_DECORATIVE_IMG_WITH_ARIA_ATTRIBUTE_DETECTED_ON_ELEMENT_OR_CHILD
+            = "SuspectedDecorativeImgWithAriaAttributeDetectedOnElementOrChild";
+    public static final String SUSPECTED_DECORATIVE_IMG_WITH_TITLE_ATTRIBUTE_ON_ELEMENT_OR_CHILD
+            = "SuspectedDecorativeImgWithTitleAttributeOnElementOrChild";
+    public static final String SUSPECTED_WELL_FORMATED_DECORATIVE_IMG
+    		= "SuspectedWellFormedDecorativeImg";
+    public static final String SUSPECTED_DECORATIVE_IMG_WITH_NOT_EMPTY_TEXT_ALT_MSG
+			= "SuspectedDecorativeImgWithNotEmptyTextualAlternativeAttribute";
     public static final String SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG 
     		= "SuspectedInformativeSvgWithRoleImgMissing";
     public static final String SUSPECTED_DECORATIVE_SVG_ROLE_ON_SVG 
@@ -213,13 +226,18 @@ public final class RemarkMessageStore {
             = "CheckNatureOfImageAndStyledTextPresence";
     public static final String CHECK_TEXT_STYLED_PRESENCE_OF_INFORMATIVE_IMG_MSG
             = "CheckStyledTextPresenceOfInformativeImage";
-    
     public static final String CHECK_OBJ_IMG_ARIA_MSG
             ="CheckObjImgAriaMsg";
+    public static final String CHECK_OBJ_IMG_ARIA_LABELLEDBY_MSG
+    		="CheckObjImgAriaLabelledbyMsg";
     public static final String CHECK_CANVAS_IMG_ARIA_MSG
-            ="CheckCanvasImgAriaMsg";
+            ="CheckCanvasImgAriaMsg";    
+    public static final String CHECK_CANVAS_IMG_ARIA_LABELLEDBY_MSG
+    		="CheckCanvasImgAriaLabelledbyMsg";
     public static final String CHECK_EMB_IMG_ARIA_MSG
             ="CheckEmbImgAriaMsg";
+    public static final String CHECK_EMB_IMG_ARIA_LABELLEDBY_MSG
+            ="CheckEmbImgAriaLabelledbyMsg";    
     public static final String CHECK_INPUT_IMG_ARIA_MSG
             ="CheckInputImgAriaMsg";
     public static final String CHECK_INPUT_LEGD_ARIA_MSG
@@ -232,15 +250,43 @@ public final class RemarkMessageStore {
             ="CheckSvgImgAriaMsg";
     public static final String CHECK_CANVAS_LEGD_ARIA_MSG
             ="CheckCanvasLegdAriaMsg";
-     public static final String CHECK_IMG_TAGS_MSG="CheckImgTags";
-     public static final String INFORMATIVE_EMB_NOT_INDENTICAL_ATTR_MSG
-     		= "InformativeEmbNotIdenticalAttr";
-     public static final String SUSPECTED_DECORATIVE_EMB_WITH_ARIA_ATTRIBUTE_DETECTED
+    public static final String CHECK_IMG_TAGS_MSG="CheckImgTags";
+    public static final String INFORMATIVE_EMB_NOT_INDENTICAL_ATTR_MSG
+     		= "InformativeEmbNotIdenticalAttr";     
+    public static final String INFORMATIVE_EMB_NOT_INDENTICAL_ARIA_LABELLEDBY_MSG
+    		= "InformativeEmbNotIdenticalAriaLabelledby";     
+    public static final String SUSPECTED_DECORATIVE_EMB_WITH_ARIA_ATTRIBUTE_DETECTED
             = "SuspectedDecorativeEmbWithAriaAttributeDetected";
-     public static final String SUSPECTED_INFORMATIVE_EMB_DETECTED
-            = "SuspectedInformativeEmbDetected";
-     public static final String SUSPECTED_INFORMATIVE_EMB_WITH_ARIA_ATTRIBUTE_NOT_DETECTED
+    public static final String SUSPECTED_INFORMATIVE_EMB_DETECTED
+            = "SuspectedInformativeEmbDetected";     
+    public static final String SUSPECTED_INFORMATIVE_EMB_WITH_LABELLEDBY_DETECTED
+     		= "SuspectedInformativeEmbWithLabelledbyDetected";     
+    public static final String SUSPECTED_INFORMATIVE_EMB_WITH_ARIA_ATTRIBUTE_NOT_DETECTED
             = "SuspectedInformativeEmbWithAriaAttributeNotDetected";
+    public static final String SUSPECTED_INFORMATIVE_OBJ_DETECTED
+			= "SuspectedInformativeObjDetected";
+    public static final String SUSPECTED_INFORMATIVE_OBJ_WITH_LABELLEDBY_DETECTED
+			= "SuspectedInformativeObjWithLabelledbyDetected";
+ 	public static final String INFORMATIVE_OBJ_NOT_INDENTICAL_ATTR_MSG
+			= "InformativeObjNotIndenticalAttr";
+ 	public static final String INFORMATIVE_OBJ_NOT_INDENTICAL_ARIA_LABELLEDBY_MSG
+			= "InformativeObjNotIndenticalAriaLabelledby";
+    public static final String INFORMATIVE_CANVAS_NOT_INDENTICAL_ATTR_MSG
+			= "InformativeCanvasNotIdenticalAttr";     
+	public static final String INFORMATIVE_CANVAS_NOT_INDENTICAL_ARIA_LABELLEDBY_MSG
+			= "InformativeCanvasNotIdenticalAriaLabelledby";   
+    public static final String SUSPECTED_INFORMATIVE_CANVAS_DETECTED
+			= "SuspectedInformativeCanvasDetected";
+    public static final String SUSPECTED_INFORMATIVE_CANVAS_WITH_LABELLEDBY_DETECTED
+			= "SuspectedInformativeCanvasWithLabelledbyDetected";
+    public static final String INFORMATIVE_AREA_TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG 
+			= "InformativeAreaTextNotIdenticalToAlt";
+    public static final String AREA_TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG 
+			= "AreaTextWithAriaLabelledbyNotIdenticalToAlt";
+    public static final String INFORMATIVE_IMG_TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG 
+		= "InformativeImgTextNotIdenticalToAlt";
+    public static final String IMG_TEXT_NOT_IDENTICAL_TO_ALT_WITH_ARIA_LABELLEDBY_MSG 
+			= "ImgTextWithAriaLabelledbyNotIdenticalToAlt";
 
     // frames 
     public static final String NOT_PERTINENT_TITLE_OF_FRAME_MSG
@@ -417,6 +463,13 @@ public final class RemarkMessageStore {
             = "ContextChangedScriptDetected";
     public static final String ARIA_FORM_LABEL_MISSING
     		= "AriaFormLabelMissing";
+    public static final String ARIA_FORM_LABEL_EMPTY
+			= "AriaFormLabelEmpty";
+    public static final String ALT_IMG_FORM_LABEL_EMPTY
+			= "AltImgFormLabelEmpty";
+    public static final String ONKEYPRESS_MISSING_MSG = "OnKeyPressMissing";
+    public static final String CHECK_ONCLICK_DEFINTION_IN_JS_MSG
+            = "CheckOnClickDefinitionInJs";
 
     // consultation 
     public static final String NOT_IMMEDIATE_REDIRECT_VIA_META_MSG
@@ -461,6 +514,12 @@ public final class RemarkMessageStore {
             = "CheckManuallyOutlineForFormElementAndIframe";
     public static final String CHECK_IF_USER_HAVE_MECHANISM_TO_DELETE_JUSTIFY_TEXT_ALIGN_MSG
             = "ChekIfUserHaveAMechanismToDeleteJustifyTextAlign";
+    
+    //quotations 
+    public static final String BLOCKQUOTE_DETECTED_MSG
+    		= "BlockquoteDetectedMsg";
+    public static final String Q_DETECTED_MSG
+			= "QDetectedMsg";
 
     // css
     public static final String BAD_UNIT_TYPE_MSG = "BadUnitType";
@@ -484,12 +543,7 @@ public final class RemarkMessageStore {
     public static final String CHECK_BG_COLOR_PRESENCE
             = "CheckBackGroundColorPresence";
 
-    // scripts
-    public static final String ONKEYPRESS_MISSING_MSG = "OnKeyPressMissing";
-    public static final String CHECK_ONCLICK_DEFINTION_IN_JS_MSG
-            = "CheckOnClickDefinitionInJs";
-
-//  navigation
+    //  navigation
     public static final String SUSPECTED_MISSING_ATTRIBUTE_WITH_VALUE_BANNER
             = "SuspectedMissingTagWithRoleAttributeThatValueIsBanner";
     public static final String SUSPECTED_MISSING_ATTRIBUTE_WITH_VALUE_BANNER2
