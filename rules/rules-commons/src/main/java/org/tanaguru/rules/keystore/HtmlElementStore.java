@@ -36,6 +36,7 @@ public final class HtmlElementStore {
     public static final String AUDIO_ELEMENT = "audio";
     public static final String BGSOUND_ELEMENT = "bgsound";
     public static final String BLINK_ELEMENT = "blink";
+    public static final String BLOCKQUOTE_ELEMENT = HTML.Tag.BLOCKQUOTE.toString();
     public static final String BODY_ELEMENT = HTML.Tag.BODY.toString();
     public static final String BUTTON_ELEMENT = "button";
     public static final String CANVAS_ELEMENT = "canvas";
@@ -74,6 +75,7 @@ public final class HtmlElementStore {
     public static final String OPTION_ELEMENT = HTML.Tag.OPTION.toString();
     public static final String OPTGROUP_ELEMENT = "optgroup";
     public static final String P_ELEMENT = HTML.Tag.P.toString();
+    public static final String Q_ELEMENT = "q";
     public static final String SAMP_ELEMENT = HTML.Tag.SAMP.toString();
     public static final String SELECT_ELEMENT = HTML.Tag.SELECT.toString();
     public static final String SCRIPT_ELEMENT = HTML.Tag.SCRIPT.toString();

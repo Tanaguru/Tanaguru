@@ -515,6 +515,12 @@ public final class RemarkMessageStore {
     public static final String CHECK_IF_USER_HAVE_MECHANISM_TO_DELETE_JUSTIFY_TEXT_ALIGN_MSG
             = "ChekIfUserHaveAMechanismToDeleteJustifyTextAlign";
     
+    //quotations 
+    public static final String BLOCKQUOTE_DETECTED_MSG
+    		= "BlockquoteDetectedMsg";
+    public static final String Q_DETECTED_MSG
+			= "QDetectedMsg";
+
     // css
     public static final String BAD_UNIT_TYPE_MSG = "BadUnitType";
     public static final String FORBIDDEN_UNIT_TYPE_MSG = "ForbiddenUnitType";

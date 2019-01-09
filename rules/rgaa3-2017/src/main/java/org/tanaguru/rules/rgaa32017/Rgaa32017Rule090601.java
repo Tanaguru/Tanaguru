@@ -19,7 +19,15 @@
  */
 package org.tanaguru.rules.rgaa32017;
 
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import static org.tanaguru.entity.audit.TestSolution.NEED_MORE_INFO;
+import static org.tanaguru.entity.audit.TestSolution.NOT_APPLICABLE;
+import static org.tanaguru.rules.keystore.HtmlElementStore.Q_ELEMENT;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.Q_DETECTED_MSG;
+
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
+import org.tanaguru.rules.elementchecker.element.ElementPresenceChecker;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
 
 /**
  * Implementation of the rule 9.6.1 of the referential Rgaa 3-2017.
@@ -28,13 +36,17 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-9-6-1"> 9.6.1 rule specification</a>
  */
 
-public class Rgaa32017Rule090601 extends AbstractNotTestedRuleImplementation {
+public class Rgaa32017Rule090601 extends AbstractPageRuleWithSelectorAndCheckerImplementation {
 
     /**
      * Default constructor
      */
     public Rgaa32017Rule090601 () {
-        super();
+    	super(
+        		new SimpleElementSelector(Q_ELEMENT),
+        		new ElementPresenceChecker(
+        				new ImmutablePair(NEED_MORE_INFO, Q_DETECTED_MSG), 
+        				new ImmutablePair(NOT_APPLICABLE,"")));
     }
 
 }
