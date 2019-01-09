@@ -24,9 +24,12 @@ package org.tanaguru.entity.dao.subject;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
+import org.tanaguru.entity.subject.Site;
 import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.entity.subject.WebResourceImpl;
 import org.tanaguru.sdk.entity.dao.jpa.AbstractJPADAO;
+
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.NonUniqueResultException;
 import org.apache.commons.lang3.StringUtils;
@@ -68,6 +71,30 @@ public class WebResourceDAOImpl extends AbstractJPADAO<WebResource, Long>
             }
             return null;
         }
+    }
+
+    @Override
+    public List<WebResource> findByAudit(Audit audit,
+                                         int start,
+                                         int chunkSize) {
+        List<WebResource> result = new ArrayList<>();
+        Query query = entityManager.createQuery(
+                "SELECT wr FROM " +
+                        getEntityClass().getName() + " wr"
+                        + " left join fetch wr.processResultSet pr"
+                        + " WHERE wr.audit = :audit");
+        query.setParameter("audit", audit);
+        query.setFirstResult(start);
+        query.setMaxResults(chunkSize);
+        try {
+            WebResource parent = (WebResource) query.getSingleResult();
+            result.add(parent);
+            if(parent instanceof Site){
+                result.addAll(findWebResourceFromItsParent(parent, 0, chunkSize-1));
+            }
+        } catch (NoResultException nre) {
+        }
+        return result;
     }
 
     @Override
@@ -149,7 +176,7 @@ public class WebResourceDAOImpl extends AbstractJPADAO<WebResource, Long>
                     + getEntityClass().getName() + " wr"
                     + " JOIN wr.parent p"
                     + " WHERE p=:webResource");
-        query.setParameter("webResource", webResource);
+        query.setParameter("webResource", (WebResource) webResource);
         query.setFirstResult(start);
         query.setMaxResults(chunkSize);
         return (List<WebResource>) query.getResultList();

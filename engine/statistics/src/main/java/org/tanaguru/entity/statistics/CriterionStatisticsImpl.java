@@ -78,6 +78,9 @@ public class CriterionStatisticsImpl
     @JoinColumn(name = "Id_Web_Resource_Statistics")
     private WebResourceStatisticsImpl webResourceStatistics;
 
+    @Column(name = "Id_Web_Resource_Statistics", insertable = false, updatable = false)
+    private long idWebResourceStatistics;
+
     @Override
     public Long getId() {
         return id;
@@ -186,5 +189,10 @@ public class CriterionStatisticsImpl
     @Override
     public void setCriterionResult(TestSolution definiteValue) {
         this.criterionResult = definiteValue;
+    }
+
+    @Override
+    public long getIdWebResourceStatistics() {
+        return idWebResourceStatistics;
     }
 }

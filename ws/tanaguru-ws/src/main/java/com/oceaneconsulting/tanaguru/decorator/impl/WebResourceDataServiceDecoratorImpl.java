@@ -2,6 +2,8 @@ package com.oceaneconsulting.tanaguru.decorator.impl;
 
 import java.util.List;
 
+import org.tanaguru.entity.audit.Audit;
+import org.tanaguru.entity.dao.subject.WebResourceDAO;
 import org.tanaguru.entity.service.subject.WebResourceDataService;
 import org.tanaguru.entity.subject.Page;
 import org.tanaguru.entity.subject.Site;
@@ -71,6 +73,14 @@ public class WebResourceDataServiceDecoratorImpl extends AbstractGenericDataServ
     @Override
     public WebResource getByUrl(String arg0) {
         return webResourceDataService.getByUrl(arg0);
+    }
+
+    @Override
+    public List<WebResource> getByAudit(Audit audit, int start, int chunkSize) {
+        return ((WebResourceDAO) entityDao).findByAudit(
+                audit,
+                start,
+                chunkSize);
     }
 
     @Override

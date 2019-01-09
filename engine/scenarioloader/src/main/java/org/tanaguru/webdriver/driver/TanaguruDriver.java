@@ -27,9 +27,6 @@ public class TanaguruDriver implements WebDriver, JavascriptExecutor {
 
     public TanaguruDriver(FirefoxOptions ffOptions) {
         driver = new FirefoxDriver(ffOptions);
-        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
         this.newPageListenerList = new ArrayList<>();
     }
 
@@ -68,11 +65,21 @@ public class TanaguruDriver implements WebDriver, JavascriptExecutor {
 
     @Override
     public List<WebElement> findElements(By by) {
+        try {
+            Thread.sleep(this.waitTimeNgApp);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return driver.findElements(by);
     }
 
     @Override
     public WebElement findElement(By by) {
+        try {
+            Thread.sleep(this.waitTimeNgApp);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return driver.findElement(by);
     }
 

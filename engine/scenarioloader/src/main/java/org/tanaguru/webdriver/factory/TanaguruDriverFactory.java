@@ -9,6 +9,7 @@ import java.io.File;
 import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class TanaguruDriverFactory {
     private Map<String, String> jsScriptMap = new HashMap<>();
@@ -52,6 +53,9 @@ public class TanaguruDriverFactory {
         TanaguruDriver tngDriver = new TanaguruDriver(ffOptions);
         tngDriver.setJsScriptMap(jsScriptMap);
         tngDriver.setWaitTimeNgApp(ngAppWait);
+        tngDriver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+        tngDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        tngDriver.manage().deleteAllCookies();
 
         return tngDriver;
     }

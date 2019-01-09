@@ -64,6 +64,12 @@ public interface CriterionStatistics extends Entity, ResultCounter {
     WebResourceStatistics getWebResourceStatistics();
 
     /**
+     *
+     * @return Web Resource Statistics id
+     */
+    long getIdWebResourceStatistics();
+
+    /**
      * 
      * @param webResourceStatisticsStatistics
      */

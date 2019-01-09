@@ -21,6 +21,7 @@
  */
 package org.tanaguru.entity.service.subject;
 
+import org.tanaguru.entity.audit.Audit;
 import org.tanaguru.entity.subject.Page;
 import org.tanaguru.entity.subject.Site;
 import org.tanaguru.entity.subject.WebResource;
@@ -55,6 +56,15 @@ public interface WebResourceDataService extends
      * @return the web resource found or null
      */
     WebResource getByUrl(String url);
+
+    /**
+     *
+     * @param audit
+     * @param start
+     * @param chunkSize
+     * @return Audit's list of webresources
+     */
+    List<WebResource> getByAudit(Audit audit, int start, int chunkSize);
 
     /**
      * 

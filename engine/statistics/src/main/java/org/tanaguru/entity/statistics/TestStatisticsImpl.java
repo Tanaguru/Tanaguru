@@ -180,8 +180,4 @@ public class TestStatisticsImpl
     public long getIdWebResourceStatistics() {
         return idWebResourceStatistics;
     }
-
-    public void setIdWebResourceStatistics(long idWebResourceStatistics) {
-        this.idWebResourceStatistics = idWebResourceStatistics;
-    }
 }

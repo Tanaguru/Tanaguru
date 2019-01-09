@@ -34,6 +34,15 @@ public interface WebResourceDAO extends GenericDAO<WebResource, Long> {
 
     /**
      *
+     * @param audit
+     * @return audit's web resources list
+     */
+    List<WebResource> findByAudit(Audit audit,
+                                  int start,
+                                  int chunkSize);
+
+    /**
+     *
      * @param url
      *            the url of the web resource to find
      * @return the web resource found or null

@@ -22,6 +22,8 @@
 package org.tanaguru.entity.service.subject;
 
 import java.util.List;
+
+import org.tanaguru.entity.audit.Audit;
 import org.tanaguru.entity.dao.subject.WebResourceDAO;
 import org.tanaguru.entity.factory.subject.WebResourceFactory;
 import org.tanaguru.entity.subject.Page;
@@ -54,6 +56,14 @@ public class WebResourceDataServiceImpl extends AbstractGenericDataService<WebRe
     @Override
     public WebResource getByUrl(String url) {
         return ((WebResourceDAO) entityDao).findByUrl(url);
+    }
+
+    @Override
+    public List<WebResource> getByAudit(Audit audit, int start, int chunkSize) {
+        return ((WebResourceDAO) entityDao).findByAudit(
+                audit,
+                start,
+                chunkSize);
     }
 
     @Override

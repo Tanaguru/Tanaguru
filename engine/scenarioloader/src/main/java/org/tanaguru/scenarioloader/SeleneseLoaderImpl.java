@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.tanaguru.entity.parameterization.ParameterElement;
 import org.tanaguru.exception.ScenarioLoaderException;
 import org.tanaguru.selenese.SeleneseHelper;
-import org.tanaguru.selenese.command.SetWindowSize;
 import org.tanaguru.selenese.command.TanaguruAudit;
 import org.tanaguru.tools.CrawlUtils;
 import org.tanaguru.webdriver.driver.TanaguruDriver;
@@ -52,9 +51,6 @@ public class SeleneseLoaderImpl extends AbstractScenarioLoader implements NewPag
                 public ICommand newCommand(int index, String name, String... args) {
                     ICommand res;
                     switch (name){
-                        case "setWindowSize" :
-                            res = new SetWindowSize(index, name, args);
-                            break;
                         case "tanaguru audit" :
                             res = new TanaguruAudit(index, name, args);
                             break;

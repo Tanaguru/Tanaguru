@@ -534,7 +534,7 @@
             <dependency>
                 <groupId>jp.vmi</groupId>
                 <artifactId>selenese-runner-java</artifactId>
-                <version>3.19.2</version>
+                <version>3.20.0</version>
             </dependency>
 
             <!-- commons dependencies -->
