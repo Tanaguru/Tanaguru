@@ -44,7 +44,7 @@ import org.tanaguru.webapp.entity.contract.Contract;
 import org.tanaguru.webapp.entity.contract.ScopeEnum;
 import org.tanaguru.webapp.exception.ForbiddenPageException;
 import org.tanaguru.webapp.exception.ForbiddenUserException;
-import org.tanaguru.webapp.presentation.factory.TestResultFactory;
+import org.tanaguru.webapp.presentation.factory.impl.TestResultFactoryImpl;
 import org.tanaguru.webapp.presentation.highlighter.HtmlHighlighter;
 import org.tanaguru.webapp.util.HttpStatusCodeFamily;
 import org.tanaguru.webapp.util.TgolKeyStore;
@@ -316,7 +316,7 @@ private static final Logger LOGGER = Logger.getLogger(AuditResultController.clas
                     isAuthorizedScopeForPageList(audit));
 
             model.addAttribute(TgolKeyStore.TEST_RESULT_LIST_KEY,
-                    TestResultFactory.getInstance()
+                    TestResultFactoryImpl.getInstance()
                     .getTestResultListFromCriterion(webResource, crit));
             return TgolKeyStore.CRITERION_RESULT_VIEW_NAME;
         } else {
@@ -373,7 +373,7 @@ private static final Logger LOGGER = Logger.getLogger(AuditResultController.clas
 
             model.addAttribute(
                     TgolKeyStore.TEST_RESULT_LIST_KEY,
-                    TestResultFactory.getInstance().getTestResultListFromTest(
+                    TestResultFactoryImpl.getInstance().getTestResultListFromTest(
                             webResource, test));
             return TgolKeyStore.TEST_RESULT_VIEW_NAME;
         } else {

@@ -50,7 +50,7 @@ import org.tanaguru.webapp.entity.user.User;
 import org.tanaguru.webapp.exception.AuditParameterMissingException;
 import org.tanaguru.webapp.exception.ForbiddenPageException;
 import org.tanaguru.webapp.exception.ForbiddenScopeException;
-import org.tanaguru.webapp.presentation.factory.AuditStatisticsFactory;
+import org.tanaguru.webapp.presentation.factory.impl.AuditStatisticsFactoryImpl;
 import org.tanaguru.webapp.security.userdetails.TgolUserDetails;
 import org.tanaguru.webapp.entity.service.statistics.StatisticsDataService;
 import org.tanaguru.webapp.util.HttpStatusCodeFamily;
@@ -385,11 +385,11 @@ public class PageListControllerTest extends TestCase {
      * @param webResourceDataServiceDecorator 
      */
     private void setUpAuditStatisticsFactory() {
-        AuditStatisticsFactory.getInstance().setActDataService(mockActDataService);
-        AuditStatisticsFactory.getInstance().setWebResourceDataService(mockWebResourceDataService);
-        AuditStatisticsFactory.getInstance().setParameterDataService(mockParameterDataService);
-        AuditStatisticsFactory.getInstance().setThemeDataService(mockThemeDataService);
-        AuditStatisticsFactory.getInstance().setStatisticsDataService(mockStatisticsDataService);
+        AuditStatisticsFactoryImpl.getInstance().setActDataService(mockActDataService);
+        AuditStatisticsFactoryImpl.getInstance().setWebResourceDataService(mockWebResourceDataService);
+        AuditStatisticsFactoryImpl.getInstance().setParameterDataService(mockParameterDataService);
+        AuditStatisticsFactoryImpl.getInstance().setThemeDataService(mockThemeDataService);
+        AuditStatisticsFactoryImpl.getInstance().setStatisticsDataService(mockStatisticsDataService);
     }
     
     /**
@@ -499,7 +499,7 @@ public class PageListControllerTest extends TestCase {
         replay(mockGroupOfPagesScope);
         
         instance.setActDataService(mockActDataService);
-        AuditStatisticsFactory.getInstance().setActDataService(mockActDataService);
+        AuditStatisticsFactoryImpl.getInstance().setActDataService(mockActDataService);
     }
     
     /**

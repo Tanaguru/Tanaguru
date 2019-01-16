@@ -21,12 +21,14 @@
  */
 package org.tanaguru.webapp.presentation.data;
 
+import java.io.Serializable;
+
 /**
  * This class handles the number of each results' type
  * 
  * @author jkowalczyk
  */
-public class ResultCounterImpl implements ResultCounter {
+public class ResultCounterImpl implements ResultCounter, Serializable {
 
     /**
      * Default constructor

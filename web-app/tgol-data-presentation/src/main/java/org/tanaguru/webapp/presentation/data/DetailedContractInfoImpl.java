@@ -21,6 +21,7 @@
  */
 package org.tanaguru.webapp.presentation.data;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import java.util.LinkedHashSet;
@@ -29,7 +30,7 @@ import java.util.LinkedHashSet;
  *
  * @author jkowalczyk
  */
-public class DetailedContractInfoImpl extends ContractInfoImpl implements DetailedContractInfo{
+public class DetailedContractInfoImpl extends ContractInfoImpl implements DetailedContractInfo, Serializable {
 
     private final Collection<ActInfo> lastActInfoSet = new LinkedHashSet();
     private final Collection<ActInfo> siteActInfoSet = new LinkedHashSet();

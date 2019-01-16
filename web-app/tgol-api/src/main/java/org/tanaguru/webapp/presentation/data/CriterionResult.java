@@ -54,6 +54,18 @@ public interface CriterionResult {
 
     /**
      *
+     * @return the id of the criterion statistics
+     */
+    long getId();
+
+    /**
+     * Set the id of the criterion statistics
+     * @param id
+     */
+    void setId(long id);
+
+    /**
+     *
      * @return
      *          The criterion 
      */

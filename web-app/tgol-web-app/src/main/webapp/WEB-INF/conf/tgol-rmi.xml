@@ -6,6 +6,8 @@
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
        xmlns:aop="http://www.springframework.org/schema/aop">
 
+    <import resource="mvc/tgol-beans-presentation.xml"/>
+
     <bean id="userDetailsServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
         <property name="serviceName" value="UserDetailsService"/>
         <property name="service" ref="tgolAuthenticationProvider"/>
@@ -96,6 +98,99 @@
         <!-- PARAMETERS -->
 
         <!-- REFERENCES -->
+
+    <bean id="scopeDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ScopeDataService"/>
+        <property name="service" ref="scopeDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.reference.ScopeDataService"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <!-- DATA PRESENTATION -->
+    <bean id="actInfoFactoryExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ActInfoFactory"/>
+        <property name="service" ref="actInfoFactory"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.presentation.factory.ActInfoFactory"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="auditStatisticsFactoryExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="AuditStatisticsFactory"/>
+        <property name="service" ref="auditStatisticsFactory"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.presentation.factory.AuditStatisticsFactory"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="contractInfoFactoryExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ContractInfoFactory"/>
+        <property name="service" ref="contractInfoFactory"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.presentation.factory.ContractInfoFactory"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="criterionResultFactoryExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="CriterionResultFactory"/>
+        <property name="service" ref="criterionResultFactory"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.presentation.factory.CriterionResultFactory"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="detailedContractInfoFactoryExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="DetailedContractInfoFactory"/>
+        <property name="service" ref="detailedContractInfoFactory"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.presentation.factory.DetailedContractInfoFactory"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="failedPageInfoFactoryExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="FailedPageInfoFactory"/>
+        <property name="service" ref="failedPageInfoFactory"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.presentation.factory.FailedPageInfoFactory"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="failedTestInfoFactoryExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="FailedTestInfoFactory"/>
+        <property name="service" ref="failedTestInfoFactory"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.presentation.factory.FailedTestInfoFactory"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="failedThemeInfoFactoryExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="FailedThemeInfoFactory"/>
+        <property name="service" ref="failedThemeInfoFactory"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.presentation.factory.FailedThemeInfoFactory"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="pageResultFactoryExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="PageResultFactory"/>
+        <property name="service" ref="pageResultFactory"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.presentation.factory.PageResultFactory"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="remarksInfosFactoryExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="RemarksInfosFactory"/>
+        <property name="service" ref="remarksInfosFactory"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.presentation.factory.RemarkInfosFactory"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="resultCounterFactoryExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ResultCounterFactory"/>
+        <property name="service" ref="resultCounterFactory"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.presentation.factory.ResultCounterFactory"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="testResultFactoryExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="TestResultFactory"/>
+        <property name="service" ref="testResultFactory"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.presentation.factory.TestResultFactory"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
     <!-- JOB SERVICES -->
 
 </beans>

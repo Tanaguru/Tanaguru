@@ -23,13 +23,27 @@ package org.tanaguru.webapp.presentation.data;
 
 import org.tanaguru.entity.reference.Criterion;
 
+import java.io.Serializable;
+
 /**
  * This class processes raw results and handles displayable result data at 
  * criterion level
  * 
  * @author jkowalczyk
  */
-public class CriterionResultImpl implements CriterionResult{
+public class CriterionResultImpl implements CriterionResult, Serializable {
+
+    private long id;
+
+    @Override
+    public long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(long id) {
+        this.id = id;
+    }
 
     private Criterion criterion;
     /**

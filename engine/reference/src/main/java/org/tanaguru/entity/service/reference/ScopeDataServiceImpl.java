@@ -21,6 +21,9 @@
  */
 package org.tanaguru.entity.service.reference;
 
+import org.checkerframework.checker.units.qual.K;
+import org.tanaguru.entity.dao.reference.ScopeDAO;
+import org.tanaguru.sdk.entity.dao.GenericDAO;
 import org.tanaguru.sdk.entity.service.AbstractGenericDataService;
 import org.tanaguru.entity.reference.Scope;
 
@@ -35,4 +38,8 @@ public class ScopeDataServiceImpl extends AbstractGenericDataService<Scope, Long
         super();
     }
 
+    @Override
+    public Scope findByCode(String code) {
+        return ((ScopeDAO) entityDao).findByCode(code);
+    }
 }

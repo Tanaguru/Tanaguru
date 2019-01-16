@@ -21,6 +21,7 @@
  */
 package org.tanaguru.webapp.presentation.data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.tanaguru.entity.audit.DefiniteResult;
@@ -31,8 +32,7 @@ import org.tanaguru.entity.reference.Test;
  * This class processes raw results and handles displayable remarks data
  * @author jkowalczyk
  */
-public class TestResultImpl implements TestResult{
-
+public class TestResultImpl implements TestResult, Serializable {
     private final List<RemarkInfos> remarkInfosList = new ArrayList<>();
 
     /**

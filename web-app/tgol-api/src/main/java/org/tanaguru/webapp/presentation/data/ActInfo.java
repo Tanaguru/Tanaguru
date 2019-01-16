@@ -32,6 +32,18 @@ public interface ActInfo {
 
     /**
      *
+     * @return the id of the act
+     */
+    long getId();
+
+    /**
+     * Set the id of the act
+     * @param id
+     */
+    void setId(long id);
+
+    /**
+     *
      * @return the date of the act
      */
     Date getDate();

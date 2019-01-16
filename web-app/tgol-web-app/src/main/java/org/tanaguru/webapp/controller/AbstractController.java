@@ -29,7 +29,7 @@ import org.tanaguru.webapp.entity.service.contract.ContractDataService;
 import org.tanaguru.webapp.entity.service.user.UserDataService;
 import org.tanaguru.webapp.entity.user.User;
 import org.tanaguru.webapp.exception.ForbiddenUserException;
-import org.tanaguru.webapp.presentation.factory.DetailedContractInfoFactory;
+import org.tanaguru.webapp.presentation.factory.impl.DetailedContractInfoFactoryImpl;
 import org.tanaguru.webapp.security.userdetails.TgolUserDetails;
 import org.tanaguru.webapp.util.TgolKeyStore;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -210,7 +210,7 @@ public abstract class AbstractController {
     protected String displayContractView(Contract contract, Model model) {
         model.addAttribute(TgolKeyStore.CONTRACT_ID_VALUE, contract.getId());
         model.addAttribute(TgolKeyStore.DETAILED_CONTRACT_INFO,
-                    DetailedContractInfoFactory.getInstance().getDetailedContractInfo(contract));
+                    DetailedContractInfoFactoryImpl.getInstance().getDetailedContractInfo(contract));
         model.addAttribute(TgolKeyStore.IS_CONTRACT_EXPIRED_KEY,
                 isContractExpired(contract));
         return TgolKeyStore.CONTRACT_VIEW_NAME;

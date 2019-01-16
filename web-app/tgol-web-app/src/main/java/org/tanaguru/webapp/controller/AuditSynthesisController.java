@@ -36,8 +36,8 @@ import org.tanaguru.webapp.exception.ForbiddenPageException;
 import org.tanaguru.webapp.exception.ForbiddenUserException;
 import org.tanaguru.webapp.presentation.data.FailedThemeInfo;
 import org.tanaguru.webapp.presentation.data.ResultCounter;
-import org.tanaguru.webapp.presentation.factory.AuditStatisticsFactory;
-import org.tanaguru.webapp.presentation.factory.ResultCounterFactory;
+import org.tanaguru.webapp.presentation.factory.impl.AuditStatisticsFactoryImpl;
+import org.tanaguru.webapp.presentation.factory.impl.ResultCounterFactoryImpl;
 import org.tanaguru.webapp.util.HttpStatusCodeFamily;
 import org.tanaguru.webapp.util.TgolKeyStore;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -206,9 +206,9 @@ public class AuditSynthesisController extends AbstractAuditDataHandlerController
                 getResultCountByResultTypeAndTheme(site, audit, TestSolution.FAILED, nbOfDisplayedFailedTest);
 
         for (FailedThemeInfo tfi : tfiCollection) {
-            ResultCounter failedCounter = ResultCounterFactory.getInstance().getResultCounter();
+            ResultCounter failedCounter = ResultCounterFactoryImpl.getInstance().getResultCounter();
             failedCounter.setFailedCount(tfi.getResultCounter().intValue());
-            top5SortedThemeMap.put(AuditStatisticsFactory.getInstance().getTheme(tfi.getThemeId()), failedCounter);
+            top5SortedThemeMap.put(AuditStatisticsFactoryImpl.getInstance().getTheme(tfi.getThemeId()), failedCounter);
         }
         model.addAttribute(
                 TgolKeyStore.AUDITED_PAGES_COUNT_KEY,

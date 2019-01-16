@@ -31,6 +31,17 @@ import org.tanaguru.webapp.entity.contract.ScopeEnum;
  * @author jkowalczyk
  */
 public interface AuditStatistics {
+    /**
+     *
+     * @return the id of the audit
+     */
+    long getId();
+
+    /**
+     * Set the id of the audit
+     * @param id
+     */
+    void setId(long id);
 
     /**
      *

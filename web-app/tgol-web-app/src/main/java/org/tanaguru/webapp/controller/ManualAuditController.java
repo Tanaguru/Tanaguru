@@ -37,7 +37,7 @@ import org.tanaguru.webapp.command.ManualAuditCommand;
 import org.tanaguru.webapp.entity.contract.Act;
 import org.tanaguru.webapp.entity.contract.Contract;
 import org.tanaguru.webapp.exception.ForbiddenPageException;
-import org.tanaguru.webapp.presentation.factory.TestResultFactory;
+import org.tanaguru.webapp.presentation.factory.impl.TestResultFactoryImpl;
 import org.tanaguru.webapp.util.TgolKeyStore;
 import org.tanaguru.webapp.validator.ManualAuditValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -249,7 +249,7 @@ public class ManualAuditController extends AbstractAuditResultController {
         Audit audit = getAuditFromWebResource(webResource);
         if (isUserAllowedToDisplayResult(audit)) {
             model.addAttribute(TgolKeyStore.IS_MANUAL_AUDIT_KEY, true);
-            List<ProcessResult> processResultList = TestResultFactory
+            List<ProcessResult> processResultList = TestResultFactoryImpl
                     .getInstance().getProcessResultListFromTestsResult(
                             manualAuditCommand.getModifiedManualResultMap(),
                             webResource);
@@ -266,7 +266,7 @@ public class ManualAuditController extends AbstractAuditResultController {
                 getAuditDataService().update(audit);
             }
 
-            List<ProcessResult> allProcessResultList = TestResultFactory
+            List<ProcessResult> allProcessResultList = TestResultFactoryImpl
                     .getInstance().getAllProcessResultListFromTestsResult(
                             manualAuditCommand.getModifiedManualResultMap(), webResource);
             manualAuditCommand.setProcessResultList(allProcessResultList);

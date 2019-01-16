@@ -32,6 +32,18 @@ public interface RemarkInfos {
 
     /**
      *
+     * @return the id of the procesRemark
+     */
+    long getId();
+
+    /**
+     * Set the id of the processRemark
+     * @param id
+     */
+    void setId(long id);
+
+    /**
+     *
      * @return
      */
     String getMessageCode();

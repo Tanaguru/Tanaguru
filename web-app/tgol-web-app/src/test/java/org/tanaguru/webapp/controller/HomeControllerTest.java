@@ -34,8 +34,8 @@ import org.tanaguru.webapp.entity.service.contract.ActDataService;
 import org.tanaguru.webapp.entity.service.contract.ContractDataService;
 import org.tanaguru.webapp.entity.user.User;
 import org.tanaguru.webapp.form.builder.FormFieldBuilder;
-import org.tanaguru.webapp.presentation.factory.ContractInfoFactory;
-import org.tanaguru.webapp.presentation.factory.DetailedContractInfoFactory;
+import org.tanaguru.webapp.presentation.factory.impl.ContractInfoFactoryImpl;
+import org.tanaguru.webapp.presentation.factory.impl.DetailedContractInfoFactoryImpl;
 import org.tanaguru.webapp.security.userdetails.TgolUserDetails;
 import org.tanaguru.webapp.util.TgolKeyStore;
 import org.springframework.security.authentication.AuthenticationDetails;
@@ -163,9 +163,9 @@ public class HomeControllerTest extends TestCase {
         replay(mockActionHandler);
         
         instance.setContractDataService(mockContractDataService);
-        ContractInfoFactory.getInstance().setContractDataService(mockContractDataService);
-        ContractInfoFactory.getInstance().setActionHandler(mockActionHandler);
-        DetailedContractInfoFactory.getInstance().setContractDataService(mockContractDataService);
+        ContractInfoFactoryImpl.getInstance().setContractDataService(mockContractDataService);
+        ContractInfoFactoryImpl.getInstance().setActionHandler(mockActionHandler);
+        DetailedContractInfoFactoryImpl.getInstance().setContractDataService(mockContractDataService);
     }
     
     private void setUpActDataService() {
@@ -177,15 +177,15 @@ public class HomeControllerTest extends TestCase {
     
         replay(mockActDataService);
         
-        // the HomeController uses a ContractInfoFactory to prepare the data
+        // the HomeController uses a ContractInfoFactoryImpl to prepare the data
         // to display. This factory needs a ActDataService instance to retrieve
         // the acts related with the current contract.
-        ContractInfoFactory.getInstance().setActDataService(mockActDataService);
+        ContractInfoFactoryImpl.getInstance().setActDataService(mockActDataService);
         
-        // the HomeController uses a DetailedContractInfoFactory to prepare the data
+        // the HomeController uses a DetailedContractInfoFactoryImpl to prepare the data
         // to display. This factory needs a ActDataService instance to retrieve
         // the acts related with the current contract.
-        DetailedContractInfoFactory.getInstance().setActDataService(mockActDataService);
+        DetailedContractInfoFactoryImpl.getInstance().setActDataService(mockActDataService);
     }
 
     private void setUpMockAuthenticationContext(){

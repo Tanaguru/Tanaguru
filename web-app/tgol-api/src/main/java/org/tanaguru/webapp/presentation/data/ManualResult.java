@@ -22,12 +22,14 @@
 
 package org.tanaguru.webapp.presentation.data;
 
+import java.io.Serializable;
+
 /**
  * POJO that handles manual result filled-in by user
  * 
  * @author jkowalczyk
  */
-public class ManualResult {
+public class ManualResult implements Serializable {
    
     /** the result set by user*/
     private String result;

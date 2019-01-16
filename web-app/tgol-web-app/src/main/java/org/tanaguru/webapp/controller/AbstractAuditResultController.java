@@ -51,8 +51,8 @@ import org.tanaguru.webapp.form.CheckboxFormFieldImpl;
 import org.tanaguru.webapp.form.FormField;
 import org.tanaguru.webapp.form.builder.FormFieldBuilder;
 import org.tanaguru.webapp.presentation.data.AuditStatistics;
-import org.tanaguru.webapp.presentation.factory.CriterionResultFactory;
-import org.tanaguru.webapp.presentation.factory.TestResultFactory;
+import org.tanaguru.webapp.presentation.factory.impl.CriterionResultFactoryImpl;
+import org.tanaguru.webapp.presentation.factory.impl.TestResultFactoryImpl;
 import org.tanaguru.webapp.util.TgolKeyStore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -305,7 +305,7 @@ public class AbstractAuditResultController extends AbstractAuditDataHandlerContr
                 .get(TgolKeyStore.AUDIT_RESULT_SORT_COMMAND_KEY));
         model.addAttribute(
                 TgolKeyStore.TEST_RESULT_LIST_KEY,
-                TestResultFactory.getInstance().getTestResultSortedByThemeMap(
+                TestResultFactoryImpl.getInstance().getTestResultSortedByThemeMap(
                         site, getSiteScope(),
                         asuc.getSortOptionMap().get(themeSortKey).toString(),
                         getTestResultSortSelection(asuc)));
@@ -382,7 +382,7 @@ public class AbstractAuditResultController extends AbstractAuditDataHandlerContr
 
             model.addAttribute(
                     TgolKeyStore.TEST_RESULT_LIST_KEY,
-                    TestResultFactory.getInstance()
+                    TestResultFactoryImpl.getInstance()
                     .getTestResultSortedByThemeMap(
                             page,
                             getPageScope(),
@@ -393,7 +393,7 @@ public class AbstractAuditResultController extends AbstractAuditDataHandlerContr
                 if (manualAuditCommand == null) {
                     manualAuditCommand = new ManualAuditCommand();
                 }
-                manualAuditCommand.setModifedManualResultMap(TestResultFactory
+                manualAuditCommand.setModifedManualResultMap(TestResultFactoryImpl
                         .getInstance().getTestResultMap(
                                 page,
                                 getPageScope(),
@@ -412,7 +412,7 @@ public class AbstractAuditResultController extends AbstractAuditDataHandlerContr
                     .asMap().get(TgolKeyStore.AUDIT_RESULT_SORT_COMMAND_KEY));
             model.addAttribute(
                     TgolKeyStore.CRITERION_RESULT_LIST_KEY,
-                    CriterionResultFactory.getInstance()
+                    CriterionResultFactoryImpl.getInstance()
                     .getCriterionResultSortedByThemeMap(
                             page,
                             asuc.getSortOptionMap().get(themeSortKey)

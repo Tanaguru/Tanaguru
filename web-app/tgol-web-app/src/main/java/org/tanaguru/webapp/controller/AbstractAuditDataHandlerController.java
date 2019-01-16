@@ -47,7 +47,7 @@ import org.tanaguru.webapp.exception.ForbiddenPageException;
 import org.tanaguru.webapp.exception.ForbiddenUserException;
 import org.tanaguru.webapp.exception.OrphanWebResourceException;
 import org.tanaguru.webapp.presentation.data.AuditStatistics;
-import org.tanaguru.webapp.presentation.factory.AuditStatisticsFactory;
+import org.tanaguru.webapp.presentation.factory.impl.AuditStatisticsFactoryImpl;
 import org.tanaguru.webapp.report.pagination.factory.TgolPaginatedListFactory;
 import org.tanaguru.webapp.util.HttpStatusCodeFamily;
 import org.tanaguru.webapp.util.TgolKeyStore;
@@ -271,7 +271,7 @@ public abstract class AbstractAuditDataHandlerController extends AbstractControl
      * @return
      */
     protected AuditStatistics getAuditStatistics(WebResource webResource, Model model, String displayScope, boolean isAuditManual){
-        return AuditStatisticsFactory.getInstance().getAuditStatistics(
+        return AuditStatisticsFactoryImpl.getInstance().getAuditStatistics(
                 webResource, 
                 getParametersToDisplay(),
                 displayScope,

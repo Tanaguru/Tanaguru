@@ -21,11 +21,13 @@
  */
 package org.tanaguru.webapp.action;
 
+import java.io.Serializable;
+
 /**
  *
  * @author jkowalczyk
  */
-public class ActionImpl implements Action {
+public class ActionImpl implements Action, Serializable {
 
     // By default an action is disabled. 
     private boolean isActionEnabled = false;

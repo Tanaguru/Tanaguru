@@ -26,6 +26,9 @@ import org.tanaguru.sdk.entity.dao.jpa.AbstractJPADAO;
 import org.tanaguru.entity.reference.Scope;
 import org.tanaguru.entity.reference.ScopeImpl;
 
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
+
 /**
  * 
  * @author jkowalczyk
@@ -41,4 +44,16 @@ public class ScopeDAOImpl extends AbstractJPADAO<Scope, Long> implements ScopeDA
         return ScopeImpl.class;
     }
 
+    @Override
+    public Scope findByCode(String code) {
+        Query query = entityManager.createQuery("SELECT s FROM "
+                + getEntityClass().getName() + " s"
+                + " WHERE s.code = :code");
+        query.setParameter("code", code);
+        try {
+            return (Scope)query.getSingleResult();
+        } catch (NoResultException nre) {
+            return null;
+        }
+    }
 }

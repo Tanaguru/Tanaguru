@@ -35,7 +35,7 @@ import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.webapp.exception.ForbiddenPageException;
 import org.tanaguru.webapp.presentation.data.AuditStatistics;
 import org.tanaguru.webapp.presentation.data.TestResult;
-import org.tanaguru.webapp.presentation.factory.TestResultFactory;
+import org.tanaguru.webapp.presentation.factory.impl.TestResultFactoryImpl;
 import org.tanaguru.webapp.report.service.ExportService;
 import org.tanaguru.webapp.report.service.exception.NotSupportedExportFormatException;
 import org.tanaguru.webapp.util.TgolKeyStore;
@@ -149,7 +149,7 @@ public class AuditExportResultController extends AbstractAuditDataHandlerControl
         if (webResource instanceof Page) {
             scope = getPageScope();
         }
-        List<TestResult> testResultList = TestResultFactory.getInstance().getTestResultList(
+        List<TestResult> testResultList = TestResultFactoryImpl.getInstance().getTestResultList(
                     webResource,
                     scope,
                     getLocaleResolver().resolveLocale(request));

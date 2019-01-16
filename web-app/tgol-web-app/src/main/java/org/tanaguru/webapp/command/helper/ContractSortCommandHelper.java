@@ -32,7 +32,7 @@ import org.tanaguru.webapp.form.FormField;
 import org.tanaguru.webapp.form.builder.FormFieldBuilder;
 import org.tanaguru.webapp.form.parameterization.helper.FormFieldHelper;
 import org.tanaguru.webapp.presentation.data.ContractInfo;
-import org.tanaguru.webapp.presentation.factory.ContractInfoFactory;
+import org.tanaguru.webapp.presentation.factory.impl.ContractInfoFactoryImpl;
 import org.tanaguru.webapp.util.TgolKeyStore;
 import org.springframework.ui.Model;
 
@@ -129,7 +129,7 @@ public final class ContractSortCommandHelper  {
         for (Contract contract : user.getContractSet()) {
             if (isContractLabelIncluded(inclusionSortOccurence, contract.getLabel()) &&
                     !isContractLabelExcluded(exclusionSortOccurence, contract.getLabel())) {
-                contractInfoSet.add(ContractInfoFactory.getInstance().getContractInfo(contract));
+                contractInfoSet.add(ContractInfoFactoryImpl.getInstance().getContractInfo(contract));
             }
         }
         if (csc.getSortOptionMap().containsKey(sortOrderKey)) {

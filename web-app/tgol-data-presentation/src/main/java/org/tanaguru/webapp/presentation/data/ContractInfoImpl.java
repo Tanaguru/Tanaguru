@@ -21,6 +21,7 @@
  */
 package org.tanaguru.webapp.presentation.data;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import org.tanaguru.webapp.action.Action;
@@ -30,7 +31,7 @@ import org.tanaguru.webapp.util.TgolEscapeUrl;
  *
  * @author jkowalczyk
  */
-public class ContractInfoImpl implements ContractInfo {
+public class ContractInfoImpl implements ContractInfo, Serializable {
 
     private int id;
     @Override

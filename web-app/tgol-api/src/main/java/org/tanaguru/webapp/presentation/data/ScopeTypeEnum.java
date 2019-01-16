@@ -21,11 +21,13 @@
  */
 package org.tanaguru.webapp.presentation.data;
 
+import java.io.Serializable;
+
 /**
  *
  * @author jkowalczyk
  */
-public enum ScopeTypeEnum {
+public enum ScopeTypeEnum  implements Serializable {
 
     /**
      *

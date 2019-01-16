@@ -23,10 +23,12 @@ package org.tanaguru.webapp.presentation.data;
 
 import org.tanaguru.webapp.util.TgolEscapeUrl;
 
+import java.io.Serializable;
+
 /**
  * @author jkowalczyk
  */
-public class FailedPageInfoImpl implements FailedPageInfo{
+public class FailedPageInfoImpl implements FailedPageInfo, Serializable {
 
     /**
      * Default constructor

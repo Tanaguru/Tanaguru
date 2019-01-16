@@ -21,13 +21,15 @@
  */
 package org.tanaguru.webapp.presentation.data;
 
+import java.io.Serializable;
+
 /**
  * This class handles displayable data that represent statistics of tests whose
  * result is failed
  * 
  * @author jkowalczyk
  */
-public class FailedTestInfoImpl implements FailedTestInfo{
+public class FailedTestInfoImpl implements FailedTestInfo, Serializable {
 
     /**
      * Default constructor

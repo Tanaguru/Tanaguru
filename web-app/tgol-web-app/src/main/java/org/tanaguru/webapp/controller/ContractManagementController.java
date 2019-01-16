@@ -47,7 +47,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.tanaguru.webapp.entity.contract.Act;
-import org.tanaguru.webapp.presentation.factory.DetailedContractInfoFactory;
+import org.tanaguru.webapp.presentation.factory.impl.DetailedContractInfoFactoryImpl;
 
 /**
  *
@@ -500,7 +500,7 @@ public class ContractManagementController extends AbstractUserAndContractsContro
         model.addAttribute(TgolKeyStore.CONTRACT_ID_VALUE, contractToShow.getId());
         model.addAttribute(TgolKeyStore.CONTRACT_ID_VALUE, contractToShow.getId());
         model.addAttribute(TgolKeyStore.DETAILED_CONTRACT_INFO,
-                DetailedContractInfoFactory.getInstance().getDetailedContractInfo(contractToShow));
+                DetailedContractInfoFactoryImpl.getInstance().getDetailedContractInfo(contractToShow));
         model.addAttribute(TgolKeyStore.IS_CONTRACT_EXPIRED_KEY,
                 isContractExpired(contractToShow));
         return TgolKeyStore.SHOW_AUDITS_VIEW_NAME;

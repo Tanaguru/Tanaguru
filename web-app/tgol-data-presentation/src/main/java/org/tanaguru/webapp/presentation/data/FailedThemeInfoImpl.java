@@ -21,12 +21,14 @@
  */
 package org.tanaguru.webapp.presentation.data;
 
+import java.io.Serializable;
+
 /**
  * This class handles displayable data that represent statistics about themes
  * 
  * @author jkowalczyk
  */
-public class FailedThemeInfoImpl implements FailedThemeInfo{
+public class FailedThemeInfoImpl implements FailedThemeInfo, Serializable {
 
     /**
      * Default constructor

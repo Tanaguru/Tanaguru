@@ -21,6 +21,7 @@
  */
 package org.tanaguru.webapp.presentation.data;
 
+import java.io.Serializable;
 import java.util.ResourceBundle;
 import org.tanaguru.webapp.util.TgolEscapeUrl;
 import org.tanaguru.webapp.util.TgolKeyStore;
@@ -29,7 +30,7 @@ import org.tanaguru.webapp.util.TgolKeyStore;
  * This class handles basics displayable data about a page result
  * @author jkowalczyk
  */
-public class PageResultImpl implements PageResult{
+public class PageResultImpl implements PageResult, Serializable {
 
     /**
      *

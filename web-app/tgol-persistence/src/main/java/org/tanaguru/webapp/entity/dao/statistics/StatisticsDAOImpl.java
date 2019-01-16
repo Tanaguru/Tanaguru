@@ -36,10 +36,10 @@ import org.tanaguru.webapp.presentation.data.FailedPageInfo;
 import org.tanaguru.webapp.presentation.data.FailedTestInfo;
 import org.tanaguru.webapp.presentation.data.FailedThemeInfo;
 import org.tanaguru.webapp.presentation.data.PageResult;
-import org.tanaguru.webapp.presentation.factory.FailedPageInfoFactory;
-import org.tanaguru.webapp.presentation.factory.FailedTestInfoFactory;
-import org.tanaguru.webapp.presentation.factory.FailedThemeInfoFactory;
-import org.tanaguru.webapp.presentation.factory.PageResultFactory;
+import org.tanaguru.webapp.presentation.factory.impl.FailedPageInfoFactoryImpl;
+import org.tanaguru.webapp.presentation.factory.impl.FailedTestInfoFactoryImpl;
+import org.tanaguru.webapp.presentation.factory.impl.FailedThemeInfoFactoryImpl;
+import org.tanaguru.webapp.presentation.factory.impl.PageResultFactoryImpl;
 import org.tanaguru.webapp.util.HttpStatusCodeFamily;
 
 /**
@@ -270,7 +270,7 @@ public class StatisticsDAOImpl extends AbstractJPADAO<WebResourceStatistics, Lon
     private Set<FailedThemeInfo> convertRawResultAsFailedThemeInfo(Collection<Object[]> result) {
         Set<FailedThemeInfo> failedThemeInfoSet = new LinkedHashSet();
         for (Object[] obj : result) {
-            FailedThemeInfo fti = FailedThemeInfoFactory.getInstance().getFailedThemeInfo(
+            FailedThemeInfo fti = FailedThemeInfoFactoryImpl.getInstance().getFailedThemeInfo(
                         ((BigInteger)obj[0]).longValue(),
                         ((Integer)obj[1]).longValue());
             failedThemeInfoSet.add(fti);
@@ -350,7 +350,7 @@ public class StatisticsDAOImpl extends AbstractJPADAO<WebResourceStatistics, Lon
         Set<FailedTestInfo> failedTestInfoSet = new LinkedHashSet();
         for (Object[] obj : result) {
             if ((Integer)obj[2] > 0) {
-                FailedTestInfo fti = FailedTestInfoFactory.getInstance().getFailedTestInfo(
+                FailedTestInfo fti = FailedTestInfoFactoryImpl.getInstance().getFailedTestInfo(
                         (String)obj[0], 
                         (String)obj[1], 
                         ((Integer)obj[2]).longValue(),
@@ -514,7 +514,7 @@ public class StatisticsDAOImpl extends AbstractJPADAO<WebResourceStatistics, Lon
     private Set<FailedPageInfo> convertRawResultAsFailedPageInfo(Collection<Object[]> result) {
         Set<FailedPageInfo> failedPageInfoSet = new LinkedHashSet();
         for (Object[] obj : result) {
-            FailedPageInfo fti = FailedPageInfoFactory.getInstance().getFailedPageInfo(
+            FailedPageInfo fti = FailedPageInfoFactoryImpl.getInstance().getFailedPageInfo(
                     (String)obj[0],
                     ((BigInteger)obj[1]).longValue(),
                     ((Integer)obj[2]).longValue(),
@@ -830,7 +830,7 @@ public class StatisticsDAOImpl extends AbstractJPADAO<WebResourceStatistics, Lon
                 rawMark = (Float)obj[3];
             }
 
-            PageResult fti = PageResultFactory.getInstance().getPageResult(
+            PageResult fti = PageResultFactoryImpl.getInstance().getPageResult(
                     (String)obj[0],
                     (Integer)obj[1], // rank
                     weightedMark, //weighted mark

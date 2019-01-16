@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.tanaguru.scenarioloader.NewPageListener;
 
 import java.io.IOException;
+import java.net.ConnectException;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -45,7 +46,7 @@ public class TanaguruDriver implements WebDriver, JavascriptExecutor {
             waitForJStoLoad();
             LOGGER.debug("Successfully loaded page : " + url);
 
-        } catch (JavaScriptException e){
+        } catch (JavaScriptException e) {
             LOGGER.warn("Javascript error on page : " + url);
             LOGGER.warn(e.getMessage());
         } finally {

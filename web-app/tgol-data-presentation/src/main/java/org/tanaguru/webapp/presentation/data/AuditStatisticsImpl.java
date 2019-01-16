@@ -21,6 +21,7 @@
  */
 package org.tanaguru.webapp.presentation.data;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -32,7 +33,19 @@ import org.tanaguru.webapp.util.TgolEscapeUrl;
  * This class handles displayable audit statistics data
  * @author jkowalczyk
  */
-public class AuditStatisticsImpl implements AuditStatistics{
+public class AuditStatisticsImpl implements AuditStatistics, Serializable {
+
+    private long id;
+
+    @Override
+    public long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(long id) {
+        this.id = id;
+    }
 
     /**
      * The url of the checked page

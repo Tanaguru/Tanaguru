@@ -28,4 +28,6 @@ import org.tanaguru.entity.reference.Scope;
  * 
  * @author jkowalczyk
  */
-public interface ScopeDataService extends GenericDataService<Scope, Long> {}
+public interface ScopeDataService extends GenericDataService<Scope, Long> {
+    public Scope findByCode(String code);
+}

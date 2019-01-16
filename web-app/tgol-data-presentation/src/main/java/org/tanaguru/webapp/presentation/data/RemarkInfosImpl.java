@@ -21,6 +21,7 @@
  */
 package org.tanaguru.webapp.presentation.data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -29,7 +30,19 @@ import java.util.Map;
  * This class handles displayable remarks data
  * @author jkowalczyk
  */
-public class RemarkInfosImpl implements RemarkInfos{
+public class RemarkInfosImpl implements RemarkInfos, Serializable {
+
+    private long id;
+
+    @Override
+    public long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(long id) {
+        this.id = id;
+    }
 
     private String messageCode;
     /**

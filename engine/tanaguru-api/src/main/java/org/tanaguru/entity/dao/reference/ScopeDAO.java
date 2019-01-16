@@ -28,4 +28,6 @@ import org.tanaguru.entity.reference.Scope;
  * 
  * @author jkowalczyk
  */
-public interface ScopeDAO extends GenericDAO<Scope, Long> {}
+public interface ScopeDAO extends GenericDAO<Scope, Long> {
+    public Scope findByCode(String code);
+}

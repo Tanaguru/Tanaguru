@@ -21,6 +21,7 @@
  */
 package org.tanaguru.webapp.presentation.data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import org.tanaguru.webapp.util.TgolEscapeUrl;
@@ -29,9 +30,20 @@ import org.tanaguru.webapp.util.TgolEscapeUrl;
  *
  * @author jkowalczyk
  */
-public class ActInfoImpl implements ActInfo{
-	
-	private boolean isManual;
+public class ActInfoImpl implements ActInfo, Serializable {
+    private long id;
+
+    @Override
+    public long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    private boolean isManual;
 	@Override
     public boolean isManual() {
 		return isManual;
