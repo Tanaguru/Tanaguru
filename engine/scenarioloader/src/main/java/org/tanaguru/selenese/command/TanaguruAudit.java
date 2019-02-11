@@ -17,7 +17,7 @@ public class TanaguruAudit extends AbstractCommand {
     @Override
     protected Result executeImpl(Context context, String... strings) {
         TanaguruDriver driver = (TanaguruDriver) context.getWrappedDriver();
-        driver.fireNewPage();
+        driver.fireNewPage(driver.getCurrentUrl());
         return SUCCESS;
     }
 }

@@ -50,7 +50,7 @@ public class TanaguruDriver implements WebDriver, JavascriptExecutor {
             LOGGER.warn("Javascript error on page : " + url);
             LOGGER.warn(e.getMessage());
         } finally {
-            fireNewPage();
+            fireNewPage(url);
         }
     }
 
@@ -84,9 +84,8 @@ public class TanaguruDriver implements WebDriver, JavascriptExecutor {
         return driver.findElement(by);
     }
 
-    public void fireNewPage() {
+    public void fireNewPage(String url) {
         Map<String, String> jsScriptResult = executeScriptMap();
-        String url = getCurrentUrl();
         String source = getPageSource();
         for (NewPageListener newPageListener : newPageListenerList) {
             newPageListener.fireNewPage(url, source, null, jsScriptResult);
@@ -98,9 +97,8 @@ public class TanaguruDriver implements WebDriver, JavascriptExecutor {
         try {
             String getDoctypeStr = IOUtils.toString(TanaguruDriver.class.getClassLoader()
                     .getResourceAsStream("getDoctype.js"));
-            JavascriptExecutor js = (JavascriptExecutor) driver;
             String jsCommand = getDoctypeStr + "return getDoctype();";
-            doctype = js.executeScript(jsCommand);
+            doctype = executeScript(jsCommand);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (JavaScriptException e){
@@ -158,11 +156,10 @@ public class TanaguruDriver implements WebDriver, JavascriptExecutor {
     private Map<String, String> executeScriptMap() {
         Map<String, String> jsScriptResult = new HashMap<>();
         if (jsScriptMap != null) {
-            JavascriptExecutor js = (JavascriptExecutor) driver;
 
             for (Map.Entry<String, String> entry : jsScriptMap.entrySet()) {
                 try {
-                    Object scriptResult = js.executeScript(entry.getValue());
+                    Object scriptResult = executeScript(entry.getValue());
                     jsScriptResult.put(entry.getKey(), scriptResult == null ? "" : scriptResult.toString());
                 } catch (WebDriverException wde) {
                     LOGGER.warn("Script " + entry.getKey() + " has failed");
@@ -212,7 +209,7 @@ public class TanaguruDriver implements WebDriver, JavascriptExecutor {
 
     @Override
     public Object executeScript(String s, Object... objects) {
-        return driver.executeScript(s, objects);
+            return driver.executeScript(s, objects);
     }
 
     @Override

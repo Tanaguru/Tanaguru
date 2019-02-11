@@ -10,6 +10,7 @@ import jp.vmi.selenium.selenese.command.ICommandFactory;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.SessionNotCreatedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.tanaguru.entity.parameterization.ParameterElement;
 import org.tanaguru.exception.ScenarioLoaderException;
@@ -121,7 +122,12 @@ public class SeleneseLoaderImpl extends AbstractScenarioLoader implements NewPag
     }
 
     private void endTanaguruDriver(){
-        tngDriver.quit();
+        try {
+            tngDriver.close();
+            tngDriver.quit();
+        } catch (SessionNotCreatedException e) {
+
+        }
     }
 
     @Override

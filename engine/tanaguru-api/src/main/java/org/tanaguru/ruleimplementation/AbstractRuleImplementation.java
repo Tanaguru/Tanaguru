@@ -23,6 +23,7 @@ package org.tanaguru.ruleimplementation;
 
 import java.util.ArrayList;
 
+import org.apache.log4j.Logger;
 import org.tanaguru.entity.audit.ProcessResult;
 import org.tanaguru.entity.reference.Test;
 import org.tanaguru.entity.subject.WebResource;
@@ -42,6 +43,8 @@ import org.tanaguru.service.ProcessRemarkService;
  * @author jkowalczyk
  */
 public abstract class AbstractRuleImplementation implements RuleImplementation {
+
+    private static Logger LOGGER = Logger.getLogger(AbstractRuleImplementation.class);
 
     protected ProcessResultDataService processResultDataService;
     protected NomenclatureLoaderService nomenclatureLoaderService;
@@ -117,6 +120,7 @@ public abstract class AbstractRuleImplementation implements RuleImplementation {
      */
     @Override
     public ProcessResult process(SSPHandler sspHandler) {
+        LOGGER.debug("Processing test : " + this.getTest().getCode());
         return processImpl(sspHandler);
     }
 

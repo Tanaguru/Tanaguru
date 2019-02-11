@@ -180,6 +180,10 @@ public class ProfileFactoryImpl{
         firefoxProfile.setPreference("browser.link.open_newwindow", 2);
         firefoxProfile.setPreference("Network.cookie.cookieBehavior", 1);
         firefoxProfile.setPreference("signon.autologin.proxy", true);
+        firefoxProfile.setPreference("browser.tabs.remote.autostart", false);
+        firefoxProfile.setPreference("browser.tabs.remote.autostart.1", false);
+        firefoxProfile.setPreference("browser.tabs.remote.autostart.2", false);
+        firefoxProfile.setPreference("browser.tabs.remote.force-enable", false);
 
 
         // to disable the update of search engines

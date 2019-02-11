@@ -15,6 +15,30 @@
         <property name="registryPort" value="1099"/>
     </bean>
 
+    <bean id="actDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ActDataService"/>
+        <property name="service" ref="actDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.entity.service.contract.ActDataService"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="contractDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ContractDataService"/>
+        <property name="service" ref="contractDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.entity.service.contract.ContractDataService"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+
+    <bean id="accountDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="AccountDataService"/>
+        <property name="service" ref="userDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.entity.service.user.UserDataService"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+
+
     <!-- DATA SERVICES -->
         <!-- AUDIT -->
     <bean id="auditDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
