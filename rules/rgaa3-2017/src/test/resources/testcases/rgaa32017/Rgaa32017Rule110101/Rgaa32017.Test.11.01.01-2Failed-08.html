@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
     <head> 
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
-        <title>Rgaa32017 Test.11.01.1 Passed 16</title> 
+        <title>Rgaa32017 Test.11.01.1 Failed 08</title> 
     </head> 
     <body> 
         <div> 
-            <h1>Rgaa32017 Test.11.01.1 Passed 16</h1> 
+            <h1>Rgaa32017 Test.11.01.1 Failed 08</h1> 
             <div class="test-detail" lang="fr"> Chaque 
                 <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#mChpSaisie">champ de formulaire</a> vérifie-t-il une de ces conditions ? 
                 <ul class="ssTests"> 
@@ -24,15 +24,15 @@
             <div class="testcase"> 
                 <form action="http://action.html" method="post"> 
                     <p> 
-                        <label> 
-                            <input type="password" /> 
-                        </label> 
-                        <input type="submit" value="Send" /> 
+                        <label for="file">file : </label>
+                        <input type="file" />
+                        <input type="submit" value="Send" />
                         <input type="reset" /> 
-                    </p> 
+					</p> 
                 </form> 
             </div> 
-            <p class="test-explanation"> Passed: All the form field have either a title attribute or an associated label tag </p> 
+            <p class="test-explanation"> Failed: All the form field are not labeled (type="file"). 
+            	Even if there is a label: it is not linked with the input type="file"</p> 
         </div>   
     </body>
 </html>

@@ -22,24 +22,34 @@ package org.tanaguru.rules.rgaa32017;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.jsoup.nodes.Element;
 import static org.tanaguru.entity.audit.TestSolution.FAILED;
-import static org.tanaguru.entity.audit.TestSolution.NOT_APPLICABLE;
 import static org.tanaguru.entity.audit.TestSolution.PASSED;
+
+import org.tanaguru.entity.audit.TestSolution;
 import org.tanaguru.processor.SSPHandler;
-import org.tanaguru.ruleimplementation.AbstractPageRuleMarkupImplementation;
+import org.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
 import org.tanaguru.ruleimplementation.ElementHandler;
 import org.tanaguru.ruleimplementation.ElementHandlerImpl;
 import org.tanaguru.ruleimplementation.TestSolutionHandler;
 import org.tanaguru.rules.elementchecker.ElementChecker;
+import org.tanaguru.rules.elementchecker.attribute.AttributePresenceChecker;
 import org.tanaguru.rules.elementchecker.element.ElementPresenceChecker;
-import org.tanaguru.rules.elementselector.ElementSelector;
-import org.tanaguru.rules.elementselector.InputFormElementWithExplicitLabelSelector;
-import org.tanaguru.rules.elementselector.InputFormElementWithInplicitLabelSelector;
+import org.tanaguru.rules.elementchecker.pertinence.AttributePertinenceChecker;
 import org.tanaguru.rules.elementselector.SimpleElementSelector;
+import org.tanaguru.rules.keystore.CssLikeQueryStore;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABELLEDBY_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABEL_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
-import static org.tanaguru.rules.keystore.CssLikeQueryStore.FORM_ELEMENT_CSS_LIKE_QUERY;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.INVALID_FORM_FIELD_MSG;
+import static org.tanaguru.rules.keystore.AttributeStore.FOR_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ID_ATTR;
+import static org.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_TEXT_PERTINENCE_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_LABEL_PERTINENCE_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.NOT_PERTINENT_TEXTUAL_CONTENT_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.ARIA_LABEL_ATTR_MISSING_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.FORM_ELEMENT_WITHOUT_LABEL_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.FORM_NOT_REFERENCED_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_TITLE_PERTINENCE_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_ARIA_LABEL_PERTINENCE_MSG;
 
 /**
  * Implementation of the rule 11.1.1 of the referential Rgaa 3-2017.
@@ -48,92 +58,257 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.INVALID_FORM_FIELD_
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-11-1-1"> 11.1.1 rule specification</a>
  *
  */
-public class Rgaa32017Rule110101  extends AbstractPageRuleMarkupImplementation {
+public class Rgaa32017Rule110101  extends AbstractPageRuleWithSelectorAndCheckerImplementation {
 
-    /** the input form elements with implicit label */
-    private final ElementHandler<Element> inputFormWithoutLabelHandler = 
-            new ElementHandlerImpl();
-        
-    /** the input form elements  */
-    private final ElementHandler<Element> inputFormHandler = 
-            new ElementHandlerImpl();
+
+	ElementHandler<Element> elementWithAriaLabelledbyEqualId = new ElementHandlerImpl();
+	ElementHandler<Element> elementWithIdEqualFor = new ElementHandlerImpl();
+	ElementHandler<Element> elementWithLabel = new ElementHandlerImpl();
+	ElementHandler<Element> elementWithTitle = new ElementHandlerImpl();
+	ElementHandler<Element> elementWithNoLabel = new ElementHandlerImpl();
+	ElementHandler<Element> elementNotRefWithID = new ElementHandlerImpl();
+	ElementHandler<Element> elementNotRefWithARIA = new ElementHandlerImpl();
+    
     
     /**
      * Default constructor
      */
     public Rgaa32017Rule110101() {
         super();
+        setElementSelector(new SimpleElementSelector(CssLikeQueryStore.LABEL_ELEMENT_CSS_LIKE_QUERY));
     }
 
     @Override
     protected void select(SSPHandler sspHandler) {
-        
-        // Selection of all the input form elements of the page
-        ElementSelector elementSelector = new SimpleElementSelector(FORM_ELEMENT_CSS_LIKE_QUERY);
-        elementSelector.selectElements(sspHandler, inputFormHandler);
-
-        // the selection of the input form elements without label is initialised
-        // with all the elements of the page, some elements will be removed later
-        inputFormWithoutLabelHandler.addAll(inputFormHandler.get());
-        
-        // selection of the input form elements with explicit label
-        ElementHandler<Element> inputFormLabelHandler = new ElementHandlerImpl();
-        ElementSelector explicitLabelSelector = 
-                new InputFormElementWithExplicitLabelSelector(inputFormHandler);
-        explicitLabelSelector.selectElements(sspHandler, inputFormLabelHandler);
-
-        // remove all the input form elements with explicit label from 
-        // the selection of the input form elements without label
-        inputFormWithoutLabelHandler.removeAll(inputFormLabelHandler.get());
-        
-        // selection of the input form with inplicit label
-        ElementSelector inplicitLabelSelector = 
-                new InputFormElementWithInplicitLabelSelector(inputFormHandler);
-        inplicitLabelSelector.selectElements(sspHandler, inputFormLabelHandler);
-        
-        // remove all the input form elements with inplicit label from 
-        // the selection of the input form elements without label
-        inputFormWithoutLabelHandler.removeAll(inputFormLabelHandler.get());
-        
-        // selection of the input form elements with explicit label
-        ElementHandler<Element> inputFormWithAttrHandler = new ElementHandlerImpl();
-        for (Element el : inputFormWithoutLabelHandler.get()) {
-            if (el.hasAttr(TITLE_ATTR) || el.hasAttr(ARIA_LABEL_ATTR) || el.hasAttr(ARIA_LABELLEDBY_ATTR)) {
-                inputFormWithAttrHandler.add(el);
-            }
-        }
-        
-        // remove all the input form elements with title, aria-label, or 
-        // aria-labelledby attributes from the selection of the input form 
-        // elements without label
-        inputFormWithoutLabelHandler.removeAll(inputFormWithAttrHandler.get());
+    	super.select(sspHandler);
+    	
+    	
+		ElementHandler<Element> elementWithIdOnPage = new ElementHandlerImpl(); 
+    	new SimpleElementSelector("*[id]:not(input):not(textarea):not(select)").selectElements(sspHandler, elementWithIdOnPage);
+    	
+    	
+		ElementHandler<Element> labelElementPage = new ElementHandlerImpl();
+    	new SimpleElementSelector("label[for]").selectElements(sspHandler, labelElementPage); 
+    	
+    	
+		for(Element el : getElements().get()) {
+			if(!selectAriaLabelledby(el, elementWithIdOnPage) 
+					&& !selectAriaLabel(el) 
+					&& !selectLabel(el, labelElementPage) 
+					&& !selectTitle(el)) {
+				
+				elementWithNoLabel.add(el);
+			}
+    	}
     }
+    
 
     @Override
     protected void check(
             SSPHandler sspHandler, 
             TestSolutionHandler testSolutionHandler) {
-
-        // If the page has no input form element, the test is not applicable
-        if (inputFormHandler.isEmpty()) {
-            testSolutionHandler.addTestSolution(NOT_APPLICABLE);
-            return;
+    	
+    	if(!elementWithNoLabel.isEmpty()) {
+    		ElementChecker ec = 
+    				new ElementPresenceChecker( 
+					    new ImmutablePair(FAILED, FORM_ELEMENT_WITHOUT_LABEL_MSG),
+					   	new ImmutablePair(PASSED,""));
+    		ec.check(sspHandler, elementWithNoLabel, testSolutionHandler);
+    	}
+    	
+    	
+    	if(!elementNotRefWithARIA.isEmpty()) {
+    		ElementChecker ec = 
+    				new ElementPresenceChecker( 
+					    new ImmutablePair(FAILED, FORM_NOT_REFERENCED_MSG),
+					   	new ImmutablePair(PASSED,""),
+					    ARIA_LABELLEDBY_ATTR);
+    		ec.check(sspHandler, elementNotRefWithARIA, testSolutionHandler);
+    	}
+    	
+    	if(!elementNotRefWithID.isEmpty()) {
+    		ElementChecker ec = 
+    				new ElementPresenceChecker( 
+					    new ImmutablePair(FAILED, FORM_NOT_REFERENCED_MSG),
+					   	new ImmutablePair(PASSED,""),
+					    ID_ATTR);
+    		ec.check(sspHandler, elementNotRefWithID, testSolutionHandler);
+    	}
+    	
+    	// check if elements have a title or an aria-label attribute
+    	if(!elementWithLabel.isEmpty()) {
+	    	ElementChecker cc =
+	    			new AttributePertinenceChecker(
+	    					ARIA_LABEL_ATTR,
+	    					// check emptiness
+	    					true,
+	    					null,
+	    					null,
+	    					// not pertinent message
+	    					NOT_PERTINENT_TEXTUAL_CONTENT_MSG,
+	    					// manual check message
+	    					CHECK_ARIA_LABEL_PERTINENCE_MSG, 
+	    					// evidence elements
+	    					ARIA_LABEL_ATTR);
+			cc.check(sspHandler, elementWithLabel, testSolutionHandler);
+    	}
+    	
+    	if(!elementWithTitle.isEmpty()) {
+    		ElementChecker cc =				
+    			new AttributePertinenceChecker(
+    					TITLE_ATTR,
+    					// check emptiness
+    					true,
+    					null,
+    					null,
+    					// not pertinent message
+    					NOT_PERTINENT_TEXTUAL_CONTENT_MSG,
+    					// manual check message
+    					CHECK_TITLE_PERTINENCE_MSG, 
+    					// evidence elements
+    					TITLE_ATTR);
+			cc.check(sspHandler, elementWithTitle, testSolutionHandler);
+    	}
+                
+        if(!elementWithAriaLabelledbyEqualId.isEmpty()) {
+    		ElementChecker cc =     				
+    				new AttributePertinenceChecker(
+    						TEXT_ELEMENT2,
+                            // check emptiness
+                            true,
+                            null,
+                            null,
+                            // not pertinent message
+                            NOT_PERTINENT_TEXTUAL_CONTENT_MSG,
+                            // manual check message
+                            CHECK_TEXT_PERTINENCE_MSG, 
+                            // evidence elements
+                            ID_ATTR,  
+                            TEXT_ELEMENT2);    		
+    		cc.check(sspHandler, elementWithAriaLabelledbyEqualId, testSolutionHandler);
         }
-        // If all the input form have a label, the test is passed
-        if (inputFormWithoutLabelHandler.isEmpty()) {
-            testSolutionHandler.addTestSolution(PASSED);
-            return;
+        
+        if(!elementWithIdEqualFor.isEmpty()) {
+        	ElementChecker cc =     				
+    				new AttributePertinenceChecker(
+    						TEXT_ELEMENT2,
+                            // check emptiness
+                            true,
+                            null,
+                            null,
+                            // not pertinent message
+                            NOT_PERTINENT_TEXTUAL_CONTENT_MSG,
+                            // manual check message
+                            CHECK_LABEL_PERTINENCE_MSG,
+                            // evidence elements
+                            FOR_ATTR,  
+                            TEXT_ELEMENT2);    		
+    		cc.check(sspHandler, elementWithIdEqualFor, testSolutionHandler);
         }
-
-        ElementChecker ec = new ElementPresenceChecker(
-                    new ImmutablePair(FAILED, INVALID_FORM_FIELD_MSG),
-                    new ImmutablePair(PASSED, ""));
-        ec.check(sspHandler, inputFormWithoutLabelHandler, testSolutionHandler);
     }
+    
+    
+    
+    /**
+     * Select if the element has an aria-labelledby attribute linked with an id attribute 
+     * @param el
+     * @param selectionHandler
+     * @return
+     */
+    public boolean selectAriaLabelledby(Element el, ElementHandler<Element> selectionHandler ) {
+    	
+    	if(!el.attr(ARIA_LABELLEDBY_ATTR).isEmpty()) {
+    		
+        	if(selectionHandler.get().isEmpty()) {
+        		elementNotRefWithARIA.add(el);
+            	return true;
+        	}
+    		
+    		boolean isSomeElementsAdded = false;
+    		for (Element selected : selectionHandler.get()) { 
+    			
+					if(!selected.id().isEmpty() 
+							&& el.attr(ARIA_LABELLEDBY_ATTR).contains(selected.id())) { //ID == ARIA-LABELLEDBY
 
-    @Override
-    public int getSelectionSize() {
-        return inputFormHandler.size();
+						elementWithAriaLabelledbyEqualId.add(selected); //check si moyen d'ajouter les 2 lignes avec attr en plus
+						isSomeElementsAdded=true;
+					}
+    		}
+    		if(isSomeElementsAdded) {
+    			selectionHandler.removeAll(elementWithAriaLabelledbyEqualId);
+    		}else {
+    			elementNotRefWithARIA.add(el);
+    		}
+			return true;
+		}
+    	return false;
     }
+    
+    
+    
+    /**
+     * Select the element if it has an aria-label attribute
+     * @param el
+     * @return
+     */
+    public boolean selectAriaLabel(Element el ) {
+    	if(!el.attr(ARIA_LABEL_ATTR).isEmpty()) {
+			elementWithLabel.add(el);
+			return true;
+		}
+    	return false;
+    }
+    
+    
+    
+    
+    /**
+     * Select if the id's element is linked with the for's attribute label element
+     * @param el
+     * @param selectionHandler
+     * @return
+     */
+    public boolean selectLabel(Element el, ElementHandler<Element> selectionHandler ) {
+    	
+    	if(!el.attr(ID_ATTR).isEmpty()) {
+    		
+    		if(selectionHandler.get().isEmpty()) {
+    			elementNotRefWithID.add(el);
+            	return true;
+        	}
+    		
+    		boolean isSomeElementsAdded = false;
+    		for (Element selected : selectionHandler.get()) {  
+			        	
+    			if(!selected.attr(FOR_ATTR).isEmpty() &&
+    					el.id().equals(selected.attr(FOR_ATTR))) { //ID == FOR
 
+    				elementWithIdEqualFor.add(selected);
+					isSomeElementsAdded=true;
+    			}
+    		}
+    		if(isSomeElementsAdded) {
+    			selectionHandler.removeAll(elementWithIdEqualFor);
+    		}else if(!selectTitle(el)) {
+    			elementNotRefWithID.add(el);
+    		}
+			return true;		
+    	}
+    	return false;
+    }
+    
+    
+    
+    /**
+     * Select the element has got a title
+     * @param el
+     * @return
+     */
+    public boolean selectTitle(Element el ) {
+    	if(!el.attr(TITLE_ATTR).isEmpty() && !elementWithTitle.get().contains(el)) {
+			elementWithTitle.add(el);
+			return true;
+		}
+    	return false;
+    }
 }

@@ -33,12 +33,16 @@ public final class RemarkMessageStore {
             = "NoPatternDetected";
     public static final String TABINDEX_DETECTED_MSG = "TabindexDetectedMsg";
     public static final String TITLE_ATTR_MISSING_MSG = "TitleAttributeMissing";
+    public static final String ARIA_LABEL_ATTR_MISSING_MSG = "AriaLabelAttributeMissing";
     public static final String ID_MISSING_MSG = "IdMissing";
     public static final String ARIA_LABELLEDBY_EMPTY_MSG = "AriaLabelledbyEmpty";
     public static final String FOR_MISSING_MSG = "ForMissing";
     public static final String ID_NOT_UNIQUE_MSG = "IdNotUnique";
     public static final String DIR_TEXT_CKECK_MANUALLY_MSG = "DirTextCheckManually";
     public static final String INVALID_DIR_TEXT_VALUE_MSG = "InvalidDirTextValue";
+    public static final String NOT_PERTINENT_TEXTUAL_CONTENT_MSG = "NotPertinentTextualContent";
+    public static final String TITLE_NOT_IDENTICAL_PLACEHOLDER = "TitleNotIdenticalPlaceholder";
+    public static final String CHECK_TITLE_ATTR_PERTINENCE_MSG = "CheckTitleAttrPertinence";
 
     //multimedia
     public static final String CHECK_TRANS_VIDEO_MSG = "CheckTransVideoMsg";
@@ -311,8 +315,14 @@ public final class RemarkMessageStore {
             = "CheckSelectUsage";
     public static final String CHECK_LABEL_PERTINENCE_MSG
             = "CheckLabelPertinence";
+    public static final String CHECK_TEXT_PERTINENCE_FOR_LABEL_MSG
+    		= "CheckTextPertinenceForLabel";
+    public static final String CHECK_TEXT_PERTINENCE_MSG
+			= "CheckTextPertinence";    
     public static final String FORM_ELEMENT_WITHOUT_LABEL_MSG
             = "FormElementWithoutLabel";
+    public static final String CHECK_ARIA_LABEL_PERTINENCE_MSG
+    		= "CheckAriaLabelPertinence";
     public static final String FORM_ELEMENT_WITH_NOT_UNIQUE_LABEL_MSG
             = "FormElementWithNotUniqueLabel";
     public static final String CHECK_TITLE_OF_FORM_ELEMENT_MSG
@@ -328,6 +338,8 @@ public final class RemarkMessageStore {
     public static final String INVALID_INPUT_MSG = "InvalidInput";
     public static final String CHECK_INPUT_ARIA_LABEL_IDENTIFICATION = "CheckIputAriaLabelIdentification";
     public static final String CHECK_FORM_ARIA_MSG= "CheckFormAria";
+    public static final String FORM_NOT_REFERENCED_MSG
+    		= "FormElementNotReferenced";
 
     // table
     public static final String SUMMARY_MISSING_MSG = "SummaryMissing";

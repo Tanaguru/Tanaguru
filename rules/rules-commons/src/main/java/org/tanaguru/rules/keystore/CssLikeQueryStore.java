@@ -105,6 +105,8 @@ public final class CssLikeQueryStore {
             = "svg[role=img]:not(a svg):has(desc:not(:matchesOwn(^\\s*$))";
     public static final String SVG_NOT_IN_LINK_WITH_ARIA_LABEL_AND_ROLE_IMG_CSS_LIKE_QUERY
             = "svg[role=img][aria-label]:not([aria-label~=^\\s*$]:not(a svg)";
+    public static final String CANVAS_CSS_LIKE_QUERY
+    		= "canvas:not(:matchesOwn(^\\\\s*$))";
     public static final String CANVAS_NOT_IN_LINK_CSS_LIKE_QUERY
             = "canvas:not(a canvas)";
     public static final String CANVAS_NOT_IN_LINK_WITH_NOT_EMPTY_CONTENT_CSS_LIKE_QUERY
@@ -202,6 +204,28 @@ public final class CssLikeQueryStore {
             + "input[type=color] , "
             + "input[type=time] , "
             + "input[type=radio]";
+    public static final String LABEL_ELEMENT_CSS_LIKE_QUERY 
+    		= "input:not([type=image]):not([type=button]):not([type=hidden]):not([type=submit]):not([type=reset]):not([role]), "
+    		+ "select:not([role]), "
+    		+ "textarea:not([role]), "
+            + "input[type=password] , "
+            + "input[type=checkbox] , "
+            + "input[type=file] , "
+            + "input[type=text] , "
+            + "input[type=search] , "
+            + "input[type=tel] , "
+            + "input[type=email] , "
+            + "input[type=number] , "
+            + "input[type=url] , "
+            + "input[type=checkbox] , "
+            + "input[type=radio], "
+            + "input[type=date] , "
+            + "input[type=range] , "
+            + "input[type=color] , "
+            + "input[type=time] ";
+    
+    
+    
     public static final String INPUT_ELEMENT_INSIDE_FORM_CSS_LIKE_QUERY
             = "form textarea:not([title]):not([aria-label]):not([aria-labelledby]) , "
             + "form select:not([title]):not([aria-label]):not([aria-labelledby]) , "
@@ -357,10 +381,11 @@ public final class CssLikeQueryStore {
             + "form:has(input[type=password]) , "
             + "form:has(input[type=text])";
     public static final String FORM_WITH_TITLE_ATTR_CSS_LIKE_QUERY
-            = "textarea[title], "
-            + "select[title], "
+            = "select[title], "
             + "datalist[title], "
             + "keygen[title], "
+            + "optgroup[title], "
+            + "option[title], "
             + "input[title]:not([type=submit]):not([type=reset]):not([type=image]):not([type=button])";
     public static final String INPUT_NOT_INSIDE_FORM_CSS_LIKE_QUERY
             = "input:not(form input) ";
@@ -498,7 +523,7 @@ public final class CssLikeQueryStore {
             + "embed[type^=image]"
             + "input[type^=image]";
 
-    // scripts
+    // scripts	
     public static final String ONCLICK_CSS_LIKE_QUERY
             = "*[onclick]"
             + ":not(a[onlick])"
@@ -526,6 +551,9 @@ public final class CssLikeQueryStore {
     public static final String REL_CANONICAL_CSS_LIKE_QUERY
             = "head link[rel=canonical][href]";
 
+    //Navigation
+    public static final String ROLE_NAVIGATION_CSS_LIKE_QUERY
+    		= "*[role=navigation], *[role=navigation] ul li a[href] ";
     /**
      * Private constructor. This class handles keys and must not be instanciated
      */
