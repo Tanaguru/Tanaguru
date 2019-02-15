@@ -154,7 +154,7 @@ public class Rgaa32017Rule010302 extends AbstractMarkerPageRuleImplementation {
         		new AttributePertinenceChecker(
                         ALT_ATTR,
                         // check emptiness
-                        true,
+                        false,
                         // compare with src attribute
                         new TextAttributeOfElementBuilder(HREF_ATTR),
                         // compare attribute value with nomenclature

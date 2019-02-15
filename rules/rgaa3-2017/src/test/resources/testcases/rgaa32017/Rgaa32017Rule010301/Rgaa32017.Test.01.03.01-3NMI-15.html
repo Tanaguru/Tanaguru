@@ -18,10 +18,11 @@
                 </ul> 
             </div> 
             <div class="testcase"> 
-                <img src="mock-image.jpg" alt="" /> 
+                <img src="mock-image.jpg" alt="" aria-label=""/> 
             </div> 
             <div class="test-explanation">
-                 NMI : The image has a suspected alt empty attribute but is not identified by marker. 
+                 NMI : At least one image has a aria-label attribute identical to the alt attribute but it's empty.
+                 So it detects in first the empty alt.
             </div> 
         </div>   
     </body>
