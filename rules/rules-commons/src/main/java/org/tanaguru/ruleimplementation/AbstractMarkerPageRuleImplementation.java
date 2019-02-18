@@ -92,6 +92,10 @@ public abstract class AbstractMarkerPageRuleImplementation
      * The collection of marker that enable to identify the targeted elements
      */
     private final Collection<String> markerList = new HashSet<>();
+    
+    public Collection<String> getMarkerList(){
+    	return markerList;
+    }
 
     /**
      * The collection of marker that enable to identify elements of the same

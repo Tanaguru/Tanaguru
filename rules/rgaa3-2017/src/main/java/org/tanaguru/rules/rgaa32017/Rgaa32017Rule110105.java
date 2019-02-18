@@ -20,12 +20,19 @@
 package org.tanaguru.rules.rgaa32017;
 
 import org.apache.commons.lang3.tuple.ImmutablePair;
-import org.tanaguru.entity.audit.TestSolution;
 import org.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
-import org.tanaguru.rules.elementchecker.element.ElementPresenceChecker;
+import org.tanaguru.rules.elementchecker.CompositeChecker;
+import org.tanaguru.rules.elementchecker.attribute.AttributePresenceChecker;
+import org.tanaguru.rules.elementchecker.text.TextNotIdenticalToAttributeChecker;
 import org.tanaguru.rules.elementselector.SimpleElementSelector;
+import org.tanaguru.rules.textbuilder.TextAttributeOfElementBuilder;
+
+import static org.tanaguru.entity.audit.TestSolution.FAILED;
+import static org.tanaguru.entity.audit.TestSolution.PASSED;
+import static org.tanaguru.rules.keystore.AttributeStore.PLACEHOLDER_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
 import static org.tanaguru.rules.keystore.CssLikeQueryStore.FORM_WITH_TITLE_ATTR_CSS_LIKE_QUERY;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_FORM_ARIA_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.TITLE_NOT_IDENTICAL_PLACEHOLDER;
 
 /**
  *
@@ -47,10 +54,20 @@ public class Rgaa32017Rule110105 extends AbstractPageRuleWithSelectorAndCheckerI
     //FORM_ARIA_CSS_LIKE_QUERY
     public Rgaa32017Rule110105 () {
        super(new SimpleElementSelector(FORM_WITH_TITLE_ATTR_CSS_LIKE_QUERY),
-                new ElementPresenceChecker(
-                new ImmutablePair(TestSolution.NEED_MORE_INFO,CHECK_FORM_ARIA_MSG),
-                new ImmutablePair(TestSolution.NOT_APPLICABLE, "")
-                ));
+    		   new CompositeChecker(
+    				   new AttributePresenceChecker(
+    	    				   PLACEHOLDER_ATTR,
+    	                       new ImmutablePair(FAILED, ""), // the attribute exists but we need to know if it's identical to the title
+    	    				   new ImmutablePair(PASSED,""), // the attribute doesn't exist so it's passed
+    	    				   PLACEHOLDER_ATTR),
+		    		   new TextNotIdenticalToAttributeChecker(
+		                       new TextAttributeOfElementBuilder(PLACEHOLDER_ATTR),
+		                       new TextAttributeOfElementBuilder(TITLE_ATTR),
+		                       new ImmutablePair(PASSED,""), // placeholder == title - passed
+		                       new ImmutablePair(FAILED, TITLE_NOT_IDENTICAL_PLACEHOLDER), // placeholder != title - failed
+		                       // evidence elements
+		                       PLACEHOLDER_ATTR, 
+		                       TITLE_ATTR)));
     }
 
 }

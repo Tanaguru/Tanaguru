@@ -59,6 +59,7 @@ public final class AttributeStore {
     public static final String ARIA_LABELLEDBY_ATTR = "aria-labelledby";
     public static final String ARIA_DESCRIBEDBY_ATTR = "aria-describedby";
     public static final String ARIA_HIDDEN_ATTR = "aria-hidden";
+    public static final String ARIA_LEVEL_ATTR = "aria-level";
     public static final String USEMAP_ATTR = HTML.Attribute.USEMAP.toString();
     public static final String VALUE_ATTR = HTML.Attribute.VALUE.toString();
     public static final String WIDTH_ATTR = HTML.Attribute.WIDTH.toString();
@@ -77,6 +78,7 @@ public final class AttributeStore {
     public static final String ROLE_ATTR_VALUE_CONTENTINFO = "contentinfo";
     public static final String ROLE_ATTR_VALUE_SEARCH = "search";
     public static final String TYPE_ATTR = HTML.Attribute.TYPE.toString(); 
+    public static final String PLACEHOLDER_ATTR = "placeholder"; 
 
     /**
      * Private constructor. This class handles keys and must not be instantiated

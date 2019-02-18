@@ -2,11 +2,11 @@
 <html lang="en" xml:lang="en">
     <head> 
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
-        <title>Rgaa32017 Test.11.01.5 NMI 01</title> 
+        <title>Rgaa32017 Test.11.01.05 Passed 08</title> 
     </head> 
     <body> 
         <div> 
-            <h1>Rgaa32017 Test.11.01.5 NMI 01</h1> 
+            <h1>Rgaa32017 Test.11.01.05 Passed 08</h1> 
             <div class="test-detail" lang="fr"> Chaque 
                 <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#mChpSaisie">champ de formulaire</a> associé à une 
                 <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#mEtiquette">étiquette</a> via la propriété ARIA 
@@ -25,14 +25,21 @@
             <div class="testcase"> 
                 <form action="http://action.html" method="post"> 
                     <div id="mylabel">
-                        Text: 
+                        Choose an animal: 
                     </div> 
-                    <input type="text" title="test 11.1.5" /> 
-                    <input type="submit" value="Send" /> 
-                    <input type="reset" /> 
+                    <select>
+					  <optgroup label="Choose a dog" >
+					    <option value="dog"title="dog" placeholder="dog">dog</option>
+					  </optgroup>
+					  <optgroup label="Choose a cat" >
+					    <option value="cat" title="cat" placeholder="cat">cat</option>
+					  </optgroup>
+					</select>
                 </form> 
             </div> 
-            <p class="test-explanation"> Passed : the input type=text is well linked to his label use aria-labelledby attribute. </p> 
+            <p class="test-explanation"> 
+            	Passed : the option element use title attribute with a placeholder identical to the title. 
+            </p> 
         </div>   
     </body>
 </html>

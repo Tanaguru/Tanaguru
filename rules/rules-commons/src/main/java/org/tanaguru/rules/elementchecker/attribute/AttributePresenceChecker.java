@@ -22,6 +22,8 @@
 
 package org.tanaguru.rules.elementchecker.attribute;
 
+import java.util.Collection;
+
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.jsoup.nodes.Element;
@@ -42,7 +44,11 @@ public class AttributePresenceChecker extends ElementCheckerImpl {
      */
     private final String attributeName;
     
-
+    /**
+     * 
+     */
+    private Collection<String> markerElementsValues ; 
+    
     /**
      * This flag determines whether each source code remark have to be related 
      * with the element or the attribute itself. Default is false
@@ -87,6 +93,25 @@ public class AttributePresenceChecker extends ElementCheckerImpl {
             String...eeAttributeNameList) {
         super(detectedSolutionPair, notDetectedSolutionPair,eeAttributeNameList);
         this.attributeName = attributeName;
+    }
+    
+    /**
+     * 
+     * @param attributeName
+     * @param markerElementsValues
+     * @param detectedSolutionPair
+     * @param notDetectedSolutionPair
+     * @param eeAttributeNameList 
+     */
+    public AttributePresenceChecker(
+            String attributeName, 
+            Collection<String> markerElementsValues,
+            Pair<TestSolution,String> detectedSolutionPair,
+            Pair<TestSolution,String> notDetectedSolutionPair,
+            String...eeAttributeNameList) {
+        super(detectedSolutionPair, notDetectedSolutionPair,eeAttributeNameList);
+        this.attributeName = attributeName;
+        this.markerElementsValues = markerElementsValues;
     }
     
     /**
@@ -140,8 +165,9 @@ public class AttributePresenceChecker extends ElementCheckerImpl {
             SSPHandler sspHandler, 
             Elements elements, 
             TestSolutionHandler testSolutionHandler) {
+    	
         checkAttributePresence(
-                elements, 
+        		removeMarkerElementsWithValuePresenceChecher(elements), 
                 testSolutionHandler);
     }
 
@@ -179,7 +205,39 @@ public class AttributePresenceChecker extends ElementCheckerImpl {
         testSolutionHandler.addTestSolution(testSolution);
         
     }
-
+    
+    /**
+     * This methods checks whether a given attribute is present and if the value correspond to a marker value : 
+     * in this case, the element is out of scope because its uses it to be marked
+     * @param elements
+     * @param testSolutionHandler
+     */
+    private Elements removeMarkerElementsWithValuePresenceChecher (
+            Elements elements) {
+        
+        if (markerElementsValues == null ||
+        		markerElementsValues.isEmpty() ) {
+            return elements;
+        }
+        
+        Elements elementsToCheck = new Elements();
+        for (Element el : elements) {
+        	if (el.hasAttr(attributeName)) {
+        		boolean found = false;
+        		for(String str : markerElementsValues) {
+            		if(el.attr(attributeName).equals(str)) {
+            			found = true;
+            			break;
+            		}
+            	}
+        		if(!found) {
+        			elementsToCheck.add(el);        			
+        		}
+            }
+        }
+        return elementsToCheck;
+        
+    }
     /**
      * 
      * @param testSolution
