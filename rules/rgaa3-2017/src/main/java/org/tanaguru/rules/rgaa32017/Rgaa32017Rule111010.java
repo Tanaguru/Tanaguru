@@ -19,7 +19,21 @@
  */
 package org.tanaguru.rules.rgaa32017;
 
+import static org.tanaguru.entity.audit.TestSolution.FAILED;
+import static org.tanaguru.entity.audit.TestSolution.PASSED;
+import static org.tanaguru.rules.keystore.AttributeStore.PLACEHOLDER_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.FORM_WITH_TITLE_ATTR_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.TITLE_NOT_IDENTICAL_PLACEHOLDER;
+
+import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import org.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
+import org.tanaguru.rules.elementchecker.CompositeChecker;
+import org.tanaguru.rules.elementchecker.attribute.AttributePresenceChecker;
+import org.tanaguru.rules.elementchecker.text.TextNotIdenticalToAttributeChecker;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
+import org.tanaguru.rules.textbuilder.TextAttributeOfElementBuilder;
 
 /**
  *
@@ -33,13 +47,41 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-11-10-10"> 11.10.10 rule specification</a>
  */
 
-public class Rgaa32017Rule111010 extends AbstractNotTestedRuleImplementation {
-
+public class Rgaa32017Rule111010 extends AbstractPageRuleWithSelectorAndCheckerImplementation {
+	
+	
+	/** 
+	 * Selector CssLikeQueryStore
+	 */
+	public static final String INPUT_TEXT_WITH_TITLE_CSS_LIKE_QUERY = 
+			"input[title][type=text], "+
+			"input[title][type=password], "+
+			"input[title][type=search], "+
+			"input[title][type=tel], "+
+			"input[title][type=email], "+
+			"input[title][type=number], "+
+			"input[title][type=url], "+
+			"textarea[title]";
+	
     /**
      * Default constructor
      */
     public Rgaa32017Rule111010 () {
-        super();
+    	super(new SimpleElementSelector(INPUT_TEXT_WITH_TITLE_CSS_LIKE_QUERY),
+     		   new CompositeChecker(
+     				   new AttributePresenceChecker(
+     	    				   PLACEHOLDER_ATTR,
+     	                       new ImmutablePair(FAILED, ""), // the attribute exists but we need to know if it's identical to the title
+     	    				   new ImmutablePair(PASSED,""), // the attribute doesn't exist so it's passed
+     	    				   PLACEHOLDER_ATTR),
+ 		    		   new TextNotIdenticalToAttributeChecker(
+ 		                       new TextAttributeOfElementBuilder(PLACEHOLDER_ATTR),
+ 		                       new TextAttributeOfElementBuilder(TITLE_ATTR),
+ 		                       new ImmutablePair(PASSED,""), // placeholder == title - passed
+ 		                       new ImmutablePair(FAILED, TITLE_NOT_IDENTICAL_PLACEHOLDER), // placeholder != title - failed
+ 		                       // evidence elements
+ 		                       PLACEHOLDER_ATTR, 
+ 		                       TITLE_ATTR)));
     }
 
 }

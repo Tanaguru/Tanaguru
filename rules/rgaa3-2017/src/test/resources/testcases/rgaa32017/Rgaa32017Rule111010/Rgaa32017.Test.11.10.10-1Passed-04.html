@@ -15,12 +15,17 @@
                 </ul> 
             </div> 
             <div class="testcase"> 
-	            <textarea rows="4" cols="50" title="PASSED 01">
-					TEXTAREA
-				</textarea>
+            	<form action="http://action.html" method="post"> 
+                    <div id="mylabel">
+                        TEXT: 
+                    </div> 
+                    <input type="text" title="PASSED 04" placeholder="PASSED 04"/> 
+                    <input type="submit" value="Send" /> 
+                    <input type="reset" /> 
+                </form>  
             </div> 
             <div class="test-explanation">
-                 Passed. The textarea element hasn't placeholder attribute.
+                 Passed. The input=text has a placeholder attribute identical to his title attribute. 
             </div> 
         </div>  
     </body>

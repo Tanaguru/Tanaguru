@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
     <head> 
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
-        <title>Rgaa32017 Test.11-10-10 Passed 01</title> 
+        <title>Rgaa32017 Test.11-10-10 Failed 04</title> 
     </head> 
     <body> 
         <div> 
-            <h1>Rgaa32017 Test.11-10-10 Passed 01</h1> 
+            <h1>Rgaa32017 Test.11-10-10 Failed 04</h1> 
             <div class="test-detail" lang="fr"> Chaque champ de formulaire qui utilise un attribut 
                 <code>title</code> comme aide à la saisie, vérifie-t-il une de ces conditions ? 
                 <ul class="ssTests"> 
@@ -14,14 +14,19 @@
                     <li>L&apos;attribut <code>placeholder</code> est identique à l'attribut <code>title</code>. </li> 
                 </ul> 
             </div> 
-            <div class="testcase"> 
-	            <textarea rows="4" cols="50" title="PASSED 01">
-					TEXTAREA
-				</textarea>
+           <div class="testcase"> 
+            	<form action="http://action.html" method="post"> 
+                    <div id="mylabel">
+                        SEARCH: 
+                    </div> 
+                    <input type="search" title="FAILED 04" placeholder="FAILURE 04"/> 
+                    <input type="submit" value="Send" /> 
+                    <input type="reset" /> 
+                </form>  
             </div> 
             <div class="test-explanation">
-                 Passed. The textarea element hasn't placeholder attribute.
-            </div> 
+                 Failed. The input=search has a placeholder attribute not identical to his title attribute. 
+            </div>   
         </div>  
     </body>
 </html>
