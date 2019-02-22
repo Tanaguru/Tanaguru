@@ -43,6 +43,7 @@ public final class HtmlElementStore {
     public static final String CAPTION_ELEMENT = HTML.Tag.CAPTION.toString();
     public static final String CODE_ELEMENT = HTML.Tag.CODE.toString();
     public static final String COMMENT_ELEMENT = HTML.Tag.COMMENT.toString();
+    public static final String DATALIST_ELEMENT = "datalist";
     public static final String DESC_ELEMENT = "desc";
     public static final String DIV_ELEMENT = HTML.Tag.DIV.toString();
     public static final String DL_ELEMENT = "dl";
@@ -63,6 +64,7 @@ public final class HtmlElementStore {
     public static final String IMG_ELEMENT = HTML.Tag.IMG.toString();
     public static final String INPUT_ELEMENT = HTML.Tag.INPUT.toString();
     public static final String KBD_ELEMENT = HTML.Tag.KBD.toString();
+    public static final String KEYGEN_ELEMENT = "keygen";
     public static final String LABEL_ELEMENT = "label";
     public static final String LEGEND_ELEMENT = "legend";
     public static final String LI_ELEMENT = HTML.Tag.LI.toString();

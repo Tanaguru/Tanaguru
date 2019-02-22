@@ -19,12 +19,13 @@
  */
 package org.tanaguru.rules.rgaa32017;
 
-import org.tanaguru.entity.audit.TestSolution;
-import org.tanaguru.ruleimplementation.AbstractDetectionPageRuleImplementation;
+import org.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
+import org.tanaguru.rules.elementchecker.pertinence.AttributePertinenceChecker;
 import org.tanaguru.rules.elementselector.SimpleElementSelector;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABELLEDBY_ATTR;
 import static org.tanaguru.rules.keystore.CssLikeQueryStore.INPUT_ELEMENT_WITH_ARIA_INSIDE_FORM_CSS_LIKE_QUERY;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.MANUAL_CHECK_ON_ELEMENTS_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.NOT_PERTINENT_TEXTUAL_CONTENT_MSG;
 
 /**
  * Implementation of the rule 11.2.4 of the referential Rgaa 3-2017.
@@ -33,7 +34,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.MANUAL_CHECK_ON_ELE
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-11-2-4"> 11.2.4 rule specification</a>
  */
 
-public class Rgaa32017Rule110204 extends AbstractDetectionPageRuleImplementation {
+public class Rgaa32017Rule110204 extends AbstractPageRuleWithSelectorAndCheckerImplementation {
 
     /**
      * Default constructor
@@ -41,15 +42,19 @@ public class Rgaa32017Rule110204 extends AbstractDetectionPageRuleImplementation
     public Rgaa32017Rule110204 () {
          super(
                 new SimpleElementSelector(INPUT_ELEMENT_WITH_ARIA_INSIDE_FORM_CSS_LIKE_QUERY),
-                // solution when at least one element is found
-                TestSolution.NEED_MORE_INFO,
-                // solution when no element is found
-                TestSolution.NOT_APPLICABLE,
-                // manual check message
-                MANUAL_CHECK_ON_ELEMENTS_MSG,
-                null,
-                // evidence elements
-                ARIA_LABELLEDBY_ATTR
+                new AttributePertinenceChecker(
+                		ARIA_LABELLEDBY_ATTR,
+                        // check emptiness
+                		true, 
+                        // no comparison with other attribute
+                        null,
+                        // no comparison with blacklist
+                        null,
+                        NOT_PERTINENT_TEXTUAL_CONTENT_MSG,
+                        // manual check message
+                        MANUAL_CHECK_ON_ELEMENTS_MSG,
+                        // evidence element
+                        ARIA_LABELLEDBY_ATTR)
             );
     }
 

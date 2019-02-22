@@ -26,6 +26,8 @@ import org.tanaguru.rules.rgaa32017.test.Rgaa32017RuleImplementationTestCase;
 import org.tanaguru.rules.keystore.HtmlElementStore;
 import static org.tanaguru.rules.keystore.AttributeStore.*;
 import org.tanaguru.rules.keystore.RemarkMessageStore;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.NOT_PERTINENT_TEXTUAL_CONTENT_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_TITLE_ATTR_PERTINENCE_MSG;
 
 /**
  * Unit test class for the implementation of the rule 11-2-2 of the referential Rgaa 3-2017.
@@ -76,7 +78,7 @@ public class Rgaa32017Rule110202Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                RemarkMessageStore.MANUAL_CHECK_ON_ELEMENTS_MSG,
+                RemarkMessageStore.CHECK_TITLE_ATTR_PERTINENCE_MSG,
                 HtmlElementStore.INPUT_ELEMENT,
                 1,
                 new ImmutablePair(TITLE_ATTR,"input title"));
@@ -90,7 +92,7 @@ public class Rgaa32017Rule110202Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                RemarkMessageStore.MANUAL_CHECK_ON_ELEMENTS_MSG,
+                RemarkMessageStore.CHECK_TITLE_ATTR_PERTINENCE_MSG,
                 HtmlElementStore.INPUT_ELEMENT,
                 1,
                 new ImmutablePair(TITLE_ATTR,"input title"));
@@ -104,7 +106,7 @@ public class Rgaa32017Rule110202Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                RemarkMessageStore.MANUAL_CHECK_ON_ELEMENTS_MSG,
+                RemarkMessageStore.CHECK_TITLE_ATTR_PERTINENCE_MSG,
                 HtmlElementStore.INPUT_ELEMENT,
                 1,
                 new ImmutablePair(TITLE_ATTR,"input title"));
@@ -118,7 +120,7 @@ public class Rgaa32017Rule110202Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                RemarkMessageStore.MANUAL_CHECK_ON_ELEMENTS_MSG,
+                RemarkMessageStore.CHECK_TITLE_ATTR_PERTINENCE_MSG,
                 HtmlElementStore.INPUT_ELEMENT,
                 1,
                 new ImmutablePair(TITLE_ATTR,"input title"));
@@ -132,7 +134,7 @@ public class Rgaa32017Rule110202Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                RemarkMessageStore.MANUAL_CHECK_ON_ELEMENTS_MSG,
+                RemarkMessageStore.CHECK_TITLE_ATTR_PERTINENCE_MSG,
                 HtmlElementStore.INPUT_ELEMENT,
                 1,
                 new ImmutablePair(TITLE_ATTR,"input title"));
@@ -146,7 +148,7 @@ public class Rgaa32017Rule110202Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                RemarkMessageStore.MANUAL_CHECK_ON_ELEMENTS_MSG,
+                RemarkMessageStore.CHECK_TITLE_ATTR_PERTINENCE_MSG,
                 HtmlElementStore.TEXTAREA_ELEMENT,
                 1,
                 new ImmutablePair(TITLE_ATTR,"input title"));
@@ -160,7 +162,7 @@ public class Rgaa32017Rule110202Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                RemarkMessageStore.MANUAL_CHECK_ON_ELEMENTS_MSG,
+                RemarkMessageStore.CHECK_TITLE_ATTR_PERTINENCE_MSG,
                 HtmlElementStore.SELECT_ELEMENT,
                 1,
                 new ImmutablePair(TITLE_ATTR,"input title"));

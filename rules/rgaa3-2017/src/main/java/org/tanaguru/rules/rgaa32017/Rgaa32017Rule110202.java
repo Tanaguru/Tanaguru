@@ -20,12 +20,13 @@
 
 package org.tanaguru.rules.rgaa32017;
 
-import org.tanaguru.entity.audit.TestSolution;
-import org.tanaguru.ruleimplementation.AbstractDetectionPageRuleImplementation;
+import org.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
+import org.tanaguru.rules.elementchecker.pertinence.AttributePertinenceChecker;
 import org.tanaguru.rules.elementselector.SimpleElementSelector;
 import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
 import static org.tanaguru.rules.keystore.CssLikeQueryStore.FORM_ELEMENT_WITH_TITLE_CSS_LIKE_QUERY;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.MANUAL_CHECK_ON_ELEMENTS_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.NOT_PERTINENT_TEXTUAL_CONTENT_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_TITLE_ATTR_PERTINENCE_MSG;
 
 /**
  * Implementation of the rule 11.2.2 of the referential Rgaa 3-2017.
@@ -36,7 +37,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.MANUAL_CHECK_ON_ELE
  * @author jkowalczyk
  */
 
-public class Rgaa32017Rule110202 extends AbstractDetectionPageRuleImplementation {
+public class Rgaa32017Rule110202 extends AbstractPageRuleWithSelectorAndCheckerImplementation {
     
     /**
      * Default constructor
@@ -44,15 +45,19 @@ public class Rgaa32017Rule110202 extends AbstractDetectionPageRuleImplementation
     public Rgaa32017Rule110202 () {
         super(
                 new SimpleElementSelector(FORM_ELEMENT_WITH_TITLE_CSS_LIKE_QUERY),
-                // solution when at least one element is found
-                TestSolution.NEED_MORE_INFO,
-                // solution when no element is found
-                TestSolution.NOT_APPLICABLE,
-                // manual check message
-                MANUAL_CHECK_ON_ELEMENTS_MSG,
-                null,
-                // evidence elements
-                TITLE_ATTR
+                new AttributePertinenceChecker(
+                		TITLE_ATTR,
+                        // check emptiness
+                		true, 
+                        // no comparison with other attribute
+                        null,
+                        // no comparison with blacklist
+                        null,
+                        NOT_PERTINENT_TEXTUAL_CONTENT_MSG,
+                        // manual check message
+                        CHECK_TITLE_ATTR_PERTINENCE_MSG,
+                        // evidence element
+                        TITLE_ATTR)
             );
     }
 
