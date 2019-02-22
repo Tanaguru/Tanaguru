@@ -44,13 +44,18 @@ public class TanaguruDriver implements WebDriver, JavascriptExecutor {
         try {
             driver.get(url);
             waitForJStoLoad();
-            LOGGER.debug("Successfully loaded page : " + url);
-
-        } catch (JavaScriptException e) {
-            LOGGER.warn("Javascript error on page : " + url);
-            LOGGER.warn(e.getMessage());
-        } finally {
+            LOGGER.info("Successfully loaded page, firing new page : " + url);
             fireNewPage(url);
+        } catch (JavaScriptException e) {
+            LOGGER.error("Javascript exception on page : " + url + "\n"
+                    + e.getMessage());
+        } catch (TimeoutException e){
+            LOGGER.error("Timeout exception opening page : " + url + "\n"
+                    + e.getMessage());
+            fireNewPage(url);
+        } catch (WebDriverException e) {
+            LOGGER.error("Webdriver exception opening page : " + url + "\n"
+                    + e.getMessage());
         }
     }
 
@@ -69,7 +74,7 @@ public class TanaguruDriver implements WebDriver, JavascriptExecutor {
         try {
             Thread.sleep(this.waitTimeNgApp);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            LOGGER.error(e.getMessage());
         }
         return driver.findElements(by);
     }
@@ -79,7 +84,7 @@ public class TanaguruDriver implements WebDriver, JavascriptExecutor {
         try {
             Thread.sleep(this.waitTimeNgApp);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            LOGGER.error(e.getMessage());
         }
         return driver.findElement(by);
     }
@@ -94,18 +99,26 @@ public class TanaguruDriver implements WebDriver, JavascriptExecutor {
 
     public String getPageSource() {
         Object doctype = null;
+
+        LOGGER.debug("Getting page source...");
+        String pageSource = driver.getPageSource();
+        LOGGER.debug("Page source loaded successfully");
+
         try {
+            LOGGER.debug("Computing page doctype...");
             String getDoctypeStr = IOUtils.toString(TanaguruDriver.class.getClassLoader()
                     .getResourceAsStream("getDoctype.js"));
-            String jsCommand = getDoctypeStr + "return getDoctype();";
+            String jsCommand = getDoctypeStr;
             doctype = executeScript(jsCommand);
+            LOGGER.info("Page doctype computed successfully");
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.error("Get doctype has failed\n" +
+                    e.getMessage());
         } catch (JavaScriptException e){
-            LOGGER.warn("Get doctype has failed");
-            LOGGER.warn(e.getMessage());
+            LOGGER.error("Get doctype has failed\n" +
+                    e.getMessage());
         }
-        return doctype == null ? "" : doctype.toString() + driver.getPageSource();
+        return pageSource + (doctype == null ? "" : doctype.toString());
     }
 
     @Override
@@ -158,18 +171,21 @@ public class TanaguruDriver implements WebDriver, JavascriptExecutor {
         if (jsScriptMap != null) {
 
             for (Map.Entry<String, String> entry : jsScriptMap.entrySet()) {
+                Object scriptResult = null;
                 try {
-                    Object scriptResult = executeScript(entry.getValue());
-                    jsScriptResult.put(entry.getKey(), scriptResult == null ? "" : scriptResult.toString());
+                    LOGGER.debug("Executing " + entry.getKey());
+                    scriptResult = executeScript(entry.getValue());
+                    LOGGER.info(entry.getKey() + " executed");
                 } catch (WebDriverException wde) {
-                    LOGGER.warn("Script " + entry.getKey() + " has failed");
-                    LOGGER.warn(wde.getMessage());
+                    LOGGER.error("Webdriver exception " + entry.getKey() + " has failed" + "\n"
+                            + wde.getMessage());
                 } catch (JavaScriptException e){
-                    LOGGER.warn("Script " + entry.getKey() + " has failed");
-                    LOGGER.warn(e.getMessage());
+                    LOGGER.error("Javascript exception " + entry.getKey() + " has failed" + "\n"
+                            + e.getMessage());
+                }finally {
+                    jsScriptResult.put(entry.getKey(), scriptResult == null ? "" : scriptResult.toString());
                 }
             }
-            LOGGER.debug("Js executed");
         }
         return jsScriptResult;
     }

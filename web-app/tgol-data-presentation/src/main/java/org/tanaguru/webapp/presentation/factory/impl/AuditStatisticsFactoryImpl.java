@@ -159,11 +159,6 @@ public class AuditStatisticsFactoryImpl implements AuditStatisticsFactory {
 
         AuditStatistics auditStats = new AuditStatisticsImpl();
 
-        auditStats.setId(webResource.getAudit().getId());
-        auditStats.setUrl(webResource.getURL());
-        auditStats.setSnapshotUrl(webResource.getURL());
-        auditStats.setRawMark(markFormatter(webResource, true, isAuditManual));
-        auditStats.setWeightedMark(markFormatter(webResource, false, isAuditManual));
 
         Audit audit;
         if (webResource instanceof Site) {
@@ -179,6 +174,12 @@ public class AuditStatisticsFactoryImpl implements AuditStatisticsFactory {
         } else {
             audit = webResource.getAudit();
         }
+
+        auditStats.setId(audit.getId());
+        auditStats.setUrl(webResource.getURL());
+        auditStats.setSnapshotUrl(webResource.getURL());
+        auditStats.setRawMark(markFormatter(webResource, true, isAuditManual));
+        auditStats.setWeightedMark(markFormatter(webResource, false, isAuditManual));
 
         auditStats.setDate(audit.getDateOfCreation());
         auditStats.setAuditScope(

@@ -77,7 +77,7 @@ public class SeleneseLoaderImpl extends AbstractScenarioLoader implements NewPag
             for(Selenese test : project.getSeleneseList()){
                 runner.execute(test);
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             LOGGER.error(e.getMessage());
         } finally {
             endTanaguruDriver();

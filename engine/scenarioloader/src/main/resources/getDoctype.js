@@ -12,3 +12,5 @@ function getDoctype(){
     }
     return result;
 }
+
+return getDoctype();

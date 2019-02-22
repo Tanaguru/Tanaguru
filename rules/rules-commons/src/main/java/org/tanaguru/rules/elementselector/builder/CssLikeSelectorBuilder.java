@@ -23,8 +23,12 @@ package org.tanaguru.rules.elementselector.builder;
 
 import java.util.Collection;
 import javax.annotation.Nullable;
+
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.tanaguru.processor.SSPHandler;
+
+import static org.tanaguru.rules.keystore.AttributeStore.CLASS_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.ID_ATTR;
 
 /**
@@ -45,11 +49,16 @@ public final class CssLikeSelectorBuilder {
     private static final String NOT_PREFIX = ":not(";
     private static final String HAS_PREFIX = ":has(";
     private static final String NOT_EMPTY_REGEXP = "~=^\\s*$";
+
+    private static final String[] metaCharacters = {"\\","^","$","*","+","?","!","|","&","%"};
+
+
     
     /**
      * private constructor
      */
     private CssLikeSelectorBuilder(){}
+
 
     /**
      * Build a JQuery selector to retrieve elements that contain a given
@@ -138,6 +147,8 @@ public final class CssLikeSelectorBuilder {
     public static String buildSelectorFromElementDifferentFromAndAttribute(
             String elementName, 
             String attributeName) {
+
+
         StringBuilder selector = new StringBuilder();
         selector.append(NOT_PREFIX);
         selector.append(elementName);
@@ -164,6 +175,7 @@ public final class CssLikeSelectorBuilder {
             String elementName, 
             Collection<String> childrenList, 
             boolean hasChild) {
+
         StringBuilder selector = new StringBuilder();
         boolean isFirstElement = true;
         for (String child : childrenList) {
@@ -213,6 +225,7 @@ public final class CssLikeSelectorBuilder {
             String elementName, 
             String attributeName, 
             String attributeValue) {
+
         StringBuilder strb = new StringBuilder();
         strb.append(elementName);
         strb.append(OPEN_BRACKET);
@@ -224,30 +237,25 @@ public final class CssLikeSelectorBuilder {
     }
     
     /**
-     * Create a selector of the form #$idValue
+     * Create a selector of the form [id=$idValue]
+     * changelog 6.0.0 change query form to answer selector containing special characters (ex : id="test!d)
+     * that raise Exception in format #$value
      * @param idValue
      * @return the css query
      */
     public static String buildSelectorFromId(String idValue) {
-       if (StringUtils.contains(idValue, ':')) {
-           return buildSelectorFromAttributeTypeAndValue(ID_ATTR, idValue);
-       }
-       StringBuilder strb = new StringBuilder();
-       strb.append(ID_SELECTOR_PREFIX);
-       strb.append(idValue);
-       return strb.toString();
+        return buildSelectorFromAttributeTypeAndValue(ID_ATTR, idValue);
     }
     
     /**
-     * Create a selector of the form .$classValue
+     * Create a selector of the form [class=$classValue]
+     * changelog 6.0.0 change query form to answer selector containing special characters (ex : class="test!d)
+     * that raise Exception in format .$value
      * @param classValue
      * @return the css query
      */
     public static String buildSelectorFromClass(String classValue) {
-       StringBuilder strb = new StringBuilder();
-       strb.append(CLASS_SELECTOR_PREFIX);
-       strb.append(classValue);
-       return strb.toString();
+       return buildSelectorFromAttributeTypeAndValue(CLASS_ATTR, classValue);
     }
     
     /**

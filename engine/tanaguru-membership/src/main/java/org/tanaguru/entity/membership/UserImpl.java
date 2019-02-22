@@ -53,7 +53,7 @@ public class UserImpl implements User, Serializable {
     protected Long id;
     @Column(name = "Password", nullable = false)
     protected String password;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "USER_ROLE", joinColumns =
     @JoinColumn(name = "Id_User"), inverseJoinColumns =
     @JoinColumn(name = "Id_Role"))
