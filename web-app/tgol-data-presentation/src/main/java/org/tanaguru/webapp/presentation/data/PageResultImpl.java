@@ -32,70 +32,45 @@ import org.tanaguru.webapp.util.TgolKeyStore;
  */
 public class PageResultImpl implements PageResult, Serializable {
 
-    /**
-     *
-     */
+    private String label;
+    private int rank;
+    private String rawMark;
+    private Long id;
+    private String httpStatusCode;
+    private String weightedMark;
+    private String pageResultUrl;
+    private String url;
+
     public static final String REQUEST_PARAMETER =
             "?"+TgolKeyStore.WEBRESOURCE_ID_KEY+"=";
-    /**
-     *
-     */
+
     public static final String REPRESENTATION_BUNDLE_NAME = "url";
+
     private final ResourceBundle representationBundle =
             ResourceBundle.getBundle(REPRESENTATION_BUNDLE_NAME);
 
-    /**
-     * The page url
-     */
-    private String url;
-    /**
-     *
-     * @return
-     */
     @Override
     public String getUrl() {
         return url;
     }
 
-    /**
-     *
-     * @param url
-     */
     @Override
     public final void setUrl(String url) {
         this.url = TgolEscapeUrl.escapeUrl(url);
     }
 
-    /**
-     * The page result url
-     */
-    private String pageResultUrl;
-    /**
-     *
-     * @return
-     */
+
     @Override
     public String getPageResultUrl() {
         return pageResultUrl;
     }
 
-    /**
-     *
-     * @param pageResultUrl
-     */
     @Override
     public void setPageResultUrl(String pageResultUrl) {
         this.pageResultUrl = pageResultUrl;
     }
 
-    /**
-     * The weighted mark of the page
-     */
-    private String weightedMark;
-    /**
-     *
-     * @return
-     */
+
     @Override
     public String getWeightedMark() {
         return weightedMark;
@@ -106,14 +81,7 @@ public class PageResultImpl implements PageResult, Serializable {
         this.weightedMark= weightedMark;
     }
 
-    /**
-     * The returned http status code
-     */
-    private String httpStatusCode;
-    /**
-     *
-     * @return
-     */
+
     @Override
     public String getHttpStatusCode() {
         return httpStatusCode;
@@ -124,10 +92,6 @@ public class PageResultImpl implements PageResult, Serializable {
         this.httpStatusCode = httpStatusCode;
     }
 
-    /**
-     * 
-     */
-    private Long id;
     @Override
     public Long getId() {
         return id;
@@ -138,10 +102,7 @@ public class PageResultImpl implements PageResult, Serializable {
         this.id = id;
     }
 
-    /**
-     * The raw mark of the page
-     */
-    private String rawMark;
+
     @Override
     public String getRawMark() {
         return rawMark;
@@ -152,7 +113,6 @@ public class PageResultImpl implements PageResult, Serializable {
         this.rawMark = rawMark;
     }
 
-    private int rank;
     @Override
     public int getRank() {
         return rank;
@@ -162,11 +122,21 @@ public class PageResultImpl implements PageResult, Serializable {
     public void setRank(int rank) {
         this.rank = rank;
     }
-    
+
+    @Override
+    public String getLabel() {
+        return label;
+    }
+
+    @Override
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
     /**
      * Default Constructor
      */
-    public PageResultImpl (String url, Integer rank,Float weightedMark, Float rawMark, Long webResourceId, String httpStatusCode) {
+    public PageResultImpl (String url, Integer rank,Float weightedMark, Float rawMark, Long webResourceId, String httpStatusCode, String label) {
         pageResultUrl = representationBundle.getString(TgolKeyStore.RESULT_PAGE_NAME_KEY)+
                 REQUEST_PARAMETER+
                 webResourceId;
@@ -181,6 +151,7 @@ public class PageResultImpl implements PageResult, Serializable {
         }
         this.httpStatusCode = String.valueOf(httpStatusCode);
         this.rank = rank;
+        this.label = label;
     }
 
 }

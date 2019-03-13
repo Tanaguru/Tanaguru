@@ -94,7 +94,8 @@ public abstract class AbstractScenarioLoader implements ScenarioLoader {
             String sourceCode,
             byte[] snapshotContent,
             Map<String, String> jsScriptMap,
-            String charset) {
+            String charset,
+            String label) {
 
         LOGGER.debug("fire New SSP " + url);
         if (StringUtils.isEmpty(sourceCode)) {
@@ -103,6 +104,9 @@ public abstract class AbstractScenarioLoader implements ScenarioLoader {
         }
 
         Page page = getWebResource(url);
+        page.setLabel(label);
+        page = (Page) webResourceDataService.saveOrUpdate(page);
+
         SSP ssp = contentDataService.getSSP(
                 dateFactory.createDate(),
                 url,

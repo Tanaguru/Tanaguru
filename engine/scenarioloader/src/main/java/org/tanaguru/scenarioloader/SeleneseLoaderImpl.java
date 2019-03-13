@@ -12,10 +12,12 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.SessionNotCreatedException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.parameterization.ParameterElement;
 import org.tanaguru.exception.ScenarioLoaderException;
 import org.tanaguru.selenese.SeleneseHelper;
 import org.tanaguru.selenese.command.TanaguruAudit;
+import org.tanaguru.selenese.command.TanaguruClick;
 import org.tanaguru.tools.CrawlUtils;
 import org.tanaguru.webdriver.driver.TanaguruDriver;
 import org.tanaguru.webdriver.factory.ProfileFactoryImpl;
@@ -24,8 +26,11 @@ import org.tanaguru.webdriver.factory.TanaguruDriverFactory;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class SeleneseLoaderImpl extends AbstractScenarioLoader implements NewPageListener {
 
@@ -40,6 +45,8 @@ public class SeleneseLoaderImpl extends AbstractScenarioLoader implements NewPag
             throw new ScenarioLoaderException(new Exception("Scenario does not match selenese scenario syntax"));
         }
 
+        Charset charset = Charset.forName("UTF-8");
+        scenario = new String(scenario.getBytes(), charset);
 
         LOGGER.debug("Launch Scenario "   + scenario);
         initTanaguruDriver();
@@ -52,7 +59,10 @@ public class SeleneseLoaderImpl extends AbstractScenarioLoader implements NewPag
                 public ICommand newCommand(int index, String name, String... args) {
                     ICommand res;
                     switch (name){
-                        case "tanaguru audit" :
+                        case "click":
+                            res = new TanaguruClick(index, name, args);
+                            break;
+                        case "echo" :
                             res = new TanaguruAudit(index, name, args);
                             break;
                         default:
@@ -99,6 +109,11 @@ public class SeleneseLoaderImpl extends AbstractScenarioLoader implements NewPag
     }
 
     private void initTanaguruDriver(){
+        Set<Parameter> defaultParameterSet = parameterDataService.getDefaultParameterSet();
+        Set<Parameter> auditParameterSet = parameterDataService.getParameterSetFromAudit(webResource.getAudit());
+
+        Set<Parameter> parameterSet = parameterDataService.updateParameterSet(defaultParameterSet, auditParameterSet);
+
         //Initialize webdriver
         int ngAppWait = Integer.parseInt(parameterDataService.getParameter(
                 webResource.getAudit(),
@@ -111,6 +126,10 @@ public class SeleneseLoaderImpl extends AbstractScenarioLoader implements NewPag
                 webResource.getAudit(),
                 ParameterElement.SCREEN_HEIGHT_KEY).getValue());
 
+        boolean preventAutomaticFiringEvent = Boolean.parseBoolean(parameterDataService.getParameter(
+                webResource.getAudit(),
+                ParameterElement.PREVENT_DEFAULT_PAGE_FIRING).getValue());
+
         TanaguruDriverFactory tngDriverFactory = TanaguruDriverFactory.getInstance();
         tngDriverFactory.setJsScriptMap(jsScriptMap);
         tngDriverFactory.setNgAppWait(ngAppWait);
@@ -118,6 +137,7 @@ public class SeleneseLoaderImpl extends AbstractScenarioLoader implements NewPag
 
         tngDriver = tngDriverFactory.createFirefoxTanaguruWebDriver();
         tngDriver.manage().window().setSize(new Dimension(windowWidth, windowHeight));
+        tngDriver.setPreventDefaultPageFiringEvent(preventAutomaticFiringEvent);
         tngDriver.addNewPageListener(this);
     }
 
@@ -131,13 +151,13 @@ public class SeleneseLoaderImpl extends AbstractScenarioLoader implements NewPag
     }
 
     @Override
-    public void fireNewPage(String url, String sourceCode, byte[] snapshot, Map<String, String> jsResultMap) {
+    public void fireNewPage(String url, String sourceCode, byte[] snapshot, Map<String, String> jsResultMap, String label) {
         String charset = super.UTF8;
         try {
             charset = CrawlUtils.extractCharset(IOUtils.toInputStream(sourceCode));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        super.fireNewSSP(url, sourceCode, snapshot, jsResultMap, charset);
+        super.fireNewSSP(url, sourceCode, snapshot, jsResultMap, charset, label);
     }
 }

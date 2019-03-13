@@ -29,6 +29,10 @@ import javax.servlet.http.HttpServletResponse;
 import net.sf.jasperreports.engine.util.JRStyledTextParser;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.tanaguru.webapp.command.AddScenarioCommand;
 import org.tanaguru.webapp.command.AuditSetUpCommand;
 import org.tanaguru.webapp.command.factory.AddScenarioCommandFactory;
@@ -143,30 +147,25 @@ public class AuditScenarioController extends AbstractAuditSetUpController {
 
     @RequestMapping(value = TgolKeyStore.DOWNLOAD_SCENARIO_URL_CONTRACT_URL, method = RequestMethod.GET)
     @Secured({TgolKeyStore.ROLE_USER_KEY, TgolKeyStore.ROLE_ADMIN_KEY, TgolKeyStore.ROLE_SUPER_ADMIN_KEY})
-    public void getScenarioFile(
+    public ResponseEntity<byte[]> getScenarioFile(
             @RequestParam(TgolKeyStore.CONTRACT_ID_KEY) String contractId,
-            @RequestParam(TgolKeyStore.SCENARIO_ID_KEY) String scenarioId,
-            HttpServletResponse response) {
+            @RequestParam(TgolKeyStore.SCENARIO_ID_KEY) String scenarioId) {
         Contract contract = getContractDataService().read(Long.valueOf(contractId));
         if (contract.getUser().getId().equals(getCurrentUser().getId())) {
-            try {
-                for (Scenario scenario : contract.getScenarioSet()) {
-                    if (scenario.getId().equals(Long.valueOf(scenarioId))) {
-                        InputStream is = IOUtils.toInputStream(scenario.getContent());
-                        IOUtils.copy(is, response.getOutputStream());
-                        response.setContentType(TgolKeyStore.CONTENT_TYPE); 
-                        StringBuilder strb = new StringBuilder(TgolKeyStore.ATTACHMENT);
-                        strb.append(scenario.getLabel());
-                        strb.append(TgolKeyStore.JSON_EXTENSION);
-                        response.setHeader(TgolKeyStore.CONTENT_DISPOSITION,strb.toString()); 
-                        response.flushBuffer();
-                        break;
-                    }
+            for (Scenario scenario : contract.getScenarioSet()) {
+                if (scenario.getId().equals(Long.valueOf(scenarioId))) {
+                    byte[] contents = scenario.getContent().getBytes();
+
+                    HttpHeaders headers = new HttpHeaders();
+                    headers.setContentType(MediaType.TEXT_PLAIN);
+                    String filename = scenario.getLabel() + TgolKeyStore.SIDE_EXTENSION;
+                    headers.setContentDispositionFormData(filename, filename);
+                    headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
+                    ResponseEntity<byte[]> response = new ResponseEntity<>(contents, headers, HttpStatus.OK);
+                    return response;
                 }
-                throw new ForbiddenPageException(getCurrentUser());
-            } catch (IOException ex) {
-                throw new RuntimeException("IOError writing file to output stream");
             }
+            throw new ForbiddenPageException(getCurrentUser());
         } else {
             throw new ForbiddenPageException(getCurrentUser());
         }

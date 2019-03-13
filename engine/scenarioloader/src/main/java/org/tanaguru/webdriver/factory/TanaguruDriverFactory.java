@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class TanaguruDriverFactory {
     private Map<String, String> jsScriptMap = new HashMap<>();
     private int ngAppWait = 500;
+
     private ProfileFactoryImpl profileFactory;
     private String geckodriverPath;
 

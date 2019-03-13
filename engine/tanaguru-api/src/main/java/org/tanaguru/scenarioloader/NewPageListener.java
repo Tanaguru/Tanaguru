@@ -34,9 +34,10 @@ public interface NewPageListener {
      * @param url
      * @param sourceCode
      * @param snapshot
-     * @param jsResultMap 
+     * @param jsResultMap
+     * @param label
      */
-    void fireNewPage(String url, String sourceCode, byte[] snapshot, Map<String, String> jsResultMap);
+    void fireNewPage(String url, String sourceCode, byte[] snapshot, Map<String, String> jsResultMap, String label);
     
 }
 

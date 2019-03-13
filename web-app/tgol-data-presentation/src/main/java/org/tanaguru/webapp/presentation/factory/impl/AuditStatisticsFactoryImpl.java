@@ -178,6 +178,7 @@ public class AuditStatisticsFactoryImpl implements AuditStatisticsFactory {
         auditStats.setId(audit.getId());
         auditStats.setUrl(webResource.getURL());
         auditStats.setSnapshotUrl(webResource.getURL());
+        auditStats.setLabel(webResource.getLabel());
         auditStats.setRawMark(markFormatter(webResource, true, isAuditManual));
         auditStats.setWeightedMark(markFormatter(webResource, false, isAuditManual));
 

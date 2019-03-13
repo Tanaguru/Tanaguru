@@ -402,5 +402,24 @@
         <property name="parameterCode" value="WAIT_TIME_NG_APP"/>
         <property name="formFieldBuilder" ref="waitingTimeFormFieldBuilder"/>
     </bean>
+
+    <bean id="autoFiringNewPageEvent" class="org.tanaguru.webapp.form.builder.CheckboxElementBuilderImpl">
+        <property name="enabled" value="true"/>
+        <property name="value" value="true"/>
+    </bean>
+
+    <bean id="autoFiringNewPageEventFormFieldBuilder" class="org.tanaguru.webapp.form.builder.CheckboxFormFieldBuilderImpl">
+        <property name="i18nKey" value="prevent-automatic-fire-new-page-event"/>
+        <property name="checkboxElementBuilderList">
+            <list>
+                <ref local="autoFiringNewPageEvent"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="autoFiringNewPageEventParamBuilder" class="org.tanaguru.webapp.form.parameterization.builder.AuditSetUpFormFieldBuilderImpl">
+        <property name="parameterCode" value="PREVENT_DEFAULT_PAGE_FIRING"/>
+        <property name="formFieldBuilder" ref="autoFiringNewPageEventFormFieldBuilder"/>
+    </bean>
     
 </beans>

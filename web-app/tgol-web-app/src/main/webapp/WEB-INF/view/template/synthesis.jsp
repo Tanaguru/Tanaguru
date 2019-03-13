@@ -46,6 +46,13 @@
                 </span>
             </c:if>
         </div>
+
+        <c:if test="${statistics.label != null}">
+            <div id="audit-label">
+                <span class="synthesis-meta-title">Label : </span>${statistics.label}
+            </div>
+        </c:if>
+
         <div id="project-creation-date">
             <span class="synthesis-meta-title"><fmt:message key="contract.createdOn"/> : </span><fmt:formatDate type="date" value="${statistics.date}" dateStyle="long"/> <fmt:formatDate type="time" value="${statistics.date}"/>
         </div>

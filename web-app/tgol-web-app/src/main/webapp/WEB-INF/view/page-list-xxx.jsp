@@ -204,6 +204,9 @@
                     </form>
                 </div><!-- class="span10 offset1" -->
             </div><!-- class="row" -->
+            <c:set var="labelTitle" scope="page">
+                <fmt:message key="pageList.labelHeader"/>
+            </c:set>
             <c:set var="rankTitle" scope="page">
                 <fmt:message key="pageList.rankHeader"/>
             </c:set>
@@ -252,6 +255,7 @@
                             </c:otherwise>
                         </c:choose>
                         <display:caption>${summary}</display:caption>
+                        <display:column property="label" title="${labelTitle}" headerClass="labelCol" class="labelCol" headerScope="col"/>
                         <c:choose>
                             <c:when test="${statistics.auditScope == 'SCENARIO'}">
                                 <display:column property="rank" title="${rankTitle}" headerClass="rankCol" class="rankCol" headerScope="col"/>
@@ -271,6 +275,7 @@
                             <c:otherwise>
                                 <c:choose>
                                     <c:when test="${param.status == 'f2xx'}">
+
                                         <display:column property="urlWithPageResultLinkAndExternalLink" title="${urlTitle}" headerClass="urlCol" class="urlCol" headerScope="col"/>
                                         <display:column property="rawMark" title="${rawMarkTitle}" headerClass="markCol" class="markCol" headerScope="col"/>
                                         <display:column property="rank" title="${rankTitle}" headerClass="rankCol" class="rankCol" headerScope="col"/>

@@ -37,8 +37,6 @@
         <property name="registryPort" value="1099"/>
     </bean>
 
-
-
     <!-- DATA SERVICES -->
         <!-- AUDIT -->
     <bean id="auditDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
@@ -90,6 +88,13 @@
         <property name="registryPort" value="1099"/>
     </bean>
 
+    <bean id="scenarioDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ScenarioDataService"/>
+        <property name="service" ref="scenarioDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.entity.service.scenario.ScenarioDataService"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
         <!-- STATISTICS -->
     <bean id="testStatisticsDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
         <property name="serviceName" value="TestStatisticsDataService"/>
@@ -120,6 +125,26 @@
     </bean>
 
         <!-- PARAMETERS -->
+    <bean id="parameterDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ParameterDataService"/>
+        <property name="service" ref="parameterDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.parameterization.ParameterDataService"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="parameterElementDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ParameterElementDataService"/>
+        <property name="service" ref="parameterElementDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.parameterization.ParameterElementDataService"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="parameterFamilyDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ParameterFamilyDataService"/>
+        <property name="service" ref="parameterFamilyDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.parameterization.ParameterFamilyDataService"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
 
         <!-- REFERENCES -->
 
@@ -127,6 +152,41 @@
         <property name="serviceName" value="ScopeDataService"/>
         <property name="service" ref="scopeDataService"/>
         <property name="serviceInterface" value="org.tanaguru.entity.service.reference.ScopeDataService"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="criterionDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="CriterionDataService"/>
+        <property name="service" ref="criterionDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.reference.CriterionDataService"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="levelDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="LevelDataService"/>
+        <property name="service" ref="levelDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.reference.LevelDataService"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="referenceDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ReferenceDataService"/>
+        <property name="service" ref="referenceDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.reference.ReferenceDataService"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="testDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="TestDataService"/>
+        <property name="service" ref="testDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.reference.TestDataService"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="themeDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ThemeDataService"/>
+        <property name="service" ref="themeDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.reference.ThemeDataService"/>
         <property name="registryPort" value="1099"/>
     </bean>
 

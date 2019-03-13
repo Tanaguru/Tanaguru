@@ -8,7 +8,8 @@ INSERT IGNORE INTO `LEVEL` (`Id_Level`, `Cd_Level`, `Label`, `Description`, `Ran
 INSERT IGNORE INTO `PARAMETER_FAMILY` (`Cd_Parameter_Family`, `Description`, `Long_Label`, `Short_Label`) VALUES
 ('CRAWL', 'This parameter family handles all the parameters needed by the crawler component', 'crawl parameters', 'crawl params'),
 ('GENERAL', 'This parameter family handles all the general parameters of the audit', 'general parameters', 'gen params'),
-('RULES', 'This parameter family handles all the parameters needed by the rules', 'rules parameters', 'rules params');
+('RULES', 'This parameter family handles all the parameters needed by the rules', 'rules parameters', 'rules params'),
+('SCENARIO', 'This parameter family handles all the parameters needed by the crawler component', 'scenario parameters', 'scenario params');
 
 INSERT IGNORE INTO `PARAMETER_ELEMENT` (`Cd_Parameter_Element`, `Id_Parameter_Family`, `Long_Label`, `Short_Label`) VALUES
 ('MAX_DOCUMENTS', (SELECT `Id_Parameter_Family` FROM `PARAMETER_FAMILY` WHERE `Cd_Parameter_Family` LIKE 'CRAWL'), 'Maximum number of downloaded pages', 'max pages'),
@@ -27,7 +28,8 @@ INSERT IGNORE INTO `PARAMETER_ELEMENT` (`Cd_Parameter_Element`, `Id_Parameter_Fa
 ('SCREEN_HEIGHT', (SELECT `Id_Parameter_Family` FROM `PARAMETER_FAMILY` WHERE `Cd_Parameter_Family` LIKE 'GENERAL'), '', 'screen height'),
 ('COMPLEX_TABLE_MARKER', (SELECT `Id_Parameter_Family` FROM `PARAMETER_FAMILY` WHERE `Cd_Parameter_Family` LIKE 'RULES'), 'Complex table marker', 'Correspond to the attribute \"id\", \"class\" or \"role\" of the complex tables'),
 ('ALTERNATIVE_JUSTIFY_MECHANISM', (SELECT `Id_Parameter_Family` FROM `PARAMETER_FAMILY` WHERE `Cd_Parameter_Family` LIKE 'RULES'), 'Alternative Justify Mechanism', 'The page embeds a mechanism that can remove text justification'),
-('WAIT_TIME_NG_APP', (SELECT `Id_Parameter_Family` FROM `PARAMETER_FAMILY` WHERE `Cd_Parameter_Family` LIKE 'GENERAL'), 'Time to wait untel the page loads (AngularJS App)', 'Time to wait untel the page loads (AngularJS App)');
+('WAIT_TIME_NG_APP', (SELECT `Id_Parameter_Family` FROM `PARAMETER_FAMILY` WHERE `Cd_Parameter_Family` LIKE 'GENERAL'), 'Time to wait untel the page loads (AngularJS App)', 'Time to wait untel the page loads (AngularJS App)'),
+('PREVENT_DEFAULT_PAGE_FIRING', (SELECT `Id_Parameter_Family` FROM `PARAMETER_FAMILY` WHERE `Cd_Parameter_Family` LIKE 'SCENARIO'), 'Prevent automatic new page event', 'Prevent automatic new page event');
 
 INSERT IGNORE INTO `PARAMETER` (`Id_Parameter_Element`, `Parameter_Value`, `Is_Default`) VALUES
 ((SELECT `Id_Parameter_Element` FROM `PARAMETER_ELEMENT` WHERE `Cd_Parameter_Element` LIKE 'MAX_DOCUMENTS'), '50000', b'0'),
@@ -53,7 +55,8 @@ INSERT IGNORE INTO `PARAMETER` (`Id_Parameter_Element`, `Parameter_Value`, `Is_D
 ((SELECT `Id_Parameter_Element` FROM `PARAMETER_ELEMENT` WHERE `Cd_Parameter_Element` LIKE 'COMPLEX_TABLE_MARKER'), '', b'1'),
 ((SELECT `Id_Parameter_Element` FROM `PARAMETER_ELEMENT` WHERE `Cd_Parameter_Element` LIKE 'ALTERNATIVE_JUSTIFY_MECHANISM'), 'true', b'0'),
 ((SELECT `Id_Parameter_Element` FROM `PARAMETER_ELEMENT` WHERE `Cd_Parameter_Element` LIKE 'ALTERNATIVE_JUSTIFY_MECHANISM'), 'false', b'1'),
-((SELECT `Id_Parameter_Element` FROM `PARAMETER_ELEMENT` WHERE `Cd_Parameter_Element` LIKE 'WAIT_TIME_NG_APP'), '500', b'1');
+((SELECT `Id_Parameter_Element` FROM `PARAMETER_ELEMENT` WHERE `Cd_Parameter_Element` LIKE 'WAIT_TIME_NG_APP'), '500', b'1'),
+((SELECT `Id_Parameter_Element` FROM `PARAMETER_ELEMENT` WHERE `Cd_Parameter_Element` LIKE 'PREVENT_DEFAULT_PAGE_FIRING'), 'false', b'1');
  
 
 SET foreign_key_checks=1;

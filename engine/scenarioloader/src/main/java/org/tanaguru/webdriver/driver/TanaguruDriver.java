@@ -1,7 +1,5 @@
 package org.tanaguru.webdriver.driver;
 
-import edu.uci.ics.crawler4j.crawler.Page;
-import edu.uci.ics.crawler4j.url.WebURL;
 import net.sourceforge.htmlunit.corejs.javascript.JavaScriptException;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
@@ -14,9 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.tanaguru.scenarioloader.NewPageListener;
 
 import java.io.IOException;
-import java.net.ConnectException;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 public class TanaguruDriver implements WebDriver, JavascriptExecutor {
     private static final Logger LOGGER = Logger.getLogger(TanaguruDriver.class);
@@ -24,11 +20,18 @@ public class TanaguruDriver implements WebDriver, JavascriptExecutor {
     List<NewPageListener> newPageListenerList;
     private Map<String, String> jsScriptMap;
     private int waitTimeNgApp = 500;
+    private boolean preventDefaultPageFiringEvent = false;
+
     private RemoteWebDriver driver;
 
+    private String beforeclickUrl;
+    private ArrayList<String> visitedUrl;
+
     public TanaguruDriver(FirefoxOptions ffOptions) {
-        driver = new FirefoxDriver(ffOptions);
+        this.driver = new FirefoxDriver(ffOptions);
         this.newPageListenerList = new ArrayList<>();
+
+        visitedUrl = new ArrayList<>();
     }
 
     public void setJsScriptMap(Map<String, String> jsScriptMap) {
@@ -43,16 +46,18 @@ public class TanaguruDriver implements WebDriver, JavascriptExecutor {
     public void get(String url) {
         try {
             driver.get(url);
-            waitForJStoLoad();
-            LOGGER.info("Successfully loaded page, firing new page : " + url);
-            fireNewPage(url);
+            if(!preventDefaultPageFiringEvent){
+                fireNewPage(url, true, null);
+            }
         } catch (JavaScriptException e) {
             LOGGER.error("Javascript exception on page : " + url + "\n"
                     + e.getMessage());
         } catch (TimeoutException e){
             LOGGER.error("Timeout exception opening page : " + url + "\n"
                     + e.getMessage());
-            fireNewPage(url);
+            if(!preventDefaultPageFiringEvent){
+                fireNewPage(url, true, null);
+            }
         } catch (WebDriverException e) {
             LOGGER.error("Webdriver exception opening page : " + url + "\n"
                     + e.getMessage());
@@ -89,11 +94,21 @@ public class TanaguruDriver implements WebDriver, JavascriptExecutor {
         return driver.findElement(by);
     }
 
-    public void fireNewPage(String url) {
-        Map<String, String> jsScriptResult = executeScriptMap();
-        String source = getPageSource();
-        for (NewPageListener newPageListener : newPageListenerList) {
-            newPageListener.fireNewPage(url, source, null, jsScriptResult);
+    public void fireNewPage(String url, boolean preventUrlMultipleAudit, String label) {
+        waitForJStoLoad();
+
+        if(!preventUrlMultipleAudit || !visitedUrl.contains(url)){
+            this.beforeclickUrl = url;
+
+            visitedUrl.add(0, url);
+            LOGGER.info("Successfully loaded page, firing new page : " + url);
+            Map<String, String> jsScriptResult = executeScriptMap();
+            String source = getPageSource();
+            for (NewPageListener newPageListener : newPageListenerList) {
+                newPageListener.fireNewPage(url, source, null, jsScriptResult, label);
+            }
+        }else{
+            LOGGER.info("Successfully loaded page, already visited : " + url);
         }
     }
 
@@ -194,6 +209,14 @@ public class TanaguruDriver implements WebDriver, JavascriptExecutor {
         this.waitTimeNgApp = waitTimeNgApp;
     }
 
+    public boolean isPreventDefaultPageFiringEvent() {
+        return preventDefaultPageFiringEvent;
+    }
+
+    public void setPreventDefaultPageFiringEvent(boolean preventDefaultPageFiringEvent) {
+        this.preventDefaultPageFiringEvent = preventDefaultPageFiringEvent;
+    }
+
     public boolean waitForJStoLoad() {
 
         WebDriverWait wait = new WebDriverWait(driver, 30);
@@ -231,5 +254,15 @@ public class TanaguruDriver implements WebDriver, JavascriptExecutor {
     @Override
     public Object executeAsyncScript(String s, Object... objects) {
         return driver.executeAsyncScript(s, objects);
+    }
+
+    public void onSeleneseClick() {
+        String url = getCurrentUrl();
+        //Ignore anchors
+        int ignoreIndex = url.indexOf("#");
+        url = ignoreIndex != -1 ? url.substring(0, ignoreIndex) : url;
+        if(!preventDefaultPageFiringEvent){
+            fireNewPage(url, true, null);
+        }
     }
 }

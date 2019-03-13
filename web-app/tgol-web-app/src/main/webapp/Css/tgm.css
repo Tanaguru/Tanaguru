@@ -2040,7 +2040,8 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="url"]:focus,
 #page-list-f2xx .col02,
 #page-list-f3xx .col01,
 #page-list-f4xx .col01,
-.urlCol { /* URL */
+.urlCol,
+.labelCol{ /* URL */
     text-align: left;
     word-wrap: break-word;
     max-width: 600px;

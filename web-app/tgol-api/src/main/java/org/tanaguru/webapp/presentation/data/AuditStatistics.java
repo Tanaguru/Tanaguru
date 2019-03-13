@@ -181,4 +181,15 @@ public interface AuditStatistics {
      */
     void setAuditScope(ScopeEnum auditScope);
 
+    /**
+     *
+     * @param label
+     */
+    void setLabel(String label);
+
+    /**
+     *
+     * @return
+     */
+    String getLabel();
 }

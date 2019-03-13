@@ -52,5 +52,8 @@
     <import resource="tgol-beans-orchestrator.xml"/>
     <import resource="tgol-beans-persistence.xml"/>
     <import resource="tgol-beans-tgol.xml"/>
+
+    <!-- tgol rmi import -->
+    <import resource="tgol-rmi.xml"/>
     
 </beans>

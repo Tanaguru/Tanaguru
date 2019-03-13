@@ -23,6 +23,8 @@ package org.tanaguru.webapp.presentation.factory.impl;
 
 import org.tanaguru.entity.reference.Scope;
 import org.tanaguru.entity.service.audit.ProcessResultDataService;
+import org.tanaguru.entity.service.subject.WebResourceDataService;
+import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.webapp.presentation.data.PageResult;
 import org.tanaguru.webapp.presentation.data.PageResultImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +37,9 @@ import org.tanaguru.webapp.presentation.factory.PageResultFactory;
 public class PageResultFactoryImpl implements PageResultFactory {
 
     private ProcessResultDataService processResultDataService;
+
+    @Autowired
+    private WebResourceDataService webResourceDataService;
 
     public ProcessResultDataService getProcessResultDataService() {
         return processResultDataService;
@@ -92,7 +97,8 @@ public class PageResultFactoryImpl implements PageResultFactory {
             Float rawMark,
             Long webResourceId,
             String httpStatusCode){
-        return new PageResultImpl(url, rank, weightedMark, rawMark, webResourceId, httpStatusCode);
+        WebResource webResource = webResourceDataService.read(webResourceId);
+        return new PageResultImpl(url, rank, weightedMark, rawMark, webResourceId, httpStatusCode, webResource.getLabel());
     }
 
 }

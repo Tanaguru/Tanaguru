@@ -399,6 +399,7 @@ public final class TgolKeyStore {
     public static final String MAX_DURATION_PARAM_KEY = "MAX_DURATION";
     public static final String EXCLUSION_URL_LIST_PARAM_KEY = "EXCLUSION_REGEXP";
     public static final String DEPTH_PAGE_PARAM_VALUE = "0";
+    public static final String MAX_DOC_PARAM_VALUE = "0";
     public static final String PROXY_HOST_CONF_KEY = "proxyHost";
     public static final String PROXY_PORT_CONF_KEY = "proxyPort";
     public static final String PROXY_USER_CONF_KEY = "proxyUser";
@@ -425,6 +426,7 @@ public final class TgolKeyStore {
     /* scenario meta data keys */
     public static final String CONTENT_TYPE="text/plain";
     public static final String JSON_EXTENSION=".json";
+    public static final String SIDE_EXTENSION=".side";
     public static final String CONTENT_DISPOSITION="Content-Disposition";
     public static final String ATTACHMENT="attachment; filename=";
     

@@ -116,4 +116,18 @@ public interface PageResult {
      * @param rank 
      */
     void setRank(int rank);
+
+    /**
+     *
+     * @return
+     *      the page label
+     */
+    String getLabel();
+
+    /**
+     *
+     * @param label
+     */
+    void setLabel(String label);
+
 }
