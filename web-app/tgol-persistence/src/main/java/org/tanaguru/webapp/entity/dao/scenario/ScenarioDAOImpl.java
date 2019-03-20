@@ -22,14 +22,21 @@
 package org.tanaguru.webapp.entity.dao.scenario;
 
 import org.tanaguru.sdk.entity.dao.jpa.AbstractJPADAO;
+import org.tanaguru.webapp.entity.contract.Contract;
 import org.tanaguru.webapp.entity.scenario.Scenario;
 import org.tanaguru.webapp.entity.scenario.ScenarioImpl;
+
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author jkowalczyk
  */
 public class ScenarioDAOImpl extends AbstractJPADAO<Scenario, Long>
         implements ScenarioDAO {
+    private static final String CACHEABLE_OPTION="org.hibernate.cacheable";
 
     public ScenarioDAOImpl(){
         super();
@@ -40,4 +47,13 @@ public class ScenarioDAOImpl extends AbstractJPADAO<Scenario, Long>
         return ScenarioImpl.class;
     }
 
+    @Override
+    public List<Scenario> getAllScenariosByContract(Contract contract) {
+        Query query = entityManager.createQuery("SELECT a FROM "
+                + getEntityClass().getName() + " a"
+                + " WHERE a.contract = :contract");
+        query.setHint(CACHEABLE_OPTION, "true");
+        query.setParameter("contract", contract);
+        return (List<Scenario>)query.getResultList();
+    }
 }

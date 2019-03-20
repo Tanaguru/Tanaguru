@@ -8,6 +8,7 @@
 
     <import resource="mvc/tgol-beans-presentation.xml"/>
 
+    <!-- TGOL -->
     <bean id="userDetailsServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
         <property name="serviceName" value="UserDetailsService"/>
         <property name="service" ref="tgolAuthenticationProvider"/>
@@ -34,6 +35,55 @@
         <property name="serviceName" value="UserDataService"/>
         <property name="service" ref="userDataService"/>
         <property name="serviceInterface" value="org.tanaguru.webapp.entity.service.user.UserDataService"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="functionalityDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="FunctionalityDataService"/>
+        <property name="service" ref="functionalityDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.entity.service.functionality.FunctionalityDataService"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="optionElementDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="OptionElementDataService"/>
+        <property name="service" ref="optionElementDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.entity.service.option.OptionElementDataService"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="optionFamilyDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="OptionFamilyDataService"/>
+        <property name="service" ref="optionFamilyDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.entity.service.option.OptionFamilyDataService"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="optionDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="OptionDataService"/>
+        <property name="service" ref="optionDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.entity.service.option.OptionDataService"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="referentialDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ReferentialDataService"/>
+        <property name="service" ref="referentialDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.entity.service.referential.ReferentialDataService"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="scenarioDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ScenarioDataService"/>
+        <property name="service" ref="scenarioDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.entity.service.scenario.ScenarioDataService"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+
+    <bean id="scopeTgolDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ScopeTgolDataService"/>
+        <property name="service" ref="tgsiScopeDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.entity.service.contract.ScopeDataService"/>
         <property name="registryPort" value="1099"/>
     </bean>
 
@@ -85,13 +135,6 @@
         <property name="serviceName" value="EvidenceElementDataService"/>
         <property name="service" ref="evidenceElementDataService"/>
         <property name="serviceInterface" value="org.tanaguru.entity.service.audit.EvidenceElementDataService"/>
-        <property name="registryPort" value="1099"/>
-    </bean>
-
-    <bean id="scenarioDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
-        <property name="serviceName" value="ScenarioDataService"/>
-        <property name="service" ref="scenarioDataService"/>
-        <property name="serviceInterface" value="org.tanaguru.webapp.entity.service.scenario.ScenarioDataService"/>
         <property name="registryPort" value="1099"/>
     </bean>
 

@@ -22,10 +22,15 @@
 package org.tanaguru.webapp.entity.dao.scenario;
 
 import org.tanaguru.sdk.entity.dao.GenericDAO;
+import org.tanaguru.webapp.entity.contract.Contract;
 import org.tanaguru.webapp.entity.scenario.Scenario;
+
+import java.util.List;
 
 /**
  *
  * @author jkowalczyk
  */
-public interface ScenarioDAO extends GenericDAO<Scenario, Long> {}
+public interface ScenarioDAO extends GenericDAO<Scenario, Long> {
+    public List<Scenario> getAllScenariosByContract(Contract contract);
+}

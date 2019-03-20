@@ -21,8 +21,13 @@
  */
 package org.tanaguru.webapp.entity.service.scenario;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.tanaguru.sdk.entity.service.AbstractGenericDataService;
+import org.tanaguru.webapp.entity.contract.Contract;
+import org.tanaguru.webapp.entity.dao.scenario.ScenarioDAO;
 import org.tanaguru.webapp.entity.scenario.Scenario;
+
+import java.util.List;
 
 /**
  *
@@ -30,5 +35,12 @@ import org.tanaguru.webapp.entity.scenario.Scenario;
  */
 public class ScenarioDataServiceImpl extends AbstractGenericDataService<Scenario, Long>
         implements ScenarioDataService {
-    
+
+    @Autowired
+    ScenarioDAO scenarioDAO;
+
+    @Override
+    public List<Scenario> getAllScenariosByContract(Contract contract) {
+        return scenarioDAO.getAllScenariosByContract(contract);
+    }
 }

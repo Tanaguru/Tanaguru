@@ -22,10 +22,15 @@
 package org.tanaguru.webapp.entity.service.scenario;
 
 import org.tanaguru.sdk.entity.service.GenericDataService;
+import org.tanaguru.webapp.entity.contract.Contract;
 import org.tanaguru.webapp.entity.scenario.Scenario;
+
+import java.util.List;
 
 /**
  *
  * @author jkowalczyk
  */
-public interface ScenarioDataService extends GenericDataService<Scenario, Long> {}
+public interface ScenarioDataService extends GenericDataService<Scenario, Long> {
+    public List<Scenario> getAllScenariosByContract(Contract contract);
+}
