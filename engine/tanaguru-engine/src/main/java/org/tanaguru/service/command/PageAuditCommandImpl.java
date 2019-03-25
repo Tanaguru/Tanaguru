@@ -22,12 +22,19 @@
 
 package org.tanaguru.service.command;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.tanaguru.entity.audit.AuditStatus;
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.service.audit.AuditDataService;
+import org.tanaguru.scenarioloader.ScenarioRunner;
 import org.tanaguru.scenarioloader.factory.ScenarioFactoryImpl;
+import org.tanaguru.service.AuditServiceImpl;
+import org.tanaguru.service.ScenarioLoaderService;
 import org.tanaguru.util.FileNaming;
 import org.tanaguru.util.http.HttpRequestHandler;
 
@@ -35,10 +42,14 @@ import org.tanaguru.util.http.HttpRequestHandler;
  *
  * @author jkowalczyk
  */
-public class PageAuditCommandImpl extends AbstractScenarioAuditCommandImpl {
+public class PageAuditCommandImpl extends AuditCommandImpl {
 
     private final String pageUrl;
-    
+
+    private List<String> webdriverUrlListToAudit;
+
+    ScenarioLoaderService scenarioLoaderService;
+
     /**
      * 
      * @param pageUrl
@@ -74,15 +85,39 @@ public class PageAuditCommandImpl extends AbstractScenarioAuditCommandImpl {
     @Override
     public void init() {
         if (HttpRequestHandler.getInstance().isUrlAccessible(pageUrl)) {
-            setScenario(new ScenarioFactoryImpl().make(pageUrl, getScenarioRunner()));
-            setScenarioName(pageUrl);
-            setIsPage(true);
             super.init();
+            createEmptyWebResource(pageUrl);
         } else {
             super.init();
-            createEmptyPageResource(pageUrl);
+            setStatusToAudit(AuditStatus.ERROR);
+        }
+        this.webdriverUrlListToAudit = prepareWebdriverUrlList();
+    }
+
+    @Override
+    public void loadContent() {
+        setStatusToAudit(AuditStatus.CONTENT_LOADING);
+        scenarioLoaderService.loadUrlListContent(getAudit(), this.webdriverUrlListToAudit);
+
+        if (getContentDataService().hasContent(getAudit())) {
+            setStatusToAudit(AuditStatus.CONTENT_ADAPTING);
+        } else {
+            Logger.getLogger(AuditServiceImpl.class).warn("Audit has no content");
             setStatusToAudit(AuditStatus.ERROR);
         }
     }
- 
+
+    protected List<String> prepareWebdriverUrlList(){
+        ArrayList<String> result = new ArrayList<>();
+        result.add(this.pageUrl);
+        return result;
+    }
+
+    protected void createEmptyWebResource(String url){
+        createEmptyPageResource(url);
+    }
+
+    public void setScenarioLoaderService(ScenarioLoaderService scenarioLoaderService){
+        this.scenarioLoaderService = scenarioLoaderService;
+    }
 }

@@ -129,10 +129,11 @@ public abstract class CrawlAuditCommandImpl extends AuditCommandImpl {
                     .append(" was required.").toString());
             return;
         }
-
         List<String> urlList = callCrawlerService();
+
         createEmptyWebResource();
-        getScenarioLoaderService().loadUrlListContent(getAudit(), urlList, ScenarioRunner.SELENESE);
+        setStatusToAudit(AuditStatus.CONTENT_LOADING);
+        getScenarioLoaderService().loadUrlListContent(getAudit(), urlList);
         
         if (getContentDataService().hasContent(getAudit())) {
             setStatusToAudit(AuditStatus.CONTENT_ADAPTING);

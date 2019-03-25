@@ -43,7 +43,7 @@ public interface ScenarioLoaderService {
      * @param scenarioFile
      * @return
      */
-    List<Content> loadScenario(Audit audit, String scenarioFile, ScenarioRunner scenarioRunner);
+    List<Content> loadScenario(Audit audit, String scenarioFile);
 
     /**
      *
@@ -51,7 +51,7 @@ public interface ScenarioLoaderService {
      * @param urlList
      * @return
      */
-    List<Content> loadUrlListContent(Audit audit, List<String> urlList, ScenarioRunner scenarioRunner);
+    List<Content> loadUrlListContent(Audit audit, List<String> urlList);
 
     /**
      *

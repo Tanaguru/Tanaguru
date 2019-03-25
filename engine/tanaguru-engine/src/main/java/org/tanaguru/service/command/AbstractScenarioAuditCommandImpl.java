@@ -47,7 +47,6 @@ public abstract class AbstractScenarioAuditCommandImpl extends AuditCommandImpl 
      * The scenario loader Service instance
      */
     private ScenarioLoaderService scenarioLoaderService;
-    private ScenarioRunner scenarioRunner;
 
     public ScenarioLoaderService getScenarioLoaderService() {
         return scenarioLoaderService;
@@ -94,7 +93,6 @@ public abstract class AbstractScenarioAuditCommandImpl extends AuditCommandImpl 
                 Set<Parameter> paramSet,
                 AuditDataService auditDataService) {
         super(paramSet, auditDataService);
-        chooseScenarioRunner();
     }
     
      /**
@@ -110,7 +108,6 @@ public abstract class AbstractScenarioAuditCommandImpl extends AuditCommandImpl 
                 String w3cValidatorPath,
                 String java8Path) {
         super(paramSet, auditDataService, w3cValidatorPath, java8Path);
-        chooseScenarioRunner();
     }
 
 
@@ -118,27 +115,6 @@ public abstract class AbstractScenarioAuditCommandImpl extends AuditCommandImpl 
     public void init() {
         super.init();
         setStatusToAudit(AuditStatus.SCENARIO_LOADING);
-        chooseScenarioRunner();
-    }
-
-    private void chooseScenarioRunner(){
-        //Choose between sebuilder (old) and selenese runner (new)
-        // Looking at firefox version and scenario compatibility
-        String ffVersion = "";
-
-        try {
-            ffVersion = ScenarioLoaderHelper.getSpecifiedFirefoxVersion();
-            LOGGER.debug("Choosing runner for : " + ffVersion);
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage());
-        }
-
-        this.scenarioRunner = ScenarioLoaderHelper.chooseScenarioRunner(ffVersion);
-        LOGGER.debug("Selected : " + scenarioRunner.name());
-    }
-
-    public ScenarioRunner getScenarioRunner() {
-        return scenarioRunner;
     }
 
     @Override
@@ -159,32 +135,12 @@ public abstract class AbstractScenarioAuditCommandImpl extends AuditCommandImpl 
         // the returned content list is already persisted and associated with
         // the current audit
 
-        createWebResource();
-        scenarioLoaderService.loadScenario(getAudit(), scenario, scenarioRunner);
+        createEmptySiteResource(scenarioName);
+
+        scenarioLoaderService.loadScenario(getAudit(), scenario);
         setStatusToAudit(AuditStatus.CONTENT_ADAPTING);
         if (LOGGER.isInfoEnabled()) {
             LOGGER.info(scenarioName +" has been loaded");
         }
     }
-    
-    /**
-     * Create the main webResource attached to the audit and then
-     * passed to the scenario loader service
-     * 
-     * @return 
-     *      a Site instance
-     */
-    private WebResource createWebResource() {
-        WebResource webResource;
-        if (isPage) {
-            webResource = getWebResourceDataService().createPage(scenarioName);
-        } else {
-            webResource = getWebResourceDataService().createSite(scenarioName);
-        }
-        webResource.setAudit(getAudit());
-        getWebResourceDataService().saveOrUpdate(webResource);
-        getAudit().setSubject(webResource);
-        return webResource;
-    }
-
 }

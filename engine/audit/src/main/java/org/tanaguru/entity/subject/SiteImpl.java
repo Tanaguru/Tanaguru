@@ -25,6 +25,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlElementRefs;
@@ -41,7 +42,7 @@ import org.tanaguru.entity.audit.Audit;
 public class SiteImpl extends WebResourceImpl implements Site, Serializable {
 
     private static final long serialVersionUID = -5472991643021548362L;
-    @OneToMany(mappedBy = "parent")
+    @OneToMany(mappedBy = "parent", fetch=FetchType.EAGER)
     private final Collection<WebResourceImpl> componentList = new ArrayList<>();
 
     public SiteImpl() {

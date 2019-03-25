@@ -55,7 +55,7 @@ public class ScenarioLoaderFactoryImplTest extends TestCase {
         WebResource mockWebResource = createMock(WebResource.class);
         ScenarioLoaderFactoryImpl instance = new ScenarioLoaderFactoryImpl();
         
-        ScenarioLoader scenarioLoader = instance.create(mockWebResource, ScenarioRunner.SELENESE);
+        ScenarioLoader scenarioLoader = instance.create(mockWebResource);
         assertTrue(scenarioLoader instanceof SeleneseLoaderImpl);
     }
     

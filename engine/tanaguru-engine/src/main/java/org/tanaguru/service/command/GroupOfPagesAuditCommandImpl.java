@@ -23,20 +23,26 @@
 package org.tanaguru.service.command;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
+import org.tanaguru.entity.audit.AuditStatus;
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.service.audit.AuditDataService;
+import org.tanaguru.entity.subject.Site;
 import org.tanaguru.scenarioloader.factory.ScenarioFactoryImpl;
 import org.tanaguru.util.FileNaming;
+import org.tanaguru.util.http.HttpRequestHandler;
 
 /**
  *
  * @author jkowalczyk
  */
-public class GroupOfPagesAuditCommandImpl extends AbstractScenarioAuditCommandImpl {
-    
+public class GroupOfPagesAuditCommandImpl extends PageAuditCommandImpl {
+
+    List<String> urlList = new ArrayList<>();
+
     /**
      * 
      * @param siteUrl
@@ -50,16 +56,13 @@ public class GroupOfPagesAuditCommandImpl extends AbstractScenarioAuditCommandIm
                 Set<Parameter> paramSet,
                 AuditDataService auditDataService) {
         
-        super(paramSet,auditDataService);
+        super(siteUrl,
+                paramSet,
+                auditDataService);
 
-        List<String> localUrlList = new ArrayList<String>();
         for (String url : pageUrlList) {
-            localUrlList.add(FileNaming.addProtocolToUrl(url));
+            urlList.add(FileNaming.addProtocolToUrl(url));
         }
-
-        setScenario(new ScenarioFactoryImpl().make(localUrlList, getScenarioRunner()));
-        setScenarioName(siteUrl);
-        setIsPage(false);
     }
     
      /**
@@ -79,16 +82,25 @@ public class GroupOfPagesAuditCommandImpl extends AbstractScenarioAuditCommandIm
                 String w3cValidatorPath,
                 String java8Path) {
         
-        super(paramSet,auditDataService, w3cValidatorPath, java8Path);
+        super(siteUrl,
+                paramSet,
+                auditDataService,
+                w3cValidatorPath,
+                java8Path);
 
-        List<String> localUrlList = new ArrayList<String>();
         for (String url : pageUrlList) {
-            localUrlList.add(FileNaming.addProtocolToUrl(url));
+            urlList.add(FileNaming.addProtocolToUrl(url));
         }
-
-        setScenario(new ScenarioFactoryImpl().make(localUrlList, getScenarioRunner()));
-        setScenarioName(siteUrl);
-        setIsPage(false);
     }
-    
+
+    @Override
+    protected List<String> prepareWebdriverUrlList(){
+        return this.urlList;
+    }
+
+    @Override
+    protected void createEmptyWebResource(String url){
+        createEmptySiteResource(url);
+    }
+
 }

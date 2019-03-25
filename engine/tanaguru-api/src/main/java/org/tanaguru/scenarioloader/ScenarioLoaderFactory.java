@@ -33,12 +33,10 @@ public interface ScenarioLoaderFactory {
     /**
      * 
      * @param mainWebResource
-     * @param scenarioRunner
      * @return 
      *      an instance of ContentLoader
      */
     ScenarioLoader create(
-            WebResource mainWebResource,
-            ScenarioRunner scenarioRunner);
+            WebResource mainWebResource);
 
 }

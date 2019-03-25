@@ -153,28 +153,11 @@ public class ScenarioLoaderFactoryImpl implements ScenarioLoaderFactory {
     }
     
     @Override
-    public ScenarioLoader create(WebResource mainWebResource, ScenarioRunner scenarioRunner) {
+    public ScenarioLoader create(WebResource mainWebResource) {
 
-        ScenarioLoader scenarioLoader = null;
-
-        switch(scenarioRunner){
-            case SELENESE:
-                scenarioLoader = new SeleneseLoaderImpl();
+        ScenarioLoader scenarioLoader = new SeleneseLoaderImpl();
                 scenarioLoader.setWebResource(mainWebResource);
                 ((SeleneseLoaderImpl) scenarioLoader).setProfileFactory(ProfileFactoryImpl.getInstance());
-                break;
-            //Incompatible versions
-            case INVALID:
-            default:
-                LOGGER.error("Invalid browser version, please use the latest Mozilla Firefox esr version");
-        }
-
-        //Couldn't create scenario loader
-        if(scenarioLoader == null){
-            throw new ScenarioLoaderException(
-                    new Exception("Unable to create scenario loader ")
-            );
-        }
 
         scenarioLoader.setContentDataService(contentDataService);
         scenarioLoader.setDateFactory(dateFactory);

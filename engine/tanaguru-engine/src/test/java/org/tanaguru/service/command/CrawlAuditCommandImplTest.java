@@ -103,7 +103,7 @@ public class CrawlAuditCommandImplTest extends AuditCommandTestCase {
         
         EasyMock.expect(mockAuditDataService.saveOrUpdate(mockAudit)).andReturn(mockAudit).once();
         EasyMock.expect(mockAudit.getStatus()).andReturn(AuditStatus.CRAWLING).once();
-        EasyMock.expect(mockScenarioLoaderService.loadUrlListContent(mockAudit, null, ScenarioRunner.SELENESE))
+        EasyMock.expect(mockScenarioLoaderService.loadUrlListContent(mockAudit, null))
                 .andReturn(null)
                 .once();
         EasyMock.expect(mockContentDataService.hasContent(mockAudit)).andReturn(true).once();
