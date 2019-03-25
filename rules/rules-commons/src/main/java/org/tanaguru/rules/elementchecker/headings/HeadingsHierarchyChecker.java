@@ -82,7 +82,7 @@ public class HeadingsHierarchyChecker extends ElementCheckerImpl {
         int indexOfReference = getHeaderIndex(element);
         int currentIndex;
         int previousIndex = indexOfReference;
-        Element elementOfReference = element;
+//        Element elementOfReference = element;
         Element previousElement = element;
 
         while (iter.hasNext()) {
@@ -96,13 +96,13 @@ public class HeadingsHierarchyChecker extends ElementCheckerImpl {
                             element,
                             HEADER_NOT_HIERARCHICALLY_WELL_DEFINED_MSG,
                             getEvidenceElement(PREVIOUS_H_TAG_INDEX_EE, getEvidenceElementMsg(previousIndex, previousElement)));
-                } else if ((currentIndex < indexOfReference)) { 
-                    checkResult = TestSolution.FAILED;
-                    addSourceCodeRemark(
-                            TestSolution.FAILED,
-                            element,
-                            HEADER_NOT_HIERARCHICALLY_WELL_DEFINED_MSG,
-                            getEvidenceElement(FIRST_H_TAG_INDEX_EE, getEvidenceElementMsg(indexOfReference, elementOfReference)));
+//                } else if ((currentIndex < indexOfReference)) { 
+//                    checkResult = TestSolution.FAILED;
+//                    addSourceCodeRemark(
+//                            TestSolution.FAILED,
+//                            element,
+//                            HEADER_NOT_HIERARCHICALLY_WELL_DEFINED_MSG,
+//                            getEvidenceElement(FIRST_H_TAG_INDEX_EE, getEvidenceElementMsg(indexOfReference, elementOfReference)));
                 }
                 previousIndex = currentIndex;
                 previousElement = element;
