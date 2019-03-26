@@ -74,7 +74,7 @@ public class ScenarioLoaderServiceImplTest extends TestCase {
         ScenarioLoader mockScenarioLoader =  
                 createMock(ScenarioLoader.class);
         
-        expect(mockScenarioLoaderFactory.create(mockWebResource, ScenarioRunner.SELENESE))
+        expect(mockScenarioLoaderFactory.create(mockWebResource))
                 .andReturn(mockScenarioLoader)
                 .once();
 
@@ -108,7 +108,7 @@ public class ScenarioLoaderServiceImplTest extends TestCase {
         instance.setScenarioLoaderFactory(mockScenarioLoaderFactory);
         instance.setWebResourceDataService(mockWebResourceDataService);
         
-        instance.loadScenario(mockAudit, scenarioFile, ScenarioRunner.SELENESE);
+        instance.loadScenario(mockAudit, scenarioFile);
         
         verify(mockAudit);
         verify(mockWebResource);
