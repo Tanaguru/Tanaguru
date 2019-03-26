@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.tanaguru</groupId>
-    <artifactId>tanaguru</artifactId>
+    <artifactId>tanaguru-beta</artifactId>
     <packaging>pom</packaging>
     <version>5.4.0-SNAPSHOT</version>
     <name>tanaguru</name>
