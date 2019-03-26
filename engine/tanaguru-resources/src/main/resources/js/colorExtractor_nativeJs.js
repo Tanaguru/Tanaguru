@@ -695,7 +695,7 @@ try{
             for (var k in keyList) {
                 for (var u in forbiddenUnits) {
                 	if(document.styleSheets[h].cssRules[i].style[keyList[k]] !== undefined){                                                    
-                    	var reg = new RegExp('(\\d.*\\d*\\s*' + forbiddenUnits[u] + ')');
+                    	var reg = new RegExp('(\\d*.*\\d*\\s*' + forbiddenUnits[u] + ')');
                         
                         if (document.styleSheets[h].cssRules[i].style[keyList[k]].match(reg) !== null) {
                             propList.push(document.styleSheets[h].cssRules[i]); 
@@ -731,7 +731,7 @@ try{
     
     var reg = [];
     for (var l in forbiddenUnits) {//regex
-        reg.push(new RegExp('(\\w\\s*:\\s*\\d.*\\d*' + forbiddenUnits[l] + ')'));
+        reg.push(new RegExp('(\\w\\s*:\\s*\\d*.*\\d*' + forbiddenUnits[l] + ')'));
     }
     var tmpElemInLineStyle = document.querySelectorAll('*[style]'); //find all element with inligne style
     for (var m = 0; m < tmpElemInLineStyle.length; m++) {
@@ -777,7 +777,7 @@ function  getAllElementsWithoutAuthorizedUnits( ) {
 	            	if(document.styleSheets[h].cssRules[i].style[keyList[k]] !== undefined){ 
 		                for (var u in authorizedUnitsDigit) {
 
-		                    var reg1 = new RegExp('(\\d.*\\d*\\s*' + authorizedUnitsDigit[u] + ')');
+		                    var reg1 = new RegExp('(\\d*.*\\d*\\s*' + authorizedUnitsDigit[u] + ')');
 	                            
 		                    if (document.styleSheets[h].cssRules[i].style[keyList[k]].match(reg1) !== null) { // if digit unit
 		                       	hasRelativeUnit = true;
@@ -874,7 +874,7 @@ function  getAllElementsWithoutAuthorizedUnits( ) {
 				if(canCheck){ //if one of the style's attributes is suspected to have a relative unit
 					
 					for (var u in authorizedUnitsDigit) {
-			        	var reg1 = new RegExp('(\\w\\s*:\\s*\\d.*\\d*' + authorizedUnitsDigit[u] + ')');
+			        	var reg1 = new RegExp('(\\w*\\s*:\\s*\\d*.*\\d*' + authorizedUnitsDigit[u] + ')');
 				    	
 				    	if(tmpElemInLineStyle[m].style.cssText.match(reg1) !== null){ // if digit unit
 				            hasRelativeUnit = true;
