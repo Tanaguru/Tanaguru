@@ -378,12 +378,7 @@ public class PageListControllerTest extends TestCase {
     public void testDisplay9xxPageList() throws Exception {
         System.out.println("TO DO : testDisplay9xxPageList");
     }
- 
-    /**
-     * 
-     * @param actDataService
-     * @param webResourceDataServiceDecorator 
-     */
+
     private void setUpAuditStatisticsFactory() {
         AuditStatisticsFactoryImpl.getInstance().setActDataService(mockActDataService);
         AuditStatisticsFactoryImpl.getInstance().setWebResourceDataService(mockWebResourceDataService);

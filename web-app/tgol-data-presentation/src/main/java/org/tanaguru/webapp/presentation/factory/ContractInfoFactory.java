@@ -9,4 +9,10 @@ import org.tanaguru.webapp.presentation.data.ContractInfo;
 
 public interface ContractInfoFactory {
     ContractInfo getContractInfo(Contract contract);
+
+    public void setActDataService(ActDataService actDataService);
+    public ContractDataService getContractDataService();
+    public void setContractDataService(ContractDataService contractDataService);
+    public ActionHandler getContractActionHandler();
+    public void setContractActionHandler(ActionHandler contractActionHandler);
 }

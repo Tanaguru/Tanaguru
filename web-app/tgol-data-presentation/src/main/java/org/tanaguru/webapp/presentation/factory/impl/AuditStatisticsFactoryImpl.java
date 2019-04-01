@@ -97,7 +97,7 @@ public class AuditStatisticsFactoryImpl implements AuditStatisticsFactory {
     private Map<String, Collection<Theme>> fullThemeMapByRef = null;
 
     @Autowired
-    public final void setThemeDataService(ThemeDataService themeDataService) {
+    public void setThemeDataService(ThemeDataService themeDataService) {
         Collection<Theme> themeList = themeDataService.findAll();
         if (fullThemeMapByRef == null) {
             fullThemeMapByRef = new HashMap();

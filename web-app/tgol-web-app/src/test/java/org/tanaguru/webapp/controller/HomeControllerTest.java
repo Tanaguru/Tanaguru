@@ -164,7 +164,7 @@ public class HomeControllerTest extends TestCase {
         
         instance.setContractDataService(mockContractDataService);
         ContractInfoFactoryImpl.getInstance().setContractDataService(mockContractDataService);
-        ContractInfoFactoryImpl.getInstance().setActionHandler(mockActionHandler);
+        ContractInfoFactoryImpl.getInstance().setContractActionHandler(mockActionHandler);
         DetailedContractInfoFactoryImpl.getInstance().setContractDataService(mockContractDataService);
     }
     

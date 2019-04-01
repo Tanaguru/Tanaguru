@@ -300,7 +300,7 @@ public class ContractControllerTest extends TestCase {
             expect(mockActionHandler.getActionList(mockContract)).andReturn(new ArrayList<Action>()).times(getActionListCounter);
         }
         replay(mockActionHandler);
-        ContractInfoFactoryImpl.getInstance().setActionHandler(mockActionHandler);
-        DetailedContractInfoFactoryImpl.getInstance().setActionHandler(mockActionHandler);
+        ContractInfoFactoryImpl.getInstance().setContractActionHandler(mockActionHandler);
+        DetailedContractInfoFactoryImpl.getInstance().setContractActionHandler(mockActionHandler);
     }
 }

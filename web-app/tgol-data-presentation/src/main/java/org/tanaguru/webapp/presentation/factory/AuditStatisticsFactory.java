@@ -23,4 +23,14 @@ public interface AuditStatisticsFactory {
             boolean isAuditManual);
 
     Theme getTheme(Long id);
+
+    public void setActDataService(ActDataService actDataService);
+    public void setWebResourceDataService(WebResourceDataService webResourceDataService);
+    public void setAuditDataService(AuditDataService auditDataService);
+    public void setParameterDataService(ParameterDataService parameterDataService);
+    public void setCriterionStatisticsDataService(CriterionStatisticsDataService criterionStatisticsDataService);
+
+    @Autowired
+    public void setStatisticsDataService(StatisticsDataService statisticsDataService);
+    public void setThemeDataService(ThemeDataService themeDataService);
 }
