@@ -1,8 +1,5 @@
 package org.tanaguru.scenarioloader;
 
-
-import org.tanaguru.scenarioloader.ScenarioRunner;
-
 import java.util.List;
 
 /**
@@ -12,16 +9,14 @@ public interface ScenarioFactory {
     /**
      *
      * @param urls
-     * @param scenarioRunner
      * @return the scenario
      */
-    public String make(List<String> urls, ScenarioRunner scenarioRunner);
+    public String make(List<String> urls);
 
     /**
      *
      * @param url
-     * @param scenarioRunner
      * @return the scenario
      */
-    public String make(String url, ScenarioRunner scenarioRunner);
+    public String make(String url);
 }

@@ -26,11 +26,9 @@ import org.tanaguru.entity.audit.Audit;
 import org.tanaguru.entity.audit.Content;
 import org.tanaguru.entity.service.audit.ContentDataService;
 import org.tanaguru.entity.service.subject.WebResourceDataService;
-import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.scenarioloader.ScenarioLoader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.tanaguru.scenarioloader.ScenarioLoaderFactory;
-import org.tanaguru.scenarioloader.ScenarioRunner;
 
 /**
  * 

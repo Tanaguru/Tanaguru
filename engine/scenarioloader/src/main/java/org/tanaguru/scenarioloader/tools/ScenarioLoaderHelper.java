@@ -1,7 +1,5 @@
 package org.tanaguru.scenarioloader.tools;
 
-import org.tanaguru.scenarioloader.ScenarioRunner;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -45,26 +43,5 @@ public class ScenarioLoaderHelper {
         }
 
         return commandResult;
-    }
-
-    public static ScenarioRunner chooseScenarioRunner(String firefoxVersion) {
-        ScenarioRunner result = ScenarioRunner.INVALID;
-        String[] cleanFirefoxVersion = firefoxVersion.split(" ");
-        //We only use mozilla firefox
-        if (cleanFirefoxVersion[0].toLowerCase().equals("mozilla")) {
-            //Parsing version
-            String parsedFirefoxVersion = cleanFirefoxVersion[cleanFirefoxVersion.length - 1];
-            String[] splitedFirefoxVersion = parsedFirefoxVersion.split("\\.");
-            int[] integerSplitedFirefoxVersion = new int[splitedFirefoxVersion.length];
-            for (int i = 0; i < splitedFirefoxVersion.length; i++) {
-                integerSplitedFirefoxVersion[i] = Integer.parseInt(splitedFirefoxVersion[i]);
-            }
-
-            //Choose SE builder for
-            if (integerSplitedFirefoxVersion[0] >= 45) {
-                result = ScenarioRunner.SELENESE;
-            }
-        }
-        return result;
     }
 }

@@ -23,7 +23,6 @@ package org.tanaguru.service.command;
 
 import org.easymock.EasyMock;
 import org.tanaguru.entity.audit.AuditStatus;
-import org.tanaguru.scenarioloader.ScenarioRunner;
 import org.tanaguru.service.CrawlerService;
 
 import java.util.ArrayList;

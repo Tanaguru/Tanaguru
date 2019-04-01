@@ -27,7 +27,6 @@ import java.util.Set;
 import org.apache.log4j.Logger;
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.service.audit.AuditDataService;
-import org.tanaguru.scenarioloader.ScenarioRunner;
 
 /**
  *

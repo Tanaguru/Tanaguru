@@ -27,12 +27,9 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.tanaguru.entity.audit.AuditStatus;
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.service.audit.AuditDataService;
-import org.tanaguru.scenarioloader.ScenarioRunner;
-import org.tanaguru.scenarioloader.factory.ScenarioFactoryImpl;
 import org.tanaguru.service.AuditServiceImpl;
 import org.tanaguru.service.ScenarioLoaderService;
 import org.tanaguru.util.FileNaming;

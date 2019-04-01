@@ -32,7 +32,6 @@ import org.tanaguru.entity.service.subject.WebResourceDataService;
 import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.scenarioloader.ScenarioLoader;
 import org.tanaguru.scenarioloader.ScenarioLoaderFactory;
-import org.tanaguru.scenarioloader.ScenarioRunner;
 
 /**
  *

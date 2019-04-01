@@ -29,12 +29,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.tanaguru.entity.audit.AuditStatus;
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.service.audit.AuditDataService;
-import org.tanaguru.scenarioloader.ScenarioRunner;
 import org.tanaguru.service.AuditServiceImpl;
 import org.tanaguru.service.CrawlerService;
 import org.tanaguru.service.ScenarioLoaderService;
 import org.tanaguru.util.http.HttpRequestHandler;
-import org.tanaguru.service.TanaguruCrawlerServiceImpl;
 
 /**
  *

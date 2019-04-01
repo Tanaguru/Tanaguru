@@ -26,7 +26,6 @@ import org.tanaguru.entity.audit.AuditStatus;
 import org.tanaguru.entity.audit.Content;
 import org.tanaguru.entity.subject.Page;
 import org.tanaguru.entity.subject.Site;
-import org.tanaguru.scenarioloader.ScenarioRunner;
 import org.tanaguru.service.ScenarioLoaderService;
 
 import java.util.ArrayList;
