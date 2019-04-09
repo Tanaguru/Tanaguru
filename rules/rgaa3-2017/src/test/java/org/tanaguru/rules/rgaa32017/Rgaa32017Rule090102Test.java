@@ -61,6 +61,7 @@ public class Rgaa32017Rule090102Test extends Rgaa32017RuleImplementationTestCase
         addWebResource("Rgaa32017.Test.09.01.02-1Passed-A01");
         addWebResource("Rgaa32017.Test.09.01.02-1Passed-A02");
         addWebResource("Rgaa32017.Test.09.01.02-1Passed-A03");
+        addWebResource("Rgaa32017.Test.09.01.02-1Passed-A04");
         addWebResource("Rgaa32017.Test.09.01.02-2Failed-01");
 //        addWebResource("Rgaa32017.Test.09.01.02-2Failed-02");
         addWebResource("Rgaa32017.Test.09.01.02-2Failed-03");
@@ -138,6 +139,11 @@ public class Rgaa32017Rule090102Test extends Rgaa32017RuleImplementationTestCase
         //------------------------------1Passed-A03-----------------------------
         //----------------------------------------------------------------------
         checkResultIsPassed(processPageTest("Rgaa32017.Test.09.01.02-1Passed-A03"),8);
+
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-A04-----------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.09.01.02-1Passed-A04"),4);
 
         //----------------------------------------------------------------------
         //------------------------------2Failed-01------------------------------

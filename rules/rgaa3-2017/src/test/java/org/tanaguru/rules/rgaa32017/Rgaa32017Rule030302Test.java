@@ -57,7 +57,7 @@ public class Rgaa32017Rule030302Test extends Rgaa32017RuleImplementationTestCase
 //                processPageTest("Rgaa32017.Test.03.03.02-1Passed-01").getValue());
 //        assertEquals(TestSolution.FAILED,
 //                processPageTest("Rgaa32017.Test.03.03.02-2Failed-01").getValue());
-        assertEquals(TestSolution.NOT_TESTED,
+        assertEquals(TestSolution.PASSED,
                 processPageTest("Rgaa32017.Test.03.03.02-3NMI-01").getValue());
 //        assertEquals(TestSolution.NOT_APPLICABLE,
 //                processPageTest("Rgaa32017.Test.03.03.02-4NA-01").getValue());
@@ -70,7 +70,7 @@ public class Rgaa32017Rule030302Test extends Rgaa32017RuleImplementationTestCase
 //                consolidate("Rgaa32017.Test.03.03.02-1Passed-01").getValue());
 //        assertEquals(TestSolution.FAILED,
 //                consolidate("Rgaa32017.Test.03.03.02-2Failed-01").getValue());
-        assertEquals(TestSolution.NOT_TESTED,
+        assertEquals(TestSolution.PASSED,
                 consolidate("Rgaa32017.Test.03.03.02-3NMI-01").getValue());
 //        assertEquals(TestSolution.NOT_APPLICABLE,
 //                consolidate("Rgaa32017.Test.03.03.02-4NA-01").getValue());

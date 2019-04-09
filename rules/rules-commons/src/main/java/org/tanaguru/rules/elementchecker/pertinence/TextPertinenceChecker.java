@@ -212,9 +212,16 @@ public class TextPertinenceChecker extends CompositeChecker {
         if (checkEmptiness) {
 	        addChecker(new TextEmptinessChecker(
 	                getTextElementBuilder(),
-	                new ImmutablePair(TestSolution.NEED_MORE_INFO, manualCheckMessage), 
+	                new ImmutablePair(getFailureSolution(), notPertinentMessageCode), 
 	                new ImmutablePair(TestSolution.PASSED,""), 
 	                getEeAttributeNames()));
+        }else {
+        	//permits to allowed emptiness elements, for decoratives images, for example
+        	addChecker(new TextEmptinessChecker(
+                getTextElementBuilder(),
+                new ImmutablePair(TestSolution.NEED_MORE_INFO,manualCheckMessage), 
+                new ImmutablePair(TestSolution.PASSED,""), 
+                getEeAttributeNames()));
         }
     }
 

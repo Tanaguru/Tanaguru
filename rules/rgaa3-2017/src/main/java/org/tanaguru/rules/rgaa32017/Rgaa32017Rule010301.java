@@ -151,13 +151,11 @@ public class Rgaa32017Rule010301 extends AbstractMarkerPageRuleImplementation {
                 new AttributePertinenceChecker(
                         ALT_ATTR,
                         // check emptiness
-                        true,
+                        false,
                         // compare with src attribute
                         new TextAttributeOfElementBuilder(SRC_ATTR),
                         // compare attribute value with nomenclature
                         IMAGE_FILE_EXTENSION_NOM,
-                        // solution when not pertinent
-                        FAILED,
                         // not pertinent message
                         NOT_PERTINENT_ALT_MSG,
                         // manual check message

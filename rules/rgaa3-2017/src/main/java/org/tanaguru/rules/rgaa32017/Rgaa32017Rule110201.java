@@ -20,12 +20,13 @@
 
 package org.tanaguru.rules.rgaa32017;
 
-import org.tanaguru.entity.audit.TestSolution;
-import org.tanaguru.ruleimplementation.AbstractDetectionPageRuleImplementation;
+import org.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
+import org.tanaguru.rules.elementchecker.pertinence.TextPertinenceChecker;
 import org.tanaguru.rules.elementselector.SimpleElementSelector;
 import static org.tanaguru.rules.keystore.CssLikeQueryStore.LABEL_WITHIN_FORM_CSS_LIKE_QUERY;
 import static org.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.MANUAL_CHECK_ON_ELEMENTS_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.NOT_PERTINENT_TEXTUAL_CONTENT_MSG;
 
 /**
  * Implementation of the rule 11.2.1 of the referential Rgaa 3-2017.
@@ -35,7 +36,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.MANUAL_CHECK_ON_ELE
  *
  */
 
-public class Rgaa32017Rule110201 extends AbstractDetectionPageRuleImplementation {
+public class Rgaa32017Rule110201 extends AbstractPageRuleWithSelectorAndCheckerImplementation {
 
     /**
      * Default constructor
@@ -43,15 +44,18 @@ public class Rgaa32017Rule110201 extends AbstractDetectionPageRuleImplementation
     public Rgaa32017Rule110201 () {
         super(
                 new SimpleElementSelector(LABEL_WITHIN_FORM_CSS_LIKE_QUERY),
-                // solution when at least one element is found
-                TestSolution.NEED_MORE_INFO,
-                // solution when no element is found
-                TestSolution.NOT_APPLICABLE,
-                // manual check message
-                MANUAL_CHECK_ON_ELEMENTS_MSG,
-                null, 
-                // evidence element
-                TEXT_ELEMENT2
+                new TextPertinenceChecker(
+                        // check emptiness
+                		true, 
+                        // no comparison with other attribute
+                        null,
+                        // no comparison with blacklist
+                        null,
+                        NOT_PERTINENT_TEXTUAL_CONTENT_MSG,
+                        // manual check message
+                        MANUAL_CHECK_ON_ELEMENTS_MSG,
+                        // evidence element
+                        TEXT_ELEMENT2)
             );
     }
 

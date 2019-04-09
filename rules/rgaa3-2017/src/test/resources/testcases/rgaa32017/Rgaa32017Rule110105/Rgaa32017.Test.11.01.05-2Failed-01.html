@@ -25,10 +25,23 @@
             <p></p> 
             <div class="testcase"> 
                 <form action="http://action.html" method="post"> 
-                    <p> <span id="mylabel"> Text:</span> <span id="mylabel"> Text:</span> <input type="text" aria-labelledby="mylabel" /> <input type="submit" value="Send" /> <input type="reset" /> </p> 
+                    <div id="mylabel">
+                        Mario videogame's characters: 
+                    </div> 
+                    <input list="characters" name="character">
+					<datalist id="characters" title="characters" placeholder="videogame characters">
+					  <option value="Browser">
+					  <option value="Peach">
+					  <option value="Mario">
+					  <option value="Toad">
+					  <option value="Luigi">
+					</datalist>
+					<input type="submit">
                 </form> 
             </div> 
-            <p class="test-explanation"> Failed : There are two label with the same id linked to the input. </p> 
+            <p class="test-explanation"> 
+            	Failed : the input type=text is well linked to his label use title attribute with a placeholder not identical to the title. 
+            </p> 
         </div>   
     </body>
 </html>

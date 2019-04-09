@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    <head> 
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
+        <title>Rgaa32017 Test.11-10-10 Failed 07</title> 
+    </head> 
+    <body> 
+        <div> 
+            <h1>Rgaa32017 Test.11-10-10 Failed 07</h1> 
+            <div class="test-detail" lang="fr"> Chaque champ de formulaire qui utilise un attribut 
+                <code>title</code> comme aide à la saisie, vérifie-t-il une de ces conditions ? 
+                <ul class="ssTests"> 
+                    <li>L&apos;attribut <code>placeholder</code> est absent.</li> 
+                    <li>L&apos;attribut <code>placeholder</code> est identique à l'attribut <code>title</code>. </li> 
+                </ul> 
+            </div> 
+            <div class="testcase"> 
+            	<form action="http://action.html" method="post"> 
+                    <div id="mylabel">
+                        NUMBER: 
+                    </div> 
+                    <input type="number" title="FAILED 07" placeholder="FAILURE 07"/> 
+                    <input type="submit" value="Send" /> 
+                    <input type="reset" /> 
+                </form>  
+            </div> 
+            <div class="test-explanation">
+                 Failed. The input=number has a placeholder attribute not identical to his title attribute. 
+            </div>   
+        </div>  
+    </body>
+</html>

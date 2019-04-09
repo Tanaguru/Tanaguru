@@ -820,9 +820,9 @@ public class AnalyserImpl implements Analyser {
             
             if (test.getLabel().equals("8.2.1")) {
             	 
-            	if (numberW3cErrors > 0) {
+            	if (numberW3cErrors > 1) {
                     testSolution = TestSolution.FAILED;
-                } else if (numberW3cErrors == 0) {
+                } else if (numberW3cErrors <= 1) {
                     testSolution = TestSolution.PASSED;
                 } else {
                     testSolution = TestSolution.NOT_TESTED;
@@ -913,7 +913,7 @@ public class AnalyserImpl implements Analyser {
     }
 
     
-    //A MODIFIER
+
     /**
      * Some tests may have not ProcessResult, but are needed to be displayed as
      * not tested test. For each test without ProcessResult, we create a new
@@ -949,9 +949,9 @@ public class AnalyserImpl implements Analyser {
             
             if (test.getLabel().equals("8.2.1")) {
             	 
-            	if (numberW3cErrors > 0) {
+            	if (numberW3cErrors > 1) {
                     testSolution = TestSolution.FAILED;
-                } else if (numberW3cErrors == 0) {
+                } else if (numberW3cErrors <= 1) {
                     testSolution = TestSolution.PASSED;
                 } else {
                     testSolution = TestSolution.NOT_TESTED;
@@ -970,6 +970,7 @@ public class AnalyserImpl implements Analyser {
                     pr.setSubject(webResource);
                     pr.setGrossResultAudit(audit);
                     processResultDataService.saveOrUpdate(pr);
+
                     
                     for (int i = 0; i < numberW3cErrors; i++) {
 
@@ -1043,7 +1044,6 @@ public class AnalyserImpl implements Analyser {
     }
 
     
-    //METTRE LA METHODE EN VOID
     public void W3cJsonParser(String w3cResult) {
     	
         JSONParser parser = new JSONParser();
