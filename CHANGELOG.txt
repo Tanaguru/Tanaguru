@@ -1,4 +1,56 @@
 --------------------------
+Tanaguru 6.0.0, 2019-04-09
+--------------------------
+
+Updates :
+
+ - [Crawler] change Heritrix for crawler4j
+ - [Selenium runner] change SeBuilder for Selenese
+ - Tanaguru now use firefox 60 (check documentation for more information)
+
+Features :
+ - Tanaguru now use Selenese Runner, please use Selenium IDE to create your scenarios
+ - Fix scenario download
+ - Fix audit crash when using CSS id and class with special characters
+ - Fix ColorExtractor script
+ - [Scenario audit] Use command "echo <page>" to manually fire new audit
+ - [Scenario audit] Prevent automatic firing audit event during scenario execution by checking parameter in scenario audit parameters
+ - Add RMI API, exporting all data services of Tanaguru
+
+ - Update rule 1.2.1
+ - Update rule 1.2.2
+ - Update rule 1.2.3
+ - Update rule 1.2.4
+ - Update rule 1.3.1
+ - Update rule 1.3.2
+ - Update rule 1.3.3
+ - Update rule 1.3.5
+ - Update rule 1.3.7
+ - Update rule 1.3.8
+ - Update rule 1.3.11
+ - Update rule 1.6.10
+ - Update rule 3.3.1
+ - Update rule 3.3.2
+ - Update rule 6.5.1
+ - Update rule 7.1.1
+ - Update rule 7.3.1
+ - Update rule 8.2.1 via update AnalyserImpl
+ - Update rule 8.2.2 via update AnalyserImpl
+ - Update rule 8.5.1
+ - Update rule 8.7.1
+ - Update rule 9.6.1
+ - Update rule 9.6.2
+ - Update rule 10.4.1
+ - Update rule 10.4.2 via update colorExtractorNative.js + DomElement
+ - Update rule 11.1.1
+ - Update rule 11.2.1
+ - Update rule 11.2.2
+ - Update rule 11.2.3
+ - Update rule 11.2.4
+ - Update rule 11.5.1
+ - Update rule 11.10.10
+
+--------------------------
 Tanaguru 5.3.0, 2018-09-26
 --------------------------
 
