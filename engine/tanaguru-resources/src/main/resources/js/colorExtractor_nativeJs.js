@@ -681,25 +681,26 @@ function  getAllElementsWithForbiddenUnits( ) {
     var forbiddenUnits = ["pt", "pc", "mm", "cm", "in"];
     var propList = [];
     var elementsWithForbiddenUnits = [];
-try{
-	for (var h = 0; h < document.styleSheets.length; h++) {
-        for (var i in document.styleSheets[h].cssRules) {
-            
-            var keyList = [];
-            for (var j in document.styleSheets[h].cssRules[i].style) {
-                if (!isNaN(j))
-                    keyList.push(document.styleSheets[h].cssRules[i].style[j]); 
-            }
-            
-            //init propList            
-            for (var k in keyList) {
-                for (var u in forbiddenUnits) {
-                	if(document.styleSheets[h].cssRules[i].style[keyList[k]] !== undefined){                                                    
-                    	var reg = new RegExp('(\\d*.*\\d*\\s*' + forbiddenUnits[u] + ')');
-                        
-                        if (document.styleSheets[h].cssRules[i].style[keyList[k]].match(reg) !== null) {
-                            propList.push(document.styleSheets[h].cssRules[i]); 
-                            break;
+    try{
+        for (var h = 0; h < document.styleSheets.length; h++) {
+            for (var i in document.styleSheets[h].cssRules) {
+
+                var keyList = [];
+                for (var j in document.styleSheets[h].cssRules[i].style) {
+                    if (!isNaN(j))
+                        keyList.push(document.styleSheets[h].cssRules[i].style[j]);
+                }
+
+                //init propList
+                for (var k in keyList) {
+                    for (var u in forbiddenUnits) {
+                        if(document.styleSheets[h].cssRules[i].style[keyList[k]] !== undefined){
+                            var reg = new RegExp('(\\d*.*\\d*\\s*' + forbiddenUnits[u] + ')');
+
+                            if (document.styleSheets[h].cssRules[i].style[keyList[k]].match(reg) !== null) {
+                                propList.push(document.styleSheets[h].cssRules[i]);
+                                break;
+                            }
                         }
                     }
                 }
@@ -759,134 +760,151 @@ function  getAllElementsWithoutAuthorizedUnits( ) {
     var propList = [];
     var elementsWithoutAuthorizedUnits = [];
 
-		                    var reg1 = new RegExp('(\\d.*\\d*\\s*' + authorizedUnitsDigit[u] + ')');
-	                            
-		                    if (document.styleSheets[h].cssRules[i].style[keyList[k]].match(reg1) !== null) { // if digit unit
-		                       	hasRelativeUnit = true;
-		                       	break;
-		                    }
-		                }
-		                if(!hasRelativeUnit){ // if always no correspondence 
-			                for (var u in authorizedUnitsAlpha) {
-			                		
-		                        var reg2 = new RegExp('('+ authorizedUnitsAlpha[u] + ')');
-		                           
-			                    if (document.styleSheets[h].cssRules[i].style[keyList[k]].match(reg2) !== null) { //if alphabetic unit
-			                       	hasRelativeUnit = true;
-			                       	break;
-				                }
-			                }
-		                }
-		                if(!hasRelativeUnit){ // if no relative unit
-	                		propList.push(document.styleSheets[h].cssRules[i]);
-	                    }
-	            	}
-	            }
-	        }
-	    }
-	} catch(e) {
-		if(e.name !== "SecurityError") {
-			throw e;
-		}
-	}
-	//console.log(propList);
-	   // var f = new Date().getTime();
-	//console.log("execution : " + (f - e) + "ms")
-	//var elementsWithForbiddenUnits = [];
-	     
-	    //CSS SELECTION - REMOVE NULL ELEMENTS
-	var tmpList = [];
-	for (var i = 0; i < propList.length; i++) {	    	
-		if (document.querySelector(propList[i].selectorText) !== null) {
-			tmpList.push(document.querySelector(propList[i].selectorText));
-			for (x in tmpList) {
-				if (elementsWithoutAuthorizedUnits.indexOf(tmpList[x]) === -1) {
-					elementsWithoutAuthorizedUnits.push(tmpList[x]);
-				}
-			}
-			tmpList = [];
-		}
-	}
-	    
-	try{
-		//STYLE IN BODY SELECTION
-		var tmpElemInLineStyle = document.querySelectorAll('*[style]'); //find all element with inligne style
-		var canCheck = false;
-		var str = ""; 
-		
-		for (var m in tmpElemInLineStyle) { 
-			hasRelativeUnit = false;
-			canCheck = false;
-			
-			if(tmpElemInLineStyle[m].style !== undefined){  
-				
-				//Select if the attribute in style can have a relative unit
-				str = tmpElemInLineStyle[m].style.cssText.split(':');
-				if(str.length > 2) { //if there is more that one attribute in style
-					
-					for(var i = 0; i<str.length; i++){
-						if(i === 0 ){ //to check the first style's attribute 
-							for(var j in attrs){ //correspondence with style's attributes which can have a relative unit 
-								if(str[0] === attrs[j]){
-									canCheck = true;
-									break;
-								}
-							}
-						}else if(!canCheck){ // check the other attributes
-							var str2 = str[i].split('; '); // Form : "20px; width" -> "20px","width"
-							
-							if(str2[1] !== undefined){
-								for(var j in attrs){ //correspondence with style's attributes which can have a relative unit 
-									if(str2[1] === attrs[j]){
-										canCheck = true;
-										break;
-									}
-								}
-							}
-						}
-					}
-				}else{ //if there is only one attribute in style
-					for(var j in attrs){	
-						if(str[0] === attrs[j]){//correspondence with style's attributes which can have a relative unit 
-							canCheck = true;
-							break;
-						}
-					}					
-				}
-				if(canCheck){ //if one of the style's attributes is suspected to have a relative unit
-					
-					for (var u in authorizedUnitsDigit) {
-			        	var reg1 = new RegExp('(\\w\\s*:\\s*\\d.*\\d*' + authorizedUnitsDigit[u] + ')');
-				    	
-				    	if(tmpElemInLineStyle[m].style.cssText.match(reg1) !== null){ // if digit unit
-				            hasRelativeUnit = true;
-				            break;
-				            	                        
-				        }
-				    }
-				    if(!hasRelativeUnit){ // if always no correspondence 
-				        for (var u in authorizedUnitsAlpha) { 
-			                var reg2 = new RegExp('(\\w\\s*:\\s*' + authorizedUnitsAlpha[u] + ')');
-				        	
-				        	if(tmpElemInLineStyle[m].style.cssText.match(reg2) !== null){ //if alphabetic unit
-				                hasRelativeUnit = true;
-				                break;
-				            }
-				        }
-				    }
-				    if(!hasRelativeUnit){ // if no relative unit
-				    	elementsWithoutAuthorizedUnits.push(tmpElemInLineStyle[m]);
-				    }
-				}
-			}
-		}
-	} catch(e) {
-		if(e.name !== "SecurityError") {
-			throw e;
-		}
-	}
-	
-	return elementsWithoutAuthorizedUnits;
+
+    try{
+        for (var h = 0; h < document.styleSheets.length; h++) {
+            for (var i in document.styleSheets[h].cssRules) {
+
+                var keyList = []; //init style
+                for (var j in document.styleSheets[h].cssRules[i].style) {
+                    if (!isNaN(j))
+                        keyList.push(document.styleSheets[h].cssRules[i].style[j]);
+                }
+
+                //init propList  - CSS SELECTION
+                for (var k in keyList) {
+                    hasRelativeUnit = false;
+                    if(document.styleSheets[h].cssRules[i].style[keyList[k]] !== undefined){
+                        for (var u in authorizedUnitsDigit) {
+
+                            var reg1 = new RegExp('(\\d*.*\\d*\\s*' + authorizedUnitsDigit[u] + ')');
+
+                            if (document.styleSheets[h].cssRules[i].style[keyList[k]].match(reg1) !== null) { // if digit unit
+                                hasRelativeUnit = true;
+                                break;
+                            }
+                        }
+                        if(!hasRelativeUnit){ // if always no correspondence
+                            for (var u in authorizedUnitsAlpha) {
+
+                                var reg2 = new RegExp('('+ authorizedUnitsAlpha[u] + ')');
+
+                                if (document.styleSheets[h].cssRules[i].style[keyList[k]].match(reg2) !== null) { //if alphabetic unit
+                                    hasRelativeUnit = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if(!hasRelativeUnit){ // if no relative unit
+                            propList.push(document.styleSheets[h].cssRules[i]);
+                        }
+                    }
+                }
+            }
+        }
+    } catch(e) {
+        if(e.name !== "SecurityError") {
+            throw e;
+        }
+    }
+    //console.log(propList);
+    // var f = new Date().getTime();
+    //console.log("execution : " + (f - e) + "ms")
+    //var elementsWithForbiddenUnits = [];
+
+    //CSS SELECTION - REMOVE NULL ELEMENTS
+    var tmpList = [];
+    for (var i = 0; i < propList.length; i++) {
+        if (document.querySelector(propList[i].selectorText) !== null) {
+            tmpList.push(document.querySelector(propList[i].selectorText));
+            for (x in tmpList) {
+                if (elementsWithoutAuthorizedUnits.indexOf(tmpList[x]) === -1) {
+                    elementsWithoutAuthorizedUnits.push(tmpList[x]);
+                }
+            }
+            tmpList = [];
+        }
+    }
+
+    try{
+        //STYLE IN BODY SELECTION
+        var tmpElemInLineStyle = document.querySelectorAll('*[style]'); //find all element with inligne style
+        var canCheck = false;
+        var str = "";
+
+        for (var m in tmpElemInLineStyle) {
+            hasRelativeUnit = false;
+            canCheck = false;
+
+            if(tmpElemInLineStyle[m].style !== undefined){
+
+                //Select if the attribute in style can have a relative unit
+                str = tmpElemInLineStyle[m].style.cssText.split(':');
+                if(str.length > 2) { //if there is more that one attribute in style
+
+                    for(var i = 0; i<str.length; i++){
+                        if(i === 0 ){ //to check the first style's attribute
+                            for(var j in attrs){ //correspondence with style's attributes which can have a relative unit
+                                if(str[0] === attrs[j]){
+                                    canCheck = true;
+                                    break;
+                                }
+                            }
+                        }else if(!canCheck){ // check the other attributes
+                            var str2 = str[i].split('; '); // Form : "20px; width" -> "20px","width"
+
+                            if(str2[1] !== undefined){
+                                for(var j in attrs){ //correspondence with style's attributes which can have a relative unit
+                                    if(str2[1] === attrs[j]){
+                                        canCheck = true;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }else{ //if there is only one attribute in style
+                    for(var j in attrs){
+                        if(str[0] === attrs[j]){//correspondence with style's attributes which can have a relative unit
+                            canCheck = true;
+                            break;
+                        }
+                    }
+                }
+                if(canCheck){ //if one of the style's attributes is suspected to have a relative unit
+
+                    for (var u in authorizedUnitsDigit) {
+                        var reg1 = new RegExp('(\\w*\\s*:\\s*\\d*.*\\d*' + authorizedUnitsDigit[u] + ')');
+
+                        if(tmpElemInLineStyle[m].style.cssText.match(reg1) !== null){ // if digit unit
+                            hasRelativeUnit = true;
+                            break;
+
+                        }
+                    }
+                    if(!hasRelativeUnit){ // if always no correspondence
+                        for (var u in authorizedUnitsAlpha) {
+                            var reg2 = new RegExp('(\\w\\s*:\\s*' + authorizedUnitsAlpha[u] + ')');
+
+                            if(tmpElemInLineStyle[m].style.cssText.match(reg2) !== null){ //if alphabetic unit
+                                hasRelativeUnit = true;
+                                break;
+                            }
+                        }
+                    }
+                    if(!hasRelativeUnit){ // if no relative unit
+                        elementsWithoutAuthorizedUnits.push(tmpElemInLineStyle[m]);
+                    }
+                }
+            }
+        }
+    } catch(e) {
+        if(e.name !== "SecurityError") {
+            throw e;
+        }
+    }
+
+    return elementsWithoutAuthorizedUnits;
 }
 
 

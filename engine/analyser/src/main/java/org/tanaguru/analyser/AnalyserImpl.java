@@ -1036,7 +1036,12 @@ public class AnalyserImpl implements Analyser {
 
                 netResultList.add(pr);
             } else {
-            	testSolution = TestSolution.NOT_TESTED;
+                testSolution = TestSolution.NOT_TESTED;
+                ProcessResult pr
+                        = processResultDataService.getDefiniteResult(
+                        test,
+                        testSolution);
+                netResultList.add(pr);
             }
         }
         
