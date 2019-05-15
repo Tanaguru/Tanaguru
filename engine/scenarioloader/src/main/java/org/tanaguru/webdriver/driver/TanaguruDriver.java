@@ -243,7 +243,13 @@ public class TanaguruDriver implements WebDriver, JavascriptExecutor {
             }
         };
 
-        return wait.until(jQueryLoad) && wait.until(jsLoad);
+        boolean result = false;
+        try{
+            result = wait.until(jQueryLoad) && wait.until(jsLoad);
+        }catch(TimeoutException e){
+            LOGGER.error(e);
+        }
+        return result;
     }
 
     @Override
