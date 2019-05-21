@@ -16,6 +16,8 @@
         <module>web-app</module>
         <module>cli</module>
         <module>ws</module>
+        <module>tgol</module>
+        <module>tanaguru-rmi</module>
     </modules>
     <!--  versions:set -DnewVersion=4.0.0-SNAPSHOT -->
     <profiles>

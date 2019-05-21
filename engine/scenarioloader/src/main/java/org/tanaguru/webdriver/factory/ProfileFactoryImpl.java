@@ -192,6 +192,13 @@ public class ProfileFactoryImpl{
             // To disable the load of images
             firefoxProfile.setPreference("permissions.default.image", 2);
         }
+
+        //Try to fix shutdown issues of webdriver
+        //-> when closing firefox the executor get a ConnectException we cannot catch and makes Tanaguru crash
+        firefoxProfile.setPreference("browser.tabs.remote.autostart", false);
+        firefoxProfile.setPreference("browser.tabs.remote.autostart.1", false);
+        firefoxProfile.setPreference("browser.tabs.remote.autostart.2", false);
+        firefoxProfile.setPreference("browser.tabs.remote.force-enable", "false");
     }
  
     /**
