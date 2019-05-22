@@ -32,7 +32,8 @@ done
 # The first existing directory is used for JAVA_HOME (if JAVA_HOME is not
 # defined in $DEFAULT)
 #JDK_DIRS="/usr/lib/jvm/java-1.6.0-openjdk /usr/lib/jvm/java-6-openjdk-i386 /usr/lib/jvm/java-6-openjdk-amd64 /usr/lib/jvm/java-6-sun"
-JDK_DIRS="/usr/lib/jvm/java-1.7.0-openjdk /usr/lib/jvm/java-7-openjdk-i386 /usr/lib/jvm/java-7-openjdk-amd64 /usr/lib/jvm/java-7-sun"
+#JDK_DIRS="/usr/lib/jvm/java-1.7.0-openjdk /usr/lib/jvm/java-7-openjdk-i386 /usr/lib/jvm/java-7-openjdk-amd64 /usr/lib/jvm/java-7-sun"
+JDK_DIRS="/usr/lib/jvm/java-1.8.0-openjdk /usr/lib/jvm/java-8-openjdk-i386 /usr/lib/jvm/java-8-openjdk-amd64 /usr/lib/jvm/java-8-sun"
 
 # Look for the right JVM to use
 for jdir in $JDK_DIRS; do
@@ -40,7 +41,6 @@ for jdir in $JDK_DIRS; do
 	JAVA_HOME="$jdir"
     fi
 done
-export JAVA_HOME
 
 ##########################################################
 # default xmx value is 256 but can be overridden by option
