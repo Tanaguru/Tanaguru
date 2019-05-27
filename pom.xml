@@ -25,6 +25,7 @@
             <modules>
                 <module>engine</module>
                 <module>rules</module>
+                <module>tgol</module>
                 <module>web-app</module>
                 <module>cli</module>
             </modules>
