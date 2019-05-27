@@ -2,11 +2,11 @@
 
 ## Open JDK
 
-You need to have a JDK and JRE installed. openjdk-7-jre and openjdk-7-jdk are suggested.
+You need to have a JDK and JRE installed. openjdk-8-jre and openjdk-8-jdk are suggested.
 Install the following packages
 ```sh
-sudo aptitude install openjdk-7-jre
-sudo update-java-alternatives -s java-1.7.0-openjdk
+sudo aptitude install openjdk-8-jre
+sudo update-java-alternatives -s java-1.8.0-openjdk
 ```
 
 ## Mysql
@@ -15,7 +15,7 @@ sudo update-java-alternatives -s java-1.7.0-openjdk
 
 Install the following packages
 ```sh
-sudo aptitude install mysql-server-5.5 libmysql-java
+sudo aptitude install mysql-server-5.7 libmysql-java
 ```
 
 ### Configuration
