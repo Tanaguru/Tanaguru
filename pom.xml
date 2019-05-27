@@ -13,10 +13,10 @@
         <module>engine</module>
         <module>testing-tools</module>
         <module>rules</module>
+        <module>tgol</module>
         <module>web-app</module>
         <module>cli</module>
         <module>ws</module>
-        <module>tgol</module>
     </modules>
     <!--  versions:set -DnewVersion=4.0.0-SNAPSHOT -->
     <profiles>
