@@ -89,6 +89,17 @@
         </repository>
 
         <repository>
+            <url>http://repo.spring.io/libs-release/</url>
+            <id>Spring</id>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
             <id>builds archive</id>
             <url>http://builds.archive.org:8080/maven2/</url>
             <releases>
