@@ -78,6 +78,17 @@
         </repository>
 
         <repository>
+            <url>http://central.maven.org/maven2/</url>
+            <id>central 2</id>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
             <id>builds archive</id>
             <url>http://builds.archive.org:8080/maven2/</url>
             <releases>
