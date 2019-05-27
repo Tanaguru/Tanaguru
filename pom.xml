@@ -67,8 +67,8 @@
     </properties>
     <repositories>
         <repository>
-            <url>http://repo1.maven.org/maven2/</url>
-            <id>central</id>
+            <url>http://central.maven.org/maven2/</url>
+            <id>central 2</id>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -78,8 +78,8 @@
         </repository>
 
         <repository>
-            <url>http://central.maven.org/maven2/</url>
-            <id>central 2</id>
+            <url>http://repo1.maven.org/maven2/</url>
+            <id>central</id>
             <releases>
                 <enabled>true</enabled>
             </releases>
