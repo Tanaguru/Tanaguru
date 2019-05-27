@@ -76,16 +76,7 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
-        <repository>
-            <id>saucelabs-repository</id>
-            <url>https://repository-saucelabs.forge.cloudbees.com/release</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
+
         <repository>
             <id>heritrixRepos</id>
             <url>http://builds.archive.org:8080/maven2/</url>
@@ -1034,7 +1025,7 @@
             <dependency>
                 <groupId>ar.com.fdvs</groupId>
                 <artifactId>DynamicJasper</artifactId>
-                <version>4.0.3</version>
+                <version>4.0.4</version>
                 <exclusions>
                     <exclusion>
                         <groupId>jasperreports</groupId>
