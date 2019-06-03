@@ -67,11 +67,11 @@ public class Tanaguru implements AuditServiceListener {
     private static final String SCENARIO_AUDIT = "Scenario";
     private static final String FILE_AUDIT = "File";
     private static final String SITE_AUDIT = "File";
-    
-    private static final String AW22_REF = "Aw22";
-    private static final String RGAA22_REF = "Rgaa22";
-    private static final String RGAA30_REF = "Rgaa30";
-    private static String REF = AW22_REF;
+
+
+    private static final String[] REFERENTIALS = {"Rgaa32017"};
+
+    private static String REF = REFERENTIALS[0];
     
     private static final String BRONZE_LEVEL = "Bz";
     private static final String A_LEVEL = "A";
@@ -374,11 +374,19 @@ public class Tanaguru implements AuditServiceListener {
 
     /**
      * 
-     * @param auditLevel
+     * @param ref
+     * @param level
      * @return 
      */
     private Set<Parameter> getParameterSetFromAuditLevel(String ref, String level) {
-        if (ref.equalsIgnoreCase(RGAA22_REF) || ref.equalsIgnoreCase(RGAA30_REF)) {
+        boolean refExists = false;
+        int i = 0;
+        while(!refExists && i < REFERENTIALS.length){
+            refExists = ref.equalsIgnoreCase(REFERENTIALS[i]);
+            i++;
+        }
+
+        if (refExists) {
             if (level.equalsIgnoreCase(BRONZE_LEVEL)) {
                 level=A_LEVEL;
             } else if (level.equalsIgnoreCase(SILVER_LEVEL)) {
@@ -414,7 +422,7 @@ public class Tanaguru implements AuditServiceListener {
     
     /**
      * 
-     * @param scenarioPath
+     * @param file
      * @return 
      */
     private String readFile(File file) throws IOException {
@@ -538,26 +546,23 @@ public class Tanaguru implements AuditServiceListener {
     
     /**
      * 
-     * @param path
-     * @param argument
-     * @param testWritable
+     * @param ref
      * @return whether the given referential is valid
      */
     private static boolean isValidReferential(String ref) {
-        if (StringUtils.equals(ref, AW22_REF) ||
-                StringUtils.equals(ref, RGAA22_REF) ||
-                    StringUtils.equals(ref, RGAA30_REF)) {
-            return true;
+        for(String existingRef : REFERENTIALS){
+            if(ref.equalsIgnoreCase(existingRef)){
+                return true;
+            }
         }
+
         System.out.println("\nThe referential \"" + ref + "\" doesn't exist.\n");
         return false;
     }
     
     /**
      * 
-     * @param path
-     * @param argument
-     * @param testWritable
+     * @param level
      * @return whether the given level is valid
      */
     private static boolean isValidLevel(String level) {
@@ -572,9 +577,7 @@ public class Tanaguru implements AuditServiceListener {
     
     /**
      * 
-     * @param path
-     * @param argument
-     * @param testWritable
+     * @param xmxStr
      * @return whether the given level is valid
      */
     private static boolean isValidXmxValue(String xmxStr) {
@@ -594,9 +597,7 @@ public class Tanaguru implements AuditServiceListener {
     
     /**
      * 
-     * @param path
-     * @param argument
-     * @param testWritable
+     * @param auditType
      * @return whether the given level is valid
      */
     private static boolean isValidAuditType(String auditType) {
@@ -612,9 +613,7 @@ public class Tanaguru implements AuditServiceListener {
     
     /**
      * 
-     * @param path
-     * @param argument
-     * @param testWritable
+     * @param cl
      * @return whether the given level is valid
      */
     private static boolean isValidPageUrl( CommandLine cl) {

@@ -3,9 +3,19 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tgol-api</artifactId>
+        </dependency>
+    </dependencies>
     <parent>
         <groupId>org.tanaguru</groupId>
-        <artifactId>web-app</artifactId>
+        <artifactId>tgol</artifactId>
         <version>6.0.0</version>
     </parent>
     <artifactId>tgol-resources</artifactId>

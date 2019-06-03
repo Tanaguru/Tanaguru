@@ -2,16 +2,17 @@
 
 ## Quick steps (for the impatient)
 
-1. Have a Firefox and [download SeBuilder extension](http://www.saucelabs.com/addons/selenium-builder-latest.xpi)
-1. Record your scenario (*Selenium 2* format)
-1. Replay locally your scenario to verify it works
+1. Have a Firefox and [download Selenium IDE extension](https://addons.mozilla.org/fr/firefox/addon/selenium-ide/)
+1. Create your project and tests suites
+1. Record your scenarios
+1. Replay locally your scenarios to verify it works
 1. Upload the scenario to Tanaguru
 1. Run the scenario audit
 
 ## 0. Prerequesite: Firefox + SeBuilder
 
-You need a Firefox browser with the [SeBuilder extension](http://www.saucelabs.com/addons/selenium-builder-latest.xpi)
-to record scenarios. Tanaguru scenarios are based on Selenium. The format is *Selenium 2* and scenarios are stored in JSON style.
+You need a Firefox browser with the [Selenium IDE extension](https://addons.mozilla.org/fr/firefox/addon/selenium-ide/)
+to record scenarios. You can also find the extension on chrome and others browsers.
 
 ## 1. Define a scenario
 
@@ -24,18 +25,20 @@ We want to evalutate the accessibility of the following pages:
 
 Let's begin.
 
-* Go to [http://www.tfl.gov.uk/](http://www.tfl.gov.uk/)
+## 2. Record the scenario
+
+- Open Selenium IDE
+- Create new Project
+- Set the project name : Transport For London
+- Click on record
+- Type the project base url : [http://www.tfl.gov.uk/](http://www.tfl.gov.uk/)
+
+When you are going to press "Start Recording" your browsed will open a new window on the selected url and start recording all you actions. 
 
 ![](Images/screenshot_20150309_TANAGURU_SCENARIO_step_A1_transport_for_london.png)
 
-## 2. Record the scenario
 
-* Open SeBuilder: Tools > Web developer > Launch Selenium Builder (or keyboard 
-shortcut `CTRL-ALT-B`), and select *Selenium 2*.
-
-![](Images/screenshot_20150309_TANAGURU_SCENARIO_step_A2_SeBuilder_window.png)
-
-* In the *Tranport for London* page, fill in the *From* field (*Piccadilly circus*)
+* In the *Tranport-For-London* page, fill in the *From* field (*Piccadilly circus*)
 and *To* field (*Monument*)
 
 ![](Images/screenshot_20150309_TANAGURU_SCENARIO_step_B_filling_form.png)
@@ -48,13 +51,14 @@ and *To* field (*Monument*)
 
 ![](Images/screenshot_20150309_TANAGURU_SCENARIO_step_D_stop_recording.png)
 
-* Save your scenario : File > Save as...
+* Enter a name for you test : tfl_plan_my_journey
+* Save your project
 
 ## 3. Verify and adjust the scenario
 
-* In the SeBuilder window, choose Run > run test locally
+* In the Selenium IDE window, choose Run current test
 
-![](Images/screenshot_20150309_TANAGURU_SCENARIO_step_E_run_test_locally.png)
+![](Images/screenshot_20150309_TANAGURU_SCENARIO_step_E_run_current_test.png)
 
 This verification is important. Tanaguru just replays the scenario, he can't check
 whether or not the scenario is actually what you wanted (!).
