@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
     <head> 
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
-        <title>Rgaa32017 Test.11.01.1 Failed 11</title> 
+        <title>Rgaa32017 Test.11.01.1 Passed 10</title> 
     </head> 
     <body> 
         <div> 
-            <h1>Rgaa32017 Test.11.01.1 Failed 11</h1> 
+            <h1>Rgaa32017 Test.11.01.1 Passed 10</h1> 
             <div class="test-detail" lang="fr"> Chaque 
                 <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#mChpSaisie">champ de formulaire</a> vérifie-t-il une de ces conditions ? 
                 <ul class="ssTests"> 
@@ -24,15 +24,13 @@
             <div class="testcase"> 
                 <form action="http://action.html" method="post"> 
                     <p> 
-                        <input type="file" aria-labelledby="FAILED 11" title="file input value" />
+                        <input type="checkbox" id="checkbox" title="checkbox input value" /> 
                         <input type="submit" value="Send" /> 
                         <input type="reset" /> 
                     </p> 
                 </form> 
             </div> 
-            <p class="test-explanation"> Failed: Got an aria-labelledby but isn't linked to a text (div, span, p, etc.). 
-            	Even if the element has a title, the aria-labelledby will be the attribute checked : Order of reading 
-            	Order of reading (first aria-labelledby, then aria-label, then, if there is no id linked to a label, check the title) </p> 
+            <p class="test-explanation"> Passed: All the form field have either a title attribute or an associated label tag </p> 
         </div>   
     </body>
 </html>
