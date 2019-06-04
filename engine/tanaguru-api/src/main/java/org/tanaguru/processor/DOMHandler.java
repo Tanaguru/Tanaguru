@@ -265,14 +265,14 @@ public interface DOMHandler {
     int getTotalNumberOfElements();
 
     /**
-     * @deprecated
+     *
      * @return the message code
      */
     @Deprecated
     String getMessageCode();
     
     /**
-     * @deprecated
+     *
      * @param childNodeNames
      *            the names of the childnodes to select recursively
      * @return the current DOMHandler instance
@@ -281,7 +281,7 @@ public interface DOMHandler {
     DOMHandler selectChildNodesRecursively(Collection<String> childNodeNames);
 
     /**
-     * @deprecated
+     *
      *            the name of the childnode to filter
      * @return the current DOMHandler instance
      */
@@ -289,7 +289,7 @@ public interface DOMHandler {
     DOMHandler keepNodesWithoutChildNode(String childNodeName);
 
     /**
-     * @deprecated
+     *
      * @param attributeName
      *            the name of the atribute to select
      * @return the current DOMHandler instance
@@ -298,7 +298,7 @@ public interface DOMHandler {
     DOMHandler selectAttributeByName(String attributeName);
 
     /**
-     * @deprecated
+     *
      * @param childNodeNames
      *            the names of the childNodes to select
      * @return the current DOMHandler instance
@@ -307,7 +307,7 @@ public interface DOMHandler {
     DOMHandler selectChildNodes(Collection<String> childNodeNames);
     
     /**
-     * @deprecated
+     *
      * @param childNodeNames
      *            the names of the childnodes to filter
      * @return the current DOMHandler instance
@@ -316,7 +316,7 @@ public interface DOMHandler {
     DOMHandler keepNodesWithoutChildNode(Collection<String> childNodeNames);
 
     /**
-     * @deprecated    
+     *
      * @param attributeName
      *            the name of the attribute to filter
      * @param values
@@ -328,7 +328,7 @@ public interface DOMHandler {
             Collection<String> values);
 
     /**
-     * @deprecated    
+     *
      * @param attributeName
      *            the name of the attribute to filter
      * @return the current DOMHandler instance
@@ -337,7 +337,7 @@ public interface DOMHandler {
     DOMHandler keepNodesWithAttributeValueNonEmpty(String attributeName);
 
     /**
-     * @deprecated
+     *
      * @param attributeName
      *            the name of the attribute to be filteterd
      * @param values
@@ -349,7 +349,7 @@ public interface DOMHandler {
             Collection<String> values);
 
     /**
-     * @deprecated
+     *
      * @param attributeName
      *            the name of the attribute to filter
      * @param value
@@ -361,14 +361,14 @@ public interface DOMHandler {
             String value);
 
     /**
-     * @deprecated
+     *
      * @return the textual values from all currently selected elements
      */
     @Deprecated
     List<String> getTextContentValues();
 
     /**
-     * @deprecated
+     *
      * @param length
      *            the length of the text content to check
      * @param defaultFailResult
@@ -380,14 +380,14 @@ public interface DOMHandler {
             TestSolution defaultFailResult);
 
     /**
-     * @deprecated
+     *
      * @return the result of the check processing
      */
     @Deprecated
     TestSolution checkTextContentValueNotEmpty();
 
     /**
-     * @deprecated
+     *
      * @param attributeName
      *            the name of the attribute to filter
      * @return the current DOMHandler instance
@@ -396,7 +396,7 @@ public interface DOMHandler {
     DOMHandler excludeNodesWithAttribute(String attributeName);
 
     /**
-     * @deprecated
+     *
      * @param childNodeNames
      *            the names of the childnodes to filter
      * @return the current DOMHandler instance
@@ -405,7 +405,7 @@ public interface DOMHandler {
     DOMHandler excludeNodesWithChildNode(ArrayList<String> childNodeNames);
 
     /**
-     * @deprecated
+     *
      * @param childNodeName
      *            the name of the childNode to filter
      * @return the current DOMHandler instance
@@ -414,7 +414,7 @@ public interface DOMHandler {
     DOMHandler excludeNodesWithChildNode(String childNodeName);
 
     /**
-     * @deprecated
+     *
      * @param attributeName
      *            the name of the attribute targeted
      * @return the textual values from all the attributes found
@@ -423,7 +423,7 @@ public interface DOMHandler {
     List<String> getAttributeValues(String attributeName);
     
     /**
-     * @deprecated
+     *
      * @param blacklist
      *            the list of prevented values
      * @param whitelist
@@ -435,7 +435,7 @@ public interface DOMHandler {
             Collection<String> blacklist, Collection<String> whitelist);
     
     /**
-     * @deprecated
+     *
      * @param attributeName
      *            the name of the attribute to check
      * @return the current DOMHandler
@@ -444,7 +444,7 @@ public interface DOMHandler {
     DOMHandler selectDocumentNodesWithAttribute(String attributeName);
     
     /**
-     * @deprecated
+     *
      * @param attributeName
      *            the name of the attribute to check
      * @return the result of the check processing
@@ -453,7 +453,7 @@ public interface DOMHandler {
     TestSolution checkAttributeValueIsEmpty(String attributeName);
     
     /**
-     * @deprecated
+     *
      * @param childNodeName
      *            the name of the attribute to filter
      * @return the current DOMHandler instance
@@ -462,7 +462,7 @@ public interface DOMHandler {
     DOMHandler keepNodesWithChildNode(String childNodeName);
     
     /**
-     * @deprecated
+     *
      * @param childNodeName
      *            the name of the childnode to check
      * @return the result of the check processing
@@ -471,14 +471,14 @@ public interface DOMHandler {
     TestSolution checkChildNodeExistsRecursively(String childNodeName);
     
     /**
-     * @deprecated
+     *
      * @return the result of the check processing
      */
     @Deprecated
     TestSolution checkContentNotEmpty();
     
     /**
-     * @deprecated
+     *
      * @param expr
      * @return the result of the check processing using xpath
      */
@@ -486,7 +486,7 @@ public interface DOMHandler {
     TestSolution checkEachWithXpath(String expr);
     
     /**
-     * @deprecated
+     *
      * @param attributeName
      *            the name of the attribute to check
      * @return the result of the check processing
@@ -495,7 +495,7 @@ public interface DOMHandler {
     TestSolution checkAttributeValueNotEmpty(String attributeName);
     
     /**
-     * @deprecated
+     *
      * @param blacklist
      *            the list of prevented values
      * @param whitelist
@@ -507,7 +507,7 @@ public interface DOMHandler {
             Collection<String> whitelist);
     
     /**
-     * @deprecated
+     *
      * @param attributeName
      *            the name of the attribute to check
      * @param length

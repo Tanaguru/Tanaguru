@@ -58,7 +58,6 @@ public class AttributeWithValueOnChildElementPresenceChecker extends  ElementChe
     }
     
     /**
-     * @Deprecated 
      * Use constructor with Pair instead
      * @param attributeName
      * @param attributeValue
@@ -68,6 +67,7 @@ public class AttributeWithValueOnChildElementPresenceChecker extends  ElementChe
      * @param messageCodeOnAttrNotDetected
      * @param eeAttributeNameList
      */
+    @Deprecated
     public AttributeWithValueOnChildElementPresenceChecker(
             String attributeName,
             String attributeValue,

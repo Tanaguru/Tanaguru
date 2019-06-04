@@ -345,14 +345,14 @@ public interface SSPHandler {
     Collection<StylesheetContent> getStyleSheetOnError();
     
     /**
-     * @deprecated
+     *
      * @return the message code
      */
     @Deprecated
     String getMessageCode();
     
     /**
-     * @deprecated
+     *
      * @param childNodeNames
      *            the names of the childnodes to select recursively
      * @return the current DOMHandler instance
@@ -361,7 +361,7 @@ public interface SSPHandler {
     SSPHandler selectChildNodesRecursively(Collection<String> childNodeNames);
 
     /**
-     * @deprecated    
+     *
      * @param attributeName
      *            the name of the atribute to select
      * @return the current DOMHandler instance
@@ -370,7 +370,7 @@ public interface SSPHandler {
     SSPHandler selectAttributeByName(String attributeName);
 
     /**
-     * @deprecated
+     *
      * @param childNodeNames
      *            the names of the childNodes to select
      * @return the current DOMHandler instance
@@ -379,7 +379,7 @@ public interface SSPHandler {
     SSPHandler selectChildNodes(Collection<String> childNodeNames);
 
     /**
-     * @deprecated
+     *
      * @param childNodeNames
      *            the names of the childnodes to filter
      * @return the current DOMHandler instance
@@ -388,7 +388,7 @@ public interface SSPHandler {
     SSPHandler keepNodesWithoutChildNode(Collection<String> childNodeNames);
 
     /**
-     * @deprecated
+     *
      * @param childNodeName
      *            the name of the childnode to filter
      * @return the current DOMHandler instance
@@ -397,7 +397,7 @@ public interface SSPHandler {
     SSPHandler keepNodesWithoutChildNode(String childNodeName);
 
     /**
-     * @deprecated    
+     *
      * @param attributeName
      *            the name of the attribute to filter
      * @param values
@@ -409,7 +409,7 @@ public interface SSPHandler {
             Collection<String> values);
 
     /**
-     * @deprecated    
+     *
      * @param attributeName
      *            the name of the attribute to filter
      * @return the current DOMHandler instance
@@ -418,7 +418,7 @@ public interface SSPHandler {
     SSPHandler keepNodesWithAttributeValueNonEmpty(String attributeName);
 
     /**
-     * @deprecated    
+     *
      * @param attributeName
      *            the name of the attribute to be filteterd
      * @param values
@@ -430,7 +430,7 @@ public interface SSPHandler {
             Collection<String> values);
 
     /**
-     * @deprecated    
+     *
      * @param attributeName
      *            the name of the attribute to filter
      * @param value
@@ -442,14 +442,14 @@ public interface SSPHandler {
             String value);
 
     /**
-     * @deprecated
+     *
      * @return the textual values from all currently selected elements
      */
     @Deprecated
     List<String> getTextContentValues();
     
     /**
-     * @deprecated    
+     *
      * @param length
      *            the length of the text content to check
      * @param defaultFailResult
@@ -461,14 +461,14 @@ public interface SSPHandler {
             TestSolution defaultFailResult);
 
     /**
-     * @deprecated
+     *
      * @return the result of the check processing
      */
     @Deprecated
     TestSolution checkTextContentValueNotEmpty();
 
     /**
-     * @deprecated
+     *
      * @param attributeName
      *            the name of the attribute to filter
      * @return the current CSSHandler instance
@@ -477,7 +477,7 @@ public interface SSPHandler {
     DOMHandler excludeNodesWithAttribute(String attributeName);
 
     /**
-     * @deprecated
+     *
      * @param childNodeNames
      *            the names of the childnodes to filter
      * @return the current DOMHandler instance
@@ -486,7 +486,7 @@ public interface SSPHandler {
     SSPHandler excludeNodesWithChildNode(ArrayList<String> childNodeNames);
 
     /**
-     * @deprecated
+     *
      * @param childNodeName
      *            the name of the childNode to filter
      * @return the current DOMHandler instance
@@ -495,7 +495,7 @@ public interface SSPHandler {
     SSPHandler excludeNodesWithChildNode(String childNodeName);
 
     /**
-     * @deprecated
+     *
      * @param attributeName
      *            the name of the attribute targeted
      * @return the textual values from all the attributes found
@@ -504,7 +504,7 @@ public interface SSPHandler {
     List<String> getAttributeValues(String attributeName);
     
     /**
-     * @deprecated
+     *
      * @param attributeName
      *            the name of the attribute to check
      * @param blacklist
@@ -518,7 +518,7 @@ public interface SSPHandler {
             Collection<String> blacklist, Collection<String> whitelist);
     
     /**
-     * @deprecated
+     *
      * @param childNodeName
      *            the name of the childnode to check
      * @return the result of the check processing
@@ -527,14 +527,14 @@ public interface SSPHandler {
     TestSolution checkChildNodeExistsRecursively(String childNodeName);
 
     /**
-     * @deprecated
+     *
      * @return the result of the check processing
      */
     @Deprecated
     TestSolution checkContentNotEmpty();
 
     /**
-     * @deprecated
+     *
      * @param expr
      * @return
      */
@@ -542,7 +542,7 @@ public interface SSPHandler {
     TestSolution checkEachWithXpath(String expr);
     
     /**
-     * @deprecated
+     *
      * @param blacklist
      *            the list of prevented values
      * @param whitelist
@@ -554,7 +554,7 @@ public interface SSPHandler {
             Collection<String> whitelist);
     
     /**
-     * @deprecated    
+     *
      * @param attributeName
      *            the name of the attribute to check
      * @param length
@@ -568,7 +568,7 @@ public interface SSPHandler {
             int length, TestSolution defaultFailResult);
 
     /**
-     * @deprecated    
+     *
      * @param attributeName
      *            the name of the attribute to check
      * @return the result of the check processing
@@ -577,7 +577,7 @@ public interface SSPHandler {
     TestSolution checkAttributeValueNotEmpty(String attributeName);
 
     /**
-     * @deprecated    
+     *
      * @param attributeName
      *            the name of the attribute to check
      * @return the result of the check processing
@@ -586,7 +586,7 @@ public interface SSPHandler {
     TestSolution checkAttributeValueIsEmpty(String attributeName);
     
     /**
-     * @deprecated
+     *
      * @param attributeName
      *            the name of the attribute to check
      * @return the current DOMHandler

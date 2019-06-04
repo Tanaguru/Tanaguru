@@ -28,6 +28,7 @@ import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.tanaguru.entity.audit.SourceCodeRemark;
 import org.tanaguru.entity.audit.TestSolution;
 import org.tanaguru.processor.SSPHandler;
 import org.tanaguru.ruleimplementation.TestSolutionHandler;
@@ -39,12 +40,11 @@ import org.tanaguru.rules.elementchecker.ElementCheckerImpl;
  * by constructor argument (default is FAILED).
  * The testSolution when no element is detected can be overridden 
  * by constructor argument (default is PASSED).
- * The creation of {@link sourceCodeRemark} for each detected element is 
+ * The creation of {@link SourceCodeRemark} for each detected element is
  * optional and may be overridden by constructor argument (default is true).
  * 
  */
 public class ChildElementPresenceChecker extends ElementCheckerImpl {
-
     /**
      * The child elements to search
      */
@@ -73,7 +73,6 @@ public class ChildElementPresenceChecker extends ElementCheckerImpl {
     }
     
     /**
-     * @Deprecated 
      * Use constructor with Pair instead
      * 
      * @param childElementName
@@ -83,6 +82,7 @@ public class ChildElementPresenceChecker extends ElementCheckerImpl {
      * @param messageCodeOnElementNotDetected
      * @param eeAttributeNameList
      */
+    @Deprecated
     public ChildElementPresenceChecker(
             String childElementName,
             TestSolution detectedSolution,
@@ -116,7 +116,6 @@ public class ChildElementPresenceChecker extends ElementCheckerImpl {
     }
     
     /**
-     * @Deprecated 
      * Use constructor with Pair instead
      * 
      * @param childElementName
@@ -127,6 +126,7 @@ public class ChildElementPresenceChecker extends ElementCheckerImpl {
      * @param messageCodeOnElementNotDetected
      * @param eeAttributeNameList 
      */
+    @Deprecated
     public ChildElementPresenceChecker(
             String childElementName,
             int minimumNumberOfChildRequired,
