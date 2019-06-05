@@ -28,7 +28,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.MANUAL_CHECK_ON_ELE
 
 /**
  * Implementation of the rule 10.8.4 of the referential Rgaa 3-2016.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-10-8-4">the rule 10.8.4 design page.</a>
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-10-8-4"> 10.8.4 rule specification</a>
  *

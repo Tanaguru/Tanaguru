@@ -29,7 +29,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.MANUAL_CHECK_ON_ELE
 
 /**
  * Implementation of the rule 3.14 of the referential RGAA 2.2.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://www.tanaguru.org/en/content/rgaa22-rule-3-14">the rule 3.14 design page.</a>
  * @see <a href="http://rgaa.net/Presence-de-mecanismes-permettant.html"> 3.14 rule specification </a>
  *

@@ -31,7 +31,7 @@ import org.tanaguru.ruleimplementation.AbstractPageRuleImplementation;
 
 /**
  * Implementation of the rule 13.16.4 of the referential Accessiweb 2.1.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://www.tanaguru.org/en/content/aw21-rule-13-16-4">the rule 13.16.4 design page.</a>
  * @see <a href="http://www.braillenet.org/accessibilite/referentiel-aw21-en/index.php#test-13-16-4"> 13.16.4 rule specification</a>
  *

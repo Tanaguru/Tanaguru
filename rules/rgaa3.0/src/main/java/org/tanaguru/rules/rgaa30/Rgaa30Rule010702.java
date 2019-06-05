@@ -35,7 +35,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMA
 
 /**
  * Implementation of the rule 1.7.2 of the referential Rgaa 3.0.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-7-2">the rule 1.7.2 design page.</a>
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-7-2"> 1.7.2 rule specification</a>
  *

@@ -33,7 +33,7 @@ import org.tanaguru.rules.textbuilder.OwnTextElementBuilder;
 
 /**
  * Implementation of the rule 12.1 of the referential RGAA 2.2.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://www.tanaguru.org/en/content/rgaa22-rule-12-1">the rule 12.1 design page.</a>
  * @see <a href="http://rgaa.net/Presence-de-l-indication-des.html"> 12.1 rule specification </a>
  *

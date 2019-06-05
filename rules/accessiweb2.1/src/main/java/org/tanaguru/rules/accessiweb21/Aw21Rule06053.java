@@ -25,7 +25,7 @@ import org.tanaguru.rules.accessiweb21.detection.AbstractTagDetectionPageRuleImp
 
 /**
  * Implementation of the rule 6.5.3 of the referential Accessiweb 2.1.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://www.tanaguru.org/en/content/aw21-rule-6-5-3">the rule 6.5.3 design page.</a>
  * @see <a href="http://www.braillenet.org/accessibilite/referentiel-aw21-en/index.php#test-6-5-3"> 6.5.3 rule specification</a>
  *

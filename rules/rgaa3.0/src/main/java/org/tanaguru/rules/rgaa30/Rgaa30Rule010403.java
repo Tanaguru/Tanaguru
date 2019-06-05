@@ -32,7 +32,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_CAPTCHA_ALTER
 
 /**
  * Implementation of the rule 1.4.3 of the referential Rgaa 3.0.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-4-3">the rule 1.4.3 design page.</a>
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-4-3"> 1.4.3 rule specification</a>
  *

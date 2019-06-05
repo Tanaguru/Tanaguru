@@ -38,7 +38,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.*;
 
 /**
  * Implementation of the rule 6.13 of the referential RGAA 2.2.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://www.tanaguru.org/en/content/rgaa22-rule-6-13">the rule 6.13 design page.</a>
  * @see <a href="http://rgaa.net/Possibilite-d-identifier-la.html"> 6.13 rule specification </a>
  *

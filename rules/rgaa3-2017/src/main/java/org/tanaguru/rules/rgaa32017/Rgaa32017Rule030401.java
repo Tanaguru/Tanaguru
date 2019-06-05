@@ -25,7 +25,7 @@ import org.tanaguru.rules.elementchecker.contrast.ContrastChecker;
 
 /**
  * Implementation of the rule 3.4.1 of the referential Rgaa 3-2017.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-3-4-1">the rule 3.4.1 design page.</a>
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-3-4-1"> 3.4.1 rule specification</a>
  *

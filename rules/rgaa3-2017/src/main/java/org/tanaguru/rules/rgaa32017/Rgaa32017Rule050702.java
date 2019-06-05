@@ -34,7 +34,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_TAB
 
 /**
  * Implementation of the rule 5.7.2 of the referential Rgaa 3-2017.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-5-7-2">the rule 5.7.2 design page.</a>
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-5-7-2"> 5.7.2 rule specification</a>
  *

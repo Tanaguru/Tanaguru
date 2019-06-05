@@ -28,7 +28,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.PRESENTATION_TAG_DE
 
 /**
  * Implementation of the rule 10.1.1 of the referential Rgaa 3-2017.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-10-1-1">the rule 10.1.1 design page.</a>
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-10-1-1"> 10.1.1 rule specification</a>
  *

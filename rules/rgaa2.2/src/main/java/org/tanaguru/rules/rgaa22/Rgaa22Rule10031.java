@@ -27,7 +27,7 @@ import static org.tanaguru.rules.keystore.CssLikeQueryStore.HEADINGS_CSS_LIKE_QU
 
 /**
  * Implementation of the rule 10.3 of the referential RGAA 2.2.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://www.tanaguru.org/en/content/rgaa22-rule-10-3">the rule 10.3 design page.</a>
  * @see <a href="http://rgaa.net/Absence-d-interruption-dans-la.html"> 10.3 rule specification </a>
  *

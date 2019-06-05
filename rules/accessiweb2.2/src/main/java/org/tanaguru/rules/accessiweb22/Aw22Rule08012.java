@@ -24,7 +24,7 @@ import org.tanaguru.rules.elementchecker.doctype.DoctypeValidityChecker;
 
 /**
  * Implementation of the rule 8.1.2 of the referential Accessiweb 2.2.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://www.tanaguru.org/en/content/aw22-rule-8-1-2">the rule 8.1.2 design page.</a>
  * @see <a href="http://www.accessiweb.org/index.php/accessiweb-22-english-version.html#test-8-1-2"> 8.1.2 rule specification</a>
  *

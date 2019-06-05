@@ -33,7 +33,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.UNEXPLICIT_LINK_WIT
 
 /**
  * Implementation of the rule 6.1.3 of the referential Rgaa 3-2016.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-6-1-4">the rule 6.1.3 design page.</a>
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-6-1-3"> 6.1.3 rule specification</a>
  *
