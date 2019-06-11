@@ -60,7 +60,6 @@ var resolveAppliedStyle = (function () {
 
         for (styleSheetIndex = 0; styleSheetIndex < numberOfStyleSheets; ++styleSheetIndex) {
             styleSheet = styleSheets[styleSheetIndex];
-            console.log(styleSheet);
 
             rules = styleSheet.cssRules || styleSheet.rules;
 
