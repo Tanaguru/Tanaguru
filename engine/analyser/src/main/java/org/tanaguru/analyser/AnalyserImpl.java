@@ -404,7 +404,7 @@ public class AnalyserImpl implements Analyser {
     /**
      *
      * @param testSolution
-     * @param criterion
+     * @param theme
      */
     private void addResultToThemeCounterMap(
             TestSolution testSolution,
@@ -780,7 +780,6 @@ public class AnalyserImpl implements Analyser {
      * definition, the criterion result is the result type
      *
      * @param crs
-     * @param criterionTestListSize
      */
     private void computeCriterionResult(CriterionStatistics crs) {
         if (crs.getNbOfFailed() > 0) {  // at least one test is failed, the criterion is failed
@@ -920,7 +919,6 @@ public class AnalyserImpl implements Analyser {
      * ProcessResult with NOT_TESTED as the result.
      *
      * @param testList
-     * @param themeCode
      * @param netResultList
      * @return
      */
@@ -1036,7 +1034,12 @@ public class AnalyserImpl implements Analyser {
 
                 netResultList.add(pr);
             } else {
-            	testSolution = TestSolution.NOT_TESTED;
+                testSolution = TestSolution.NOT_TESTED;
+                ProcessResult pr
+                        = processResultDataService.getDefiniteResult(
+                        test,
+                        testSolution);
+                netResultList.add(pr);
             }
         }
         

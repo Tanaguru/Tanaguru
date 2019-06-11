@@ -36,6 +36,7 @@ Here is the list of the parameters you can found in the /etc/tanaguru/tanaguru.c
 |**tgol-persistenceXmlLocation** | Path of the file that define the persistence layer of the application. This option **shouldn't be modified**. | classpath:/conf/persistence.xml. |
 |**web-app-url**                 | Url of the web application. This option is needed to send info and links by email (when an audit is terminated for example) | Depends on the value of the "**--tanaguru-url**" installation script option |
 |**webresourceUrlPrefix**        | This parameter is based on web-app-url and **shouldn't be modified**. It corresponds to the Url of the audit-result page sent to a user when a site audit is terminated | ${web-app-url}/home/contract/audit-result.html |
+|**rmi.port**                    | Determines the port used for the RMI API of Tanaguru |  |
 
 
 

@@ -13,6 +13,7 @@
         <module>engine</module>
         <module>testing-tools</module>
         <module>rules</module>
+        <module>tgol</module>
         <module>web-app</module>
         <module>cli</module>
         <module>ws</module>
@@ -24,6 +25,7 @@
             <modules>
                 <module>engine</module>
                 <module>rules</module>
+                <module>tgol</module>
                 <module>web-app</module>
                 <module>cli</module>
             </modules>
@@ -65,6 +67,17 @@
     </properties>
     <repositories>
         <repository>
+            <url>http://central.maven.org/maven2/</url>
+            <id>central 2</id>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
             <url>http://repo1.maven.org/maven2/</url>
             <id>central</id>
             <releases>
@@ -74,9 +87,10 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
+
         <repository>
-            <id>saucelabs-repository</id>
-            <url>https://repository-saucelabs.forge.cloudbees.com/release</url>
+            <url>http://repo.spring.io/libs-release/</url>
+            <id>Spring</id>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -84,19 +98,10 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
+
         <repository>
-            <id>heritrixRepos</id>
+            <id>builds archive</id>
             <url>http://builds.archive.org:8080/maven2/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>fdvsolution.public</id>
-            <url>http://nexus.fdvs.com.ar/content/groups/public/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -1032,7 +1037,7 @@
             <dependency>
                 <groupId>ar.com.fdvs</groupId>
                 <artifactId>DynamicJasper</artifactId>
-                <version>4.0.3</version>
+                <version>4.0.4</version>
                 <exclusions>
                     <exclusion>
                         <groupId>jasperreports</groupId>

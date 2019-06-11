@@ -20,29 +20,11 @@
 package org.tanaguru.rules.rgaa32017;
 
 import org.tanaguru.entity.audit.ProcessResult;
-import org.tanaguru.entity.audit.TestSolution;
-
 import static org.tanaguru.entity.audit.TestSolution.FAILED;
 import static org.tanaguru.rules.keystore.HtmlElementStore.INPUT_ELEMENT;
-import static org.tanaguru.rules.keystore.HtmlElementStore.LABEL_ELEMENT;
-import static org.tanaguru.rules.keystore.HtmlElementStore.P_ELEMENT;
 import static org.tanaguru.rules.keystore.HtmlElementStore.SELECT_ELEMENT;
 import static org.tanaguru.rules.keystore.HtmlElementStore.TEXTAREA_ELEMENT;
-import static org.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
-import static org.tanaguru.rules.keystore.AttributeStore.FOR_ATTR;
-import static org.tanaguru.rules.keystore.AttributeStore.ID_ATTR;
-import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
-import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABEL_ATTR;
-import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABELLEDBY_ATTR;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.NOT_PERTINENT_TEXTUAL_CONTENT_MSG;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_TEXT_PERTINENCE_MSG;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.FORM_ELEMENT_WITHOUT_LABEL_MSG;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_ARIA_LABEL_PERTINENCE_MSG;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_LABEL_PERTINENCE_MSG;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.FORM_NOT_REFERENCED_MSG;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_TITLE_PERTINENCE_MSG;
-
-import org.apache.commons.lang3.tuple.ImmutablePair;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.INVALID_FORM_FIELD_MSG;
 import org.tanaguru.rules.rgaa32017.test.Rgaa32017RuleImplementationTestCase;
 
 /**
@@ -67,6 +49,24 @@ public class Rgaa32017Rule110101Test extends Rgaa32017RuleImplementationTestCase
 
     @Override
     protected void setUpWebResourceMap() {
+        addWebResource("Rgaa32017.Test.11.01.01-1Passed-01");
+        addWebResource("Rgaa32017.Test.11.01.01-1Passed-02");
+        addWebResource("Rgaa32017.Test.11.01.01-1Passed-03");
+        addWebResource("Rgaa32017.Test.11.01.01-1Passed-04");
+        addWebResource("Rgaa32017.Test.11.01.01-1Passed-05");
+        addWebResource("Rgaa32017.Test.11.01.01-1Passed-06");
+        addWebResource("Rgaa32017.Test.11.01.01-1Passed-07");
+        addWebResource("Rgaa32017.Test.11.01.01-1Passed-08");
+        addWebResource("Rgaa32017.Test.11.01.01-1Passed-09");
+        addWebResource("Rgaa32017.Test.11.01.01-1Passed-10");
+        addWebResource("Rgaa32017.Test.11.01.01-1Passed-11");
+        addWebResource("Rgaa32017.Test.11.01.01-1Passed-12");
+        addWebResource("Rgaa32017.Test.11.01.01-1Passed-13");
+        addWebResource("Rgaa32017.Test.11.01.01-1Passed-14");
+        addWebResource("Rgaa32017.Test.11.01.01-1Passed-15");
+        addWebResource("Rgaa32017.Test.11.01.01-1Passed-16");
+        addWebResource("Rgaa32017.Test.11.01.01-1Passed-17");
+        addWebResource("Rgaa32017.Test.11.01.01-1Passed-18");
         addWebResource("Rgaa32017.Test.11.01.01-2Failed-01");
         addWebResource("Rgaa32017.Test.11.01.01-2Failed-02");
         addWebResource("Rgaa32017.Test.11.01.01-2Failed-03");
@@ -74,38 +74,6 @@ public class Rgaa32017Rule110101Test extends Rgaa32017RuleImplementationTestCase
         addWebResource("Rgaa32017.Test.11.01.01-2Failed-05");
         addWebResource("Rgaa32017.Test.11.01.01-2Failed-06");
         addWebResource("Rgaa32017.Test.11.01.01-2Failed-07");
-        addWebResource("Rgaa32017.Test.11.01.01-2Failed-08");
-        addWebResource("Rgaa32017.Test.11.01.01-2Failed-09");
-        addWebResource("Rgaa32017.Test.11.01.01-2Failed-10");
-        addWebResource("Rgaa32017.Test.11.01.01-2Failed-11");
-        addWebResource("Rgaa32017.Test.11.01.01-2Failed-12");
-        addWebResource("Rgaa32017.Test.11.01.01-2Failed-13");
-        addWebResource("Rgaa32017.Test.11.01.01-2Failed-14");
-//        addWebResource("Rgaa32017.Test.11.01.01-2Failed-15");
-        addWebResource("Rgaa32017.Test.11.01.01-2Failed-16");
-        addWebResource("Rgaa32017.Test.11.01.01-2Failed-17");
-        addWebResource("Rgaa32017.Test.11.01.01-2Failed-18");
-        addWebResource("Rgaa32017.Test.11.01.01-2Failed-19");
-        addWebResource("Rgaa32017.Test.11.01.01-3NMI-01"); 
-        addWebResource("Rgaa32017.Test.11.01.01-3NMI-02");
-        addWebResource("Rgaa32017.Test.11.01.01-3NMI-03");
-        addWebResource("Rgaa32017.Test.11.01.01-3NMI-04");
-        addWebResource("Rgaa32017.Test.11.01.01-3NMI-05");
-        addWebResource("Rgaa32017.Test.11.01.01-3NMI-06");
-        addWebResource("Rgaa32017.Test.11.01.01-3NMI-07");
-        addWebResource("Rgaa32017.Test.11.01.01-3NMI-08");
-        addWebResource("Rgaa32017.Test.11.01.01-3NMI-09");
-        addWebResource("Rgaa32017.Test.11.01.01-3NMI-10");
-        addWebResource("Rgaa32017.Test.11.01.01-3NMI-11");
-        addWebResource("Rgaa32017.Test.11.01.01-3NMI-12");
-        addWebResource("Rgaa32017.Test.11.01.01-3NMI-13");
-        addWebResource("Rgaa32017.Test.11.01.01-3NMI-14");
-        addWebResource("Rgaa32017.Test.11.01.01-3NMI-15");
-        addWebResource("Rgaa32017.Test.11.01.01-3NMI-16");
-        addWebResource("Rgaa32017.Test.11.01.01-3NMI-17");
-        addWebResource("Rgaa32017.Test.11.01.01-3NMI-18");
-        addWebResource("Rgaa32017.Test.11.01.01-3NMI-19");
-        addWebResource("Rgaa32017.Test.11.01.01-3NMI-20");
         addWebResource("Rgaa32017.Test.11.01.01-4NA-01");
         addWebResource("Rgaa32017.Test.11.01.01-4NA-02");
 
@@ -113,7 +81,95 @@ public class Rgaa32017Rule110101Test extends Rgaa32017RuleImplementationTestCase
 
     @Override
     protected void setProcess() {
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-01------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.01-1Passed-01"),1);
         
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-02------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.01-1Passed-02"),1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-03------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.01-1Passed-03"),1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-04------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.01-1Passed-04"),1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-05------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.01-1Passed-05"),1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-06------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.01-1Passed-06"),1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-07------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.01-1Passed-07"),1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-08------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.01-1Passed-08"),1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-09------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.01-1Passed-09"),1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-10------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.01-1Passed-10"),1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-11------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.01-1Passed-11"),1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-12------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.01-1Passed-12"),1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-13------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.01-1Passed-13"),1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-14------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.01-1Passed-14"),1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-15------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.01-1Passed-15"),1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-16------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.01-1Passed-16"),1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-17------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.01-1Passed-17"),1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-18------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.11.01.01-1Passed-18"),1);
 
         //----------------------------------------------------------------------
         //------------------------------2Failed-01------------------------------
@@ -123,10 +179,9 @@ public class Rgaa32017Rule110101Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult, 
                 FAILED, 
-                FORM_NOT_REFERENCED_MSG, 
+                INVALID_FORM_FIELD_MSG, 
                 INPUT_ELEMENT, 
-                1,
-                new ImmutablePair(ID_ATTR, "text"));
+                1);
 
         //----------------------------------------------------------------------
         //------------------------------2Failed-02------------------------------
@@ -136,10 +191,9 @@ public class Rgaa32017Rule110101Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult, 
                 FAILED, 
-                FORM_NOT_REFERENCED_MSG, 
+                INVALID_FORM_FIELD_MSG, 
                 INPUT_ELEMENT, 
-                1,
-                new ImmutablePair(ID_ATTR, "password"));
+                1);
         
         //----------------------------------------------------------------------
         //------------------------------2Failed-03------------------------------
@@ -149,10 +203,9 @@ public class Rgaa32017Rule110101Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult, 
                 FAILED, 
-                FORM_NOT_REFERENCED_MSG, 
+                INVALID_FORM_FIELD_MSG, 
                 INPUT_ELEMENT, 
-                1,
-                new ImmutablePair(ID_ATTR, "checkbox"));
+                1);
 
         //----------------------------------------------------------------------
         //------------------------------2Failed-04------------------------------
@@ -162,10 +215,9 @@ public class Rgaa32017Rule110101Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult, 
                 FAILED, 
-                FORM_NOT_REFERENCED_MSG, 
+                INVALID_FORM_FIELD_MSG, 
                 INPUT_ELEMENT, 
-                1,
-                new ImmutablePair(ID_ATTR, "radio"));
+                1);
 
         //----------------------------------------------------------------------
         //------------------------------2Failed-05------------------------------
@@ -175,10 +227,9 @@ public class Rgaa32017Rule110101Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult, 
                 FAILED, 
-                FORM_NOT_REFERENCED_MSG, 
+                INVALID_FORM_FIELD_MSG, 
                 INPUT_ELEMENT, 
-                1,
-                new ImmutablePair(ID_ATTR, "file"));
+                1);
 
         //----------------------------------------------------------------------
         //------------------------------2Failed-06------------------------------
@@ -188,10 +239,9 @@ public class Rgaa32017Rule110101Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult, 
                 FAILED, 
-                FORM_NOT_REFERENCED_MSG, 
+                INVALID_FORM_FIELD_MSG, 
                 TEXTAREA_ELEMENT, 
-                1,
-                new ImmutablePair(ID_ATTR, "textarea"));
+                1);
 
         //----------------------------------------------------------------------
         //------------------------------2Failed-07------------------------------
@@ -201,444 +251,9 @@ public class Rgaa32017Rule110101Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult, 
                 FAILED, 
-                FORM_NOT_REFERENCED_MSG, 
+                INVALID_FORM_FIELD_MSG, 
                 SELECT_ELEMENT, 
-                1,
-                new ImmutablePair(ID_ATTR, "select"));
-
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-08------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-2Failed-08");
-        checkResultIsFailed(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult, 
-                FAILED, 
-                FORM_ELEMENT_WITHOUT_LABEL_MSG, 
-                INPUT_ELEMENT, 
                 1);
-
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-09------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-2Failed-09");
-        checkResultIsFailed(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult, 
-                FAILED, 
-                NOT_PERTINENT_TEXTUAL_CONTENT_MSG, 
-                P_ELEMENT, 
-                1,
-                new ImmutablePair(ID_ATTR, "FAILED 09"),
-                new ImmutablePair(TEXT_ELEMENT2, "12@#=+"));
-
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-10------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-2Failed-10");
-        checkResultIsFailed(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult, 
-                FAILED, 
-                FORM_ELEMENT_WITHOUT_LABEL_MSG, 
-                INPUT_ELEMENT, 
-                1);
-
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-11------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-2Failed-11");
-        checkResultIsFailed(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult, 
-                FAILED, 
-                FORM_NOT_REFERENCED_MSG, 
-                INPUT_ELEMENT, 
-                1,
-                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "FAILED 11"));
-
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-12------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-2Failed-12");
-        checkResultIsFailed(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult, 
-                FAILED, 
-                FORM_NOT_REFERENCED_MSG, 
-                INPUT_ELEMENT, 
-                1,
-                new ImmutablePair(ID_ATTR, "FAILED 12"));
-
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-13------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-2Failed-13");
-        checkResultIsFailed(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult, 
-                FAILED, 
-                FORM_NOT_REFERENCED_MSG, 
-                SELECT_ELEMENT, 
-                1,
-                new ImmutablePair(ID_ATTR, "select"));
-
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-14------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-2Failed-14");
-        checkResultIsFailed(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult, 
-                FAILED, 
-                FORM_NOT_REFERENCED_MSG, 
-                TEXTAREA_ELEMENT, 
-                1,
-                new ImmutablePair(ID_ATTR, "FAILED 14"));
-
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-15------------------------------
-        //----------------------------------------------------------------------
-//        processResult = processPageTest("Rgaa32017.Test.11.01.01-2Failed-15");
-//        checkResultIsFailed(processResult,1,1);
-//        checkRemarkIsPresent(
-//                processResult, 
-//                FAILED, 
-//                FORM_NOT_REFERENCED_MSG, 
-//                INPUT_ELEMENT, 
-//                1,
-//                new ImmutablePair(ID_ATTR, "FAILED 15"));
-
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-16------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-2Failed-16");
-        checkResultIsFailed(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult, 
-                FAILED, 
-                FORM_NOT_REFERENCED_MSG, 
-                INPUT_ELEMENT, 
-                1,
-                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "FAILED 16"));
-
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-17------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-2Failed-17");
-        checkResultIsFailed(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult, 
-                FAILED, 
-                FORM_NOT_REFERENCED_MSG, 
-                SELECT_ELEMENT, 
-                1,
-                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "select"));
-
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-18------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-2Failed-18");
-        checkResultIsFailed(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult, 
-                FAILED, 
-                FORM_NOT_REFERENCED_MSG, 
-                TEXTAREA_ELEMENT, 
-                1,
-                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "FAILED 18"));
-
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-19------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-2Failed-19");
-        checkResultIsFailed(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult, 
-                FAILED, 
-                FORM_NOT_REFERENCED_MSG, 
-                INPUT_ELEMENT, 
-                1,
-                new ImmutablePair(ARIA_LABELLEDBY_ATTR, "FAILED 19"));
-        
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-01------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-3NMI-01");
-        checkResultIsPreQualified(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                CHECK_TITLE_PERTINENCE_MSG,
-                SELECT_ELEMENT,
-                1,
-                new ImmutablePair(TITLE_ATTR, "select title"));
-        
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-02------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-3NMI-02");
-        checkResultIsPreQualified(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                CHECK_TITLE_PERTINENCE_MSG,
-                INPUT_ELEMENT,
-                1,
-                new ImmutablePair(TITLE_ATTR, "text input title"));
-        
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-03------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-3NMI-03");
-        checkResultIsPreQualified(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                CHECK_ARIA_LABEL_PERTINENCE_MSG,
-                INPUT_ELEMENT,
-                1,
-                new ImmutablePair(ARIA_LABEL_ATTR, "Telephone"));
-        
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-04------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-3NMI-04");
-        checkResultIsPreQualified(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                CHECK_ARIA_LABEL_PERTINENCE_MSG,
-                INPUT_ELEMENT,
-                1,
-                new ImmutablePair(ARIA_LABEL_ATTR, "Telephone"));
-        
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-05------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-3NMI-05");
-        checkResultIsPreQualified(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                CHECK_LABEL_PERTINENCE_MSG,
-                LABEL_ELEMENT,
-                1,
-                new ImmutablePair(FOR_ATTR, "text"),
-                new ImmutablePair(TEXT_ELEMENT2, "Text:"));
-        
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-06------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-3NMI-06");
-        checkResultIsPreQualified(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                CHECK_LABEL_PERTINENCE_MSG,
-                LABEL_ELEMENT,
-                1,
-                new ImmutablePair(FOR_ATTR, "password"),
-                new ImmutablePair(TEXT_ELEMENT2, "Password:"));
-        
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-07------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-3NMI-07");
-        checkResultIsPreQualified(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                CHECK_LABEL_PERTINENCE_MSG,
-                LABEL_ELEMENT,
-                1,
-                new ImmutablePair(FOR_ATTR, "checkbox"),
-                new ImmutablePair(TEXT_ELEMENT2, "checkbox :"));
-        
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-08------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-3NMI-08");
-        checkResultIsPreQualified(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                CHECK_LABEL_PERTINENCE_MSG,
-                LABEL_ELEMENT,
-                1,
-                new ImmutablePair(FOR_ATTR, "radio"),
-                new ImmutablePair(TEXT_ELEMENT2, "radio :"));
-        
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-09------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-3NMI-09");
-        checkResultIsPreQualified(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                CHECK_LABEL_PERTINENCE_MSG,
-                LABEL_ELEMENT,
-                1,
-                new ImmutablePair(FOR_ATTR, "file"),
-                new ImmutablePair(TEXT_ELEMENT2, "file :"));
-        
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-10------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-3NMI-10");
-        checkResultIsPreQualified(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                CHECK_LABEL_PERTINENCE_MSG,
-                LABEL_ELEMENT,
-                1,
-                new ImmutablePair(FOR_ATTR, "textarea"),
-                new ImmutablePair(TEXT_ELEMENT2, "Textarea :"));
-        
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-11------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-3NMI-11");
-        checkResultIsPreQualified(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                CHECK_LABEL_PERTINENCE_MSG,
-                LABEL_ELEMENT,
-                1,
-                new ImmutablePair(FOR_ATTR, "select"),
-                new ImmutablePair(TEXT_ELEMENT2, "Select :"));
-        
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-12------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-3NMI-12");
-        checkResultIsPreQualified(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                CHECK_TEXT_PERTINENCE_MSG,
-                P_ELEMENT,
-                1,
-                new ImmutablePair(ID_ATTR, "NMI 12"),
-                new ImmutablePair(TEXT_ELEMENT2, "Je suis un texte descriptif."));
-        
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-13------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-3NMI-13");
-        checkResultIsPreQualified(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                CHECK_TEXT_PERTINENCE_MSG,
-                P_ELEMENT,
-                1,
-                new ImmutablePair(ID_ATTR, "NMI 13"),
-                new ImmutablePair(TEXT_ELEMENT2, "Je suis un texte descriptif."));
-        
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-14------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-3NMI-14");
-        checkResultIsPreQualified(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                CHECK_TEXT_PERTINENCE_MSG,
-                P_ELEMENT,
-                1,
-                new ImmutablePair(ID_ATTR, "NMI 14"),
-                new ImmutablePair(TEXT_ELEMENT2, "Je suis un texte descriptif."));
-        
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-15------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-3NMI-15");
-        checkResultIsPreQualified(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                CHECK_TEXT_PERTINENCE_MSG,
-                P_ELEMENT,
-                1,
-                new ImmutablePair(ID_ATTR, "NMI 15"),
-                new ImmutablePair(TEXT_ELEMENT2, "Je suis un texte descriptif."));
-        
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-16------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-3NMI-16");
-        checkResultIsPreQualified(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                CHECK_TEXT_PERTINENCE_MSG,
-                P_ELEMENT,
-                1,
-                new ImmutablePair(ID_ATTR, "NMI 16"),
-                new ImmutablePair(TEXT_ELEMENT2, "Je suis un texte descriptif."));
-        
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-17------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-3NMI-17");
-        checkResultIsPreQualified(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                CHECK_TEXT_PERTINENCE_MSG,
-                P_ELEMENT,
-                1,
-                new ImmutablePair(ID_ATTR, "NMI 17"),
-                new ImmutablePair(TEXT_ELEMENT2, "Je suis un texte descriptif."));
-        
-        
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-18------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-3NMI-18");
-        checkResultIsPreQualified(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                CHECK_LABEL_PERTINENCE_MSG,
-                LABEL_ELEMENT,
-                1,
-                new ImmutablePair(FOR_ATTR, "NMI 18"),
-                new ImmutablePair(TEXT_ELEMENT2, ""));
-        
-        
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-19------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-3NMI-19");
-        checkResultIsPreQualified(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                CHECK_TEXT_PERTINENCE_MSG,
-                P_ELEMENT,
-                1,
-                new ImmutablePair(ID_ATTR, "NMI 19"),
-                new ImmutablePair(TEXT_ELEMENT2, ""));
-        
-        
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-20------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa32017.Test.11.01.01-3NMI-20");
-        checkResultIsPreQualified(processResult,1,1);
-        checkRemarkIsPresent(
-                processResult, 
-                TestSolution.NEED_MORE_INFO,
-                CHECK_TEXT_PERTINENCE_MSG, 
-                P_ELEMENT, 
-                1,
-                new ImmutablePair(ID_ATTR, "NMI 20"),
-                new ImmutablePair(TEXT_ELEMENT2, "mock-image.jpg"));
         
         //----------------------------------------------------------------------
         //------------------------------4NA-01----------------------------------

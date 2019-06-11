@@ -99,9 +99,8 @@ public class AuditStatisticsFactoryImpl implements AuditStatisticsFactory {
     @Autowired
     public void setThemeDataService(ThemeDataService themeDataService) {
         Collection<Theme> themeList = themeDataService.findAll();
-        if (fullThemeMapByRef == null) {
-            fullThemeMapByRef = new HashMap();
-        }
+        fullThemeMapByRef = new HashMap();
+
         // we retrieve the theme from the criterion. To display a theme, it has
         // to be associated with a criterion
         for (Theme theme : themeList) {

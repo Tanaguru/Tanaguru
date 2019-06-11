@@ -28,6 +28,7 @@ public class TanaguruDriver implements WebDriver, JavascriptExecutor {
     private ArrayList<String> visitedUrl;
 
     public TanaguruDriver(FirefoxOptions ffOptions) {
+        LOGGER.debug("Creating firefox driver with options : \n" + ffOptions.toString());
         this.driver = new FirefoxDriver(ffOptions);
         this.newPageListenerList = new ArrayList<>();
 
@@ -243,7 +244,13 @@ public class TanaguruDriver implements WebDriver, JavascriptExecutor {
             }
         };
 
-        return wait.until(jQueryLoad) && wait.until(jsLoad);
+        boolean result = false;
+        try{
+            result = wait.until(jQueryLoad) && wait.until(jsLoad);
+        }catch(TimeoutException e){
+            LOGGER.error(e);
+        }
+        return result;
     }
 
     @Override

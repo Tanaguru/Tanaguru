@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+       xmlns:aop="http://www.springframework.org/schema/aop">
+
+    <!-- TGOL -->
+    <!--<bean id="userDetailsServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="UserDetailsService"/>
+        <property name="service" ref="tgolAuthenticationProvider"/>
+        <property name="serviceInterface" value="org.springframework.security.core.userdetails.UserDetailsService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>-->
+
+    <bean id="actDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ActDataService"/>
+        <property name="service" ref="actDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.entity.service.contract.ActDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <bean id="contractDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ContractDataService"/>
+        <property name="service" ref="contractDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.entity.service.contract.ContractDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+
+    <bean id="userDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="UserDataService"/>
+        <property name="service" ref="userDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.entity.service.user.UserDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <bean id="functionalityDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="FunctionalityDataService"/>
+        <property name="service" ref="functionalityDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.entity.service.functionality.FunctionalityDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <bean id="optionElementDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="OptionElementDataService"/>
+        <property name="service" ref="optionElementDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.entity.service.option.OptionElementDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <bean id="optionFamilyDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="OptionFamilyDataService"/>
+        <property name="service" ref="optionFamilyDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.entity.service.option.OptionFamilyDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <bean id="optionDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="OptionDataService"/>
+        <property name="service" ref="optionDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.entity.service.option.OptionDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <bean id="referentialDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ReferentialDataService"/>
+        <property name="service" ref="referentialDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.entity.service.referential.ReferentialDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <bean id="scenarioDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ScenarioDataService"/>
+        <property name="service" ref="scenarioDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.entity.service.scenario.ScenarioDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <bean id="scopeTgolDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ScopeTgolDataService"/>
+        <property name="service" ref="tgsiScopeDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.entity.service.contract.ScopeDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <!-- DATA SERVICES -->
+        <!-- AUDIT -->
+    <bean id="auditDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="AuditDataService"/>
+        <property name="service" ref="auditDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.audit.AuditDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <bean id="webResourceDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="WebResourceDataService"/>
+        <property name="service" ref="webResourceDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.subject.WebResourceDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <bean id="contentDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ContentDataService"/>
+        <property name="service" ref="contentDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.audit.ContentDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <bean id="processResultDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ProcessResultDataService"/>
+        <property name="service" ref="processResultDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.audit.ProcessResultDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <bean id="processRemarkDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ProcessRemarkDataService"/>
+        <property name="service" ref="processRemarkDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.audit.ProcessRemarkDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <bean id="evidenceDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="EvidenceDataService"/>
+        <property name="service" ref="evidenceDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.audit.EvidenceDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <bean id="evidenceElementDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="EvidenceElementDataService"/>
+        <property name="service" ref="evidenceElementDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.audit.EvidenceElementDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+        <!-- STATISTICS -->
+    <bean id="testStatisticsDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="TestStatisticsDataService"/>
+        <property name="service" ref="testStatisticsService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.statistics.TestStatisticsDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <bean id="themeStatisticsDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ThemeStatisticsDataService"/>
+        <property name="service" ref="themeStatisticsDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.statistics.ThemeStatisticsDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <bean id="webResourceStatisticsDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="WebResourceStatisticsDataService"/>
+        <property name="service" ref="webResourceStatisticsDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.statistics.WebResourceStatisticsDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <bean id="criterionStatisticsDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="CriterionStatisticsDataService"/>
+        <property name="service" ref="criterionStatisticsDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.statistics.CriterionStatisticsDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+        <!-- PARAMETERS -->
+    <bean id="parameterDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ParameterDataService"/>
+        <property name="service" ref="parameterDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.parameterization.ParameterDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <bean id="parameterElementDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ParameterElementDataService"/>
+        <property name="service" ref="parameterElementDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.parameterization.ParameterElementDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <bean id="parameterFamilyDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ParameterFamilyDataService"/>
+        <property name="service" ref="parameterFamilyDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.parameterization.ParameterFamilyDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+        <!-- REFERENCES -->
+
+    <bean id="scopeDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ScopeDataService"/>
+        <property name="service" ref="scopeDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.reference.ScopeDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <bean id="criterionDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="CriterionDataService"/>
+        <property name="service" ref="criterionDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.reference.CriterionDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <bean id="levelDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="LevelDataService"/>
+        <property name="service" ref="levelDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.reference.LevelDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <bean id="referenceDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ReferenceDataService"/>
+        <property name="service" ref="referenceDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.reference.ReferenceDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <bean id="testDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="TestDataService"/>
+        <property name="service" ref="testDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.reference.TestDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <bean id="themeDataServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ThemeDataService"/>
+        <property name="service" ref="themeDataService"/>
+        <property name="serviceInterface" value="org.tanaguru.entity.service.reference.ThemeDataService"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+    <!-- JOB SERVICES -->
+    <bean id="OrchestratorServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="OrchestratorService"/>
+        <property name="service" ref="tanaguruOrchestrator"/>
+        <property name="serviceInterface" value="org.tanaguru.webapp.orchestrator.TanaguruOrchestrator"/>
+        <property name="registryPort" value="${rmi.port}"/>
+    </bean>
+
+</beans>

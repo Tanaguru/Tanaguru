@@ -2,12 +2,12 @@
 
 ## Open JDK
 
-You need to have a JDK and JRE installed. openjdk-7-jre and openjdk-7-jdk are suggested.
+You need to have a JDK and JRE installed. openjdk-8-jre and openjdk-8-jdk are suggested.
 
 Install the following packages
 ```sh
-sudo aptitude install openjdk-7-jre
-sudo update-java-alternatives -s java-1.7.0-openjdk
+sudo aptitude install openjdk-8-jre
+sudo update-java-alternatives -s java-1.8.0-openjdk
 ```
 
 ## Mysql
@@ -16,7 +16,7 @@ sudo update-java-alternatives -s java-1.7.0-openjdk
 
 Install the following packages
 ```sh
-sudo aptitude install mysql-server-5.5 libmysql-java
+sudo aptitude install mysql-server-5.7 libmysql-java
 ```
 
 ### Configuration
@@ -40,13 +40,13 @@ sudo service mysql restart
 
 Install the following packages :
 ```sh
-sudo aptitude install tomcat7 libspring-instrument-java
+sudo aptitude install tomcat8 libspring-instrument-java
 ```
 
 Create the following symlinks : 
 ```sh
-sudo ln -s /usr/share/java/spring3-instrument-tomcat.jar /usr/share/tomcat6/lib/spring3-instrument-tomcat.jar
-sudo ln -s /usr/share/java/mysql-connector-java.jar /usr/share/tomcat6/lib/mysql-connector-java.jar
+sudo ln -s /usr/share/java/spring3-instrument-tomcat.jar /usr/share/tomcat8/lib/spring3-instrument-tomcat.jar
+sudo ln -s /usr/share/java/mysql-connector-java.jar /usr/share/tomcat8/lib/mysql-connector-java.jar
 ```
 
 ## Xvfb
@@ -67,7 +67,7 @@ Add the following content to the xvfb startup script.
 
 set -e
 
-RUN_AS_USER=tomcat7
+RUN_AS_USER=tomcat8
 OPTS=":99 -screen 1 1024x768x24 -nolisten tcp"
 XVFB_DIR=/usr/bin
 PIDFILE=/var/run/xvfb
@@ -115,24 +115,24 @@ sudo update-rc.d xvfb defaults
 
 ### For 32-bit architecture
 Retrieve the [lastest esr version of firefox](http://download.cdn.mozilla.net/pub/mozilla.org/firefox/releases/31.4.0esr/linux-i686/en-US/firefox-31.4.0esr.tar.bz2).
-Install it on your file system and make sure the binary is executable for the tomcat7 user.
+Install it on your file system and make sure the binary is executable for the tomcat8 user.
 ```sh
 cd /opt
-sudo wget http://download.cdn.mozilla.net/pub/mozilla.org/firefox/releases/31.4.0esr/linux-i686/en-US/firefox-31.4.0esr.tar.bz2
-sudo tar xvfj firefox-31.4.0esr.tar.bz2
-sudo mv firefox firefox-31.4.0esr
-sudo ln -s firefox-31.4.0esr firefox
+sudo wget http://download-origin.cdn.mozilla.net/pub/firefox/releases/61.0/linux-i686/en-US/firefox-61.0.tar.bz2
+sudo tar xvfj firefox-61.0.tar.bz2
+sudo mv firefox firefox-61.0
+sudo ln -s firefox-61.0 firefox
 ```
 
 ### For 64-bit architecture
 Retrieve the [lastest esr version of firefox](http://download.cdn.mozilla.net/pub/mozilla.org/firefox/releases/31.4.0esr/linux-x86_64/en-US/firefox-31.4.0esr.tar.bz2).
-Install it on your file system and make sure the binary is executable for the tomcat7 user.
+Install it on your file system and make sure the binary is executable for the tomcat8 user.
 ```sh
 cd /opt
-sudo wget http://download.cdn.mozilla.net/pub/mozilla.org/firefox/releases/31.4.0esr/linux-x86_64/en-US/firefox-31.4.0esr.tar.bz2
-sudo tar xvfj firefox-31.4.0esr.tar.bz2
-sudo mv firefox firefox-31.4.0esr
-sudo ln -s firefox-31.4.0esr firefox
+sudo wgethttp://download-origin.cdn.mozilla.net/pub/firefox/releases/61.0/linux-x86_64/en-US/firefox-61.0.tar.bz2
+sudo tar xvfj firefox-61.0.tar.bz2
+sudo mv firefox firefox-61.0
+sudo ln -s firefox-61.0 firefox
 ```
 
 ## Mail SMTP
