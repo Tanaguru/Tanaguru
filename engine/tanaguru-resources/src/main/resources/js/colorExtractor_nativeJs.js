@@ -60,6 +60,7 @@ var resolveAppliedStyle = (function () {
 
         for (styleSheetIndex = 0; styleSheetIndex < numberOfStyleSheets; ++styleSheetIndex) {
             styleSheet = styleSheets[styleSheetIndex];
+            console.log(styleSheet);
 
             rules = styleSheet.cssRules || styleSheet.rules;
 
@@ -692,12 +693,12 @@ function  getAllElementsWithForbiddenUnits( ) {
                 }
 
                 //init propList
-                for (var k in keyList) {
-                    for (var u in forbiddenUnits) {
-                        if(document.styleSheets[h].cssRules[i].style[keyList[k]] !== undefined){
-                            var reg = new RegExp('(\\d*.*\\d*\\s*' + forbiddenUnits[u] + ')');
+                for (var k of keyList) {
+                    for (var u of forbiddenUnits) {
+                        if(document.styleSheets[h].cssRules[i].style[k] !== undefined){
+                            var reg = new RegExp('(\\d*.*\\d*\\s*' + u + ')');
 
-                            if (document.styleSheets[h].cssRules[i].style[keyList[k]].match(reg) !== null) {
+                            if (document.styleSheets[h].cssRules[i].style[k].match(reg) !== null) {
                                 propList.push(document.styleSheets[h].cssRules[i]);
                                 break;
                             }
@@ -730,8 +731,9 @@ function  getAllElementsWithForbiddenUnits( ) {
     }
 
     var reg = [];
-    for (var l in forbiddenUnits) {//regex
-        reg.push(new RegExp('(\\w\\s*:\\s*\\d*.*\\d*' + forbiddenUnits[l] + ')'));
+
+    for (var l of forbiddenUnits) {//regex
+        reg.push(new RegExp('(\\w\\s*:\\s*\\d*.*\\d*' + l + ')'));
     }
     var tmpElemInLineStyle = document.querySelectorAll('*[style]'); //find all element with inligne style
     for (var m = 0; m < tmpElemInLineStyle.length; m++) {
@@ -772,24 +774,24 @@ function  getAllElementsWithoutAuthorizedUnits( ) {
                 }
 
                 //init propList  - CSS SELECTION
-                for (var k in keyList) {
+                for (var k of keyList) {
                     hasRelativeUnit = false;
-                    if(document.styleSheets[h].cssRules[i].style[keyList[k]] !== undefined){
-                        for (var u in authorizedUnitsDigit) {
+                    if(document.styleSheets[h].cssRules[i].style[k] !== undefined){
+                        for (var u of authorizedUnitsDigit) {
 
-                            var reg1 = new RegExp('(\\d*.*\\d*\\s*' + authorizedUnitsDigit[u] + ')');
+                            var reg1 = new RegExp('(\\d*.*\\d*\\s*' + u + ')');
 
-                            if (document.styleSheets[h].cssRules[i].style[keyList[k]].match(reg1) !== null) { // if digit unit
+                            if (document.styleSheets[h].cssRules[i].style[k].match(reg1) !== null) { // if digit unit
                                 hasRelativeUnit = true;
                                 break;
                             }
                         }
                         if(!hasRelativeUnit){ // if always no correspondence
-                            for (var u in authorizedUnitsAlpha) {
+                            for (var u of authorizedUnitsAlpha) {
 
-                                var reg2 = new RegExp('('+ authorizedUnitsAlpha[u] + ')');
+                                var reg2 = new RegExp('('+ u + ')');
 
-                                if (document.styleSheets[h].cssRules[i].style[keyList[k]].match(reg2) !== null) { //if alphabetic unit
+                                if (document.styleSheets[h].cssRules[i].style[k].match(reg2) !== null) { //if alphabetic unit
                                     hasRelativeUnit = true;
                                     break;
                                 }
@@ -832,11 +834,10 @@ function  getAllElementsWithoutAuthorizedUnits( ) {
         var canCheck = false;
         var str = "";
 
-        for (var m in tmpElemInLineStyle) {
+        for (var m = 0; m <= tmpElemInLineStyle.length; m++) {
             hasRelativeUnit = false;
             canCheck = false;
-
-            if(tmpElemInLineStyle[m].style !== undefined){
+            if(tmpElemInLineStyle[m] !== undefined && tmpElemInLineStyle[m].style !== undefined){
 
                 //Select if the attribute in style can have a relative unit
                 str = tmpElemInLineStyle[m].style.cssText.split(':');
@@ -873,8 +874,8 @@ function  getAllElementsWithoutAuthorizedUnits( ) {
                 }
                 if(canCheck){ //if one of the style's attributes is suspected to have a relative unit
 
-                    for (var u in authorizedUnitsDigit) {
-                        var reg1 = new RegExp('(\\w*\\s*:\\s*\\d*.*\\d*' + authorizedUnitsDigit[u] + ')');
+                    for (var u of authorizedUnitsDigit) {
+                        var reg1 = new RegExp('(\\w*\\s*:\\s*\\d*.*\\d*' + u + ')');
 
                         if(tmpElemInLineStyle[m].style.cssText.match(reg1) !== null){ // if digit unit
                             hasRelativeUnit = true;
@@ -883,8 +884,8 @@ function  getAllElementsWithoutAuthorizedUnits( ) {
                         }
                     }
                     if(!hasRelativeUnit){ // if always no correspondence
-                        for (var u in authorizedUnitsAlpha) {
-                            var reg2 = new RegExp('(\\w\\s*:\\s*' + authorizedUnitsAlpha[u] + ')');
+                        for (var u of authorizedUnitsAlpha) {
+                            var reg2 = new RegExp('(\\w\\s*:\\s*' + u + ')');
 
                             if(tmpElemInLineStyle[m].style.cssText.match(reg2) !== null){ //if alphabetic unit
                                 hasRelativeUnit = true;
