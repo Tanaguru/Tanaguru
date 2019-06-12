@@ -59,7 +59,7 @@ import org.tanaguru.rules.elementchecker.text.TextNotIdenticalToAttributeChecker
 
 /**
  * Implementation of the rule 1.3.3 of the referential Rgaa 3-2017.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-3-3">the rule 1.3.3 design page.</a>
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-3-3"> 1.3.3 rule specification</a>
  *

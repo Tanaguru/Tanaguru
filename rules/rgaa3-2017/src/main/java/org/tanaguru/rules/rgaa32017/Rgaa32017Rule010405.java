@@ -31,7 +31,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_CAPTCHA_ALTER
 
 /**
  * Implementation of the rule 1.4.5 of the referential Rgaa 3-2017.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-4-5">the rule 1.4.5 design page.</a>
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-1-4-5"> 1.4.5 rule specification</a>
  *

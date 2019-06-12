@@ -31,7 +31,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_CAPTCHA_ALTER
 
 /**
  * Implementation of the rule 1.4.1 of the referential Accessiweb 2.2.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://www.tanaguru.org/en/content/aw22-rule-1-4-1">the rule 1.4.1 design page.</a>
  * @see <a href="http://www.accessiweb.org/index.php/accessiweb-22-english-version.html#test-1-4-1"> 1.4.1 rule specification</a>
  *

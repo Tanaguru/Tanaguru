@@ -34,7 +34,7 @@ import org.tanaguru.rules.textbuilder.TextAttributeOfElementBuilder;
 
 /**
  * Implementation of the rule 1.3.2 of the referential Accessiweb 2.2.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://www.tanaguru.org/en/content/aw22-rule-1-3-2">the rule 1.3.2 design page.</a>
  * @see <a href="http://www.accessiweb.org/index.php/accessiweb-22-english-version.html#test-1-3-2"> 1.3.2 rule specification</a>
  *

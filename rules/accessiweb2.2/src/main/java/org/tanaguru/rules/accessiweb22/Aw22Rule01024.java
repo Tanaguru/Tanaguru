@@ -34,7 +34,7 @@ import org.tanaguru.rules.textbuilder.SimpleTextElementBuilder;
 
 /**
  * Implementation of the rule 1.2.4 of the referential Accessiweb 2.2.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://www.tanaguru.org/en/content/aw22-rule-1-2-4">the rule 1.2.4 design page.</a>
  * @see <a href="http://www.accessiweb.org/index.php/accessiweb-22-english-version.html#test-1-2-4"> 1.2.4 rule specification</a>
  *

@@ -28,7 +28,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.MANUAL_CHECK_ON_ELE
 
 /**
  * Implementation of the rule 10.8.4 of the referential Accessiweb 2.2.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://www.tanaguru.org/en/content/aw22-rule-10-8-4">the rule 10.8.4 design page.</a>
  * @see <a href="http://www.accessiweb.org/index.php/accessiweb-22-english-version.html#test-10-8-4"> 10.8.4 rule specification</a>
  *

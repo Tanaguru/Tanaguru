@@ -32,7 +32,7 @@ import org.tanaguru.rules.textbuilder.TextAttributeOfElementBuilder;
 
 /**
  * Implementation of the rule 2.2.1 of the referential Rgaa 3-2016.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-2-2-1">the rule 2.2.1 design page.</a>
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-2-2-1"> 2.2.1 rule specification</a>
  *

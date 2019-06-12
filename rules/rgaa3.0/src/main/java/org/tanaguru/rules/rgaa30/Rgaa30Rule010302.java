@@ -42,7 +42,7 @@ import org.tanaguru.rules.textbuilder.TextAttributeOfElementBuilder;
 
 /**
  * Implementation of the rule 1.3.2 of the referential Rgaa 3.0.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a
  * href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-1-3-2">the rule 1.3.2
  * design page.</a>

@@ -24,7 +24,7 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
 
 /**
  * Implementation of the rule 4.2.3 of the referential Accessiweb 2.2.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://www.tanaguru.org/en/content/aw22-rule-4-2-3">the rule 4.2.3 design page.</a>
  * @see <a href="http://www.accessiweb.org/index.php/accessiweb-22-english-version.html#test-4-2-3"> 4.2.3 rule specification</a>
  *

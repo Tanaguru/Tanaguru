@@ -91,7 +91,6 @@ public abstract class AbstractDetectionPageRuleImplementation
     }
     
     /**
-     * @Deprecated 
      * Use constructor with Pair instead
      * 
      * @param elementSelector
@@ -101,6 +100,7 @@ public abstract class AbstractDetectionPageRuleImplementation
      * @param messageCodeOnElementNotDetected
      * @param eeAttributeNameList 
      */
+    @Deprecated
     public AbstractDetectionPageRuleImplementation(
             @Nonnull ElementSelector elementSelector, 
             @Nonnull TestSolution detectedSolution, 

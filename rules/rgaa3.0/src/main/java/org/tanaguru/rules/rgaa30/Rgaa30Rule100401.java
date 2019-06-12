@@ -32,7 +32,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.FORBIDDEN_UNIT_TYPE
 
 /**
  * Implementation of the rule 10.4.1 of the referential Rgaa 3.0.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-10-4-1">the rule 10.4.1 design page.</a>
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-10-4-1"> 10.4.1 rule specification</a>
  *

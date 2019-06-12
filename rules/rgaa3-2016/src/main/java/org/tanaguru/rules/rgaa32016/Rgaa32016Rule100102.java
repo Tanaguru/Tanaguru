@@ -46,7 +46,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.PRESENTATION_ATTR_D
 
 /**
  * Implementation of the rule 10.1.2 of the referential Rgaa 3-2016.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-10-1-1">the rule 10.1.2 design page.</a>
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-10-1-1"> 10.1.2 rule specification</a>
  *

@@ -33,7 +33,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMA
 
 /**
  * Implementation of the rule 1.7.3 of the referential Accessiweb 2.2.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://www.tanaguru.org/en/content/aw22-rule-1-7-3">the rule 1.7.3 design page.</a>
  * @see <a href="http://www.accessiweb.org/index.php/accessiweb-22-english-version.html#test-1-7-3"> 1.7.3 rule specification</a>
  *

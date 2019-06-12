@@ -44,7 +44,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.FORM_ELEMENT_WITHOU
 
 /**
  * Implementation of the rule 3.11 of the referential RGAA 2.2.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://www.tanaguru.org/en/content/rgaa22-rule-3-11">the rule 3.11 design page.</a>
  * @see <a href="http://rgaa.net/Absence-d-element-de-formulaire,29.html"> 3.11 rule specification </a>
  *

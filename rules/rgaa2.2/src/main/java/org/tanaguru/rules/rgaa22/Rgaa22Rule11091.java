@@ -39,7 +39,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_TAB
 
 /**
  * Implementation of the rule 11.9 of the referential RGAA 2.2.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://www.tanaguru.org/en/content/rgaa22-rule-11-9">the rule 11.9 design page.</a>
  * @see <a href="http://rgaa.net/Pertinence-du-titre-du-tableau-de.html"> 11.9 rule specification </a>
  *

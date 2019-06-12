@@ -31,7 +31,7 @@ import org.tanaguru.rules.elementchecker.helper.RuleCheckHelper;
 
 /**
  * Implementation of the rule 7.5.1 of the referential Rgaa 3-2017.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-7-5-1">the rule 7.5.1 design page.</a>
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-7-5-1"> 7.5.1 rule specification</a>
  *

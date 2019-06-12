@@ -24,7 +24,7 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
 
 /**
  * Implementation of the rule 7.17 of the referential RGAA 2.2.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://www.tanaguru.org/en/content/rgaa22-rule-7-17">the rule 7.17 design page.</a>
  * @see <a href="http://rgaa.net/Valeur-de-l-espace-entre-les.html"> 7.17 rule specification </a>
  *
