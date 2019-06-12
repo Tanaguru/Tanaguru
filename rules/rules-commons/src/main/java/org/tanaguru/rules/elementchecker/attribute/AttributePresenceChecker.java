@@ -56,7 +56,6 @@ public class AttributePresenceChecker extends ElementCheckerImpl {
     private boolean createSourceCodeRemarkOnAttribute = false;
     
     /**
-     * @Deprecated 
      * Use constructor with Pair instead
      * @param attributeName
      * @param detectedSolution
@@ -65,6 +64,7 @@ public class AttributePresenceChecker extends ElementCheckerImpl {
      * @param messageCodeOnAttrNotDetected
      * @param eeAttributeNameList 
      */
+    @Deprecated
     public AttributePresenceChecker(
             String attributeName, 
             TestSolution detectedSolution,
@@ -115,7 +115,6 @@ public class AttributePresenceChecker extends ElementCheckerImpl {
     }
     
     /**
-     * @Deprecated 
      * Use constructor with Pair instead
      * @param attributeName
      * @param detectedSolution
@@ -125,6 +124,7 @@ public class AttributePresenceChecker extends ElementCheckerImpl {
      * @param createSourceCodeRemarkOnAttribute
      * @param eeAttributeNameList 
      */
+    @Deprecated
     public AttributePresenceChecker(
             String attributeName, 
             TestSolution detectedSolution,
@@ -210,7 +210,6 @@ public class AttributePresenceChecker extends ElementCheckerImpl {
      * This methods checks whether a given attribute is present and if the value correspond to a marker value : 
      * in this case, the element is out of scope because its uses it to be marked
      * @param elements
-     * @param testSolutionHandler
      */
     private Elements removeMarkerElementsWithValuePresenceChecher (
             Elements elements) {

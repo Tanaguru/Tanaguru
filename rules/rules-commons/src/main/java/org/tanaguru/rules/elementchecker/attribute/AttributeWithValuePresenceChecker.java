@@ -73,8 +73,8 @@ public class AttributeWithValuePresenceChecker extends ElementCheckerImpl {
         this.attributeValue = attributeValue;
     }
     
+
     /**
-     * @Deprecated 
      * Use constructor with Pair instead
      * @param attributeName
      * @param attributeValue
@@ -84,6 +84,7 @@ public class AttributeWithValuePresenceChecker extends ElementCheckerImpl {
      * @param messageCodeOnAttrNotDetected
      * @param eeAttributeNameList
      */
+    @Deprecated
     public AttributeWithValuePresenceChecker(
             String attributeName,
             String attributeValue,

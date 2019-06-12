@@ -33,7 +33,7 @@ import org.w3c.dom.Node;
 
 /**
  * Implementation of the rule 13.1.2 of the referential Accessiweb 2.1.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://www.tanaguru.org/en/content/aw21-rule-13-1-2">the rule 13.1.2 design page.</a>
  * @see <a href="http://www.braillenet.org/accessibilite/referentiel-aw21-en/index.php#test-13-1-2"> 13.1.2 rule specification</a>
  *

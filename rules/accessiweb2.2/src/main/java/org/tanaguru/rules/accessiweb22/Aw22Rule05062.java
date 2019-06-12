@@ -32,7 +32,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_USAGE_OF_HEAD
 
 /**
  * Implementation of the rule 5.6.2 of the referential Accessiweb 2.2.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://www.tanaguru.org/en/content/aw22-rule-5-6-2">the rule 5.6.2 design page.</a>
  * @see <a href="http://www.accessiweb.org/index.php/accessiweb-22-english-version.html#test-5-6-2"> 5.6.2 rule specification</a>
  *

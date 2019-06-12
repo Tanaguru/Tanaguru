@@ -43,7 +43,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.INVALID_FORM_FIELD_
 
 /**
  * Implementation of the rule 11.1.1 of the referential Rgaa 3-2016.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-11-1-1">the rule 11.1.1 design page.</a>
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-11-1-1"> 11.1.1 rule specification</a>
  *

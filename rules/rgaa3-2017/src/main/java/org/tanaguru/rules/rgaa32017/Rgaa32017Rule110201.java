@@ -30,7 +30,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.NOT_PERTINENT_TEXTU
 
 /**
  * Implementation of the rule 11.2.1 of the referential Rgaa 3-2017.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-11-2-1">the rule 11.2.1 design page.</a>
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-11-2-1"> 11.2.1 rule specification</a></a>
  *

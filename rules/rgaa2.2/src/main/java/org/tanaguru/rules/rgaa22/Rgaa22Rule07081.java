@@ -43,7 +43,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.PRESENTATION_TAG_DE
 
 /**
  * Implementation of the rule 7.8 of the referential RGAA 2.2.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://www.tanaguru.org/en/content/rgaa22-rule-7-8">the rule 7.8 design page.</a>
  * @see <a href="http://rgaa.net/Absence-d-attributs-ou-d-elements.html"> 7.8 rule specification </a>
  *

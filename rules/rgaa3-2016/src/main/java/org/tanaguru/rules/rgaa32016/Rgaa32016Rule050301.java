@@ -41,7 +41,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.PRESENTATION_TABLE_
 
 /**
  * Implementation of the rule 5.3.1 of the referential Rgaa 3-2016.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a
  * href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-5-3-1">the rule 5.3.1
  * design page.</a>

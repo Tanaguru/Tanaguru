@@ -37,7 +37,7 @@ import org.tanaguru.service.ProcessRemarkService;
 
 /**
  * Implementation of the rule 10.2 of the referential RGAA 2.2.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://www.tanaguru.org/en/content/rgaa22-rule-10-2">the rule 10.2 design page.</a>
  * @see <a href="http://rgaa.net/Pertinence-du-contenu-des-titres.html"> 10.2 rule specification </a>
  *

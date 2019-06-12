@@ -29,7 +29,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.MANUAL_CHECK_ON_ELE
 
 /**
  * Implementation of the rule 3.13 of the referential RGAA 2.2.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://www.tanaguru.org/en/content/rgaa22-rule-3-13">the rule 3.13 design page.</a>
  * @see <a href="http://rgaa.net/Presence-d-informations-ou-de.html"> 3.13 rule specification </a>
  *

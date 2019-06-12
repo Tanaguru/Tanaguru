@@ -30,7 +30,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.NOT_PERTINENT_TITLE
 
 /**
  * Implementation of the rule 8.6.1 of the referential Accessiweb 4.1.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-8-6-1">the rule 8.6.1 design page.</a>
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-8-6-2"> 8.6.1 rule specification</a>
  *

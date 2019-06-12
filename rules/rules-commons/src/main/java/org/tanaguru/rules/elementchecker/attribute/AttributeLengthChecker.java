@@ -54,7 +54,6 @@ public class AttributeLengthChecker extends ElementCheckerImpl {
     private boolean createSourceCodeRemarkOnAttribute = false;
     
     /**
-     * @Deprecated 
      * Use constructor with Pair instead
      * @param attributeName
      * @param detectedSolution
@@ -63,6 +62,7 @@ public class AttributeLengthChecker extends ElementCheckerImpl {
      * @param messageCodeOnAttrNotDetected
      * @param eeAttributeNameList 
      */
+    @Deprecated
     public AttributeLengthChecker(
             String attributeName, 
             int lengthLimit,
@@ -98,7 +98,6 @@ public class AttributeLengthChecker extends ElementCheckerImpl {
     }
     
     /**
-     * @Deprecated 
      * Use constructor with Pair instead
      * @param attributeName
      * @param detectedSolution
@@ -108,6 +107,7 @@ public class AttributeLengthChecker extends ElementCheckerImpl {
      * @param createSourceCodeRemarkOnAttribute
      * @param eeAttributeNameList 
      */
+    @Deprecated
     public AttributeLengthChecker(
             String attributeName,
             int lengthLimit,

@@ -40,7 +40,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.NO_PATTERN_DETECTED
 
 /**
  * Implementation of the rule 7.9 of the referential RGAA 2.2.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://www.tanaguru.org/en/content/rgaa22-rule-7-9">the rule 7.9 design page.</a>
  * @see <a href="http://rgaa.net/Absence-d-elements-HTML-utilises-a.html"> 7.9 rule specification </a>
  *

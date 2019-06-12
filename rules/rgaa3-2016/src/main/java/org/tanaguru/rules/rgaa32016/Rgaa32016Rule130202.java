@@ -29,7 +29,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_USER_IS_WARNE
 
 /**
  * Implementation of the rule 13.2.2 of the referential Rgaa 3-2016.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://tanaguru-rules-rgaa3.readthedocs.org/en/latest/Rule-13-2-2">the rule 13.2.2 design page.</a>
  * @see <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#test-13-2-2"> 13.2.2 rule specification</a>
  *

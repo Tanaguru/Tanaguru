@@ -37,7 +37,7 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.EMPTY_LINK_MSG;
 
 /**
  * Implementation of the rule 6.6.1 of the referential Accessiweb 2.2.
- * <br/>
+ * <br>
  * For more details about the implementation, refer to <a href="http://www.tanaguru.org/en/content/aw22-rule-6-6-1">the rule 6.6.1 design page.</a>
  * @see <a href="http://www.accessiweb.org/index.php/accessiweb-22-english-version.html#test-6-6-1"> 6.6.1 rule specification</a>
  *

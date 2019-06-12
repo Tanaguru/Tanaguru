@@ -63,7 +63,6 @@ public interface ProcessRemarkService {
     void resetService();
 
     /**
-     * @deprecated
      * 
      * @param processResult
      * @param node
@@ -78,7 +77,6 @@ public interface ProcessRemarkService {
             String elementName);
 
     /**
-     * @deprecated
      * 
      * @param processResult
      * @param node
@@ -132,7 +130,6 @@ public interface ProcessRemarkService {
             EvidenceElement... evidenceElementList);
     
     /**
-     * @deprecated 
      * 
      * @param processResult
      * @param node
@@ -147,7 +144,6 @@ public interface ProcessRemarkService {
             Collection<EvidenceElement> evidenceElementList);
 
     /**
-     * @deprecated
      * @param processResult
      * @param node
      * @param messageCode

@@ -92,7 +92,6 @@ public class ElementPresenceChecker extends ElementCheckerImpl {
     }
     
     /**
-     * @Deprecated 
      * Use constructor with Pair instead
      *
      * @param detectedSolution
@@ -101,6 +100,7 @@ public class ElementPresenceChecker extends ElementCheckerImpl {
      * @param messageCodeOnElementNotDetected
      * @param eeAttributeNameList
      */
+    @Deprecated
     public ElementPresenceChecker(
             TestSolution detectedSolution,
             TestSolution notDetectedSolution,
@@ -135,7 +135,6 @@ public class ElementPresenceChecker extends ElementCheckerImpl {
     }
     
     /**
-     * @Deprecated 
      * Use constructor with Pair instead
      *
      * @param checkUnicity
@@ -146,6 +145,7 @@ public class ElementPresenceChecker extends ElementCheckerImpl {
      * @param messageCodeOnMultipleElements
      * @param eeAttributeNameList
      */
+    @Deprecated
     public ElementPresenceChecker(
             boolean checkUnicity,
             TestSolution detectedSolution,

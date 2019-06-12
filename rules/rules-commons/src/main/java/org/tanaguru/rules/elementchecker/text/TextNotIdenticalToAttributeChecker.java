@@ -86,11 +86,12 @@ public class TextNotIdenticalToAttributeChecker extends ElementCheckerImpl {
     /**
      * Constructor.
      * 
-     * @param elementMarkerWithAriaLabelledby
+     * @param elementAttrToCompare
+     * @param testableTextBuilder
      * @param testableTextBuilderToCompareWith
-     * @param textAttributeOfElementBuilder
+     * @param detectedSolutionPair
      * @param notDetectedSolutionPair
-     * @param immutablePair 
+     * @param eeAttributeNameList
      */
     public TextNotIdenticalToAttributeChecker(
             ElementHandler<Element> elementAttrToCompare,
@@ -162,8 +163,8 @@ public class TextNotIdenticalToAttributeChecker extends ElementCheckerImpl {
     
     /**
      * 
-     * @param element
-     * @param elementText
+     * @param elementToTest
+     * @param elementToCompare
      * @return failed when a given text is identical to an attribute content, 
      * not applicable when the text is seen as null, NMI instead
      * 
