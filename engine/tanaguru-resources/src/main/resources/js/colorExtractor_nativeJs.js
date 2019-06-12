@@ -713,7 +713,7 @@ function  getAllElementsWithForbiddenUnits( ) {
 
 function  getAllElementsWithoutAuthorizedUnits() {
     var unitsRegex = new RegExp(/\s*\b\d+px|\b\d+pt|\b\d+mm|\b\d+cm|\b\d+pc|\b\d+in|\b\d+%|\b\d+em|\b\d+rem|\b\d+vw|\b\d+vh|\b\d+vmin|\b\d+vmax|\b\d+xx-small|\b\d+x-small|\b\d+small|\b\d+medium|\b\d+large|\b\d+x-large|\b\d+xx-large|\b\d+xsmaller|\b\d+larger/g);
-    var authorizedUnitsRegex = new RegExp(/\s*\b\d+%|\b\d+em|\b\d+rem|\b\d+vw|\b\d+vh|\b\d+vmin|\b\d+vmax|\b\d+xx-small|\b\d+x-small|\b\d+small|\b\d+medium|\b\d+large|\b\d+x-large|\b\d+xx-large|\b\d+xsmaller|\b\d+larger/g);
+    var authorizedUnitsRegex = new RegExp(/\s*\b\d+%|\b\d+em|\b\d+rem|\b\d+vw|\b\d+vh|\b\d+vmin|\b\d+vmax|\b\d+xx-small|\b\d+x-small|\b\d+small|\b\d+medium|\b\d+large|\b\d+x-large|\b\d+xx-large|\b\d+xsmaller|\b\d+larger|\b0.+/g);
 
     var elementsWithoutAuthorizedUnits = [];
 
