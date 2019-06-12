@@ -682,7 +682,7 @@ function  getAllElementsWithForbiddenUnits( ) {
             for (var cssRule of styleSheet.cssRules) {
 
                 for (var style in cssRule.style) {
-                    if(cssRule.style[style] && !!cssRule.style[style].toString().match(forbiddenUnitsRegex)){
+                    if(cssRule.style && cssRule.style[style] && !!cssRule.style[style].toString().match(forbiddenUnitsRegex)){
                         var elemSelector = cssRule.selectorText;
                         if (elemSelector && elementsWithForbiddenUnits.indexOf(elemSelector) == -1) {
                             var elements = document.querySelectorAll(elemSelector)
@@ -702,7 +702,7 @@ function  getAllElementsWithForbiddenUnits( ) {
 
     var tmpElemInLineStyle = document.querySelectorAll('*[style]'); //find all element with inline style
     for (var m = 0; m < tmpElemInLineStyle.length; m++) {
-        if(!!tmpElemInLineStyle[m].style.cssText.match(forbiddenUnitsRegex) &&
+        if(tmpElemInLineStyle[m].style && !!tmpElemInLineStyle[m].style.cssText.match(forbiddenUnitsRegex) &&
         elementsWithForbiddenUnits.indexOf(tmpElemInLineStyle[m]) === -1) {
             elementsWithForbiddenUnits.push(tmpElemInLineStyle[m]);
             break;
@@ -721,7 +721,7 @@ function  getAllElementsWithoutAuthorizedUnits() {
         for (var styleSheet of document.styleSheets) {
             for (var cssRule of styleSheet.cssRules) {
 
-                if(cssRule.style.fontSize && !!cssRule.style.fontSize.match(unitsRegex) &&
+                if(cssRule.style && cssRule.style.fontSize && !!cssRule.style.fontSize.match(unitsRegex) &&
                     !cssRule.style.fontSize.match(authorizedUnitsRegex)){
                     var elemSelector = cssRule.selectorText;
                     if (elemSelector !== null && elementsWithoutAuthorizedUnits.indexOf(elemSelector) === -1) {
@@ -741,7 +741,8 @@ function  getAllElementsWithoutAuthorizedUnits() {
     var tmpElemInLineStyle = document.querySelectorAll('*[style]'); //find all element with inline style
     for (var m = 0; m < tmpElemInLineStyle.length; m++) {
 
-        if (!!tmpElemInLineStyle[m].style.fontSize.match(unitsRegex) &&
+        if (tmpElemInLineStyle[m].style &&
+            !!tmpElemInLineStyle[m].style.fontSize.match(unitsRegex) &&
             !tmpElemInLineStyle[m].style.fontSize.match(authorizedUnitsRegex) &&
             elementsWithoutAuthorizedUnits.indexOf(tmpElemInLineStyle[m]) === -1) {
             elementsWithoutAuthorizedUnits.push(tmpElemInLineStyle[m]);
@@ -773,7 +774,7 @@ if (rootElem.length !== 0) {
     }
     elementWithForbiddenUnitsRoot = getAllElementsWithForbiddenUnits();
     elementsWithoutAuthorizedUnits = getAllElementsWithoutAuthorizedUnits();
-    extractInfo(rootElem, getForegroundColor(htmlElem), htmlBgColor, result, "", 0);
+    extractInfo(htmlElem, getForegroundColor(htmlElem), htmlBgColor, result, "", 0);
 }
 /*var f = new Date().getTime();
  console.log("Execution : "+ (f-e)  + "ms");
