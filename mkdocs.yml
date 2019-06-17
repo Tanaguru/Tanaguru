@@ -3,7 +3,7 @@ site_url: https://www.tanaguru.com
 theme: readthedocs
 repo_url: https://github.com/Tanaguru/Tanaguru
 
-nav:
+pages:
   - Home: 'index.md'
   - User Documentation:
     - 'Introduction': 'user-doc.md'
