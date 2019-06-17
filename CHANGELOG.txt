@@ -16,6 +16,7 @@ Features :
  - [Scenario audit] Use command "echo <page>" to manually fire new audit
  - [Scenario audit] Prevent automatic firing audit event during scenario execution by checking parameter in scenario audit parameters
  - Add RMI API, exporting all data services of Tanaguru
+ - [Site audit] process generated HTML
 
  - Update rule 1.2.1
  - Update rule 1.2.2
