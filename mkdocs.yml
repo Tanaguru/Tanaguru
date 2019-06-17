@@ -1,7 +1,7 @@
 site_name: Tanaguru
 nav:
-- 'Home': 'index.md'
-- 'User Documentation':
+- Home: 'index.md'
+- User Documentation:
   - 'User Documentation': 'user-doc.md'
   - '4 kinds of audit': 'userdoc-4-audits.md'
   - '5 types of result': 'userdoc-5-results.md'
@@ -13,19 +13,19 @@ nav:
   - 'Accessibility metrics': 'userdoc-accessibility-metrics.md'
 #- ['admindoc.md',                           'Admin Documentation', 'Admin Documentation']
 #- ['admindoc.md',                           'Admin Documentation', 'Admin Documentation']
-- 'Installation Web Application':
+- Installation Web Application:
   - 'Prerequisites': 'prerequisites-webapp-doc.md'
   - 'Installation': 'install-webapp-doc.md'
   - 'Configuration': 'configuration-webapp-doc.md'
   - 'Usage': 'usage-webapp-doc.md'
-- 'Installation Command Line Interface (CLI)':
+- Installation Command Line Interface (CLI):
   - 'Prerequisites': 'prerequisites-cli-doc.md'
   - 'Installation': 'install-cli-doc.md'
   - 'Usage': 'usage-cli-doc.md'
-- 'Installation Windows':
+- Installation Windows:
   - 'Prerequisites': 'install-windows-prerequesites.md'
   - 'Installation': 'install-windows.md'
-- 'Developer Documentation':
+- Developer Documentation:
   - 'Engine overview': 'engine-overview.md'
   - 'Business model description': 'business-model.md'
   - 'Crawler component description': 'crawler-component.md'
@@ -34,7 +34,7 @@ nav:
   - 'Processor component description': 'processor-component.md'
   - 'Consolidator component description': 'consolidator-component.md'
   - 'Analyser component description': 'analyser-component.md'
-- 'Tanaguru Team': 'tanaguru-team.md'
+- Tanaguru Team: 'tanaguru-team.md'
 
 theme: readthedocs
 repo_url: https://github.com/Tanaguru/Tanaguru
