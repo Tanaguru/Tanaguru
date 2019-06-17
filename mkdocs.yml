@@ -1,35 +1,39 @@
 site_name: Tanaguru
-pages:
-- ['index.md',                              'Home']
-- ['user-doc.md',                           'User Documentation', 'User Documentation']
-- ['userdoc-4-audits.md',                   'User Documentation', '4 kinds of audit']
-- ['userdoc-5-results.md',                  'User Documentation', '5 types of result']
-- ['userdoc-page-audit.md',                 'User Documentation', 'Page audit']
-- ['userdoc-scenario-audit.md',             'User Documentation', 'Scenario audit']
-- ['userdoc-scenario-audit-advanced.md',    'User Documentation', 'Scenario advanced usage']
-- ['userdoc-assisted-audit.md',             'User Documentation', 'Assisted audit']
-- ['userdoc-HTML-markers.md',               'User Documentation', 'HTML markers']
-- ['userdoc-accessibility-metrics.md',      'User Documentation', 'Accessibility metrics']
-#- ['admindoc.md',                           'Admin Documentation', 'Admin Documentation']
-#- ['admindoc.md',                           'Admin Documentation', 'Admin Documentation']
-- ['prerequisites-webapp-doc.md',           'Installation Web Application','Prerequisites']
-- ['install-webapp-doc.md',                 'Installation Web Application','Installation']
-- ['configuration-webapp-doc.md',           'Installation Web Application','Configuration']
-- ['usage-webapp-doc.md',                   'Installation Web Application','Usage']
-- ['prerequisites-cli-doc.md',              'Installation Command Line Interface (CLI)','Prerequisites']
-- ['install-cli-doc.md',                    'Installation Command Line Interface (CLI)','Installation']
-- ['usage-cli-doc.md',                      'Installation Command Line Interface (CLI)','Usage']
-- ['install-windows-prerequesites.md',      'Installation Windows','Prerequisites']
-- ['install-windows.md',                    'Installation Windows','Installation']
-- ['engine-overview.md',                    'Developer Documentation', 'Engine overview']
-- ['business-model.md',                     'Developer Documentation', 'Business model description']
-- ['crawler-component.md',                  'Developer Documentation', 'Crawler component description']
-- ['scenario-loader-component.md',          'Developer Documentation', 'Scenario Loader component description']
-- ['adapter-component.md',                  'Developer Documentation', 'Adapter component description']
-- ['processor-component.md',                'Developer Documentation', 'Processor component description']
-- ['consolidator-component.md',             'Developer Documentation', 'Consolidator component description']
-- ['analyser-component.md',                  'Developer Documentation', 'Analyser component description']
-- ['tanaguru-team.md',                      'Tanaguru Team']
-
+site_url: https://www.tanaguru.com
 theme: readthedocs
 repo_url: https://github.com/Tanaguru/Tanaguru
+
+pages:
+  - Home: 'index.md'
+  - User Documentation:
+    - 'Introduction': 'user-doc.md'
+    - '4 kinds of audit': 'userdoc-4-audits.md'
+    - '5 types of result': 'userdoc-5-results.md'
+    - 'Page audit': 'userdoc-page-audit.md'
+    - 'Scenario audit': 'userdoc-scenario-audit.md'
+    - 'Scenario advanced usage': 'userdoc-scenario-audit-advanced.md'
+    - 'Assisted audit': 'userdoc-assisted-audit.md'
+    - 'HTML markers': 'userdoc-HTML-markers.md'
+    - 'Accessibility metrics': 'userdoc-accessibility-metrics.md'
+  - Installation Web Application:
+    - 'Prerequisites': 'prerequisites-webapp-doc.md'
+    - 'Installation': 'install-webapp-doc.md'
+    - 'Configuration': 'configuration-webapp-doc.md'
+    - 'Usage': 'usage-webapp-doc.md'
+  - Installation Command Line Interface (CLI):
+    - 'Prerequisites': 'prerequisites-cli-doc.md'
+    - 'Installation': 'install-cli-doc.md'
+    - 'Usage': 'usage-cli-doc.md'
+  - Installation Windows:
+    - 'Prerequisites': 'install-windows-prerequesites.md'
+    - 'Installation': 'install-windows.md'
+  - Developer Documentation:
+    - 'Engine overview': 'engine-overview.md'
+    - 'Business model description': 'business-model.md'
+    - 'Crawler component description': 'crawler-component.md'
+    - 'Scenario Loader component description': 'scenario-loader-component.md'
+    - 'Adapter component description': 'adapter-component.md'
+    - 'Processor component description': 'processor-component.md'
+    - 'Consolidator component description': 'consolidator-component.md'
+    - 'Analyser component description': 'analyser-component.md'
+  - Tanaguru Team: 'tanaguru-team.md'
