@@ -114,7 +114,7 @@ sudo update-rc.d xvfb defaults
 ## Firefox
 
 ### For 32-bit architecture
-Retrieve the [lastest esr version of firefox](http://download.cdn.mozilla.net/pub/mozilla.org/firefox/releases/31.4.0esr/linux-i686/en-US/firefox-31.4.0esr.tar.bz2).
+Retrieve the [lastest version of firefox](http://download.cdn.mozilla.net/pub/mozilla.org/firefox/releases/61.0/linux-i686/en-US/firefox-61.0.tar.bz2).
 Install it on your file system and make sure the binary is executable for the tomcat8 user.
 ```sh
 cd /opt
@@ -125,7 +125,7 @@ sudo ln -s firefox-61.0 firefox
 ```
 
 ### For 64-bit architecture
-Retrieve the [lastest esr version of firefox](http://download.cdn.mozilla.net/pub/mozilla.org/firefox/releases/31.4.0esr/linux-x86_64/en-US/firefox-31.4.0esr.tar.bz2).
+Retrieve the [lastest version of firefox](http://download.cdn.mozilla.net/pub/mozilla.org/firefox/releases/61.0/linux-x86_64/en-US/firefox-61.0.tar.bz2).
 Install it on your file system and make sure the binary is executable for the tomcat8 user.
 ```sh
 cd /opt
