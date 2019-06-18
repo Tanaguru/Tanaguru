@@ -126,7 +126,7 @@
             <outputDirectory>/install/engine/sql-update</outputDirectory>
         </fileSet>
         <fileSet>
-            <directory>${basedir}/../../web-app/tgol-resources/src/main/resources/sql</directory>
+            <directory>${basedir}/../../tgol/tgol-resources/src/main/resources/sql</directory>
             <includes>
                 <include>tgol-20-create-tables.sql</include>
                 <include>tgol-30-insert.sql</include>
@@ -137,7 +137,7 @@
             <outputDirectory>/install/web-app/sql</outputDirectory>
         </fileSet>
         <fileSet>
-            <directory>${basedir}/../../web-app/tgol-resources/src/main/resources/sql-update</directory>
+            <directory>${basedir}/../../tgol/tgol-resources/src/main/resources/sql-update</directory>
             <includes>
                 <include>**/*</include>
             </includes>
@@ -145,7 +145,7 @@
             <outputDirectory>/install/web-app/sql-update</outputDirectory>
         </fileSet>
         <fileSet>
-            <directory>${basedir}/../../web-app/tgol-resources/src/main/resources/installation</directory>
+            <directory>${basedir}/../../tgol/tgol-resources/src/main/resources/installation</directory>
             <includes>
                 <include>install.sh</include>
             </includes>
@@ -153,7 +153,7 @@
             <outputDirectory>.</outputDirectory>
         </fileSet>
         <fileSet>
-            <directory>${basedir}/../../web-app/tgol-resources/src/main/resources/conf</directory>
+            <directory>${basedir}/../../tgol/tgol-resources/src/main/resources/conf</directory>
             <includes>
                 <include>ESAPI.properties</include>
                 <include>tanaguru.conf</include>
@@ -162,7 +162,7 @@
             <outputDirectory>/install/web-app/conf</outputDirectory>
         </fileSet>
         <fileSet>
-            <directory>${basedir}/../../web-app/tgol-resources/src/main/resources/sql-management</directory>
+            <directory>${basedir}/../../tgol/tgol-resources/src/main/resources/sql-management</directory>
             <includes>
                 <include>create-contract-procedure.sql</include>
                 <include>tg-set-user-admin.sh</include>
@@ -173,7 +173,7 @@
             <outputDirectory>/install/web-app/sql-management</outputDirectory>
         </fileSet>
         <fileSet>
-            <directory>${basedir}/../../web-app/tgol-resources/src/main/resources/password-encoder</directory>
+            <directory>${basedir}/../../tgol/tgol-resources/src/main/resources/password-encoder</directory>
             <includes>
                 <include>jacksum.jar</include>
                 <include>README.txt</include>
@@ -183,7 +183,7 @@
             <outputDirectory>/install/web-app/sql-management/Passwdmd5</outputDirectory>
         </fileSet>
         <fileSet>
-            <directory>${basedir}/../../web-app/tgol-resources/src/main/resources/runtime-lib</directory>
+            <directory>${basedir}/../../tgol/tgol-resources/src/main/resources/runtime-lib</directory>
             <includes>
                 <include>**/*</include>
             </includes>
@@ -191,7 +191,7 @@
             <outputDirectory>/install/web-app/lib</outputDirectory>
         </fileSet>
 <!--        <fileSet>
-            <directory>${basedir}/../../web-app/tgol-resources/src/main/resources/browser-installation</directory>
+            <directory>${basedir}/../../tgol/tgol-resources/src/main/resources/browser-installation</directory>
             <includes>
                 <include>**/*</include>
             </includes>
@@ -199,7 +199,7 @@
             <outputDirectory>/install/web-app/lib</outputDirectory>
         </fileSet>-->
         <fileSet>
-            <directory>${basedir}/../../web-app/tgol-resources/src/main/resources/token-master-key-encryptor</directory>
+            <directory>${basedir}/../../tgol/tgol-resources/src/main/resources/token-master-key-encryptor</directory>
             <includes>
                 <include>**/*</include>
             </includes>
