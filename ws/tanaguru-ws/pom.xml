@@ -332,7 +332,12 @@
             <artifactId>hsqldb</artifactId>
             <scope>test</scope>
         </dependency>
-		
+        <dependency>
+            <groupId>${springGroupId}</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${springVersion}</version>
+        </dependency>
+
     </dependencies>
 
 </project>

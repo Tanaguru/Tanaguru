@@ -22,7 +22,7 @@
 
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="auditResultSortCommandFactory"/>
+            <ref bean="auditResultSortCommandFactory"/>
         </property>
         <property name="targetMethod">
             <value>setThemeKey</value>
@@ -34,7 +34,7 @@
 
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="auditSetUpCommandFactory"/>
+            <ref bean="auditSetUpCommandFactory"/>
         </property>
         <property name="targetMethod">
             <value>setParameterDataService</value>
@@ -46,7 +46,7 @@
     
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="createUserCommandFactory"/>
+            <ref bean="createUserCommandFactory"/>
         </property>
         <property name="targetMethod">
             <value>setRoleDataService</value>
@@ -58,7 +58,7 @@
     
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="createContractCommandFactory"/>
+            <ref bean="createContractCommandFactory"/>
         </property>
         <property name="targetMethod">
             <value>setReferentialDataService</value>
@@ -70,7 +70,7 @@
     
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="createContractCommandFactory"/>
+            <ref bean="createContractCommandFactory"/>
         </property>
         <property name="targetMethod">
             <value>setFunctionalityDataService</value>
@@ -82,7 +82,7 @@
     
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="createContractCommandFactory"/>
+            <ref bean="createContractCommandFactory"/>
         </property>
         <property name="targetMethod">
             <value>setOptionDataService</value>
@@ -94,7 +94,7 @@
     
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="createContractCommandFactory"/>
+            <ref bean="createContractCommandFactory"/>
         </property>
         <property name="targetMethod">
             <value>setOptionElementDataService</value>
@@ -106,7 +106,7 @@
     
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="changeTestWeightCommandFactory"/>
+            <ref bean="changeTestWeightCommandFactory"/>
         </property>
         <property name="targetMethod">
             <value>setOptionElementDataService</value>
@@ -118,7 +118,7 @@
     
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="changeTestWeightCommandFactory"/>
+            <ref bean="changeTestWeightCommandFactory"/>
         </property>
         <property name="targetMethod">
             <value>setOptionDataService</value>
@@ -130,7 +130,7 @@
     
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="changeTestWeightCommandFactory"/>
+            <ref bean="changeTestWeightCommandFactory"/>
         </property>
         <property name="targetMethod">
             <value>setUserDataService</value>

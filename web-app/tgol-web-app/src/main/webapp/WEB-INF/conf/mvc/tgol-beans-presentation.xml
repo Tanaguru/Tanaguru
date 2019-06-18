@@ -28,7 +28,7 @@
 
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="detailedContractInfoFactory"/>
+            <ref bean="detailedContractInfoFactory"/>
         </property>
         <property name="targetMethod">
             <value>setNbMaxActRestrictionCode</value>
@@ -42,7 +42,7 @@
 
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="testResultFactory"/>
+            <ref bean="testResultFactory"/>
         </property>
         <property name="targetMethod">
             <value>setSelectAllThemeKey</value>
@@ -53,7 +53,7 @@
     <bean id="auditSetUpFormFieldHelper" class="org.tanaguru.webapp.form.parameterization.helper.AuditSetUpFormFieldHelper"/>
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="auditSetUpFormFieldHelper"/>
+            <ref bean="auditSetUpFormFieldHelper"/>
         </property>
         <property name="targetMethod">
             <value>setReferenceDataService</value>

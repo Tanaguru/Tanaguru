@@ -4,16 +4,17 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:context="http://www.springframework.org/schema/context"
   xsi:schemaLocation="http://www.springframework.org/schema/beans
-      http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+      http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
       http://www.springframework.org/schema/security
-      http://www.springframework.org/schema/security/spring-security-3.1.xsd
+      http://www.springframework.org/schema/security/spring-security-4.2.xsd
       http://www.springframework.org/schema/context
-      http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+      http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
 
-    <http auto-config="true" access-denied-page="/access-denied.html" disable-url-rewriting="true">
+    <http auto-config="true" disable-url-rewriting="true">
 <!--        <intercept-url pattern="/*.html*" requires-channel="https"/>-->
 <!--        <intercept-url pattern="/login.html*" filters="none"/>-->
+        <access-denied-handler error-page="/access-denied.html"/>
         <intercept-url pattern="/admin.html" access="ROLE_ADMIN,ROLE_SUPER_ADMIN"/>
         <intercept-url pattern="/admin/add*" access="ROLE_ADMIN, ROLE_SUPER_ADMIN"/>
         <intercept-url pattern="/admin/edit*" access="ROLE_ADMIN,ROLE_SUPER_ADMIN"/>
@@ -41,13 +42,15 @@
         </authentication-provider>
     </authentication-manager>
 
+
+
     <beans:bean id="accessDecisionManager" class="org.springframework.security.access.vote.AffirmativeBased">
-        <beans:property name="decisionVoters">
+        <beans:constructor-arg name="decisionVoters">
             <beans:list>
                 <beans:bean class="org.springframework.security.access.vote.RoleVoter"/>
                 <beans:bean class="org.springframework.security.access.vote.AuthenticatedVoter"/>
             </beans:list>
-        </beans:property>
+        </beans:constructor-arg>
     </beans:bean>
     
     <beans:bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler"/>

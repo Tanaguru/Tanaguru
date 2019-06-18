@@ -15,7 +15,7 @@
     <bean id="page" class="ar.com.fdvs.dj.domain.constants.Page"/>
     <bean id="pageOrientation" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="page"/>
+            <ref bean="page"/>
         </property>
         <property name="targetMethod">
             <value>Page_A4_Landscape</value>

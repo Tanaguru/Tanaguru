@@ -50,10 +50,10 @@
         <rulesVersion>6.0.0</rulesVersion>
         
         <springGroupId>org.springframework</springGroupId>
-        <springVersion>3.1.2.RELEASE</springVersion>
+        <springVersion>5.1.5.RELEASE</springVersion>
 
         <hibernateGroupId>org.hibernate</hibernateGroupId>
-        <hibernateVersion>4.3.11.Final</hibernateVersion>
+        <hibernateVersion>5.4.1.Final</hibernateVersion>
         
         <junitGroupId>junit</junitGroupId>
         <junitVersion>3.8.2</junitVersion>
