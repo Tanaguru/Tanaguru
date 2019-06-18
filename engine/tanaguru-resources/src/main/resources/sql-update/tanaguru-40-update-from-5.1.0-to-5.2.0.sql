@@ -4,6 +4,3 @@ ALTER TABLE `AUDIT` MODIFY `Dt_Creation` DATETIME(3);
 	Cd_Test='Rgaa32017-11-1-4' OR
 	Cd_Test='Rgaa32017-11-1-5' OR
 	Cd_Test='Rgaa32017-11-10-10' ;
-
-	INSERT IGNORE INTO `TGSI_OPTION` (`Id_Option`, `Code`, `Description`, `Is_Restriction`, OPTION_FAMILY_Id_Option_Family) VALUES
-	(18,'IS_EACCESS_ENABLED_CONTRACT', 'IS the E-Accessibilite labale enabled on contract', b'1', '2');
