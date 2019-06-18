@@ -310,9 +310,6 @@ install_webapp() {
 		|| fail "Unable to go to the tanaguru webapp directory"
 	unzip -q "$PKG_DIR/install/web-app/tgol-web-app-$tg_version.war" \
 		|| fail "Unable to extract the tanaguru war"
-        sed -i -e "s#file:///#file://${prefix}/#g"              \
-	    "WEB-INF/conf/tgol-service.xml" ||                    \
-		fail "Unable to set up the tanaguru configuration"
 }
 
 edit_esapi_configuration_file() {
