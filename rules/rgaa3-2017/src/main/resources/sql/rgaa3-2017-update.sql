@@ -2,13 +2,8 @@ update  ACCEDEWEB set Dtype='H' where Dtype='T' ;
 
 update  ACCEDEWEB set Dtype='G' where Dtype='R' ;
 
-INSERT INTO EVIDENCE (Cd_Evidence) VALUE ('aria-hidden');
-
-
 ALTER TABLE `TEST` 
 ADD COLUMN `Eaccess` INT(11) NULL DEFAULT NULL AFTER `Id_Level`;
-
-
 
 UPDATE `TEST` SET `Eaccess`='1' WHERE `Label`='1.1.1';
 UPDATE `TEST` SET `Eaccess`='1' WHERE `Label`='1.1.2';
@@ -347,5 +342,9 @@ UPDATE `TEST` SET `Eaccess`='1' WHERE `Label`='13.17.1';
 UPDATE `TEST` SET `Eaccess`='1' WHERE `Label`='13.17.2';
 
 
-INSERT INTO `TGSI_OPTION` (`Code`, `Description`, `Is_Restriction`, `OPTION_FAMILY_Id_Option_Family`) 
-VALUES ('IS_EACCESS_ENABLED_CONTRACT', 'IS the E-Accessibilite labale enabled on contract', b'1', '2');
+UPDATE TEST SET `No_Process`=b'0' WHERE
+Cd_Test='Rgaa32017-7-1-1' OR
+Cd_Test='Rgaa32017-1-2-3' OR
+Cd_Test='Rgaa32017-9-6-1' OR
+Cd_Test='Rgaa32017-9-6-2' OR
+Cd_Test='Rgaa32017-11-1-5';

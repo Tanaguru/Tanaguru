@@ -57,6 +57,5 @@ INSERT IGNORE INTO `PARAMETER` (`Id_Parameter_Element`, `Parameter_Value`, `Is_D
 ((SELECT `Id_Parameter_Element` FROM `PARAMETER_ELEMENT` WHERE `Cd_Parameter_Element` LIKE 'ALTERNATIVE_JUSTIFY_MECHANISM'), 'false', b'1'),
 ((SELECT `Id_Parameter_Element` FROM `PARAMETER_ELEMENT` WHERE `Cd_Parameter_Element` LIKE 'WAIT_TIME_NG_APP'), '500', b'1'),
 ((SELECT `Id_Parameter_Element` FROM `PARAMETER_ELEMENT` WHERE `Cd_Parameter_Element` LIKE 'PREVENT_DEFAULT_PAGE_FIRING'), 'false', b'1');
- 
 
 SET foreign_key_checks=1;
