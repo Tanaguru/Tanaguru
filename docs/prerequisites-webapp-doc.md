@@ -135,6 +135,25 @@ sudo mv firefox firefox-61.0
 sudo ln -s firefox-61.0 firefox
 ```
 
+## Geckodriver
+### For 32-bit architecture
+Retrieve the [lastest version of geckodriver](https://github.com/mozilla/geckodriver/releases/download/v0.21.0/geckodriver-v0.21.0-linux32.tar.gz).
+Install it on your file system and make sure the binary is executable for the user that will perform the analysis (jenkins for instance)
+```sh
+cd /opt
+sudo wget https://github.com/mozilla/geckodriver/releases/download/v0.21.0/geckodriver-v0.21.0-linux32.tar.gz
+sudo tar xvfj geckodriver-v0.21.0-linux32.tar.gz
+```
+
+### For 64-bit architecture
+Retrieve the [lastest version of geckodriver](https://github.com/mozilla/geckodriver/releases/download/v0.21.0/geckodriver-v0.21.0-linux64.tar.gz).
+Install it on your file system and make sure the binary is executable for the user that will perform the analysis (jenkins for instance)
+```sh
+cd /opt
+sudo wget https://github.com/mozilla/geckodriver/releases/download/v0.21.0/geckodriver-v0.21.0-linux64.tar.gz
+sudo tar xvfj geckodriver-v0.21.0-linux64.tar.gz
+```
+
 ## Mail SMTP
 
 Install the following packages
@@ -147,3 +166,11 @@ Once the configuration is displayed, options are :
 * configuration type: satellite
 * SMTP relay: &lt;none&gt; (this is the trick, don't type anything here)
 
+## W3c validator
+```
+cd /opt
+sudo wget https://github.com/validator/validator/releases/download/18.11.5/vnu.jar_18.11.5.zip
+sudo unzip vnu.jar_*.zip -d w3cValidator
+sudo mv ./w3cValidator/dist/vnu.jar ./w3cValidator/
+sudo chmod +x ./w3cValidator/vnu.jar
+```

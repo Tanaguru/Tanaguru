@@ -1072,15 +1072,9 @@ public class AnalyserImpl implements Analyser {
 	            		numberW3cErrors++;
 	                }
                 }                
-            }       
-
-//            return resultList;
-            
+            }
         } catch (Exception e) {
-        	LOGGER.error("************************************");
-        	LOGGER.error("error with w3cValidator json parser");
-        	LOGGER.error("************************************");
-//            return new org.json.simple.JSONArray();
+            LOGGER.error(e.getMessage());
         }
     }
 
