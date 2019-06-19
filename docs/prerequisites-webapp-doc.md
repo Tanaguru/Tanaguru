@@ -166,3 +166,11 @@ Once the configuration is displayed, options are :
 * configuration type: satellite
 * SMTP relay: &lt;none&gt; (this is the trick, don't type anything here)
 
+## W3c validator
+```
+cd /opt
+sudo wget https://github.com/validator/validator/releases/download/18.11.5/vnu.jar_18.11.5.zip
+sudo unzip vnu.jar_*.zip -d w3cValidator
+sudo mv ./w3cValidator/dist/vnu.jar ./w3cValidator/
+sudo chmod +x ./w3cValidator/vnu.jar
+```

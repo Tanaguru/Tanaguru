@@ -140,4 +140,12 @@ sudo wget https://github.com/mozilla/geckodriver/releases/download/v0.21.0/gecko
 sudo tar xvfj geckodriver-v0.21.0-linux64.tar.gz
 ```
 
+## W3c validator
+```
+cd /opt
+sudo wget https://github.com/validator/validator/releases/download/18.11.5/vnu.jar_18.11.5.zip
+sudo unzip vnu.jar_*.zip -d w3cValidator
+sudo mv ./w3cValidator/dist/vnu.jar ./w3cValidator/
+sudo chmod +x ./w3cValidator/vnu.jar
+```
 
