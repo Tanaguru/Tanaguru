@@ -234,7 +234,6 @@ CREATE TABLE IF NOT EXISTS `TEST` (
   `Id_Criterion` bigint(20) DEFAULT NULL,
   `Id_Decision_Level` bigint(20) DEFAULT NULL,
   `Id_Level` bigint(20) DEFAULT NULL,
-  `Eaccess` INT(11) NULL DEFAULT NULL,
   `Id_Rule` bigint(20) DEFAULT NULL,
   `Id_Scope` bigint(20) DEFAULT NULL,
   `No_Process` bit(1) DEFAULT b'1',
