@@ -58,7 +58,7 @@
     <bean id="levelExpressionBuilder" class="org.tanaguru.webapp.report.expression.builder.I18nExpressionBuilderImpl">
         <property name="bundleNameList">
             <list>
-                <value>i18n/referential-rgaa3201-I18N</value>
+                <value>i18n/referential-rgaa32017-I18N</value>
             </list>
         </property>
         <property name="escapeHtml" value="false"/>
