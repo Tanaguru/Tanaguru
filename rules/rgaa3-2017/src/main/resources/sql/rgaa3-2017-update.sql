@@ -341,7 +341,6 @@ UPDATE `TEST` SET `Eaccess`='5' WHERE `Label`='13.16.3';
 UPDATE `TEST` SET `Eaccess`='1' WHERE `Label`='13.17.1';
 UPDATE `TEST` SET `Eaccess`='1' WHERE `Label`='13.17.2';
 
-
 UPDATE TEST SET `No_Process`=b'0' WHERE
 Cd_Test='Rgaa32017-7-1-1' OR
 Cd_Test='Rgaa32017-1-2-3' OR
