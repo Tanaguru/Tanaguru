@@ -54,6 +54,10 @@
                     <groupId>commons-httpclient</groupId>
                     <artifactId>commons-httpclient</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>joda-time</groupId>
+                    <artifactId>joda-time</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
         <!-- https://mvnrepository.com/artifact/edu.uci.ics/crawler4j -->
