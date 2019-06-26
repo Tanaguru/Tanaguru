@@ -708,6 +708,7 @@ public class AnalyserImpl implements Analyser {
             int nbOfFailed = testStatisticsDataService.getResultCountByResultTypeAndTest(webResource, TestSolution.FAILED, test).intValue();
             testStatistics.setNbOfFailed(nbOfFailed);
 
+
             int nbOfPassed = testStatisticsDataService.getResultCountByResultTypeAndTest(webResource, TestSolution.PASSED, test).intValue();
             testStatistics.setNbOfPassed(nbOfPassed);
 
@@ -803,9 +804,11 @@ public class AnalyserImpl implements Analyser {
             WebResource webResource) {
 
     	Collection<Test> testedTestList = new ArrayList();
+        Collection<Test> w3cTestList = new ArrayList();
+        w3cTestList.addAll(testList);
         for (ProcessResult pr : netResultList) {
             testedTestList.add(pr.getTest());
-            testList.remove(pr.getTest());
+            w3cTestList.remove(pr.getTest());
         }
         
 //        Collection<ProcessResult> fullProcessResultList = new ArrayList();
@@ -813,7 +816,7 @@ public class AnalyserImpl implements Analyser {
         
         
         //Récupère les tests vides
-        for (Test test : testList) {
+        for (Test test : w3cTestList) {
         	
             TestSolution testSolution;
             
