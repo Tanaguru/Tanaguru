@@ -60,11 +60,18 @@ As of June 2016, this represents [~180 accessibility tests](http://rgaa.tanaguru
 * email to `support dot tanaguru AT oceaneconsulting dot com` (only English, French and klingon is spoken :) ) 
 * [Twitter @TanaguruApp](https://twitter.com/tanaguruapp)
 
-## Content of this last version (Tanaguru 4.0.3, 2017-02-20)
+## Content of this last version (Tanaguru 6.0.0, 2019-04-09) 
 
 Features :
 
-- Implementation of Rgaa3 rules (180 rules)
+ - Tanaguru now use Selenese Runner, please use Selenium IDE to create your scenarios 
+ - Fix scenario download 
+ - Fix audit crash when using CSS id and class with special characters 
+ - Fix ColorExtractor script 
+ - [Scenario audit] Use command "echo <page>" to manually fire new audit 
+ - [Scenario audit] Prevent automatic firing audit event during scenario execution by checking parameter in scenario audit parameters 
+ - Add RMI API, exporting all data services of Tanaguru 
+ - [Site audit] process generated HTML 
 
 See full [Changelog](CHANGELOG.txt)
 
