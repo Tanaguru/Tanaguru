@@ -6,13 +6,13 @@ ENV TOMCAT_USER="tomcat8"                                   \
     WEBAPP_PORT="8080"                                      \
     TOMCAT_WEBAPP="/var/lib/tomcat8/webapps"                \
     MYSQL_TG_USER="tanaguru"                                \
-    MYSQL_TG_HOST="-h172.17.0.3"                            \
+    MYSQL_TG_HOST="172.17.0.3"                            \
     MYSQL_TG_PASSWD="tanaguru"                              \
     MYSQL_TG_DB="tanaguru"                                  \
     TG_ADMIN_EMAIL="support@tanaguru.com"                   \
     TG_ADMIN_PASSWD="admin"                                 \
     FIREFOX_PATH="/opt/firefox/firefox"                     \
-    TG_VERSION="6.0.0"                                      \
+    TG_VERSION="6.1.0-SNAPSHOT"                                      \
     TG_URL="localhost:8080/tanaguru"                        \
     MY_DEFAULT_TOMCAT="/var/lib/tomcat8/bin/catalina.sh"    \
     TG_CONF_DIR="/etc/tanaguru/"                            \
@@ -45,8 +45,11 @@ RUN a2enmod -q proxy_http                                                       
 
 # INSTALL PREREQUISITES
 ## OPEN JDK 8
-RUN apt-get install -y openjdk-8-jre                 && \
+RUN apt-get install -y openjdk-8-jre                && \
     update-java-alternatives -s java-1.8.0-openjdk
+
+## MYSQL CLIENT
+RUN apt-get install -y mysql-client libmysql-java
 
 ## TOMCAT
 ADD http://mirrors.standaloneinstaller.com/apache/tomcat/tomcat-8/v8.5.42/bin/apache-tomcat-8.5.42.tar.gz /
