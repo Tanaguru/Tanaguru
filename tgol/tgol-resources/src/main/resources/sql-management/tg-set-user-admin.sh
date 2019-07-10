@@ -3,6 +3,7 @@
 # 20111102 mfaure
 
 # For Getopts: very first ":" for error managing, then a ":" after each option requiring an argument
+DbHost=
 DbUser=
 DbUserPasswd=
 DbName=
@@ -20,6 +21,6 @@ if [ -z "$Email" ] ; then
 	exit -1
 fi
 
-mysql -u $DbUser -p$DbUserPasswd $DbName -e "
+mysql -h $DbHost -u $DbUser -p$DbUserPasswd $DbName -e "
 UPDATE TGSI_USER SET ROLE_Id_Role=3 WHERE Email1 like \"$Email\";
 "
