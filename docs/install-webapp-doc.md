@@ -30,7 +30,8 @@ where $tgUser is the tanaguru user, $tgPassword is the tanaguru user password, a
 ## Execute the installation script
 
 ```sh
-sudo ./install.sh --mysql-tg-db <Tanaguru_mysql_db> \ 
+sudo ./install.sh --mysql-tg-host <Tanaguru_mysql_host> \
+                  --mysql-tg-db <Tanaguru_mysql_db> \ 
                   --mysql-tg-user <Tanaguru_mysql_user> \
                   --mysql-tg-passwd <Tanaguru_mysql_password> \
                   --tanaguru-url <Tanaguru_webapp_url> \
@@ -44,7 +45,7 @@ sudo ./install.sh --mysql-tg-db <Tanaguru_mysql_db> \
 
 ### Script options description
 
-
+* **--mysql-tg-host** : Mysql server host for Tanaguru
 * **--mysql-tg-user** : Mysql user for Tanaguru
 * **--mysql-tg-passwd** : Password of the user specified by --mysql-tg-user. if this user already exists, please ensure you give its correct password. If not, the user will be automatically created.
 * **--mysql-tg-db** : Database for Tanaguru
@@ -59,7 +60,8 @@ sudo ./install.sh --mysql-tg-db <Tanaguru_mysql_db> \
 ### Example of install-script invocation
 
 ```sh
-sudo ./install.sh --mysql-tg-user tanaguru \
+sudo ./install.sh --mysql-tg-host localhost \
+                  --mysql-tg-user tanaguru \
                   --mysql-tg-passwd $MyTGPassWord \
                   --mysql-tg-db tanaguru \
                   --tanaguru-url http://localhost:8080/tanaguru/ \

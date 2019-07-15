@@ -1,4 +1,12 @@
 --------------------------
+Tanaguru 6.0.1, 2019-07-15
+--------------------------
+Features :
+
+- Update rule 11.03.01
+- Add docker images (myqsl, tanaguru only, tanaguru + mysql)
+
+--------------------------
 Tanaguru 6.0.0, 2019-04-09
 --------------------------
 

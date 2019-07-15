@@ -174,8 +174,27 @@ public final class CssLikeQueryStore {
     // Form theme css-like queries
     public static final String FORM_WITHOUT_FIELDSET_CSS_LIKE_QUERY
             = "form:not(:has(fieldset))";
+    public static final String FORM_TITLE_CSS_LIKE_QUERY
+    		= "textarea[title], "
+    	    + "select[title], "
+            + "datalist[title], "
+            + "keygen[title], "
+            + "input[type=password][title] , "
+            + "input[type=checkbox][title] , "
+            + "input[type=file][title] , "
+            + "input[type=text][title] , "
+            + "input[type=search][title] , "
+            + "input[type=tel][title] , "
+            + "input[type=email][title] , "
+            + "input[type=number][title] , "
+            + "input[type=url][title] , "
+            + "input[type=date][title] , "
+            + "input[type=range][title] , "
+            + "input[type=color][title] , "
+            + "input[type=time][title] , "
+            + "input[type=radio][title]";
     public static final String FORM_ARIA_CSS_LIKE_QUERY
-            = "textarea[aria-label], "
+    		= "textarea[aria-label], "
             + "textarea[aria-labelledby], "
             + "select[aria-label], "
             + "select[aria-labelledby], "
@@ -183,8 +202,46 @@ public final class CssLikeQueryStore {
             + "datalist[aria-labelledby], "
             + "keygen[aria-label], "
             + "keygen[aria-labelledby], "
-            + "input[aria-label]:not([type=submit]):not([type=reset]):not([type=image]):not([type=button]),"
-            + "input[aria-labelledby]:not([type=submit]):not([type=reset]):not([type=image]):not([type=button])";
+            + "input[aria-label]:not([type=submit]):not([type=reset]):not([type=image]):not([type=button]),:not([type=hidden]),"
+            + "input[aria-labelledby]:not([type=submit]):not([type=reset]):not([type=image]):not([type=button]),:not([type=hidden])";
+    public static final String FORM_ARIA_LABEL_CSS_LIKE_QUERY
+			= "textarea[aria-label], "
+		    + "select[aria-label], "
+		    + "datalist[aria-label], "
+		    + "keygen[aria-label], "
+            + "input[type=password][aria-label] , "
+            + "input[type=checkbox][aria-label] , "
+            + "input[type=file][aria-label] , "
+            + "input[type=text][aria-label] , "
+            + "input[type=search][aria-label] , "
+            + "input[type=tel][aria-label] , "
+            + "input[type=email][aria-label] , "
+            + "input[type=number][aria-label] , "
+            + "input[type=url][aria-label] , "
+            + "input[type=date][aria-label], "
+            + "input[type=range][aria-label] , "
+            + "input[type=color][aria-label] , "
+            + "input[type=time][aria-label] , "
+            + "input[type=radio][aria-label]";
+    public static final String FORM_ARIA_LABELLEDBY_CSS_LIKE_QUERY
+			= "textarea[aria-labelledby], "
+		    + "select[aria-labelledby], "
+		    + "datalist[aria-labelledby], "
+		    + "keygen[aria-labelledby], "
+            + "input[type=password][aria-labelledby] , "
+            + "input[type=checkbox][aria-labelledby] , "
+            + "input[type=file][aria-labelledby] , "
+            + "input[type=text][aria-labelledby] , "
+            + "input[type=search][aria-labelledby] , "
+            + "input[type=tel][aria-labelledby] , "
+            + "input[type=email][aria-labelledby] , "
+            + "input[type=number][aria-labelledby] , "
+            + "input[type=url][aria-labelledby] , "
+            + "input[type=date][aria-labelledby] , "
+            + "input[type=range][aria-labelledby] , "
+            + "input[type=color][aria-labelledby] , "
+            + "input[type=time][aria-labelledby] , "
+            + "input[type=radio][aria-labelledby]";
     public static final String FORM_ELEMENT_CSS_LIKE_QUERY
             = "textarea , "
             + "select , "
