@@ -2,6 +2,7 @@
 
 declare prefix="/"
 
+declare mysql_tg_host=
 declare mysql_tg_user=
 declare mysql_tg_passwd=
 declare mysql_tg_db=
@@ -34,6 +35,7 @@ declare TG_WAR_VERSION=$TG_VERSION
 declare TG_WAR="tgol-web-app-$TG_WAR_VERSION.war"
 
 declare -a OPTIONS=(
+    mysql_tg_host
 	mysql_tg_user
 	mysql_tg_passwd
 	mysql_tg_db
@@ -98,7 +100,8 @@ prerequesites() {
 usage() {
 	cat << EOF
 
-Usage : $0 [-h] 
+Usage : $0 [-h]
+        --mysql-tg-host <Tanaguru mysql host>
         --mysql-tg-db <Tanaguru mysql db> 
         --mysql-tg-user <Tanaguru mysql user> 
         --mysql-tg-psswd <Tanaguru mysql password> 
@@ -112,6 +115,7 @@ Usage : $0 [-h]
 	--tg_version <tanaguru version>
 	
 Installation options :
+ --mysql-tg-host             Mysql server host for Tanaguru
  --mysql-tg-user             Mysql user for Tanaguru
  --mysql-tg-passwd           Password of the user specified by --mysql-tg-user
  --mysql-tg-db               Database for Tanaguru
@@ -201,6 +205,7 @@ echo_configuration_summary() {
 Installing Tanaguru with the following configuration :
  - The current version of tanaguru is "${tg_version}
  - All path are relative to "${prefix}"
+ - The mysql host where the database will be stored
  - The mysql user "${mysql_tg_user}" will be created and used by Tanaguru
  - The mysql database "${mysql_tg_db}" will be created and used by Tanaguru
  - The web application will be installed in "${tomcat_webapps}/${tanaguru_webapp_dir}"
@@ -220,7 +225,8 @@ create_tables() {
 	cd "$PKG_DIR/install/engine/sql"
 	cat tanaguru-20-create-tables.sql                \
 	    tanaguru-30-insert.sql |                     \
-		mysql --user=${mysql_tg_user}            \
+		mysql -h ${mysql_tg_host}                \
+		      --user=${mysql_tg_user}            \
 		      --password=${mysql_tg_passwd}      \
                       ${mysql_tg_db} ||                  \
 		fail "Unable to create the engine tables."\
@@ -230,7 +236,8 @@ create_tables() {
 
 	cd "$PKG_DIR/install/web-app/sql"
 	cat tgol-20-create-tables.sql tgol-30-insert.sql | \
-		mysql --user=${mysql_tg_user}            \
+		mysql -h ${mysql_tg_host}                \
+		      --user=${mysql_tg_user}            \
 		      --password=${mysql_tg_passwd}      \
                       ${mysql_tg_db} ||                  \
 		fail "Unable to create and fill the TGSI tables" \
@@ -241,7 +248,8 @@ create_tables() {
 	cd "$PKG_DIR/install/rules/sql"
 	cat 10-rules-resources-insert.sql        \
             rgaa3-2017-insert.sql |              \
-		mysql --user=${mysql_tg_user}            \
+		mysql -h ${mysql_tg_host}                \
+		      --user=${mysql_tg_user}            \
 		      --password=${mysql_tg_passwd}      \
                       ${mysql_tg_db} ||                  \
 		fail "Unable to create the rules tables" \
@@ -292,7 +300,7 @@ install_configuration() {
 		fail "Unable to copy the tanaguru configuration"
 	sed -i -e "s#\$TGOL-DEPLOYMENT-PATH .*#${tomcat_webapps}/${tanaguru_webapp_dir}/WEB-INF/conf#" \
 	    -e    "s#\$WEB-APP-URL .*#${tanaguru_url}#"               \
-	    -e    "s#\$SQL_SERVER_URL#localhost#"                     \
+	    -e    "s#\$SQL_SERVER_URL#$mysql_tg_host#"                     \
 	    -e    "s#\$USER#$mysql_tg_user#"                          \
 	    -e    "s#\$PASSWORD#$mysql_tg_passwd#"                    \
 	    -e    "s#\$DATABASE_NAME#$mysql_tg_db#"                   \
@@ -330,7 +338,8 @@ edit_esapi_configuration_file() {
 create_first_user() {
 
 	cd "$PKG_DIR/install/web-app/sql-management"
-        sed -i -e "s/^DbUser=.*$/DbUser=$mysql_tg_user/g" 	\
+        sed -i -e "s/^DbHost=.*$/DbHost=$mysql_tg_host/g" 	\
+        -e "s/^DbUser=.*$/DbUser=$mysql_tg_user/g" 	\
 	    -e "s/^DbUserPasswd=.*$/DbUserPasswd=$mysql_tg_passwd/g" \
 	    -e "s/^DbName=.*$/DbName=$mysql_tg_db/g"  \
             tg-set-user-admin.sh tg-create-user.sh  ||   \

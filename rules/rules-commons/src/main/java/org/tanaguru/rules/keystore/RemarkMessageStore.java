@@ -340,6 +340,8 @@ public final class RemarkMessageStore {
     public static final String CHECK_FORM_ARIA_MSG= "CheckFormAria";
     public static final String FORM_NOT_REFERENCED_MSG
     		= "FormElementNotReferenced";
+    public static final String CHECK_REPEATED_LABEL_PERTINENCE_MSG
+    		= "CheckRepeatedLabelPertinence";
 
     // table
     public static final String SUMMARY_MISSING_MSG = "SummaryMissing";
