@@ -100,7 +100,8 @@ prerequesites() {
 usage() {
 	cat << EOF
 
-Usage : $0 [-h] 
+Usage : $0 [-h]
+        --mysql-tg-host <Tanaguru mysql host>
         --mysql-tg-db <Tanaguru mysql db> 
         --mysql-tg-user <Tanaguru mysql user> 
         --mysql-tg-psswd <Tanaguru mysql password> 
@@ -114,6 +115,7 @@ Usage : $0 [-h]
 	--tg_version <tanaguru version>
 	
 Installation options :
+ --mysql-tg-host             Mysql server host for Tanaguru
  --mysql-tg-user             Mysql user for Tanaguru
  --mysql-tg-passwd           Password of the user specified by --mysql-tg-user
  --mysql-tg-db               Database for Tanaguru

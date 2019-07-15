@@ -15,7 +15,7 @@ Here is the list of the parameters you can found in the /etc/tanaguru/tanaguru.c
 |**hibernate.dialect**           | Represents a dialect of SQL implemented by a particular RDBMS |  |
 |**isAllowedToSendKrashReport**  | Authorize the application to send krash reports | |
 |**jdbc.driverClassName**        | JDBC driver class | com.mysql.jdbc.Driver |
-|**jdbc.url**                    | JDBC Url | Depends on the value of the "**--mysql-tg-db**" installation script option |
+|**jdbc.url**                    | JDBC Url | Depends on the value of "**--mysql-tg-db**" and "**--mysql-tg-host**" installation script options |
 |**jdbc.username**               | JDBC Username | Depends on the value of the "**--mysql-tg-user**" installation script option |
 |**jdbc.password**               | JDBC Password | Depends on the value of the "**--mysql-tg-passwd**" installation script option |
 |**jpa.showSql**                 | Enable/Disable the log traces in the mysql log file (for debug purpose). | false |
