@@ -11,7 +11,7 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>
             classpath:/conf/context/tgol-service.xml
-            /WEB-INF/conf/tgol-security.xml
+            /WEB-INF/conf/tgol-security-SM.xml
         </param-value>
     </context-param>
 
