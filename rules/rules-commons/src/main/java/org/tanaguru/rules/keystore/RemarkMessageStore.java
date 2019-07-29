@@ -420,7 +420,7 @@ public final class RemarkMessageStore {
 
     // mandatory elements 
     public static final String TITLE_TAG_MISSING_MSG = "TitleTagMissing";
-    public static final String MULTIPLE_TITLE_TAG_IN_THE_BODY_MSG= "MultipleTitleTagMessage";
+    public static final String MULTIPLE_TITLE_TAG_MSG= "MultipleTitleTagMessage";
     public static final String TITLE_TAG_IN_THE_BODY_MSG = "TitleTagInTheBody";
     public static final String NOT_PERTINENT_TITLE_MSG = "NotPertinentTitle";
     public static final String CHECK_TITLE_PERTINENCE_MSG = "CheckTitlePertinence";
