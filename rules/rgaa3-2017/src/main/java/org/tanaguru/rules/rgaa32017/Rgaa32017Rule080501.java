@@ -23,7 +23,7 @@ import static org.tanaguru.entity.audit.TestSolution.FAILED;
 import static org.tanaguru.entity.audit.TestSolution.PASSED;
 import static org.tanaguru.rules.keystore.CssLikeQueryStore.TITLE_CSS_LIKE_QUERY;
 import static org.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.MULTIPLE_TITLE_TAG_IN_THE_BODY_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.MULTIPLE_TITLE_TAG_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.TITLE_TAG_IN_THE_BODY_MSG;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.TITLE_TAG_MISSING_MSG;
 
@@ -47,11 +47,14 @@ import org.tanaguru.rules.elementselector.MultipleElementSelector;
  */
 public class Rgaa32017Rule080501 extends AbstractPageRuleWithSelectorAndCheckerImplementation {
     
-	
+	/* ElementHandler to keep all title element present in the head part */
     private final ElementHandler<Element> titleElementInBody = new ElementHandlerImpl();
+    
+    /* ElementHandler to keep all title element present in the body part */
     private final ElementHandler<Element> titleElementInHead = new ElementHandlerImpl();
-    private final ElementHandler<Element> multipleTitleElementInBody = new ElementHandlerImpl();
-    private final ElementHandler<Element> multipleTitleElementInHead = new ElementHandlerImpl();
+    
+    /* First title element detected in the head part */
+    private Element firstHeadElement;
     
     /**
      * Default constructor
@@ -66,115 +69,88 @@ public class Rgaa32017Rule080501 extends AbstractPageRuleWithSelectorAndCheckerI
 	protected void select(SSPHandler sspHandler) {
         super.select(sspHandler);                 
         
-        if(getElements().get() != null) {
-      
-	      for (Element el : getElements().get()) {
+        for (Element el : getElements().get()) {
 	    	
 	    	for(Element element : el.parents()) {
-		    		
-		    	  	if(element.tagName().equals("head")) {
 
-		    	  		if(titleElementInHead.isEmpty()) {
-		    	  			
-		    	  			titleElementInHead.add(el);
-		    	  			
-		    	  		}else {
-		    	  			
-		    	  			multipleTitleElementInHead.addAll(titleElementInHead.get());
-		    	  			String str = el.html().replaceFirst("<title>","<test>");
+	    		// title in svg element isn't used for a title page so it's out of scope
+		    	if(element.tagName().equals("svg")) {
+		    		break;
+		    	}
+		    	
+	    		if(element.tagName().equals("head")) {
 
-		    	  			while(str.contains("<title>")) {
-		  	        		  str = str.replaceFirst("<title>","<test>");
-		  	        		  multipleTitleElementInHead.add(el);
-		    	  			}	
-		    	  		}
+	    			if(titleElementInHead.isEmpty()) {
+		    	  		firstHeadElement = el;
 		    	  	}
-		    	  	
-		    	  	if(element.tagName().equals("body")) {
-		    	  		
-		    	  		if(titleElementInBody.isEmpty()) {
-		    	  			
-		    	  			titleElementInBody.add(el);
-		    	  			
-		    	  		}else {
-		    	  			
-		    	  			multipleTitleElementInBody.addAll(titleElementInBody.get());
-		    	  			String str = el.html().replaceFirst("<title>","<test>");
-
-		    	  			while(str.contains("<title>")) {
-		    	  				str = str.replaceFirst("<title>","<test>");
-		    	  				multipleTitleElementInBody.add(el);
-		    	  			}
-		    	  		}
-		    	  	}
+	    			titleElementInHead.add(el);
 	    		}
-		    }
-	     }     
+		    	  	
+	    		if(element.tagName().equals("body")) {
+	    			titleElementInBody.add(el);
+	    		}
+	    	}
+        }
 	 }
     
 
 	protected void check(SSPHandler sspHandler, TestSolutionHandler testSolutionHandler) {
-  
         
-        ElementChecker ec = new ElementPresenceChecker( 
-                new ImmutablePair(PASSED,""),
-                new ImmutablePair(FAILED, TITLE_TAG_MISSING_MSG));
-        
-        
-  		if(titleElementInHead.isEmpty() && titleElementInBody.isEmpty()) {
-  			
-  			ec = new ElementPresenceChecker( 
+        //check if there is no title tag in the head
+  		if(titleElementInHead.isEmpty()) {
+
+  			ElementChecker ec = new ElementPresenceChecker( 
                       new ImmutablePair(FAILED,""),
                       new ImmutablePair(FAILED, TITLE_TAG_MISSING_MSG));
-  			ec.check(sspHandler, getElements(), testSolutionHandler);
+  			ec.check(sspHandler, titleElementInHead, testSolutionHandler);
   		}
   		
-  		
+  		//check if there is title tag in the head
   		if (!titleElementInHead.isEmpty()) {
-  			if(titleElementInHead.size() == 1 && multipleTitleElementInHead.isEmpty()) {
-	  			
-			    ec = new ElementPresenceChecker( 
+  			
+  			if(titleElementInHead.size() == 1 ) {
+  				
+  				ElementChecker ec = new ElementPresenceChecker( 
 					   	new ImmutablePair(PASSED,""),
 					    new ImmutablePair(FAILED,""),
 					    TEXT_ELEMENT2);
 			    ec.check(sspHandler, titleElementInHead, testSolutionHandler);
 			    
-  			}else if(!multipleTitleElementInHead.isEmpty()) {
-  				
-			    ec = new ElementPresenceChecker(
-					    true,
-						new ImmutablePair(FAILED,MULTIPLE_TITLE_TAG_IN_THE_BODY_MSG),
+  			}else {
+
+				//Remove the first title element detected to leave the others detected 
+	  			titleElementInHead.remove(firstHeadElement);
+	  			
+	  			ElementChecker ec = new ElementPresenceChecker(
+						new ImmutablePair(FAILED,MULTIPLE_TITLE_TAG_MSG),
 					    new ImmutablePair(PASSED,""),
-					    MULTIPLE_TITLE_TAG_IN_THE_BODY_MSG,
 					    TEXT_ELEMENT2);
-			    ec.check(sspHandler, multipleTitleElementInHead, testSolutionHandler);
+			    ec.check(sspHandler, titleElementInHead, testSolutionHandler);
   				
   			}
   		}
-		    
+		  
   		
+  		//check if there is title tag in the body
 		if(!titleElementInBody.isEmpty()){
 			 
-			 if(titleElementInBody.size() == 1 && multipleTitleElementInBody.isEmpty()) {
-				 
-			     ec = new ElementPresenceChecker( 
-				     new ImmutablePair(FAILED, TITLE_TAG_IN_THE_BODY_MSG),
-				     new ImmutablePair(PASSED,""),
-				     TEXT_ELEMENT2);
-			     ec.check(sspHandler, titleElementInBody, testSolutionHandler);
+			if(titleElementInBody.size() == 1 ) {
+
+				ElementChecker ec = new ElementPresenceChecker( 
+						new ImmutablePair(FAILED, TITLE_TAG_IN_THE_BODY_MSG),
+						new ImmutablePair(PASSED,""),
+						TEXT_ELEMENT2);
+				ec.check(sspHandler, titleElementInBody, testSolutionHandler);
 			     
-			 }else if(!multipleTitleElementInBody.isEmpty()){
-				 
-				 ec = new ElementPresenceChecker( 
-					 true,
-					 new ImmutablePair(FAILED,MULTIPLE_TITLE_TAG_IN_THE_BODY_MSG),
-					 new ImmutablePair(PASSED,""),
-					 MULTIPLE_TITLE_TAG_IN_THE_BODY_MSG,
-					 TEXT_ELEMENT2);
-				 ec.check(sspHandler, multipleTitleElementInBody, testSolutionHandler);
-	  				
-	  			}
-		  }
+			}else {
+				
+				ElementChecker ec = new ElementPresenceChecker( 
+						new ImmutablePair(FAILED,MULTIPLE_TITLE_TAG_MSG),
+						new ImmutablePair(PASSED,""),
+						TEXT_ELEMENT2);
+				ec.check(sspHandler, titleElementInBody, testSolutionHandler);
+			}
+		}
 	}
 }
 

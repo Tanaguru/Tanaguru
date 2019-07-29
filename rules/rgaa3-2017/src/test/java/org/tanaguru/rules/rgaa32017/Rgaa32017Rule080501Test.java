@@ -24,7 +24,7 @@ import static org.tanaguru.rules.keystore.AttributeStore.ABSENT_ATTRIBUTE_VALUE;
 import static org.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
 import static org.tanaguru.rules.keystore.CssLikeQueryStore.TITLE_CSS_LIKE_QUERY;
 import static org.tanaguru.rules.keystore.CssLikeQueryStore.NO_TITLE_IN_HTML_PAGE;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.MULTIPLE_TITLE_TAG_IN_THE_BODY_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.MULTIPLE_TITLE_TAG_MSG;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
 import org.tanaguru.entity.audit.ProcessResult;
@@ -55,19 +55,33 @@ public class Rgaa32017Rule080501Test extends Rgaa32017RuleImplementationTestCase
     @Override
     protected void setUpWebResourceMap() {
         addWebResource("Rgaa32017.Test.08.05.01-1Passed-01");
+        addWebResource("Rgaa32017.Test.08.05.01-1Passed-02");
         addWebResource("Rgaa32017.Test.08.05.01-2Failed-01");
         addWebResource("Rgaa32017.Test.08.05.01-2Failed-02");
         addWebResource("Rgaa32017.Test.08.05.01-2Failed-03");
         addWebResource("Rgaa32017.Test.08.05.01-2Failed-04");
+        addWebResource("Rgaa32017.Test.08.05.01-2Failed-05");
+        addWebResource("Rgaa32017.Test.08.05.01-2Failed-06");
+        addWebResource("Rgaa32017.Test.08.05.01-2Failed-07");
+        addWebResource("Rgaa32017.Test.08.05.01-2Failed-08");
+        addWebResource("Rgaa32017.Test.08.05.01-2Failed-09");
+        addWebResource("Rgaa32017.Test.08.05.01-2Failed-10");
 
     }
 
     @Override
     protected void setProcess() {
+    	
         //----------------------------------------------------------------------
         //------------------------------1Passed-01------------------------------
         //----------------------------------------------------------------------
-        checkResultIsPassed(processPageTest("Rgaa32017.Test.08.05.01-1Passed-01"),1);        
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.08.05.01-1Passed-01"),1);  
+        
+        
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-02------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa32017.Test.08.05.01-1Passed-02"),2);    
         
         
         //----------------------------------------------------------------------
@@ -88,13 +102,20 @@ public class Rgaa32017Rule080501Test extends Rgaa32017RuleImplementationTestCase
         //----------------------------2Failed-02--------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.08.05.01-2Failed-02");
-        checkResultIsFailed(processResult, 1, 1);
+        checkResultIsFailed(processResult, 1, 2);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                RemarkMessageStore.TITLE_TAG_MISSING_MSG,
+                NO_TITLE_IN_HTML_PAGE,
+                1,
+                new ImmutablePair(TEXT_ELEMENT2, ABSENT_ATTRIBUTE_VALUE));
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
                 RemarkMessageStore.TITLE_TAG_IN_THE_BODY_MSG,
                 TITLE_CSS_LIKE_QUERY,
-                1,
+                2,
                 new ImmutablePair(TEXT_ELEMENT2, "Rgaa32017 Test.8.5.1 Failed 02"));
         
 
@@ -106,18 +127,143 @@ public class Rgaa32017Rule080501Test extends Rgaa32017RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
-                MULTIPLE_TITLE_TAG_IN_THE_BODY_MSG,
+                MULTIPLE_TITLE_TAG_MSG,
                 TITLE_CSS_LIKE_QUERY,
                 1,
-                new ImmutablePair(TEXT_ELEMENT2, "Rgaa32017 Test.8.5.1 Failed 03"));
-        
+                new ImmutablePair(TEXT_ELEMENT2, "Rgaa32017 Test.8.5.1 Failed 03"));         
 
 
         //----------------------------------------------------------------------
         //----------------------------2Failed-04--------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa32017.Test.08.05.01-2Failed-04");
+        checkResultIsFailed(processResult, 2, 3);          
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                RemarkMessageStore.TITLE_TAG_MISSING_MSG,
+                NO_TITLE_IN_HTML_PAGE,
+                1,
+                new ImmutablePair(TEXT_ELEMENT2, ABSENT_ATTRIBUTE_VALUE));
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                MULTIPLE_TITLE_TAG_MSG,
+                TITLE_CSS_LIKE_QUERY,
+                2,
+                new ImmutablePair(TEXT_ELEMENT2, "Rgaa32017 Test.8.5.1 Failed 03")); 
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                MULTIPLE_TITLE_TAG_MSG,
+                TITLE_CSS_LIKE_QUERY,
+                3,
+                new ImmutablePair(TEXT_ELEMENT2, "Rgaa32017 Test.8.5.1 Failed 03 (with two title tags)")); 
+
+
+        //----------------------------------------------------------------------
+        //----------------------------2Failed-05--------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.08.05.01-2Failed-05");
         checkResultIsFailed(processResult, 2, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                RemarkMessageStore.TITLE_TAG_IN_THE_BODY_MSG,
+                TITLE_CSS_LIKE_QUERY,
+                1,
+                new ImmutablePair(TEXT_ELEMENT2, "TITLE ADDED"));  
+
+
+        //----------------------------------------------------------------------
+        //----------------------------2Failed-06--------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.08.05.01-2Failed-06");
+        checkResultIsFailed(processResult, 3, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                RemarkMessageStore.TITLE_TAG_IN_THE_BODY_MSG,
+                TITLE_CSS_LIKE_QUERY,
+                1,
+                new ImmutablePair(TEXT_ELEMENT2, "TITLE ADDED"));  
+
+
+        //----------------------------------------------------------------------
+        //----------------------------2Failed-07--------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.08.05.01-2Failed-07");
+        checkResultIsFailed(processResult, 2, 2);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                RemarkMessageStore.TITLE_TAG_MISSING_MSG,
+                NO_TITLE_IN_HTML_PAGE,
+                1,
+                new ImmutablePair(TEXT_ELEMENT2, ABSENT_ATTRIBUTE_VALUE));
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                RemarkMessageStore.TITLE_TAG_IN_THE_BODY_MSG,
+                TITLE_CSS_LIKE_QUERY,
+                2,
+                new ImmutablePair(TEXT_ELEMENT2, "TITLE ADDED"));  
+
+
+        //----------------------------------------------------------------------
+        //----------------------------2Failed-08--------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.08.05.01-2Failed-08");
+        checkResultIsFailed(processResult, 3, 3);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                RemarkMessageStore.TITLE_TAG_MISSING_MSG,
+                NO_TITLE_IN_HTML_PAGE,
+                1,
+                new ImmutablePair(TEXT_ELEMENT2, ABSENT_ATTRIBUTE_VALUE));
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                RemarkMessageStore.MULTIPLE_TITLE_TAG_MSG,
+                TITLE_CSS_LIKE_QUERY,
+                2,
+                new ImmutablePair(TEXT_ELEMENT2, "Rgaa32017 Test.8.5.1 Failed 08")); 
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                RemarkMessageStore.MULTIPLE_TITLE_TAG_MSG,
+                TITLE_CSS_LIKE_QUERY,
+                3,
+                new ImmutablePair(TEXT_ELEMENT2, "Rgaa32017 Test.8.5.1 Failed 08 (with two title tags)"));  
+
+
+        //----------------------------------------------------------------------
+        //----------------------------2Failed-09--------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.08.05.01-2Failed-09");
+        checkResultIsFailed(processResult, 3, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                RemarkMessageStore.MULTIPLE_TITLE_TAG_MSG,
+                TITLE_CSS_LIKE_QUERY,
+                1,
+                new ImmutablePair(TEXT_ELEMENT2, "Rgaa32017 Test.8.5.1 Failed 09 (with two title tags)"));  
+
+
+        //----------------------------------------------------------------------
+        //----------------------------2Failed-10--------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa32017.Test.08.05.01-2Failed-10");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                RemarkMessageStore.TITLE_TAG_MISSING_MSG,
+                NO_TITLE_IN_HTML_PAGE,
+                1,
+                new ImmutablePair(TEXT_ELEMENT2, ABSENT_ATTRIBUTE_VALUE));
         
     }
 
