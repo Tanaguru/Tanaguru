@@ -129,6 +129,10 @@
             <groupId>${rulesGroupId}</groupId>
             <artifactId>tanaguru-rgaa3-2017</artifactId>
         </dependency>
+        <dependency>
+            <groupId>${rulesGroupId}</groupId>
+            <artifactId>tanaguru-rgaa4-2019</artifactId>
+        </dependency>
        
         
         <!-- spring dependencies -->

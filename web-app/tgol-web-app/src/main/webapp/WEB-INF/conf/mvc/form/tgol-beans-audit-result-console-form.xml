@@ -572,7 +572,7 @@
     </bean>
         <bean id="rgaa32017-4ThemeSelectElementBuilder" class="org.tanaguru.webapp.form.builder.SelectElementBuilderImpl">
         <property name="value" value="Rgaa32017-4"/>
-        <property name="i18nKey" value="Rgaa32017-4"/>
+        <property name="i18nKey" value="Rgaa42019-4"/>
         <property name="errorI18nKey" value=""/>
         <property name="default" value="false"/>
         <property name="enabled" value="true"/>
@@ -669,6 +669,136 @@
         </property>
     </bean>
 
+
+    <!-- Rgaa 32017 --> 
+    <bean id="rgaa42019AllThemeSelectElementBuilder" class="org.tanaguru.webapp.form.builder.SelectElementBuilderImpl">
+        <property name="value" value="all-theme"/>
+        <property name="i18nKey" value="result.all-theme"/>
+        <property name="errorI18nKey" value="all-theme-error"/>
+        <property name="default" value="true"/>
+        <property name="enabled" value="true"/>
+    </bean>
+
+        <bean id="rgaa42019-1ThemeSelectElementBuilder" class="org.tanaguru.webapp.form.builder.SelectElementBuilderImpl">
+        <property name="value" value="Rgaa42019-1"/>
+        <property name="i18nKey" value="Rgaa42019-1"/>
+        <property name="errorI18nKey" value=""/>
+        <property name="default" value="false"/>
+        <property name="enabled" value="true"/>
+    </bean>
+        <bean id="rgaa42019-2ThemeSelectElementBuilder" class="org.tanaguru.webapp.form.builder.SelectElementBuilderImpl">
+        <property name="value" value="Rgaa42019-2"/>
+        <property name="i18nKey" value="Rgaa42019-2"/>
+        <property name="errorI18nKey" value=""/>
+        <property name="default" value="false"/>
+        <property name="enabled" value="true"/>
+    </bean>
+        <bean id="rgaa42019-3ThemeSelectElementBuilder" class="org.tanaguru.webapp.form.builder.SelectElementBuilderImpl">
+        <property name="value" value="Rgaa42019-3"/>
+        <property name="i18nKey" value="Rgaa42019-3"/>
+        <property name="errorI18nKey" value=""/>
+        <property name="default" value="false"/>
+        <property name="enabled" value="true"/>
+    </bean>
+        <bean id="rgaa42019-4ThemeSelectElementBuilder" class="org.tanaguru.webapp.form.builder.SelectElementBuilderImpl">
+        <property name="value" value="Rgaa42019-4"/>
+        <property name="i18nKey" value="Rgaa42019-4"/>
+        <property name="errorI18nKey" value=""/>
+        <property name="default" value="false"/>
+        <property name="enabled" value="true"/>
+    </bean>
+        <bean id="rgaa42019-5ThemeSelectElementBuilder" class="org.tanaguru.webapp.form.builder.SelectElementBuilderImpl">
+        <property name="value" value="Rgaa42019-5"/>
+        <property name="i18nKey" value="Rgaa42019-5"/>
+        <property name="errorI18nKey" value=""/>
+        <property name="default" value="false"/>
+        <property name="enabled" value="true"/>
+    </bean>
+        <bean id="rgaa42019-6ThemeSelectElementBuilder" class="org.tanaguru.webapp.form.builder.SelectElementBuilderImpl">
+        <property name="value" value="Rgaa42019-6"/>
+        <property name="i18nKey" value="Rgaa42019-6"/>
+        <property name="errorI18nKey" value=""/>
+        <property name="default" value="false"/>
+        <property name="enabled" value="true"/>
+    </bean>
+        <bean id="rgaa42019-7ThemeSelectElementBuilder" class="org.tanaguru.webapp.form.builder.SelectElementBuilderImpl">
+        <property name="value" value="Rgaa42019-7"/>
+        <property name="i18nKey" value="Rgaa42019-7"/>
+        <property name="errorI18nKey" value=""/>
+        <property name="default" value="false"/>
+        <property name="enabled" value="true"/>
+    </bean>
+        <bean id="rgaa42019-8ThemeSelectElementBuilder" class="org.tanaguru.webapp.form.builder.SelectElementBuilderImpl">
+        <property name="value" value="Rgaa42019-8"/>
+        <property name="i18nKey" value="Rgaa42019-8"/>
+        <property name="errorI18nKey" value=""/>
+        <property name="default" value="false"/>
+        <property name="enabled" value="true"/>
+    </bean>
+        <bean id="rgaa42019-9ThemeSelectElementBuilder" class="org.tanaguru.webapp.form.builder.SelectElementBuilderImpl">
+        <property name="value" value="Rgaa42019-9"/>
+        <property name="i18nKey" value="Rgaa42019-9"/>
+        <property name="errorI18nKey" value=""/>
+        <property name="default" value="false"/>
+        <property name="enabled" value="true"/>
+    </bean>
+        <bean id="rgaa42019-10ThemeSelectElementBuilder" class="org.tanaguru.webapp.form.builder.SelectElementBuilderImpl">
+        <property name="value" value="Rgaa30-10"/>
+        <property name="i18nKey" value="Rgaa42019-10"/>
+        <property name="errorI18nKey" value=""/>
+        <property name="default" value="false"/>
+        <property name="enabled" value="true"/>
+    </bean>
+        <bean id="rgaa42019-11ThemeSelectElementBuilder" class="org.tanaguru.webapp.form.builder.SelectElementBuilderImpl">
+        <property name="value" value="Rgaa42019-11"/>
+        <property name="i18nKey" value="Rgaa42019-11"/>
+        <property name="errorI18nKey" value=""/>
+        <property name="default" value="false"/>
+        <property name="enabled" value="true"/>
+    </bean>
+        <bean id="rgaa42019-12ThemeSelectElementBuilder" class="org.tanaguru.webapp.form.builder.SelectElementBuilderImpl">
+        <property name="value" value="Rgaa42019-12"/>
+        <property name="i18nKey" value="Rgaa42019-12"/>
+        <property name="errorI18nKey" value=""/>
+        <property name="default" value="false"/>
+        <property name="enabled" value="true"/>
+    </bean>
+        <bean id="rgaa42019-13ThemeSelectElementBuilder" class="org.tanaguru.webapp.form.builder.SelectElementBuilderImpl">
+        <property name="value" value="Rgaa42019-13"/>
+        <property name="i18nKey" value="Rgaa42019-13"/>
+        <property name="errorI18nKey" value=""/>
+        <property name="default" value="false"/>
+        <property name="enabled" value="true"/>
+    </bean>
+        
+     <bean id="rgaa42019ThemeSelectFormFieldBuilder" class="org.tanaguru.webapp.form.builder.SelectFormFieldBuilderImpl">
+        <property name="i18nKey" value="result.theme"/>
+        <property name="errorI18nKey" value="result.theme-error"/>
+        <property name="value" value="Rgaa42019"/>
+        <property name="selectElementBuilderMap">
+            <map>
+                <entry key="theme">
+                    <list>
+                        <ref local="rgaa42019AllThemeSelectElementBuilder"/>
+                        <ref local="rgaa42019-1ThemeSelectElementBuilder"/>
+                        <ref local="rgaa42019-2ThemeSelectElementBuilder"/>
+                        <ref local="rgaa42019-3ThemeSelectElementBuilder"/>
+                        <ref local="rgaa42019-4ThemeSelectElementBuilder"/>
+                        <ref local="rgaa42019-5ThemeSelectElementBuilder"/>
+                        <ref local="rgaa42019-6ThemeSelectElementBuilder"/>
+                        <ref local="rgaa42019-7ThemeSelectElementBuilder"/>
+                        <ref local="rgaa42019-8ThemeSelectElementBuilder"/>
+                        <ref local="rgaa42019-9ThemeSelectElementBuilder"/>
+                        <ref local="rgaa42019-10ThemeSelectElementBuilder"/>
+                        <ref local="rgaa42019-11ThemeSelectElementBuilder"/>
+                        <ref local="rgaa42019-12ThemeSelectElementBuilder"/>
+                        <ref local="rgaa42019-13ThemeSelectElementBuilder"/>
+                    </list>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
     <bean id="passedCheckboxElementBuilder" class="org.tanaguru.webapp.form.builder.CheckboxElementBuilderImpl">
         <property name="value" value="PASSED"/>
         <property name="i18nKey" value="passed"/>

@@ -34,6 +34,7 @@ public final class CssLikeQueryStore {
     public static final String IMG_WITH_ALT_NOT_IN_LINK_WITHOUT_LONGDESC_CSS_LIKE_QUERY
             = "img[alt]:not(a img):not([longdesc])";
     public static final String IMG_NOT_IN_LINK_CSS_LIKE_QUERY = "img:not(a img)";
+    public static final String IMG_ROLE_CSS_LIKE_QUERY = "[role=img]";
     public static final String IMG_WITH_ISMAP_ATTR_CSS_LIKE_QUERY
             = "img[ismap] , "
             + "input[type=image][ismap]";
@@ -503,7 +504,7 @@ public final class CssLikeQueryStore {
     public static final String NO_TITLE_IN_HTML_PAGE 
     		= "head:not(title)"  + "body :not title";
     public static final String TITLE_CSS_LIKE_QUERY
-    		= "title";
+    		= "title:not(svg title)";
     
     public static final String HTML_WITH_LANG_CSS_LIKE_QUERY
             = "html[lang], html[xml:lang]";
@@ -597,6 +598,9 @@ public final class CssLikeQueryStore {
 
     public static final String ELEMENT_WITH_ROLE_ATTR_CSS_LIKE_QUERY
             = "*[role=checkbox], *[role=radio], *[role=textbox], *[role=combobox]";
+    
+    public static final String ELEMENT_WITH_ROLE_APPLICATION_CSS_LIKE_QUERY
+    		= "*[role=application]";
 
     // Seo 
     public static final String META_DESC_CSS_LIKE_QUERY

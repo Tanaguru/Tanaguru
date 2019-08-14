@@ -247,7 +247,8 @@ create_tables() {
 
 	cd "$PKG_DIR/install/rules/sql"
 	cat 10-rules-resources-insert.sql        \
-            rgaa3-2017-insert.sql |              \
+            rgaa3-2017-insert.sql 				\
+            rgaa4-2019-insert.sql|              \
 		mysql -h ${mysql_tg_host}                \
 		      --user=${mysql_tg_user}            \
 		      --password=${mysql_tg_passwd}      \
