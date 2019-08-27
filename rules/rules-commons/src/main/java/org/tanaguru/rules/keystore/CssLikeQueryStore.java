@@ -34,6 +34,7 @@ public final class CssLikeQueryStore {
     public static final String IMG_WITH_ALT_NOT_IN_LINK_WITHOUT_LONGDESC_CSS_LIKE_QUERY
             = "img[alt]:not(a img):not([longdesc])";
     public static final String IMG_NOT_IN_LINK_CSS_LIKE_QUERY = "img:not(a img)";
+    public static final String IMG_ROLE_CSS_LIKE_QUERY = "[role=img]";
     public static final String IMG_WITH_ISMAP_ATTR_CSS_LIKE_QUERY
             = "img[ismap] , "
             + "input[type=image][ismap]";
