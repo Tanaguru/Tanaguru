@@ -34,7 +34,6 @@ public final class CssLikeQueryStore {
     public static final String IMG_WITH_ALT_NOT_IN_LINK_WITHOUT_LONGDESC_CSS_LIKE_QUERY
             = "img[alt]:not(a img):not([longdesc])";
     public static final String IMG_NOT_IN_LINK_CSS_LIKE_QUERY = "img:not(a img)";
-    public static final String IMG_ROLE_CSS_LIKE_QUERY = "[role=img]";
     public static final String IMG_WITH_ISMAP_ATTR_CSS_LIKE_QUERY
             = "img[ismap] , "
             + "input[type=image][ismap]";
@@ -283,7 +282,30 @@ public final class CssLikeQueryStore {
             + "input[type=time] ";
     
     
-    
+    public static final String INPUT_ELEMENT_CSS_LIKE_QUERY
+    		= "input[type=checkbox] , "
+    		+ "input[type=radio] , "
+    		+ "input[type=date] , "
+    		+ "input[type=range] , "
+    		+ "input[type=color] , "
+    		+ "input[type=time] , "
+    		+ "input[type=file] , "
+    		+ "input[type=password] , "
+            + "input[type=text] , "
+            + "input[type=search] , "
+            + "input[type=tel] , "
+            + "input[type=email] , "
+            + "input[type=number] , "
+            + "input[type=url] , "
+    		+ "textarea , "
+    		+ "select , "
+    		+ "datalist , "
+    		+ "optgroup , "
+    		+ "option , "
+    		+ "keygen , "
+    		+ "output , "
+    		+ "progress , "
+    		+ "meter";
     public static final String INPUT_ELEMENT_INSIDE_FORM_CSS_LIKE_QUERY
             = "form textarea:not([title]):not([aria-label]):not([aria-labelledby]) , "
             + "form select:not([title]):not([aria-label]):not([aria-labelledby]) , "
@@ -504,7 +526,7 @@ public final class CssLikeQueryStore {
     public static final String NO_TITLE_IN_HTML_PAGE 
     		= "head:not(title)"  + "body :not title";
     public static final String TITLE_CSS_LIKE_QUERY
-    		= "title:not(svg title)";
+    		= "title";
     
     public static final String HTML_WITH_LANG_CSS_LIKE_QUERY
             = "html[lang], html[xml:lang]";
@@ -598,9 +620,6 @@ public final class CssLikeQueryStore {
 
     public static final String ELEMENT_WITH_ROLE_ATTR_CSS_LIKE_QUERY
             = "*[role=checkbox], *[role=radio], *[role=textbox], *[role=combobox]";
-    
-    public static final String ELEMENT_WITH_ROLE_APPLICATION_CSS_LIKE_QUERY
-    		= "*[role=application]";
 
     // Seo 
     public static final String META_DESC_CSS_LIKE_QUERY

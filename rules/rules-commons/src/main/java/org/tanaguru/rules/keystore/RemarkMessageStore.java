@@ -103,13 +103,24 @@ public final class RemarkMessageStore {
     public static final String CHECK_SEARCH_ELEMENT_ARIA_MSG = "CheckSearchElementAria";
     
     // images
+    public static final String INVALID_TEXT_ALTERNATIVE_MSG = "InvalidAlternativeMsg";
+    public static final String TEXT_ALTERNATIVE_MISSING = "TextAlternativeMissing";
+    public static final String CHECK_NATURE_OF_IMAGE= "CheckNatureOfImage";
+    public static final String CHECK_NATURE_OF_IMAGE_WITHOUT_TEXT_ALTERNATIVE
+    		= "CheckNatureOfImageWithoutTextAlternativeMissing";
+    public static final String CHECK_NATURE_OF_IMAGE_WITH_TEXT_ALTERNATIVE
+			= "CheckNatureOfImageWithTextAlternative";
     public static final String ALT_MISSING_MSG = "AltMissing";
     public static final String DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG
             = "DecorativeElementWithNotEmptyAltAttribute";
+    public static final String DECORATIVE_ELEMENT_WITH_TEXT_ALTERNATIVE_MSG
+    		= "DecorativeElementWithTextAlternative";
     public static final String DECORATIVE_ELEMENT_WITH_ROLE_IMG_MSG
     		= "DecorativeElementWithRoleImgAttribute";
     public static final String DECORATIVE_ELEMENT_WITHOUT_ARIA_HIDDEN_TRUE_MSG
             = "DecorativeElementWithoutAriaHiddenTrueAttribute";
+    public static final String DECORATIVE_ELEMENT_WITHOUT_ROLE_PRESENTATION_MSG
+    		= "DecorativeElementWithoutRolePresentationAttribute";
     public static final String DECORATIVE_ELEMENT_WITH_TITLE_ATTR_MSG
             = "DecorativeElementWithTitleAttribute";
     public static final String DECORATIVE_ELEMENT_WITH_ARIA_LABEL_ATTR_MSG
@@ -212,6 +223,8 @@ public final class RemarkMessageStore {
             = "SuspectedInformativeSvgWithTitleAttributeOnElementOrChild";
     public static final String SUSPECTED_DECORATIVE_ELEMENT_WITHOUT_ARIA_HIDDEN_TRUE_MSG
     		= "SuspectedDecorativeImgWithoutAriaHiddenTrueAttribute";
+    public static final String SUSPECTED_DECORATIVE_ELEMENT_WITHOUT_ROLE_PRESENTATION_MSG
+    		= "SuspectedDecorativeImgWithoutRolePresentationAttribute";
     public static final String SUSPECTED_DECORATIVE_IMG_WITH_ARIA_ATTRIBUTE_DETECTED_ON_ELEMENT_OR_CHILD
             = "SuspectedDecorativeImgWithAriaAttributeDetectedOnElementOrChild";
     public static final String SUSPECTED_DECORATIVE_IMG_WITH_TITLE_ATTRIBUTE_ON_ELEMENT_OR_CHILD

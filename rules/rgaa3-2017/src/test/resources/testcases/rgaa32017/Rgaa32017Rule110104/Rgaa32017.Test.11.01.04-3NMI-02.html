@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    <head> 
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
+        <title>Rgaa32017 Test.11.01.04 NMI 02</title> 
+    </head> 
+    <body> 
+        <div> 
+            <h1>Rgaa32017 Test.11.01.04 NMI 02</h1> 
+            <div class="test-detail" lang="fr"> Chaque 
+                <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#mChpSaisie">champ de formulaire</a> qui utilise une propriété ARIA
+                <code>aria-label</code> ou <code>aria-labelledby</code> est-il, si nécessaire, accompagné d'un passage de texte visible et accolé au champ 
+                permettant de comprendre la nature de la saisie attendue ?
+            </div>
+            <div class="testcase">                 
+            	<p>Elements for input data</p>
+                <form action="http://action.html" method="post"> 
+                    <span id="NMI-02-G"> Fruits check box:</span>
+                    <div>
+	                    <input type="checkbox" name="fruit1" value="apple" aria-labelledby="NMI-02-G" /> Apple <br>
+	                    <input type="checkbox" name="fruit2" value="banana" aria-labelledby="NMI-02-G" /> Banana <br>
+	                    <input type="checkbox" name="fruit3" value="peach" aria-labelledby="NMI-02-G" /> Peach <br>
+					</div>
+                    
+                    <span id="NMI-02-H"> Fruits radios:</span> 
+                    <div>
+	                    <input type="radio" name="fruit1" value="apple" aria-labelledby="NMI-02-H" /> Apple <br>
+	                    <input type="radio" name="fruit2" value="banana" aria-labelledby="NMI-02-H" /> Banana <br>
+	                    <input type="radio" name="fruit3" value="peach" aria-labelledby="NMI-02-H" /> Peach <br>
+					</div>
+                    
+                    <span id="NMI-02-I"> Date:</span> 
+                    <input type="date" aria-labelledby="NMI-02-I" /> 
+                    
+                    <span id="NMI-02-J"> Math Mark:</span> 
+                    <input type="range" name="mark" min="5" max="20" aria-labelledby="NMI-02-J" /> 
+                    
+                    <span id="NMI-02-K"> Red color to choose:</span> 
+                    <input type="color" value="#ff0000" aria-labelledby="NMI-02-K" /> Red color
+                    
+                    <span id="NMI-02-L"> URL:</span> 
+                    <input type="time" aria-labelledby="NMI-02-L" /> 
+                </form> 
+                <p class="test-explanation"> NMI : Each input has an aria-labelledby attribute. So we need to check manually each input.</p>
+            </div> 
+        </div>   
+    </body>
+</html>
