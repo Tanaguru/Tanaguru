@@ -27,6 +27,7 @@ package org.tanaguru.rules.keystore;
 public final class CssLikeQueryStore {
 
     // Image theme css-like queries
+	public static final String ROLE_IMG_LIKE_QUERY = "[role=img]";
     public static final String IMG_WITHOUT_ALT_CSS_LIKE_QUERY = "img:not([alt])";
     public static final String IMG_WITH_ALT_CSS_LIKE_QUERY = "img[alt]";
     public static final String IMG_WITH_ALT_NOT_IN_LINK_CSS_LIKE_QUERY
