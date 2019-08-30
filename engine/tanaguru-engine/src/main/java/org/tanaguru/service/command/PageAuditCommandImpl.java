@@ -30,6 +30,8 @@ import org.apache.log4j.Logger;
 import org.tanaguru.entity.audit.AuditStatus;
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.service.audit.AuditDataService;
+import org.tanaguru.entity.subject.Site;
+import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.service.AuditServiceImpl;
 import org.tanaguru.service.ScenarioLoaderService;
 import org.tanaguru.util.FileNaming;

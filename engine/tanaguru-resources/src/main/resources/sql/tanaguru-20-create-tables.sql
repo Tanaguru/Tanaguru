@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS `WEB_RESOURCE` (
   `Rank` int DEFAULT 0,
   `Id_Audit` bigint(20) DEFAULT NULL,
   `Id_Web_Resource_Parent` bigint(20) DEFAULT NULL,
+  `Snapshot` longblob DEFAULT NULL,
   PRIMARY KEY (`Id_Web_Resource`),
   KEY `FKD9A970B9493EC9C2` (`Id_Audit`),
   CONSTRAINT `FKD9A970B9493EC9C2` 

@@ -22,6 +22,8 @@
 
 package org.tanaguru.service.command;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import org.apache.log4j.Logger;
@@ -29,6 +31,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.tanaguru.entity.audit.AuditStatus;
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.service.audit.AuditDataService;
+import org.tanaguru.entity.subject.Page;
+import org.tanaguru.entity.subject.Site;
+import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.service.AuditServiceImpl;
 import org.tanaguru.service.CrawlerService;
 import org.tanaguru.service.ScenarioLoaderService;
@@ -148,8 +153,6 @@ public abstract class CrawlAuditCommandImpl extends AuditCommandImpl {
 
 
     /**
-     * 
-     * @param url 
      */
     abstract void createEmptyWebResource();
     

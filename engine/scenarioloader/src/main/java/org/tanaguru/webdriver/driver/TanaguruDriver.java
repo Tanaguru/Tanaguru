@@ -105,8 +105,10 @@ public class TanaguruDriver implements WebDriver, JavascriptExecutor {
             LOGGER.info("Successfully loaded page, firing new page : " + url);
             Map<String, String> jsScriptResult = executeScriptMap();
             String source = getPageSource();
+            byte[] snapshot = driver.getScreenshotAs(OutputType.BYTES);
             for (NewPageListener newPageListener : newPageListenerList) {
-                newPageListener.fireNewPage(url, source, null, jsScriptResult, label);
+
+                newPageListener.fireNewPage(url, source, snapshot, jsScriptResult, label);
             }
         }else{
             LOGGER.info("Successfully loaded page, already visited : " + url);

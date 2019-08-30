@@ -32,6 +32,7 @@ import org.tanaguru.webapp.util.TgolEscapeUrl;
  */
 public class ActInfoImpl implements ActInfo, Serializable {
     private long id;
+    private String snapshot;
 
     @Override
     public long getId() {
@@ -61,6 +62,16 @@ public class ActInfoImpl implements ActInfo, Serializable {
         } else {
             return null;
         }
+    }
+
+    @Override
+    public String getSnapshot() {
+        return snapshot;
+    }
+
+    @Override
+    public void setSnapshot(String snapshot) {
+        this.snapshot = snapshot;
     }
 
     @Override

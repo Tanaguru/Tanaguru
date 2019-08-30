@@ -77,12 +77,17 @@
                             <tr id="project-${pContractSet.index}" class="one-project last-project">
                         </c:when>
                         <c:otherwise>
-                            <tr id="project-${pContractSet.index}" class="one-project">        
+                            <tr id="project-${pContractSet.index}" class="one-project">
                         </c:otherwise>
                         </c:choose>
                         <c:set var="url" scope="page" value="${contract.url}"/>
                         <c:set var="contract" scope="page" value="${contract}"/>
                         <c:set var="size" scope="page" value="T"/>
+                        <c:choose>
+                            <c:when test="${contract.lastActInfo.status == 'COMPLETED' && not empty contract.lastActInfo.snapshot}">
+                                <c:set var="snapshot" scope="page" value="${contract.lastActInfo.snapshot}"/>
+                            </c:when>
+                        </c:choose>
                         <td class="project-thumbnail">
                         <%@include file="template/thumbnail.jsp" %>
                         </td>
