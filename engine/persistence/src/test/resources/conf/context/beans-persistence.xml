@@ -15,7 +15,7 @@
         <property name="persistenceXmlLocation" value="src/test/resources/conf/context/persistence.xml"/>
         <property name="jpaProperties">
             <props>
-                <prop key="hibernate.dialect">org.tanaguru.entity.dao.test.CustomHSQLDialect</prop>
+                <prop key="hibernate.dialect">org.tanaguru.config.test.CustomHSQLDialect</prop>
                 <prop key="hibernate.show_sql">false</prop>
             </props>
         </property>

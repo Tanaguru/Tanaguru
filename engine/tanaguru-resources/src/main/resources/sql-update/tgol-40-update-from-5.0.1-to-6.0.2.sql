@@ -2,5 +2,5 @@
 -- SNAPSHOT
 -- ---------------------------------------------------------------------------------------------------------
 ALTER TABLE WEB_RESOURCE
-  ADD COLUMN `Snapshot` longblob DEFAULT NULL
+  ADD COLUMN `Snapshot` mediumblob DEFAULT NULL
   AFTER `Id_Web_Resource_Parent`;

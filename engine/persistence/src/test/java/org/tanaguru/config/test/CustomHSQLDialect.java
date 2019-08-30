@@ -1,4 +1,4 @@
-package org.tanaguru.entity.dao.test;
+package org.tanaguru.config.test;
 
 import java.sql.Types;
 
@@ -8,7 +8,7 @@ public class CustomHSQLDialect extends HSQLDialect{
 	
 	public CustomHSQLDialect() {
         super();
-        registerColumnType(Types.BLOB, "longvarbinary");
+        registerColumnType(Types.BLOB, 16777215L, "longvarbinary");
  }
 
 }
