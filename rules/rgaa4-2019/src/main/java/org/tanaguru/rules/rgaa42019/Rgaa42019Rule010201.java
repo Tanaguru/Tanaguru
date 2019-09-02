@@ -19,7 +19,30 @@
  */
 package org.tanaguru.rules.rgaa42019;
 
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.ROLE_IMG_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.HtmlElementStore.IMG_ELEMENT;
+import static org.tanaguru.rules.keystore.MarkerStore.DECORATIVE_IMAGE_MARKER;
+import static org.tanaguru.rules.keystore.MarkerStore.INFORMATIVE_IMAGE_MARKER;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMAGE;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMAGE_WITH_TEXT_ALTERNATIVE;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITH_TEXT_ALTERNATIVE_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITHOUT_ROLE_PRESENTATION_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.DECORATIVE_ELEMENT_WITHOUT_ARIA_HIDDEN_TRUE_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_DECORATIVE_ELEMENT_WITHOUT_ARIA_HIDDEN_TRUE_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_DECORATIVE_ELEMENT_WITHOUT_ROLE_PRESENTATION_MSG;
+import static org.tanaguru.rules.keystore.AttributeStore.ARIA_HIDDEN_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ROLE_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.SRC_ATTR;
+
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.ruleimplementation.AbstractMarkerPageRuleImplementation;
+import org.tanaguru.rules.elementchecker.CompositeChecker;
+import org.tanaguru.rules.elementchecker.IndependentChecker;
+import org.tanaguru.rules.elementchecker.attribute.AttributePresenceChecker;
+import org.tanaguru.rules.elementchecker.attribute.AttributeWithValuePresenceChecker;
+import org.tanaguru.rules.elementchecker.text.TextAlternativePresenceChecker;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
 
 /**
  * Implementation of the rule 1-2-1 of the referential Rgaa4 2019.
@@ -29,13 +52,116 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @author edaconceicao
  */
 
-public class Rgaa42019Rule010201 extends AbstractNotTestedRuleImplementation {
+public class Rgaa42019Rule010201 extends AbstractMarkerPageRuleImplementation {
 
     /**
      * Default constructor
      */
     public Rgaa42019Rule010201 () {
-        super();
+    	super(new SimpleElementSelector(IMG_ELEMENT+","+ROLE_IMG_LIKE_QUERY), 
+
+                // the decorative images are not part of the scope
+                DECORATIVE_IMAGE_MARKER, 
+        		
+        		// the informative images are part of the scope
+                INFORMATIVE_IMAGE_MARKER, 
+
+        		new IndependentChecker(        				
+        				new CompositeChecker(
+        						//Check first if the attribute presence before to check its value
+        						new AttributePresenceChecker(
+        								ARIA_HIDDEN_ATTR, 
+        								new ImmutablePair(TestSolution.PASSED, ""),
+        		                        new ImmutablePair(TestSolution.NOT_APPLICABLE, "")),
+        						//Compare the attribute value with the value expected
+        						new AttributeWithValuePresenceChecker(
+        								ARIA_HIDDEN_ATTR,
+        								"true",
+        								new ImmutablePair(TestSolution.PASSED, ""),
+        		                        new ImmutablePair(TestSolution.FAILED, DECORATIVE_ELEMENT_WITHOUT_ARIA_HIDDEN_TRUE_MSG),
+        		                        SRC_ATTR,
+        		                        ARIA_HIDDEN_ATTR)),
+        				
+        				new CompositeChecker(
+        						//Check first if the attribute presence before to check its value
+        						new AttributePresenceChecker(
+        								ROLE_ATTR, 
+        								new ImmutablePair(TestSolution.PASSED, ""),
+        		                        new ImmutablePair(TestSolution.NOT_APPLICABLE, "")),
+        						//Compare the attribute value with the value expected
+        						new AttributeWithValuePresenceChecker(
+        								ROLE_ATTR,
+        								"presentation",
+        								new ImmutablePair(TestSolution.PASSED, ""),
+        		                        new ImmutablePair(TestSolution.FAILED, DECORATIVE_ELEMENT_WITHOUT_ROLE_PRESENTATION_MSG),
+        		                        SRC_ATTR,
+        		                        ROLE_ATTR)),
+        				
+        				new TextAlternativePresenceChecker(
+        						true,
+		                        // failed when text alternative found 
+		                        new ImmutablePair(TestSolution.FAILED, DECORATIVE_ELEMENT_WITH_TEXT_ALTERNATIVE_MSG),
+		                        // passed when text alternative is not found, empty message
+		                        new ImmutablePair(TestSolution.PASSED, ""))),
+        		
+        		
+        		
+        		new IndependentChecker(
+        				new CompositeChecker(
+        						//Check first if the attribute presence before to check its value
+        						new AttributePresenceChecker(
+        								ARIA_HIDDEN_ATTR, 
+        								new ImmutablePair(TestSolution.PASSED, ""),
+        		                        new ImmutablePair(TestSolution.NOT_APPLICABLE, "")),
+        						//Compare the attribute value with the value expected
+        						new AttributeWithValuePresenceChecker(
+        								ARIA_HIDDEN_ATTR,
+        								"true",
+        		                        new ImmutablePair(TestSolution.NEED_MORE_INFO, CHECK_NATURE_OF_IMAGE),
+        		                        new ImmutablePair(TestSolution.NEED_MORE_INFO, SUSPECTED_DECORATIVE_ELEMENT_WITHOUT_ARIA_HIDDEN_TRUE_MSG),   
+        		                        SRC_ATTR,     		                        
+        		                        ARIA_HIDDEN_ATTR)),
+        				
+        				new CompositeChecker(
+        						//Check first if the attribute presence before to check its value
+        						new AttributePresenceChecker(
+        								ROLE_ATTR, 
+        								new ImmutablePair(TestSolution.PASSED, ""),
+        		                        new ImmutablePair(TestSolution.NOT_APPLICABLE, "")),
+        						//Compare the attribute value with the value expected
+        						new AttributeWithValuePresenceChecker(
+        								ROLE_ATTR,
+        								"presentation",
+        		                        new ImmutablePair(TestSolution.NEED_MORE_INFO, CHECK_NATURE_OF_IMAGE),
+        		                        new ImmutablePair(TestSolution.NEED_MORE_INFO, SUSPECTED_DECORATIVE_ELEMENT_WITHOUT_ROLE_PRESENTATION_MSG),
+        		                        SRC_ATTR,
+        		                        ROLE_ATTR)),
+        				
+        				new TextAlternativePresenceChecker(
+        						true,
+                                // failed when text alternative found 
+                                new ImmutablePair(TestSolution.NEED_MORE_INFO,CHECK_NATURE_OF_IMAGE_WITH_TEXT_ALTERNATIVE),
+                                // passed when text alternative is not found, empty message
+                                new ImmutablePair(TestSolution.NEED_MORE_INFO, CHECK_NATURE_OF_IMAGE))));
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 }

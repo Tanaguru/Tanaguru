@@ -27,7 +27,6 @@ import org.tanaguru.rules.rgaa42019.test.Rgaa42019RuleImplementationTestCase;
 import static org.tanaguru.rules.keystore.HtmlElementStore.IMG_ELEMENT;
 import static org.tanaguru.rules.keystore.HtmlElementStore.DIV_ELEMENT;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.TEXT_ALTERNATIVE_MISSING;
-import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMAGE_WITHOUT_TEXT_ALTERNATIVE;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMAGE;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.INVALID_TEXT_ALTERNATIVE_MSG;
 import static org.tanaguru.rules.keystore.MarkerStore.DECORATIVE_IMAGE_MARKER;
@@ -35,11 +34,8 @@ import static org.tanaguru.rules.keystore.MarkerStore.INFORMATIVE_IMAGE_MARKER;
 import static org.tanaguru.rules.keystore.AttributeStore.ALT_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABELLEDBY_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABEL_ATTR;
-import static org.tanaguru.rules.keystore.AttributeStore.ID_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.SRC_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
-import static org.tanaguru.rules.keystore.AttributeStore.TYPE_ATTR;
-import static org.tanaguru.rules.keystore.AttributeStore.ROLE_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.ABSENT_ATTRIBUTE_VALUE;
 
 /**

@@ -124,16 +124,18 @@ public class TextAlternativePresenceChecker extends ElementCheckerImpl  {
 	/**
 	 * Check the presence of a text alternative
 	 * @param el
-	 * @return PASSED if exists
+	 * @return successSolution if exists
 	 */
 	private TestSolution checkTextAlternativePresence(Element el) {
+		
+		if(el == null) {
+			return TestSolution.NOT_APPLICABLE;
+		}
 		
 		
 		boolean hasTextAlternative = false;
 		
-		if(hasException(el)) {
-			hasTextAlternative = true;
-		}else if(hasAlt(el)) {
+		if(hasAlt(el)) {
             addSourceCodeRemark(getSuccessSolution(),el,getSuccessMsgCode());
 			hasTextAlternative = true;
 		}
@@ -156,7 +158,7 @@ public class TextAlternativePresenceChecker extends ElementCheckerImpl  {
 		if(unauthorizedAttr) {
 			return DEFAULT_INVALID_TEXT_ALTERNATIVE_ATTRIBUTE_TEST_SOLUTION;
 		}
-		
+				
 		if(!hasTextAlternative) {
 			super.setEeAttributes(attrtype);
 			addSourceCodeRemark(getFailureSolution(),el,getFailureMsgCode());
@@ -168,18 +170,16 @@ public class TextAlternativePresenceChecker extends ElementCheckerImpl  {
 	
 
 	/**
-	 * checks if th eexception alt="" for the decorative image is present or not
+	 * checks if the exception alt="" for the decorative image is present or not
 	 * @param el
 	 * @return true if the exception is verified
 	 */
 	private boolean hasException(Element el) {
 		
 		if(exception) {
-			if(el.hasAttr(ALT_ATTR) && el.attr(ALT_ATTR).isEmpty()) {
-		          addSourceCodeRemark(getFailureSolution(),el,getFailureMsgCode());
-		          return true;
+			if(el.attr(ALT_ATTR).isEmpty()) {
+				return true;
 			}
-			addSourceCodeRemark(getSuccessSolution(),el,getSuccessMsgCode());
 		}
 		return false;
 	}
@@ -198,6 +198,10 @@ public class TextAlternativePresenceChecker extends ElementCheckerImpl  {
 			if(el.tagName().equals(IMG_ELEMENT) ||
 					el.tagName().equals(AREA_ELEMENT) ||
 					(el.tagName().equals(INPUT_ELEMENT) && el.attr(TYPE_ATTR).equals("image"))) {
+				
+				if(hasException(el)) {
+					return false;
+				}
 				
 	            return true;
 			}
