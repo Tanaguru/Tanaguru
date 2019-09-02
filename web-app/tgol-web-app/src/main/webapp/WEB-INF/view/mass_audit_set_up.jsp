@@ -74,7 +74,7 @@
                         <c:set var="proportion" scope="page" value="span2"/>
                         <c:set var="size" scope="page" value="T"/>
                         <c:choose>
-                            <c:when test="${contract.lastActInfo.status == 'COMPLETED' && not empty contract.lastActInfo.snapshot}">
+                            <c:when test="${contract.lastActInfo.status == 'COMPLETED'}">
                                 <c:set var="snapshot" scope="page" value="${contract.lastActInfo.snapshot}"/>
                             </c:when>
                         </c:choose>
