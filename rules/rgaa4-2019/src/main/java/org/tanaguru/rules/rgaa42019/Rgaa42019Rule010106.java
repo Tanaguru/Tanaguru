@@ -19,7 +19,24 @@
  */
 package org.tanaguru.rules.rgaa42019;
 
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import static org.tanaguru.rules.keystore.AttributeStore.DATA_ATTR;
+import static org.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.OBJECT_TYPE_IMG_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.MarkerStore.DECORATIVE_IMAGE_MARKER;
+import static org.tanaguru.rules.keystore.MarkerStore.INFORMATIVE_IMAGE_MARKER;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_PRESENCE_OF_ALTERNATIVE_MECHANISM_FOR_INFORMATIVE_IMG_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_AND_PRESENCE_OF_ALTERNATIVE_MECHANISM_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMAGE;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMAGE_WITHOUT_TEXT_ALTERNATIVE;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.TEXT_ALTERNATIVE_MISSING;
+
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.ruleimplementation.AbstractMarkerPageRuleImplementation;
+import org.tanaguru.rules.elementchecker.IndependentChecker;
+import org.tanaguru.rules.elementchecker.element.ElementPresenceChecker;
+import org.tanaguru.rules.elementchecker.text.TextAlternativePresenceChecker;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
 
 /**
  * Implementation of the rule 1-1-6 of the referential Rgaa4 2019.
@@ -29,13 +46,50 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @author edaconceicao
  */
 
-public class Rgaa42019Rule010106 extends AbstractNotTestedRuleImplementation {
+public class Rgaa42019Rule010106 extends AbstractMarkerPageRuleImplementation {
 
     /**
      * Default constructor
      */
     public Rgaa42019Rule010106 () {
-        super();
-    }
+    	super(	//the selector
+    			new SimpleElementSelector(OBJECT_TYPE_IMG_CSS_LIKE_QUERY),
+    			
+        		// the informative images are part of the scope
+                INFORMATIVE_IMAGE_MARKER, 
 
+                // the decorative images are not part of the scope
+                DECORATIVE_IMAGE_MARKER, 
+    	
+
+    	//initialize and set the checker for the marked elements
+    	new IndependentChecker(
+        				new TextAlternativePresenceChecker(
+		                        // when text alternative is found 
+		                        new ImmutablePair(TestSolution.PASSED, ""),
+		                        // when attribute is not found 
+		                        new ImmutablePair(TestSolution.FAILED, TEXT_ALTERNATIVE_MISSING),
+		                        DATA_ATTR),
+        				new ElementPresenceChecker(
+                                new ImmutablePair(TestSolution.NEED_MORE_INFO,CHECK_PRESENCE_OF_ALTERNATIVE_MECHANISM_FOR_INFORMATIVE_IMG_MSG),
+                                new ImmutablePair(TestSolution.NOT_APPLICABLE,""),                                
+                                DATA_ATTR,
+                                TEXT_ELEMENT2)),       
+    	
+    	
+    	//initialize and set the checker for the regular elements	
+    	new IndependentChecker(
+        				new TextAlternativePresenceChecker(
+		                        // when text alternative is found 
+		                        new ImmutablePair(TestSolution.NEED_MORE_INFO, CHECK_NATURE_OF_IMAGE),
+		                        // when attribute is not found 
+		                        new ImmutablePair(TestSolution.NEED_MORE_INFO,CHECK_NATURE_OF_IMAGE_WITHOUT_TEXT_ALTERNATIVE),
+		                        DATA_ATTR),
+        				new ElementPresenceChecker(
+                                new ImmutablePair(TestSolution.NEED_MORE_INFO,CHECK_NATURE_AND_PRESENCE_OF_ALTERNATIVE_MECHANISM_MSG),
+                                new ImmutablePair(TestSolution.NOT_APPLICABLE,""),
+                                DATA_ATTR,
+                                TEXT_ELEMENT2)));
+    	
+    }
 }
