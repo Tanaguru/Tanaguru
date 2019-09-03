@@ -19,7 +19,26 @@
  */
 package org.tanaguru.rules.rgaa42019;
 
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import static org.tanaguru.rules.keystore.AttributeStore.ROLE_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.XMLNS_ATTR;
+import static org.tanaguru.rules.keystore.HtmlElementStore.SVG_ELEMENT;
+import static org.tanaguru.rules.keystore.MarkerStore.DECORATIVE_IMAGE_MARKER;
+import static org.tanaguru.rules.keystore.MarkerStore.INFORMATIVE_IMAGE_MARKER;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMAGE;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMAGE_WITHOUT_TEXT_ALTERNATIVE;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.SVG_WITHOUT_ROLE_IMAGE_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.TEXT_ALTERNATIVE_MISSING;
+
+import java.util.Collections;
+
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.ruleimplementation.AbstractMarkerPageRuleImplementation;
+import org.tanaguru.rules.elementchecker.CompositeChecker;
+import org.tanaguru.rules.elementchecker.attribute.AttributeWithValuePresenceChecker;
+import org.tanaguru.rules.elementchecker.text.TextAlternativePresenceChecker;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
 
 /**
  * Implementation of the rule 1-1-5 of the referential Rgaa4 2019.
@@ -29,13 +48,62 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @author edaconceicao
  */
 
-public class Rgaa42019Rule010105 extends AbstractNotTestedRuleImplementation {
+public class Rgaa42019Rule010105 extends AbstractMarkerPageRuleImplementation {
 
     /**
      * Default constructor
      */
     public Rgaa42019Rule010105 () {
-        super();
-    }
+    	super(
+        		// the informative images are part of the scope
+                INFORMATIVE_IMAGE_MARKER, 
 
+                // the decorative images are not part of the scope
+                DECORATIVE_IMAGE_MARKER); 
+    	
+
+    	//initialize the selector
+    	setElementSelector(new SimpleElementSelector(SVG_ELEMENT));
+        		
+    	
+    	//initialize and set the checker for the marked elements
+    	setMarkerElementChecker(new CompositeChecker(
+        				new AttributeWithValuePresenceChecker(
+        						ROLE_ATTR,
+        						"img",
+        						new ImmutablePair(TestSolution.PASSED, ""),
+        						new ImmutablePair(TestSolution.FAILED, SVG_WITHOUT_ROLE_IMAGE_MSG),
+        						ROLE_ATTR),
+        				new TextAlternativePresenceChecker(
+                        // when text alternative is found 
+                        new ImmutablePair(TestSolution.PASSED, ""),
+                        // when attribute is not found 
+                        new ImmutablePair(TestSolution.FAILED, TEXT_ALTERNATIVE_MISSING),
+                        XMLNS_ATTR)));
+        
+    	
+    	
+    	//initialize the checker for the regular elements	
+    	CompositeChecker cc = 
+    			new CompositeChecker(
+        				new AttributeWithValuePresenceChecker(
+        						ROLE_ATTR,
+        						"img",
+        						new ImmutablePair(TestSolution.PASSED, ""),
+        						new ImmutablePair(TestSolution.NEED_MORE_INFO, SUSPECTED_INFORMATIVE_SVG_ROLE_IMAGE_MISSING_ON_SVG),
+        						ROLE_ATTR),
+        				new TextAlternativePresenceChecker(
+                        // when text alternative is found 
+                        new ImmutablePair(TestSolution.PASSED, ""),
+                        // when attribute is not found 
+                        new ImmutablePair(TestSolution.NEED_MORE_INFO,CHECK_NATURE_OF_IMAGE_WITHOUT_TEXT_ALTERNATIVE),XMLNS_ATTR));
+    	
+    	//set the message for the suspected passed elements
+    	cc.addCheckMessageFromSolution(
+    			TestSolution.PASSED, 
+    			Collections.singletonMap(TestSolution.NEED_MORE_INFO, CHECK_NATURE_OF_IMAGE));
+    	
+    	//set the checker for the regular elements
+    	setRegularElementChecker(cc);    	
+    }
 }

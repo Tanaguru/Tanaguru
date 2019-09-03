@@ -32,6 +32,7 @@ import static org.tanaguru.rules.keystore.HtmlElementStore.SVG_ELEMENT;
 import static org.tanaguru.rules.keystore.HtmlElementStore.EMBED_ELEMENT;
 import static org.tanaguru.rules.keystore.HtmlElementStore.CANVAS_ELEMENT;
 import static org.tanaguru.rules.keystore.HtmlElementStore.OBJECT_ELEMENT;
+import static org.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.INVALID_TEXT_ALTERNATIVE_MSG;
 
 
@@ -155,6 +156,11 @@ public class TextAlternativePresenceChecker extends ElementCheckerImpl  {
 			hasTextAlternative = true;
 		}
 		
+		if(hasTextElement(el)) {
+			addSourceCodeRemark(getSuccessSolution(),el,getSuccessMsgCode());
+			hasTextAlternative = true;
+		}
+		
 		if(unauthorizedAttr) {
 			return DEFAULT_INVALID_TEXT_ALTERNATIVE_ATTRIBUTE_TEST_SOLUTION;
 		}
@@ -167,7 +173,6 @@ public class TextAlternativePresenceChecker extends ElementCheckerImpl  {
 		
 		return getSuccessSolution();
 	}
-	
 
 	/**
 	 * checks if the exception alt="" for the decorative image is present or not
@@ -309,5 +314,22 @@ public class TextAlternativePresenceChecker extends ElementCheckerImpl  {
 				ID_ATTR, 
                 el.attr(ARIA_LABELLEDBY_ATTR))).getSelectedElements().isEmpty();
 	}
+	
 
+	/**
+	 * check if exists a text element into the svg element
+	 * @param el : the element selected
+	 * @return true if found
+	 */
+	private boolean hasTextElement(Element el) {
+		
+		if(el.tagName().equals(SVG_ELEMENT)) {
+			for(Element child : el.children()) {
+				if(child.tagName().equals(TEXT_ELEMENT2)) {
+					return true;
+				}
+			}			
+		}
+		return false;
+	}
 }

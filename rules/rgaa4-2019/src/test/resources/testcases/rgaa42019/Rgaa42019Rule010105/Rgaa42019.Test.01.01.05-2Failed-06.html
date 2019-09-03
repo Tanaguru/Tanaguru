@@ -2,22 +2,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
     <head>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-        <title>Rgaa4-2019 Test.1-1-5 NA 01</title>
+        <title>Rgaa42019 Test.01.01.05 Failed 06</title>
     </head>
     <body>
         <div>
-
-            <h1>Rgaa4-2019 Test.1-1-5 NA 01</h1>
-
+            <h1>Rgaa42019 Test.01.01.05 Failed 06</h1>
             <div class="test-detail" lang="fr">
                 Chaque image porteuse d'information a-t-elle une alternative textuelle ?
             </div>
-
             <div class="testcase">
-            </div>
+               <svg id="id-informative-image" viewBox="0 0 220 50" xmlns="http://www.w3.org/2000/svg">  
 
+                    <rect x="5" y="5" rx="10" width="210" height="40" fill="none" stroke="grey" stroke-width="2" />
+                    <text fill="blue">text alternative</text> 
+
+                </svg> 
+            </div>
             <div class="test-explanation">
-                NA.
+                Failed. Element detected as informative with a text alternative element and without role="img" attribute.
             </div>
         </div>
     </body>
