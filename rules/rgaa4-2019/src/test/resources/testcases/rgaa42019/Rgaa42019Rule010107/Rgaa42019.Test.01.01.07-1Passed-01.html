@@ -2,22 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
     <head>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-        <title>Rgaa42019 Test.01.01.07 NMI 07</title>
+        <title>Rgaa42019 Test.01.01.07 Passed 01</title>
     </head>
     <body>
         <div>
-            <h1>Rgaa42019 Test.01.01.07 NMI 07</h1>
+            <h1>Rgaa42019 Test.01.01.07 Passed 01</h1>
             <div class="test-detail" lang="fr">
                 Chaque image porteuse d'information a-t-elle une alternative textuelle ?
             </div>
             <div class="testcase">
-            	<span id="NMI-07">text alternative</span>
-                <embed type="image/jpeg" data="TheEarth.gif" aria-labelledby="NMI-07"></embed>
+                <embed id="id-informative-image" type="image/jpeg" data="TheEarth.gif" aria-label="text alternative"></embed>
             </div>
             <div class="test-explanation">
-                NMI. Element detected as regular image with a text alternative attribute. 
-                We need to check if exists a link / button giving an alternative content.
-                We need to check if exists a mechanism to replace the detected element into an alternative content.
+                Passed. Element detected as informative image with a text alternative attribute. 
+                The element respects one condition, we don't need to check the other.
             </div>
         </div>
     </body>

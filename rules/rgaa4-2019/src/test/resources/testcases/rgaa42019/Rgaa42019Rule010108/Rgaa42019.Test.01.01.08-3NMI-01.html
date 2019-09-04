@@ -2,20 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
     <head>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-        <title>Rgaa42019 Test.01.01.07 NMI 07</title>
+        <title>Rgaa42019 Test.01.01.08 NMI 03</title>
     </head>
     <body>
         <div>
-            <h1>Rgaa42019 Test.01.01.07 NMI 07</h1>
+            <h1>Rgaa42019 Test.01.01.08 NMI 03</h1>
             <div class="test-detail" lang="fr">
                 Chaque image porteuse d'information a-t-elle une alternative textuelle ?
             </div>
             <div class="testcase">
-            	<span id="NMI-07">text alternative</span>
-                <embed type="image/jpeg" data="TheEarth.gif" aria-labelledby="NMI-07"></embed>
+            	<canvas id="id-informative-image" type="image/jpeg" data="TheEarth.gif" alt="text alternative" ></canvas>
             </div>
             <div class="test-explanation">
-                NMI. Element detected as regular image with a text alternative attribute. 
+                NMI. Element detected as informative image with a wrong text alternative attribute.
                 We need to check if exists a link / button giving an alternative content.
                 We need to check if exists a mechanism to replace the detected element into an alternative content.
             </div>

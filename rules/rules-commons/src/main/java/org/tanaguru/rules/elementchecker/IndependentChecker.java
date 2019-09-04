@@ -139,25 +139,28 @@ public class IndependentChecker extends NomenclatureBasedElementChecker {
     		switch (ts)  {
 	    		case NEED_MORE_INFO :
 	    			hasNMI = true;
+	    			break;
 	    		case FAILED:
 	    			hasFailed = true;
+	    			break;
 	    		case PASSED : 
 	    			hasPassed = true;
+	    			break;
 				default:
     		}
     	}
-    	
-    	if(hasNMI) {
-    		return TestSolution.NEED_MORE_INFO;
-    	}
-    	if(hasFailed) {
-    		return TestSolution.FAILED;
-    	}
+
     	if(hasPassed) {
     		ProcessRemarkService prs = sspHandler.getProcessRemarkService();
     		prs.resetService();
     		sspHandler.setProcessRemarkService(prs);
     		return TestSolution.PASSED;
+    	}
+    	if(hasNMI) {
+    		return TestSolution.NEED_MORE_INFO;
+    	}
+    	if(hasFailed) {
+    		return TestSolution.FAILED;
     	}
 
 		return TestSolution.NOT_APPLICABLE;

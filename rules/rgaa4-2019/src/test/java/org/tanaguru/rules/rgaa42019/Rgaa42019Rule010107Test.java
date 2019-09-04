@@ -63,21 +63,21 @@ public class Rgaa42019Rule010107Test extends Rgaa42019RuleImplementationTestCase
 
     @Override
     protected void setUpWebResourceMap() {
+        addWebResource("Rgaa42019.Test.01.01.07-1Passed-01",
+                createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
+        addWebResource("Rgaa42019.Test.01.01.07-1Passed-02",
+                createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
+        addWebResource("Rgaa42019.Test.01.01.07-1Passed-03",
+                createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));        
         addWebResource("Rgaa42019.Test.01.01.07-3NMI-01",
                 createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
         addWebResource("Rgaa42019.Test.01.01.07-3NMI-02",
                 createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
-        addWebResource("Rgaa42019.Test.01.01.07-3NMI-03",
-                createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
-        addWebResource("Rgaa42019.Test.01.01.07-3NMI-04",
-                createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
-        addWebResource("Rgaa42019.Test.01.01.07-3NMI-05",
-                createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
+        addWebResource("Rgaa42019.Test.01.01.07-3NMI-03");
+        addWebResource("Rgaa42019.Test.01.01.07-3NMI-04");
+        addWebResource("Rgaa42019.Test.01.01.07-3NMI-05");
         addWebResource("Rgaa42019.Test.01.01.07-3NMI-06");
         addWebResource("Rgaa42019.Test.01.01.07-3NMI-07");
-        addWebResource("Rgaa42019.Test.01.01.07-3NMI-08");
-        addWebResource("Rgaa42019.Test.01.01.07-3NMI-09");
-        addWebResource("Rgaa42019.Test.01.01.07-3NMI-10");
         addWebResource("Rgaa42019.Test.01.01.07-4NA-01",
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
         addWebResource("Rgaa42019.Test.01.01.07-4NA-02",
@@ -88,54 +88,67 @@ public class Rgaa42019Rule010107Test extends Rgaa42019RuleImplementationTestCase
     }
 
     @Override
-    protected void setProcess() {
+    protected void setProcess() {    	
+    	//----------------------------------------------------------------------
+        //------------------------------1Passed-01------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa42019.Test.01.01.07-1Passed-01"), 1);
+    	
+    	//----------------------------------------------------------------------
+        //------------------------------1Passed-02------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa42019.Test.01.01.07-1Passed-02"), 1);
+    	
+    	//----------------------------------------------------------------------
+        //------------------------------1Passed-03------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsPassed(processPageTest("Rgaa42019.Test.01.01.07-1Passed-03"), 1);
+//        //----------------------------------------------------------------------
+//        //------------------------------3NMI-01---------------------------------
+//        //----------------------------------------------------------------------
+//    	ProcessResult processResult = processPageTest("Rgaa42019.Test.01.01.07-3NMI-01");
+//        checkResultIsPreQualified(processResult, 1, 1);
+//        checkRemarkIsPresent(
+//                processResult,
+//                TestSolution.NEED_MORE_INFO,
+//                CHECK_PRESENCE_OF_ALTERNATIVE_MECHANISM_FOR_INFORMATIVE_IMG_MSG,
+//                EMBED_ELEMENT,
+//                1,
+//                new ImmutablePair(DATA_ATTR, "TheEarth.gif"),
+//                new ImmutablePair(TEXT_ELEMENT2, ""));
+        
+//        //----------------------------------------------------------------------
+//        //------------------------------3NMI-02---------------------------------
+//        //----------------------------------------------------------------------
+//    	processResult = processPageTest("Rgaa42019.Test.01.01.07-3NMI-02");
+//        checkResultIsPreQualified(processResult, 1, 1);
+//        checkRemarkIsPresent(
+//                processResult,
+//                TestSolution.NEED_MORE_INFO,
+//                CHECK_PRESENCE_OF_ALTERNATIVE_MECHANISM_FOR_INFORMATIVE_IMG_MSG,
+//                EMBED_ELEMENT,
+//                1,
+//                new ImmutablePair(DATA_ATTR, "TheEarth.gif"),
+//                new ImmutablePair(TEXT_ELEMENT2, ""));
+        
+//        //----------------------------------------------------------------------
+//        //------------------------------3NMI-03---------------------------------
+//        //----------------------------------------------------------------------
+//        processResult = processPageTest("Rgaa42019.Test.01.01.07-3NMI-03");
+//        checkResultIsPreQualified(processResult, 1, 1);
+//        checkRemarkIsPresent(
+//                processResult,
+//                TestSolution.NEED_MORE_INFO,
+//                CHECK_PRESENCE_OF_ALTERNATIVE_MECHANISM_FOR_INFORMATIVE_IMG_MSG,
+//                EMBED_ELEMENT,
+//                1,
+//                new ImmutablePair(DATA_ATTR, "TheEarth.gif"),
+//                new ImmutablePair(TEXT_ELEMENT2, ""));
         
         //----------------------------------------------------------------------
         //------------------------------3NMI-01---------------------------------
         //----------------------------------------------------------------------
-    	ProcessResult processResult = processPageTest("Rgaa42019.Test.01.01.07-3NMI-01");
-        checkResultIsPreQualified(processResult, 1, 1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                CHECK_PRESENCE_OF_ALTERNATIVE_MECHANISM_FOR_INFORMATIVE_IMG_MSG,
-                EMBED_ELEMENT,
-                1,
-                new ImmutablePair(DATA_ATTR, "TheEarth.gif"),
-                new ImmutablePair(TEXT_ELEMENT2, ""));
-        
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-02---------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa42019.Test.01.01.07-3NMI-02");
-        checkResultIsPreQualified(processResult, 1, 1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                CHECK_PRESENCE_OF_ALTERNATIVE_MECHANISM_FOR_INFORMATIVE_IMG_MSG,
-                EMBED_ELEMENT,
-                1,
-                new ImmutablePair(DATA_ATTR, "TheEarth.gif"),
-                new ImmutablePair(TEXT_ELEMENT2, ""));
-        
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-03---------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa42019.Test.01.01.07-3NMI-03");
-        checkResultIsPreQualified(processResult, 1, 1);
-        checkRemarkIsPresent(
-                processResult,
-                TestSolution.NEED_MORE_INFO,
-                CHECK_PRESENCE_OF_ALTERNATIVE_MECHANISM_FOR_INFORMATIVE_IMG_MSG,
-                EMBED_ELEMENT,
-                1,
-                new ImmutablePair(DATA_ATTR, "TheEarth.gif"),
-                new ImmutablePair(TEXT_ELEMENT2, ""));
-        
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-04---------------------------------
-        //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa42019.Test.01.01.07-3NMI-04");
+        ProcessResult processResult = processPageTest("Rgaa42019.Test.01.01.07-3NMI-01");
         checkResultIsPreQualified(processResult, 1, 2);
         checkRemarkIsPresent(
                 processResult,
@@ -155,9 +168,9 @@ public class Rgaa42019Rule010107Test extends Rgaa42019RuleImplementationTestCase
                 new ImmutablePair(TEXT_ELEMENT2, ""));
         
         //----------------------------------------------------------------------
-        //------------------------------3NMI-05---------------------------------
+        //------------------------------3NMI-02---------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa42019.Test.01.01.07-3NMI-05");
+        processResult = processPageTest("Rgaa42019.Test.01.01.07-3NMI-02");
         checkResultIsPreQualified(processResult, 1, 2);
         checkRemarkIsPresent(
                 processResult,
@@ -176,9 +189,9 @@ public class Rgaa42019Rule010107Test extends Rgaa42019RuleImplementationTestCase
                 new ImmutablePair(TEXT_ELEMENT2, ""));
                 
         //----------------------------------------------------------------------
-        //------------------------------3NMI-06---------------------------------
+        //------------------------------3NMI-03---------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa42019.Test.01.01.07-3NMI-06");
+        processResult = processPageTest("Rgaa42019.Test.01.01.07-3NMI-03");
         checkResultIsPreQualified(processResult, 1, 2);
         checkRemarkIsPresent(
                 processResult,
@@ -198,9 +211,9 @@ public class Rgaa42019Rule010107Test extends Rgaa42019RuleImplementationTestCase
                 new ImmutablePair(TEXT_ELEMENT2, ""));
         
         //----------------------------------------------------------------------
-        //------------------------------3NMI-07---------------------------------
+        //------------------------------3NMI-04---------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa42019.Test.01.01.07-3NMI-07");
+        processResult = processPageTest("Rgaa42019.Test.01.01.07-3NMI-04");
         checkResultIsPreQualified(processResult, 1, 2);
         checkRemarkIsPresent(
                 processResult,
@@ -220,9 +233,9 @@ public class Rgaa42019Rule010107Test extends Rgaa42019RuleImplementationTestCase
                 new ImmutablePair(TEXT_ELEMENT2, ""));
         
         //----------------------------------------------------------------------
-        //------------------------------3NMI-08---------------------------------
+        //------------------------------3NMI-05---------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa42019.Test.01.01.07-3NMI-08");
+        processResult = processPageTest("Rgaa42019.Test.01.01.07-3NMI-05");
         checkResultIsPreQualified(processResult, 1, 2);
         checkRemarkIsPresent(
                 processResult,
@@ -242,9 +255,9 @@ public class Rgaa42019Rule010107Test extends Rgaa42019RuleImplementationTestCase
                 new ImmutablePair(TEXT_ELEMENT2, ""));
         
         //----------------------------------------------------------------------
-        //------------------------------3NMI-09---------------------------------
+        //------------------------------3NMI-06---------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa42019.Test.01.01.07-3NMI-09");
+        processResult = processPageTest("Rgaa42019.Test.01.01.07-3NMI-06");
         checkResultIsPreQualified(processResult, 1, 2);
         checkRemarkIsPresent(
                 processResult,
@@ -264,9 +277,9 @@ public class Rgaa42019Rule010107Test extends Rgaa42019RuleImplementationTestCase
                 new ImmutablePair(TEXT_ELEMENT2, ""));
         
         //----------------------------------------------------------------------
-        //------------------------------3NMI-10---------------------------------
+        //------------------------------3NMI-07---------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("Rgaa42019.Test.01.01.07-3NMI-10");
+        processResult = processPageTest("Rgaa42019.Test.01.01.07-3NMI-07");
         checkResultIsPreQualified(processResult, 1, 2);
         checkRemarkIsPresent(
                 processResult,
