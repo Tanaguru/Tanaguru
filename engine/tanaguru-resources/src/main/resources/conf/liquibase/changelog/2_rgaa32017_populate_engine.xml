@@ -1,75 +1,64 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
-    
-    <changeSet author="edaconceicao" id="initial_populate_THEME">
+
+    <changeSet author="edaconceicao" id="rgaa32017_populate_THEME">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">SELECT COUNT(*) FROM THEME</sqlCheck>
         </preConditions>
         <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/THEME_RGAA32017.csv"
+                  file="classpath:conf/liquibase/data/RGAA32017_THEME.csv"
                   tableName="THEME">
         </loadData>
     </changeSet>
 
-    <changeSet author="edaconceicao" id="initial_populate_REFERENCE">
+    <changeSet author="edaconceicao" id="rgaa32017_populate_REFERENCE">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">SELECT COUNT(*) FROM REFERENCE</sqlCheck>
         </preConditions>
         <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/REFERENCE_RGAA32017.csv"
+                  file="classpath:conf/liquibase/data/RGAA32017_REFERENCE.csv"
                   tableName="REFERENCE">
         </loadData>
     </changeSet>
 
-    <changeSet author="edaconceicao" id="initial_populate_CRITERION">
+    <changeSet author="edaconceicao" id="rgaa32017_populate_CRITERION">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">SELECT COUNT(*) FROM CRITERION</sqlCheck>
         </preConditions>
         <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/CRITERION_RGAA32017.csv"
+                  file="classpath:conf/liquibase/data/RGAA32017_CRITERION.csv"
                   tableName="CRITERION">
         </loadData>
     </changeSet>
 
-    <changeSet author="edaconceicao" id="initial_populate_TEST">
+    <changeSet author="edaconceicao" id="rgaa32017_populate_TEST">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">SELECT COUNT(*) FROM TEST</sqlCheck>
         </preConditions>
         <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/TEST_RGAA32017.csv"
+                  file="classpath:conf/liquibase/data/RGAA32017_TEST.csv"
                   tableName="TEST">
         </loadData>
     </changeSet>
 
-    <changeSet author="edaconceicao" id="initial_populate_ACCEDEWEB">
+    <changeSet author="edaconceicao" id="rgaa32017_populate_ACCEDEWEB">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">SELECT COUNT(*) FROM ACCEDEWEB</sqlCheck>
         </preConditions>
         <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/ACCEDEWEB_RGAA32017.csv"
+                  file="classpath:conf/liquibase/data/RGAA32017_ACCEDEWEB.csv"
                   tableName="ACCEDEWEB">
         </loadData>
     </changeSet>
 
-    <changeSet author="edaconceicao" id="initial_populate_PARAMETER">
+    <changeSet author="edaconceicao" id="rgaa32017_populate_PARAMETER">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="50">SELECT COUNT(*) FROM PARAMETER</sqlCheck>
         </preConditions>
         <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/PARAMETER_RGAA32017.csv"
+                  file="classpath:conf/liquibase/data/RGAA32017_PARAMETER.csv"
                   tableName="PARAMETER">
         </loadData>
     </changeSet>
-    
-    <changeSet author="edaconceicao" id="initial_populate_TGSI_REFERENTIAL">
-        <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM TGSI_REFERENTIAL</sqlCheck>
-        </preConditions>
-        <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/TGSI_REFERENTIAL_RGAA32017.csv"
-                  tableName="TGSI_REFERENTIAL">
-        </loadData>
-    </changeSet>
-
 
 </databaseChangeLog>

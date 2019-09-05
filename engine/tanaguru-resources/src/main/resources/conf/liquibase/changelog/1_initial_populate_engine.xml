@@ -5,7 +5,7 @@
             <sqlCheck expectedResult="0">SELECT COUNT(*) FROM EVIDENCE</sqlCheck>
         </preConditions>
         <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/EVIDENCE.csv"
+                  file="classpath:conf/liquibase/data/INIT_EVIDENCE.csv"
                   tableName="EVIDENCE">
         </loadData>
     </changeSet>
@@ -15,7 +15,7 @@
             <sqlCheck expectedResult="0">SELECT COUNT(*) FROM LEVEL</sqlCheck>
         </preConditions>
         <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/LEVEL.csv"
+                  file="classpath:conf/liquibase/data/INIT_LEVEL.csv"
                   tableName="LEVEL">
         </loadData>
     </changeSet>
@@ -25,7 +25,7 @@
             <sqlCheck expectedResult="0">SELECT COUNT(*) FROM NOMENCLATURE</sqlCheck>
         </preConditions>
         <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/NOMENCLATURE.csv"
+                  file="classpath:conf/liquibase/data/INIT_NOMENCLATURE.csv"
                   tableName="NOMENCLATURE">
         </loadData>
     </changeSet>
@@ -35,7 +35,7 @@
             <sqlCheck expectedResult="0">SELECT COUNT(*) FROM PARAMETER_FAMILY</sqlCheck>
         </preConditions>
         <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/PARAMETER_FAMILY.csv"
+                  file="classpath:conf/liquibase/data/INIT_PARAMETER_FAMILY.csv"
                   tableName="PARAMETER_FAMILY">
         </loadData>
     </changeSet>
@@ -45,7 +45,7 @@
             <sqlCheck expectedResult="0">SELECT COUNT(*) FROM PARAMETER_ELEMENT</sqlCheck>
         </preConditions>
         <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/PARAMETER_ELEMENT.csv"
+                  file="classpath:conf/liquibase/data/INIT_PARAMETER_ELEMENT.csv"
                   tableName="PARAMETER_ELEMENT">
         </loadData>
     </changeSet>
@@ -55,7 +55,7 @@
             <sqlCheck expectedResult="0">SELECT COUNT(*) FROM PARAMETER</sqlCheck>
         </preConditions>
         <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/PARAMETER.csv"
+                  file="classpath:conf/liquibase/data/INIT_PARAMETER.csv"
                   tableName="PARAMETER">
         </loadData>
     </changeSet>
@@ -65,7 +65,7 @@
             <sqlCheck expectedResult="0">SELECT COUNT(*) FROM SCOPE</sqlCheck>
         </preConditions>
         <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/SCOPE.csv"
+                  file="classpath:conf/liquibase/data/INIT_SCOPE.csv"
                   tableName="SCOPE">
         </loadData>
     </changeSet>

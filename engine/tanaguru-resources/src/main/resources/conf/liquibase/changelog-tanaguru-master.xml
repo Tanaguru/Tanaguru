@@ -4,14 +4,11 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-    <include file="classpath:conf/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:conf/liquibase/changelog/00000000000001_initial_populate.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:rules/rules-ressources/src/main/resources/conf/liquibase/changelog-rule-master.xml" relativeToChangelogFile="false"/>
-
     <!-- CREATE -->
+    <include file="classpath:conf/liquibase/changelog/0_initial_schema_engine.xml" relativeToChangelogFile="false"/>
 
     <!-- UPDATE -->
+    <include file="classpath:conf/liquibase/changelog/1_initial_populate_engine.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:conf/liquibase/changelog/2_rgaa32017_populate_engine.xml" relativeToChangelogFile="false"/>
     <include file="classpath:conf/liquibase/changelog/2019_09_04_1100_updated_entity_WebResource.xml" relativeToChangelogFile="false"/>
-
-    <!-- INSERT -->
 </databaseChangeLog>
