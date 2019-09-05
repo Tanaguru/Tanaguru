@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
-    <changeSet author="rcharre" id="initial_populate_THEME">
+    <changeSet author="rcharre" id="initial_populate_EVIDENCE">
         <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM THEME</sqlCheck>
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM EVIDENCE</sqlCheck>
         </preConditions>
         <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/THEME.csv"
-                  tableName="THEME">
+                  file="classpath:conf/liquibase/data/EVIDENCE.csv"
+                  tableName="EVIDENCE">
         </loadData>
     </changeSet>
 
@@ -20,66 +20,6 @@
         </loadData>
     </changeSet>
 
-    <changeSet author="rcharre" id="initial_populate_REFERENCE">
-        <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM REFERENCE</sqlCheck>
-        </preConditions>
-        <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/REFERENCE.csv"
-                  tableName="REFERENCE">
-        </loadData>
-    </changeSet>
-
-    <changeSet author="rcharre" id="initial_populate_CRITERION">
-        <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM CRITERION</sqlCheck>
-        </preConditions>
-        <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/CRITERION.csv"
-                  tableName="CRITERION">
-        </loadData>
-    </changeSet>
-
-    <changeSet author="rcharre" id="initial_populate_SCOPE">
-        <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM SCOPE</sqlCheck>
-        </preConditions>
-        <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/SCOPE.csv"
-                  tableName="SCOPE">
-        </loadData>
-    </changeSet>
-
-    <changeSet author="rcharre" id="initial_populate_TEST">
-        <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM TEST</sqlCheck>
-        </preConditions>
-        <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/TEST.csv"
-                  tableName="TEST">
-        </loadData>
-    </changeSet>
-
-    <changeSet author="rcharre" id="initial_populate_ACCEDEWEB">
-        <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM ACCEDEWEB</sqlCheck>
-        </preConditions>
-        <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/ACCEDEWEB.csv"
-                  tableName="ACCEDEWEB">
-        </loadData>
-    </changeSet>
-
-    <changeSet author="rcharre" id="initial_populate_EVIDENCE">
-        <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM EVIDENCE</sqlCheck>
-        </preConditions>
-        <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/EVIDENCE.csv"
-                  tableName="EVIDENCE">
-        </loadData>
-    </changeSet>
-
     <changeSet author="rcharre" id="initial_populate_NOMENCLATURE">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">SELECT COUNT(*) FROM NOMENCLATURE</sqlCheck>
@@ -87,16 +27,6 @@
         <loadData encoding="UTF-8"
                   file="classpath:conf/liquibase/data/NOMENCLATURE.csv"
                   tableName="NOMENCLATURE">
-        </loadData>
-    </changeSet>
-
-    <changeSet author="rcharre" id="initial_populate_NOMENCLATURE_ELEMENT">
-        <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM NOMENCLATURE_ELEMENT</sqlCheck>
-        </preConditions>
-        <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/NOMENCLATURE_ELEMENT.csv"
-                  tableName="NOMENCLATURE_ELEMENT">
         </loadData>
     </changeSet>
 
@@ -127,6 +57,16 @@
         <loadData encoding="UTF-8"
                   file="classpath:conf/liquibase/data/PARAMETER.csv"
                   tableName="PARAMETER">
+        </loadData>
+    </changeSet>
+
+    <changeSet author="rcharre" id="initial_populate_SCOPE">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM SCOPE</sqlCheck>
+        </preConditions>
+        <loadData encoding="UTF-8"
+                  file="classpath:conf/liquibase/data/SCOPE.csv"
+                  tableName="SCOPE">
         </loadData>
     </changeSet>
 

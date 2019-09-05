@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <changeSet author="rcharre" id="2019_09_04_1100_update_webresource">
-        <addColumn tableName="docker_container">
+        <addColumn tableName="WEB_RESOURCE">
             <column name="Snapshot" type="MEDIUMBLOB"/>
         </addColumn>
     </changeSet>

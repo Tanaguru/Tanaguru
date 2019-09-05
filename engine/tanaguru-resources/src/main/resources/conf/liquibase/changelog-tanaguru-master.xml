@@ -6,6 +6,7 @@
 
     <include file="classpath:conf/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
     <include file="classpath:conf/liquibase/changelog/00000000000001_initial_populate.xml" relativeToChangelogFile="false"/>
+   <!-- <include file="classpath:conf/liquibase/changelog-rule-master.xml" relativeToChangelogFile="false"/>-->
 
     <!-- CREATE -->
 

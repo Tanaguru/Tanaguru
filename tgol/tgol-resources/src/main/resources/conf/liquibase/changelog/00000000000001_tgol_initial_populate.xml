@@ -50,16 +50,6 @@
         </loadData>
     </changeSet>
 
-    <changeSet author="rcharre" id="initial_populate_TGSI_REFERENTIAL">
-        <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM TGSI_REFERENTIAL</sqlCheck>
-        </preConditions>
-        <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/TGSI_REFERENTIAL.csv"
-                  tableName="TGSI_REFERENTIAL">
-        </loadData>
-    </changeSet>
-
     <changeSet author="rcharre" id="initial_populate_TGSI_SCOPE">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">SELECT COUNT(*) FROM TGSI_SCOPE</sqlCheck>
