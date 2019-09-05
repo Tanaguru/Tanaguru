@@ -17,7 +17,7 @@
        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
 
-    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" depends-on="liquibase">
         <property name="dataSource" ref="dataSource"/>
         <property name="persistenceXmlLocation" value="${tgol-persistenceXmlLocation}"/>
         <property name="jpaProperties">
@@ -87,6 +87,12 @@
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
+
+    <bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase">
+        <property name="changeLog" value="classpath:conf/liquibase/changelog-tgol-master.xml" />
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
     <!--
         Instruct Spring to perform declarative transaction management
         automatically on annotated classes.

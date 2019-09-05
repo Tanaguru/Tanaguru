@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!-- Use engine changelogs -->
+    <include file="classpath:conf/liquibase/changelog-tanaguru-master.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:conf/liquibase/changelog/00000000000001_initial_populate.xml" relativeToChangelogFile="false"/>
+
+
+    <!-- CREATE -->
+
+    <!-- UPDATE -->
+
+    <!-- INSERT -->
+</databaseChangeLog>

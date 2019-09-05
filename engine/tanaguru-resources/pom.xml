@@ -10,6 +10,7 @@
     </parent>
     <artifactId>tanaguru-resources</artifactId>
     <name>tanaguru-resources</name>
+    <packaging>jar</packaging>
     <build>
         <resources>
             <resource>
@@ -29,5 +30,156 @@
                 </excludes>
             </resource>
         </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>3.6.3</version>
+                <configuration>
+                    <driver>com.mysql.jdbc.Driver</driver>
+                    <url>jdbc:mysql://localhost:3306/tanaguru</url>
+                    <username>tanaguru</username>
+                    <password>tanaguru</password>
+                    <changeLogFile>src/main/resources/conf/liquibase/master.xml</changeLogFile>
+                    <outputChangeLogFile>src/main/resources/conf/liquibase/changelog/${maven.build.timestamp}_changelog.xml</outputChangeLogFile>
+                    <verbose>true</verbose>
+                    <logging>debug</logging>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.liquibase</groupId>
+                        <artifactId>liquibase-core</artifactId>
+                        <version>3.6.3</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>${springGroupId}</groupId>
+                        <artifactId>spring-core</artifactId>
+                        <version>${springVersion}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>${springGroupId}</groupId>
+                        <artifactId>spring-test</artifactId>
+                        <version>${springVersion}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>${springGroupId}</groupId>
+                        <artifactId>spring-jdbc</artifactId>
+                        <version>${springVersion}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>${springGroupId}</groupId>
+                        <artifactId>spring-beans</artifactId>
+                        <version>${springVersion}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>${springGroupId}</groupId>
+                        <artifactId>spring-context</artifactId>
+                        <version>${springVersion}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>${springGroupId}</groupId>
+                        <artifactId>spring-orm</artifactId>
+                        <version>${springVersion}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>5.1.15</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.liquibase.ext</groupId>
+                        <artifactId>liquibase-hibernate5</artifactId>
+                        <version>3.7</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+        </plugins>
     </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>${springGroupId}</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${springGroupId}</groupId>
+            <artifactId>spring-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${springGroupId}</groupId>
+            <artifactId>spring-orm</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-all</artifactId>
+            <version>5.9.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-consolidator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-analyser</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-persistence</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-contentadapter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-contentloader</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-crawler4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-logging</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-nomenclatureloader</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-processor</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-rule-implementation-loader</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-scenarioloader</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-engine</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-jms</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+        </dependency>
+    </dependencies>
 </project>

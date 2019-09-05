@@ -34,6 +34,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+        <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+
         <engineGroupId>org.tanaguru</engineGroupId>
         <engineVersion>6.0.0</engineVersion>
         
@@ -476,7 +478,18 @@
                 <scope>runtime</scope>
             </dependency>
 
-            <!-- mysql connector dependencies -->
+            <!-- https://mvnrepository.com/artifact/org.liquibase/liquibase-core -->
+            <dependency>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-core</artifactId>
+                <version>3.6.3</version>
+            </dependency>
+            <dependency>
+                <groupId>org.liquibase.ext</groupId>
+                <artifactId>liquibase-hibernate5</artifactId>
+                <version>3.7</version>
+            </dependency>
+
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
@@ -491,7 +504,12 @@
                 <scope>test</scope>
             </dependency>
 
-            <!-- hibernate dependencies -->   
+            <!-- hibernate dependencies -->
+            <dependency>
+                <groupId>${hibernateGroupId}</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${hibernateVersion}</version>
+            </dependency>
             <dependency>
                 <groupId>${hibernateGroupId}</groupId>
                 <artifactId>hibernate-ehcache</artifactId>
