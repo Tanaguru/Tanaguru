@@ -167,6 +167,10 @@ public class TextAlternativePresenceChecker extends ElementCheckerImpl  {
 				
 		if(!hasTextAlternative) {
 			super.setEeAttributes(attrtype);
+			if(!hasException(el)) {
+				addSourceCodeRemark(getSuccessSolution(),el,getSuccessMsgCode());
+				return getSuccessSolution();
+			}
 			addSourceCodeRemark(getFailureSolution(),el,getFailureMsgCode());
 			return getFailureSolution();
 		}
@@ -182,7 +186,7 @@ public class TextAlternativePresenceChecker extends ElementCheckerImpl  {
 	private boolean hasException(Element el) {
 		
 		if(exception) {
-			if(el.attr(ALT_ATTR).isEmpty()) {
+			if(el.hasAttr(ALT_ATTR) && el.attr(ALT_ATTR).isEmpty()) {
 				return true;
 			}
 		}

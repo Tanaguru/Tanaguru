@@ -90,8 +90,8 @@ public class Rgaa42019Rule010201Test extends Rgaa42019RuleImplementationTestCase
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
         addWebResource("Rgaa42019.Test.01.02.01-2Failed-07",
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
-//        addWebResource("Rgaa42019.Test.01.02.01-2Failed-08",
-//                createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
+        addWebResource("Rgaa42019.Test.01.02.01-2Failed-08",
+                createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
         addWebResource("Rgaa42019.Test.01.02.01-2Failed-09");
         addWebResource("Rgaa42019.Test.01.02.01-3NMI-01");
         addWebResource("Rgaa42019.Test.01.02.01-3NMI-02");
@@ -215,7 +215,7 @@ public class Rgaa42019Rule010201Test extends Rgaa42019RuleImplementationTestCase
         //------------------------------2Failed-06------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa42019.Test.01.02.01-2Failed-06");
-        checkResultIsFailed(processResult, 1, 1);
+        checkResultIsFailed(processResult, 1, 2);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
@@ -224,12 +224,19 @@ public class Rgaa42019Rule010201Test extends Rgaa42019RuleImplementationTestCase
                 1,
                 new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"),
                 new ImmutablePair(ROLE_ATTR, "logo"));
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                DECORATIVE_ELEMENT_WITH_TEXT_ALTERNATIVE_MSG,
+                IMG_ELEMENT,
+                2,
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
 
         //----------------------------------------------------------------------
         //------------------------------2Failed-07------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Rgaa42019.Test.01.02.01-2Failed-07");
-        checkResultIsFailed(processResult, 1, 1);
+        checkResultIsFailed(processResult, 1, 2);
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.FAILED,
@@ -238,19 +245,26 @@ public class Rgaa42019Rule010201Test extends Rgaa42019RuleImplementationTestCase
                 1,
                 new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"),
                 new ImmutablePair(ARIA_HIDDEN_ATTR, "false"));
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                DECORATIVE_ELEMENT_WITH_TEXT_ALTERNATIVE_MSG,
+                IMG_ELEMENT,
+                2,
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
 
-//        //----------------------------------------------------------------------
-//        //------------------------------2Failed-08------------------------------
-//        //----------------------------------------------------------------------
-//        processResult = processPageTest("Rgaa42019.Test.01.02.01-2Failed-08");
-//        checkResultIsFailed(processResult, 1, 1);
-//        checkRemarkIsPresent(
-//                processResult,
-//                TestSolution.FAILED,
-//                DECORATIVE_ELEMENT_WITH_TEXT_ALTERNATIVE_MSG,
-//                IMG_ELEMENT,
-//                1,
-//                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
+        //----------------------------------------------------------------------
+        //------------------------------2Failed-08------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa42019.Test.01.02.01-2Failed-08");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                DECORATIVE_ELEMENT_WITH_TEXT_ALTERNATIVE_MSG,
+                IMG_ELEMENT,
+                1,
+                new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
 
         //----------------------------------------------------------------------
         //------------------------------2Failed-09------------------------------
@@ -296,7 +310,7 @@ public class Rgaa42019Rule010201Test extends Rgaa42019RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                CHECK_NATURE_OF_IMAGE,
+                CHECK_NATURE_OF_IMAGE_WITH_TEXT_ALTERNATIVE,
                 IMG_ELEMENT,
                 2,
                 new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
@@ -317,7 +331,7 @@ public class Rgaa42019Rule010201Test extends Rgaa42019RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                CHECK_NATURE_OF_IMAGE,
+                CHECK_NATURE_OF_IMAGE_WITH_TEXT_ALTERNATIVE,
                 IMG_ELEMENT,
                 2,
                 new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
@@ -436,7 +450,7 @@ public class Rgaa42019Rule010201Test extends Rgaa42019RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                CHECK_NATURE_OF_IMAGE,
+                CHECK_NATURE_OF_IMAGE_WITH_TEXT_ALTERNATIVE,
                 IMG_ELEMENT,
                 2,
                 new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
@@ -457,7 +471,7 @@ public class Rgaa42019Rule010201Test extends Rgaa42019RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                CHECK_NATURE_OF_IMAGE,
+                CHECK_NATURE_OF_IMAGE_WITH_TEXT_ALTERNATIVE,
                 IMG_ELEMENT,
                 2,
                 new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
@@ -470,7 +484,7 @@ public class Rgaa42019Rule010201Test extends Rgaa42019RuleImplementationTestCase
         checkRemarkIsPresent(
                 processResult,
                 TestSolution.NEED_MORE_INFO,
-                CHECK_NATURE_OF_IMAGE,
+                CHECK_NATURE_OF_IMAGE_WITH_TEXT_ALTERNATIVE,
                 IMG_ELEMENT,
                 1,
                 new ImmutablePair(SRC_ATTR, "mock-decorative-image.jpg"));
