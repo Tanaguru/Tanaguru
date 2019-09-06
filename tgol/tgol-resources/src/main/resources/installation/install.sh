@@ -2,9 +2,6 @@
 
 declare prefix="/"
 
-declare mysql_tg_user=
-declare mysql_tg_passwd=
-declare mysql_tg_db=
 declare tanaguru_url=
 declare tanaguru_webapp_dir=
 declare tomcat_webapps=
@@ -19,9 +16,9 @@ declare dirty_database=false
 declare dirty_directories=false
 declare dirty_webapp=false
 
-declare TG_CONF_DIR="etc/tanaguru/"
-declare TG_TMP_DIR="var/tmp/tanaguru"
-declare TG_LOG_DIR="var/log/tanaguru"
+declare TG_CONF_DIR=
+declare TG_TMP_DIR=
+declare TG_LOG_DIR=
 declare PKG_DIR=$(pwd)
 
 declare ARCH="i386"

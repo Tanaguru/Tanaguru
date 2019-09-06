@@ -20,7 +20,3 @@ if [ -z "$AuditId" ]; then
         echo "Delete the audit and all its related contents with the given Id"
 	exit 0
 fi
-
-mysql -u $DbUser -p$DbUserPasswd $DbName -e "
-    call delete_audit_from_id($AuditId);
-"

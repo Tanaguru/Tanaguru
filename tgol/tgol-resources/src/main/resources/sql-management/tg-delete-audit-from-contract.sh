@@ -20,7 +20,3 @@ if [ -z "$ContractId" ]; then
         echo "Delete all the audits and all their related contents for the given contract"
 	exit 0
 fi
-
-mysql -u $DbUser -p$DbUserPasswd $DbName -e "
-    call clean_up_audit_from_contract($ContractId);
-"

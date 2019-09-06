@@ -20,7 +20,3 @@ if [ -z "$UserEmail" ]; then
         echo "Delete all the audits and all their related contents for the given user identified by its email"
 	exit 0
 fi
-
-mysql -u $DbUser -p$DbUserPasswd $DbName -e "
-    call clean_up_audit_from_user_email(\"$UserEmail\");
-"
