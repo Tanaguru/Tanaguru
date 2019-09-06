@@ -948,16 +948,6 @@
 <column name="Issue"/>
 </createIndex>
 </changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-103">
-<createIndex indexName="Uri_Index" tableName="CONTENT">
-<column name="Uri"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-104">
-<createIndex indexName="Url_Index" tableName="WEB_RESOURCE">
-<column name="Url"/>
-</createIndex>
-</changeSet>
 <changeSet author="rcharre (generated)" id="1567586404475-105">
 <createIndex indexName="fk_ACCEDEWEB_1_idx" tableName="ACCEDEWEB">
 <column name="Id_Test_Id"/>

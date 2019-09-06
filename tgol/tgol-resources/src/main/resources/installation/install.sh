@@ -32,7 +32,10 @@ declare TG_WAR_VERSION=$TG_VERSION
 declare TG_WAR="tgol-web-app-$TG_WAR_VERSION.war"
 
 declare -a OPTIONS=(
-	
+
+	mysql_tg_user
+	mysql_tg_passwd
+	mysql_tg_db
 	tanaguru_url
 	tomcat_webapps
 	tomcat_user
