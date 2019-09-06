@@ -19,3 +19,7 @@ if [ -z "$Email" ] ; then
         echo "Set given user administrator privileges"
 	exit -1
 fi
+
+mysql -u $DbUser -p$DbUserPasswd $DbName -e " 
+UPDATE TGSI_USER SET ROLE_Id_Role=3 WHERE Email1 like \"$Email\"; 
+" 

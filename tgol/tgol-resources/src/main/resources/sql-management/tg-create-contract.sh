@@ -80,3 +80,7 @@ for funct in $Functs;do
         funct4=4;
    fi
 done
+
+mysql -u $DbUser -p$DbUserPasswd $DbName -e " 
+call create_contract($UserId, \"$SiteLabel\", \"$URL\", $ref1, $ref2, $ref3, $ref4, $funct1, $funct2, $funct3, $funct4, $maxDoc); 
+"
