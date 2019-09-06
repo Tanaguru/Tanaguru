@@ -25,24 +25,3 @@ if [ -z "$ContractId" ] || [ -z "$Refs" ]; then
         echo "     - r3 -> Accessiweb 2.2"
 	exit 0
 fi
-
-for ref in $Refs;do
-   if [ $ref = "r1" ];
-     then 
-        mysql -u $DbUser -p$DbUserPasswd $DbName -e "
-        call remove_ref_to_contract_from_contract_id($ContractId, 1);
-        "
-   fi
-   if [ $ref = "r2" ];
-     then 
-        mysql -u $DbUser -p$DbUserPasswd $DbName -e "
-        call remove_ref_to_contract_from_contract_id($ContractId, 3);
-        "
-   fi
-   if [ $ref = "r3" ];
-     then 
-        mysql -u $DbUser -p$DbUserPasswd $DbName -e "
-        call remove_ref_to_contract_from_contract_id($ContractId, 4);
-        "
-   fi
-done

@@ -21,7 +21,3 @@ if [ -z "$ContractLabel" ] || [ -z "$UserEmail" ] ; then
         echo "Delete contract with the label for the given user"
 	exit 0
 fi
-
-mysql -u $DbUser -p$DbUserPasswd $DbName -e "
-    call delete_contract_from_label(\"$ContractLabel\", \"$UserEmail\");
-"
