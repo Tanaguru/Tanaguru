@@ -36,11 +36,9 @@ declare -a OPTIONS=(
 	tanaguru_url
 	tomcat_webapps
 	tomcat_user
-        tg_admin_email
-        tg_admin_passwd
 	firefox_esr_path
 	display_port
-        tg_version
+    tg_version
 )
 
 warn() {
@@ -218,7 +216,7 @@ create_directories() {
 		"${prefix}/$TG_LOG_DIR"          \
 		"${prefix}/$TG_TMP_DIR"          \
 		|| fail "Unable to create Tanaguru directories"
-	sudo install -dm 755 -o ${tomcat_user} -g root                          \
+	install -dm 755 -o ${tomcat_user} -g root                          \
 		"${prefix}/${tomcat_webapps}/${tanaguru_webapp_dir}" \
 		|| fail "Unable to create Tanaguru webapp directory"
 }

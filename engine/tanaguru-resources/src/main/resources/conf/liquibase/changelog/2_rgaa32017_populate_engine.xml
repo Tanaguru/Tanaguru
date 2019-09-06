@@ -53,7 +53,7 @@
 
     <changeSet author="edaconceicao" id="rgaa32017_populate_PARAMETER">
         <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="50">SELECT COUNT(*) FROM PARAMETER</sqlCheck>
+            <sqlCheck expectedResult="25">SELECT COUNT(*) FROM PARAMETER</sqlCheck>
         </preConditions>
         <loadData encoding="UTF-8"
                   file="classpath:conf/liquibase/data/RGAA32017_PARAMETER.csv"
