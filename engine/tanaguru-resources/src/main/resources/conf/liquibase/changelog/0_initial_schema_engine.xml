@@ -1,1208 +1,2312 @@
-<?xml version="1.0" encoding="UTF-8"?><databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
-<changeSet author="rcharre (generated)" id="1567586404475-1">
-<createTable tableName="ACCEDEWEB">
-<column autoIncrement="true" name="Id_Accedeweb" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Cd_Accedeweb" type="VARCHAR(255)"/>
-<column name="Description" type="VARCHAR(255)"/>
-<column name="Label" type="VARCHAR(255)"/>
-<column name="Rank" type="INT"/>
-<column defaultValue="H" name="Dtype" type="CHAR(1)"/>
-<column name="Cd_Rgaa3" type="VARCHAR(255)"/>
-<column name="Id_Test_Id" type="BIGINT"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-2">
-<createTable tableName="AUDIT">
-<column autoIncrement="true" name="Id_Audit" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Comment" type="VARCHAR(255)"/>
-<column name="Dt_Creation" type="datetime"/>
-<column name="Manual_Audit_Dt_Creation" type="datetime"/>
-<column name="Status" type="VARCHAR(255)"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-3">
-<createTable tableName="AUDIT_PARAMETER">
-<column name="Id_Audit" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-<column name="Id_Parameter" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-4">
-<createTable tableName="AUDIT_TEST">
-<column name="Id_Audit" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-<column name="Id_Test" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-5">
-<createTable tableName="CONTENT">
-<column name="DTYPE" type="VARCHAR(31)">
-<constraints nullable="false"/>
-</column>
-<column autoIncrement="true" name="Id_Content" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Dt_Loading" type="datetime"/>
-<column name="Http_Status_Code" type="INT">
-<constraints nullable="false"/>
-</column>
-<column name="Uri" type="VARCHAR(2048)">
-<constraints nullable="false"/>
-</column>
-<column name="Binary_Content" type="MEDIUMBLOB"/>
-<column name="Adapted_Content" type="LONGTEXT"/>
-<column name="Source" type="LONGTEXT"/>
-<column name="Charset" type="VARCHAR(255)"/>
-<column name="Doctype" type="VARCHAR(512)"/>
-<column name="Id_Audit" type="BIGINT"/>
-<column name="Id_Page" type="BIGINT"/>
-<column name="W3c" type="LONGTEXT"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-6">
-<createTable tableName="CONTENT_RELATIONSHIP">
-<column name="Id_Content_Child" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Id_Content_Parent" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-7">
-<createTable tableName="CRITERION">
-<column autoIncrement="true" name="Id_Criterion" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Cd_Criterion" type="VARCHAR(255)">
-<constraints unique="true"/>
-</column>
-<column name="Description" type="VARCHAR(255)"/>
-<column name="Label" type="VARCHAR(255)"/>
-<column name="Rank" type="INT"/>
-<column name="Url" type="VARCHAR(255)"/>
-<column name="Reference_Id_Reference" type="BIGINT"/>
-<column name="Theme_Id_Theme" type="BIGINT"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-8">
-<createTable tableName="CRITERION_STATISTICS">
-<column autoIncrement="true" name="Id_Criterion_Statistics" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Nb_Passed" type="INT"/>
-<column name="Nb_Failed" type="INT"/>
-<column name="Nb_Nmi" type="INT"/>
-<column name="Nb_Na" type="INT"/>
-<column name="Nb_Suspected" type="INT"/>
-<column name="Nb_Detected" type="INT"/>
-<column name="Nb_Not_Tested" type="INT"/>
-<column name="Criterion_Result" type="VARCHAR(255)"/>
-<column name="Id_Criterion" type="BIGINT"/>
-<column name="Id_Web_Resource_Statistics" type="BIGINT"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-9">
-<createTable tableName="DECISION_LEVEL">
-<column autoIncrement="true" name="Id_Decision_Level" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Cd_Decision_Level" type="VARCHAR(255)"/>
-<column name="Description" type="VARCHAR(255)"/>
-<column name="Label" type="VARCHAR(255)">
-<constraints nullable="false"/>
-</column>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-10">
-<createTable tableName="EVIDENCE">
-<column autoIncrement="true" name="Id_Evidence" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Cd_Evidence" type="VARCHAR(255)"/>
-<column name="Description" type="VARCHAR(255)"/>
-<column name="Long_Label" type="VARCHAR(255)"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-11">
-<createTable tableName="EVIDENCE_ELEMENT">
-<column autoIncrement="true" name="Id_Evidence_Element" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Element_Value" type="MEDIUMTEXT">
-<constraints nullable="false"/>
-</column>
-<column name="EVIDENCE_Id_Evidence" type="BIGINT"/>
-<column name="PROCESS_REMARK_Id_Process_Remark" type="BIGINT"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-12">
-<createTable tableName="LEVEL">
-<column autoIncrement="true" name="Id_Level" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Cd_Level" type="VARCHAR(255)"/>
-<column name="Description" type="VARCHAR(255)"/>
-<column name="Label" type="VARCHAR(255)"/>
-<column name="Rank" type="INT"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-13">
-<createTable tableName="NOMENCLATURE">
-<column autoIncrement="true" name="Id_Nomenclature" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Cd_Nomenclature" type="VARCHAR(255)"/>
-<column name="Description" type="VARCHAR(255)"/>
-<column name="Long_Label" type="VARCHAR(255)"/>
-<column name="Short_Label" type="VARCHAR(255)"/>
-<column name="Id_Nomenclature_Parent" type="BIGINT"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-14">
-<createTable tableName="NOMENCLATURE_ELEMENT">
-<column name="DTYPE" type="VARCHAR(31)">
-<constraints nullable="false"/>
-</column>
-<column autoIncrement="true" name="Id_Nomenclature_Element" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Label" type="VARCHAR(255)">
-<constraints nullable="false"/>
-</column>
-<column name="shortValue" type="INT"/>
-<column name="Id_Nomenclature" type="BIGINT"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-15">
-<createTable tableName="PARAMETER">
-<column autoIncrement="true" name="Id_Parameter" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Parameter_Value" type="VARCHAR(1000)">
-<constraints nullable="false"/>
-</column>
-<column name="Id_Parameter_Element" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-<column defaultValueBoolean="false" name="Is_Default" type="BIT(1)"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-16">
-<createTable tableName="PARAMETER_ELEMENT">
-<column autoIncrement="true" name="Id_Parameter_Element" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Cd_Parameter_Element" type="VARCHAR(255)">
-<constraints nullable="false" unique="true"/>
-</column>
-<column name="Id_Parameter_Family" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-<column name="Short_Label" type="VARCHAR(255)"/>
-<column name="Long_Label" type="VARCHAR(255)"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-17">
-<createTable tableName="PARAMETER_FAMILY">
-<column autoIncrement="true" name="Id_Parameter_Family" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Cd_Parameter_Family" type="VARCHAR(255)">
-<constraints nullable="false" unique="true"/>
-</column>
-<column name="Description" type="VARCHAR(255)"/>
-<column name="Long_Label" type="VARCHAR(255)"/>
-<column name="Short_Label" type="VARCHAR(255)"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-18">
-<createTable tableName="PRE_PROCESS_RESULT">
-<column autoIncrement="true" name="Id_Pre_Process_Result" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Pre_Process_Key" type="VARCHAR(255)">
-<constraints nullable="false"/>
-</column>
-<column name="Pre_Process_Value" type="MEDIUMTEXT"/>
-<column name="Id_Audit" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-<column name="Id_Web_Resource" type="BIGINT"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-19">
-<createTable tableName="PROCESS_REMARK">
-<column name="DTYPE" type="VARCHAR(31)">
-<constraints nullable="false"/>
-</column>
-<column autoIncrement="true" name="Id_Process_Remark" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Issue" type="VARCHAR(255)"/>
-<column name="Message_Code" type="VARCHAR(255)"/>
-<column name="Selected_Element" type="VARCHAR(255)"/>
-<column name="Selection_Expression" type="VARCHAR(255)"/>
-<column name="Character_Position" type="INT"/>
-<column name="Line_Number" type="INT"/>
-<column name="Target" type="VARCHAR(5000)"/>
-<column name="Snippet" type="MEDIUMTEXT"/>
-<column name="Id_Process_Result" type="BIGINT"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-20">
-<createTable tableName="PROCESS_RESULT">
-<column name="DTYPE" type="VARCHAR(31)">
-<constraints nullable="false"/>
-</column>
-<column autoIncrement="true" name="Id_Process_Result" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Element_Counter" type="INT"/>
-<column name="Definite_Value" type="VARCHAR(255)"/>
-<column name="Indefinite_Value" type="MEDIUMTEXT"/>
-<column name="Id_Audit_Gross_Result" type="BIGINT"/>
-<column name="Id_Audit_Net_Result" type="BIGINT"/>
-<column name="Id_Process_Result_Parent" type="BIGINT"/>
-<column name="Id_Web_Resource" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-<column name="Id_Test" type="BIGINT"/>
-<column name="Manual_Definite_Value" type="VARCHAR(255)"/>
-<column name="Manual_Audit_Comment" type="VARCHAR(255)"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-21">
-<createTable tableName="PROCESS_RESULT_AUD">
-<column name="DTYPE" type="VARCHAR(31)">
-<constraints nullable="false"/>
-</column>
-<column name="Id_Process_Result" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="REV" type="INT">
-<constraints primaryKey="true"/>
-</column>
-<column name="REVTYPE" type="TINYINT(3)"/>
-<column name="Element_Counter" type="INT"/>
-<column name="Id_Process_Result_Parent" type="BIGINT"/>
-<column name="Definite_Value" type="VARCHAR(255)"/>
-<column name="Manual_Audit_Comment" type="VARCHAR(255)"/>
-<column name="Manual_Definite_Value" type="VARCHAR(255)"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-22">
-<createTable tableName="REFERENCE">
-<column autoIncrement="true" name="Id_Reference" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Cd_Reference" type="VARCHAR(255)">
-<constraints unique="true"/>
-</column>
-<column name="Description" type="VARCHAR(255)"/>
-<column name="Label" type="VARCHAR(255)">
-<constraints nullable="false"/>
-</column>
-<column name="Rank" type="INT"/>
-<column name="Url" type="VARCHAR(255)"/>
-<column defaultValueNumeric="2" name="Id_Default_Level" type="BIGINT"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-23">
-<createTable tableName="REVINFO">
-<column autoIncrement="true" name="REV" type="INT">
-<constraints primaryKey="true"/>
-</column>
-<column name="REVTSTMP" type="BIGINT"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-24">
-<createTable tableName="SCOPE">
-<column autoIncrement="true" name="Id_Scope" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Code" type="VARCHAR(255)"/>
-<column name="Description" type="VARCHAR(255)"/>
-<column name="Label" type="VARCHAR(255)">
-<constraints nullable="false"/>
-</column>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-25">
-<createTable tableName="STANDARD_MESSAGE">
-<column autoIncrement="true" name="Id_Standard_Message" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Cd_Standard_Message" type="VARCHAR(255)"/>
-<column name="Label" type="VARCHAR(255)"/>
-<column name="Text" type="VARCHAR(255)"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-26">
-<createTable tableName="TEST">
-<column autoIncrement="true" name="Id_Test" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Cd_Test" type="VARCHAR(255)">
-<constraints unique="true"/>
-</column>
-<column name="Description" type="VARCHAR(255)"/>
-<column name="Label" type="VARCHAR(255)"/>
-<column name="Rank" type="INT"/>
-<column defaultValueComputed="1.0" name="Weight" type="DECIMAL(2, 1) UNSIGNED"/>
-<column name="Rule_Archive_Name" type="VARCHAR(255)"/>
-<column name="Rule_Class_Name" type="VARCHAR(255)"/>
-<column name="Rule_Design_Url" type="VARCHAR(255)"/>
-<column name="Id_Criterion" type="BIGINT"/>
-<column name="Id_Decision_Level" type="BIGINT"/>
-<column name="Id_Level" type="BIGINT"/>
-<column name="Eaccess" type="INT"/>
-<column name="Id_Rule" type="BIGINT"/>
-<column name="Id_Scope" type="BIGINT"/>
-<column defaultValueBoolean="true" name="No_Process" type="BIT(1)"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-27">
-<createTable tableName="TEST_STATISTICS">
-<column autoIncrement="true" name="Id_Test_Statistics" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Nb_Passed" type="INT"/>
-<column name="Nb_Failed" type="INT"/>
-<column name="Nb_Nmi" type="INT"/>
-<column name="Nb_Na" type="INT"/>
-<column name="Nb_Suspected" type="INT"/>
-<column name="Nb_Detected" type="INT"/>
-<column name="Nb_Not_Tested" type="INT"/>
-<column name="Id_Test" type="BIGINT"/>
-<column name="Id_Web_Resource_Statistics" type="BIGINT"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-28">
-<createTable tableName="TGSI_ACT">
-<column autoIncrement="true" name="Id_Act" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Begin_Date" type="datetime">
-<constraints nullable="false"/>
-</column>
-<column name="End_Date" type="datetime"/>
-<column name="Status" type="VARCHAR(255)">
-<constraints nullable="false"/>
-</column>
-<column name="CONTRACT_Id_Contract" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-<column name="SCOPE_Id_Scope" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-<column defaultValue="0.0.0.0" name="Client_Ip" type="VARCHAR(16)">
-<constraints nullable="false"/>
-</column>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-29">
-<createTable tableName="TGSI_ACT_AUDIT">
-<column name="ACT_Id_Act" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-<column name="AUDIT_Id_Audit" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-30">
-<createTable tableName="TGSI_CONTRACT">
-<column autoIncrement="true" name="Id_Contract" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Label" type="VARCHAR(255)">
-<constraints nullable="false"/>
-</column>
-<column name="Begin_Date" type="datetime">
-<constraints nullable="false"/>
-</column>
-<column name="End_Date" type="datetime">
-<constraints nullable="false"/>
-</column>
-<column name="Renewal_Date" type="datetime"/>
-<column name="Price" type="FLOAT(12) UNSIGNED"/>
-<column name="USER_Id_User" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-31">
-<createTable tableName="TGSI_CONTRACT_FUNCTIONALITY">
-<column name="CONTRACT_Id_Contract" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-<column name="FUNCTIONALITY_Id_Functionality" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-32">
-<createTable tableName="TGSI_CONTRACT_OPTION_ELEMENT">
-<column name="OPTION_ELEMENT_Id_Option_Element" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-<column name="CONTRACT_Id_Contract" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-33">
-<createTable tableName="TGSI_CONTRACT_REFERENTIAL">
-<column name="CONTRACT_Id_Contract" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-<column name="REFERENTIAL_Id_Referential" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-34">
-<createTable tableName="TGSI_FUNCTIONALITY">
-<column autoIncrement="true" name="Id_Functionality" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Code" type="VARCHAR(45)">
-<constraints nullable="false" unique="true"/>
-</column>
-<column name="Label" type="VARCHAR(255)"/>
-<column name="Description" type="VARCHAR(2048)"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-35">
-<createTable tableName="TGSI_OPTION">
-<column autoIncrement="true" name="Id_Option" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Code" type="VARCHAR(45)">
-<constraints nullable="false" unique="true"/>
-</column>
-<column name="Label" type="VARCHAR(255)"/>
-<column name="Description" type="VARCHAR(2048)"/>
-<column defaultValueBoolean="true" name="Is_Restriction" type="BIT(1)"/>
-<column name="OPTION_FAMILY_Id_Option_Family" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-36">
-<createTable tableName="TGSI_OPTION_ELEMENT">
-<column autoIncrement="true" name="Id_Option_Element" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="OPTION_Id_Option" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-<column name="Value" type="VARCHAR(255)"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-37">
-<createTable tableName="TGSI_OPTION_FAMILY">
-<column autoIncrement="true" name="Id_Option_Family" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Code" type="VARCHAR(45)">
-<constraints nullable="false" unique="true"/>
-</column>
-<column name="Label" type="VARCHAR(255)"/>
-<column name="Description" type="VARCHAR(2048)"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-38">
-<createTable tableName="TGSI_REFERENTIAL">
-<column autoIncrement="true" name="Id_Referential" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Code" type="VARCHAR(45)">
-<constraints nullable="false" unique="true"/>
-</column>
-<column name="Label" type="VARCHAR(255)"/>
-<column name="Description" type="VARCHAR(2048)"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-39">
-<createTable tableName="TGSI_ROLE">
-<column autoIncrement="true" name="Id_Role" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Role_Name" type="VARCHAR(255)">
-<constraints nullable="false"/>
-</column>
-<column name="ROLE_Id_Role" type="BIGINT"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-40">
-<createTable tableName="TGSI_SCENARIO">
-<column autoIncrement="true" name="Id_Scenario" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Date_Of_Creation" type="datetime">
-<constraints nullable="false"/>
-</column>
-<column name="Label" type="VARCHAR(255)">
-<constraints nullable="false"/>
-</column>
-<column name="Content" type="MEDIUMTEXT">
-<constraints nullable="false"/>
-</column>
-<column name="Description" type="VARCHAR(255)"/>
-<column name="CONTRACT_Id_Contract" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-41">
-<createTable tableName="TGSI_SCOPE">
-<column autoIncrement="true" name="Id_Scope" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column defaultValue="PAGE" name="Code" type="VARCHAR(255)">
-<constraints nullable="false" unique="true"/>
-</column>
-<column defaultValue="Page" name="Label" type="VARCHAR(255)">
-<constraints nullable="false"/>
-</column>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-42">
-<createTable tableName="TGSI_USER">
-<column autoIncrement="true" name="Id_User" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Email1" type="VARCHAR(255)">
-<constraints nullable="false" unique="true"/>
-</column>
-<column name="Password" type="VARCHAR(255)">
-<constraints nullable="false"/>
-</column>
-<column defaultValue="" name="Name" type="VARCHAR(255)">
-<constraints nullable="false"/>
-</column>
-<column defaultValue="" name="First_Name" type="VARCHAR(255)">
-<constraints nullable="false"/>
-</column>
-<column name="Address" type="VARCHAR(255)"/>
-<column name="Phone_Number" type="VARCHAR(255)"/>
-<column name="Email2" type="VARCHAR(255)"/>
-<column name="Web1" type="VARCHAR(2048)"/>
-<column name="Web2" type="VARCHAR(2048)"/>
-<column name="Identica_Id" type="VARCHAR(255)"/>
-<column name="Twitter_Id" type="VARCHAR(255)"/>
-<column name="ROLE_Id_Role" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-<column defaultValueBoolean="true" name="Activated" type="BIT(1)"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-43">
-<createTable tableName="TGSI_USER_OPTION_ELEMENT">
-<column name="OPTION_ELEMENT_Id_Option_Element" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-<column name="USER_Id_User" type="BIGINT">
-<constraints nullable="false"/>
-</column>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-44">
-<createTable tableName="THEME">
-<column autoIncrement="true" name="Id_Theme" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Cd_Theme" type="VARCHAR(255)">
-<constraints unique="true"/>
-</column>
-<column name="Description" type="VARCHAR(255)"/>
-<column name="Label" type="VARCHAR(255)">
-<constraints nullable="false"/>
-</column>
-<column name="Rank" type="INT"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-45">
-<createTable tableName="THEME_STATISTICS">
-<column autoIncrement="true" name="Id_Theme_Statistics" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Nb_Passed" type="INT"/>
-<column name="Nb_Failed" type="INT"/>
-<column name="Nb_Nmi" type="INT"/>
-<column name="Nb_Na" type="INT"/>
-<column name="Nb_Suspected" type="INT"/>
-<column name="Nb_Detected" type="INT"/>
-<column name="Nb_Not_Tested" type="INT"/>
-<column name="Id_Theme" type="BIGINT"/>
-<column name="Id_Web_Resource_Statistics" type="BIGINT"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-46">
-<createTable tableName="WEB_RESOURCE">
-<column name="DTYPE" type="VARCHAR(31)">
-<constraints nullable="false"/>
-</column>
-<column autoIncrement="true" name="Id_Web_Resource" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Label" type="VARCHAR(255)"/>
-<column name="Url" type="VARCHAR(2048)">
-<constraints nullable="false"/>
-</column>
-<column defaultValueNumeric="0" name="Rank" type="INT"/>
-<column name="Id_Audit" type="BIGINT"/>
-<column name="Id_Web_Resource_Parent" type="BIGINT"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-47">
-<createTable tableName="WEB_RESOURCE_STATISTICS">
-<column autoIncrement="true" name="Id_Web_Resource_Statistics" type="BIGINT">
-<constraints primaryKey="true"/>
-</column>
-<column name="Mark" type="FLOAT(12)"/>
-<column name="Raw_Mark" type="FLOAT(12)"/>
-<column name="Nb_Passed" type="INT"/>
-<column name="Nb_Failed" type="INT"/>
-<column name="Nb_Nmi" type="INT"/>
-<column name="Nb_Na" type="INT"/>
-<column name="Nb_Suspected" type="INT"/>
-<column name="Nb_Detected" type="INT"/>
-<column name="Nb_Not_Tested" type="INT"/>
-<column name="Weighted_Passed" type="DECIMAL(10, 1) UNSIGNED"/>
-<column name="Weighted_Failed" type="DECIMAL(10, 1) UNSIGNED"/>
-<column name="Weighted_Nmi" type="DECIMAL(10, 1) UNSIGNED"/>
-<column name="Weighted_Na" type="DECIMAL(10, 1) UNSIGNED"/>
-<column name="Nb_Failed_Occurrences" type="INT"/>
-<column name="Nb_Invalid_Test" type="INT"/>
-<column name="Id_Audit" type="BIGINT"/>
-<column name="Id_Web_Resource" type="BIGINT"/>
-<column defaultValueNumeric="-1" name="Http_Status_Code" type="INT"/>
-<column defaultValueNumeric="0" name="Manual_Audit" type="INT"/>
-</createTable>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-48">
-<addUniqueConstraint columnNames="ACT_Id_Act, AUDIT_Id_Audit" constraintName="INDEX_UNIQUE_PAIR" tableName="TGSI_ACT_AUDIT"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-49">
-<addUniqueConstraint columnNames="FUNCTIONALITY_Id_Functionality, CONTRACT_Id_Contract" constraintName="INDEX_UNIQUE_PAIR" tableName="TGSI_CONTRACT_FUNCTIONALITY"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-50">
-<addUniqueConstraint columnNames="OPTION_ELEMENT_Id_Option_Element, CONTRACT_Id_Contract" constraintName="INDEX_UNIQUE_PAIR" tableName="TGSI_CONTRACT_OPTION_ELEMENT"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-51">
-<addUniqueConstraint columnNames="REFERENTIAL_Id_Referential, CONTRACT_Id_Contract" constraintName="INDEX_UNIQUE_PAIR" tableName="TGSI_CONTRACT_REFERENTIAL"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-52">
-<addUniqueConstraint columnNames="OPTION_Id_Option, Value" constraintName="INDEX_UNIQUE_PAIR" tableName="TGSI_OPTION_ELEMENT"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-53">
-<addUniqueConstraint columnNames="OPTION_ELEMENT_Id_Option_Element, USER_Id_User" constraintName="INDEX_UNIQUE_PAIR" tableName="TGSI_USER_OPTION_ELEMENT"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-54">
-<addUniqueConstraint columnNames="Id_Test, Id_Web_Resource, Id_Audit_Gross_Result" constraintName="Id_Test" tableName="PROCESS_RESULT"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-55">
-<addUniqueConstraint columnNames="Id_Test, Id_Web_Resource, Id_Audit_Net_Result" constraintName="Id_Test_2" tableName="PROCESS_RESULT"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-56">
-<addUniqueConstraint columnNames="Pre_Process_Key, Id_Web_Resource, Id_Audit" constraintName="Key_Wr_Audit" tableName="PRE_PROCESS_RESULT"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-57">
-<addUniqueConstraint columnNames="Parameter_Value, Id_Parameter_Element" constraintName="Unique_Param_Element_Type_Param_value" tableName="PARAMETER"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-58">
-<createIndex indexName="DTYPE_Index" tableName="CONTENT">
-<column name="DTYPE"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-59">
-<createIndex indexName="DTYPE_Index" tableName="WEB_RESOURCE">
-<column name="DTYPE"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-60">
-<createIndex indexName="Definite_Value_Index" tableName="PROCESS_RESULT">
-<column name="Definite_Value"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-61">
-<createIndex indexName="FK1C3EA37045A988AD" tableName="PROCESS_REMARK">
-<column name="Id_Process_Result"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-62">
-<createIndex indexName="FK1C41A80D2E48600" tableName="PROCESS_RESULT">
-<column name="Id_Web_Resource"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-63">
-<createIndex indexName="FK1C41A80D8146180B" tableName="PROCESS_RESULT">
-<column name="Id_Audit_Gross_Result"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-64">
-<createIndex indexName="FK1C41A80DA17A5FA8" tableName="PROCESS_RESULT">
-<column name="Id_Test"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-65">
-<createIndex indexName="FK1C41A80DB6D0E092" tableName="PROCESS_RESULT">
-<column name="Id_Audit_Net_Result"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-66">
-<createIndex indexName="FK1C41A80DFA349234" tableName="PROCESS_RESULT">
-<column name="Id_Process_Result_Parent"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-67">
-<createIndex indexName="FK273C9250C99824" tableName="TEST">
-<column name="Id_Scope"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-68">
-<createIndex indexName="FK273C926CCA4C3E" tableName="TEST">
-<column name="Id_Criterion"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-69">
-<createIndex indexName="FK273C9272343A84" tableName="TEST">
-<column name="Id_Level"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-70">
-<createIndex indexName="FK273C92CCA757AD" tableName="TEST">
-<column name="Id_Decision_Level"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-71">
-<createIndex indexName="FK44F856145FAB5EF2" tableName="NOMENCLATURE_ELEMENT">
-<column name="Id_Nomenclature"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-72">
-<createIndex indexName="FK5411075EDF74E053" tableName="PROCESS_RESULT_AUD">
-<column name="REV"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-73">
-<createIndex indexName="FK6382C059493EC9C2" tableName="CONTENT">
-<column name="Id_Audit"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-74">
-<createIndex indexName="FK6382C059A8A177A1" tableName="CONTENT">
-<column name="Id_Page"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-75">
-<createIndex indexName="FK698B98F425AD22C4" tableName="EVIDENCE_ELEMENT">
-<column name="PROCESS_REMARK_Id_Process_Remark"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-76">
-<createIndex indexName="FK698B98F4C94A0CBA" tableName="EVIDENCE_ELEMENT">
-<column name="EVIDENCE_Id_Evidence"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-77">
-<createIndex indexName="FK838E6E96493EC9C2" tableName="AUDIT_TEST">
-<column name="Id_Audit"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-78">
-<createIndex indexName="FK838E6E96A17A5FA8" tableName="AUDIT_TEST">
-<column name="Id_Test"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-79">
-<createIndex indexName="FKBA33205E620A8494" tableName="CONTENT_RELATIONSHIP">
-<column name="Id_Content_Parent"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-80">
-<createIndex indexName="FKBA33205EBA71C750" tableName="CONTENT_RELATIONSHIP">
-<column name="Id_Content_Child"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-81">
-<createIndex indexName="FKBCFA1E81D03CE506" tableName="CRITERION">
-<column name="Reference_Id_Reference"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-82">
-<createIndex indexName="FKBCFA1E81E8F67244" tableName="CRITERION">
-<column name="Theme_Id_Theme"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-83">
-<createIndex indexName="FKBF856B7795431825" tableName="NOMENCLATURE">
-<column name="Id_Nomenclature_Parent"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-84">
-<createIndex indexName="FKD9A970B92F70FF12" tableName="WEB_RESOURCE">
-<column name="Id_Web_Resource_Parent"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-85">
-<createIndex indexName="FKD9A970B9493EC9C2" tableName="WEB_RESOURCE">
-<column name="Id_Audit"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-86">
-<createIndex indexName="FK_TGSI_CONTRACT_OPTION_ELEMENT_TGSI_CONTRACT" tableName="TGSI_CONTRACT_OPTION_ELEMENT">
-<column name="CONTRACT_Id_Contract"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-87">
-<createIndex indexName="FK_TGSI_CONTRACT_TGSI_USER" tableName="TGSI_CONTRACT">
-<column name="USER_Id_User"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-88">
-<createIndex indexName="FK_TGSI_OPTION_TGSI_OPTION_FAMILY" tableName="TGSI_OPTION">
-<column name="OPTION_FAMILY_Id_Option_Family"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-89">
-<createIndex indexName="FK_TGSI_USER_OPTION_ELEMENT_TGSI_USER" tableName="TGSI_USER_OPTION_ELEMENT">
-<column name="USER_Id_User"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-90">
-<createIndex indexName="Http_Status_Code_Index" tableName="CONTENT">
-<column name="Http_Status_Code"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-91">
-<createIndex indexName="INDEX_TGSI_ACT_AUDIT_ACT_Id_Act" tableName="TGSI_ACT_AUDIT">
-<column name="ACT_Id_Act"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-92">
-<createIndex indexName="INDEX_TGSI_ACT_AUDIT_AUDIT_Id_Audit" tableName="TGSI_ACT_AUDIT">
-<column name="AUDIT_Id_Audit"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-93">
-<createIndex indexName="INDEX_TGSI_ACT_CONTRACT_Id_Contract" tableName="TGSI_ACT">
-<column name="CONTRACT_Id_Contract"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-94">
-<createIndex indexName="INDEX_TGSI_ACT_SCOPE_Id_Scope" tableName="TGSI_ACT">
-<column name="SCOPE_Id_Scope"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-95">
-<createIndex indexName="INDEX_TGSI_CONTRACT_FUNCTIONALITY_CONTRACT_Id_Contract" tableName="TGSI_CONTRACT_FUNCTIONALITY">
-<column name="CONTRACT_Id_Contract"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-96">
-<createIndex indexName="INDEX_TGSI_CONTRACT_FUNCTIONALITY_FUNCTIONALITY_Id_Functionality" tableName="TGSI_CONTRACT_FUNCTIONALITY">
-<column name="FUNCTIONALITY_Id_Functionality"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-97">
-<createIndex indexName="INDEX_TGSI_CONTRACT_REFERENTIAL_CONTRACT_Id_Contract" tableName="TGSI_CONTRACT_REFERENTIAL">
-<column name="CONTRACT_Id_Contract"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-98">
-<createIndex indexName="INDEX_TGSI_CONTRACT_REFERENTIAL_REFERENTIAL_Id_Referential" tableName="TGSI_CONTRACT_REFERENTIAL">
-<column name="REFERENTIAL_Id_Referential"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-99">
-<createIndex indexName="INDEX_TGSI_ROLE_ROLE_Id_Role" tableName="TGSI_ROLE">
-<column name="ROLE_Id_Role"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-100">
-<createIndex indexName="INDEX_TGSI_SCENARIO_CONTRACT_Id_Contract" tableName="TGSI_SCENARIO">
-<column name="CONTRACT_Id_Contract"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-101">
-<createIndex indexName="INDEX_TGSI_USER_ROLE_Id_Role" tableName="TGSI_USER">
-<column name="ROLE_Id_Role"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-102">
-<createIndex indexName="Issue_Index" tableName="PROCESS_REMARK">
-<column name="Issue"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-105">
-<createIndex indexName="fk_ACCEDEWEB_1_idx" tableName="ACCEDEWEB">
-<column name="Id_Test_Id"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-106">
-<createIndex indexName="fk_AUDIT_PARAMETER_AUDIT" tableName="AUDIT_PARAMETER">
-<column name="Id_Audit"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-107">
-<createIndex indexName="fk_AUDIT_PARAMETER_PARAMETER" tableName="AUDIT_PARAMETER">
-<column name="Id_Parameter"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-108">
-<createIndex indexName="fk_CRITERION_STATISTICS_CRITERION" tableName="CRITERION_STATISTICS">
-<column name="Id_Criterion"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-109">
-<createIndex indexName="fk_CRITERION_STATISTICS_WEB_RESOURCE_STATISTICS" tableName="CRITERION_STATISTICS">
-<column name="Id_Web_Resource_Statistics"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-110">
-<createIndex indexName="fk_PARAMETER_ELEMENT_PARAMETER" tableName="PARAMETER_ELEMENT">
-<column name="Id_Parameter_Family"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-111">
-<createIndex indexName="fk_PARAMETER_PARAMETER_ELEMENT" tableName="PARAMETER">
-<column name="Id_Parameter_Element"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-112">
-<createIndex indexName="fk_PRE_PROCESS_RESULT_AUDIT" tableName="PRE_PROCESS_RESULT">
-<column name="Id_Audit"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-113">
-<createIndex indexName="fk_PRE_PROCESS_RESULT_WEB_RESOURCE" tableName="PRE_PROCESS_RESULT">
-<column name="Id_Web_Resource"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-114">
-<createIndex indexName="fk_Ref_Level" tableName="REFERENCE">
-<column defaultValueNumeric="2" name="Id_Default_Level"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-115">
-<createIndex indexName="fk_THEME_STATISTICS_THEME" tableName="TEST_STATISTICS">
-<column name="Id_Test"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-116">
-<createIndex indexName="fk_THEME_STATISTICS_THEME" tableName="THEME_STATISTICS">
-<column name="Id_Theme"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-117">
-<createIndex indexName="fk_THEME_STATISTICS_WEB_RESOURCE_STATISTICS" tableName="TEST_STATISTICS">
-<column name="Id_Web_Resource_Statistics"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-118">
-<createIndex indexName="fk_THEME_STATISTICS_WEB_RESOURCE_STATISTICS" tableName="THEME_STATISTICS">
-<column name="Id_Web_Resource_Statistics"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-119">
-<createIndex indexName="fk_WEB_RESOURCE_STATISTICS_AUDIT" tableName="WEB_RESOURCE_STATISTICS">
-<column name="Id_Audit"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-120">
-<createIndex indexName="fk_WEB_RESOURCE_STATISTICS_WEB_RESOURCE" tableName="WEB_RESOURCE_STATISTICS">
-<column name="Id_Web_Resource"/>
-</createIndex>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-121">
-<addForeignKeyConstraint baseColumnNames="Id_Process_Result" baseTableName="PROCESS_REMARK" constraintName="FK1C3EA37045A988AD" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Process_Result" referencedTableName="PROCESS_RESULT" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-122">
-<addForeignKeyConstraint baseColumnNames="Id_Web_Resource" baseTableName="PROCESS_RESULT" constraintName="FK1C41A80D2E48600" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Web_Resource" referencedTableName="WEB_RESOURCE" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-123">
-<addForeignKeyConstraint baseColumnNames="Id_Audit_Gross_Result" baseTableName="PROCESS_RESULT" constraintName="FK1C41A80D8146180B" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Audit" referencedTableName="AUDIT" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-124">
-<addForeignKeyConstraint baseColumnNames="Id_Test" baseTableName="PROCESS_RESULT" constraintName="FK1C41A80DA17A5FA8" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Test" referencedTableName="TEST" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-125">
-<addForeignKeyConstraint baseColumnNames="Id_Audit_Net_Result" baseTableName="PROCESS_RESULT" constraintName="FK1C41A80DB6D0E092" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Audit" referencedTableName="AUDIT" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-126">
-<addForeignKeyConstraint baseColumnNames="Id_Process_Result_Parent" baseTableName="PROCESS_RESULT" constraintName="FK1C41A80DFA349234" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Process_Result" referencedTableName="PROCESS_RESULT" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-127">
-<addForeignKeyConstraint baseColumnNames="Id_Scope" baseTableName="TEST" constraintName="FK273C9250C99824" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Scope" referencedTableName="SCOPE" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-128">
-<addForeignKeyConstraint baseColumnNames="Id_Criterion" baseTableName="TEST" constraintName="FK273C926CCA4C3E" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Criterion" referencedTableName="CRITERION" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-129">
-<addForeignKeyConstraint baseColumnNames="Id_Level" baseTableName="TEST" constraintName="FK273C9272343A84" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Level" referencedTableName="LEVEL" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-130">
-<addForeignKeyConstraint baseColumnNames="Id_Decision_Level" baseTableName="TEST" constraintName="FK273C92CCA757AD" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Decision_Level" referencedTableName="DECISION_LEVEL" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-131">
-<addForeignKeyConstraint baseColumnNames="Id_Nomenclature" baseTableName="NOMENCLATURE_ELEMENT" constraintName="FK44F856145FAB5EF2" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Nomenclature" referencedTableName="NOMENCLATURE" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-132">
-<addForeignKeyConstraint baseColumnNames="REV" baseTableName="PROCESS_RESULT_AUD" constraintName="FK5411075EDF74E053" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="REV" referencedTableName="REVINFO" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-133">
-<addForeignKeyConstraint baseColumnNames="Id_Audit" baseTableName="CONTENT" constraintName="FK6382C059493EC9C2" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Audit" referencedTableName="AUDIT" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-134">
-<addForeignKeyConstraint baseColumnNames="Id_Page" baseTableName="CONTENT" constraintName="FK6382C059A8A177A1" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Web_Resource" referencedTableName="WEB_RESOURCE" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-135">
-<addForeignKeyConstraint baseColumnNames="PROCESS_REMARK_Id_Process_Remark" baseTableName="EVIDENCE_ELEMENT" constraintName="FK698B98F425AD22C4" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Process_Remark" referencedTableName="PROCESS_REMARK" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-136">
-<addForeignKeyConstraint baseColumnNames="EVIDENCE_Id_Evidence" baseTableName="EVIDENCE_ELEMENT" constraintName="FK698B98F4C94A0CBA" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Evidence" referencedTableName="EVIDENCE" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-137">
-<addForeignKeyConstraint baseColumnNames="Id_Audit" baseTableName="AUDIT_TEST" constraintName="FK838E6E96493EC9C2" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Audit" referencedTableName="AUDIT" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-138">
-<addForeignKeyConstraint baseColumnNames="Id_Test" baseTableName="AUDIT_TEST" constraintName="FK838E6E96A17A5FA8" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Test" referencedTableName="TEST" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-139">
-<addForeignKeyConstraint baseColumnNames="Id_Content_Parent" baseTableName="CONTENT_RELATIONSHIP" constraintName="FKBA33205E620A8494" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Content" referencedTableName="CONTENT" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-140">
-<addForeignKeyConstraint baseColumnNames="Id_Content_Child" baseTableName="CONTENT_RELATIONSHIP" constraintName="FKBA33205EBA71C750" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Content" referencedTableName="CONTENT" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-141">
-<addForeignKeyConstraint baseColumnNames="Reference_Id_Reference" baseTableName="CRITERION" constraintName="FKBCFA1E81D03CE506" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Reference" referencedTableName="REFERENCE" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-142">
-<addForeignKeyConstraint baseColumnNames="Theme_Id_Theme" baseTableName="CRITERION" constraintName="FKBCFA1E81E8F67244" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Theme" referencedTableName="THEME" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-143">
-<addForeignKeyConstraint baseColumnNames="Id_Nomenclature_Parent" baseTableName="NOMENCLATURE" constraintName="FKBF856B7795431825" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Nomenclature" referencedTableName="NOMENCLATURE" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-144">
-<addForeignKeyConstraint baseColumnNames="Id_Web_Resource_Parent" baseTableName="WEB_RESOURCE" constraintName="FKD9A970B92F70FF12" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="Id_Web_Resource" referencedTableName="WEB_RESOURCE" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-145">
-<addForeignKeyConstraint baseColumnNames="Id_Audit" baseTableName="WEB_RESOURCE" constraintName="FKD9A970B9493EC9C2" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="Id_Audit" referencedTableName="AUDIT" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-146">
-<addForeignKeyConstraint baseColumnNames="AUDIT_Id_Audit" baseTableName="TGSI_ACT_AUDIT" constraintName="FK_TGSI_ACT_AUDIT_AUDIT" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Audit" referencedTableName="AUDIT" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-147">
-<addForeignKeyConstraint baseColumnNames="ACT_Id_Act" baseTableName="TGSI_ACT_AUDIT" constraintName="FK_TGSI_ACT_AUDIT_TGSI_ACT" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Act" referencedTableName="TGSI_ACT" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-148">
-<addForeignKeyConstraint baseColumnNames="CONTRACT_Id_Contract" baseTableName="TGSI_ACT" constraintName="FK_TGSI_ACT_TGSI_CONTRACT" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Contract" referencedTableName="TGSI_CONTRACT" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-149">
-<addForeignKeyConstraint baseColumnNames="SCOPE_Id_Scope" baseTableName="TGSI_ACT" constraintName="FK_TGSI_ACT_TGSI_SCOPE" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Scope" referencedTableName="TGSI_SCOPE" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-150">
-<addForeignKeyConstraint baseColumnNames="CONTRACT_Id_Contract" baseTableName="TGSI_CONTRACT_FUNCTIONALITY" constraintName="FK_TGSI_CONTRACT_FUNCTIONALITY_TGSI_CONTRACT" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="Id_Contract" referencedTableName="TGSI_CONTRACT" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-151">
-<addForeignKeyConstraint baseColumnNames="FUNCTIONALITY_Id_Functionality" baseTableName="TGSI_CONTRACT_FUNCTIONALITY" constraintName="FK_TGSI_CONTRACT_FUNCTIONALITY_TGSI_FUNCTIONALITY" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Functionality" referencedTableName="TGSI_FUNCTIONALITY" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-152">
-<addForeignKeyConstraint baseColumnNames="CONTRACT_Id_Contract" baseTableName="TGSI_CONTRACT_OPTION_ELEMENT" constraintName="FK_TGSI_CONTRACT_OPTION_ELEMENT_TGSI_CONTRACT" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="Id_Contract" referencedTableName="TGSI_CONTRACT" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-153">
-<addForeignKeyConstraint baseColumnNames="OPTION_ELEMENT_Id_Option_Element" baseTableName="TGSI_CONTRACT_OPTION_ELEMENT" constraintName="FK_TGSI_CONTRACT_OPTION_ELEMENT_TGSI_OPTION_ELEMENT" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="Id_Option_Element" referencedTableName="TGSI_OPTION_ELEMENT" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-154">
-<addForeignKeyConstraint baseColumnNames="CONTRACT_Id_Contract" baseTableName="TGSI_CONTRACT_REFERENTIAL" constraintName="FK_TGSI_CONTRACT_REFERENTIAL_TGSI_CONTRACT" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="Id_Contract" referencedTableName="TGSI_CONTRACT" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-155">
-<addForeignKeyConstraint baseColumnNames="REFERENTIAL_Id_Referential" baseTableName="TGSI_CONTRACT_REFERENTIAL" constraintName="FK_TGSI_CONTRACT_REFERENTIAL_TGSI_REFERENTIAL" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Referential" referencedTableName="TGSI_REFERENTIAL" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-156">
-<addForeignKeyConstraint baseColumnNames="USER_Id_User" baseTableName="TGSI_CONTRACT" constraintName="FK_TGSI_CONTRACT_TGSI_USER" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_User" referencedTableName="TGSI_USER" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-157">
-<addForeignKeyConstraint baseColumnNames="OPTION_Id_Option" baseTableName="TGSI_OPTION_ELEMENT" constraintName="FK_TGSI_OPTION_ELEMENT_TGSI_OPTION" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Option" referencedTableName="TGSI_OPTION" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-158">
-<addForeignKeyConstraint baseColumnNames="OPTION_FAMILY_Id_Option_Family" baseTableName="TGSI_OPTION" constraintName="FK_TGSI_OPTION_TGSI_OPTION_FAMILY" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Option_Family" referencedTableName="TGSI_OPTION_FAMILY" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-159">
-<addForeignKeyConstraint baseColumnNames="ROLE_Id_Role" baseTableName="TGSI_ROLE" constraintName="FK_TGSI_ROLE_TGSI_ROLE" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="Id_Role" referencedTableName="TGSI_ROLE" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-160">
-<addForeignKeyConstraint baseColumnNames="CONTRACT_Id_Contract" baseTableName="TGSI_SCENARIO" constraintName="FK_TGSI_SCENARIO_TGSI_CONTRACT" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="Id_Contract" referencedTableName="TGSI_CONTRACT" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-161">
-<addForeignKeyConstraint baseColumnNames="OPTION_ELEMENT_Id_Option_Element" baseTableName="TGSI_USER_OPTION_ELEMENT" constraintName="FK_TGSI_USER_OPTION_ELEMENT_TGSI_OPTION_ELEMENT" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="Id_Option_Element" referencedTableName="TGSI_OPTION_ELEMENT" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-162">
-<addForeignKeyConstraint baseColumnNames="USER_Id_User" baseTableName="TGSI_USER_OPTION_ELEMENT" constraintName="FK_TGSI_USER_OPTION_ELEMENT_TGSI_USER" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="Id_User" referencedTableName="TGSI_USER" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-163">
-<addForeignKeyConstraint baseColumnNames="ROLE_Id_Role" baseTableName="TGSI_USER" constraintName="FK_TGSI_USER_TGSI_ROLE" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Role" referencedTableName="TGSI_ROLE" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-164">
-<addForeignKeyConstraint baseColumnNames="Id_Test_Id" baseTableName="ACCEDEWEB" constraintName="fk_ACCEDEWEB_1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Test" referencedTableName="TEST" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-165">
-<addForeignKeyConstraint baseColumnNames="Id_Audit" baseTableName="AUDIT_PARAMETER" constraintName="fk_AUDIT_PARAMETER_AUDIT" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Audit" referencedTableName="AUDIT" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-166">
-<addForeignKeyConstraint baseColumnNames="Id_Parameter" baseTableName="AUDIT_PARAMETER" constraintName="fk_AUDIT_PARAMETER_PARAMETER" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Parameter" referencedTableName="PARAMETER" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-167">
-<addForeignKeyConstraint baseColumnNames="Id_Criterion" baseTableName="CRITERION_STATISTICS" constraintName="fk_CRITERION_STATISTICS_CRITERION" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Criterion" referencedTableName="CRITERION" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-168">
-<addForeignKeyConstraint baseColumnNames="Id_Web_Resource_Statistics" baseTableName="CRITERION_STATISTICS" constraintName="fk_CRITERION_STATISTICS_WEB_RESOURCE_STATISTICS" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Web_Resource_Statistics" referencedTableName="WEB_RESOURCE_STATISTICS" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-169">
-<addForeignKeyConstraint baseColumnNames="Id_Parameter_Family" baseTableName="PARAMETER_ELEMENT" constraintName="fk_PARAMETER_ELEMENT_PARAMETER" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Parameter_Family" referencedTableName="PARAMETER_FAMILY" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-170">
-<addForeignKeyConstraint baseColumnNames="Id_Parameter_Element" baseTableName="PARAMETER" constraintName="fk_PARAMETER_PARAMETER_ELEMENT" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Parameter_Element" referencedTableName="PARAMETER_ELEMENT" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-171">
-<addForeignKeyConstraint baseColumnNames="Id_Audit" baseTableName="PRE_PROCESS_RESULT" constraintName="fk_PRE_PROCESS_RESULT_AUDIT" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Audit" referencedTableName="AUDIT" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-172">
-<addForeignKeyConstraint baseColumnNames="Id_Web_Resource" baseTableName="PRE_PROCESS_RESULT" constraintName="fk_PRE_PROCESS_RESULT_WEB_RESOURCE" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Web_Resource" referencedTableName="WEB_RESOURCE" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-173">
-<addForeignKeyConstraint baseColumnNames="Id_Default_Level" baseTableName="REFERENCE" constraintName="fk_Ref_Level" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Level" referencedTableName="LEVEL" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-174">
-<addForeignKeyConstraint baseColumnNames="Id_Test" baseTableName="TEST_STATISTICS" constraintName="fk_TEST_STATISTICS_TEST" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Test" referencedTableName="TEST" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-175">
-<addForeignKeyConstraint baseColumnNames="Id_Web_Resource_Statistics" baseTableName="TEST_STATISTICS" constraintName="fk_TEST_STATISTICS_WEB_RESOURCE_STATISTICS" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Web_Resource_Statistics" referencedTableName="WEB_RESOURCE_STATISTICS" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-176">
-<addForeignKeyConstraint baseColumnNames="Id_Theme" baseTableName="THEME_STATISTICS" constraintName="fk_THEME_STATISTICS_THEME" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Theme" referencedTableName="THEME" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-177">
-<addForeignKeyConstraint baseColumnNames="Id_Web_Resource_Statistics" baseTableName="THEME_STATISTICS" constraintName="fk_THEME_STATISTICS_WEB_RESOURCE_STATISTICS" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Web_Resource_Statistics" referencedTableName="WEB_RESOURCE_STATISTICS" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-178">
-<addForeignKeyConstraint baseColumnNames="Id_Audit" baseTableName="WEB_RESOURCE_STATISTICS" constraintName="fk_WEB_RESOURCE_STATISTICS_AUDIT" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Audit" referencedTableName="AUDIT" validate="true"/>
-</changeSet>
-<changeSet author="rcharre (generated)" id="1567586404475-179">
-<addForeignKeyConstraint baseColumnNames="Id_Web_Resource" baseTableName="WEB_RESOURCE_STATISTICS" constraintName="fk_WEB_RESOURCE_STATISTICS_WEB_RESOURCE" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Web_Resource" referencedTableName="WEB_RESOURCE" validate="true"/>
-</changeSet>
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="rcharre (generated)" id="1567586404475-1">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="ACCEDEWEB"/>
+            </not>
+        </preConditions>
+        <createTable tableName="ACCEDEWEB">
+            <column autoIncrement="true" name="Id_Accedeweb" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Cd_Accedeweb" type="VARCHAR(255)"/>
+            <column name="Description" type="VARCHAR(255)"/>
+            <column name="Label" type="VARCHAR(255)"/>
+            <column name="Rank" type="INT"/>
+            <column defaultValue="H" name="Dtype" type="CHAR(1)"/>
+            <column name="Cd_Rgaa3" type="VARCHAR(255)"/>
+            <column name="Id_Test_Id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-2">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="AUDIT"/>
+            </not>
+        </preConditions>
+        <createTable tableName="AUDIT">
+            <column autoIncrement="true" name="Id_Audit" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Comment" type="VARCHAR(255)"/>
+            <column name="Dt_Creation" type="datetime"/>
+            <column name="Manual_Audit_Dt_Creation" type="datetime"/>
+            <column name="Status" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-3">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="AUDIT_PARAMETER"/>
+            </not>
+        </preConditions>
+        <createTable tableName="AUDIT_PARAMETER">
+            <column name="Id_Audit" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Id_Parameter" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-4">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="AUDIT_TEST"/>
+            </not>
+        </preConditions>
+        <createTable tableName="AUDIT_TEST">
+            <column name="Id_Audit" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Id_Test" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-5">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="CONTENT"/>
+            </not>
+        </preConditions>
+        <createTable tableName="CONTENT">
+            <column name="DTYPE" type="VARCHAR(31)">
+                <constraints nullable="false"/>
+            </column>
+            <column autoIncrement="true" name="Id_Content" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Dt_Loading" type="datetime"/>
+            <column name="Http_Status_Code" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Uri" type="VARCHAR(2048)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Binary_Content" type="MEDIUMBLOB"/>
+            <column name="Adapted_Content" type="LONGTEXT"/>
+            <column name="Source" type="LONGTEXT"/>
+            <column name="Charset" type="VARCHAR(255)"/>
+            <column name="Doctype" type="VARCHAR(512)"/>
+            <column name="Id_Audit" type="BIGINT"/>
+            <column name="Id_Page" type="BIGINT"/>
+            <column name="W3c" type="LONGTEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-6">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="CONTENT_RELATIONSHIP"/>
+            </not>
+        </preConditions>
+        <createTable tableName="CONTENT_RELATIONSHIP">
+            <column name="Id_Content_Child" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Id_Content_Parent" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-7">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="CRITERION"/>
+            </not>
+        </preConditions>
+        <createTable tableName="CRITERION">
+            <column autoIncrement="true" name="Id_Criterion" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Cd_Criterion" type="VARCHAR(255)">
+                <constraints unique="true"/>
+            </column>
+            <column name="Description" type="VARCHAR(255)"/>
+            <column name="Label" type="VARCHAR(255)"/>
+            <column name="Rank" type="INT"/>
+            <column name="Url" type="VARCHAR(255)"/>
+            <column name="Reference_Id_Reference" type="BIGINT"/>
+            <column name="Theme_Id_Theme" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-8">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="CRITERION_STATISTICS"/>
+            </not>
+        </preConditions>
+        <createTable tableName="CRITERION_STATISTICS">
+            <column autoIncrement="true" name="Id_Criterion_Statistics" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Nb_Passed" type="INT"/>
+            <column name="Nb_Failed" type="INT"/>
+            <column name="Nb_Nmi" type="INT"/>
+            <column name="Nb_Na" type="INT"/>
+            <column name="Nb_Suspected" type="INT"/>
+            <column name="Nb_Detected" type="INT"/>
+            <column name="Nb_Not_Tested" type="INT"/>
+            <column name="Criterion_Result" type="VARCHAR(255)"/>
+            <column name="Id_Criterion" type="BIGINT"/>
+            <column name="Id_Web_Resource_Statistics" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-9">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="DECISION_LEVEL"/>
+            </not>
+        </preConditions>
+        <createTable tableName="DECISION_LEVEL">
+            <column autoIncrement="true" name="Id_Decision_Level" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Cd_Decision_Level" type="VARCHAR(255)"/>
+            <column name="Description" type="VARCHAR(255)"/>
+            <column name="Label" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-10">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="EVIDENCE"/>
+            </not>
+        </preConditions>
+        <createTable tableName="EVIDENCE">
+            <column autoIncrement="true" name="Id_Evidence" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Cd_Evidence" type="VARCHAR(255)"/>
+            <column name="Description" type="VARCHAR(255)"/>
+            <column name="Long_Label" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-11">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="EVIDENCE_ELEMENT"/>
+            </not>
+        </preConditions>
+        <createTable tableName="EVIDENCE_ELEMENT">
+            <column autoIncrement="true" name="Id_Evidence_Element" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Element_Value" type="MEDIUMTEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EVIDENCE_Id_Evidence" type="BIGINT"/>
+            <column name="PROCESS_REMARK_Id_Process_Remark" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-12">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="LEVEL"/>
+            </not>
+        </preConditions>
+        <createTable tableName="LEVEL">
+            <column autoIncrement="true" name="Id_Level" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Cd_Level" type="VARCHAR(255)"/>
+            <column name="Description" type="VARCHAR(255)"/>
+            <column name="Label" type="VARCHAR(255)"/>
+            <column name="Rank" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-13">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="NOMENCLATURE"/>
+            </not>
+        </preConditions>
+        <createTable tableName="NOMENCLATURE">
+            <column autoIncrement="true" name="Id_Nomenclature" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Cd_Nomenclature" type="VARCHAR(255)"/>
+            <column name="Description" type="VARCHAR(255)"/>
+            <column name="Long_Label" type="VARCHAR(255)"/>
+            <column name="Short_Label" type="VARCHAR(255)"/>
+            <column name="Id_Nomenclature_Parent" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-14">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="NOMENCLATURE_ELEMENT"/>
+            </not>
+        </preConditions>
+        <createTable tableName="NOMENCLATURE_ELEMENT">
+            <column name="DTYPE" type="VARCHAR(31)">
+                <constraints nullable="false"/>
+            </column>
+            <column autoIncrement="true" name="Id_Nomenclature_Element" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Label" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shortValue" type="INT"/>
+            <column name="Id_Nomenclature" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-15">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="PARAMETER"/>
+            </not>
+        </preConditions>
+        <createTable tableName="PARAMETER">
+            <column autoIncrement="true" name="Id_Parameter" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Parameter_Value" type="VARCHAR(1000)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Id_Parameter_Element" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="false" name="Is_Default" type="BIT(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-16">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="PARAMETER_ELEMENT"/>
+            </not>
+        </preConditions>
+        <createTable tableName="PARAMETER_ELEMENT">
+            <column autoIncrement="true" name="Id_Parameter_Element" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Cd_Parameter_Element" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="Id_Parameter_Family" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Short_Label" type="VARCHAR(255)"/>
+            <column name="Long_Label" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-17">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="PARAMETER_FAMILY"/>
+            </not>
+        </preConditions>
+        <createTable tableName="PARAMETER_FAMILY">
+            <column autoIncrement="true" name="Id_Parameter_Family" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Cd_Parameter_Family" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="Description" type="VARCHAR(255)"/>
+            <column name="Long_Label" type="VARCHAR(255)"/>
+            <column name="Short_Label" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-18">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="PRE_PROCESS_RESULT"/>
+            </not>
+        </preConditions>
+        <createTable tableName="PRE_PROCESS_RESULT">
+            <column autoIncrement="true" name="Id_Pre_Process_Result" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Pre_Process_Key" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Pre_Process_Value" type="MEDIUMTEXT"/>
+            <column name="Id_Audit" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Id_Web_Resource" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-19">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="PROCESS_REMARK"/>
+            </not>
+        </preConditions>
+        <createTable tableName="PROCESS_REMARK">
+            <column name="DTYPE" type="VARCHAR(31)">
+                <constraints nullable="false"/>
+            </column>
+            <column autoIncrement="true" name="Id_Process_Remark" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Issue" type="VARCHAR(255)"/>
+            <column name="Message_Code" type="VARCHAR(255)"/>
+            <column name="Selected_Element" type="VARCHAR(255)"/>
+            <column name="Selection_Expression" type="VARCHAR(255)"/>
+            <column name="Character_Position" type="INT"/>
+            <column name="Line_Number" type="INT"/>
+            <column name="Target" type="VARCHAR(5000)"/>
+            <column name="Snippet" type="MEDIUMTEXT"/>
+            <column name="Id_Process_Result" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-20">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="PROCESS_RESULT"/>
+            </not>
+        </preConditions>
+        <createTable tableName="PROCESS_RESULT">
+            <column name="DTYPE" type="VARCHAR(31)">
+                <constraints nullable="false"/>
+            </column>
+            <column autoIncrement="true" name="Id_Process_Result" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Element_Counter" type="INT"/>
+            <column name="Definite_Value" type="VARCHAR(255)"/>
+            <column name="Indefinite_Value" type="MEDIUMTEXT"/>
+            <column name="Id_Audit_Gross_Result" type="BIGINT"/>
+            <column name="Id_Audit_Net_Result" type="BIGINT"/>
+            <column name="Id_Process_Result_Parent" type="BIGINT"/>
+            <column name="Id_Web_Resource" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Id_Test" type="BIGINT"/>
+            <column name="Manual_Definite_Value" type="VARCHAR(255)"/>
+            <column name="Manual_Audit_Comment" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-21">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="PROCESS_RESULT_AUD"/>
+            </not>
+        </preConditions>
+        <createTable tableName="PROCESS_RESULT_AUD">
+            <column name="DTYPE" type="VARCHAR(31)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Id_Process_Result" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="REV" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="REVTYPE" type="TINYINT(3)"/>
+            <column name="Element_Counter" type="INT"/>
+            <column name="Id_Process_Result_Parent" type="BIGINT"/>
+            <column name="Definite_Value" type="VARCHAR(255)"/>
+            <column name="Manual_Audit_Comment" type="VARCHAR(255)"/>
+            <column name="Manual_Definite_Value" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-22">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="REFERENCE"/>
+            </not>
+        </preConditions>
+        <createTable tableName="REFERENCE">
+            <column autoIncrement="true" name="Id_Reference" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Cd_Reference" type="VARCHAR(255)">
+                <constraints unique="true"/>
+            </column>
+            <column name="Description" type="VARCHAR(255)"/>
+            <column name="Label" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Rank" type="INT"/>
+            <column name="Url" type="VARCHAR(255)"/>
+            <column defaultValueNumeric="2" name="Id_Default_Level" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-23">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="REVINFO"/>
+            </not>
+        </preConditions>
+        <createTable tableName="REVINFO">
+            <column autoIncrement="true" name="REV" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="REVTSTMP" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-24">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="SCOPE"/>
+            </not>
+        </preConditions>
+        <createTable tableName="SCOPE">
+            <column autoIncrement="true" name="Id_Scope" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Code" type="VARCHAR(255)"/>
+            <column name="Description" type="VARCHAR(255)"/>
+            <column name="Label" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-25">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="STANDARD_MESSAGE"/>
+            </not>
+        </preConditions>
+        <createTable tableName="STANDARD_MESSAGE">
+            <column autoIncrement="true" name="Id_Standard_Message" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Cd_Standard_Message" type="VARCHAR(255)"/>
+            <column name="Label" type="VARCHAR(255)"/>
+            <column name="Text" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-26">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TEST"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TEST">
+            <column autoIncrement="true" name="Id_Test" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Cd_Test" type="VARCHAR(255)">
+                <constraints unique="true"/>
+            </column>
+            <column name="Description" type="VARCHAR(255)"/>
+            <column name="Label" type="VARCHAR(255)"/>
+            <column name="Rank" type="INT"/>
+            <column defaultValueComputed="1.0" name="Weight" type="DECIMAL(2, 1) UNSIGNED"/>
+            <column name="Rule_Archive_Name" type="VARCHAR(255)"/>
+            <column name="Rule_Class_Name" type="VARCHAR(255)"/>
+            <column name="Rule_Design_Url" type="VARCHAR(255)"/>
+            <column name="Id_Criterion" type="BIGINT"/>
+            <column name="Id_Decision_Level" type="BIGINT"/>
+            <column name="Id_Level" type="BIGINT"/>
+            <column name="Eaccess" type="INT"/>
+            <column name="Id_Rule" type="BIGINT"/>
+            <column name="Id_Scope" type="BIGINT"/>
+            <column defaultValueBoolean="true" name="No_Process" type="BIT(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-27">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TEST_STATISTICS"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TEST_STATISTICS">
+            <column autoIncrement="true" name="Id_Test_Statistics" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Nb_Passed" type="INT"/>
+            <column name="Nb_Failed" type="INT"/>
+            <column name="Nb_Nmi" type="INT"/>
+            <column name="Nb_Na" type="INT"/>
+            <column name="Nb_Suspected" type="INT"/>
+            <column name="Nb_Detected" type="INT"/>
+            <column name="Nb_Not_Tested" type="INT"/>
+            <column name="Id_Test" type="BIGINT"/>
+            <column name="Id_Web_Resource_Statistics" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-28">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_ACT"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_ACT">
+            <column autoIncrement="true" name="Id_Act" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Begin_Date" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="End_Date" type="datetime"/>
+            <column name="Status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CONTRACT_Id_Contract" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SCOPE_Id_Scope" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="0.0.0.0" name="Client_Ip" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-29">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_ACT_AUDIT"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_ACT_AUDIT">
+            <column name="ACT_Id_Act" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AUDIT_Id_Audit" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-30">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_CONTRACT"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_CONTRACT">
+            <column autoIncrement="true" name="Id_Contract" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Label" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Begin_Date" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="End_Date" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Renewal_Date" type="datetime"/>
+            <column name="Price" type="FLOAT(12) UNSIGNED"/>
+            <column name="USER_Id_User" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-31">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_CONTRACT_FUNCTIONALITY"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_CONTRACT_FUNCTIONALITY">
+            <column name="CONTRACT_Id_Contract" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FUNCTIONALITY_Id_Functionality" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-32">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_CONTRACT_OPTION_ELEMENT"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_CONTRACT_OPTION_ELEMENT">
+            <column name="OPTION_ELEMENT_Id_Option_Element" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CONTRACT_Id_Contract" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-33">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_CONTRACT_REFERENTIAL"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_CONTRACT_REFERENTIAL">
+            <column name="CONTRACT_Id_Contract" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REFERENTIAL_Id_Referential" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-34">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_FUNCTIONALITY"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_FUNCTIONALITY">
+            <column autoIncrement="true" name="Id_Functionality" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Code" type="VARCHAR(45)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="Label" type="VARCHAR(255)"/>
+            <column name="Description" type="VARCHAR(2048)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-35">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_OPTION"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_OPTION">
+            <column autoIncrement="true" name="Id_Option" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Code" type="VARCHAR(45)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="Label" type="VARCHAR(255)"/>
+            <column name="Description" type="VARCHAR(2048)"/>
+            <column defaultValueBoolean="true" name="Is_Restriction" type="BIT(1)"/>
+            <column name="OPTION_FAMILY_Id_Option_Family" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-36">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_OPTION_ELEMENT"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_OPTION_ELEMENT">
+            <column autoIncrement="true" name="Id_Option_Element" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="OPTION_Id_Option" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Value" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-37">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_OPTION_FAMILY"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_OPTION_FAMILY">
+            <column autoIncrement="true" name="Id_Option_Family" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Code" type="VARCHAR(45)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="Label" type="VARCHAR(255)"/>
+            <column name="Description" type="VARCHAR(2048)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-38">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_REFERENTIAL"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_REFERENTIAL">
+            <column autoIncrement="true" name="Id_Referential" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Code" type="VARCHAR(45)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="Label" type="VARCHAR(255)"/>
+            <column name="Description" type="VARCHAR(2048)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-39">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_ROLE"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_ROLE">
+            <column autoIncrement="true" name="Id_Role" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Role_Name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ROLE_Id_Role" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-40">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_SCENARIO"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_SCENARIO">
+            <column autoIncrement="true" name="Id_Scenario" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Date_Of_Creation" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Label" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Content" type="MEDIUMTEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Description" type="VARCHAR(255)"/>
+            <column name="CONTRACT_Id_Contract" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-41">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_SCOPE"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_SCOPE">
+            <column autoIncrement="true" name="Id_Scope" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValue="PAGE" name="Code" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column defaultValue="Page" name="Label" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-42">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_USER"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_USER">
+            <column autoIncrement="true" name="Id_User" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Email1" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="Password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="" name="Name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="" name="First_Name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Address" type="VARCHAR(255)"/>
+            <column name="Phone_Number" type="VARCHAR(255)"/>
+            <column name="Email2" type="VARCHAR(255)"/>
+            <column name="Web1" type="VARCHAR(2048)"/>
+            <column name="Web2" type="VARCHAR(2048)"/>
+            <column name="Identica_Id" type="VARCHAR(255)"/>
+            <column name="Twitter_Id" type="VARCHAR(255)"/>
+            <column name="ROLE_Id_Role" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="true" name="Activated" type="BIT(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-43">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_USER_OPTION_ELEMENT"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_USER_OPTION_ELEMENT">
+            <column name="OPTION_ELEMENT_Id_Option_Element" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_Id_User" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-44">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="THEME"/>
+            </not>
+        </preConditions>
+        <createTable tableName="THEME">
+            <column autoIncrement="true" name="Id_Theme" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Cd_Theme" type="VARCHAR(255)">
+                <constraints unique="true"/>
+            </column>
+            <column name="Description" type="VARCHAR(255)"/>
+            <column name="Label" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Rank" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-45">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="THEME_STATISTICS"/>
+            </not>
+        </preConditions>
+        <createTable tableName="THEME_STATISTICS">
+            <column autoIncrement="true" name="Id_Theme_Statistics" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Nb_Passed" type="INT"/>
+            <column name="Nb_Failed" type="INT"/>
+            <column name="Nb_Nmi" type="INT"/>
+            <column name="Nb_Na" type="INT"/>
+            <column name="Nb_Suspected" type="INT"/>
+            <column name="Nb_Detected" type="INT"/>
+            <column name="Nb_Not_Tested" type="INT"/>
+            <column name="Id_Theme" type="BIGINT"/>
+            <column name="Id_Web_Resource_Statistics" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-46">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="WEB_RESOURCE"/>
+            </not>
+        </preConditions>
+        <createTable tableName="WEB_RESOURCE">
+            <column name="DTYPE" type="VARCHAR(31)">
+                <constraints nullable="false"/>
+            </column>
+            <column autoIncrement="true" name="Id_Web_Resource" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Label" type="VARCHAR(255)"/>
+            <column name="Url" type="VARCHAR(2048)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="Rank" type="INT"/>
+            <column name="Id_Audit" type="BIGINT"/>
+            <column name="Id_Web_Resource_Parent" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-47">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="WEB_RESOURCE_STATISTICS"/>
+            </not>
+        </preConditions>
+        <createTable tableName="WEB_RESOURCE_STATISTICS">
+            <column autoIncrement="true" name="Id_Web_Resource_Statistics" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Mark" type="FLOAT(12)"/>
+            <column name="Raw_Mark" type="FLOAT(12)"/>
+            <column name="Nb_Passed" type="INT"/>
+            <column name="Nb_Failed" type="INT"/>
+            <column name="Nb_Nmi" type="INT"/>
+            <column name="Nb_Na" type="INT"/>
+            <column name="Nb_Suspected" type="INT"/>
+            <column name="Nb_Detected" type="INT"/>
+            <column name="Nb_Not_Tested" type="INT"/>
+            <column name="Weighted_Passed" type="DECIMAL(10, 1) UNSIGNED"/>
+            <column name="Weighted_Failed" type="DECIMAL(10, 1) UNSIGNED"/>
+            <column name="Weighted_Nmi" type="DECIMAL(10, 1) UNSIGNED"/>
+            <column name="Weighted_Na" type="DECIMAL(10, 1) UNSIGNED"/>
+            <column name="Nb_Failed_Occurrences" type="INT"/>
+            <column name="Nb_Invalid_Test" type="INT"/>
+            <column name="Id_Audit" type="BIGINT"/>
+            <column name="Id_Web_Resource" type="BIGINT"/>
+            <column defaultValueNumeric="-1" name="Http_Status_Code" type="INT"/>
+            <column defaultValueNumeric="0" name="Manual_Audit" type="INT"/>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet author="rcharre (generated)" id="1567586404475-48">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_ACT_AUDIT" indexName="INDEX_UNIQUE_PAIR"/>
+            </not>
+        </preConditions>
+        <addUniqueConstraint columnNames="ACT_Id_Act, AUDIT_Id_Audit" constraintName="INDEX_UNIQUE_PAIR"
+                             tableName="TGSI_ACT_AUDIT"/>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1567586404475-49">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_CONTRACT_FUNCTIONALITY" indexName="INDEX_UNIQUE_PAIR"/>
+            </not>
+        </preConditions>
+        <addUniqueConstraint columnNames="FUNCTIONALITY_Id_Functionality, CONTRACT_Id_Contract"
+                             constraintName="INDEX_UNIQUE_PAIR" tableName="TGSI_CONTRACT_FUNCTIONALITY"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-50">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_CONTRACT_OPTION_ELEMENT" indexName="INDEX_UNIQUE_PAIR"/>
+            </not>
+        </preConditions>
+        <addUniqueConstraint columnNames="OPTION_ELEMENT_Id_Option_Element, CONTRACT_Id_Contract"
+                             constraintName="INDEX_UNIQUE_PAIR" tableName="TGSI_CONTRACT_OPTION_ELEMENT"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-51">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_CONTRACT_REFERENTIAL" indexName="INDEX_UNIQUE_PAIR"/>
+            </not>
+        </preConditions>
+        <addUniqueConstraint columnNames="REFERENTIAL_Id_Referential, CONTRACT_Id_Contract"
+                             constraintName="INDEX_UNIQUE_PAIR" tableName="TGSI_CONTRACT_REFERENTIAL"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-52">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_OPTION_ELEMENT" indexName="INDEX_UNIQUE_PAIR"/>
+            </not>
+        </preConditions>
+        <addUniqueConstraint columnNames="OPTION_Id_Option, Value" constraintName="INDEX_UNIQUE_PAIR"
+                             tableName="TGSI_OPTION_ELEMENT"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-53">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_USER_OPTION_ELEMENT" indexName="INDEX_UNIQUE_PAIR"/>
+            </not>
+        </preConditions>
+        <addUniqueConstraint columnNames="OPTION_ELEMENT_Id_Option_Element, USER_Id_User"
+                             constraintName="INDEX_UNIQUE_PAIR" tableName="TGSI_USER_OPTION_ELEMENT"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-54">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="PROCESS_RESULT" indexName="Id_Test"/>
+            </not>
+        </preConditions>
+        <addUniqueConstraint columnNames="Id_Test, Id_Web_Resource, Id_Audit_Gross_Result" constraintName="Id_Test"
+                             tableName="PROCESS_RESULT"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-55">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="PROCESS_RESULT" indexName="Id_Test_2"/>
+            </not>
+        </preConditions>
+        <addUniqueConstraint columnNames="Id_Test, Id_Web_Resource, Id_Audit_Net_Result" constraintName="Id_Test_2"
+                             tableName="PROCESS_RESULT"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-56">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="PRE_PROCESS_RESULT" indexName="Key_Wr_Audit"/>
+            </not>
+        </preConditions>
+        <addUniqueConstraint columnNames="Pre_Process_Key, Id_Web_Resource, Id_Audit" constraintName="Key_Wr_Audit"
+                             tableName="PRE_PROCESS_RESULT"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-57">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="PARAMETER" indexName="Unique_Param_Element_Type_Param_value"/>
+            </not>
+        </preConditions>
+        <addUniqueConstraint columnNames="Parameter_Value, Id_Parameter_Element"
+                             constraintName="Unique_Param_Element_Type_Param_value" tableName="PARAMETER"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-58">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="CONTENT" indexName="DTYPE_Index"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="DTYPE_Index" tableName="CONTENT">
+            <column name="DTYPE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-59">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="DTYPE_Index" tableName="WEB_RESOURCE"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="DTYPE_Index" tableName="WEB_RESOURCE">
+            <column name="DTYPE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-60">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="Definite_Value_Index" tableName="PROCESS_RESULT"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="Definite_Value_Index" tableName="PROCESS_RESULT">
+            <column name="Definite_Value"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-61">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="Id_Process_Result" tableName="PROCESS_RESULT"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK1C3EA37045A988AD" tableName="PROCESS_REMARK">
+            <column name="Id_Process_Result"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-62">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="Id_Web_Resource" tableName="PROCESS_RESULT"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK1C41A80D2E48600" tableName="PROCESS_RESULT">
+            <column name="Id_Web_Resource"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-63">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="Id_Audit_Gross_Result" tableName="PROCESS_RESULT"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK1C41A80D8146180B" tableName="PROCESS_RESULT">
+            <column name="Id_Audit_Gross_Result"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-64">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="Id_Test" tableName="PROCESS_RESULT"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK1C41A80DA17A5FA8" tableName="PROCESS_RESULT">
+            <column name="Id_Test"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-65">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="Id_Audit_Net_Result" tableName="PROCESS_RESULT"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK1C41A80DB6D0E092" tableName="PROCESS_RESULT">
+            <column name="Id_Audit_Net_Result"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-66">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="Id_Process_Result_Parent" tableName="PROCESS_RESULT"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK1C41A80DFA349234" tableName="PROCESS_RESULT">
+            <column name="Id_Process_Result_Parent"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-67">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="Id_Scope" tableName="TEST"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK273C9250C99824" tableName="TEST">
+            <column name="Id_Scope"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-68">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="Id_Criterion" tableName="TEST"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK273C926CCA4C3E" tableName="TEST">
+            <column name="Id_Criterion"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-69">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="Id_Level" tableName="TEST"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK273C9272343A84" tableName="TEST">
+            <column name="Id_Level"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-70">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="Id_Decision_Level" tableName="TEST"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK273C92CCA757AD" tableName="TEST">
+            <column name="Id_Decision_Level"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-71">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="Id_Nomenclature" tableName="NOMENCLATURE_ELEMENT"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK44F856145FAB5EF2" tableName="NOMENCLATURE_ELEMENT">
+            <column name="Id_Nomenclature"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-72">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="REV" tableName="PROCESS_RESULT_AUD"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK5411075EDF74E053" tableName="PROCESS_RESULT_AUD">
+            <column name="REV"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-73">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="Id_Audit" tableName="CONTENT"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK6382C059493EC9C2" tableName="CONTENT">
+            <column name="Id_Audit"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-74">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="Id_Page" tableName="CONTENT"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK6382C059A8A177A1" tableName="CONTENT">
+            <column name="Id_Page"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-75">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="PROCESS_REMARK_Id_Process_Remark" tableName="EVIDENCE_ELEMENT"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK698B98F425AD22C4" tableName="EVIDENCE_ELEMENT">
+            <column name="PROCESS_REMARK_Id_Process_Remark"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-76">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="EVIDENCE_Id_Evidence" tableName="EVIDENCE_ELEMENT"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK698B98F4C94A0CBA" tableName="EVIDENCE_ELEMENT">
+            <column name="EVIDENCE_Id_Evidence"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-77">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="Id_Audit" tableName="AUDIT_TEST"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK838E6E96493EC9C2" tableName="AUDIT_TEST">
+            <column name="Id_Audit"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-78">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="Id_Test" tableName="AUDIT_TEST"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK838E6E96A17A5FA8" tableName="AUDIT_TEST">
+            <column name="Id_Test"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-79">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="Id_Content_Parent" tableName="CONTENT_RELATIONSHIP"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FKBA33205E620A8494" tableName="CONTENT_RELATIONSHIP">
+            <column name="Id_Content_Parent"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-80">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="Id_Content_Child" tableName="CONTENT_RELATIONSHIP"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FKBA33205EBA71C750" tableName="CONTENT_RELATIONSHIP">
+            <column name="Id_Content_Child"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-81">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="Reference_Id_Reference" tableName="CRITERION"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FKBCFA1E81D03CE506" tableName="CRITERION">
+            <column name="Reference_Id_Reference"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-82">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="Theme_Id_Theme" tableName="CRITERION"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FKBCFA1E81E8F67244" tableName="CRITERION">
+            <column name="Theme_Id_Theme"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-83">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="Id_Nomenclature_Parent" tableName="NOMENCLATURE"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FKBF856B7795431825" tableName="NOMENCLATURE">
+            <column name="Id_Nomenclature_Parent"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-84">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="Id_Web_Resource_Parent" tableName="WEB_RESOURCE"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FKD9A970B92F70FF12" tableName="WEB_RESOURCE">
+            <column name="Id_Web_Resource_Parent"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-85">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists columnNames="Id_Audit" tableName="WEB_RESOURCE"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FKD9A970B9493EC9C2" tableName="WEB_RESOURCE">
+            <column name="Id_Audit"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-86">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="FK_TGSI_CONTRACT_OPTION_ELEMENT_TGSI_CONTRACT"
+                             tableName="TGSI_CONTRACT_OPTION_ELEMENT"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK_TGSI_CONTRACT_OPTION_ELEMENT_TGSI_CONTRACT" tableName="TGSI_CONTRACT_OPTION_ELEMENT">
+            <column name="CONTRACT_Id_Contract"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-87">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="FK_TGSI_CONTRACT_TGSI_USER" tableName="TGSI_CONTRACT"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK_TGSI_CONTRACT_TGSI_USER" tableName="TGSI_CONTRACT">
+            <column name="USER_Id_User"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-88">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="FK_TGSI_OPTION_TGSI_OPTION_FAMILY" tableName="TGSI_OPTION"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK_TGSI_OPTION_TGSI_OPTION_FAMILY" tableName="TGSI_OPTION">
+            <column name="OPTION_FAMILY_Id_Option_Family"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-89">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="FK_TGSI_USER_OPTION_ELEMENT_TGSI_USER" tableName="TGSI_USER_OPTION_ELEMENT"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK_TGSI_USER_OPTION_ELEMENT_TGSI_USER" tableName="TGSI_USER_OPTION_ELEMENT">
+            <column name="USER_Id_User"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-90">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="Http_Status_Code_Index" tableName="CONTENT"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="Http_Status_Code_Index" tableName="CONTENT">
+            <column name="Http_Status_Code"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-91">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="INDEX_TGSI_ACT_AUDIT_ACT_Id_Act" tableName="TGSI_ACT_AUDIT"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="INDEX_TGSI_ACT_AUDIT_ACT_Id_Act" tableName="TGSI_ACT_AUDIT">
+            <column name="ACT_Id_Act"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-92">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="INDEX_TGSI_ACT_AUDIT_AUDIT_Id_Audit" tableName="TGSI_ACT_AUDIT"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="INDEX_TGSI_ACT_AUDIT_AUDIT_Id_Audit" tableName="TGSI_ACT_AUDIT">
+            <column name="AUDIT_Id_Audit"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-93">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="INDEX_TGSI_ACT_CONTRACT_Id_Contract" tableName="TGSI_ACT"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="INDEX_TGSI_ACT_CONTRACT_Id_Contract" tableName="TGSI_ACT">
+            <column name="CONTRACT_Id_Contract"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-94">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="INDEX_TGSI_ACT_SCOPE_Id_Scope" tableName="TGSI_ACT"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="INDEX_TGSI_ACT_SCOPE_Id_Scope" tableName="TGSI_ACT">
+            <column name="SCOPE_Id_Scope"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-95">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="INDEX_TGSI_CONTRACT_FUNCTIONALITY_CONTRACT_Id_Contract"
+                             tableName="TGSI_CONTRACT_FUNCTIONALITY"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="INDEX_TGSI_CONTRACT_FUNCTIONALITY_CONTRACT_Id_Contract"
+                     tableName="TGSI_CONTRACT_FUNCTIONALITY">
+            <column name="CONTRACT_Id_Contract"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-96">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="INDEX_TGSI_CONTRACT_FUNCTIONALITY_FUNCTIONALITY_Id_Functionality"
+                             tableName="TGSI_CONTRACT_FUNCTIONALITY"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="INDEX_TGSI_CONTRACT_FUNCTIONALITY_FUNCTIONALITY_Id_Functionality"
+                     tableName="TGSI_CONTRACT_FUNCTIONALITY">
+            <column name="FUNCTIONALITY_Id_Functionality"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-97">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="INDEX_TGSI_CONTRACT_REFERENTIAL_CONTRACT_Id_Contract"
+                             tableName="TGSI_CONTRACT_REFERENTIAL"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="INDEX_TGSI_CONTRACT_REFERENTIAL_CONTRACT_Id_Contract"
+                     tableName="TGSI_CONTRACT_REFERENTIAL">
+            <column name="CONTRACT_Id_Contract"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-98">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="INDEX_TGSI_CONTRACT_REFERENTIAL_REFERENTIAL_Id_Referential"
+                             tableName="TGSI_CONTRACT_REFERENTIAL"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="INDEX_TGSI_CONTRACT_REFERENTIAL_REFERENTIAL_Id_Referential"
+                     tableName="TGSI_CONTRACT_REFERENTIAL">
+            <column name="REFERENTIAL_Id_Referential"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-99">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="INDEX_TGSI_ROLE_ROLE_Id_Role" tableName="TGSI_ROLE"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="INDEX_TGSI_ROLE_ROLE_Id_Role" tableName="TGSI_ROLE">
+            <column name="ROLE_Id_Role"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-100">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="INDEX_TGSI_SCENARIO_CONTRACT_Id_Contract" tableName="TGSI_SCENARIO"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="INDEX_TGSI_SCENARIO_CONTRACT_Id_Contract" tableName="TGSI_SCENARIO">
+            <column name="CONTRACT_Id_Contract"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-101">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="INDEX_TGSI_USER_ROLE_Id_Role" tableName="TGSI_USER"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="INDEX_TGSI_USER_ROLE_Id_Role" tableName="TGSI_USER">
+            <column name="ROLE_Id_Role"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-102">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="Issue_Index" tableName="PROCESS_REMARK"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="Issue_Index" tableName="PROCESS_REMARK">
+            <column name="Issue"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-105">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="fk_ACCEDEWEB_1_idx" tableName="ACCEDEWEB"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="fk_ACCEDEWEB_1_idx" tableName="ACCEDEWEB">
+            <column name="Id_Test_Id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-106">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="fk_AUDIT_PARAMETER_AUDIT" tableName="AUDIT_PARAMETER"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="fk_AUDIT_PARAMETER_AUDIT" tableName="AUDIT_PARAMETER">
+            <column name="Id_Audit"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-107">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="fk_AUDIT_PARAMETER_PARAMETER" tableName="AUDIT_PARAMETER"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="fk_AUDIT_PARAMETER_PARAMETER" tableName="AUDIT_PARAMETER">
+            <column name="Id_Parameter"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-108">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="fk_CRITERION_STATISTICS_CRITERION" tableName="CRITERION_STATISTICS"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="fk_CRITERION_STATISTICS_CRITERION" tableName="CRITERION_STATISTICS">
+            <column name="Id_Criterion"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-109">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="fk_CRITERION_STATISTICS_WEB_RESOURCE_STATISTICS"
+                             tableName="CRITERION_STATISTICS"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="fk_CRITERION_STATISTICS_WEB_RESOURCE_STATISTICS" tableName="CRITERION_STATISTICS">
+            <column name="Id_Web_Resource_Statistics"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-110">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="fk_PARAMETER_ELEMENT_PARAMETER" tableName="PARAMETER_ELEMENT"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="fk_PARAMETER_ELEMENT_PARAMETER" tableName="PARAMETER_ELEMENT">
+            <column name="Id_Parameter_Family"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-111">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="fk_PARAMETER_PARAMETER_ELEMENT" tableName="PARAMETER"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="fk_PARAMETER_PARAMETER_ELEMENT" tableName="PARAMETER">
+            <column name="Id_Parameter_Element"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-112">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="fk_PRE_PROCESS_RESULT_AUDIT" tableName="PRE_PROCESS_RESULT"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="fk_PRE_PROCESS_RESULT_AUDIT" tableName="PRE_PROCESS_RESULT">
+            <column name="Id_Audit"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-113">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="fk_PRE_PROCESS_RESULT_WEB_RESOURCE" tableName="PRE_PROCESS_RESULT"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="fk_PRE_PROCESS_RESULT_WEB_RESOURCE" tableName="PRE_PROCESS_RESULT">
+            <column name="Id_Web_Resource"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-114">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="fk_Ref_Level" tableName="REFERENCE"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="fk_Ref_Level" tableName="REFERENCE">
+            <column defaultValueNumeric="2" name="Id_Default_Level"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-115">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="fk_THEME_STATISTICS_THEME" tableName="TEST_STATISTICS"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="fk_THEME_STATISTICS_THEME" tableName="TEST_STATISTICS">
+            <column name="Id_Test"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-116">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="fk_THEME_STATISTICS_THEME" tableName="THEME_STATISTICS"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="fk_THEME_STATISTICS_THEME" tableName="THEME_STATISTICS">
+            <column name="Id_Theme"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-117">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="fk_THEME_STATISTICS_WEB_RESOURCE_STATISTICS" tableName="TEST_STATISTICS"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="fk_THEME_STATISTICS_WEB_RESOURCE_STATISTICS" tableName="TEST_STATISTICS">
+            <column name="Id_Web_Resource_Statistics"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-118">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="fk_THEME_STATISTICS_WEB_RESOURCE_STATISTICS" tableName="THEME_STATISTICS"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="fk_THEME_STATISTICS_WEB_RESOURCE_STATISTICS" tableName="THEME_STATISTICS">
+            <column name="Id_Web_Resource_Statistics"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-119">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="fk_WEB_RESOURCE_STATISTICS_AUDIT" tableName="WEB_RESOURCE_STATISTICS"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="fk_WEB_RESOURCE_STATISTICS_AUDIT" tableName="WEB_RESOURCE_STATISTICS">
+            <column name="Id_Audit"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-120">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="fk_WEB_RESOURCE_STATISTICS_WEB_RESOURCE" tableName="WEB_RESOURCE_STATISTICS"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="fk_WEB_RESOURCE_STATISTICS_WEB_RESOURCE" tableName="WEB_RESOURCE_STATISTICS">
+            <column name="Id_Web_Resource"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-121">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK1C3EA37045A988AD"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Process_Result" baseTableName="PROCESS_REMARK"
+                                 constraintName="FK1C3EA37045A988AD" deferrable="false" initiallyDeferred="false"
+                                 onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Process_Result"
+                                 referencedTableName="PROCESS_RESULT" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-122">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK1C41A80D2E48600"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Web_Resource" baseTableName="PROCESS_RESULT"
+                                 constraintName="FK1C41A80D2E48600" deferrable="false" initiallyDeferred="false"
+                                 onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Web_Resource"
+                                 referencedTableName="WEB_RESOURCE" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-123">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK1C41A80D8146180B"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Audit_Gross_Result" baseTableName="PROCESS_RESULT"
+                                 constraintName="FK1C41A80D8146180B" deferrable="false" initiallyDeferred="false"
+                                 onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Audit"
+                                 referencedTableName="AUDIT" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-124">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK1C41A80DA17A5FA8"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Test" baseTableName="PROCESS_RESULT"
+                                 constraintName="FK1C41A80DA17A5FA8" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Test"
+                                 referencedTableName="TEST" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-125">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK1C41A80DB6D0E092"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Audit_Net_Result" baseTableName="PROCESS_RESULT"
+                                 constraintName="FK1C41A80DB6D0E092" deferrable="false" initiallyDeferred="false"
+                                 onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Audit"
+                                 referencedTableName="AUDIT" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-126">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK1C41A80DFA349234"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Process_Result_Parent" baseTableName="PROCESS_RESULT"
+                                 constraintName="FK1C41A80DFA349234" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Process_Result"
+                                 referencedTableName="PROCESS_RESULT" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-127">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK273C9250C99824"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Scope" baseTableName="TEST" constraintName="FK273C9250C99824"
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Scope" referencedTableName="SCOPE" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-128">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK273C926CCA4C3E"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Criterion" baseTableName="TEST" constraintName="FK273C926CCA4C3E"
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Criterion" referencedTableName="CRITERION" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-129">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK273C9272343A84"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Level" baseTableName="TEST" constraintName="FK273C9272343A84"
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Level" referencedTableName="LEVEL" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-130">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK273C92CCA757AD"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Decision_Level" baseTableName="TEST"
+                                 constraintName="FK273C92CCA757AD" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Decision_Level"
+                                 referencedTableName="DECISION_LEVEL" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-131">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK44F856145FAB5EF2"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Nomenclature" baseTableName="NOMENCLATURE_ELEMENT"
+                                 constraintName="FK44F856145FAB5EF2" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Nomenclature"
+                                 referencedTableName="NOMENCLATURE" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-132">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK5411075EDF74E053"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="REV" baseTableName="PROCESS_RESULT_AUD"
+                                 constraintName="FK5411075EDF74E053" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="REV"
+                                 referencedTableName="REVINFO" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-133">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK6382C059493EC9C2"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Audit" baseTableName="CONTENT" constraintName="FK6382C059493EC9C2"
+                                 deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Audit" referencedTableName="AUDIT" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-134">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK6382C059A8A177A1"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Page" baseTableName="CONTENT" constraintName="FK6382C059A8A177A1"
+                                 deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Web_Resource" referencedTableName="WEB_RESOURCE"
+                                 validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-135">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK698B98F425AD22C4"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="PROCESS_REMARK_Id_Process_Remark" baseTableName="EVIDENCE_ELEMENT"
+                                 constraintName="FK698B98F425AD22C4" deferrable="false" initiallyDeferred="false"
+                                 onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Process_Remark"
+                                 referencedTableName="PROCESS_REMARK" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-136">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK698B98F4C94A0CBA"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="EVIDENCE_Id_Evidence" baseTableName="EVIDENCE_ELEMENT"
+                                 constraintName="FK698B98F4C94A0CBA" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Evidence"
+                                 referencedTableName="EVIDENCE" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-137">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK838E6E96493EC9C2"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Audit" baseTableName="AUDIT_TEST"
+                                 constraintName="FK838E6E96493EC9C2" deferrable="false" initiallyDeferred="false"
+                                 onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Audit"
+                                 referencedTableName="AUDIT" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-138">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK838E6E96A17A5FA8"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Test" baseTableName="AUDIT_TEST"
+                                 constraintName="FK838E6E96A17A5FA8" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Test"
+                                 referencedTableName="TEST" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-139">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FKBA33205E620A8494"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Content_Parent" baseTableName="CONTENT_RELATIONSHIP"
+                                 constraintName="FKBA33205E620A8494" deferrable="false" initiallyDeferred="false"
+                                 onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Content"
+                                 referencedTableName="CONTENT" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-140">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FKBA33205EBA71C750"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Content_Child" baseTableName="CONTENT_RELATIONSHIP"
+                                 constraintName="FKBA33205EBA71C750" deferrable="false" initiallyDeferred="false"
+                                 onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Content"
+                                 referencedTableName="CONTENT" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-141">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FKBCFA1E81D03CE506"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Reference_Id_Reference" baseTableName="CRITERION"
+                                 constraintName="FKBCFA1E81D03CE506" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Reference"
+                                 referencedTableName="REFERENCE" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-142">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FKBCFA1E81E8F67244"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Theme_Id_Theme" baseTableName="CRITERION"
+                                 constraintName="FKBCFA1E81E8F67244" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Theme"
+                                 referencedTableName="THEME" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-143">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FKBF856B7795431825"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Nomenclature_Parent" baseTableName="NOMENCLATURE"
+                                 constraintName="FKBF856B7795431825" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Nomenclature"
+                                 referencedTableName="NOMENCLATURE" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-144">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FKD9A970B92F70FF12"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Web_Resource_Parent" baseTableName="WEB_RESOURCE"
+                                 constraintName="FKD9A970B92F70FF12" deferrable="false" initiallyDeferred="false"
+                                 onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="Id_Web_Resource"
+                                 referencedTableName="WEB_RESOURCE" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-145">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FKD9A970B9493EC9C2"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Audit" baseTableName="WEB_RESOURCE"
+                                 constraintName="FKD9A970B9493EC9C2" deferrable="false" initiallyDeferred="false"
+                                 onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="Id_Audit"
+                                 referencedTableName="AUDIT" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-146">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_ACT_AUDIT_AUDIT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="AUDIT_Id_Audit" baseTableName="TGSI_ACT_AUDIT"
+                                 constraintName="FK_TGSI_ACT_AUDIT_AUDIT" deferrable="false" initiallyDeferred="false"
+                                 onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Audit"
+                                 referencedTableName="AUDIT" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-147">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_ACT_AUDIT_TGSI_ACT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="ACT_Id_Act" baseTableName="TGSI_ACT_AUDIT"
+                                 constraintName="FK_TGSI_ACT_AUDIT_TGSI_ACT" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Act" referencedTableName="TGSI_ACT" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-148">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_ACT_TGSI_CONTRACT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="CONTRACT_Id_Contract" baseTableName="TGSI_ACT"
+                                 constraintName="FK_TGSI_ACT_TGSI_CONTRACT" deferrable="false" initiallyDeferred="false"
+                                 onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Contract"
+                                 referencedTableName="TGSI_CONTRACT" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-149">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_ACT_TGSI_SCOPE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="SCOPE_Id_Scope" baseTableName="TGSI_ACT"
+                                 constraintName="FK_TGSI_ACT_TGSI_SCOPE" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Scope"
+                                 referencedTableName="TGSI_SCOPE" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-150">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_CONTRACT_FUNCTIONALITY_TGSI_CONTRACT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="CONTRACT_Id_Contract" baseTableName="TGSI_CONTRACT_FUNCTIONALITY"
+                                 constraintName="FK_TGSI_CONTRACT_FUNCTIONALITY_TGSI_CONTRACT" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE"
+                                 referencedColumnNames="Id_Contract" referencedTableName="TGSI_CONTRACT"
+                                 validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-151">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_CONTRACT_FUNCTIONALITY_TGSI_FUNCTIONALITY"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="FUNCTIONALITY_Id_Functionality"
+                                 baseTableName="TGSI_CONTRACT_FUNCTIONALITY"
+                                 constraintName="FK_TGSI_CONTRACT_FUNCTIONALITY_TGSI_FUNCTIONALITY" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Functionality" referencedTableName="TGSI_FUNCTIONALITY"
+                                 validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-152">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_CONTRACT_OPTION_ELEMENT_TGSI_CONTRACT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="CONTRACT_Id_Contract" baseTableName="TGSI_CONTRACT_OPTION_ELEMENT"
+                                 constraintName="FK_TGSI_CONTRACT_OPTION_ELEMENT_TGSI_CONTRACT" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE"
+                                 referencedColumnNames="Id_Contract" referencedTableName="TGSI_CONTRACT"
+                                 validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-153">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_CONTRACT_OPTION_ELEMENT_TGSI_OPTION_ELEMENT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="OPTION_ELEMENT_Id_Option_Element"
+                                 baseTableName="TGSI_CONTRACT_OPTION_ELEMENT"
+                                 constraintName="FK_TGSI_CONTRACT_OPTION_ELEMENT_TGSI_OPTION_ELEMENT" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE"
+                                 referencedColumnNames="Id_Option_Element" referencedTableName="TGSI_OPTION_ELEMENT"
+                                 validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-154">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_CONTRACT_REFERENTIAL_TGSI_CONTRACT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="CONTRACT_Id_Contract" baseTableName="TGSI_CONTRACT_REFERENTIAL"
+                                 constraintName="FK_TGSI_CONTRACT_REFERENTIAL_TGSI_CONTRACT" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE"
+                                 referencedColumnNames="Id_Contract" referencedTableName="TGSI_CONTRACT"
+                                 validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-155">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_CONTRACT_REFERENTIAL_TGSI_REFERENTIAL"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="REFERENTIAL_Id_Referential" baseTableName="TGSI_CONTRACT_REFERENTIAL"
+                                 constraintName="FK_TGSI_CONTRACT_REFERENTIAL_TGSI_REFERENTIAL" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Referential" referencedTableName="TGSI_REFERENTIAL"
+                                 validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-156">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_CONTRACT_TGSI_USER"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="USER_Id_User" baseTableName="TGSI_CONTRACT"
+                                 constraintName="FK_TGSI_CONTRACT_TGSI_USER" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_User" referencedTableName="TGSI_USER" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-157">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_OPTION_ELEMENT_TGSI_OPTION"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="OPTION_Id_Option" baseTableName="TGSI_OPTION_ELEMENT"
+                                 constraintName="FK_TGSI_OPTION_ELEMENT_TGSI_OPTION" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Option" referencedTableName="TGSI_OPTION" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-158">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_OPTION_TGSI_OPTION_FAMILY"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="OPTION_FAMILY_Id_Option_Family" baseTableName="TGSI_OPTION"
+                                 constraintName="FK_TGSI_OPTION_TGSI_OPTION_FAMILY" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Option_Family" referencedTableName="TGSI_OPTION_FAMILY"
+                                 validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-159">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_ROLE_TGSI_ROLE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="ROLE_Id_Role" baseTableName="TGSI_ROLE"
+                                 constraintName="FK_TGSI_ROLE_TGSI_ROLE" deferrable="false" initiallyDeferred="false"
+                                 onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="Id_Role"
+                                 referencedTableName="TGSI_ROLE" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-160">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_SCENARIO_TGSI_CONTRACT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="CONTRACT_Id_Contract" baseTableName="TGSI_SCENARIO"
+                                 constraintName="FK_TGSI_SCENARIO_TGSI_CONTRACT" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE"
+                                 referencedColumnNames="Id_Contract" referencedTableName="TGSI_CONTRACT"
+                                 validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-161">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_USER_OPTION_ELEMENT_TGSI_OPTION_ELEMENT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="OPTION_ELEMENT_Id_Option_Element"
+                                 baseTableName="TGSI_USER_OPTION_ELEMENT"
+                                 constraintName="FK_TGSI_USER_OPTION_ELEMENT_TGSI_OPTION_ELEMENT" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE"
+                                 referencedColumnNames="Id_Option_Element" referencedTableName="TGSI_OPTION_ELEMENT"
+                                 validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-162">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_USER_OPTION_ELEMENT_TGSI_USER"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="USER_Id_User" baseTableName="TGSI_USER_OPTION_ELEMENT"
+                                 constraintName="FK_TGSI_USER_OPTION_ELEMENT_TGSI_USER" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE"
+                                 referencedColumnNames="Id_User" referencedTableName="TGSI_USER" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-163">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_USER_TGSI_ROLE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="ROLE_Id_Role" baseTableName="TGSI_USER"
+                                 constraintName="FK_TGSI_USER_TGSI_ROLE" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Role"
+                                 referencedTableName="TGSI_ROLE" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-164">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_ACCEDEWEB_1"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Test_Id" baseTableName="ACCEDEWEB" constraintName="fk_ACCEDEWEB_1"
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Test" referencedTableName="TEST" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-165">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_AUDIT_PARAMETER_AUDIT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Audit" baseTableName="AUDIT_PARAMETER"
+                                 constraintName="fk_AUDIT_PARAMETER_AUDIT" deferrable="false" initiallyDeferred="false"
+                                 onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Audit"
+                                 referencedTableName="AUDIT" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-166">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_AUDIT_PARAMETER_PARAMETER"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Parameter" baseTableName="AUDIT_PARAMETER"
+                                 constraintName="fk_AUDIT_PARAMETER_PARAMETER" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Parameter" referencedTableName="PARAMETER" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-167">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_CRITERION_STATISTICS_CRITERION"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Criterion" baseTableName="CRITERION_STATISTICS"
+                                 constraintName="fk_CRITERION_STATISTICS_CRITERION" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Criterion" referencedTableName="CRITERION" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-168">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_CRITERION_STATISTICS_WEB_RESOURCE_STATISTICS"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Web_Resource_Statistics" baseTableName="CRITERION_STATISTICS"
+                                 constraintName="fk_CRITERION_STATISTICS_WEB_RESOURCE_STATISTICS" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Web_Resource_Statistics"
+                                 referencedTableName="WEB_RESOURCE_STATISTICS" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-169">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_PARAMETER_ELEMENT_PARAMETER"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Parameter_Family" baseTableName="PARAMETER_ELEMENT"
+                                 constraintName="fk_PARAMETER_ELEMENT_PARAMETER" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Parameter_Family" referencedTableName="PARAMETER_FAMILY"
+                                 validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-170">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_PARAMETER_PARAMETER_ELEMENT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Parameter_Element" baseTableName="PARAMETER"
+                                 constraintName="fk_PARAMETER_PARAMETER_ELEMENT" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Parameter_Element" referencedTableName="PARAMETER_ELEMENT"
+                                 validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-171">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_PRE_PROCESS_RESULT_AUDIT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Audit" baseTableName="PRE_PROCESS_RESULT"
+                                 constraintName="fk_PRE_PROCESS_RESULT_AUDIT" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Audit" referencedTableName="AUDIT" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-172">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_PRE_PROCESS_RESULT_WEB_RESOURCE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Web_Resource" baseTableName="PRE_PROCESS_RESULT"
+                                 constraintName="fk_PRE_PROCESS_RESULT_WEB_RESOURCE" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Web_Resource" referencedTableName="WEB_RESOURCE"
+                                 validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-173">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_Ref_Level"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Default_Level" baseTableName="REFERENCE"
+                                 constraintName="fk_Ref_Level" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Level"
+                                 referencedTableName="LEVEL" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-174">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_TEST_STATISTICS_TEST"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Test" baseTableName="TEST_STATISTICS"
+                                 constraintName="fk_TEST_STATISTICS_TEST" deferrable="false" initiallyDeferred="false"
+                                 onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Test"
+                                 referencedTableName="TEST" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-175">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_TEST_STATISTICS_WEB_RESOURCE_STATISTICS"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Web_Resource_Statistics" baseTableName="TEST_STATISTICS"
+                                 constraintName="fk_TEST_STATISTICS_WEB_RESOURCE_STATISTICS" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Web_Resource_Statistics"
+                                 referencedTableName="WEB_RESOURCE_STATISTICS" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-176">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_THEME_STATISTICS_THEME"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Theme" baseTableName="THEME_STATISTICS"
+                                 constraintName="fk_THEME_STATISTICS_THEME" deferrable="false" initiallyDeferred="false"
+                                 onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Theme"
+                                 referencedTableName="THEME" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-177">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_THEME_STATISTICS_WEB_RESOURCE_STATISTICS"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Web_Resource_Statistics" baseTableName="THEME_STATISTICS"
+                                 constraintName="fk_THEME_STATISTICS_WEB_RESOURCE_STATISTICS" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Web_Resource_Statistics"
+                                 referencedTableName="WEB_RESOURCE_STATISTICS" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-178">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_WEB_RESOURCE_STATISTICS_AUDIT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Audit" baseTableName="WEB_RESOURCE_STATISTICS"
+                                 constraintName="fk_WEB_RESOURCE_STATISTICS_AUDIT" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Audit" referencedTableName="AUDIT" validate="true"/>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1567586404475-179">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_WEB_RESOURCE_STATISTICS_WEB_RESOURCE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Web_Resource" baseTableName="WEB_RESOURCE_STATISTICS"
+                                 constraintName="fk_WEB_RESOURCE_STATISTICS_WEB_RESOURCE" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Web_Resource" referencedTableName="WEB_RESOURCE"
+                                 validate="true"/>
+    </changeSet>
 </databaseChangeLog>
