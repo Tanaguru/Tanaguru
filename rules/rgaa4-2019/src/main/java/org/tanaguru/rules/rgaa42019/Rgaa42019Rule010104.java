@@ -19,7 +19,16 @@
  */
 package org.tanaguru.rules.rgaa42019;
 
+import static org.tanaguru.rules.keystore.AttributeStore.ALT_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.SRC_ATTR;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.IMG_WITH_ISMAP_ATTR_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_LINK_ASSO_WITH_SERVER_SIDED_IMG_MAP;
+
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.ruleimplementation.AbstractDetectionPageRuleImplementation;
 import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
 
 /**
  * Implementation of the rule 1-1-4 of the referential Rgaa4 2019.
@@ -29,13 +38,22 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @author edaconceicao
  */
 
-public class Rgaa42019Rule010104 extends AbstractNotTestedRuleImplementation {
+public class Rgaa42019Rule010104 extends AbstractDetectionPageRuleImplementation {
 
     /**
      * Default constructor
      */
     public Rgaa42019Rule010104 () {
-        super();
+    	super(
+                new SimpleElementSelector(IMG_WITH_ISMAP_ATTR_CSS_LIKE_QUERY),
+                // solution when at least one element is found
+                new ImmutablePair(TestSolution.NEED_MORE_INFO,CHECK_LINK_ASSO_WITH_SERVER_SIDED_IMG_MAP),
+                // solution when no element is found
+                new ImmutablePair(TestSolution.NOT_APPLICABLE,""),
+                // evidence elements
+                ALT_ATTR,
+                SRC_ATTR
+            );
     }
 
 }

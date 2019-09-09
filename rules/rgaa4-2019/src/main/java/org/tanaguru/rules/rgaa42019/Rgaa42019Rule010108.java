@@ -19,7 +19,29 @@
  */
 package org.tanaguru.rules.rgaa42019;
 
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import static org.tanaguru.rules.keystore.AttributeStore.DATA_ATTR;
+import static org.tanaguru.rules.keystore.HtmlElementStore.CANVAS_ELEMENT;
+import static org.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
+import static org.tanaguru.rules.keystore.MarkerStore.DECORATIVE_IMAGE_MARKER;
+import static org.tanaguru.rules.keystore.MarkerStore.INFORMATIVE_IMAGE_MARKER;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_AND_PRESENCE_OF_ALTERNATIVE_MECHANISM_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMAGE;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMAGE_WITHOUT_TEXT_ALTERNATIVE;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_PRESENCE_OF_ALTERNATIVE_MECHANISM_FOR_INFORMATIVE_IMG_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.TEXT_ALTERNATIVE_MISSING;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.TEXT_ALTERNATIVE_MISSING;
+
+import java.util.Collections;
+
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.ruleimplementation.AbstractMarkerPageRuleImplementation;
+import org.tanaguru.rules.elementchecker.IndependentChecker;
+import org.tanaguru.rules.elementchecker.element.ElementPresenceChecker;
+import org.tanaguru.rules.elementchecker.text.TextAlternativePresenceChecker;
+import org.tanaguru.rules.elementchecker.text.TextEmptinessChecker;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
+import org.tanaguru.rules.textbuilder.SimpleTextElementBuilder;
 
 /**
  * Implementation of the rule 1-1-8 of the referential Rgaa4 2019.
@@ -29,13 +51,59 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @author edaconceicao
  */
 
-public class Rgaa42019Rule010108 extends AbstractNotTestedRuleImplementation {
+public class Rgaa42019Rule010108 extends AbstractMarkerPageRuleImplementation {
 
     /**
      * Default constructor
      */
     public Rgaa42019Rule010108 () {
-        super();
+    	super(	
+        		// the informative images are part of the scope
+                INFORMATIVE_IMAGE_MARKER, 
+
+                // the decorative images are not part of the scope
+                DECORATIVE_IMAGE_MARKER);
+    	
+    	setElementSelector(new SimpleElementSelector(CANVAS_ELEMENT));
+    	
+
+		//initialize and set the checker for the marked elements
+    	IndependentChecker ic = new IndependentChecker(
+        				new TextAlternativePresenceChecker(
+		                        new ImmutablePair(TestSolution.PASSED, ""),
+		                        new ImmutablePair(TestSolution.FAILED, TEXT_ALTERNATIVE_MISSING),
+		                        DATA_ATTR),
+                        new TextEmptinessChecker(
+                                new SimpleTextElementBuilder(),
+                                new ImmutablePair(TestSolution.FAILED, TEXT_ALTERNATIVE_MISSING),
+                                new ImmutablePair(TestSolution.PASSED, ""),
+                                DATA_ATTR),
+        				new ElementPresenceChecker(
+                                new ImmutablePair(TestSolution.NEED_MORE_INFO, CHECK_PRESENCE_OF_ALTERNATIVE_MECHANISM_FOR_INFORMATIVE_IMG_MSG),
+                                new ImmutablePair(TestSolution.NOT_APPLICABLE,""),                                
+                                DATA_ATTR,
+                                TEXT_ELEMENT2));
+    	setMarkerElementChecker(ic);
+    	
+    	
+    	//initialize and set the checker for the regular elements	
+    	ic = new IndependentChecker(
+        				new TextAlternativePresenceChecker(
+		                        new ImmutablePair(TestSolution.NEED_MORE_INFO, CHECK_NATURE_OF_IMAGE),
+		                        new ImmutablePair(TestSolution.NEED_MORE_INFO, CHECK_NATURE_OF_IMAGE_WITHOUT_TEXT_ALTERNATIVE),
+		                        DATA_ATTR),
+                        new TextEmptinessChecker(
+                                new SimpleTextElementBuilder(),
+                                new ImmutablePair(TestSolution.NEED_MORE_INFO, CHECK_NATURE_OF_IMAGE_WITHOUT_TEXT_ALTERNATIVE),
+                                new ImmutablePair(TestSolution.NEED_MORE_INFO, CHECK_NATURE_OF_IMAGE),
+                                DATA_ATTR),
+        				new ElementPresenceChecker(
+                                new ImmutablePair(TestSolution.NEED_MORE_INFO,CHECK_NATURE_AND_PRESENCE_OF_ALTERNATIVE_MECHANISM_MSG),
+                                new ImmutablePair(TestSolution.NOT_APPLICABLE,""),
+                                DATA_ATTR,
+                                TEXT_ELEMENT2));
+    	setRegularElementChecker(ic);
+    	
     }
 
 }

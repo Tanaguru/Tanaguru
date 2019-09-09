@@ -58,6 +58,7 @@ INSERT IGNORE INTO `EVIDENCE` (`Id_Evidence`, `Cd_Evidence`, `Description`, `Lon
 (43, 'tabindex', NULL, NULL),
 (44, 'for', NULL, NULL),
 (45, 'placeholder', NULL, NULL),
+(46, 'xmlns', NULL, NULL),
 (1000, 'Url', NULL, NULL),
 (1002, 'H1', NULL, NULL),
 (1003, 'MetaDescription', NULL, NULL);

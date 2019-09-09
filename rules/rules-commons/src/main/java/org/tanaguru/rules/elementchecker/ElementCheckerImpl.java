@@ -134,6 +134,9 @@ public abstract class ElementCheckerImpl implements ElementChecker {
     public Collection<String> getEeAttributeNameAsCollection() {
         return Arrays.asList(eeAttributeNames);
     }
+    public void setEeAttributes(String...eeAttributeNameList ) {
+    	eeAttributeNames = eeAttributeNameList;
+    }
 
     /**
      * The locale ref to the processRemarkService

@@ -19,7 +19,19 @@
  */
 package org.tanaguru.rules.rgaa42019;
 
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import static org.tanaguru.rules.keystore.AttributeStore.HREF_ATTR;
+import static org.tanaguru.rules.keystore.HtmlElementStore.AREA_ELEMENT;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.TEXT_ALTERNATIVE_MISSING;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMAGE_WITHOUT_TEXT_ALTERNATIVE;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_IMAGE;
+import static org.tanaguru.rules.keystore.MarkerStore.DECORATIVE_IMAGE_MARKER;
+import static org.tanaguru.rules.keystore.MarkerStore.INFORMATIVE_IMAGE_MARKER;
+
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.ruleimplementation.AbstractMarkerPageRuleImplementation;
+import org.tanaguru.rules.elementchecker.text.TextAlternativePresenceChecker;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
 
 /**
  * Implementation of the rule 1-1-2 of the referential Rgaa4 2019.
@@ -29,13 +41,33 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @author edaconceicao
  */
 
-public class Rgaa42019Rule010102 extends AbstractNotTestedRuleImplementation {
+public class Rgaa42019Rule010102 extends AbstractMarkerPageRuleImplementation {
 
     /**
      * Default constructor
      */
     public Rgaa42019Rule010102 () {
-        super();
+        super(new SimpleElementSelector(AREA_ELEMENT), 
+        		
+        		// the informative images are part of the scope
+                INFORMATIVE_IMAGE_MARKER, 
+
+                // the decorative images are not part of the scope
+                DECORATIVE_IMAGE_MARKER, 
+
+        		new TextAlternativePresenceChecker(
+                        // passed when attribute is found, empty message
+                        new ImmutablePair(TestSolution.PASSED, ""),
+                        // failed when attribute is not found, altMissing message
+                        new ImmutablePair(TestSolution.FAILED, TEXT_ALTERNATIVE_MISSING),
+                        HREF_ATTR),
+        		
+        		new TextAlternativePresenceChecker(
+                        // passed when attribute is found, empty message
+                        new ImmutablePair(TestSolution.NEED_MORE_INFO, CHECK_NATURE_OF_IMAGE),
+                        // failed when attribute is not found, altMissing message
+                        new ImmutablePair(TestSolution.NEED_MORE_INFO,CHECK_NATURE_OF_IMAGE_WITHOUT_TEXT_ALTERNATIVE),
+                        HREF_ATTR));
     }
 
 }
