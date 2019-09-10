@@ -480,11 +480,6 @@
                 <artifactId>liquibase-core</artifactId>
                 <version>3.6.3</version>
             </dependency>
-            <dependency>
-                <groupId>org.liquibase.ext</groupId>
-                <artifactId>liquibase-hibernate5</artifactId>
-                <version>3.7</version>
-            </dependency>
 
             <dependency>
                 <groupId>mysql</groupId>
