@@ -11,6 +11,7 @@ Updates :
 - Bump spring version to 5.3.0
 - Use liquibase for database setup, removing all sql files from Tanaguru.
 - /!\ First user is admin / admin do not forget to modify it !
+- /!\ Use firefox 69 for heavy page snapshot fix
 
 --------------------------
 Tanaguru 6.0.1, 2019-07-15
