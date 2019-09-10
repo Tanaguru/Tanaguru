@@ -1,4 +1,18 @@
 --------------------------
+Tanaguru 6.1.0, 2019-09-10
+--------------------------
+Features :
+
+- Use Liquibase for database versioning
+- Web pages Snapshot
+
+Updates :
+
+- Bump spring version to 5.3.0
+- Use liquibase for database setup, removing all sql files from Tanaguru.
+- /!\ First user is admin / admin do not forget to modify it !
+
+--------------------------
 Tanaguru 6.0.1, 2019-07-15
 --------------------------
 Features :
