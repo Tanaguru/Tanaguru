@@ -10,8 +10,6 @@ declare tanaguru_url=
 declare tanaguru_webapp_dir=
 declare tomcat_webapps=
 declare tomcat_user=
-declare tg_admin_email=
-declare tg_admin_passwd=
 declare firefox_esr_path=
 declare display_port=
 declare tg_version=
@@ -42,11 +40,9 @@ declare -a OPTIONS=(
 	tanaguru_url
 	tomcat_webapps
 	tomcat_user
-        tg_admin_email
-        tg_admin_passwd
 	firefox_esr_path
 	display_port
-        tg_version
+    tg_version
 )
 
 warn() {
@@ -220,45 +216,6 @@ Installing Tanaguru with the following configuration :
 EOF
 }
 
-create_tables() {
-	
-	cd "$PKG_DIR/install/engine/sql"
-	cat tanaguru-20-create-tables.sql                \
-	    tanaguru-30-insert.sql |                     \
-		mysql -h ${mysql_tg_host}                \
-		      --user=${mysql_tg_user}            \
-		      --password=${mysql_tg_passwd}      \
-                      ${mysql_tg_db} ||                  \
-		fail "Unable to create the engine tables."\
-                     "The mysql user ${mysql_tg_user}" \
-                     "may already exists with a different" \
-                     "password in the database."
-
-	cd "$PKG_DIR/install/web-app/sql"
-	cat tgol-20-create-tables.sql tgol-30-insert.sql | \
-		mysql -h ${mysql_tg_host}                \
-		      --user=${mysql_tg_user}            \
-		      --password=${mysql_tg_passwd}      \
-                      ${mysql_tg_db} ||                  \
-		fail "Unable to create and fill the TGSI tables" \
-                     "The mysql user ${mysql_tg_user}" \
-                     "may already exists with a different" \
-                     "password in the database."
-
-	cd "$PKG_DIR/install/rules/sql"
-	cat 10-rules-resources-insert.sql        \
-            rgaa3-2017-insert.sql 				\
-            rgaa4-2019-insert.sql|              \
-		mysql -h ${mysql_tg_host}                \
-		      --user=${mysql_tg_user}            \
-		      --password=${mysql_tg_passwd}      \
-                      ${mysql_tg_db} ||                  \
-		fail "Unable to create the rules tables" \
-                     "The mysql user ${mysql_tg_user}" \
-                     "may already exists with a different" \
-                     "password in the database."
-}
-
 create_directories() {
 	dirty_directories=true
 	install -dm 700 -o ${tomcat_user} -g root \
@@ -297,17 +254,17 @@ install_firefox_profile_files() {
 install_configuration() {
 	dirty_conf=true
 	cp -r "$PKG_DIR"/install/web-app/conf/* \
-	   "${prefix}/$TG_CONF_DIR" ||                  \
+	   "${prefix}$TG_CONF_DIR" ||                  \
 		fail "Unable to copy the tanaguru configuration"
 	sed -i -e "s#\$TGOL-DEPLOYMENT-PATH .*#${tomcat_webapps}/${tanaguru_webapp_dir}/WEB-INF/conf#" \
 	    -e    "s#\$WEB-APP-URL .*#${tanaguru_url}#"               \
 	    -e    "s#\$SQL_SERVER_URL#$mysql_tg_host#"                     \
 	    -e    "s#\$USER#$mysql_tg_user#"                          \
 	    -e    "s#\$PASSWORD#$mysql_tg_passwd#"                    \
-	    -e    "s#\$DATABASE_NAME#$mysql_tg_db#"                   \
-	    "${prefix}/$TG_CONF_DIR/tanaguru.conf" ||                    \
+	    -e    "s#\$DATABASE_NAME#$mysql_tg_db#"                    \
+	    "${prefix}$TG_CONF_DIR/tanaguru.conf" ||                    \
 		fail "Unable to set up the tanaguru configuration"
-	grep '$' "${prefix}/$TG_CONF_DIR" >/dev/null &&            \
+	grep '$' "${prefix}$TG_CONF_DIR/tanaguru.conf" >/dev/null &&            \
 		warn "The file ${prefix}/$TG_CONF_DIR contains"    \
 		     "dollar symboles. Check by yourself that the " \
 		     "replacement worked fine."
@@ -334,19 +291,6 @@ edit_esapi_configuration_file() {
 	    "${prefix}/$TG_CONF_DIR/ESAPI.properties" ||                    \
 		fail "Unable to set up the esapie configuration"
 	rm -f generated_keys.txt
-}
-
-create_first_user() {
-
-	cd "$PKG_DIR/install/web-app/sql-management"
-        sed -i -e "s/^DbHost=.*$/DbHost=$mysql_tg_host/g" 	\
-        -e "s/^DbUser=.*$/DbUser=$mysql_tg_user/g" 	\
-	    -e "s/^DbUserPasswd=.*$/DbUserPasswd=$mysql_tg_passwd/g" \
-	    -e "s/^DbName=.*$/DbName=$mysql_tg_db/g"  \
-            tg-set-user-admin.sh tg-create-user.sh  ||   \
-		fail "Unable to create tanaguru admin user"
-        sh ./tg-create-user.sh -e $tg_admin_email -p $tg_admin_passwd -l " " -f " " >/dev/null || fail "Error while creating Tanaguru user. User may already exists"
-        sh ./tg-set-user-admin.sh -u $tg_admin_email >/dev/null || fail "Error while setting Tanaguru user as admin"
 }
 
 update_tomcat_configuration() {
@@ -389,9 +333,6 @@ main() {
 	# create tanaguru directories
 	create_directories
 	echo "Directory creation:	.	.	OK"
-	# filling the SQL database
-	create_tables
-	echo "SQL inserts: 		.	.	OK"
 	# install configuration file
 	install_configuration
 	echo "Tanaguru config files creation: .         OK"
@@ -404,9 +345,6 @@ main() {
 	# edit esapi configuration file
 	edit_esapi_configuration_file
 	echo "Tanaguru webapp configuration: 	.	OK"
-	# create first user
-	create_first_user
-	echo "Tanaguru admin creation:         .	OK"
 	# update tomcat configuration
 	update_tomcat_configuration
 	echo "Tomcat configuration: 	.	.	OK"

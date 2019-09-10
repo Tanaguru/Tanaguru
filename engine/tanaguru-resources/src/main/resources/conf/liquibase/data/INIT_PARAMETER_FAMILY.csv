@@ -1,0 +1,5 @@
+"Id_Parameter_Family","Cd_Parameter_Family","Description","Long_Label","Short_Label"
+"1","CRAWL","This parameter family handles all the parameters needed by the crawler component","crawl parameters","crawl params"
+"2","GENERAL","This parameter family handles all the general parameters of the audit","general parameters","gen params"
+"3","RULES","This parameter family handles all the parameters needed by the rules","rules parameters","rules params"
+"4","SCENARIO","This parameter family handles all the parameters needed by the crawler component","scenario parameters","scenario params"

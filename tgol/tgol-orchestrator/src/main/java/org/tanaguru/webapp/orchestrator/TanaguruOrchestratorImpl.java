@@ -675,8 +675,7 @@ public class TanaguruOrchestratorImpl implements TanaguruOrchestrator {
             LOGGER.debug("AUDIT COMPLETED:" + audit + "," + audit.getSubject().getURL() + "," + (long) (audit.getDateOfCreation().getTime() / 1000) + audit.getId());
             Audit auditCompleted = null;
             for (Audit auditRunning : this.auditExecutionList.keySet()) {
-                if (auditRunning.getId().equals(audit.getId())
-                        && (long) (auditRunning.getDateOfCreation().getTime() / 1000) == (long) (audit.getDateOfCreation().getTime() / 1000)) {
+                if (auditRunning.getId().equals(audit.getId())){
                     auditCompleted = auditRunning;
                     break;
                 }

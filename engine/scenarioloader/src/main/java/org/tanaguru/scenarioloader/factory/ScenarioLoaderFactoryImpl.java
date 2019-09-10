@@ -121,7 +121,6 @@ public class ScenarioLoaderFactoryImpl implements ScenarioLoaderFactory {
         return jsScriptMap;
     }
 
-    @Autowired
     public void setJsScriptMap(Map<String, String> jsScriptMap) {
         if (this.jsScriptMap == null) {
             this.jsScriptMap = new HashMap<>();

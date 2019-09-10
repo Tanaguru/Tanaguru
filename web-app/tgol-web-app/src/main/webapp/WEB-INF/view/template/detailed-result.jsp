@@ -82,7 +82,7 @@
         <c:set var="updateManualResultUrl">
             <c:url value="/home/contract/update-manual-result.html?wr=${param.wr}"/>
         </c:set>
-        <form:form commandName="manualAuditCommand" 
+        <form:form modelAttribute="manualAuditCommand"
                    method="post" 
                    acceptCharset="UTF-8" 
                    enctype="application/x-www-form-urlencoded" 

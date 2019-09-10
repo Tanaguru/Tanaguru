@@ -5,7 +5,7 @@
     	- persistenceXmlLocation=classpath:/conf/persistence.xml -->
     
     <persistence-unit name="test-tanaguruPU" transaction-type="RESOURCE_LOCAL">
-        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <non-jta-data-source>jdbc/tanaguruDS</non-jta-data-source>
         <!-- TGSI classes -->
 <!--         <class>org.tanaguru.entity.user.UserImpl</class>

@@ -12,7 +12,7 @@
 
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="exportService"/>
+            <ref bean="exportService"/>
         </property>
         <property name="targetMethod">
             <value>setExportFormatMap</value>

@@ -54,11 +54,11 @@
             <map>
                 <entry key="theme">
                     <list>
-                        <ref local="rulescreationdemoAllThemeSelectElementBuilder"/>
-                                                <ref local="rulescreationdemo-1ThemeSelectElementBuilder"/>
-                                                <ref local="rulescreationdemo-2ThemeSelectElementBuilder"/>
-                                                <ref local="rulescreationdemo-3ThemeSelectElementBuilder"/>
-                                                <ref local="rulescreationdemo-4ThemeSelectElementBuilder"/>
+                        <ref bean="rulescreationdemoAllThemeSelectElementBuilder"/>
+                                                <ref bean="rulescreationdemo-1ThemeSelectElementBuilder"/>
+                                                <ref bean="rulescreationdemo-2ThemeSelectElementBuilder"/>
+                                                <ref bean="rulescreationdemo-3ThemeSelectElementBuilder"/>
+                                                <ref bean="rulescreationdemo-4ThemeSelectElementBuilder"/>
                                             </list>
                 </entry>
             </map>

@@ -28,29 +28,29 @@ if [ -z "$ContractLabel" ] || [ -z "$UserEmail" ] || [ -z "$Functs" ]; then
 	exit 0
 fi
 
-for funct in $Functs;do
-   if [ $funct = "f1" ];
-     then 
-        mysql -u $DbUser -p$DbUserPasswd $DbName -e "
-        call add_funct_to_contract_from_contract_label(\"$ContractLabel\", \"$UserEmail\", 1);
-        "
-   fi
-   if [ $funct = "f2" ];
-     then 
-        mysql -u $DbUser -p$DbUserPasswd $DbName -e "
-        call add_funct_to_contract_from_contract_label(\"$ContractLabel\", \"$UserEmail\", 2);
-        "
-   fi
-   if [ $funct = "f3" ];
-     then 
-        mysql -u $DbUser -p$DbUserPasswd $DbName -e "
-        call add_funct_to_contract_from_contract_label(\"$ContractLabel\", \"$UserEmail\", 3);
-        "
-   fi
-   if [ $funct = "f4" ];
-     then 
-        mysql -u $DbUser -p$DbUserPasswd $DbName -e "
-        call add_funct_to_contract_from_contract_label(\"$ContractLabel\", \"$UserEmail\", 4);
-        "
-   fi
+for funct in $Functs;do 
+   if [ $funct = "f1" ]; 
+     then  
+        mysql -u $DbUser -p$DbUserPasswd $DbName -e " 
+        call add_funct_to_contract_from_contract_label(\"$ContractLabel\", \"$UserEmail\", 1); 
+        " 
+   fi 
+   if [ $funct = "f2" ]; 
+     then  
+        mysql -u $DbUser -p$DbUserPasswd $DbName -e " 
+        call add_funct_to_contract_from_contract_label(\"$ContractLabel\", \"$UserEmail\", 2); 
+        " 
+   fi 
+   if [ $funct = "f3" ]; 
+     then  
+        mysql -u $DbUser -p$DbUserPasswd $DbName -e " 
+        call add_funct_to_contract_from_contract_label(\"$ContractLabel\", \"$UserEmail\", 3); 
+        " 
+   fi 
+   if [ $funct = "f4" ]; 
+     then  
+        mysql -u $DbUser -p$DbUserPasswd $DbName -e " 
+        call add_funct_to_contract_from_contract_label(\"$ContractLabel\", \"$UserEmail\", 4); 
+        " 
+   fi 
 done

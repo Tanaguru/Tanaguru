@@ -11,7 +11,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 
     <bean id="cssContentAdapterFactory" class="org.tanaguru.contentadapter.css.CSSContentAdapterFactoryImpl">
         <property name="externalCSSRetriever">
-            <ref local="externalCSSRetriever"/>
+            <ref bean="externalCSSRetriever"/>
         </property>
     </bean>
 
@@ -24,7 +24,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         <property name="htmlParserFactory" ref="htmlParserFactory"/>
         <property name="contentAdapterFactorySet">
             <set>
-                <ref local="cssContentAdapterFactory"/>
+                <ref bean="cssContentAdapterFactory"/>
             </set>
         </property>
         <property name="urlIdentifierFactory" ref="urlIdentifierFactory"/>

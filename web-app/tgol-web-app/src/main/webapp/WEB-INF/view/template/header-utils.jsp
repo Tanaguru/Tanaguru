@@ -95,15 +95,15 @@
                         <img src="${adminLogoUrl}" 
                              alt="<fmt:message key="home.admin"/>"/>
                     </a>
-                </li>    
+                </li>
             </sec:authorize>
             <c:if test="${empty notAuthenException}">
                 <li>
-                    <a href="<c:url value="/j_spring_security_logout"/>" 
-                       id="logout" 
+                    <a href="<c:url value="/perform_logout"/>"
+                       id="logout"
                        title="<fmt:message key="home.logout"/>">
-                        <img src="${logoutLogoUrl}" 
-                             alt="<fmt:message key="home.logout"/>" 
+                        <img src="${logoutLogoUrl}"
+                             alt="<fmt:message key="home.logout"/>"
                              id="logout-icon"/>
                     </a>
                 </li>

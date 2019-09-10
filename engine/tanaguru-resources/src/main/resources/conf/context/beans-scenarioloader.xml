@@ -67,7 +67,7 @@
     <!--            NEW PROFILE FACTORY          -->
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="profileFactoryImpl"/>
+            <ref bean="profileFactoryImpl"/>
         </property>
         <property name="targetMethod">
             <value>setProxyPort</value>
@@ -81,7 +81,7 @@
 
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="profileFactoryImpl"/>
+            <ref bean="profileFactoryImpl"/>
         </property>
         <property name="targetMethod">
             <value>setProxyHost</value>
@@ -95,7 +95,7 @@
 
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="profileFactoryImpl"/>
+            <ref bean="profileFactoryImpl"/>
         </property>
         <property name="targetMethod">
             <value>setProxyExclusionUrl</value>
@@ -109,7 +109,7 @@
 
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="profileFactoryImpl"/>
+            <ref bean="profileFactoryImpl"/>
         </property>
         <property name="targetMethod">
             <value>setPathToPreSetProfile</value>
