@@ -166,7 +166,7 @@ public class ContentDAOImpl extends AbstractJPADAO<Content, Long> implements
                 + " JOIN s.audit as a"
                 + " WHERE a = :audit"
                 + " AND s.dom != null "
-                + " AND s.dom != '' ");
+                + " AND s.dom != ''");
         query.setParameter(AUDIT_KEY, audit);
         return (Long) query.getSingleResult() > 0;
     }
@@ -180,7 +180,7 @@ public class ContentDAOImpl extends AbstractJPADAO<Content, Long> implements
                 + " JOIN s.audit as a"
                 + " WHERE a = :audit"
                 + " AND s.source != null "
-                + " AND s.source != '' )");
+                + " AND s.source != ''");
         query = query.setParameter(AUDIT_KEY, audit);
         return (Long) query.getSingleResult() > 0;
     }

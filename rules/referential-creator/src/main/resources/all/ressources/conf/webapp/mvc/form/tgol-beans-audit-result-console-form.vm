@@ -35,9 +35,9 @@
             <map>
                 <entry key="theme">
                     <list>
-                        <ref local="${referentiel.toLowerCase()}AllThemeSelectElementBuilder"/>
+                        <ref bean="${referentiel.toLowerCase()}AllThemeSelectElementBuilder"/>
                         #foreach ( $theme in $themes )
-                        <ref local="${referentiel.toLowerCase()}-${theme}ThemeSelectElementBuilder"/>
+                        <ref bean="${referentiel.toLowerCase()}-${theme}ThemeSelectElementBuilder"/>
                         #end
                     </list>
                 </entry>

@@ -21,6 +21,6 @@ if [ -z "$ContractId" ]; then
 	exit 0
 fi
 
-mysql -u $DbUser -p$DbUserPasswd $DbName -e "
-    call clean_up_audit_from_contract($ContractId);
+mysql -u $DbUser -p$DbUserPasswd $DbName -e " 
+    call clean_up_audit_from_contract($ContractId); 
 "

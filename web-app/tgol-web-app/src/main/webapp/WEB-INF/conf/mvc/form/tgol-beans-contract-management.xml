@@ -149,7 +149,7 @@
         <property name="errorI18nKey" value="is-domaine-restricted-error"/>
         <property name="checkboxElementBuilderList">
             <list>
-                <ref local="isDomaineRestrictedBuilder"/>
+                <ref bean="isDomaineRestrictedBuilder"/>
             </list>
         </property>
     </bean>
@@ -171,7 +171,7 @@
         <property name="errorI18nKey" value="is-eaccess-enabled-error"/>
         <property name="checkboxElementBuilderList">
             <list>
-                <ref local="isEAccessEnabledBuilder"/>
+                <ref bean="isEAccessEnabledBuilder"/>
             </list>
         </property>
     </bean>

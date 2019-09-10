@@ -22,10 +22,14 @@ package org.tanaguru.rules.rgaa32017;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.tanaguru.entity.audit.TestSolution;
 import org.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
-import org.tanaguru.rules.elementchecker.element.ElementPresenceChecker;
+import org.tanaguru.rules.elementchecker.CompositeChecker;
+import org.tanaguru.rules.elementchecker.attribute.AttributePresenceChecker;
 import org.tanaguru.rules.elementselector.SimpleElementSelector;
-import static org.tanaguru.rules.keystore.CssLikeQueryStore.FORM_ARIA_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.INPUT_ELEMENT_CSS_LIKE_QUERY;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_FORM_ARIA_MSG;
+import static org.tanaguru.rules.keystore.AttributeStore.ID_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABEL_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABELLEDBY_ATTR;
 
 /**
  *
@@ -44,13 +48,24 @@ public class Rgaa32017Rule110104 extends AbstractPageRuleWithSelectorAndCheckerI
     /**
      * Default constructor
      */
-    //FORM_ARIA_CSS_LIKE_QUERY
     public Rgaa32017Rule110104 () {
-       super(new SimpleElementSelector(FORM_ARIA_CSS_LIKE_QUERY),
-                new ElementPresenceChecker(
-                new ImmutablePair(TestSolution.NEED_MORE_INFO,CHECK_FORM_ARIA_MSG),
-                new ImmutablePair(TestSolution.NOT_APPLICABLE, "")
-                ));
+
+       setElementSelector(new SimpleElementSelector(INPUT_ELEMENT_CSS_LIKE_QUERY));
+       
+       CompositeChecker cc = new CompositeChecker(
+    		   new AttributePresenceChecker(ARIA_LABEL_ATTR,
+    	                new ImmutablePair(TestSolution.NEED_MORE_INFO,CHECK_FORM_ARIA_MSG),
+    	                new ImmutablePair(TestSolution.NOT_APPLICABLE, ""),
+    	                ID_ATTR,
+    	                ARIA_LABEL_ATTR),
+    		   new AttributePresenceChecker(ARIA_LABELLEDBY_ATTR,
+	   	                new ImmutablePair(TestSolution.NEED_MORE_INFO,CHECK_FORM_ARIA_MSG),
+	   	                new ImmutablePair(TestSolution.NOT_APPLICABLE, ""),
+	   	                ID_ATTR,
+	   	                ARIA_LABELLEDBY_ATTR));
+       
+       cc.setIsOrCombinaison(false);
+       setElementChecker(cc);
     }
 
 }

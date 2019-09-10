@@ -16,14 +16,9 @@
 </c:choose>
 <div id="login-form" class="row">
     <form method="post" 
-          action="<c:url value="j_spring_security_check"/>" 
+          action="<c:url value="/perform_login"/>"
           class="${formClass}">
 <c:choose>
-    <c:when test="${not empty param.login_error}">
-        <c:set var="usernameValue">
-            <%= session.getAttribute(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_LAST_USERNAME_KEY)%>
-        </c:set>
-    </c:when>
     <c:when test="${not empty param.email}">
         <c:set var="usernameValue" value="${param.email}"/>  
     </c:when>
@@ -37,12 +32,12 @@
                class="${inputSize}" 
                title="<fmt:message key="login.id"/>" 
                placeholder="<fmt:message key="login.id"/>" 
-               name="j_username" 
+               name="username"
                id="j_username" 
                <c:if test="${not empty usernameValue}"> value="${usernameValue}"</c:if> />
         <div class="inline-password">
             <input type="password" 
-                   name="j_password" 
+                   name="password"
                    title="<fmt:message key="login.password"/>" 
                    placeholder="<fmt:message key="login.password"/>" 
                    id="j_password" 
@@ -55,6 +50,7 @@
                 </a>
             </span>
         </div>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <input class="btn" 
                type="submit" 
                name="Login" 
@@ -66,17 +62,18 @@
         </label>
         <input type="text" 
                class="${inputSize}" 
-               name="j_username" 
+               name="username"
                id="j_username" 
                <c:if test="${not empty usernameValue}"> value="${usernameValue}"</c:if> />
         <label for="j_password">
             <fmt:message key="login.password"/>
         </label>
         <input type="password" 
-               name="j_password" 
+               name="password"
                id="j_password" 
                class="${inputSize}" 
                autocomplete="off" />
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <c:if test="${configProperties['enable-account-settings'] == 'true'}">
         <span class="help-block">
             <a href="<c:url value="/forgotten-password.html"/>">

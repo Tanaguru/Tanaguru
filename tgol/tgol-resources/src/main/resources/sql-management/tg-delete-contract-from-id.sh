@@ -20,7 +20,7 @@ if [ -z "$ContractId" ]; then
         echo "Delete the contract with the given Id"
 	exit 0
 fi
-
-mysql -u $DbUser -p$DbUserPasswd $DbName -e "
-    call delete_contract_from_id($ContractId);
+ 
+mysql -u $DbUser -p$DbUserPasswd $DbName -e " 
+    call delete_contract_from_id($ContractId); 
 "

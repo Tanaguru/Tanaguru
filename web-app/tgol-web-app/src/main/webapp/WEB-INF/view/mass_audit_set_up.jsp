@@ -73,6 +73,11 @@
                         <c:set var="contract" scope="page" value="${contract}"/>
                         <c:set var="proportion" scope="page" value="span2"/>
                         <c:set var="size" scope="page" value="T"/>
+                        <c:choose>
+                            <c:when test="${contract.lastActInfo.status == 'COMPLETED'}">
+                                <c:set var="snapshot" scope="page" value="${contract.lastActInfo.snapshot}"/>
+                            </c:when>
+                        </c:choose>
                         <%@include file="template/thumbnail.jsp" %>
                         <c:choose>
                             <c:when test="${contract.isContractExpired != 'true'}">

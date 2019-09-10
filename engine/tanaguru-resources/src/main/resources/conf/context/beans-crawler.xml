@@ -106,14 +106,14 @@
             </map>
         </property>
         <property name="urlModifier">
-            <ref local="urlModifier"/>
+            <ref bean="urlModifier"/>
         </property>
         <property name="proxyModifierList">
             <list>
-                <ref local="proxyHostModifier"/>
-                <ref local="proxyPortModifier"/>
-                <ref local="proxyUserModifier"/>
-                <ref local="proxyPasswordModifier"/>
+                <ref bean="proxyHostModifier"/>
+                <ref bean="proxyPortModifier"/>
+                <ref bean="proxyUserModifier"/>
+                <ref bean="proxyPasswordModifier"/>
             </list>
         </property>
     </bean>

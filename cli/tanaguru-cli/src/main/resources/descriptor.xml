@@ -1,6 +1,7 @@
 <assembly xmlns="http://maven.apache.org/plugins/maven-resources-plugin/resources/1.1.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/plugins/maven-resources-plugin/resources/1.1.0 http://maven.apache.org/xsd/resources-1.1.0.xsd">
+  	<id>make-assembly</id>
     <formats>
         <format>tar.gz</format>
     </formats>
@@ -113,6 +114,14 @@
             <directory>${basedir}/../../rules/rgaa3-2017/src/main/resources/sql</directory>
             <includes>
                 <include>rgaa3-2017-insert.sql</include>
+            </includes>
+            <fileMode>755</fileMode>
+            <outputDirectory>/install/rules/sql</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${basedir}/../../rules/rgaa4-2019/src/main/resources/sql</directory>
+            <includes>
+                <include>rgaa4-2019-insert.sql</include>
             </includes>
             <fileMode>755</fileMode>
             <outputDirectory>/install/rules/sql</outputDirectory>

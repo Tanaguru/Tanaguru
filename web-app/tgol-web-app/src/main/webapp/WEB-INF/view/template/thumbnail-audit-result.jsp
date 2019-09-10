@@ -11,26 +11,18 @@
 <div class="${proportion} ${offset}">
     <div class="thumbnail" >
         <c:choose>
-            <c:when test="${url != '' && 
-                            scope != 'FILE' && 
-                            scope != 'SCENARIO' && 
-                            not empty configProperties['snapshotServiceUrl']}">
-            <div id="snapshot-service-url" 
-                 style="display:none;">
-                ${configProperties['snapshotServiceUrl']}&amp;${configProperties['snapshotServiceWidthKey']}=${width}&amp;${configProperties['snapshotServiceHeightKey']}=${height}&amp;url=${fn:replace(fn:replace(url,"&amp;","%26"),"&","%26")}
-            </div>
-            <div id="fail-snapshot-url" style="display:none;">
-                ${tgLogoUrl}
-            </div>
-        <img id="snapshot" 
-             src="<c:url value="/Images/processing.gif"/>" 
-             alt="${url}" 
-             style="height: ${height};width: ${width};"/><br/>
+            <c:when test="${scope != 'FILE' &&
+                            not empty snapshot}">
+                <img src="data:image/png;base64, ${snapshot}"
+                     alt="audit snapshot" height="${height}" width="${width}"/>
             </c:when>
             <c:otherwise>
-        <img src="${tgLogoUrl}" 
-             alt="" 
-             class="tg-logo"/><br/>
+                <c:set var="tgLogoUrl">
+                    <c:url value="/Images/Logo-Tanaguru-G-w${width}-h${height}-75dpi-bgTransp.png"/>
+                </c:set>
+                <img src="${tgLogoUrl}"
+                     alt=""
+                     class="tg-logo"/><br/>
             </c:otherwise>
         </c:choose>
     </div>

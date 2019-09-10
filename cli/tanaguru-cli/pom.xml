@@ -130,7 +130,13 @@
                 <artifactId>tanaguru-rgaa3-2017</artifactId>
                 <version>${rulesVersion}</version>
                 <scope>runtime</scope>
-            </dependency>
+		</dependency>
+        <dependency>
+                <groupId>${rulesGroupId}</groupId>
+                <artifactId>tanaguru-rgaa4-2019</artifactId>
+                <version>${rulesVersion}</version>
+                <scope>runtime</scope>
+		</dependency>
         <dependency>
             <groupId>${springGroupId}</groupId>
             <artifactId>spring-tx</artifactId>

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    <head> 
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
+        <title>Rgaa32017 Test.11.01.3 NA 03</title> 
+    </head> 
+    <body> 
+        <div> 
+            <h1>Rgaa32017 Test.11.01.3 NA 03</h1> 
+            <div class="test-detail" lang="fr"> Chaque 
+                <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#mChpSaisie">champ de formulaire</a> qui utilise une propriété ARIA
+                <code>aria-label</code> ou <code>aria-labelledby</code> est-il, si nécessaire, accompagné d'un passage de texte visible et accolé au champ 
+                permettant de comprendre la nature de la saisie attendue ?
+            </div>
+            <div class="testcase">                 
+            	<p>Elements for input data</p>
+                <form action="http://action.html" method="post"> 
+                    <span> Fruits check box:</span>
+                    <div>
+	                    <input type="checkbox" name="fruit1" value="apple"/> Apple <br>
+	                    <input type="checkbox" name="fruit2" value="banana"/> Banana <br>
+	                    <input type="checkbox" name="fruit3" value="peach"/> Peach <br>
+					</div>
+                    
+                    <span> Fruits radios:</span> 
+                    <div>
+	                    <input type="radio" name="fruit1" value="apple"/> Apple <br>
+	                    <input type="radio" name="fruit2" value="banana"/> Banana <br>
+	                    <input type="radio" name="fruit3" value="peach"/> Peach <br>
+					</div>
+                    
+                    <span> Date:</span> 
+                    <input type="date"/> 
+                    
+                    <span> Math Mark:</span> 
+                    <input type="range" name="mark" min="5" max="20"/> 
+                    
+                    <span> Red color to choose:</span> 
+                    <input type="color" value="#ff0000"/> Red color
+                    
+                    <span> URL:</span> 
+                    <input type="time"/> 
+                </form> 
+                <p class="test-explanation"> NA : Each input has an aria-labelledby attribute. So we need to check manually each input.</p>
+            </div> 
+		</div>
+    </body>
+</html>

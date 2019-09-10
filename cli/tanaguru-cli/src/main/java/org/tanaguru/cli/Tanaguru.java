@@ -69,7 +69,7 @@ public class Tanaguru implements AuditServiceListener {
     private static final String SITE_AUDIT = "File";
 
 
-    private static final String[] REFERENTIALS = {"Rgaa32017"};
+    private static final String[] REFERENTIALS = {"Rgaa32017", "Rgaa42019"};
 
     private static String REF = REFERENTIALS[0];
     

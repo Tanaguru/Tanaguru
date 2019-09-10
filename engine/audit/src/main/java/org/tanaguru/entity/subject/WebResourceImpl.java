@@ -66,6 +66,8 @@ public abstract class WebResourceImpl implements WebResource, Serializable {
     private Set<ProcessResultImpl> processResultSet;
     @Column(name = "Rank", nullable = false)
     private int rank = 0;
+    @Column(name = "Snapshot", columnDefinition = "mediumblob")
+    private byte[] snapshot;
 
     public WebResourceImpl() {
         super();
@@ -173,6 +175,16 @@ public abstract class WebResourceImpl implements WebResource, Serializable {
         for (ProcessResult processResult : processResultList) {
             addProcessResult(processResult);
         }
+    }
+
+    @Override
+    public void setSnapshot(byte[] snapshot){
+        this.snapshot = snapshot;
+    }
+
+    @Override
+    public byte[] getSnapshot(){
+        return snapshot;
     }
 
 }

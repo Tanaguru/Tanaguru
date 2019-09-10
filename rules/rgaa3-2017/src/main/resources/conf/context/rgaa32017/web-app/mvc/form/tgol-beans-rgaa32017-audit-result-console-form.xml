@@ -117,20 +117,20 @@
             <map>
                 <entry key="theme">
                     <list>
-                        <ref local="rgaa32017AllThemeSelectElementBuilder"/>
-                            <ref local="rgaa32017-1ThemeSelectElementBuilder"/>
-                            <ref local="rgaa32017-2ThemeSelectElementBuilder"/>
-                            <ref local="rgaa32017-3ThemeSelectElementBuilder"/>
-                            <ref local="rgaa32017-4ThemeSelectElementBuilder"/>
-                            <ref local="rgaa32017-5ThemeSelectElementBuilder"/>
-                            <ref local="rgaa32017-6ThemeSelectElementBuilder"/>
-                            <ref local="rgaa32017-7ThemeSelectElementBuilder"/>
-                            <ref local="rgaa32017-8ThemeSelectElementBuilder"/>
-                            <ref local="rgaa32017-9ThemeSelectElementBuilder"/>
-                            <ref local="rgaa32017-10ThemeSelectElementBuilder"/>
-                            <ref local="rgaa32017-11ThemeSelectElementBuilder"/>
-                            <ref local="rgaa32017-12ThemeSelectElementBuilder"/>
-                            <ref local="rgaa32017-13ThemeSelectElementBuilder"/>
+                        <ref bean="rgaa32017AllThemeSelectElementBuilder"/>
+                            <ref bean="rgaa32017-1ThemeSelectElementBuilder"/>
+                            <ref bean="rgaa32017-2ThemeSelectElementBuilder"/>
+                            <ref bean="rgaa32017-3ThemeSelectElementBuilder"/>
+                            <ref bean="rgaa32017-4ThemeSelectElementBuilder"/>
+                            <ref bean="rgaa32017-5ThemeSelectElementBuilder"/>
+                            <ref bean="rgaa32017-6ThemeSelectElementBuilder"/>
+                            <ref bean="rgaa32017-7ThemeSelectElementBuilder"/>
+                            <ref bean="rgaa32017-8ThemeSelectElementBuilder"/>
+                            <ref bean="rgaa32017-9ThemeSelectElementBuilder"/>
+                            <ref bean="rgaa32017-10ThemeSelectElementBuilder"/>
+                            <ref bean="rgaa32017-11ThemeSelectElementBuilder"/>
+                            <ref bean="rgaa32017-12ThemeSelectElementBuilder"/>
+                            <ref bean="rgaa32017-13ThemeSelectElementBuilder"/>
                         </list>
                 </entry>
             </map>

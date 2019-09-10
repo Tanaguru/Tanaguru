@@ -53,6 +53,13 @@
                 <value>classpath:i18n/rule-remark-rgaa32017-I18N</value>
                 <value>classpath:i18n/accedeweb-rgaa32017-I18N</value>
                 
+                <!--rgaa4 2019 i18n files -->
+                <value>classpath:i18n/referential-rgaa42019-I18N</value>
+                <value>classpath:i18n/theme-rgaa42019-I18N</value>
+                <value>classpath:i18n/criterion-rgaa42019-I18N</value>
+                <value>classpath:i18n/rule-rgaa42019-I18N</value>
+                <value>classpath:i18n/rule-remark-rgaa42019-I18N</value>
+                
                 <!--seo1.0 i18n files -->
                 <value>classpath:i18n/referential-seo-I18N</value>
                 <value>classpath:i18n/theme-seo-I18N</value>

@@ -797,6 +797,10 @@ public abstract class AuditCommandImpl implements AuditCommand {
             analyserService.analyse(parentWebResource, audit);
             webResourceDataService.saveOrUpdate(parentWebResource);
         } else if (parentWebResource instanceof Site) {
+            ArrayList<WebResource> pages = new ArrayList<>();
+            pages.addAll(((Site) parentWebResource).getComponentList());
+            parentWebResource.setSnapshot(pages.get(0).getSnapshot());
+
             if (LOGGER.isDebugEnabled()) {
                 LOGGER.debug("Analysing results of scope site");
                 beginProcessDate = Calendar.getInstance().getTime();

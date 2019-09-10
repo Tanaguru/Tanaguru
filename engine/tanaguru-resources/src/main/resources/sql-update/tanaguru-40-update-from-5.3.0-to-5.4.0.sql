@@ -1,1 +1,0 @@
-INSERT INTO EVIDENCE (Cd_Evidence) VALUE ('type');

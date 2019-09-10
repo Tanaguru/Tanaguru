@@ -84,23 +84,23 @@ public class AuditStatisticsImpl implements AuditStatistics, Serializable {
     /**
      * The url of the checked page
      */
-    private String snapshotUrl = null;
+    private String snapshot = null;
     /**
      *
      * @return
      */
     @Override
-    public String getSnapshotUrl() {
-        return snapshotUrl;
+    public String getSnapshot() {
+        return snapshot;
     }
 
     /**
      *
-     * @param snaphostUrl
+     * @param snaphost
      */
     @Override
-    public void setSnapshotUrl(String snaphostUrl) {
-        this.snapshotUrl = TgolEscapeUrl.escapeUrl(snaphostUrl);
+    public void setSnapshot(String snaphost) {
+        this.snapshot = snaphost;
     }
 
     /**

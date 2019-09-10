@@ -65,6 +65,7 @@ public final class AttributeStore {
     public static final String WIDTH_ATTR = HTML.Attribute.WIDTH.toString();
     public static final String HEIGHT_ATTR = HTML.Attribute.HEIGHT.toString();
     public static final String XML_LANG_ATTR = "xml:lang";
+    public static final String XMLNS_ATTR = "xmlns";
 
     /* Value linked to an attribute */
     public static final String PRESENTATION_VALUE = "presentation";

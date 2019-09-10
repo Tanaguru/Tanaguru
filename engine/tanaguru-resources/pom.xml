@@ -10,14 +10,13 @@
     </parent>
     <artifactId>tanaguru-resources</artifactId>
     <name>tanaguru-resources</name>
+    <packaging>jar</packaging>
     <build>
         <resources>
             <resource>
                 <directory>src/main/resources/</directory>
                 <filtering>true</filtering>
                 <excludes>
-                    <exclude>**/sql/*</exclude>
-                    <exclude>**/sql-update/*</exclude>
                     <exclude>**/scripts/*</exclude>
                     <exclude>**/lib/*</exclude>
                     <exclude>**/tanaguru-test-conf/*</exclude>
@@ -30,4 +29,90 @@
             </resource>
         </resources>
     </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>${springGroupId}</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${springGroupId}</groupId>
+            <artifactId>spring-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${springGroupId}</groupId>
+            <artifactId>spring-orm</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-all</artifactId>
+            <version>5.9.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-consolidator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-analyser</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-persistence</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-contentadapter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-contentloader</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-crawler4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-logging</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-nomenclatureloader</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.5.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-processor</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-rule-implementation-loader</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-scenarioloader</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-engine</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-jms</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+        </dependency>
+    </dependencies>
 </project>
