@@ -236,9 +236,9 @@
                 </entry>
                 <entry key="Rgaa42019">
                     <list>
-                        <ref local="rgaa42019ASelectElementBuilder"/>
-                        <ref local="rgaa42019AASelectElementBuilder"/>
-                        <ref local="rgaa42019AAASelectElementBuilder"/>
+                        <ref bean="rgaa42019ASelectElementBuilder"/>
+                        <ref bean="rgaa42019AASelectElementBuilder"/>
+                        <ref bean="rgaa42019AAASelectElementBuilder"/>
                     </list>
                 </entry>
             </map>

@@ -19,7 +19,6 @@
                         <exclude>**/*.log</exclude>
                         <exclude>**/*.script</exclude>
                         <exclude>*.tmp</exclude>
-                        <exclude>sql/**</exclude>
                         <exclude>deploy.sh</exclude>
                         <exclude>descriptor.xml</exclude>
                     </excludes>                    
