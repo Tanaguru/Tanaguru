@@ -29,7 +29,7 @@
         <intercept-url pattern="/home/contract/audit*" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN', 'ROLE_SUPER_ADMIN')"/>
         <intercept-url pattern="/home/contract/page*" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN', 'ROLE_SUPER_ADMIN')"/>
         <form-login login-page="/login.html" authentication-failure-url="/login.html?error=errorOnLogin" login-processing-url="/perform_login" default-target-url="/dispatch.html"/>
-        <logout delete-cookies="JSESSIONID" invalidate-session="true" logout-url="/perform_logout" logout-success-url="/home"/>
+        <logout delete-cookies="JSESSIONID" invalidate-session="true" logout-url="/perform_logout" logout-success-url="/"/>
         <session-management invalid-session-url="/login.html"  >
             <concurrency-control max-sessions="100" error-if-maximum-exceeded="true"  />
         </session-management>

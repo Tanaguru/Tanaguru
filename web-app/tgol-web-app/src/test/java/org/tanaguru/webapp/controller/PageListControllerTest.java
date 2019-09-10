@@ -26,6 +26,8 @@ import javax.servlet.http.HttpServletResponse;
 import junit.framework.TestCase;
 import org.apache.commons.lang3.StringUtils;
 import static org.easymock.EasyMock.*;
+
+import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.tanaguru.entity.audit.Audit;
 import org.tanaguru.entity.audit.TestSolution;
 import org.tanaguru.entity.parameterization.Parameter;
@@ -57,7 +59,6 @@ import org.tanaguru.webapp.util.HttpStatusCodeFamily;
 import org.tanaguru.webapp.util.TgolKeyStore;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
-import org.springframework.security.authentication.AuthenticationDetails;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -73,7 +74,7 @@ public class PageListControllerTest extends TestCase {
     private PageListController instance;
     
     private UserDataService mockUserDataService;
-    private AuthenticationDetails mockAuthenticationDetails;
+    private WebAuthenticationDetails mockAuthenticationDetails;
     private Authentication mockAuthentication;
     private Contract mockContract;
     private User mockUser;
@@ -404,8 +405,8 @@ public class PageListControllerTest extends TestCase {
         expect(mockAuthentication.getAuthorities()).andReturn(null).anyTimes();
         replay(mockAuthentication);
         
-        mockAuthenticationDetails = createMock(AuthenticationDetails.class);
-        expect(mockAuthenticationDetails.getContext()).andReturn("test1@test.com").anyTimes();
+        mockAuthenticationDetails = createMock(WebAuthenticationDetails.class);
+        expect(mockAuthenticationDetails.getSessionId()).andReturn("test1@test.com").anyTimes();
         replay(mockAuthenticationDetails);
     }
 

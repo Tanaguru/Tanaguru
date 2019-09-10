@@ -325,25 +325,6 @@ public class LoginControllerTest extends TestCase {
                 throw new UnsupportedOperationException("Not supported yet.");
             }
 
-            @Override
-            public int getRemotePort() {
-                throw new UnsupportedOperationException("Not supported yet.");
-            }
-
-            @Override
-            public String getLocalName() {
-                throw new UnsupportedOperationException("Not supported yet.");
-            }
-
-            @Override
-            public String getLocalAddr() {
-                throw new UnsupportedOperationException("Not supported yet.");
-            }
-
-            @Override
-            public int getLocalPort() {
-                throw new UnsupportedOperationException("Not supported yet.");
-            }
         }, model);
         assertEquals(expResult, result);
     }
