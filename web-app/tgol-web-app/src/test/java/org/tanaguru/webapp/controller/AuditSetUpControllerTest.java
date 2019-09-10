@@ -24,6 +24,8 @@ package org.tanaguru.webapp.controller;
 import java.util.*;
 import junit.framework.TestCase;
 import static org.easymock.EasyMock.*;
+
+import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.parameterization.ParameterElement;
 import org.tanaguru.entity.service.parameterization.ParameterElementDataService;
@@ -45,7 +47,6 @@ import org.tanaguru.webapp.form.builder.*;
 import org.tanaguru.webapp.form.parameterization.builder.AuditSetUpFormFieldBuilderImpl;
 import org.tanaguru.webapp.security.userdetails.TgolUserDetails;
 import org.tanaguru.webapp.util.TgolKeyStore;
-import org.springframework.security.authentication.AuthenticationDetails;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -62,7 +63,7 @@ public class AuditSetUpControllerTest extends TestCase {
     private AuditSetUpController instance;
 
     Authentication mockAuthentication;
-    AuthenticationDetails mockAuthenticationDetails;
+    WebAuthenticationDetails mockAuthenticationDetails;
     ActDataService mockActDataService;
     User mockUser;
     UserDataService mockUserDataService;
@@ -338,8 +339,8 @@ public class AuditSetUpControllerTest extends TestCase {
         
         replay(mockAuthentication);
         
-        mockAuthenticationDetails = createMock(AuthenticationDetails.class);
-        expect(mockAuthenticationDetails.getContext()).andReturn("test1@test.com").anyTimes();
+        mockAuthenticationDetails = createMock(WebAuthenticationDetails.class);
+        expect(mockAuthenticationDetails.getSessionId()).andReturn("test1@test.com").anyTimes();
         replay(mockAuthenticationDetails);
     }
     
