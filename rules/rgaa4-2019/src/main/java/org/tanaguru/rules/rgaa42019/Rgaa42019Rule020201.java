@@ -19,7 +19,17 @@
  */
 package org.tanaguru.rules.rgaa42019;
 
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import org.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
+import static org.tanaguru.rules.keystore.AttributeStore.SRC_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.FRAME_WITH_TITLE_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.IFRAME_WITH_TITLE_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_TITLE_OF_FRAME_PERTINENCE_MSG2;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.NOT_PERTINENT_TITLE_OF_FRAME_MSG2;
+
+import org.tanaguru.rules.elementchecker.pertinence.AttributePertinenceChecker;
+import org.tanaguru.rules.elementselector.MultipleElementSelector;
+import org.tanaguru.rules.textbuilder.TextAttributeOfElementBuilder;
 
 /**
  * Implementation of the rule 2-2-1 of the referential Rgaa4 2019.
@@ -29,13 +39,30 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @author edaconceicao
  */
 
-public class Rgaa42019Rule020201 extends AbstractNotTestedRuleImplementation {
+public class Rgaa42019Rule020201 extends AbstractPageRuleWithSelectorAndCheckerImplementation {
 
     /**
      * Default constructor
      */
     public Rgaa42019Rule020201 () {
-        super();
+    	super(
+                new MultipleElementSelector(IFRAME_WITH_TITLE_CSS_LIKE_QUERY,FRAME_WITH_TITLE_CSS_LIKE_QUERY), 
+                
+                new AttributePertinenceChecker(
+                    TITLE_ATTR, 
+                    // tests the emptiness of the attribute
+                    true, 
+                    // compare title with src attribute
+                    new TextAttributeOfElementBuilder(SRC_ATTR), 
+                    // no comparison by extension
+                    null, 
+                    //  message associated with element when title is not pertinent
+                    NOT_PERTINENT_TITLE_OF_FRAME_MSG2, 
+                    // message associated with element when pertinence cannot be determined
+                    CHECK_TITLE_OF_FRAME_PERTINENCE_MSG2, 
+                    //evidence elements
+                    TITLE_ATTR)
+            );
     }
 
 }
