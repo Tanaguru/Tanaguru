@@ -129,6 +129,9 @@ public final class CssLikeQueryStore {
             + "td[scope] , "
             + "td[headers] , "
             + "td[axis]";
+    public static final String COMPLEX_DATA_TABLE_CSS_LIKE_QUERY
+    		= "table , "
+    		+ "[role=table]";
 
     // Frame theme css-like queries
     public static final String FRAME_WITH_TITLE_CSS_LIKE_QUERY = "frame[title]";

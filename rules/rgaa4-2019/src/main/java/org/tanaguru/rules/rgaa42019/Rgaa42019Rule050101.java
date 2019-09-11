@@ -19,7 +19,33 @@
  */
 package org.tanaguru.rules.rgaa42019;
 
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.COMPLEX_DATA_TABLE_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.AttributeStore.SUMMARY_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ARIA_DESCRIBEDBY_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ID_ATTR;
+import static org.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
+import static org.tanaguru.rules.keystore.MarkerStore.COMPLEX_TABLE_MARKER;
+import static org.tanaguru.rules.keystore.MarkerStore.DATA_TABLE_MARKER;
+import static org.tanaguru.rules.keystore.MarkerStore.PRESENTATION_TABLE_MARKER;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.SUMMARY_TEXT_MISSING_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CAPTION_MISSING_ON_COMPLEX_TABLE_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_TABLE_WITH_SUMMARY_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_TABLE_WITH_SUMMARY_TEXT_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_TABLE_WITHOUT_SUMMARY_TEXT_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_TABLE_WITHOUT_CAPTION_IS_NOT_COMPLEX_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_TABLE_WITH_CAPTION_IS_COMPLEX_MSG;
+
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.ruleimplementation.AbstractMarkerPageRuleImplementation;
+import org.tanaguru.rules.elementchecker.CompositeChecker;
+import org.tanaguru.rules.elementchecker.IndependentChecker;
+import org.tanaguru.rules.elementchecker.attribute.AttributeLinkedToElementTextPresenceChecker;
+import org.tanaguru.rules.elementchecker.attribute.AttributePresenceChecker;
+import org.tanaguru.rules.elementchecker.element.ChildElementPresenceChecker;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
+import org.tanaguru.rules.keystore.HtmlElementStore;
+import org.tanaguru.rules.keystore.RemarkMessageStore;
 
 /**
  * Implementation of the rule 5-1-1 of the referential Rgaa4 2019.
@@ -29,13 +55,68 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @author edaconceicao
  */
 
-public class Rgaa42019Rule050101 extends AbstractNotTestedRuleImplementation {
+public class Rgaa42019Rule050101 extends AbstractMarkerPageRuleImplementation {
 
     /**
      * Default constructor
      */
     public Rgaa42019Rule050101 () {
-        super();
+    	super(
+                new SimpleElementSelector(COMPLEX_DATA_TABLE_CSS_LIKE_QUERY), 
+
+                // the complex tables are part of the scope
+                new String[]{COMPLEX_TABLE_MARKER},
+
+                // the data and presentation tables are not part of the scope
+                new String[]{PRESENTATION_TABLE_MARKER, DATA_TABLE_MARKER},
+
+                // checker for elements identified by marker
+                new IndependentChecker(
+                		new IndependentChecker(
+                				//If attribute present, supposed the site is not in HTML5 so can be
+                				//not applicable if not present
+                				new AttributePresenceChecker(
+                					SUMMARY_ATTR,
+    				                new ImmutablePair(TestSolution.PASSED, ""),
+    				                new ImmutablePair(TestSolution.NOT_APPLICABLE,"")),
+                				//In HTML5, the table element should have a caption child element
+                				new ChildElementPresenceChecker(
+				                    HtmlElementStore.CAPTION_ELEMENT, 
+				                    // the child element is supposed to appear at least once
+				                    1,
+				                    new ImmutablePair(TestSolution.PASSED, ""),
+				                    new ImmutablePair(TestSolution.FAILED, CAPTION_MISSING_ON_COMPLEX_TABLE_MSG))),
+                		new AttributeLinkedToElementTextPresenceChecker(
+                				ARIA_DESCRIBEDBY_ATTR,
+                				ID_ATTR,
+			                    new ImmutablePair(TestSolution.PASSED, ""),
+			                    new ImmutablePair(TestSolution.FAILED, SUMMARY_TEXT_MISSING_MSG),
+			                    ID_ATTR,
+			                    TEXT_ELEMENT2)),
+                
+                // checker for elements not identified by marker 
+                new IndependentChecker(
+                		new IndependentChecker(
+		        				//If attribute present, supposed the site is not in HTML5 so can be
+		        				//not applicable if not present
+		        				new AttributePresenceChecker(
+		        					SUMMARY_ATTR,
+					                new ImmutablePair(TestSolution.NEED_MORE_INFO, CHECK_NATURE_OF_TABLE_WITH_SUMMARY_MSG),
+					                new ImmutablePair(TestSolution.NOT_APPLICABLE,""),SUMMARY_ATTR),
+		        				//In HTML5, the table element should have a caption child element
+		        				new ChildElementPresenceChecker(
+		        	                HtmlElementStore.CAPTION_ELEMENT, 
+		        	                // the child element is supposed to appear at least once
+		        	                1,
+		        	                new ImmutablePair(TestSolution.NEED_MORE_INFO, CHECK_TABLE_WITH_CAPTION_IS_COMPLEX_MSG ),
+		        	                new ImmutablePair(TestSolution.NEED_MORE_INFO, CHECK_TABLE_WITHOUT_CAPTION_IS_NOT_COMPLEX_MSG))),
+		        		new AttributeLinkedToElementTextPresenceChecker(
+		        				ARIA_DESCRIBEDBY_ATTR,
+		        				ID_ATTR,
+			                    new ImmutablePair(TestSolution.NEED_MORE_INFO, CHECK_NATURE_OF_TABLE_WITH_SUMMARY_TEXT_MSG),
+			                    new ImmutablePair(TestSolution.NEED_MORE_INFO, CHECK_NATURE_OF_TABLE_WITHOUT_SUMMARY_TEXT_MSG),
+			                    ID_ATTR,
+			                    TEXT_ELEMENT2)));
     }
 
 }

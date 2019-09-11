@@ -362,14 +362,19 @@ public final class RemarkMessageStore {
 
     // table
     public static final String SUMMARY_MISSING_MSG = "SummaryMissing";
+    public static final String SUMMARY_TEXT_MISSING_MSG = "SummaryTextMissing";
     public static final String CHECK_NATURE_OF_TABLE_WITH_EMPTY_SUMMARY_MSG
             = "CheckNatureOfTableWithEmptySummaryAttribute";
     public static final String CHECK_NATURE_OF_TABLE_WITH_NOT_EMPTY_SUMMARY_MSG
             = "CheckNatureOfTableWithNotEmptySummaryAttribute";
     public static final String CHECK_NATURE_OF_TABLE_WITH_SUMMARY_MSG
             = "CheckNatureOfTableWithSummaryAttribute";
+    public static final String CHECK_NATURE_OF_TABLE_WITH_SUMMARY_TEXT_MSG
+    		= "CheckNatureOfTableWithSummaryText";
     public static final String CHECK_NATURE_OF_TABLE_WITHOUT_SUMMARY_MSG
             = "CheckNatureOfTableWithoutSummaryAttribute";
+    public static final String CHECK_NATURE_OF_TABLE_WITHOUT_SUMMARY_TEXT_MSG
+    		= "CheckNatureOfTableWithoutSummaryText";
     public static final String CAPTION_MISSING_MSG = "CaptionMissing";
     public static final String CAPTION_MISSING_ON_COMPLEX_TABLE_MSG = "CaptionMissingOnComplexTable";
     public static final String CHECK_NATURE_OF_TABLE_WITHOUT_CAPTION_MSG
@@ -388,24 +393,34 @@ public final class RemarkMessageStore {
             = "NotPertinentCaptionForDataTable";
     public static final String NOT_PERTINENT_CAPTION_FOR_COMPLEX_TABLE_MSG
             = "NotPertinentCaptionForComplexTable";
+    public static final String NOT_PERTINENT_SUMMARY_TEXT_FOR_COMPLEX_TABLE_MSG
+    		= "NotPertinentSummaryTextForComplexTable";
     public static final String CHECK_SUMMARY_PERTINENCE_FOR_DATA_TABLE_MSG
             = "CheckSummaryPertinenceForDataTable";
     public static final String CHECK_CAPTION_PERTINENCE_FOR_DATA_TABLE_MSG
             = "CheckCaptionPertinenceForDataTable";
     public static final String CHECK_CAPTION_PERTINENCE_FOR_COMPLEX_TABLE_MSG
             = "CheckCaptionPertinenceForComplexTable";
+    public static final String CHECK_SUMMARY_TEXT_PERTINENCE_FOR_COMPLEX_TABLE_MSG
+    		= "CheckSummaryTextPertinenceForComplexTable";
     public static final String CHECK_NATURE_OF_TABLE_FOR_NOT_PERTINENT_SUMMARY_MSG
             = "CheckNatureOfTableForNotPertinentSummary";
+    public static final String CHECK_NATURE_OF_TABLE_FOR_NOT_PERTINENT_SUMMARY_TEXT_MSG
+    		= "CheckNatureOfTableForNotPertinentSummaryText";
     public static final String CHECK_NATURE_OF_TABLE_FOR_NOT_PERTINENT_CAPTION_MSG
             = "CheckNatureOfTableForNotPertinentCaption";
     public static final String CHECK_TABLE_IS_COMPLEX_FOR_NOT_PERTINENT_CAPTION_MSG
             = "CheckTableIsComplexForNotPertinentCaption";
+    public static final String CHECK_TABLE_IS_COMPLEX_FOR_NOT_PERTINENT_SUMMARY_TEXT_MSG
+    		= "CheckTableIsComplexForNotPertinentSummaryText";
     public static final String CHECK_NATURE_OF_TABLE_AND_SUMMARY_PERTINENCE_MSG
             = "CheckNatureOfTableAndSummaryPertinence";
     public static final String CHECK_NATURE_OF_TABLE_AND_CAPTION_PERTINENCE_MSG
             = "CheckNatureOfTableAndCaptionPertinence";
     public static final String CHECK_TABLE_IS_COMPLEX_AND_CAPTION_PERTINENCE_MSG
             = "CheckTableIsComplexAndCaptionPertinence";
+    public static final String CHECK_TABLE_IS_COMPLEX_AND_SUMMARY_TEXT_PERTINENCE_MSG
+    		= "CheckTableIsComplexAndSummaryTextPertinence";
     public static final String CHECK_NATURE_OF_TABLE_AND_LINEARISED_CONTENT_MSG
             = "CheckNatureOfTableAndLinearisedContent";
     public static final String CHECK_USAGE_OF_HEADERS_FOR_DATA_TABLE_MSG

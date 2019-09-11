@@ -2,22 +2,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
     <head>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-        <title>Rgaa4-2019 Test.5-2-1 NMI 01</title>
+        <title>Rgaa42019 Test.05.02.01 NMI 04</title>
     </head>
     <body>
         <div>
-
-            <h1>Rgaa4-2019 Test.5-2-1 NMI 01</h1>
-
+            <h1>Rgaa42019 Test.05.02.01 NMI 04</h1>
             <div class="test-detail" lang="fr">
                 Pour chaque tableau de données complexe ayant un résumé, celui-ci est-il pertinent ?
             </div>
-
             <div class="testcase">
+                <table> 
+                  <caption>complex table summary</caption>
+                    <tbody>
+                        <tr> 
+                            <th>head</th> 
+                            <td>data</td> 
+                        </tr> 
+                    </tbody>
+                </table> 
             </div>
-
             <div class="test-explanation">
-                NMI.
+                NMI. The table element is identified as regular and contains a caption child tag having a pertinent text.
+                Need human check to confirm it.
             </div>
         </div>
     </body>

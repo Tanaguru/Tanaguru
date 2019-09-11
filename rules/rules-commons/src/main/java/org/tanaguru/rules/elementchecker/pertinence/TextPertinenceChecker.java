@@ -165,6 +165,44 @@ public class TextPertinenceChecker extends CompositeChecker {
         
         addCheckers();
     }
+    
+    /**
+     * Constructor.
+     * Returns notPertinentSolution when the attribute is not pertinent.
+     * 
+     * @param textElementBuilder
+     * @param checkEmptiness
+     * @param textElementBuilderToCompareWith
+     * @param blacklistNameToCompareWith
+     * @param notPertinentSolution
+     * @param notPertinentMessageCode
+     * @param manualCheckMessage
+     * @param eeAttributeNameList
+     */
+    public TextPertinenceChecker(
+            TextElementBuilder textElementBuilder,
+            boolean checkEmptiness,
+            @Nullable TextElementBuilder textElementBuilderToCompareWith, 
+            @Nullable String blacklistNameToCompareWith,
+            TestSolution notPertinentSolution,
+            String notPertinentMessageCode,
+            String manualCheckMessage,
+            String... eeAttributeNameList) {
+        super(notPertinentSolution, eeAttributeNameList);
+
+        addCheckMessageFromSolution(
+                TestSolution.PASSED, 
+                Collections.singletonMap(TestSolution.NEED_MORE_INFO, manualCheckMessage));
+        
+        this.checkEmptiness = checkEmptiness;
+        this.textElementBuilderToCompareWith = textElementBuilderToCompareWith;
+        this.blacklistNameToCompareWith = blacklistNameToCompareWith;
+        this.notPertinentMessageCode = notPertinentMessageCode;
+        this.textElementBuilder = textElementBuilder;
+        this.manualCheckMessage = manualCheckMessage;
+        
+        addCheckers();
+    }
 
     /**
      * Constructor.
