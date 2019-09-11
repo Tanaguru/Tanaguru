@@ -1,24 +1,13 @@
 FROM ubuntu:16.04
 USER root
 WORKDIR /
-ENV TOMCAT_USER="tomcat8"                                   \
-    CATALINA_HOME="/var/lib/tomcat8"                        \
-    WEBAPP_PORT="8080"                                      \
-    TOMCAT_WEBAPP="/var/lib/tomcat8/webapps"                \
-    MYSQL_TG_USER="tanaguru"                                \
-    MYSQL_TG_HOST="172.17.0.3"                            \
-    MYSQL_TG_PASSWD="tanaguru"                              \
-    MYSQL_TG_DB="tanaguru"                                  \
-    TG_ADMIN_EMAIL="support@tanaguru.com"                   \
-    TG_ADMIN_PASSWD="admin"                                 \
-    FIREFOX_PATH="/opt/firefox/firefox"                     \
-    TG_VERSION="6.0.1"                                      \
-    TG_URL="localhost:8080/tanaguru"                        \
-    MY_DEFAULT_TOMCAT="/var/lib/tomcat8/bin/catalina.sh"    \
-    TG_CONF_DIR="/etc/tanaguru/"                            \
-    TG_TMP_DIR="/var/tmp/tanaguru"                          \
-    TG_LOG_DIR="/var/log/tanaguru"                          \
-    MAIL_DOMAIN="your.hostname.com"
+ENV TG_VERSION="6.1.0"
+ENV TOMCAT_USER="tomcat8"
+ENV CATALINA_HOME="/var/lib/tomcat8"
+ENV WEBAPP_PORT="8080"
+ENV TOMCAT_WEBAPP="/var/lib/tomcat8/webapps"
+ENV FIREFOX_PATH="/opt/firefox/firefox"
+ENV MY_DEFAULT_TOMCAT="/var/lib/tomcat8/bin/catalina.sh"
 
 RUN useradd -rm -d /var/lib/$TOMCAT_USER -s /bin/bash -u 1000 $TOMCAT_USER      && \
     addgroup $TOMCAT_USER $TOMCAT_USER
@@ -32,14 +21,6 @@ RUN chmod +x setenv.sh
 RUN cd /opt                                          && \
  apt-get update                                      && \
  apt-get install -y apt-utils wget ca-certificates bzip2 zip apache2 libgtk-3-0 libgtk-3-dev libdbus-glib-1-2
-
-COPY tanaguru.apache.conf /
-RUN a2enmod -q proxy_http                                                                                       && \
-    rm -rf /etc/apache2/sites-available/*                                                                       && \
-    rm -rf /etc/apache2/sites-enabled/*                                                                         && \
-    mv /tanaguru.apache.conf /etc/apache2/sites-available/                                                      && \
-    ln -s /etc/apache2/sites-available/tanaguru.apache.conf /etc/apache2/sites-enabled/tanaguru.apache.conf     && \
-    service apache2 restart
 
 # Following Tanaguru installation process : https://tanaguru.readthedocs.io/en/develop/prerequisites-webapp-doc/
 
@@ -69,7 +50,7 @@ RUN apt-get install -y xvfb                     && \
 
 
 ## FIREFOX
-ADD http://download-origin.cdn.mozilla.net/pub/firefox/releases/61.0/linux-x86_64/en-US/firefox-61.0.tar.bz2 /
+ADD http://download-origin.cdn.mozilla.net/pub/firefox/releases/69.0/linux-x86_64/en-US/firefox-69.0.tar.bz2 /
 RUN tar xvfj /firefox-61.0.tar.bz2              && \
     mv firefox /opt/firefox-61.0                && \
     ln -s /opt/firefox-61.0 /opt/firefox

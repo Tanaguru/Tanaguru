@@ -1,10 +1,6 @@
 FROM ubuntu:16.04
 USER root
 WORKDIR /
-ENV MYSQL_TG_USER="tanaguru"                                \
-    MYSQL_TG_PASSWD="tanaguru"                              \
-    MYSQL_TG_DB="tanaguru"                                  \
-    MYSQL_PWD="tngTanaguru"
 
 RUN cd /opt                                          && \
  apt-get update                                      && \

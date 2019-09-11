@@ -6,8 +6,8 @@ echo
 echo "Container - Init Script"
 echo
 
-/database-entrypoint.sh
-/tanaguru-entrypoint.sh
+database-entrypoint.sh
+tanaguru-entrypoint.sh
 
 service xvfb start
 $CATALINA_HOME/bin/catalina.sh start
