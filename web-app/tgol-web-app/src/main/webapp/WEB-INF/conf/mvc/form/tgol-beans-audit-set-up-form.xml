@@ -184,15 +184,15 @@
         <property name="enabled" value="false"/>-->
     </bean>
     
-    <bean id="rgaa42019AAASelectElementBuilder" class="org.tanaguru.webapp.form.builder.SelectElementBuilderImpl">
+    <!-- <bean id="rgaa42019AAASelectElementBuilder" class="org.tanaguru.webapp.form.builder.SelectElementBuilderImpl">
         <property name="value" value="Rgaa42019;LEVEL_3"/>
         <property name="i18nKey" value="Rgaa42019-LEVEL_3"/>
         <property name="errorI18nKey" value="LEVEL_3-error"/>
         <property name="defaultCode" value="DEFAULT_LEVEL"/>
-        <!--    Default values
+           Default values
         <property name="default" value="false"/>
-        <property name="enabled" value="false"/>-->
-    </bean>
+        <property name="enabled" value="false"/>
+    </bean> -->
 
     <bean id="levelSelectFormFieldBuilder" class="org.tanaguru.webapp.form.builder.SelectFormFieldBuilderImpl">
         <property name="i18nKey" value="level"/>
@@ -238,7 +238,7 @@
                     <list>
                         <ref bean="rgaa42019ASelectElementBuilder"/>
                         <ref bean="rgaa42019AASelectElementBuilder"/>
-                        <ref bean="rgaa42019AAASelectElementBuilder"/>
+                        <!-- <ref bean="rgaa42019AAASelectElementBuilder"/> -->
                     </list>
                 </entry>
             </map>
