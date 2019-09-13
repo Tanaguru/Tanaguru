@@ -64,6 +64,32 @@
         <property name="escapeHtml" value="false"/>
         <property name="keyRetriever" ref="levelKeyRetriever"/>
     </bean>
+    
+    <!-- I18N EXPRESSIONS -->
+    <bean id="themeExpressionBuilderRGAA4" class="org.tanaguru.webapp.report.expression.builder.I18nExpressionBuilderImpl">
+        <property name="bundleNameList">
+            <list>
+                <value>i18n/theme-rgaa42019-I18N</value>
+            </list>
+        </property>
+        <property name="escapeHtml" value="false"/>
+        <property name="keyRetriever" ref="themeKeyRetriever"/>
+    </bean>
+
+    <bean id="criterionExpressionBuilderRGAA4" class="org.tanaguru.webapp.report.expression.builder.I18nExpressionBuilderImpl">
+        <property name="escapeHtml" value="false"/>
+        <property name="keyRetriever" ref="criterionKeyRetriever"/>
+    </bean>
+
+    <bean id="levelExpressionBuilderRGAA4" class="org.tanaguru.webapp.report.expression.builder.I18nExpressionBuilderImpl">
+        <property name="bundleNameList">
+            <list>
+                <value>i18n/referential-rgaa42019-I18N</value>
+            </list>
+        </property>
+        <property name="escapeHtml" value="false"/>
+        <property name="keyRetriever" ref="levelKeyRetriever"/>
+    </bean>
 
     <bean id="resultExpressionBuilder" class="org.tanaguru.webapp.report.expression.builder.I18nExpressionBuilderImpl">
         <property name="bundleNameList">

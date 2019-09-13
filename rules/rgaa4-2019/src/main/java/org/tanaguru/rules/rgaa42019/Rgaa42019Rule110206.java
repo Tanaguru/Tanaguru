@@ -22,19 +22,19 @@ package org.tanaguru.rules.rgaa42019;
 import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
 
 /**
- * Implementation of the rule 5-6-4 of the referential Rgaa4 2019.
+ * Implementation of the rule 11-2-6 of the referential Rgaa4 2019.
  *
- * @see <a href="http://www.example.com/refential-descriptor.html#test-5-6-4"> 5-6-4 rule specification</a>
+ * @see <a href="http://www.example.com/refential-descriptor.html#test-11-2-6"> 11-2-6 rule specification</a>
  *
  * @author edaconceicao
  */
 
-public class Rgaa42019Rule050604 extends AbstractNotTestedRuleImplementation {
+public class Rgaa42019Rule110206 extends AbstractNotTestedRuleImplementation {
 
     /**
      * Default constructor
      */
-    public Rgaa42019Rule050604 () {
+    public Rgaa42019Rule110206 () {
         super();
     }
 
