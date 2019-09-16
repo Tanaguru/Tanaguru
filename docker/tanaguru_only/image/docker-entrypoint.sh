@@ -6,9 +6,10 @@ echo
 echo "Container - Init Script"
 echo
 
-tanaguru-entrypoint.sh
+/postfix-entrypoint.sh
+/tanaguru-entrypoint.sh
 
 service xvfb start
 $CATALINA_HOME/bin/catalina.sh start
 sleep 20
-tail -f $TG_LOG_DIR/tanaguru.log
+tail -f $CATALINA_HOME/logs/catalina.out

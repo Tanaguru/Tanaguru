@@ -6,7 +6,7 @@ echo
 echo "Container - Init Script"
 echo
 
-database-entrypoint.sh
+/database-entrypoint.sh
 
 sleep 20
 tail -f /var/log/mysql/error.log

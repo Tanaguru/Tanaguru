@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 USER root
 WORKDIR /
-ENV TG_VERSION="6.1.0"
+ENV TG_VERSION="6.1.0-SNAPSHOT"
 ENV TOMCAT_USER="tomcat8"
 ENV CATALINA_HOME="/var/lib/tomcat8"
 ENV WEBAPP_PORT="8080"
@@ -20,7 +20,7 @@ RUN chmod +x setenv.sh
 
 RUN cd /opt                                          && \
  apt-get update                                      && \
- apt-get install -y apt-utils wget ca-certificates bzip2 zip apache2 libgtk-3-0 libgtk-3-dev libdbus-glib-1-2
+ apt-get install -y apt-utils wget dialog ca-certificates bzip2 zip apache2 libgtk-3-0 libgtk-3-dev libdbus-glib-1-2
 
 # Following Tanaguru installation process : https://tanaguru.readthedocs.io/en/develop/prerequisites-webapp-doc/
 
@@ -33,7 +33,7 @@ RUN apt-get install -y openjdk-8-jre                && \
 RUN apt-get install -y mysql-client libmysql-java
 
 ## TOMCAT
-ADD http://mirrors.standaloneinstaller.com/apache/tomcat/tomcat-8/v8.5.42/bin/apache-tomcat-8.5.42.tar.gz /
+ADD http://mirrors.standaloneinstaller.com/apache/tomcat/tomcat-8/v8.5.45/bin/apache-tomcat-8.5.45.tar.gz /
 RUN tar xzf /apache-tomcat*.tar.gz                                                                                && \
     rm /apache-tomcat*.tar.gz                                                                                     && \
     mv /apache-tomcat*/* $CATALINA_HOME                                                                           && \
@@ -51,9 +51,9 @@ RUN apt-get install -y xvfb                     && \
 
 ## FIREFOX
 ADD http://download-origin.cdn.mozilla.net/pub/firefox/releases/69.0/linux-x86_64/en-US/firefox-69.0.tar.bz2 /
-RUN tar xvfj /firefox-61.0.tar.bz2              && \
-    mv firefox /opt/firefox-61.0                && \
-    ln -s /opt/firefox-61.0 /opt/firefox
+RUN tar xvfj /firefox-69.0.tar.bz2              && \
+    mv firefox /opt/firefox-69.0                && \
+    ln -s /opt/firefox-69.0 /opt/firefox
 
 ## GECKODRIVER
 ADD https://github.com/mozilla/geckodriver/releases/download/v0.21.0/geckodriver-v0.21.0-linux64.tar.gz /
@@ -66,12 +66,6 @@ RUN unzip /vnu.jar_*.zip -d /opt/w3cValidator                                   
     mv /opt/w3cValidator/dist/vnu.jar /opt/w3cValidator/                                            && \
     chmod +x /opt/w3cValidator/vnu.jar
 
-## POSTFIX
-RUN echo "postfix postfix/mailname string "$MAIL_DOMAIN | debconf-set-selections                    && \
-    echo "postfix postfix/main_mailer_type string 'Satellite system'" | debconf-set-selections      && \
-    echo "postfix postfix/relayhost string ''" | debconf-set-selections                             && \
-    apt-get install -y postfix mailutils
-
 ## TANAGURU
 ADD http://download.tanaguru.org/Tanaguru/tanaguru-$TG_VERSION.i386.tar.gz /
 RUN tar xzf /tanaguru-$TG_VERSION.i386.tar.gz                                           && \
@@ -79,15 +73,13 @@ RUN tar xzf /tanaguru-$TG_VERSION.i386.tar.gz                                   
     chmod +x ./tanaguru*/install.sh
 
 ##################################################
-
-EXPOSE 80
-
-##################################################
 # ENTRYPOINT
 COPY docker-entrypoint.sh /
+COPY postfix-entrypoint.sh /
 COPY tanaguru-entrypoint.sh /
 
 RUN chmod +x /docker-entrypoint.sh          && \
+    chmod +x /postfix-entrypoint.sh         && \
     chmod +x /tanaguru-entrypoint.sh
 
 ENTRYPOINT ["bash","docker-entrypoint.sh"]
