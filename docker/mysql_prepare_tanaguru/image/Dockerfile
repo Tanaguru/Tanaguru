@@ -1,10 +1,7 @@
 FROM ubuntu:16.04
 USER root
 WORKDIR /
-ENV MYSQL_TG_USER="tanaguru"                                \
-    MYSQL_TG_PASSWD="tanaguru"                              \
-    MYSQL_TG_DB="tanaguru"                                  \
-    MYSQL_PWD="tngTanaguru"
+ENV MYSQL_PWD="root"
 
 RUN cd /opt                                          && \
  apt-get update                                      && \
@@ -19,10 +16,10 @@ RUN apt-get install -y openjdk-8-jre                 && \
     update-java-alternatives -s java-1.8.0-openjdk
 
 ## Mysql
-RUN echo "mysql-server mysql-server/root_password password "$MYSQL_PWD | debconf-set-selections             && \
-    echo "mysql-server mysql-server/root_password_again password "$MYSQL_PWD | debconf-set-selections       && \
-    apt-get install -y mysql-server libmysql-java                                                           && \
-    echo "max_allowed_packet = 64M" >> /etc/mysql/conf.d/mysql.cnf
+RUN echo "mysql-server mysql-server/root_password password $MYSQL_PWD" | debconf-set-selections
+RUN echo "mysql-server mysql-server/root_password_again password $MYSQL_PWD" | debconf-set-selections
+RUN apt-get install -y mysql-server libmysql-java
+RUN echo "max_allowed_packet = 64M" >> /etc/mysql/conf.d/mysql.cnf
 
 ##################################################
 
