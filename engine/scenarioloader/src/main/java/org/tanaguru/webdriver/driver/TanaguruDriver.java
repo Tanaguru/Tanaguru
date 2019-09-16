@@ -116,18 +116,24 @@ public class TanaguruDriver implements WebDriver, JavascriptExecutor {
     }
 
     public String getPageSource() {
-        Object doctype = null;
+        String doctypeStr = "";
 
         LOGGER.debug("Getting page source...");
         String pageSource = driver.getPageSource();
         LOGGER.debug("Page source loaded successfully");
 
         try {
+            Object doctype = null;
             LOGGER.debug("Computing page doctype...");
             String getDoctypeStr = IOUtils.toString(TanaguruDriver.class.getClassLoader()
                     .getResourceAsStream("getDoctype.js"));
             String jsCommand = getDoctypeStr;
             doctype = executeScript(jsCommand);
+
+            if(doctype != null){
+                doctypeStr = doctype.toString();
+            }
+
             LOGGER.info("Page doctype computed successfully");
         } catch (IOException e) {
             LOGGER.error("Get doctype has failed\n" +
@@ -136,7 +142,13 @@ public class TanaguruDriver implements WebDriver, JavascriptExecutor {
             LOGGER.error("Get doctype has failed\n" +
                     e.getMessage());
         }
-        return pageSource + (doctype == null ? "" : doctype.toString());
+
+        StringBuilder pageSourceBuilder = new StringBuilder();
+        pageSourceBuilder
+                .append(doctypeStr)
+                .append("\n")
+                .append(pageSource);
+        return pageSourceBuilder.toString();
     }
 
     @Override
