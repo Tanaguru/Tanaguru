@@ -20,8 +20,14 @@
 package org.tanaguru.rules.rgaa42019;
 
 import org.tanaguru.entity.audit.TestSolution;
+import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.tanaguru.entity.audit.ProcessResult;
 import org.tanaguru.rules.rgaa42019.test.Rgaa42019RuleImplementationTestCase;
+
+import static org.tanaguru.rules.keystore.AttributeStore.SRC_ATTR;
+import static org.tanaguru.rules.keystore.HtmlElementStore.IFRAME_ELEMENT;
+import static org.tanaguru.rules.keystore.HtmlElementStore.FRAME_ELEMENT;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.TITLE_ATTR_MISSING_MSG;
 
 /**
  * Unit test class for the implementation of the rule 2-1-1 of the referential Rgaa 4-2019.
@@ -45,10 +51,11 @@ public class Rgaa42019Rule020101Test extends Rgaa42019RuleImplementationTestCase
 
     @Override
     protected void setUpWebResourceMap() {
-//        addWebResource("Rgaa4-2019.Test.2.1.1-1Passed-01");
-//        addWebResource("Rgaa4-2019.Test.2.1.1-2Failed-01");
-        addWebResource("Rgaa4-2019.Test.2.1.1-3NMI-01");
-//        addWebResource("Rgaa4-2019.Test.2.1.1-4NA-01");
+        addWebResource("Rgaa42019.Test.02.01.01-1Passed-01");
+//        addWebResource("Rgaa42019.Test.02.01.01-1Passed-02");
+        addWebResource("Rgaa42019.Test.02.01.01-2Failed-01");
+//        addWebResource("Rgaa42019.Test.02.01.01-2Failed-02");
+        addWebResource("Rgaa42019.Test.02.01.01-4NA-01");
     }
 
     @Override
@@ -56,50 +63,52 @@ public class Rgaa42019Rule020101Test extends Rgaa42019RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------1Passed-01------------------------------
         //----------------------------------------------------------------------
-//        checkResultIsPassed(processPageTest("Rgaa4-2019.Test.2.1.1-1Passed-01"), 1);
+        checkResultIsPassed(processPageTest("Rgaa42019.Test.02.01.01-1Passed-01"), 1);
+
+        //frame elements deprecated so not detected
+        //----------------------------------------------------------------------
+        //------------------------------1Passed-02------------------------------
+        //----------------------------------------------------------------------
+//        checkResultIsPassed(processPageTest("Rgaa42019.Test.02.01.01-1Passed-02"), 2);
 
         //----------------------------------------------------------------------
         //------------------------------2Failed-01------------------------------
         //----------------------------------------------------------------------
-//        ProcessResult processResult = processPageTest("Rgaa4-2019.Test.2.1.1-2Failed-01");
-//        checkResultIsFailed(processResult, 1, 1);
+        ProcessResult processResult = processPageTest("Rgaa42019.Test.02.01.01-2Failed-01");
+        checkResultIsFailed(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.FAILED,
+                TITLE_ATTR_MISSING_MSG,
+                IFRAME_ELEMENT,
+                1,
+                new ImmutablePair(SRC_ATTR, "mock-iframe.html"));
+        
+        
+          //frame elements deprecated so not detected
+//        //----------------------------------------------------------------------
+//        //------------------------------2Failed-02------------------------------
+//        //----------------------------------------------------------------------
+//        processResult = processPageTest("Rgaa42019.Test.02.01.01-2Failed-02");
+//        checkResultIsFailed(processResult, 2, 2);
 //        checkRemarkIsPresent(
 //                processResult,
 //                TestSolution.FAILED,
-//                "#MessageHere",
-//                "#CurrentElementHere",
+//                TITLE_ATTR_MISSING_MSG,
+//                FRAME_ELEMENT,
 //                1,
-//                new ImmutablePair("#ExtractedAttributeAsEvidence", "#ExtractedAttributeValue"));
-
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-01---------------------------------
-        //----------------------------------------------------------------------
-        ProcessResult processResult = processPageTest("Rgaa4-2019.Test.2.1.1-3NMI-01");
-        checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-//        checkResultIsPreQualified(processResult, 2, 1);
+//                new ImmutablePair(SRC_ATTR, "mock-frame.html"));
 //        checkRemarkIsPresent(
 //                processResult,
-//                TestSolution.NEED_MORE_INFO,
-//                "#MessageHere",
-//                "#CurrentElementHere",
-//                1,
-//                new ImmutablePair("#ExtractedAttributeAsEvidence", "#ExtractedAttributeValue"));
-
-
+//                TestSolution.FAILED,
+//                TITLE_ATTR_MISSING_MSG,
+//                FRAME_ELEMENT,
+//                2,
+//                new ImmutablePair(SRC_ATTR, "mock-frame.html"));
+    	
         //----------------------------------------------------------------------
         //------------------------------4NA-01------------------------------
         //----------------------------------------------------------------------
-//        checkResultIsNotApplicable(processPageTest("Rgaa4-2019.Test.2.1.1-4NA-01"));
+        checkResultIsNotApplicable(processPageTest("Rgaa42019.Test.02.01.01-4NA-01"));
     }
-
-    @Override
-    protected void setConsolidate() {
-
-        // The consolidate method can be removed when real implementation is done.
-        // The assertions are automatically tested regarding the file names by 
-        // the abstract parent class
-        assertEquals(TestSolution.NOT_TESTED,
-                consolidate("Rgaa4-2019.Test.2.1.1-3NMI-01").getValue());
-}
-
 }

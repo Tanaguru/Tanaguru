@@ -45,10 +45,10 @@ public class Rgaa42019Rule050603Test extends Rgaa42019RuleImplementationTestCase
 
     @Override
     protected void setUpWebResourceMap() {
-//        addWebResource("Rgaa4-2019.Test.5.6.3-1Passed-01");
-//        addWebResource("Rgaa4-2019.Test.5.6.3-2Failed-01");
-        addWebResource("Rgaa4-2019.Test.5.6.3-3NMI-01");
-//        addWebResource("Rgaa4-2019.Test.5.6.3-4NA-01");
+//        addWebResource("Rgaa42019.Test.05.06.03-1Passed-01");
+//        addWebResource("Rgaa42019.Test.05.06.03-2Failed-01");
+        addWebResource("Rgaa42019.Test.05.06.03-3NMI-01");
+//        addWebResource("Rgaa42019.Test.05.06.03-4NA-01");
     }
 
     @Override
@@ -56,12 +56,12 @@ public class Rgaa42019Rule050603Test extends Rgaa42019RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------1Passed-01------------------------------
         //----------------------------------------------------------------------
-//        checkResultIsPassed(processPageTest("Rgaa4-2019.Test.5.6.3-1Passed-01"), 1);
+//        checkResultIsPassed(processPageTest("Rgaa42019.Test.05.06.03-1Passed-01"), 1);
 
         //----------------------------------------------------------------------
         //------------------------------2Failed-01------------------------------
         //----------------------------------------------------------------------
-//        ProcessResult processResult = processPageTest("Rgaa4-2019.Test.5.6.3-2Failed-01");
+//        ProcessResult processResult = processPageTest("Rgaa42019.Test.05.06.03-2Failed-01");
 //        checkResultIsFailed(processResult, 1, 1);
 //        checkRemarkIsPresent(
 //                processResult,
@@ -74,7 +74,7 @@ public class Rgaa42019Rule050603Test extends Rgaa42019RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------3NMI-01---------------------------------
         //----------------------------------------------------------------------
-        ProcessResult processResult = processPageTest("Rgaa4-2019.Test.5.6.3-3NMI-01");
+        ProcessResult processResult = processPageTest("Rgaa42019.Test.05.06.03-3NMI-01");
         checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
 //        checkResultIsPreQualified(processResult, 2, 1);
 //        checkRemarkIsPresent(
@@ -89,7 +89,7 @@ public class Rgaa42019Rule050603Test extends Rgaa42019RuleImplementationTestCase
         //----------------------------------------------------------------------
         //------------------------------4NA-01------------------------------
         //----------------------------------------------------------------------
-//        checkResultIsNotApplicable(processPageTest("Rgaa4-2019.Test.5.6.3-4NA-01"));
+//        checkResultIsNotApplicable(processPageTest("Rgaa42019.Test.05.06.03-4NA-01"));
     }
 
     @Override
@@ -99,7 +99,7 @@ public class Rgaa42019Rule050603Test extends Rgaa42019RuleImplementationTestCase
         // The assertions are automatically tested regarding the file names by 
         // the abstract parent class
         assertEquals(TestSolution.NOT_TESTED,
-                consolidate("Rgaa4-2019.Test.5.6.3-3NMI-01").getValue());
+                consolidate("Rgaa42019.Test.05.06.03-3NMI-01").getValue());
 }
 
 }

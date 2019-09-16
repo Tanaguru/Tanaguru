@@ -88,13 +88,8 @@ public class ContentsAdapterImpl implements ContentsAdapter {
                 
                 ssp.setDoctype(DocumentCaseInsensitiveAdapter.extractDoctypeDeclaration(ssp.getSource()));
                 
-                String dirtyHtml;
+                String dirtyHtml = DocumentCaseInsensitiveAdapter.removeDoctypeDeclaration(ssp.getSource());
 
-                if (xmlizeContent) {
-                    dirtyHtml = DocumentCaseInsensitiveAdapter.removeDoctypeDeclaration(ssp.getSource());
-                } else {
-                    dirtyHtml = ssp.getSource();
-                }
                 
                 htmlCleaner.setDirtyHTML(dirtyHtml);
 
@@ -113,7 +108,7 @@ public class ContentsAdapterImpl implements ContentsAdapter {
                 } else {
                     Logger.getLogger(this.getClass()).debug("no Html parse executed for the current audit");
                 }
-                
+
                 if (xmlizeContent){
                     AbstractHTMLCleaner cleaner = new HTMLCleanerImpl();
                     cleaner.setDirtyHTML(ssp.getAdaptedContent());
@@ -182,7 +177,7 @@ public class ContentsAdapterImpl implements ContentsAdapter {
     
     /**
      * 
-     * @param xmlizeVoter 
+     * @param xmlizeVoter xmlizeVoter
      */
     public void setXmlizeVoter(AdaptationActionVoter xmlizeVoter) {
         if (!CollectionUtils.isEmpty(contentList) && xmlizeVoter != null){

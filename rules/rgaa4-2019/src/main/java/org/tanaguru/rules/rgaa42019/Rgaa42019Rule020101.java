@@ -19,7 +19,17 @@
  */
 package org.tanaguru.rules.rgaa42019;
 
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import static org.tanaguru.rules.keystore.AttributeStore.SRC_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
+import static org.tanaguru.rules.keystore.HtmlElementStore.IFRAME_ELEMENT;
+import static org.tanaguru.rules.keystore.HtmlElementStore.FRAME_ELEMENT;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.TITLE_ATTR_MISSING_MSG;
+
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
+import org.tanaguru.rules.elementchecker.attribute.AttributePresenceChecker;
+import org.tanaguru.rules.elementselector.MultipleElementSelector;
 
 /**
  * Implementation of the rule 2-1-1 of the referential Rgaa4 2019.
@@ -29,13 +39,24 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @author edaconceicao
  */
 
-public class Rgaa42019Rule020101 extends AbstractNotTestedRuleImplementation {
+public class Rgaa42019Rule020101 extends AbstractPageRuleWithSelectorAndCheckerImplementation {
 
     /**
      * Default constructor
      */
     public Rgaa42019Rule020101 () {
-        super();
+    	super(
+                new MultipleElementSelector(IFRAME_ELEMENT,FRAME_ELEMENT), 
+                
+                new AttributePresenceChecker(
+                    TITLE_ATTR, 
+                    // passed when attribute is found, empty message
+                    new ImmutablePair(TestSolution.PASSED, ""),
+                    // failed when attribute is not found, titleAttrMissing Message
+                    new ImmutablePair(TestSolution.FAILED, TITLE_ATTR_MISSING_MSG),
+                    // evidence elements
+                    SRC_ATTR)
+            );
     }
 
 }

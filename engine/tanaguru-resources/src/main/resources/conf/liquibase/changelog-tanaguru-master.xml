@@ -10,5 +10,6 @@
     <!-- UPDATE -->
     <include file="classpath:conf/liquibase/changelog/1_initial_populate_engine.xml" relativeToChangelogFile="false"/>
     <include file="classpath:conf/liquibase/changelog/2_rgaa32017_populate_engine.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:conf/liquibase/changelog/3_rgaa42019_populate_engine.xml" relativeToChangelogFile="false"/>
     <include file="classpath:conf/liquibase/changelog/2019_09_04_1100_updated_entity_WebResource.xml" relativeToChangelogFile="false"/>
 </databaseChangeLog>
