@@ -361,6 +361,12 @@ public final class RemarkMessageStore {
     		= "CheckRepeatedLabelPertinence";
 
     // table
+    public static final String TABLE_TITLE_RELEVANT_CONTENT
+    		= "TableTitleRelevantContent";
+    public static final String TABLE_TITLE_NOT_RELEVANT_CONTENT
+			= "TableTitleNotRelevantContent";
+    public static final String WRONG_TITLE_ASSOCIATION_WITH_TABLE 
+    		= "WrongTitleAssociationWithTable";
     public static final String SUMMARY_MISSING_MSG = "SummaryMissing";
     public static final String SUMMARY_TEXT_MISSING_MSG = "SummaryTextMissing";
     public static final String CHECK_NATURE_OF_TABLE_WITH_EMPTY_SUMMARY_MSG

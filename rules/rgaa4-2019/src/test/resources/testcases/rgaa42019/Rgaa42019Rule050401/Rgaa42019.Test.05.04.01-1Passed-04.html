@@ -2,22 +2,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
     <head>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-        <title>Rgaa4-2019 Test.5-5-1 NA 01</title>
+        <title>Rgaa42019 Test.05.04.01 Passed 04</title>
     </head>
     <body>
         <div>
-
-            <h1>Rgaa4-2019 Test.5-5-1 NA 01</h1>
-
+            <h1>Rgaa42019 Test.05.04.01 Passed 04</h1>
             <div class="test-detail" lang="fr">
-                Pour chaque tableau de données ayant un titre, celui-ci est-il pertinent ?
+                Chaque passage de texte faisant office de titre de tableau de données est-il correctement associé au tableau de données ?
             </div>
-
             <div class="testcase">
+            	<p id="caption">Table title</p>
+				<table aria-labelledby="caption">
+					<caption>Title table</caption>
+				</table>
             </div>
-
             <div class="test-explanation">
-                NA.
+                Passed. Table element detected with an aria-labelledby linked to an element considered as title table.
             </div>
         </div>
     </body>
