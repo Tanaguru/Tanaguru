@@ -19,7 +19,25 @@
  */
 package org.tanaguru.rules.rgaa42019;
 
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.ruleimplementation.AbstractMarkerPageRuleImplementation;
+import org.tanaguru.rules.elementchecker.CompositeChecker;
+import org.tanaguru.rules.elementchecker.attribute.AttributeWithValuePresenceChecker;
+import org.tanaguru.rules.elementchecker.element.ElementPresenceChecker;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
+import org.tanaguru.rules.keystore.AttributeStore;
+
+import static org.tanaguru.rules.keystore.AttributeStore.PRESENTATION_VALUE;
+import static org.tanaguru.rules.keystore.AttributeStore.ROLE_ATTR;
+import static org.tanaguru.rules.keystore.HtmlElementStore.TABLE_ELEMENT;
+import static org.tanaguru.rules.keystore.MarkerStore.COMPLEX_TABLE_MARKER;
+import static org.tanaguru.rules.keystore.MarkerStore.DATA_TABLE_MARKER;
+import static org.tanaguru.rules.keystore.MarkerStore.PRESENTATION_TABLE_MARKER;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_LINEARISED_CONTENT_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_NATURE_OF_TABLE_AND_LINEARISED_CONTENT_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_TABLE_IS_NOT_PRESENTATION_WITHOUT_ROLE_ARIA_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.PRESENTATION_TABLE_WITHOUT_ARIA_MARKUP_MSG;
 
 /**
  * Implementation of the rule 5-3-1 of the referential Rgaa4 2019.
@@ -29,13 +47,51 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @author edaconceicao
  */
 
-public class Rgaa42019Rule050301 extends AbstractNotTestedRuleImplementation {
+public class Rgaa42019Rule050301 extends AbstractMarkerPageRuleImplementation {
 
     /**
      * Default constructor
      */
     public Rgaa42019Rule050301 () {
-        super();
+        super(
+                new SimpleElementSelector(TABLE_ELEMENT),
+                
+                // the presentation tables are not part of the scope
+                new String[]{PRESENTATION_TABLE_MARKER},
+                
+                // the data and complex tables are part of the scope
+                new String[]{DATA_TABLE_MARKER,COMPLEX_TABLE_MARKER},
+                
+                new CompositeChecker(                        
+                        new AttributeWithValuePresenceChecker(
+                                ROLE_ATTR,
+                                PRESENTATION_VALUE,
+                                // empty msg because the CHECK_LINEARISED_CONTENT_MSG
+                                // is already use above in this case.
+                                new ImmutablePair(TestSolution.PASSED,""),
+                                new ImmutablePair(TestSolution.FAILED,PRESENTATION_TABLE_WITHOUT_ARIA_MARKUP_MSG),
+                                AttributeStore.ROLE_ATTR),
+                        new ElementPresenceChecker(
+                                // nmi when element is found
+                                new ImmutablePair(TestSolution.NEED_MORE_INFO,CHECK_LINEARISED_CONTENT_MSG),
+                                // na when element is not found
+                                new ImmutablePair(TestSolution.NOT_APPLICABLE,""))),
+                
+                // checker for elements not identified by marker
+                new CompositeChecker(                        
+                        new AttributeWithValuePresenceChecker(
+                                ROLE_ATTR,
+                                PRESENTATION_VALUE,
+                                // empty msg because the CHECK_NATURE_OF_TABLE_AND_LINEARISED_CONTENT_MSG
+                                // is already use above in this case.
+                                new ImmutablePair(TestSolution.NEED_MORE_INFO,""),
+                                new ImmutablePair(TestSolution.NEED_MORE_INFO,CHECK_TABLE_IS_NOT_PRESENTATION_WITHOUT_ROLE_ARIA_MSG),
+                                AttributeStore.ROLE_ATTR),           		
+                        new ElementPresenceChecker(
+                                // nmi when element is found
+                                new ImmutablePair(TestSolution.NEED_MORE_INFO,CHECK_NATURE_OF_TABLE_AND_LINEARISED_CONTENT_MSG),
+                                // na when element is not found
+                                new ImmutablePair(TestSolution.NOT_APPLICABLE,""))));
     }
 
 }
