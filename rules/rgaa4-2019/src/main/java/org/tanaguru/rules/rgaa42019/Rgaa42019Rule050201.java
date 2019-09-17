@@ -22,7 +22,7 @@ package org.tanaguru.rules.rgaa42019;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_DESCRIBEDBY_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.ID_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.SUMMARY_ATTR;
-import static org.tanaguru.rules.keystore.CssLikeQueryStore.COMPLEX_DATA_TABLE_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.DATA_TABLE_CSS_LIKE_QUERY;
 import static org.tanaguru.rules.keystore.HtmlElementStore.CAPTION_ELEMENT;
 import static org.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
 import static org.tanaguru.rules.keystore.MarkerStore.COMPLEX_TABLE_MARKER;
@@ -85,7 +85,7 @@ public class Rgaa42019Rule050201 extends AbstractMarkerPageRuleImplementation {
                 // the data and presentation tables are not part of the scope
                 new String[]{PRESENTATION_TABLE_MARKER, DATA_TABLE_MARKER});
     	
-    	setElementSelector(new SimpleElementSelector(COMPLEX_DATA_TABLE_CSS_LIKE_QUERY)); 
+    	setElementSelector(new SimpleElementSelector(DATA_TABLE_CSS_LIKE_QUERY)); 
     }
 
     @Override

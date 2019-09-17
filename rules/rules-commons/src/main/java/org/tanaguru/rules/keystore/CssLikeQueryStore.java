@@ -129,9 +129,28 @@ public final class CssLikeQueryStore {
             + "td[scope] , "
             + "td[headers] , "
             + "td[axis]";
-    public static final String COMPLEX_DATA_TABLE_CSS_LIKE_QUERY
+    public static final String DATA_TABLE_MARKUP_CSS_LIKE_QUERY2
+		    = "caption , "
+		    + "th , "
+		    + "thead , "
+		    + "tfoot , "
+		    + "colgroup , "
+		    + "[role=rowheader] , "
+		    + "[role=columnheader] , "
+		    + "td[scope] , "
+		    + "td[headers] , "
+		    + "td[axis]";
+    public static final String DATA_TABLE_CSS_LIKE_QUERY
     		= "table , "
     		+ "[role=table]";
+    public static final String DATA_TABLE_WITH_TITLE_CSS_LIKE_QUERY
+			= "table:has(caption) , "
+			+"table[aria-labelledby] , "
+			+"table[aria-label] , "
+			+"table[title] , "
+			+"[role=table][aria-labelledby] , "
+			+"[role=table][aria-label] ,"
+			+"[role=table][title]";
 
     // Frame theme css-like queries
     public static final String FRAME_WITH_TITLE_CSS_LIKE_QUERY = "frame[title]";
