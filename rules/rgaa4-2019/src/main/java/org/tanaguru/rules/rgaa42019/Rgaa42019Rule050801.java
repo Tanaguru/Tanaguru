@@ -19,7 +19,28 @@
  */
 package org.tanaguru.rules.rgaa42019;
 
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.processor.SSPHandler;
+import org.tanaguru.ruleimplementation.AbstractMarkerPageRuleImplementation;
+import org.tanaguru.ruleimplementation.ElementHandler;
+import org.tanaguru.ruleimplementation.ElementHandlerImpl;
+import org.tanaguru.ruleimplementation.TestSolutionHandler;
+import org.tanaguru.rules.elementchecker.ElementChecker;
+import org.tanaguru.rules.elementchecker.element.ElementPresenceChecker;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
+
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.DATA_TABLE_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.DATA_TABLE_MARKUP_CSS_LIKE_QUERY2;
+import static org.tanaguru.rules.keystore.MarkerStore.COMPLEX_TABLE_MARKER;
+import static org.tanaguru.rules.keystore.MarkerStore.DATA_TABLE_MARKER;
+import static org.tanaguru.rules.keystore.MarkerStore.PRESENTATION_TABLE_MARKER;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_TABLE_IS_DATA_TABLE_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_TABLE_IS_PRESENTATION_TABLE_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.PRESENTATION_TABLE_WITH_FORBIDDEN_MARKUP_MSG;
+
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 /**
  * Implementation of the rule 5-8-1 of the referential Rgaa4 2019.
@@ -29,13 +50,135 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @author edaconceicao
  */
 
-public class Rgaa42019Rule050801 extends AbstractNotTestedRuleImplementation {
+public class Rgaa42019Rule050801 extends AbstractMarkerPageRuleImplementation {
+
+    /** 
+     * Tables not identified as presentation table that does not contain
+     * data table markup
+     */
+    private final ElementHandler<Element> notIdentifiedTableWithoutDataTableMarkup = 
+            new ElementHandlerImpl();
+    /** 
+     * Tables identified as presentation table that does not contain
+     * data table markup
+     */
+    private final ElementHandler<Element> presentationTableWithoutDataTableMarkup = 
+            new ElementHandlerImpl();
+    
+    /** The local element counter */
+    private int tableCounter = 0;
+    
 
     /**
      * Default constructor
      */
     public Rgaa42019Rule050801 () {
-        super();
+        super(
+                new SimpleElementSelector(DATA_TABLE_CSS_LIKE_QUERY),
+
+                // the presentation tables are not part of the scope
+                new String[]{PRESENTATION_TABLE_MARKER},
+                
+                // the data and complex tables are part of the scope
+                new String[]{DATA_TABLE_MARKER,COMPLEX_TABLE_MARKER},
+
+                // checker for elements identified by marker
+                new ElementPresenceChecker(
+                    // failed when element is found
+                    new ImmutablePair(TestSolution.FAILED, PRESENTATION_TABLE_WITH_FORBIDDEN_MARKUP_MSG),
+                    // passed when element is not found
+                    new ImmutablePair(TestSolution.NOT_APPLICABLE, "")
+                ),
+                
+                // checker for elements not identified by marker
+                new ElementPresenceChecker(
+                    // nmi when element is found
+                    new ImmutablePair(TestSolution.NEED_MORE_INFO, CHECK_TABLE_IS_DATA_TABLE_MSG),
+                    // nmi when element is not found
+                    new ImmutablePair(TestSolution.NOT_APPLICABLE, "")
+                )
+            );
     }
 
+    @Override
+    protected void select(SSPHandler sspHandler) {
+        super.select(sspHandler);
+        
+        if (getSelectionWithoutMarkerHandler().isEmpty() && 
+                getSelectionWithMarkerHandler().isEmpty()) {
+            return;
+        }
+        
+        tableCounter = getSelectionWithoutMarkerHandler().get().size() + 
+                       getSelectionWithMarkerHandler().get().size();
+        
+        // extract not identified tables with data table markup
+        extractTableWithDataTableMarkup(
+                    getSelectionWithoutMarkerHandler(), 
+                    notIdentifiedTableWithoutDataTableMarkup);
+        
+        // extract presentation tables with data table markup
+        extractTableWithDataTableMarkup(
+                    getSelectionWithMarkerHandler(), 
+                    presentationTableWithoutDataTableMarkup);
+    }
+    
+    @Override
+    protected void check(
+            SSPHandler sspHandler, 
+            TestSolutionHandler testSolutionHandler) {
+        super.check(sspHandler, testSolutionHandler);
+        ElementChecker ec;
+        if (!notIdentifiedTableWithoutDataTableMarkup.isEmpty()) {
+            ec = new ElementPresenceChecker(
+                        // nmi when element is found
+                        new ImmutablePair(TestSolution.NEED_MORE_INFO, CHECK_TABLE_IS_PRESENTATION_TABLE_MSG),
+                        // na when element is not found
+                        new ImmutablePair(TestSolution.NOT_APPLICABLE, "")
+            );
+            ec.check(
+                    sspHandler, 
+                    notIdentifiedTableWithoutDataTableMarkup, 
+                    testSolutionHandler);
+        }
+        if (!presentationTableWithoutDataTableMarkup.isEmpty()) {
+            ec = new ElementPresenceChecker(
+                        // passed when element is foundexit
+                        new ImmutablePair(TestSolution.PASSED, ""),
+                        // na when element is not found
+                        new ImmutablePair(TestSolution.NOT_APPLICABLE, "")
+            );
+            ec.check(
+                    sspHandler, 
+                    presentationTableWithoutDataTableMarkup, 
+                    testSolutionHandler);
+        }
+    }
+ 
+    /**
+     * 
+     * @param sspHandler
+     * @param elementHandler 
+     * @param elementHandlerWithoutDataTableMarkup
+     */
+    private void extractTableWithDataTableMarkup(
+                ElementHandler<Element> elementHandler, 
+                ElementHandler<Element> elementHandlerWithoutDataTableMarkup) {
+        
+        Elements elementsWithMarkup = new Elements();
+        
+        for (Element el : elementHandler.get()) {
+            if (el.select(DATA_TABLE_MARKUP_CSS_LIKE_QUERY2).size() > 0) {
+                elementsWithMarkup.add(el);
+            } else if (elementHandlerWithoutDataTableMarkup != null) {
+                elementHandlerWithoutDataTableMarkup.add(el);
+            }
+        }
+        elementHandler.clean().addAll(elementsWithMarkup);
+    }
+    
+    @Override
+    public int getSelectionSize() {
+        return tableCounter;
+    }
 }
