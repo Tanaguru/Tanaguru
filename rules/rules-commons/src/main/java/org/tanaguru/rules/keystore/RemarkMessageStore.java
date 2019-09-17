@@ -431,6 +431,10 @@ public final class RemarkMessageStore {
             = "CheckNatureOfTableAndLinearisedContent";
     public static final String CHECK_USAGE_OF_HEADERS_FOR_DATA_TABLE_MSG
             = "CheckUsageOfHeaderForDataTable";
+    public static final String CHECK_USAGE_OF_ROW_HEADERS_MSG
+    		= "CheckUsageOfRowHeader";
+    public static final String CHECK_USAGE_OF_COLUMN_HEADERS_MSG
+			= "CheckUsageOfColumnHeader";
     public static final String CHECK_NATURE_OF_TABLE_AND_HEADERS_USAGE_MSG
             = "CheckNatureOfTableAndUsageOfHeaders";
     public static final String CHECK_DEFINITION_OF_HEADERS_FOR_DATA_TABLE_MSG

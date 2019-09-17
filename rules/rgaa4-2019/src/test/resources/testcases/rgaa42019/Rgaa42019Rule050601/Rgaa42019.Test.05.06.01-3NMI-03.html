@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <title>Rgaa42019 Test.05.06.01 NMI 03</title>
+    </head>
+    <body>
+        <div>
+            <h1>Rgaa42019 Test.05.06.01 NMI 03</h1>
+            <div class="test-detail" lang="fr">
+                Pour chaque tableau de données, chaque en-tête de colonnes et chaque en-tête de lignes sont-ils correctement déclarés ?
+            </div>
+            <div class="testcase">
+	            <table>
+				    <caption>Mon tableau</caption>
+					<tr scope="col">
+						<td>&nbsp;</td>
+				        <th>Colonne 2</th>
+				        <th>Colonne 3</th>
+				    </tr>
+				    <tr>
+				         <th id="row-1">Ligne 1</th>
+				         <td headers="col-2 row-1">Blabla</td>
+				         <td headers="col-3 row-1">Blablabla</td>
+				    </tr>
+				    <tr>
+				         <th id="row-2">Ligne 2</th>
+				         <td headers="col-2 row-2">Blabla</td>
+				         <td headers="col-3 row-2">Blablabla</td>
+				    </tr>
+				</table>
+            </div>
+            <div class="test-explanation">
+                NMI. The columnheader detected (via <code>scope='column'</code> ) and must concerned the whole column : needs a human check to confirm it.
+            </div>
+        </div>
+    </body>
+</html>
