@@ -73,14 +73,16 @@ RUN unzip /vnu.jar_*.zip -d /opt/w3cValidator                                   
     chmod +x /opt/w3cValidator/vnu.jar
 
 ## TANAGURU
-ADD http://download.tanaguru.org/Tanaguru/tanaguru-$TG_VERSION.i386.tar.gz /
+ADD http://10.20.1.14/tanaguru-6.1.0-SNAPSHOT.i386.tar.gz /
+#ADD http://download.tanaguru.org/Tanaguru/tanaguru-$TG_VERSION.i386.tar.gz /
 RUN tar xzf /tanaguru-$TG_VERSION.i386.tar.gz                                           && \
     rm /tanaguru-$TG_VERSION.i386.tar.gz                                                && \
     chmod +x ./tanaguru*/install.sh
 
 ##################################################
 
-EXPOSE 80
+EXPOSE 1099
+EXPOSE 8080
 
 ##################################################
 # ENTRYPOINT
