@@ -16,4 +16,6 @@
     <include file="classpath:conf/liquibase/changelog/3_rgaa42019_populate_tgol.xml" relativeToChangelogFile="false"/>
 
     <include file="classpath:conf/liquibase/changelog/2019_09_04_1100_updated_entity_WebResource.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:conf/liquibase/changelog/4_evidence_update_engine.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:conf/liquibase/changelog/5_rgaa42019_update_engine.xml" relativeToChangelogFile="false"/>
 </databaseChangeLog>
