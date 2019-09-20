@@ -20,6 +20,11 @@
 package org.tanaguru.rules.rgaa42019;
 
 import org.tanaguru.entity.audit.TestSolution;
+
+import static org.tanaguru.rules.keystore.HtmlElementStore.SPAN_ELEMENT;
+import static org.tanaguru.rules.keystore.HtmlElementStore.TR_ELEMENT;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_USAGE_OF_ROW_HEADERS_MSG;
+
 import org.tanaguru.entity.audit.ProcessResult;
 import org.tanaguru.rules.rgaa42019.test.Rgaa42019RuleImplementationTestCase;
 
@@ -45,61 +50,84 @@ public class Rgaa42019Rule050602Test extends Rgaa42019RuleImplementationTestCase
 
     @Override
     protected void setUpWebResourceMap() {
-//        addWebResource("Rgaa4-2019.Test.5.6.2-1Passed-01");
-//        addWebResource("Rgaa4-2019.Test.5.6.2-2Failed-01");
-        addWebResource("Rgaa4-2019.Test.5.6.2-3NMI-01");
-//        addWebResource("Rgaa4-2019.Test.5.6.2-4NA-01");
+        addWebResource("Rgaa42019.Test.05.06.02-3NMI-01");
+        addWebResource("Rgaa42019.Test.05.06.02-3NMI-02");
+        addWebResource("Rgaa42019.Test.05.06.02-3NMI-03");
+        addWebResource("Rgaa42019.Test.05.06.02-3NMI-04");
+        addWebResource("Rgaa42019.Test.05.06.02-4NA-01");
+        addWebResource("Rgaa42019.Test.05.06.02-4NA-02");
     }
 
     @Override
     protected void setProcess() {
         //----------------------------------------------------------------------
-        //------------------------------1Passed-01------------------------------
-        //----------------------------------------------------------------------
-//        checkResultIsPassed(processPageTest("Rgaa4-2019.Test.5.6.2-1Passed-01"), 1);
-
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-01------------------------------
-        //----------------------------------------------------------------------
-//        ProcessResult processResult = processPageTest("Rgaa4-2019.Test.5.6.2-2Failed-01");
-//        checkResultIsFailed(processResult, 1, 1);
-//        checkRemarkIsPresent(
-//                processResult,
-//                TestSolution.FAILED,
-//                "#MessageHere",
-//                "#CurrentElementHere",
-//                1,
-//                new ImmutablePair("#ExtractedAttributeAsEvidence", "#ExtractedAttributeValue"));
-
-        //----------------------------------------------------------------------
         //------------------------------3NMI-01---------------------------------
         //----------------------------------------------------------------------
-        ProcessResult processResult = processPageTest("Rgaa4-2019.Test.5.6.2-3NMI-01");
-        checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-//        checkResultIsPreQualified(processResult, 2, 1);
-//        checkRemarkIsPresent(
-//                processResult,
-//                TestSolution.NEED_MORE_INFO,
-//                "#MessageHere",
-//                "#CurrentElementHere",
-//                1,
-//                new ImmutablePair("#ExtractedAttributeAsEvidence", "#ExtractedAttributeValue"));
-
+        ProcessResult processResult = processPageTest("Rgaa42019.Test.05.06.02-3NMI-01");
+        checkResultIsPreQualified(processResult, 3, 3);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                CHECK_USAGE_OF_ROW_HEADERS_MSG,
+                TR_ELEMENT,
+                2);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                CHECK_USAGE_OF_ROW_HEADERS_MSG,
+                TR_ELEMENT,
+                3);
+        
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-02---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa42019.Test.05.06.02-3NMI-02");
+        checkResultIsPreQualified(processResult, 3, 3);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                CHECK_USAGE_OF_ROW_HEADERS_MSG,
+                TR_ELEMENT,
+                1);
+        
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-03---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa42019.Test.05.06.02-3NMI-03");
+        checkResultIsPreQualified(processResult, 2, 2);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                CHECK_USAGE_OF_ROW_HEADERS_MSG,
+                TR_ELEMENT,
+                1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                CHECK_USAGE_OF_ROW_HEADERS_MSG,
+                TR_ELEMENT,
+                2);
+        
+        //----------------------------------------------------------------------
+        //------------------------------3NMI-04---------------------------------
+        //----------------------------------------------------------------------
+        processResult = processPageTest("Rgaa42019.Test.05.06.02-3NMI-04");
+        checkResultIsPreQualified(processResult, 1, 1);
+        checkRemarkIsPresent(
+                processResult,
+                TestSolution.NEED_MORE_INFO,
+                CHECK_USAGE_OF_ROW_HEADERS_MSG,
+                SPAN_ELEMENT,
+                1);
 
         //----------------------------------------------------------------------
         //------------------------------4NA-01------------------------------
         //----------------------------------------------------------------------
-//        checkResultIsNotApplicable(processPageTest("Rgaa4-2019.Test.5.6.2-4NA-01"));
+        checkResultIsNotApplicable(processPageTest("Rgaa42019.Test.05.06.02-4NA-01"));
+
+        //----------------------------------------------------------------------
+        //------------------------------4NA-02------------------------------
+        //----------------------------------------------------------------------
+        checkResultIsNotApplicable(processPageTest("Rgaa42019.Test.05.06.02-4NA-02"));
     }
-
-    @Override
-    protected void setConsolidate() {
-
-        // The consolidate method can be removed when real implementation is done.
-        // The assertions are automatically tested regarding the file names by 
-        // the abstract parent class
-        assertEquals(TestSolution.NOT_TESTED,
-                consolidate("Rgaa4-2019.Test.5.6.2-3NMI-01").getValue());
-}
-
 }

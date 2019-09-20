@@ -20,7 +20,17 @@
 package org.tanaguru.rules.rgaa42019;
 
 import org.tanaguru.entity.audit.TestSolution;
+
+import static org.tanaguru.rules.keystore.AttributeStore.ABSENT_ATTRIBUTE_VALUE;
+import static org.tanaguru.rules.keystore.AttributeStore.ROLE_ATTR;
+import static org.tanaguru.rules.keystore.MarkerStore.COMPLEX_TABLE_MARKER;
+import static org.tanaguru.rules.keystore.MarkerStore.DATA_TABLE_MARKER;
+import static org.tanaguru.rules.keystore.MarkerStore.PRESENTATION_TABLE_MARKER;
+
+import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.tanaguru.entity.audit.ProcessResult;
+import org.tanaguru.rules.keystore.HtmlElementStore;
+import org.tanaguru.rules.keystore.RemarkMessageStore;
 import org.tanaguru.rules.rgaa42019.test.Rgaa42019RuleImplementationTestCase;
 
 /**
@@ -45,61 +55,108 @@ public class Rgaa42019Rule050301Test extends Rgaa42019RuleImplementationTestCase
 
     @Override
     protected void setUpWebResourceMap() {
-//        addWebResource("Rgaa4-2019.Test.5.3.1-1Passed-01");
-//        addWebResource("Rgaa4-2019.Test.5.3.1-2Failed-01");
-        addWebResource("Rgaa4-2019.Test.5.3.1-3NMI-01");
-//        addWebResource("Rgaa4-2019.Test.5.3.1-4NA-01");
-    }
-
-    @Override
-    protected void setProcess() {
-        //----------------------------------------------------------------------
-        //------------------------------1Passed-01------------------------------
-        //----------------------------------------------------------------------
-//        checkResultIsPassed(processPageTest("Rgaa4-2019.Test.5.3.1-1Passed-01"), 1);
-
-        //----------------------------------------------------------------------
-        //------------------------------2Failed-01------------------------------
-        //----------------------------------------------------------------------
-//        ProcessResult processResult = processPageTest("Rgaa4-2019.Test.5.3.1-2Failed-01");
-//        checkResultIsFailed(processResult, 1, 1);
-//        checkRemarkIsPresent(
-//                processResult,
-//                TestSolution.FAILED,
-//                "#MessageHere",
-//                "#CurrentElementHere",
-//                1,
-//                new ImmutablePair("#ExtractedAttributeAsEvidence", "#ExtractedAttributeValue"));
-
-        //----------------------------------------------------------------------
-        //------------------------------3NMI-01---------------------------------
-        //----------------------------------------------------------------------
-        ProcessResult processResult = processPageTest("Rgaa4-2019.Test.5.3.1-3NMI-01");
-        checkResultIsNotTested(processResult); // temporary result to make the result buildable before implementation
-//        checkResultIsPreQualified(processResult, 2, 1);
-//        checkRemarkIsPresent(
-//                processResult,
-//                TestSolution.NEED_MORE_INFO,
-//                "#MessageHere",
-//                "#CurrentElementHere",
-//                1,
-//                new ImmutablePair("#ExtractedAttributeAsEvidence", "#ExtractedAttributeValue"));
-
-
-        //----------------------------------------------------------------------
-        //------------------------------4NA-01------------------------------
-        //----------------------------------------------------------------------
-//        checkResultIsNotApplicable(processPageTest("Rgaa4-2019.Test.5.3.1-4NA-01"));
-    }
-
-    @Override
-    protected void setConsolidate() {
-
-        // The consolidate method can be removed when real implementation is done.
-        // The assertions are automatically tested regarding the file names by 
-        // the abstract parent class
-        assertEquals(TestSolution.NOT_TESTED,
-                consolidate("Rgaa4-2019.Test.5.3.1-3NMI-01").getValue());
-}
+        addWebResource("Rgaa42019.Test.05.03.01-2Failed-01",
+	                createParameter("Rules", PRESENTATION_TABLE_MARKER, "class-presentation-table"));
+	    addWebResource("Rgaa42019.Test.05.03.01-2Failed-02",
+	                createParameter("Rules", PRESENTATION_TABLE_MARKER, "class-presentation-table"));
+	    addWebResource("Rgaa42019.Test.05.03.01-3NMI-01",
+	                createParameter("Rules", PRESENTATION_TABLE_MARKER, "presentation-table"));
+	    addWebResource("Rgaa42019.Test.05.03.01-3NMI-02");
+	    addWebResource("Rgaa42019.Test.05.03.01-3NMI-03");
+	    addWebResource("Rgaa42019.Test.05.03.01-3NMI-04");
+	    addWebResource("Rgaa42019.Test.05.03.01-4NA-01");
+	    addWebResource("Rgaa42019.Test.05.03.01-4NA-02",
+	                createParameter("Rules", DATA_TABLE_MARKER, "id-data-table"),
+	                createParameter("Rules", COMPLEX_TABLE_MARKER, "id-complex-table"));
+	
+	}
+	
+	@Override
+	protected void setProcess() {
+	    //----------------------------------------------------------------------
+	    //------------------------------2Failed-01-----------------------------
+	    //----------------------------------------------------------------------
+	    ProcessResult processResult = processPageTest("Rgaa42019.Test.05.03.01-2Failed-01");
+	    checkResultIsFailed(processResult, 1, 1);
+	    checkRemarkIsPresent(
+	            processResult,
+	            TestSolution.FAILED,
+	            RemarkMessageStore.PRESENTATION_TABLE_WITHOUT_ARIA_MARKUP_MSG,
+	            HtmlElementStore.TABLE_ELEMENT,
+	            1,
+	            new ImmutablePair(ROLE_ATTR, ABSENT_ATTRIBUTE_VALUE));
+	    
+	    //----------------------------------------------------------------------
+	    //------------------------------2Failed-01-----------------------------
+	    //----------------------------------------------------------------------
+	    processResult = processPageTest("Rgaa42019.Test.05.03.01-2Failed-02");
+	    checkResultIsFailed(processResult, 1, 1);
+	    checkRemarkIsPresent(
+	            processResult,
+	            TestSolution.FAILED,
+	            RemarkMessageStore.PRESENTATION_TABLE_WITHOUT_ARIA_MARKUP_MSG,
+	            HtmlElementStore.TABLE_ELEMENT,
+	            1,
+	            new ImmutablePair(ROLE_ATTR, "heading"));
+	            
+	    //----------------------------------------------------------------------
+	    //------------------------------3NMI-01--------------------------------
+	    //----------------------------------------------------------------------
+	    processResult = processPageTest("Rgaa42019.Test.05.03.01-3NMI-01");
+	    checkResultIsPreQualified(processResult, 1,  1);
+	    checkRemarkIsPresent(
+	            processResult,
+	            TestSolution.NEED_MORE_INFO,
+	            RemarkMessageStore.CHECK_LINEARISED_CONTENT_MSG,
+	            HtmlElementStore.TABLE_ELEMENT,
+	            1);
+	            
+	    //----------------------------------------------------------------------
+	    //------------------------------3NMI-02--------------------------------
+	    //----------------------------------------------------------------------
+	    processResult = processPageTest("Rgaa42019.Test.05.03.01-3NMI-02");
+	    checkResultIsPreQualified(processResult, 1, 1);
+	    checkRemarkIsPresent(
+	            processResult,
+	            TestSolution.NEED_MORE_INFO,
+	            RemarkMessageStore.CHECK_NATURE_OF_TABLE_AND_LINEARISED_CONTENT_MSG,
+	            HtmlElementStore.TABLE_ELEMENT,
+	            1);
+	            
+	    //----------------------------------------------------------------------
+	    //------------------------------3NMI-03---------------------------------
+	    //----------------------------------------------------------------------
+	    processResult = processPageTest("Rgaa42019.Test.05.03.01-3NMI-03");
+	    checkResultIsPreQualified(processResult, 1, 1);
+	    checkRemarkIsPresent(
+	            processResult,
+	            TestSolution.NEED_MORE_INFO,
+	            RemarkMessageStore.CHECK_TABLE_IS_NOT_PRESENTATION_WITHOUT_ROLE_ARIA_MSG,
+	            HtmlElementStore.TABLE_ELEMENT,
+	            1,
+	            new ImmutablePair(ROLE_ATTR, ABSENT_ATTRIBUTE_VALUE));
+	            
+	    //----------------------------------------------------------------------
+	    //------------------------------3NMI-04---------------------------------
+	    //----------------------------------------------------------------------
+	    processResult = processPageTest("Rgaa42019.Test.05.03.01-3NMI-04");
+	    checkResultIsPreQualified(processResult, 1, 1);
+	    checkRemarkIsPresent(
+	            processResult,
+	            TestSolution.NEED_MORE_INFO,
+	            RemarkMessageStore.CHECK_TABLE_IS_NOT_PRESENTATION_WITHOUT_ROLE_ARIA_MSG,
+	            HtmlElementStore.TABLE_ELEMENT,
+	            1,
+	            new ImmutablePair(ROLE_ATTR, ABSENT_ATTRIBUTE_VALUE));
+	            
+	    //----------------------------------------------------------------------
+	    //------------------------------4NA-01------------------------------
+	    //----------------------------------------------------------------------
+	    checkResultIsNotApplicable(processPageTest("Rgaa42019.Test.05.03.01-4NA-01"));
+	    //----------------------------------------------------------------------
+	    //------------------------------4NA-02------------------------------
+	    //----------------------------------------------------------------------
+	    checkResultIsNotApplicable(processPageTest("Rgaa42019.Test.05.03.01-4NA-02"));
+	}
 
 }

@@ -19,7 +19,7 @@
  */
 package org.tanaguru.rules.rgaa42019;
 
-import static org.tanaguru.rules.keystore.CssLikeQueryStore.COMPLEX_DATA_TABLE_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.DATA_TABLE_CSS_LIKE_QUERY;
 import static org.tanaguru.rules.keystore.AttributeStore.SUMMARY_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.ARIA_DESCRIBEDBY_ATTR;
 import static org.tanaguru.rules.keystore.AttributeStore.ID_ATTR;
@@ -62,7 +62,7 @@ public class Rgaa42019Rule050101 extends AbstractMarkerPageRuleImplementation {
      */
     public Rgaa42019Rule050101 () {
     	super(
-                new SimpleElementSelector(COMPLEX_DATA_TABLE_CSS_LIKE_QUERY), 
+                new SimpleElementSelector(DATA_TABLE_CSS_LIKE_QUERY), 
 
                 // the complex tables are part of the scope
                 new String[]{COMPLEX_TABLE_MARKER},

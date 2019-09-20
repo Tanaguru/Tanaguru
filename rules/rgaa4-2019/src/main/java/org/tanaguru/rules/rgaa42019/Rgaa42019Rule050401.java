@@ -19,7 +19,25 @@
  */
 package org.tanaguru.rules.rgaa42019;
 
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABELLEDBY_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABEL_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.ID_ATTR;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.DATA_TABLE_WITH_TITLE_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.HtmlElementStore.CAPTION_ELEMENT;
+import static org.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.WRONG_TITLE_ASSOCIATION_WITH_TABLE;
+
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
+import org.tanaguru.rules.elementchecker.CompositeChecker;
+import org.tanaguru.rules.elementchecker.IndependentChecker;
+import org.tanaguru.rules.elementchecker.attribute.AttributeLinkedToElementTextPresenceChecker;
+import org.tanaguru.rules.elementchecker.attribute.AttributeOnChildElementPresenceChecker;
+import org.tanaguru.rules.elementchecker.attribute.AttributePresenceChecker;
+import org.tanaguru.rules.elementchecker.element.ChildElementPresenceChecker;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
 
 /**
  * Implementation of the rule 5-4-1 of the referential Rgaa4 2019.
@@ -29,13 +47,39 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @author edaconceicao
  */
 
-public class Rgaa42019Rule050401 extends AbstractNotTestedRuleImplementation {
+public class Rgaa42019Rule050401 extends AbstractPageRuleWithSelectorAndCheckerImplementation {
 
     /**
      * Default constructor
      */
     public Rgaa42019Rule050401 () {
-        super();
+        super(
+        		new SimpleElementSelector(DATA_TABLE_WITH_TITLE_CSS_LIKE_QUERY),
+        		
+        		new IndependentChecker(
+        				new ChildElementPresenceChecker(
+        						CAPTION_ELEMENT,
+		        				new ImmutablePair(TestSolution.PASSED,""),
+		        				new ImmutablePair(TestSolution.NOT_APPLICABLE, "")),
+        				new AttributeLinkedToElementTextPresenceChecker(
+        						ARIA_LABELLEDBY_ATTR,
+        						ID_ATTR,
+		        				new ImmutablePair(TestSolution.PASSED,""),
+		        				new ImmutablePair(TestSolution.NOT_APPLICABLE, ""))));
+        
+        
+        IndependentChecker ic = (IndependentChecker) getElementChecker();
+        CompositeChecker cc = new CompositeChecker(
+				new AttributePresenceChecker(
+						ARIA_LABEL_ATTR,
+        				new ImmutablePair(TestSolution.FAILED, WRONG_TITLE_ASSOCIATION_WITH_TABLE),
+        				new ImmutablePair(TestSolution.PASSED,""),ARIA_LABEL_ATTR),
+				new AttributePresenceChecker(
+						TITLE_ATTR,
+        				new ImmutablePair(TestSolution.FAILED, WRONG_TITLE_ASSOCIATION_WITH_TABLE),
+        				new ImmutablePair(TestSolution.PASSED,""),TITLE_ATTR));
+        cc.setIsOrCombinaison(false);
+        ic.addChecker(cc);
     }
 
 }

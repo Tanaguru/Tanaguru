@@ -19,7 +19,19 @@
  */
 package org.tanaguru.rules.rgaa42019;
 
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import org.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
+import org.tanaguru.ruleimplementation.ElementHandler;
+import org.tanaguru.ruleimplementation.ElementHandlerImpl;
+import org.tanaguru.rules.elementchecker.element.ElementPresenceChecker;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
+
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.DATA_TABLE_CSS_LIKE_QUERY;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_USAGE_OF_COLUMN_HEADERS_MSG;
+
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.jsoup.nodes.Element;
+import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.processor.SSPHandler;
 
 /**
  * Implementation of the rule 5-6-1 of the referential Rgaa4 2019.
@@ -29,13 +41,43 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @author edaconceicao
  */
 
-public class Rgaa42019Rule050601 extends AbstractNotTestedRuleImplementation {
-
+public class Rgaa42019Rule050601 extends AbstractPageRuleWithSelectorAndCheckerImplementation {
+	
     /**
      * Default constructor
      */
     public Rgaa42019Rule050601 () {
-        super();
+        super(new SimpleElementSelector(DATA_TABLE_CSS_LIKE_QUERY),
+        		new ElementPresenceChecker(
+        				new ImmutablePair(TestSolution.NEED_MORE_INFO,CHECK_USAGE_OF_COLUMN_HEADERS_MSG),
+        				new ImmutablePair(TestSolution.NOT_APPLICABLE,"")));
+    }
+    
+    protected void select(SSPHandler sspHandler) {
+    	super.select(sspHandler);
+    	
+    	ElementHandler<Element> newElementScope = 
+                new ElementHandlerImpl();
+    	
+		for(Element el : getElements().get()){
+    		if(el.select("tr[scope=col]").first() != null) {
+    			newElementScope.add(el.select("tr[scope=col]").first());
+    		}
+    		if(el.select("thead").first() != null) {
+    			newElementScope.add(el.select("thead").first());
+    		}
+    		Element trElement = el.select("tr").first();
+    		if(trElement != null) {
+    			if(trElement.select("th[id]").first() != null) {
+    				newElementScope.add(el.select("tr:has(th[id])").first());
+    			}
+    		}
+    		if(el.select("[role=columnheader]").first() != null) {
+    			newElementScope.add(el.select("[role=columnheader]").first());
+    		}
+    	}
+		getElements().clean();
+		setElementHandler(newElementScope);
     }
 
 }

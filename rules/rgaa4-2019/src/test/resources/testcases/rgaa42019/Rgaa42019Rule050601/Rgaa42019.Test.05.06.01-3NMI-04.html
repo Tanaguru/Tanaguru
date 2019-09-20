@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <title>Rgaa42019 Test.05.06.01 NMI 04</title>
+    </head>
+    <body>
+        <div>
+            <h1>Rgaa42019 Test.05.06.01 NMI 04</h1>
+            <div class="test-detail" lang="fr">
+                Pour chaque tableau de données, chaque en-tête de colonnes et chaque en-tête de lignes sont-ils correctement déclarés ?
+            </div>
+            <div class="testcase">
+                <div role="table" aria-describedby="semantic_elements_table_desc">
+				  <div id="semantic_elements_table_desc">Table title</div>
+				  <div role="colgroup">
+				    <div role="column">
+				      <span role="columnheader">&nbsp;</span>
+				      <span role="columnheader">Colonne 2</span>
+				      <span role="columnheader">Colonne 3</span>
+				    </div>
+				  </div>
+				  <div role="rowgroup">
+					 <div role="row">
+					     <span role="cell">data</span>
+					  </div>
+				  </div>
+				</div>
+            </div>
+            <div class="test-explanation">
+                NMI. The columnheader detected (via <code>role="columnheader"</code>) and must concerned the whole column : needs a human check to confirm it.
+            </div>
+        </div>
+    </body>
+</html>
