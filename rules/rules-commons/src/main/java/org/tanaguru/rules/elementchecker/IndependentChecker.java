@@ -3,6 +3,7 @@ package org.tanaguru.rules.elementchecker;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
@@ -31,6 +32,18 @@ public class IndependentChecker extends NomenclatureBasedElementChecker {
     }
     public void addChecker(ElementChecker elementChecker) {
         checkers.add(elementChecker);
+    }
+    
+    /**
+     * This map provides a way to override the final result of the successive 
+     * checkers execution and associate eventually a message.
+     * From CompositeChecker
+     * @see CompositeChecker
+     */
+    private final Map<TestSolution, Map<TestSolution, String>> checkMessageFromSolutionMap = 
+            new HashMap<>();
+    public void addCheckMessageFromSolution(TestSolution solution, Map<TestSolution, String> resultAndMessage) {
+        checkMessageFromSolutionMap.put(solution, resultAndMessage);
     }
     
     /**
@@ -115,13 +128,31 @@ public class IndependentChecker extends NomenclatureBasedElementChecker {
             ec.check(sspHandler, elementHandler, testSolutionHandler);
 
             TestSolution checkerSolution = testSolutionHandler.getTestSolution();
+//            System.out.println(checkerSolution);
             
             globalTestSolution.add(checkerSolution);
         }
 
-        return createSolutionFromCheckersResult(
-                globalTestSolution, 
-                sspHandler);
+        TestSolution finalTestSolution = createSolutionFromCheckersResult(globalTestSolution, sspHandler);
+        
+        if (checkMessageFromSolutionMap.containsKey(finalTestSolution)) {
+            // if the final solution belongs to the checkMessageFromSolutionMap,
+            // we create a message and override the final result
+            Map.Entry<TestSolution, String> entry = 
+                    checkMessageFromSolutionMap.get(finalTestSolution).entrySet().iterator().next();
+            addSourceCodeRemark(
+                    entry.getKey(),
+                    (Element)elementHandler.get().iterator().next(),
+                    entry.getValue());
+            return entry.getKey();
+        }
+
+        if(finalTestSolution.equals(TestSolution.PASSED)) {
+        	ProcessRemarkService prs = sspHandler.getProcessRemarkService();
+        	prs.resetService();
+        	sspHandler.setProcessRemarkService(prs);
+        }
+        return finalTestSolution;
     }
     
     private TestSolution createSolutionFromCheckersResult(ArrayList<TestSolution> globalTestSolution,
@@ -151,9 +182,6 @@ public class IndependentChecker extends NomenclatureBasedElementChecker {
     	}
 
     	if(hasPassed) {
-    		ProcessRemarkService prs = sspHandler.getProcessRemarkService();
-    		prs.resetService();
-    		sspHandler.setProcessRemarkService(prs);
     		return TestSolution.PASSED;
     	}
     	if(hasNMI) {
