@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <title>Rgaa42019 Test.05.06.02 NMI 02</title>
+    </head>
+    <body>
+        <div>
+            <h1>Rgaa42019 Test.05.06.02 NMI 02</h1>
+            <div class="test-detail" lang="fr">
+                Pour chaque tableau de données, chaque en-tête de colonnes et chaque en-tête de lignes sont-ils correctement déclarés ?
+            </div>
+            <div class="testcase">
+	            <table>
+				    <caption>Mon tableau bizarre</caption>
+					<tr>
+						<td>&nbsp;</td>
+				        <th id="col-2">Colonne 2</th>
+				        <th id="col-3">Colonne 3</th>
+				    </tr>
+				    <tr>
+				         <th id="row-1">Bonjour</th>
+				         <td headers="col-2 row-1">Blabla</td>
+				         <td headers="col-3 row-1">Blablabla</td>
+				    </tr>
+				    <tr>
+				         <th id="row-2">Au revoir</th>
+				         <td headers="col-2 row-2">Blabla</td>
+				         <td headers="col-3 row-2">Blablabla</td>
+				    </tr>
+				</table>
+            </div>
+            <div class="test-explanation">
+                NMI. The rowheader detected (via <code>tr</code> )and must concerned the whole row (table context) : needs a human check to confirm it.
+            </div>
+        </div>
+    </body>
+</html>
