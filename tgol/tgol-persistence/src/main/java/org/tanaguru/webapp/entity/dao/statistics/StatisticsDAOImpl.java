@@ -543,7 +543,7 @@ public class StatisticsDAOImpl extends AbstractJPADAO<WebResourceStatistics, Lon
         queryString.append(IS_AUDIT_MANUAL);
         Query query = entityManager.createNativeQuery(queryString.toString());
         query.setParameter("idWebResource", idWebResource);
-        query.setParameter("isManual", isManual);
+        query.setParameter("isManual", isManual? 1: 0);
         try {
             Object result = query.getSingleResult();
             if (result instanceof Float) {
@@ -578,7 +578,7 @@ public class StatisticsDAOImpl extends AbstractJPADAO<WebResourceStatistics, Lon
         
         Query query = entityManager.createNativeQuery(queryString.toString());
         query.setParameter("idWebResource", idWebResource);
-        query.setParameter("isManual", isManual);
+        query.setParameter("isManual", isManual? 1: 0);
         try {
             Object result = query.getSingleResult();
             if (result instanceof Float) {

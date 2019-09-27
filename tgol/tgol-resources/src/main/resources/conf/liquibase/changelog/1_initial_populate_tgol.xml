@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd"
+                   objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <!-- Inserted rows does not increment sequences so hibernate will start inserting at ID 0 and break PK constraint -->
+    
     <changeSet author="rcharre" id="initial_populate_TGSI_ROLE">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">SELECT COUNT(*) FROM TGSI_ROLE</sqlCheck>
@@ -30,6 +34,12 @@
         </loadData>
     </changeSet>
 
+    <changeSet id="init_sequence_TGSI_OPTION_ELEMENT" author="rcharre">
+        <preConditions onFail="MARK_RAN">
+            <sequenceExists sequenceName="tgsi_option_element_Id_Option_Element_seq"/>
+        </preConditions>
+        <sql>ALTER SEQUENCE tgsi_option_element_Id_Option_Element_seq RESTART WITH 1000</sql>
+    </changeSet>
     <changeSet author="rcharre" id="initial_populate_TGSI_OPTION_ELEMENT">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">SELECT COUNT(*) FROM TGSI_OPTION_ELEMENT</sqlCheck>
@@ -60,6 +70,12 @@
         </loadData>
     </changeSet>
 
+    <changeSet id="init_sequence_TGSI_USER" author="rcharre">
+        <preConditions onFail="MARK_RAN">
+            <sequenceExists sequenceName="tgsi_user_Id_User_seq"/>
+        </preConditions>
+        <sql>ALTER SEQUENCE tgsi_user_Id_User_seq RESTART WITH 1000</sql>
+    </changeSet>
     <changeSet author="rcharre" id="initial_populate_TGSI_USER">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">SELECT COUNT(*) FROM TGSI_USER</sqlCheck>
