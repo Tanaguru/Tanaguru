@@ -92,7 +92,7 @@
             <sqlCheck expectedResult="0">SELECT count(*) FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element='PREVENT_DEFAULT_PAGE_FIRING'</sqlCheck>
         </preConditions>
         <sql>
-            INSERT IGNORE INTO PARAMETER_ELEMENT (Cd_Parameter_Element,Id_Parameter_Family,  Long_Label, Short_Label) VALUES
+            INSERT INTO PARAMETER_ELEMENT (Cd_Parameter_Element,Id_Parameter_Family,  Long_Label, Short_Label) VALUES
             ('PREVENT_DEFAULT_PAGE_FIRING', (SELECT Id_Parameter_Family FROM PARAMETER_FAMILY WHERE Cd_Parameter_Family='SCENARIO'), 'Prevent automatic new page event', 'Prevent automatic new page event');
 
             INSERT INTO PARAMETER (Id_Parameter_Element,  Parameter_Value, Is_Default) VALUES

@@ -51,6 +51,7 @@
             ('INCLUSION_REGEXP', (SELECT Id_Parameter_Family FROM PARAMETER_FAMILY WHERE Cd_Parameter_Family LIKE 'CRAWL'), '', 'inclusion regex'),
             ('SCREEN_WIDTH', (SELECT Id_Parameter_Family FROM PARAMETER_FAMILY WHERE Cd_Parameter_Family LIKE 'GENERAL'), '', 'screen width'),
             ('SCREEN_HEIGHT', (SELECT Id_Parameter_Family FROM PARAMETER_FAMILY WHERE Cd_Parameter_Family LIKE 'GENERAL'), '', 'screen height'),
+            ('ALTERNATIVE_JUSTIFY_MECHANISM', (SELECT Id_Parameter_Family FROM PARAMETER_FAMILY WHERE Cd_Parameter_Family LIKE 'RULES'), 'Alternative Justify Mechanism', 'The page embeds a mechanism that can remove text justification'),
             ('COMPLEX_TABLE_MARKER', (SELECT Id_Parameter_Family FROM PARAMETER_FAMILY WHERE Cd_Parameter_Family LIKE 'RULES'), 'Complex table marker', 'Correspond to the attribute \"id\", \"class\" or \"role\" of the complex tables');
         </sql>
     </changeSet>
@@ -87,6 +88,8 @@
             ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'INCLUSION_REGEXP'), '', TRUE),
             ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'SCREEN_WIDTH'), '1920', TRUE),
             ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'SCREEN_HEIGHT'), '1080', TRUE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'ALTERNATIVE_JUSTIFY_MECHANISM'), 'true', FALSE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'ALTERNATIVE_JUSTIFY_MECHANISM'), 'false', TRUE),
             ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'COMPLEX_TABLE_MARKER'), '', TRUE);
         </sql>
     </changeSet>
