@@ -17,7 +17,7 @@
         </sql>
     </changeSet>
 
-    <changeSet author="rcharre" id="initial_populate_rule_EVIDENCE">
+    <changeSet author="rcharre" id="initial_populate_rule_EVIDENCE-1">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">SELECT COUNT(*) FROM EVIDENCE</sqlCheck>
         </preConditions>
@@ -57,7 +57,29 @@
             ('content',NULL,NULL),
             ('value',NULL,NULL),
             ('Default-Language',NULL,NULL),
-            ('Current-Language',NULL,NULL),
+            ('Current-Language',NULL,NULL);
+        </sql>
+    </changeSet>
+
+    <changeSet author="rcharre" id="initial_populate_rule_EVIDENCE-2">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM EVIDENCE WHERE Cd_Evidence='aria-label'</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO EVIDENCE (Cd_Evidence, Description, Long_Label) VALUES
+            ('aria-label', NULL, NULL),
+            ('aria-labelledby', NULL, NULL),
+            ('aria-describedby', NULL, NULL),
+            ('role', NULL, NULL);
+        </sql>
+    </changeSet>
+
+    <changeSet author="rcharre" id="initial_populate_rule_EVIDENCE-3">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM EVIDENCE WHERE Cd_Evidence='Url'</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO EVIDENCE (Cd_Evidence, Description, Long_Label) VALUES
             ('Url',NULL,NULL),
             ('H1',NULL,NULL),
             ('Metadescription',NULL,NULL);
