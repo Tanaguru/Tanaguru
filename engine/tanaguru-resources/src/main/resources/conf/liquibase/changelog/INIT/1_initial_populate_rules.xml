@@ -25,7 +25,7 @@
             INSERT INTO EVIDENCE (Cd_Evidence, Description, Long_Label) VALUES
             ('Element-Name',NULL,NULL),
             ('src',NULL,NULL),
-            ('Css-(SELECTor',NULL,NULL),
+            ('Css-Selector',NULL,NULL),
             ('Previous-H-Tag-Index',NULL,NULL),
             ('First-H-Tag-Index',NULL,NULL),
             ('Node',NULL,NULL),

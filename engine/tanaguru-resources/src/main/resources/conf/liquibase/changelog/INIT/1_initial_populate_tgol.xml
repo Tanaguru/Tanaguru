@@ -29,7 +29,7 @@
         </sql>
     </changeSet>
 
-    <changeSet author="rcharre" id="initial_populate_TGSI_OPTION">
+    <changeSet author="rcharre" id="initial_populate_TGSI_OPTION-1">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">SELECT COUNT(*) FROM TGSI_OPTION</sqlCheck>
         </preConditions>
@@ -50,6 +50,17 @@
             ('UPLOAD_ACT_LIMITATION', 'The number of authorized acts of upload scope', TRUE, (SELECT Id_Option_Family FROM TGSI_OPTION_FAMILY WHERE Code='ACT_RESTRICTION')),
             ('SCENARIO_ACT_LIMITATION', 'The number of authorized acts of scenario scope', TRUE, (SELECT Id_Option_Family FROM TGSI_OPTION_FAMILY WHERE Code='ACT_RESTRICTION')),
             ('PRESET_CONTRACT', 'A preset contract', FALSE, (SELECT Id_Option_Family FROM TGSI_OPTION_FAMILY WHERE Code='CONTRACT_MANAGEMENT'));
+        </sql>
+    </changeSet>
+
+    <changeSet author="rcharre" id="initial_populate_TGSI_OPTION-2">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM TGSI_OPTION WHERE Code='MAX_PAGES_AUDIT_CONTROL'</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO TGSI_OPTION (Code, Description, Is_Restriction, OPTION_FAMILY_Id_Option_Family) VALUES
+            ('MAX_PAGES_AUDIT_CONTROL', 'The max pages of audit in pages scope', TRUE, (SELECT Id_Option_Family FROM TGSI_OPTION_FAMILY WHERE Code='CONTRACT_MANAGEMENT')),
+            ('IS_DOMAINE_RESTRICTED_CONTRACT', 'Is the domaine restricted on domaine URL', TRUE, (SELECT Id_Option_Family FROM TGSI_OPTION_FAMILY WHERE Code='ACT_RESTRICTION'));
         </sql>
     </changeSet>
 

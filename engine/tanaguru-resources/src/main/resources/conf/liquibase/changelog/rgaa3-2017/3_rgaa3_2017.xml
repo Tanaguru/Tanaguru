@@ -29,8 +29,8 @@
             <sqlCheck expectedResult="0">SELECT COUNT(*) FROM REFERENCE WHERE Cd_Reference LIKE 'Rgaa32017'</sqlCheck>
         </preConditions>
         <sql>
-            INSERT IGNORE INTO REFERENCE (Cd_Reference, Description, Label, Url, Rank, Id_Default_Level) VALUES
-            ('Rgaa32017', NULL, 'Rgaa 3-2017', 'http://references.modernisation.gouv.fr/rgaa/criteres.html', 2001, (SELECT Id_Level FROM LEVEL WHERE Cd_Level='AA'));
+            INSERT INTO REFERENCE (Cd_Reference, Description, Label, Url, Rank, Id_Default_Level) VALUES
+            ('Rgaa32017', NULL, 'Rgaa 3-2017', 'http://references.modernisation.gouv.fr/rgaa/criteres.html', 2001, (SELECT Id_Level FROM LEVEL WHERE Cd_Level='LEVEL_2'));
         </sql>
     </changeSet>
 
@@ -39,7 +39,7 @@
             <sqlCheck expectedResult="0">SELECT COUNT(*) FROM CRITERION WHERE Cd_Criterion LIKE 'Rgaa32017-%'</sqlCheck>
         </preConditions>
         <sql>
-            INSERT IGNORE INTO CRITERION (Cd_Criterion, Description, Label, Url, Rank) VALUES
+            INSERT INTO CRITERION (Cd_Criterion, Description, Label, Url, Rank) VALUES
             ('Rgaa32017-1-1', 'Chaque image a-t-elle une alternative textuelle ?', '1.1', '', 1),
             ('Rgaa32017-1-2', 'Pour chaque image de décoration ayant une alternative textuelle, cette alternative est-elle vide ?', '1.2', '', 2),
             ('Rgaa32017-1-3', 'Pour chaque image porteuse dinformation ayant une alternative textuelle, cette alternative est-elle pertinente (hors cas particuliers) ?', '1.3', '', 3),
@@ -165,7 +165,7 @@
             ('Rgaa32017-13-7', 'Dans chaque page Web, chaque document bureautique en téléchargement possède-t-il, si nécessaire, une version accessible (hors cas particuliers) ?', '13.7', '', 123),
             ('Rgaa32017-13-8', 'Pour chaque document bureautique ayant une version accessible, cette version offre-t-elle la même information ?', '13.8', '', 124),
             ('Rgaa32017-13-9', 'Dans chaque page Web, les expressions inhabituelles, les expressions idiomatiques ou le jargon sont-ils explicités ?', '13.9', '', 125),
-            ('Rgaa32017-13-10', 'Dans chaque page Web, pour chaque expression inhabituelle ou limitée, idiomatique ou de jargon ayant une définition, cette définition est-elle pertinente ?', '13.10', '', 126),
+            ('Rgaa32017-13-10', 'Dans chaque page Web, pour chaque expression inhabituelle Rgaa32017;LEVEL_1ou limitée, idiomatique ou de jargon ayant une définition, cette définition est-elle pertinente ?', '13.10', '', 126),
             ('Rgaa32017-13-11', 'Dans chaque page Web, chaque contenu cryptique (art ascii, émoticon, syntaxe cryptique) a-t-il une alternative ?', '13.11', '', 127),
             ('Rgaa32017-13-12', 'Dans chaque page Web, pour chaque contenu cryptique (art ascii, émoticon, syntaxe cryptique) ayant une alternative, cette alternative est-elle pertinente ?', '13.12', '', 128),
             ('Rgaa32017-13-13', 'Dans chaque page Web, pour chaque mot dont le sens ne peut être compris sans en connaître la prononciation, celle-ci est-elle indiquée ?', '13.13', '', 129),
@@ -1229,27 +1229,27 @@
     
     <changeSet author="edaconceicao" id="rgaa32017_populate_PARAMETER">
         <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="25">SELECT COUNT(*) FROM PARAMETER WHERE Parameter_Value LIKE 'Rgaa32017;%'</sqlCheck>
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM PARAMETER WHERE Parameter_Value LIKE 'Rgaa32017;%'</sqlCheck>
         </preConditions>
         <sql>
-            INSERT INTO PARAMETER (Parameter_Value, Is_Default) VALUES
-            ('Rgaa32017;LEVEL_1', FALSE),
-            ('Rgaa32017;LEVEL_2', TRUE),
-            ('Rgaa32017;LEVEL_3', FALSE);
+            INSERT INTO PARAMETER (Id_Parameter_Element, Parameter_Value, Is_Default) VALUES
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element='LEVEL'), 'Rgaa32017;LEVEL_1', FALSE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element='LEVEL'), 'Rgaa32017;LEVEL_2', TRUE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element='LEVEL'), 'Rgaa32017;LEVEL_3', FALSE);
         </sql>
     </changeSet>
 
-    <changeSet author="edaconceicao" id="rgaa42019_TGSI_REFERENTIAL">
+    <changeSet author="edaconceicao" id="rgaa32017_TGSI_REFERENTIAL">
         <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="1">SELECT COUNT(*) FROM TGSI_REFERENTIAL WHERE Code='Rgaa32017'</sqlCheck>
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM TGSI_REFERENTIAL WHERE Code='Rgaa32017'</sqlCheck>
         </preConditions>
         <sql>
-            INSERT INTO TGSI_REFERENTIAL ('Code', 'Label', 'Description') VALUES
+            INSERT INTO TGSI_REFERENTIAL (Code, Label, Description) VALUES
             ('Rgaa32017', 'Rgaa 3-2017', NULL);
         </sql>
     </changeSet>
 
-    <changeSet author="edaconceicao" id="rgaa42019_ACCEDEWEB">
+    <changeSet author="edaconceicao" id="rgaa32017_ACCEDEWEB">
         <sql>
             UPDATE ACCEDEWEB set Dtype='H' where Dtype='T' ;
             UPDATE ACCEDEWEB set Dtype='G' where Dtype='R' ;

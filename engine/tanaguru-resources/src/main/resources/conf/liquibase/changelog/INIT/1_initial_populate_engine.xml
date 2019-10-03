@@ -31,7 +31,7 @@
         </sql>
     </changeSet>
 
-    <changeSet author="rcharre" id="initial_populate_PARAMETER_ELEMENT">
+    <changeSet author="rcharre" id="initial_populate_PARAMETER_ELEMENT-1">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">SELECT COUNT(*) FROM PARAMETER_ELEMENT</sqlCheck>
         </preConditions>
@@ -56,13 +56,24 @@
         </sql>
     </changeSet>
 
+    <changeSet author="rcharre" id="initial_populate_PARAMETER_ELEMENT-2">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element='ALTERNATIVE_JUSTIFY_MECHANISM'</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO PARAMETER_ELEMENT (Cd_Parameter_Element, Id_Parameter_Family, Long_Label, Short_Label) VALUES
+            ('ALTERNATIVE_JUSTIFY_MECHANISM', (SELECT Id_Parameter_Family FROM PARAMETER_FAMILY WHERE Cd_Parameter_Family LIKE 'RULES'), 'Alternative Justify Mechanism', 'The page embeds a mechanism that can remove text justification');
+        </sql>
+    </changeSet>
+
     <changeSet id="init_sequence_PARAMETER" author="rcharre">
         <preConditions onFail="MARK_RAN">
             <sequenceExists sequenceName="parameter_Id_Parameter_seq"/>
         </preConditions>
         <sql>ALTER SEQUENCE parameter_Id_Parameter_seq RESTART WITH 1000</sql>
     </changeSet>
-    <changeSet author="rcharre" id="initial_populate_PARAMETER">
+
+    <changeSet author="rcharre" id="initial_populate_PARAMETER-1">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">SELECT COUNT(*) FROM PARAMETER</sqlCheck>
         </preConditions>
@@ -88,9 +99,18 @@
             ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'INCLUSION_REGEXP'), '', TRUE),
             ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'SCREEN_WIDTH'), '1920', TRUE),
             ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'SCREEN_HEIGHT'), '1080', TRUE),
-            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'ALTERNATIVE_JUSTIFY_MECHANISM'), 'true', FALSE),
-            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'ALTERNATIVE_JUSTIFY_MECHANISM'), 'false', TRUE),
             ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'COMPLEX_TABLE_MARKER'), '', TRUE);
+        </sql>
+    </changeSet>
+
+    <changeSet author="rcharre" id="initial_populate_PARAMETER-2">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM PARAMETER WHERE Id_Parameter_Element=((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'ALTERNATIVE_JUSTIFY_MECHANISM'))</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO PARAMETER (Id_Parameter_Element, Parameter_Value, Is_Default) VALUES
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'ALTERNATIVE_JUSTIFY_MECHANISM'), 'true', FALSE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'ALTERNATIVE_JUSTIFY_MECHANISM'), 'false', TRUE);
         </sql>
     </changeSet>
 
