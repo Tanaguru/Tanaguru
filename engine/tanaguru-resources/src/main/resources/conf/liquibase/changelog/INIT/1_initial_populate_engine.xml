@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd"
+                   objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+
+    <changeSet author="rcharre" id="initial_populate_LEVEL">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM LEVEL</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO LEVEL (Id_Level, Cd_Level, Label, Description, Rank) VALUES
+            (1, 'LEVEL_1', 'Level 1', NULL, 1),
+            (2, 'LEVEL_2', 'Level 2', NULL, 2),
+            (3, 'LEVEL_3', 'Level 3', NULL, 3);
+        </sql>
+    </changeSet>
+
+
+    <changeSet author="rcharre" id="initial_populate_PARAMETER_FAMILY">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM PARAMETER_FAMILY</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO PARAMETER_FAMILY (Cd_Parameter_Family, Description, Long_Label, Short_Label) VALUES
+            ('CRAWL', 'This parameter family handles all the parameters needed by the crawler component', 'crawl parameters', 'crawl params'),
+            ('GENERAL', 'This parameter family handles all the general parameters of the audit', 'general parameters', 'gen params'),
+            ('RULES', 'This parameter family handles all the parameters needed by the rules', 'rules parameters', 'rules params');
+        </sql>
+    </changeSet>
+
+    <changeSet author="rcharre" id="initial_populate_PARAMETER_ELEMENT">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM PARAMETER_ELEMENT</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO PARAMETER_ELEMENT (Cd_Parameter_Element, Id_Parameter_Family, Long_Label, Short_Label) VALUES
+            ('MAX_DOCUMENTS', (SELECT Id_Parameter_Family FROM PARAMETER_FAMILY WHERE Cd_Parameter_Family LIKE 'CRAWL'), 'Maximum number of downloaded pages', 'max pages'),
+            ('EXCLUSION_REGEXP', (SELECT Id_Parameter_Family FROM PARAMETER_FAMILY WHERE Cd_Parameter_Family LIKE 'CRAWL'), 'Regulard expression to exclude urls', 'exclusion regex'),
+            ('DEPTH', (SELECT Id_Parameter_Family FROM PARAMETER_FAMILY WHERE Cd_Parameter_Family LIKE 'CRAWL'), 'Maximum depth of the crawl', 'max depth'),
+            ('MAX_DURATION', (SELECT Id_Parameter_Family FROM PARAMETER_FAMILY WHERE Cd_Parameter_Family LIKE 'CRAWL'), 'Maximum duration of the crawl', 'max duration'),
+            ('LEVEL', (SELECT Id_Parameter_Family FROM PARAMETER_FAMILY WHERE Cd_Parameter_Family LIKE 'GENERAL'), 'Audit level (includes the referential code)', 'Audit level'),
+            ('DATA_TABLE_MARKER', (SELECT Id_Parameter_Family FROM PARAMETER_FAMILY WHERE Cd_Parameter_Family LIKE 'RULES'), 'Data Table HTML marker (id or class)', 'Data table marker'),
+            ('PRESENTATION_TABLE_MARKER', (SELECT Id_Parameter_Family FROM PARAMETER_FAMILY WHERE Cd_Parameter_Family LIKE 'RULES'), 'Presentation Table HTML marker (id or class)', 'Presentation table marker'),
+            ('DECORATIVE_IMAGE_MARKER', (SELECT Id_Parameter_Family FROM PARAMETER_FAMILY WHERE Cd_Parameter_Family LIKE 'RULES'), 'Decorative image HTML marker (id or class)', 'Decorative image marker'),
+            ('INFORMATIVE_IMAGE_MARKER', (SELECT Id_Parameter_Family FROM PARAMETER_FAMILY WHERE Cd_Parameter_Family LIKE 'RULES'), 'Informative image HTML marker (id or class)', 'Informative image marker'),
+            ('ALTERNATIVE_CONTRAST_MECHANISM', (SELECT Id_Parameter_Family FROM PARAMETER_FAMILY WHERE Cd_Parameter_Family LIKE 'RULES'), 'The page embeds a mechanism that displays text with a correct ratio', 'Alternative Contrast Mechanism'),
+            ('CONSIDER_COOKIES', (SELECT Id_Parameter_Family FROM PARAMETER_FAMILY WHERE Cd_Parameter_Family LIKE 'CRAWL'), 'consider cookies','consider cookies while crawling'),
+            ('INCLUSION_REGEXP', (SELECT Id_Parameter_Family FROM PARAMETER_FAMILY WHERE Cd_Parameter_Family LIKE 'CRAWL'), '', 'inclusion regex'),
+            ('SCREEN_WIDTH', (SELECT Id_Parameter_Family FROM PARAMETER_FAMILY WHERE Cd_Parameter_Family LIKE 'GENERAL'), '', 'screen width'),
+            ('SCREEN_HEIGHT', (SELECT Id_Parameter_Family FROM PARAMETER_FAMILY WHERE Cd_Parameter_Family LIKE 'GENERAL'), '', 'screen height'),
+            ('COMPLEX_TABLE_MARKER', (SELECT Id_Parameter_Family FROM PARAMETER_FAMILY WHERE Cd_Parameter_Family LIKE 'RULES'), 'Complex table marker', 'Correspond to the attribute \"id\", \"class\" or \"role\" of the complex tables');
+        </sql>
+    </changeSet>
+
+    <changeSet id="init_sequence_PARAMETER" author="rcharre">
+        <preConditions onFail="MARK_RAN">
+            <sequenceExists sequenceName="parameter_Id_Parameter_seq"/>
+        </preConditions>
+        <sql>ALTER SEQUENCE parameter_Id_Parameter_seq RESTART WITH 1000</sql>
+    </changeSet>
+    <changeSet author="rcharre" id="initial_populate_PARAMETER">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM PARAMETER</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO PARAMETER (Id_Parameter_Element, Parameter_Value, Is_Default) VALUES
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'MAX_DOCUMENTS'), '50000', FALSE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'EXCLUSION_REGEXP'), '', TRUE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'DEPTH'), '20', TRUE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'DEPTH'), '0', FALSE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'MAX_DURATION'), '604800', FALSE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'MAX_DOCUMENTS'), '100', FALSE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'MAX_DOCUMENTS'), '10000', TRUE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'MAX_DOCUMENTS'), '20000', FALSE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'DATA_TABLE_MARKER'), '', TRUE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'PRESENTATION_TABLE_MARKER'), '', TRUE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'MAX_DURATION'), '86400', TRUE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'DECORATIVE_IMAGE_MARKER'), '', TRUE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'INFORMATIVE_IMAGE_MARKER'), '', TRUE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'ALTERNATIVE_CONTRAST_MECHANISM'), 'true', FALSE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'ALTERNATIVE_CONTRAST_MECHANISM'), 'false', TRUE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'CONSIDER_COOKIES'), 'true', TRUE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'CONSIDER_COOKIES'), 'false', FALSE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'INCLUSION_REGEXP'), '', TRUE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'SCREEN_WIDTH'), '1920', TRUE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'SCREEN_HEIGHT'), '1080', TRUE),
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'COMPLEX_TABLE_MARKER'), '', TRUE);
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd"
+                   objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+
+    <changeSet author="rcharre" id="initial_populate_ROLE-1">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM TGSI_ROLE</sqlCheck>
+        </preConditions>
+        <loadData encoding="UTF-8"
+                  file="classpath:conf/liquibase/data/INIT_TGSI_ROLE.csv"
+                  tableName="TGSI_ROLE">
+        </loadData>
+    </changeSet>
+
+    <changeSet author="rcharre" id="initial_populate_TGSI_OPTION_FAMILY">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM TGSI_OPTION_FAMILY</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO TGSI_OPTION_FAMILY (Code, Label) VALUES
+            ('CRAWL', ''),
+            ('ACT_RESTRICTION', ''),
+            ('ACT_MANAGEMENT', ''),
+            ('CONTRACT_MANAGEMENT', '');
+        </sql>
+    </changeSet>
+
+    <changeSet author="rcharre" id="initial_populate_TGSI_OPTION">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM TGSI_OPTION</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO TGSI_OPTION (Code, Description, Is_Restriction, OPTION_FAMILY_Id_Option_Family) VALUES
+            ('ACT_LIMITATION', 'The act limitation unit is the number of acts', TRUE, (SELECT Id_Option_Family FROM TGSI_OPTION_FAMILY WHERE Code='ACT_RESTRICTION')),
+            ('ACT_BY_IP_LIMITATION', 'The act by ip limitation unit is the number of acts in a period for a given ip. The period is expressed in seconds and the format is \"nb_of_acts/period\"', TRUE, (SELECT Id_Option_Family FROM TGSI_OPTION_FAMILY WHERE Code='ACT_RESTRICTION')),
+            ('MAX_DOCUMENTS', 'This restriction limits the max number of crawled documents',TRUE, (SELECT Id_Option_Family FROM TGSI_OPTION_FAMILY WHERE Code='CRAWL')),
+            ('FORDIDDEN_REFERENTIAL', 'This restriction forbids the access to a referential', TRUE, (SELECT Id_Option_Family FROM TGSI_OPTION_FAMILY WHERE Code='CRAWL')),
+            ('DEPTH', 'This restriction limits the depth of the crawl', TRUE, (SELECT Id_Option_Family FROM TGSI_OPTION_FAMILY WHERE Code='CRAWL')),
+            ('MAX_DURATION', 'This restriction limits the duration of the crawl', TRUE, (SELECT Id_Option_Family FROM TGSI_OPTION_FAMILY WHERE Code='CRAWL')),
+            ('EXCLUSION_REGEXP', 'This restriction applies an exclusion rule on crawled Urls', TRUE, (SELECT Id_Option_Family FROM TGSI_OPTION_FAMILY WHERE Code='CRAWL')),
+            ('ACT_LIFETIME','This restriction determines the lifetime of each associated with the contract', TRUE, (SELECT Id_Option_Family FROM TGSI_OPTION_FAMILY WHERE Code='ACT_MANAGEMENT')),
+            ('NB_OF_AUDIT_TO_DISPLAY','This restriction determines the number of audit results that can be displayed on the contract page', TRUE, (SELECT Id_Option_Family FROM TGSI_OPTION_FAMILY WHERE Code='CONTRACT_MANAGEMENT')),
+            ('DOMAIN', 'Domain associated with a contract', TRUE, (SELECT Id_Option_Family FROM TGSI_OPTION_FAMILY WHERE Code='CONTRACT_MANAGEMENT')),
+            ('PAGES_ACT_LIMITATION', 'The number of authorized acts of pages scope', TRUE, (SELECT Id_Option_Family FROM TGSI_OPTION_FAMILY WHERE Code='ACT_RESTRICTION')),
+            ('DOMAIN_ACT_LIMITATION', 'The number of authorized acts of domain scope', TRUE, (SELECT Id_Option_Family FROM TGSI_OPTION_FAMILY WHERE Code='ACT_RESTRICTION')),
+            ('UPLOAD_ACT_LIMITATION', 'The number of authorized acts of upload scope', TRUE, (SELECT Id_Option_Family FROM TGSI_OPTION_FAMILY WHERE Code='ACT_RESTRICTION')),
+            ('SCENARIO_ACT_LIMITATION', 'The number of authorized acts of scenario scope', TRUE, (SELECT Id_Option_Family FROM TGSI_OPTION_FAMILY WHERE Code='ACT_RESTRICTION')),
+            ('PRESET_CONTRACT', 'A preset contract', FALSE, (SELECT Id_Option_Family FROM TGSI_OPTION_FAMILY WHERE Code='CONTRACT_MANAGEMENT'));
+        </sql>
+    </changeSet>
+
+    <changeSet id="init_sequence_TGSI_OPTION_ELEMENT" author="rcharre">
+        <preConditions onFail="MARK_RAN">
+            <sequenceExists sequenceName="tgsi_option_element_Id_Option_Element_seq"/>
+        </preConditions>
+        <sql>ALTER SEQUENCE tgsi_option_element_Id_Option_Element_seq RESTART WITH 1000</sql>
+    </changeSet>
+    <changeSet author="rcharre" id="initial_populate_TGSI_OPTION_ELEMENT">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM TGSI_OPTION_ELEMENT</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO TGSI_OPTION_ELEMENT (OPTION_Id_Option, Value) VALUES
+            ((SELECT Id_Option FROM TGSI_OPTION WHERE Code='ACT_LIMITATION'), '5'),
+            ((SELECT Id_Option FROM TGSI_OPTION WHERE Code='ACT_BY_IP_LIMITATION'), '5/3600'),
+            ((SELECT Id_Option FROM TGSI_OPTION WHERE Code='MAX_DOCUMENTS'), '100'),
+            ((SELECT Id_Option FROM TGSI_OPTION WHERE Code='MAX_DOCUMENTS'), '10000'),
+            ((SELECT Id_Option FROM TGSI_OPTION WHERE Code='MAX_DOCUMENTS'), '20000'),
+            ((SELECT Id_Option FROM TGSI_OPTION WHERE Code='ACT_LIFETIME'), '-1'),
+            ((SELECT Id_Option FROM TGSI_OPTION WHERE Code='ACT_LIFETIME'), '5'),
+            ((SELECT Id_Option FROM TGSI_OPTION WHERE Code='ACT_LIFETIME'), '30'),
+            ((SELECT Id_Option FROM TGSI_OPTION WHERE Code='ACT_LIFETIME'), '365'),
+            ((SELECT Id_Option FROM TGSI_OPTION WHERE Code='NB_OF_AUDIT_TO_DISPLAY'), '5'),
+            ((SELECT Id_Option FROM TGSI_OPTION WHERE Code='NB_OF_AUDIT_TO_DISPLAY'), '10'),
+            ((SELECT Id_Option FROM TGSI_OPTION WHERE Code='NB_OF_AUDIT_TO_DISPLAY'), '50'),
+            ((SELECT Id_Option FROM TGSI_OPTION WHERE Code='NB_OF_AUDIT_TO_DISPLAY'), '100');
+        </sql>
+    </changeSet>
+
+    <changeSet author="rcharre" id="initial_populate_TGSI_FUNCTIONALITY">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM TGSI_FUNCTIONALITY</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO TGSI_FUNCTIONALITY (Code, Label, Description) VALUES
+            ('PAGES', 'Audit Pages (Up to 10)', ''),
+            ('DOMAIN', 'Audit Domain ', ''),
+            ('UPLOAD', 'Audit Upload', ''),
+            ('SCENARIO', 'Audit Scenario', ''),
+            ('MANUAL', 'Audit manuel', '');
+        </sql>
+    </changeSet>
+
+    <changeSet author="rcharre" id="initial_populate_TGSI_SCOPE">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM TGSI_SCOPE</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO TGSI_SCOPE (Code, Label) VALUES
+            ('GROUPOFPAGES', 'Group of pages'),
+            ('DOMAIN', 'Domain'),
+            ('PAGE', 'Page'),
+            ('FILE', 'File'),
+            ('GROUPOFFILES', 'Group of files'),
+            ('SCENARIO', 'Scenario');
+        </sql>
+    </changeSet>
+
+    <changeSet id="init_sequence_TGSI_USER" author="rcharre">
+        <preConditions onFail="MARK_RAN">
+            <sequenceExists sequenceName="tgsi_user_Id_User_seq"/>
+        </preConditions>
+        <sql>ALTER SEQUENCE tgsi_user_Id_User_seq RESTART WITH 1000</sql>
+    </changeSet>
+    <changeSet author="rcharre" id="initial_populate_TGSI_USER">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM TGSI_USER</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO TGSI_USER (Email1, Password, Name, First_Name, ROLE_Id_Role, Activated) VALUES
+            ("admin","21232f297a57a5a743894a0e4a801fc3","admin","admin", (SELECT Id_Role FROM TGSI_ROLE WHERE Role_Name='ROLE_ADMIN'), TRUE);
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

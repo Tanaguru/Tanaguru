@@ -4,12 +4,13 @@
 
 	<changeSet author="edaconceicao" id="1_update_evidence">
 		<preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM EVIDENCE WHERE Id_Evidence=46</sqlCheck>
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM EVIDENCE WHERE Cd_Evidence='xmlns'</sqlCheck>
         </preConditions>
-		<loadData encoding="UTF-8"
-				  file="classpath:conf/liquibase/data/UPDATE_EVIDENCE_4_evidence_update.csv"
-				  tableName="EVIDENCE">
-		</loadData>
+		<sql>
+			INSERT INTO EVIDENCE (Cd_Evidence, Description, Long_Label) VALUES
+			('xmlns',NULL,NULL),
+			('scope',NULL,NULL);
+		</sql>
 	</changeSet>
 
 

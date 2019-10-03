@@ -28,6 +28,72 @@
                 </excludes>
             </resource>
         </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>3.6.3</version>
+                <configuration>
+                    <driver>com.mysql.jdbc.Driver</driver>
+                    <url>jdbc:mysql://localhost:3306/tanaguru</url>
+                    <username>tanaguru</username>
+                    <password>tanaguru</password>
+                    <changeLogFile>src/main/resources/conf/liquibase/master.xml</changeLogFile>
+                    <outputChangeLogFile>
+                        src/main/resources/conf/liquibase/changelog/${maven.build.timestamp}_changelog.xml
+                    </outputChangeLogFile>
+                    <verbose>true</verbose>
+                    <logging>debug</logging>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.liquibase</groupId>
+                        <artifactId>liquibase-core</artifactId>
+                        <version>3.6.3</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>${springGroupId}</groupId>
+                        <artifactId>spring-core</artifactId>
+                        <version>${springVersion}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>${springGroupId}</groupId>
+                        <artifactId>spring-test</artifactId>
+                        <version>${springVersion}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>${springGroupId}</groupId>
+                        <artifactId>spring-jdbc</artifactId>
+                        <version>${springVersion}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>${springGroupId}</groupId>
+                        <artifactId>spring-beans</artifactId>
+                        <version>${springVersion}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>${springGroupId}</groupId>
+                        <artifactId>spring-context</artifactId>
+                        <version>${springVersion}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>${springGroupId}</groupId>
+                        <artifactId>spring-orm</artifactId>
+                        <version>${springVersion}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>5.1.15</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.liquibase.ext</groupId>
+                        <artifactId>liquibase-hibernate5</artifactId>
+                        <version>3.7</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
     </build>
 
     <dependencies>

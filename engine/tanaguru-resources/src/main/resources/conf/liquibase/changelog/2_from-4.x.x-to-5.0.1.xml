@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd"
+                   objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet author="rcharre" id="create_accedwe-3">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="ACCEDEWEB"/>
+            </not>
+        </preConditions>
+        <createTable tableName="ACCEDEWEB">
+            <column autoIncrement="true" name="Id_Accedeweb" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Cd_Accedeweb" type="VARCHAR(255)"/>
+            <column name="Description" type="VARCHAR(255)"/>
+            <column name="Label" type="VARCHAR(255)"/>
+            <column name="Rank" type="INT"/>
+            <column defaultValue="H" name="Dtype" type="CHAR(1)"/>
+            <column name="Cd_Rgaa3" type="VARCHAR(255)"/>
+            <column name="Id_Test_Id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="rcharre" id="create_accedweb-2">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="Index_ACCEDEWEB_1_idx" tableName="ACCEDEWEB"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="Index_ACCEDEWEB_1_idx" tableName="ACCEDEWEB">
+            <column name="Id_Test_Id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="rcharre" id="create_accedweb-3">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_ACCEDEWEB_1"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="Id_Test_Id" baseTableName="ACCEDEWEB" constraintName="fk_ACCEDEWEB_1"
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Test" referencedTableName="TEST"/>
+    </changeSet>
+
+    <changeSet author="rcharre" id="update_old_accedweb_column_rgaa32016">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="ACCEDEWEB" columnName="Cd_Rgaa3"/>
+            </not>
+        </preConditions>
+        <renameColumn tableName="ACCEDEWEB" oldColumnName="Cd_Rgaa32016" newColumnName="Cd_Rgaa3" columnDataType="VARCAHR(255)"/>
+    </changeSet>
+</databaseChangeLog>

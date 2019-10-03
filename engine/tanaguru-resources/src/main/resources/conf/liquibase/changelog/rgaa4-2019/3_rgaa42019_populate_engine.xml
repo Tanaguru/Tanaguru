@@ -7,7 +7,7 @@
             <sqlCheck expectedResult="13">SELECT COUNT(*) FROM THEME</sqlCheck>
         </preConditions>
         <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/RGAA42019_THEME.csv"
+                  file="classpath:conf/liquibase/data/RGAA42019/RGAA42019_THEME.csv"
                   tableName="THEME">
         </loadData>
     </changeSet>
@@ -17,7 +17,7 @@
             <sqlCheck expectedResult="1">SELECT COUNT(*) FROM REFERENCE</sqlCheck>
         </preConditions>
         <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/RGAA42019_REFERENCE.csv"
+                  file="classpath:conf/liquibase/data/RGAA42019/RGAA42019_REFERENCE.csv"
                   tableName="REFERENCE">
         </loadData>
     </changeSet>
@@ -27,7 +27,7 @@
             <sqlCheck expectedResult="133">SELECT COUNT(*) FROM CRITERION</sqlCheck>
         </preConditions>
         <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/RGAA42019_CRITERION.csv"
+                  file="classpath:conf/liquibase/data/RGAA42019/RGAA42019_CRITERION.csv"
                   tableName="CRITERION">
         </loadData>
     </changeSet>
@@ -37,7 +37,7 @@
             <sqlCheck expectedResult="335">SELECT COUNT(*) FROM TEST</sqlCheck>
         </preConditions>
         <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/RGAA42019_TEST.csv"
+                  file="classpath:conf/liquibase/data/RGAA42019/RGAA42019_TEST.csv"
                   tableName="TEST">
         </loadData>
     </changeSet>
@@ -47,7 +47,7 @@
             <sqlCheck expectedResult="28">SELECT COUNT(*) FROM PARAMETER</sqlCheck>
         </preConditions>
         <loadData encoding="UTF-8"
-                  file="classpath:conf/liquibase/data/RGAA42019_PARAMETER.csv"
+                  file="classpath:conf/liquibase/data/RGAA42019/RGAA42019_PARAMETER.csv"
                   tableName="PARAMETER">
         </loadData>
     </changeSet>
