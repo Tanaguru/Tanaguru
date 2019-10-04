@@ -282,7 +282,7 @@
             <column name="Id_Parameter_Element" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column defaultValueBoolean="false" name="Is_Default" type="BIT(1)"/>
+            <column defaultValueBoolean="false" name="Is_Default" type="BOOLEAN"/>
         </createTable>
     </changeSet>
 
@@ -512,7 +512,7 @@
             <column name="Description" type="VARCHAR(255)"/>
             <column name="Label" type="VARCHAR(255)"/>
             <column name="Rank" type="INT"/>
-            <column defaultValueComputed="1.0" name="Weight" type="DECIMAL(2, 1) UNSIGNED"/>
+            <column defaultValueComputed="1.0" name="Weight" type="DECIMAL(2, 1)"/>
             <column name="Rule_Archive_Name" type="VARCHAR(255)"/>
             <column name="Rule_Class_Name" type="VARCHAR(255)"/>
             <column name="Rule_Design_Url" type="VARCHAR(255)"/>
@@ -521,7 +521,7 @@
             <column name="Id_Level" type="BIGINT"/>
             <column name="Id_Rule" type="BIGINT"/>
             <column name="Id_Scope" type="BIGINT"/>
-            <column defaultValueBoolean="true" name="No_Process" type="BIT(1)"/>
+            <column defaultValueBoolean="true" name="No_Process" type="BOOLEAN"/>
         </createTable>
     </changeSet>
 
@@ -632,10 +632,10 @@
             <column name="Nb_Suspected" type="INT"/>
             <column name="Nb_Detected" type="INT"/>
             <column name="Nb_Not_Tested" type="INT"/>
-            <column name="Weighted_Passed" type="DECIMAL(10, 1) UNSIGNED"/>
-            <column name="Weighted_Failed" type="DECIMAL(10, 1) UNSIGNED"/>
-            <column name="Weighted_Nmi" type="DECIMAL(10, 1) UNSIGNED"/>
-            <column name="Weighted_Na" type="DECIMAL(10, 1) UNSIGNED"/>
+            <column name="Weighted_Passed" type="DECIMAL(10, 1)"/>
+            <column name="Weighted_Failed" type="DECIMAL(10, 1)"/>
+            <column name="Weighted_Nmi" type="DECIMAL(10, 1)"/>
+            <column name="Weighted_Na" type="DECIMAL(10, 1)"/>
             <column name="Nb_Failed_Occurrences" type="INT"/>
             <column name="Nb_Invalid_Test" type="INT"/>
             <column name="Id_Audit" type="BIGINT"/>
@@ -1043,7 +1043,7 @@
                 <indexExists tableName="AUDIT_PARAMETER" columnNames="Id_Audit" />
             </not>
         </preConditions>
-        <createIndex indexName="fk_AUDIT_PARAMETER_AUDIT" tableName="AUDIT_PARAMETER">
+        <createIndex indexName="index_AUDIT_PARAMETER_AUDIT" tableName="AUDIT_PARAMETER">
             <column name="Id_Audit"/>
         </createIndex>
     </changeSet>
@@ -1054,7 +1054,7 @@
                 <indexExists tableName="AUDIT_PARAMETER" columnNames="Id_Parameter" />
             </not>
         </preConditions>
-        <createIndex indexName="fk_AUDIT_PARAMETER_PARAMETER" tableName="AUDIT_PARAMETER">
+        <createIndex indexName="index_AUDIT_PARAMETER_PARAMETER" tableName="AUDIT_PARAMETER">
             <column name="Id_Parameter"/>
         </createIndex>
     </changeSet>
@@ -1065,7 +1065,7 @@
                 <indexExists tableName="CRITERION_STATISTICS" columnNames="Id_Criterion" />
             </not>
         </preConditions>
-        <createIndex indexName="fk_CRITERION_STATISTICS_CRITERION" tableName="CRITERION_STATISTICS">
+        <createIndex indexName="index_CRITERION_STATISTICS_CRITERION" tableName="CRITERION_STATISTICS">
             <column name="Id_Criterion"/>
         </createIndex>
     </changeSet>
@@ -1076,7 +1076,7 @@
                 <indexExists tableName="CRITERION_STATISTICS" columnNames="Id_Web_Resource_Statistics" />
             </not>
         </preConditions>
-        <createIndex indexName="fk_CRITERION_STATISTICS_WEB_RESOURCE_STATISTICS" tableName="CRITERION_STATISTICS">
+        <createIndex indexName="index_CRITERION_STATISTICS_WEB_RESOURCE_STATISTICS" tableName="CRITERION_STATISTICS">
             <column name="Id_Web_Resource_Statistics"/>
         </createIndex>
     </changeSet>
@@ -1087,7 +1087,7 @@
                 <indexExists tableName="PARAMETER_ELEMENT" columnNames="Id_Parameter_Family" />
             </not>
         </preConditions>
-        <createIndex indexName="fk_PARAMETER_ELEMENT_PARAMETER" tableName="PARAMETER_ELEMENT">
+        <createIndex indexName="index_PARAMETER_ELEMENT_PARAMETER" tableName="PARAMETER_ELEMENT">
             <column name="Id_Parameter_Family"/>
         </createIndex>
     </changeSet>
@@ -1098,7 +1098,7 @@
                 <indexExists tableName="PARAMETER" columnNames="Id_Parameter_Element" />
             </not>
         </preConditions>
-        <createIndex indexName="fk_PARAMETER_PARAMETER_ELEMENT" tableName="PARAMETER">
+        <createIndex indexName="index_PARAMETER_PARAMETER_ELEMENT" tableName="PARAMETER">
             <column name="Id_Parameter_Element"/>
         </createIndex>
     </changeSet>
@@ -1109,7 +1109,7 @@
                 <indexExists tableName="PRE_PROCESS_RESULT" columnNames="Id_Audit" />
             </not>
         </preConditions>
-        <createIndex indexName="fk_PRE_PROCESS_RESULT_AUDIT" tableName="PRE_PROCESS_RESULT">
+        <createIndex indexName="index_PRE_PROCESS_RESULT_AUDIT" tableName="PRE_PROCESS_RESULT">
             <column name="Id_Audit"/>
         </createIndex>
     </changeSet>
@@ -1120,7 +1120,7 @@
                 <indexExists tableName="PRE_PROCESS_RESULT" columnNames="Id_Web_Resource" />
             </not>
         </preConditions>
-        <createIndex indexName="fk_PRE_PROCESS_RESULT_WEB_RESOURCE" tableName="PRE_PROCESS_RESULT">
+        <createIndex indexName="index_PRE_PROCESS_RESULT_WEB_RESOURCE" tableName="PRE_PROCESS_RESULT">
             <column name="Id_Web_Resource"/>
         </createIndex>
     </changeSet>
@@ -1131,7 +1131,7 @@
                 <indexExists tableName="REFERENCE" columnNames="Id_Default_Level" />
             </not>
         </preConditions>
-        <createIndex indexName="fk_Ref_Level" tableName="REFERENCE">
+        <createIndex indexName="index_Ref_Level" tableName="REFERENCE">
             <column defaultValueNumeric="2" name="Id_Default_Level"/>
         </createIndex>
     </changeSet>
@@ -1142,7 +1142,7 @@
                 <indexExists tableName="TEST_STATISTICS" columnNames="Id_Test" />
             </not>
         </preConditions>
-        <createIndex indexName="fk_THEME_STATISTICS_THEME" tableName="TEST_STATISTICS">
+        <createIndex indexName="index_THEME_STATISTICS_TEST" tableName="TEST_STATISTICS">
             <column name="Id_Test"/>
         </createIndex>
     </changeSet>
@@ -1153,7 +1153,7 @@
                 <indexExists tableName="THEME_STATISTICS" columnNames="Id_Theme" />
             </not>
         </preConditions>
-        <createIndex indexName="fk_THEME_STATISTICS_THEME" tableName="THEME_STATISTICS">
+        <createIndex indexName="index_THEME_STATISTICS_THEME" tableName="THEME_STATISTICS">
             <column name="Id_Theme"/>
         </createIndex>
     </changeSet>
@@ -1164,7 +1164,7 @@
                 <indexExists tableName="TEST_STATISTICS" columnNames="Id_Web_Resource_Statistics" />
             </not>
         </preConditions>
-        <createIndex indexName="fk_THEME_STATISTICS_WEB_RESOURCE_STATISTICS" tableName="TEST_STATISTICS">
+        <createIndex indexName="index_TEST_STATISTICS_WEB_RESOURCE_STATISTICS" tableName="TEST_STATISTICS">
             <column name="Id_Web_Resource_Statistics"/>
         </createIndex>
     </changeSet>
@@ -1175,7 +1175,7 @@
                 <indexExists tableName="THEME_STATISTICS" columnNames="Id_Web_Resource_Statistics" />
             </not>
         </preConditions>
-        <createIndex indexName="fk_THEME_STATISTICS_WEB_RESOURCE_STATISTICS" tableName="THEME_STATISTICS">
+        <createIndex indexName="index_THEME_STATISTICS_WEB_RESOURCE_STATISTICS" tableName="THEME_STATISTICS">
             <column name="Id_Web_Resource_Statistics"/>
         </createIndex>
     </changeSet>
@@ -1186,7 +1186,7 @@
                 <indexExists tableName="WEB_RESOURCE_STATISTICS" columnNames="Id_Audit" />
             </not>
         </preConditions>
-        <createIndex indexName="fk_WEB_RESOURCE_STATISTICS_AUDIT" tableName="WEB_RESOURCE_STATISTICS">
+        <createIndex indexName="index_WEB_RESOURCE_STATISTICS_AUDIT" tableName="WEB_RESOURCE_STATISTICS">
             <column name="Id_Audit"/>
         </createIndex>
     </changeSet>
@@ -1197,7 +1197,7 @@
                 <indexExists tableName="WEB_RESOURCE_STATISTICS" columnNames="Id_Web_Resource" />
             </not>
         </preConditions>
-        <createIndex indexName="fk_WEB_RESOURCE_STATISTICS_WEB_RESOURCE" tableName="WEB_RESOURCE_STATISTICS">
+        <createIndex indexName="index_WEB_RESOURCE_STATISTICS_WEB_RESOURCE" tableName="WEB_RESOURCE_STATISTICS">
             <column name="Id_Web_Resource"/>
         </createIndex>
     </changeSet>

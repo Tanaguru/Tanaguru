@@ -68,7 +68,7 @@ Features :
  - Fix scenario download 
  - Fix audit crash when using CSS id and class with special characters 
  - Fix ColorExtractor script 
- - [Scenario audit] Use command "echo <page>" to manually fire new audit 
+ - [Scenario audit] Use command "store <page>" to manually fire new audit 
  - [Scenario audit] Prevent automatic firing audit event during scenario execution by checking parameter in scenario audit parameters 
  - Add RMI API, exporting all data services of Tanaguru 
  - [Site audit] process generated HTML 
