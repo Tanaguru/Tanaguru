@@ -563,7 +563,7 @@
     </changeSet>
 
     <changeSet author="rcharre (generated)" id="1569920892527-144">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <foreignKeyConstraintExists foreignKeyName="FK_TGSI_ACT_AUDIT_AUDIT"/>
             </not>
@@ -575,7 +575,7 @@
     </changeSet>
 
     <changeSet author="rcharre (generated)" id="1569920892527-145">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <foreignKeyConstraintExists foreignKeyName="FK_TGSI_ACT_AUDIT_TGSI_ACT"/>
             </not>
@@ -587,7 +587,7 @@
     </changeSet>
 
     <changeSet author="rcharre (generated)" id="1569920892527-146">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <foreignKeyConstraintExists foreignKeyName="FK_TGSI_ACT_TGSI_CONTRACT"/>
             </not>
@@ -599,7 +599,7 @@
     </changeSet>
 
     <changeSet author="rcharre (generated)" id="1569920892527-147">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <foreignKeyConstraintExists foreignKeyName="FK_TGSI_ACT_TGSI_SCOPE"/>
             </not>
@@ -611,7 +611,7 @@
     </changeSet>
 
     <changeSet author="rcharre (generated)" id="1569920892527-148">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <foreignKeyConstraintExists foreignKeyName="FK_TGSI_CONTRACT_FUNCTIONALITY_TGSI_CONTRACT"/>
             </not>
@@ -624,7 +624,7 @@
     </changeSet>
 
     <changeSet author="rcharre (generated)" id="1569920892527-149">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <foreignKeyConstraintExists foreignKeyName="FK_TGSI_CONTRACT_FUNCTIONALITY_TGSI_FUNCTIONALITY"/>
             </not>
@@ -638,7 +638,7 @@
     </changeSet>
 
     <changeSet author="rcharre (generated)" id="1569920892527-150">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <foreignKeyConstraintExists foreignKeyName="FK_TGSI_CONTRACT_OPTION_ELEMENT_TGSI_CONTRACT"/>
             </not>
@@ -651,7 +651,7 @@
     </changeSet>
 
     <changeSet author="rcharre (generated)" id="1569920892527-151">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <foreignKeyConstraintExists foreignKeyName="FK_TGSI_CONTRACT_OPTION_ELEMENT_TGSI_OPTION_ELEMENT"/>
             </not>
@@ -665,7 +665,7 @@
     </changeSet>
 
     <changeSet author="rcharre (generated)" id="1569920892527-152">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <foreignKeyConstraintExists foreignKeyName="FK_TGSI_CONTRACT_REFERENTIAL_TGSI_CONTRACT"/>
             </not>
@@ -678,7 +678,7 @@
     </changeSet>
 
     <changeSet author="rcharre (generated)" id="1569920892527-153">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <foreignKeyConstraintExists foreignKeyName="FK_TGSI_CONTRACT_REFERENTIAL_TGSI_REFERENTIAL"/>
             </not>
@@ -691,7 +691,7 @@
     </changeSet>
 
     <changeSet author="rcharre (generated)" id="1569920892527-154">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <foreignKeyConstraintExists foreignKeyName="FK_TGSI_CONTRACT_TGSI_USER"/>
             </not>
@@ -703,7 +703,7 @@
     </changeSet>
 
     <changeSet author="rcharre (generated)" id="1569920892527-155">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <foreignKeyConstraintExists foreignKeyName="FK_TGSI_OPTION_ELEMENT_TGSI_OPTION"/>
             </not>
@@ -715,7 +715,7 @@
     </changeSet>
 
     <changeSet author="rcharre (generated)" id="1569920892527-156">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <foreignKeyConstraintExists foreignKeyName="FK_TGSI_OPTION_TGSI_OPTION_FAMILY"/>
             </not>
@@ -728,7 +728,7 @@
     </changeSet>
 
     <changeSet author="rcharre (generated)" id="1569920892527-157">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <foreignKeyConstraintExists foreignKeyName="FK_TGSI_ROLE_TGSI_ROLE"/>
             </not>
@@ -740,7 +740,7 @@
     </changeSet>
 
     <changeSet author="rcharre (generated)" id="1569920892527-158">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <foreignKeyConstraintExists foreignKeyName="FK_TGSI_SCENARIO_TGSI_CONTRACT"/>
             </not>
@@ -753,7 +753,7 @@
     </changeSet>
 
     <changeSet author="rcharre (generated)" id="1569920892527-159">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <foreignKeyConstraintExists foreignKeyName="FK_TGSI_USER_OPTION_ELEMENT_TGSI_OPTION_ELEMENT"/>
             </not>
@@ -767,7 +767,7 @@
     </changeSet>
 
     <changeSet author="rcharre (generated)" id="1569920892527-160">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <foreignKeyConstraintExists foreignKeyName="FK_TGSI_USER_OPTION_ELEMENT_TGSI_USER"/>
             </not>
@@ -779,7 +779,7 @@
     </changeSet>
     
     <changeSet author="rcharre (generated)" id="1569920892527-161">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <foreignKeyConstraintExists foreignKeyName="FK_TGSI_USER_TGSI_ROLE"/>
             </not>
