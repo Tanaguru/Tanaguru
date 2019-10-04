@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd"
+                   objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet author="rcharre (generated)" id="1569920892527-27">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_ACT"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_ACT">
+            <column autoIncrement="true" name="Id_Act" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Begin_Date" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="End_Date" type="datetime"/>
+            <column name="Status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CONTRACT_Id_Contract" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SCOPE_Id_Scope" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="0.0.0.0" name="Client_Ip" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-28">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_ACT_AUDIT"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_ACT_AUDIT">
+            <column name="ACT_Id_Act" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AUDIT_Id_Audit" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1569920892527-29">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_CONTRACT"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_CONTRACT">
+            <column autoIncrement="true" name="Id_Contract" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Label" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Begin_Date" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="End_Date" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Renewal_Date" type="datetime"/>
+            <column name="Price" type="FLOAT(12) UNSIGNED"/>
+            <column name="USER_Id_User" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1569920892527-30">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_CONTRACT_FUNCTIONALITY"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_CONTRACT_FUNCTIONALITY">
+            <column name="CONTRACT_Id_Contract" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FUNCTIONALITY_Id_Functionality" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1569920892527-31">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_CONTRACT_OPTION_ELEMENT"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_CONTRACT_OPTION_ELEMENT">
+            <column name="OPTION_ELEMENT_Id_Option_Element" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CONTRACT_Id_Contract" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1569920892527-32">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_CONTRACT_REFERENTIAL"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_CONTRACT_REFERENTIAL">
+            <column name="CONTRACT_Id_Contract" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REFERENTIAL_Id_Referential" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1569920892527-33">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_FUNCTIONALITY"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_FUNCTIONALITY">
+            <column autoIncrement="true" name="Id_Functionality" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Code" type="VARCHAR(45)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="Label" type="VARCHAR(255)"/>
+            <column name="Description" type="VARCHAR(2048)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1569920892527-34">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_OPTION"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_OPTION">
+            <column autoIncrement="true" name="Id_Option" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Code" type="VARCHAR(45)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="Label" type="VARCHAR(255)"/>
+            <column name="Description" type="VARCHAR(2048)"/>
+            <column defaultValueBoolean="true" name="Is_Restriction" type="BIT(1)"/>
+            <column name="OPTION_FAMILY_Id_Option_Family" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1569920892527-35">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_OPTION_ELEMENT"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_OPTION_ELEMENT">
+            <column autoIncrement="true" name="Id_Option_Element" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="OPTION_Id_Option" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Value" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1569920892527-36">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_OPTION_FAMILY"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_OPTION_FAMILY">
+            <column autoIncrement="true" name="Id_Option_Family" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Code" type="VARCHAR(45)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="Label" type="VARCHAR(255)"/>
+            <column name="Description" type="VARCHAR(2048)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1569920892527-37">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_REFERENTIAL"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_REFERENTIAL">
+            <column autoIncrement="true" name="Id_Referential" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Code" type="VARCHAR(45)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="Label" type="VARCHAR(255)"/>
+            <column name="Description" type="VARCHAR(2048)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1569920892527-38">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_ROLE"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_ROLE">
+            <column autoIncrement="true" name="Id_Role" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Role_Name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ROLE_Id_Role" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1569920892527-39">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_SCENARIO"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_SCENARIO">
+            <column autoIncrement="true" name="Id_Scenario" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Date_Of_Creation" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Label" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Content" type="MEDIUMTEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Description" type="VARCHAR(255)"/>
+            <column name="CONTRACT_Id_Contract" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1569920892527-40">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_SCOPE"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_SCOPE">
+            <column autoIncrement="true" name="Id_Scope" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValue="PAGE" name="Code" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column defaultValue="Page" name="Label" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1569920892527-41">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_USER"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_USER">
+            <column autoIncrement="true" name="Id_User" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Email1" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="Password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="" name="Name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="" name="First_Name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Address" type="VARCHAR(255)"/>
+            <column name="Phone_Number" type="VARCHAR(255)"/>
+            <column name="Email2" type="VARCHAR(255)"/>
+            <column name="Web1" type="VARCHAR(2048)"/>
+            <column name="Web2" type="VARCHAR(2048)"/>
+            <column name="Identica_Id" type="VARCHAR(255)"/>
+            <column name="Twitter_Id" type="VARCHAR(255)"/>
+            <column name="ROLE_Id_Role" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="true" name="Activated" type="BIT(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rcharre (generated)" id="1569920892527-42">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="TGSI_USER_OPTION_ELEMENT"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TGSI_USER_OPTION_ELEMENT">
+            <column name="OPTION_ELEMENT_Id_Option_Element" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_Id_User" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-47">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_ACT_AUDIT" columnNames="ACT_Id_Act, AUDIT_Id_Audit"/>
+            </not>
+        </preConditions>
+        <addUniqueConstraint columnNames="ACT_Id_Act, AUDIT_Id_Audit" constraintName="INDEX_UNIQUE_PAIR"
+                             tableName="TGSI_ACT_AUDIT"/>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-48">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_CONTRACT_FUNCTIONALITY" columnNames="FUNCTIONALITY_Id_Functionality, CONTRACT_Id_Contract"/>
+            </not>
+        </preConditions>
+        <addUniqueConstraint columnNames="FUNCTIONALITY_Id_Functionality, CONTRACT_Id_Contract"
+                             constraintName="INDEX_UNIQUE_PAIR" tableName="TGSI_CONTRACT_FUNCTIONALITY"/>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-49">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_CONTRACT_OPTION_ELEMENT" columnNames="OPTION_ELEMENT_Id_Option_Element, CONTRACT_Id_Contract"/>
+            </not>
+        </preConditions>
+        <addUniqueConstraint columnNames="OPTION_ELEMENT_Id_Option_Element, CONTRACT_Id_Contract"
+                             constraintName="INDEX_UNIQUE_PAIR" tableName="TGSI_CONTRACT_OPTION_ELEMENT"/>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-50">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_CONTRACT_REFERENTIAL" columnNames="REFERENTIAL_Id_Referential, CONTRACT_Id_Contract"/>
+            </not>
+        </preConditions>
+        <addUniqueConstraint columnNames="REFERENTIAL_Id_Referential, CONTRACT_Id_Contract"
+                             constraintName="INDEX_UNIQUE_PAIR" tableName="TGSI_CONTRACT_REFERENTIAL"/>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-51">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_OPTION_ELEMENT" columnNames="OPTION_Id_Option, Value"/>
+            </not>
+        </preConditions>
+        <addUniqueConstraint columnNames="OPTION_Id_Option, Value" constraintName="INDEX_UNIQUE_PAIR"
+                             tableName="TGSI_OPTION_ELEMENT"/>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-52">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_USER_OPTION_ELEMENT" columnNames="OPTION_ELEMENT_Id_Option_Element, USER_Id_User"/>
+            </not>
+        </preConditions>
+        <addUniqueConstraint columnNames="OPTION_ELEMENT_Id_Option_Element, USER_Id_User"
+                             constraintName="INDEX_UNIQUE_PAIR" tableName="TGSI_USER_OPTION_ELEMENT"/>
+    </changeSet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <changeSet author="rcharre (generated)" id="1569920892527-85">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_CONTRACT_OPTION_ELEMENT" columnNames="CONTRACT_Id_Contract"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK_TGSI_CONTRACT_OPTION_ELEMENT_TGSI_CONTRACT" tableName="TGSI_CONTRACT_OPTION_ELEMENT">
+            <column name="CONTRACT_Id_Contract"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-86">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_CONTRACT" columnNames="USER_Id_User"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK_TGSI_CONTRACT_TGSI_USER" tableName="TGSI_CONTRACT">
+            <column name="USER_Id_User"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-87">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_OPTION" columnNames="OPTION_FAMILY_Id_Option_Family"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK_TGSI_OPTION_TGSI_OPTION_FAMILY" tableName="TGSI_OPTION">
+            <column name="OPTION_FAMILY_Id_Option_Family"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-88">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_USER_OPTION_ELEMENT" columnNames="USER_Id_User"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK_TGSI_USER_OPTION_ELEMENT_TGSI_USER" tableName="TGSI_USER_OPTION_ELEMENT">
+            <column name="USER_Id_User"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-90">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_ACT_AUDIT" columnNames="ACT_Id_Act"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="INDEX_TGSI_ACT_AUDIT_ACT_Id_Act" tableName="TGSI_ACT_AUDIT">
+            <column name="ACT_Id_Act"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-91">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_ACT_AUDIT" columnNames="AUDIT_Id_Audit"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="INDEX_TGSI_ACT_AUDIT_AUDIT_Id_Audit" tableName="TGSI_ACT_AUDIT">
+            <column name="AUDIT_Id_Audit"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-92">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_ACT" columnNames="CONTRACT_Id_Contract"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="INDEX_TGSI_ACT_CONTRACT_Id_Contract" tableName="TGSI_ACT">
+            <column name="CONTRACT_Id_Contract"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-93">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_ACT" columnNames="SCOPE_Id_Scope"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="INDEX_TGSI_ACT_SCOPE_Id_Scope" tableName="TGSI_ACT">
+            <column name="SCOPE_Id_Scope"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-94">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_CONTRACT_FUNCTIONALITY" columnNames="CONTRACT_Id_Contract"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="INDEX_TGSI_CONTRACT_FUNCTIONALITY_CONTRACT_Id_Contract"
+                     tableName="TGSI_CONTRACT_FUNCTIONALITY">
+            <column name="CONTRACT_Id_Contract"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-95">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_CONTRACT_FUNCTIONALITY" columnNames="FUNCTIONALITY_Id_Functionality"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="INDEX_TGSI_CONTRACT_FUNCTIONALITY_FUNCTIONALITY_Id_Functionality"
+                     tableName="TGSI_CONTRACT_FUNCTIONALITY">
+            <column name="FUNCTIONALITY_Id_Functionality"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-96">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_CONTRACT_REFERENTIAL" columnNames="CONTRACT_Id_Contract"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="INDEX_TGSI_CONTRACT_REFERENTIAL_CONTRACT_Id_Contract"
+                     tableName="TGSI_CONTRACT_REFERENTIAL">
+            <column name="CONTRACT_Id_Contract"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-97">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_CONTRACT_REFERENTIAL" columnNames="REFERENTIAL_Id_Referential"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="INDEX_TGSI_CONTRACT_REFERENTIAL_REFERENTIAL_Id_Referential"
+                     tableName="TGSI_CONTRACT_REFERENTIAL">
+            <column name="REFERENTIAL_Id_Referential"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-98">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_ROLE" columnNames="ROLE_Id_Role"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="INDEX_TGSI_ROLE_ROLE_Id_Role" tableName="TGSI_ROLE">
+            <column name="ROLE_Id_Role"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-99">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_SCENARIO" columnNames="CONTRACT_Id_Contract"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="INDEX_TGSI_SCENARIO_CONTRACT_Id_Contract" tableName="TGSI_SCENARIO">
+            <column name="CONTRACT_Id_Contract"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-100">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="TGSI_USER" columnNames="ROLE_Id_Role"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="INDEX_TGSI_USER_ROLE_Id_Role" tableName="TGSI_USER">
+            <column name="ROLE_Id_Role"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-144">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_ACT_AUDIT_AUDIT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="AUDIT_Id_Audit" baseTableName="TGSI_ACT_AUDIT"
+                                 constraintName="FK_TGSI_ACT_AUDIT_AUDIT" deferrable="false" initiallyDeferred="false"
+                                 onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Audit"
+                                 referencedTableName="AUDIT" validate="true"/>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-145">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_ACT_AUDIT_TGSI_ACT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="ACT_Id_Act" baseTableName="TGSI_ACT_AUDIT"
+                                 constraintName="FK_TGSI_ACT_AUDIT_TGSI_ACT" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Act" referencedTableName="TGSI_ACT" validate="true"/>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-146">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_ACT_TGSI_CONTRACT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="CONTRACT_Id_Contract" baseTableName="TGSI_ACT"
+                                 constraintName="FK_TGSI_ACT_TGSI_CONTRACT" deferrable="false" initiallyDeferred="false"
+                                 onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id_Contract"
+                                 referencedTableName="TGSI_CONTRACT" validate="true"/>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-147">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_ACT_TGSI_SCOPE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="SCOPE_Id_Scope" baseTableName="TGSI_ACT"
+                                 constraintName="FK_TGSI_ACT_TGSI_SCOPE" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Scope"
+                                 referencedTableName="TGSI_SCOPE" validate="true"/>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-148">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_CONTRACT_FUNCTIONALITY_TGSI_CONTRACT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="CONTRACT_Id_Contract" baseTableName="TGSI_CONTRACT_FUNCTIONALITY"
+                                 constraintName="FK_TGSI_CONTRACT_FUNCTIONALITY_TGSI_CONTRACT" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE"
+                                 referencedColumnNames="Id_Contract" referencedTableName="TGSI_CONTRACT"
+                                 validate="true"/>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-149">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_CONTRACT_FUNCTIONALITY_TGSI_FUNCTIONALITY"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="FUNCTIONALITY_Id_Functionality"
+                                 baseTableName="TGSI_CONTRACT_FUNCTIONALITY"
+                                 constraintName="FK_TGSI_CONTRACT_FUNCTIONALITY_TGSI_FUNCTIONALITY" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Functionality" referencedTableName="TGSI_FUNCTIONALITY"
+                                 validate="true"/>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-150">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_CONTRACT_OPTION_ELEMENT_TGSI_CONTRACT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="CONTRACT_Id_Contract" baseTableName="TGSI_CONTRACT_OPTION_ELEMENT"
+                                 constraintName="FK_TGSI_CONTRACT_OPTION_ELEMENT_TGSI_CONTRACT" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE"
+                                 referencedColumnNames="Id_Contract" referencedTableName="TGSI_CONTRACT"
+                                 validate="true"/>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-151">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_CONTRACT_OPTION_ELEMENT_TGSI_OPTION_ELEMENT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="OPTION_ELEMENT_Id_Option_Element"
+                                 baseTableName="TGSI_CONTRACT_OPTION_ELEMENT"
+                                 constraintName="FK_TGSI_CONTRACT_OPTION_ELEMENT_TGSI_OPTION_ELEMENT" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE"
+                                 referencedColumnNames="Id_Option_Element" referencedTableName="TGSI_OPTION_ELEMENT"
+                                 validate="true"/>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-152">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_CONTRACT_REFERENTIAL_TGSI_CONTRACT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="CONTRACT_Id_Contract" baseTableName="TGSI_CONTRACT_REFERENTIAL"
+                                 constraintName="FK_TGSI_CONTRACT_REFERENTIAL_TGSI_CONTRACT" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE"
+                                 referencedColumnNames="Id_Contract" referencedTableName="TGSI_CONTRACT"
+                                 validate="true"/>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-153">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_CONTRACT_REFERENTIAL_TGSI_REFERENTIAL"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="REFERENTIAL_Id_Referential" baseTableName="TGSI_CONTRACT_REFERENTIAL"
+                                 constraintName="FK_TGSI_CONTRACT_REFERENTIAL_TGSI_REFERENTIAL" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Referential" referencedTableName="TGSI_REFERENTIAL"
+                                 validate="true"/>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-154">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_CONTRACT_TGSI_USER"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="USER_Id_User" baseTableName="TGSI_CONTRACT"
+                                 constraintName="FK_TGSI_CONTRACT_TGSI_USER" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_User" referencedTableName="TGSI_USER" validate="true"/>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-155">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_OPTION_ELEMENT_TGSI_OPTION"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="OPTION_Id_Option" baseTableName="TGSI_OPTION_ELEMENT"
+                                 constraintName="FK_TGSI_OPTION_ELEMENT_TGSI_OPTION" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Option" referencedTableName="TGSI_OPTION" validate="true"/>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-156">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_OPTION_TGSI_OPTION_FAMILY"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="OPTION_FAMILY_Id_Option_Family" baseTableName="TGSI_OPTION"
+                                 constraintName="FK_TGSI_OPTION_TGSI_OPTION_FAMILY" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="Id_Option_Family" referencedTableName="TGSI_OPTION_FAMILY"
+                                 validate="true"/>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-157">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_ROLE_TGSI_ROLE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="ROLE_Id_Role" baseTableName="TGSI_ROLE"
+                                 constraintName="FK_TGSI_ROLE_TGSI_ROLE" deferrable="false" initiallyDeferred="false"
+                                 onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="Id_Role"
+                                 referencedTableName="TGSI_ROLE" validate="true"/>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-158">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_SCENARIO_TGSI_CONTRACT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="CONTRACT_Id_Contract" baseTableName="TGSI_SCENARIO"
+                                 constraintName="FK_TGSI_SCENARIO_TGSI_CONTRACT" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE"
+                                 referencedColumnNames="Id_Contract" referencedTableName="TGSI_CONTRACT"
+                                 validate="true"/>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-159">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_USER_OPTION_ELEMENT_TGSI_OPTION_ELEMENT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="OPTION_ELEMENT_Id_Option_Element"
+                                 baseTableName="TGSI_USER_OPTION_ELEMENT"
+                                 constraintName="FK_TGSI_USER_OPTION_ELEMENT_TGSI_OPTION_ELEMENT" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE"
+                                 referencedColumnNames="Id_Option_Element" referencedTableName="TGSI_OPTION_ELEMENT"
+                                 validate="true"/>
+    </changeSet>
+
+    <changeSet author="rcharre (generated)" id="1569920892527-160">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_USER_OPTION_ELEMENT_TGSI_USER"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="USER_Id_User" baseTableName="TGSI_USER_OPTION_ELEMENT"
+                                 constraintName="FK_TGSI_USER_OPTION_ELEMENT_TGSI_USER" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE"
+                                 referencedColumnNames="Id_User" referencedTableName="TGSI_USER" validate="true"/>
+    </changeSet>
+    
+    <changeSet author="rcharre (generated)" id="1569920892527-161">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_TGSI_USER_TGSI_ROLE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="ROLE_Id_Role" baseTableName="TGSI_USER"
+                                 constraintName="FK_TGSI_USER_TGSI_ROLE" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id_Role"
+                                 referencedTableName="TGSI_ROLE" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

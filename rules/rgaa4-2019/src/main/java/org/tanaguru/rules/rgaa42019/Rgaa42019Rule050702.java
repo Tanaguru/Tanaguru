@@ -19,7 +19,23 @@
  */
 package org.tanaguru.rules.rgaa42019;
 
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
+import org.tanaguru.rules.elementchecker.CompositeChecker;
+import org.tanaguru.rules.elementchecker.IndependentChecker;
+import org.tanaguru.rules.elementchecker.attribute.AttributePresenceChecker;
+import org.tanaguru.rules.elementchecker.attribute.AttributeWithValuePresenceChecker;
+import org.tanaguru.rules.elementchecker.attribute.AttributeWithValuesChecker;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
+
+import static org.tanaguru.rules.keystore.AttributeStore.SCOPE_ATTR;
+import static org.tanaguru.rules.keystore.HtmlElementStore.TH_ELEMENT;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.CHECK_USAGE_OF_SCOPE_ROW_OR_COL_MSG;
+import static org.tanaguru.rules.keystore.RemarkMessageStore.WRONG_SCOPE_VALUE_MSG;
+
+import java.util.Collections;
+
+import org.apache.commons.lang3.tuple.ImmutablePair;
 
 /**
  * Implementation of the rule 5-7-2 of the referential Rgaa4 2019.
@@ -29,13 +45,25 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @author edaconceicao
  */
 
-public class Rgaa42019Rule050702 extends AbstractNotTestedRuleImplementation {
+public class Rgaa42019Rule050702 extends AbstractPageRuleWithSelectorAndCheckerImplementation {
 
     /**
      * Default constructor
      */
     public Rgaa42019Rule050702 () {
-        super();
+        super(new SimpleElementSelector(TH_ELEMENT),
+        		new CompositeChecker(
+        				new AttributePresenceChecker(
+        						SCOPE_ATTR,
+        						new ImmutablePair(TestSolution.PASSED,"" ),
+            					new ImmutablePair(TestSolution.NOT_APPLICABLE, "")),
+		        		new AttributeWithValuesChecker(
+		        				SCOPE_ATTR,
+		    					"row",
+		    					"col",
+		    					new ImmutablePair(TestSolution.NEED_MORE_INFO, CHECK_USAGE_OF_SCOPE_ROW_OR_COL_MSG),
+		    					new ImmutablePair(TestSolution.FAILED, WRONG_SCOPE_VALUE_MSG),
+		    					SCOPE_ATTR)));
     }
 
 }

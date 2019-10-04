@@ -66,7 +66,7 @@ public abstract class WebResourceImpl implements WebResource, Serializable {
     private Set<ProcessResultImpl> processResultSet;
     @Column(name = "Rank", nullable = false)
     private int rank = 0;
-    @Column(name = "Snapshot", columnDefinition = "mediumblob")
+    @Column(name = "Snapshot", length=6000000)
     private byte[] snapshot;
 
     public WebResourceImpl() {

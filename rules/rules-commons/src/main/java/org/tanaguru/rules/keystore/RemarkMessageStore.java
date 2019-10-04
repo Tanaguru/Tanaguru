@@ -435,6 +435,10 @@ public final class RemarkMessageStore {
     		= "CheckUsageOfRowHeader";
     public static final String CHECK_USAGE_OF_COLUMN_HEADERS_MSG
 			= "CheckUsageOfColumnHeader";
+    public static final String CHECK_USAGE_OF_SCOPE_ROW_OR_COL_MSG
+			= "CheckUsageOfScopeRowOrCol";
+	public static final String WRONG_SCOPE_VALUE_MSG
+			= "WrongScopeValue";	
     public static final String CHECK_NATURE_OF_TABLE_AND_HEADERS_USAGE_MSG
             = "CheckNatureOfTableAndUsageOfHeaders";
     public static final String CHECK_DEFINITION_OF_HEADERS_FOR_DATA_TABLE_MSG
@@ -457,6 +461,10 @@ public final class RemarkMessageStore {
             = "CheckTableIsPresentationTable";
     public static final String DATA_TABLE_WITHOUT_HEADER_MSG
             = "DataTableWithoutHeader";
+    public static final String SUSPECTED_HEADERS_NOT_COVER_WHOLE_ELEMENT_MSG
+			= "SuspectedHeadersNotCoverWholeElement";
+    public static final String SUSPECTED_HEADERS_WELL_FORMED_COVER_WHOLE_ELEMENT_MSG
+    		= "SuspectedHeadersWellFormedCoverWholeElement";
     public static final String HEADER_DETECTED_CHECK_ALL_HEADERS_ARE_WELL_FORMED_MSG
             = "HeaderDetectedCheckAllHeadersAreWellFormed";
 

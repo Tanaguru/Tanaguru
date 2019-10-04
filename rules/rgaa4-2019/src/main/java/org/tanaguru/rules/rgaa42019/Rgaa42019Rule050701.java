@@ -19,7 +19,24 @@
  */
 package org.tanaguru.rules.rgaa42019;
 
-import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
+import java.util.Collections;
+
+import static org.tanaguru.rules.keystore.AttributeStore.ROLE_ATTR;
+import static org.tanaguru.rules.keystore.AttributeStore.SCOPE_ATTR;
+import static org.tanaguru.rules.keystore.HtmlElementStore.TH_ELEMENT;
+import static org.tanaguru.entity.audit.TestSolution.NEED_MORE_INFO;
+import static org.tanaguru.entity.audit.TestSolution.FAILED;
+import static org.tanaguru.entity.audit.TestSolution.PASSED;
+
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
+import org.tanaguru.rules.elementchecker.IndependentChecker;
+import org.tanaguru.rules.elementchecker.attribute.AttributePresenceChecker;
+import org.tanaguru.rules.elementchecker.attribute.AttributeWithValuePresenceChecker;
+import org.tanaguru.rules.elementchecker.attribute.IdUnicityChecker;
+import org.tanaguru.rules.elementselector.SimpleElementSelector;
+import org.tanaguru.rules.keystore.RemarkMessageStore;
 
 /**
  * Implementation of the rule 5-7-1 of the referential Rgaa4 2019.
@@ -29,13 +46,41 @@ import org.tanaguru.ruleimplementation.AbstractNotTestedRuleImplementation;
  * @author edaconceicao
  */
 
-public class Rgaa42019Rule050701 extends AbstractNotTestedRuleImplementation {
+public class Rgaa42019Rule050701 extends AbstractPageRuleWithSelectorAndCheckerImplementation {
 
     /**
      * Default constructor
      */
     public Rgaa42019Rule050701 () {
-        super();
+        super(new SimpleElementSelector(TH_ELEMENT),
+        		new IndependentChecker(
+        				new IdUnicityChecker(""),
+        				new AttributePresenceChecker(
+        						SCOPE_ATTR,
+        						new ImmutablePair(TestSolution.PASSED,""),
+        						new ImmutablePair(TestSolution.FAILED,"")),
+        				new AttributeWithValuePresenceChecker(
+        						ROLE_ATTR,
+        						"rowheader",
+        						new ImmutablePair(TestSolution.PASSED,""),
+        						new ImmutablePair(TestSolution.FAILED,"")),
+        				new AttributeWithValuePresenceChecker(
+        						ROLE_ATTR,
+        						"columnheader",
+        						new ImmutablePair(TestSolution.PASSED,""),
+        						new ImmutablePair(TestSolution.FAILED,""))));
+        
+        IndependentChecker ic = (IndependentChecker) getElementChecker();
+        ic.addCheckMessageFromSolution(
+        		PASSED,
+		        Collections.singletonMap(
+		                NEED_MORE_INFO, 
+		                RemarkMessageStore.SUSPECTED_HEADERS_WELL_FORMED_COVER_WHOLE_ELEMENT_MSG));
+        ic.addCheckMessageFromSolution(
+        		FAILED,
+		        Collections.singletonMap(
+		                NEED_MORE_INFO, 
+		                RemarkMessageStore.SUSPECTED_HEADERS_NOT_COVER_WHOLE_ELEMENT_MSG));
     }
 
 }

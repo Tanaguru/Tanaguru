@@ -41,6 +41,7 @@ public final class AttributeStore {
     public static final String DISABLED_ATTR = "disabled";
     public static final String FOR_ATTR = "for";
     public static final String HREF_ATTR = HTML.Attribute.HREF.toString();
+    public static final String HEADERS_ATTR = "headers";
     public static final String ID_ATTR = HTML.Attribute.ID.toString();
     public static final String LABEL_ATTR = "label";
     public static final String LANG_ATTR = HTML.Attribute.LANG.toString();
@@ -51,6 +52,7 @@ public final class AttributeStore {
     public static final String KIND_ATTR = "kind";
     public static final String DIR_ATTR = "dir";
     public static final String SRC_ATTR = HTML.Attribute.SRC.toString();
+    public static final String SCOPE_ATTR = "scope";
     public static final String SUMMARY_ATTR = "summary";
     public static final String TABINDEX_ATTR = "tabindex";
     public static final String TARGET_ATTR = HTML.Attribute.TARGET.toString();

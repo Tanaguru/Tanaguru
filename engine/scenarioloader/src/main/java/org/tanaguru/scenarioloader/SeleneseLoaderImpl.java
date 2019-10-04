@@ -62,7 +62,7 @@ public class SeleneseLoaderImpl extends AbstractScenarioLoader implements NewPag
                         case "click":
                             res = new TanaguruClick(index, name, args);
                             break;
-                        case "echo" :
+                        case "store" :
                             res = new TanaguruAudit(index, name, args);
                             break;
                         default:

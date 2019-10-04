@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <title>Rgaa42019 Test.05.07.01 NMI 02</title>
+    </head>
+    <body>
+        <div>
+            <h1>Rgaa42019 Test.05.07.01 NMI 02</h1>
+            <div class="test-detail" lang="fr">
+                Pour chaque tableau de données, la technique appropriée permettant d'associer chaque cellule avec ses en-têtes est-elle utilisée (hors cas particuliers) ?
+            </div>
+            <div class="testcase">
+	            <table>
+				    <caption>Mon tableau</caption>
+				    <thead>
+				        <tr>
+				            <td>&nbsp;</td>
+				            <th scope="col">Colonne 2</th>
+				            <th scope="col">Colonne 3</th>
+				        </tr>
+				    </thead>
+				    <tbody>
+				        <tr>
+				            <th scope="row">Ligne 1</th>
+				            <td headers="col-2 row-1">Blabla</td>
+				            <td headers="col-3 row-1">Blablabla</td>
+				        </tr>
+				        <tr>
+				            <th scope="row">Ligne 2</th>
+				            <td headers="col-2 row-2">Blabla</td>
+				            <td headers="col-3 row-2">Blablabla</td>
+				        </tr>
+				    </tbody>
+				</table>
+            </div>
+            <div class="test-explanation">
+                NMI. Th elements detected, have a scope attribute : needs to check if they cover whole row/column.
+            </div>
+        </div>
+    </body>
+</html>

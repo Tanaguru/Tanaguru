@@ -30,6 +30,8 @@
                 <prop key="hibernate.cache.region.factory_class">
                     org.hibernate.cache.ehcache.EhCacheRegionFactory
                 </prop>
+                <prop key="hibernate.globally_quoted_identifiers">false</prop>
+                <prop key="hibernate.id.new_generator_mappings">false</prop>
             </props>
         </property>
     </bean>

@@ -493,7 +493,7 @@ function buildPath(elem, parentPath, index) {
     if (name === 'body') {
         return name;
     } else {
-        name += ':eq(' + index + ')';
+        name += ':nth-child(' + (index + 1) + ')';
         return (parentPath ? parentPath + ' > ' + name : '' + name);
     }
 }

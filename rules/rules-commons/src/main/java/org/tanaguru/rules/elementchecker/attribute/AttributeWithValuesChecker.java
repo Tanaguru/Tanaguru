@@ -89,7 +89,7 @@ public class AttributeWithValuesChecker extends ElementCheckerImpl {
             return;
         }
 
-        TestSolution testSolution = TestSolution.NEED_MORE_INFO;
+        TestSolution testSolution = TestSolution.NOT_APPLICABLE;
 
         for (Element el : elements) {
 //            if 
@@ -103,13 +103,13 @@ public class AttributeWithValuesChecker extends ElementCheckerImpl {
 //                  
 //                  }
 
-                testSolution = setTestSolution(testSolution, TestSolution.FAILED);
-                createSourceCodeRemark(TestSolution.FAILED, el, getFailureMsgCode());
+                testSolution = setTestSolution(testSolution, getFailureSolution());
+                createSourceCodeRemark(getFailureSolution(), el, getFailureMsgCode());
                 
             } 
-           else if (StringUtils.isNotBlank(getSuccessMsgCode())) {
-               testSolution = setTestSolution(testSolution, TestSolution.NEED_MORE_INFO);
-               createSourceCodeRemark(TestSolution.NEED_MORE_INFO, el, getSuccessMsgCode());
+           else {
+               testSolution = setTestSolution(testSolution, getSuccessSolution());
+               createSourceCodeRemark(getSuccessSolution(), el, getSuccessMsgCode());
             }
               
         }

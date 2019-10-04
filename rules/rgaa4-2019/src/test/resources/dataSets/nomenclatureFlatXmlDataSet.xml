@@ -605,6 +605,8 @@
     <EVIDENCE Id_Evidence="44" Cd_Evidence="for" Description="NULL" Long_Label="NULL" />
     <EVIDENCE Id_Evidence="45" Cd_Evidence="placeholder" Description="NULL" Long_Label="NULL" />
     <EVIDENCE Id_Evidence="46" Cd_Evidence="xmlns" Description="NULL" Long_Label="NULL" />
+    <EVIDENCE Id_Evidence="47" Cd_Evidence="scope" Description="NULL" Long_Label="NULL" />
+    <EVIDENCE Id_Evidence="48" Cd_Evidence="headers" Description="NULL" Long_Label="NULL" />
     <EVIDENCE Id_Evidence="1004" Cd_Evidence="aria-hidden" Description="NULL" Long_Label="NULL" />
     <EVIDENCE Id_Evidence="1000" Cd_Evidence="Url" Description="NULL" Long_Label="NULL" />
     
