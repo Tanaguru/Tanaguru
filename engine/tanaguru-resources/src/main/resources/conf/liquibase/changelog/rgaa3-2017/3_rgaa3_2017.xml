@@ -176,7 +176,7 @@
         </sql>
     </changeSet>
 
-    <changeSet author="edaconceicao" id="rgaa32017_populate_CRITERION-2">
+    <changeSet author="edaconceicao" id="rgaa32017_update_CRITERION">
         <sql>
             UPDATE CRITERION SET Reference_Id_Reference = (SELECT Id_Reference FROM REFERENCE WHERE Cd_Reference LIKE 'Rgaa32017') WHERE Cd_Criterion LIKE 'Rgaa32017-%';
             UPDATE CRITERION SET Theme_Id_Theme = (SELECT Id_Theme FROM THEME WHERE Cd_Theme LIKE 'Rgaa32017-1') WHERE Cd_Criterion LIKE 'Rgaa32017-1-%';
@@ -540,7 +540,7 @@
         </sql>
     </changeSet>
 
-    <changeSet author="edaconceicao" id="rgaa32017_populate_TEST-2">
+    <changeSet author="edaconceicao" id="rgaa32017_update_TEST">
         <sql>
             UPDATE TEST SET Id_Criterion = (SELECT Id_Criterion FROM CRITERION WHERE Cd_Criterion LIKE 'Rgaa32017-1-1') WHERE Cd_Test LIKE 'Rgaa32017-1-1-%';
             UPDATE TEST SET Id_Criterion = (SELECT Id_Criterion FROM CRITERION WHERE Cd_Criterion LIKE 'Rgaa32017-1-2') WHERE Cd_Test LIKE 'Rgaa32017-1-2-%';
@@ -678,7 +678,7 @@
         </sql>
     </changeSet>
 
-    <changeSet author="edaconceicao" id="rgaa32017_populate_TEST-3">
+    <changeSet author="edaconceicao" id="rgaa32017_update_TEST-2">
         <sql>
             UPDATE TEST SET No_Process=FALSE WHERE
             Cd_Test='Rgaa32017-1-1-1' OR
@@ -887,7 +887,7 @@
         </sql>
     </changeSet>
 
-    <changeSet author="edaconceicao" id="rgaa32017_populate_TEST-4">
+    <changeSet author="edaconceicao" id="rgaa32017_update_TEST-3">
         <sql>
             UPDATE TEST SET Eaccess='1' WHERE Cd_Test LIKE 'Rgaa32017-%' AND Label='1.1.1';
             UPDATE TEST SET Eaccess='1' WHERE Cd_Test LIKE 'Rgaa32017-%' AND Label='1.1.2';
@@ -1249,7 +1249,7 @@
         </sql>
     </changeSet>
 
-    <changeSet author="edaconceicao" id="rgaa32017_ACCEDEWEB">
+    <changeSet author="rcharre" id="rgaa32017_update_ACCEDEWEB">
         <sql>
             UPDATE ACCEDEWEB set Dtype='H' where Dtype='T' ;
             UPDATE ACCEDEWEB set Dtype='G' where Dtype='R' ;
