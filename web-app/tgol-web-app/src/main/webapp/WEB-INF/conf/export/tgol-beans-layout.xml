@@ -15,7 +15,7 @@
     <bean id="page" class="ar.com.fdvs.dj.domain.constants.Page"/>
     <bean id="pageOrientation" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
-            <ref local="page"/>
+            <ref bean="page"/>
         </property>
         <property name="targetMethod">
             <value>Page_A4_Landscape</value>
@@ -86,6 +86,18 @@
         <property name="refAndLevelValueBundleList">
             <list>
                 <value>i18n/referential-rgaa32017-I18N</value>
+            </list>
+        </property>
+        <property name="refBundleName" value="i18n/parameters-I18N"/>
+        <property name="levelBundleName" value="i18n/parameters-I18N"/>
+        <property name="levelParamKey" value="LEVEL"/>
+    </bean>
+    
+    <bean id="subtitleBuilderrgaa4" class="org.tanaguru.webapp.report.layout.builder.SubtitleBuilderImpl">
+        <property name="bundleName" value="i18n/export-report-I18N"/>
+        <property name="refAndLevelValueBundleList">
+            <list>
+                <value>i18n/referential-rgaa42019-I18N</value>
             </list>
         </property>
         <property name="refBundleName" value="i18n/parameters-I18N"/>

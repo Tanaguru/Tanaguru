@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd"
+                   objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet author="rcharre" id="update_from_6-0-0_to_6-0-1_engine_EVIDENCE">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT count(*) FROM EVIDENCE WHERE Cd_Evidence='id'</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO EVIDENCE (Cd_Evidence, Description, Long_Label) VALUES
+            ('id', NULL, NULL),
+            ('tabindex', NULL, NULL),
+            ('for', NULL, NULL),
+            ('placeholder', NULL, NULL);
+        </sql>
+    </changeSet>
+
+    <!-- A previous version may had update RelativeCssUnits to UnrelativeCssUnits -->
+    <changeSet author="rcharre" id="update_from_6-0-0_to_6-0-1_engine_NOMENCLATURE-1">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT count(*) FROM NOMENCLATURE WHERE Cd_Nomenclature='UnrelativeCssUnits'</sqlCheck>
+        </preConditions>
+        <sql>
+            UPDATE NOMENCLATURE SET Cd_Nomenclature='UnrelativeCssUnits' WHERE Cd_Nomenclature='RelativeCssUnits';
+        </sql>
+    </changeSet>
+
+    <changeSet author="rcharre" id="update_from_6-0-0_to_6-0-1_engine_NOMENCLATURE-2">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT count(*) FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits'</sqlCheck>
+        </preConditions>
+        <sql>
+            UPDATE NOMENCLATURE SET Cd_Nomenclature='UnrelativeCssUnits' WHERE Cd_Nomenclature='RelativeCssUnits';
+        </sql>
+    </changeSet>
+
+    <changeSet author="rcharre" id="update_from_6-0-0_to_6-0-1_engine_NOMENCLATURE-3">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT count(*) FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits'</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO NOMENCLATURE (Cd_Nomenclature, Description, Long_Label, Short_Label, Id_Nomenclature_Parent) VALUES
+            ('RelativeCssUnits', NULL, NULL, NULL, NULL);
+        </sql>
+    </changeSet>
+
+    <changeSet author="rcharre" id="update_from_6-0-0_to_6-0-1_engine_NOMENCLATURE_ELEMENT">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT count(*) FROM NOMENCLATURE_ELEMENT WHERE Label='%'</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO NOMENCLATURE_ELEMENT (DTYPE, Label, shortValue, Id_Nomenclature) VALUES
+            ('NomenclatureCssUnitImpl', '%', 30, (SELECT Id_Nomenclature FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits')),
+            ('NomenclatureCssUnitImpl', 'em', 31, (SELECT Id_Nomenclature FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits')),
+            ('NomenclatureCssUnitImpl', 'rem', 32, (SELECT Id_Nomenclature FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits')),
+            ('NomenclatureCssUnitImpl', 'vw', 33, (SELECT Id_Nomenclature FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits')),
+            ('NomenclatureCssUnitImpl', 'vh', 34, (SELECT Id_Nomenclature FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits')),
+            ('NomenclatureCssUnitImpl', 'vmin', 35, (SELECT Id_Nomenclature FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits')),
+            ('NomenclatureCssUnitImpl', 'vmax', 36, (SELECT Id_Nomenclature FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits')),
+            ('NomenclatureCssUnitImpl', 'xx-small', 37, (SELECT Id_Nomenclature FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits')),
+            ('NomenclatureCssUnitImpl', 'x-small', 38, (SELECT Id_Nomenclature FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits')),
+            ('NomenclatureCssUnitImpl', 'small', 39, (SELECT Id_Nomenclature FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits')),
+            ('NomenclatureCssUnitImpl', 'medium', 40, (SELECT Id_Nomenclature FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits')),
+            ('NomenclatureCssUnitImpl', 'large', 41, (SELECT Id_Nomenclature FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits')),
+            ('NomenclatureCssUnitImpl', 'x-large', 42, (SELECT Id_Nomenclature FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits')),
+            ('NomenclatureCssUnitImpl', 'xx-large', 43, (SELECT Id_Nomenclature FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits')),
+            ('NomenclatureCssUnitImpl', 'xsmaller', 44, (SELECT Id_Nomenclature FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits')),
+            ('NomenclatureCssUnitImpl', 'larger', 45, (SELECT Id_Nomenclature FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits')),
+            ('NomenclatureCssUnitImpl', 'pt', 46, (SELECT Id_Nomenclature FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits')),
+            ('NomenclatureCssUnitImpl', 'pc', 47, (SELECT Id_Nomenclature FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits')),
+            ('NomenclatureCssUnitImpl', 'mm', 48, (SELECT Id_Nomenclature FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits')),
+            ('NomenclatureCssUnitImpl', 'cm', 49, (SELECT Id_Nomenclature FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits')),
+            ('NomenclatureCssUnitImpl', 'in', 50, (SELECT Id_Nomenclature FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits'));
+        </sql>
+    </changeSet>
+
+    <changeSet author="rcharre" id="update_from_6-0-0_to_6-0-1_engine_PARAMETER_FAMILY">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT count(*) FROM PARAMETER_FAMILY WHERE Cd_Parameter_Family='SCENARIO'</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO PARAMETER_FAMILY (Cd_Parameter_Family, Description, Long_Label, Short_Label) VALUES
+            ('SCENARIO', 'This parameter family handles all the parameters needed by the crawler component', 'scenario parameters', 'scenario params');
+        </sql>
+    </changeSet>
+
+    <changeSet author="rcharre" id="update_from_6-0-0_to_6-0-1_engine_PARAMETER_ELEMENT">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT count(*) FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element='PREVENT_DEFAULT_PAGE_FIRING'</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO PARAMETER_ELEMENT (Cd_Parameter_Element,Id_Parameter_Family,  Long_Label, Short_Label) VALUES
+            ('PREVENT_DEFAULT_PAGE_FIRING', (SELECT Id_Parameter_Family FROM PARAMETER_FAMILY WHERE Cd_Parameter_Family='SCENARIO'), 'Prevent automatic new page event', 'Prevent automatic new page event');
+
+            INSERT INTO PARAMETER (Id_Parameter_Element,  Parameter_Value, Is_Default) VALUES
+            ((SELECT Id_Parameter_Element FROM PARAMETER_ELEMENT WHERE Cd_Parameter_Element LIKE 'PREVENT_DEFAULT_PAGE_FIRING'), 'false', TRUE);
+        </sql>
+    </changeSet>
+</databaseChangeLog>

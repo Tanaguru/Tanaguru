@@ -207,4 +207,15 @@ public interface ActInfo {
      */
     Date getDateManual();
 
+    /**
+     *
+     * @return snapshot
+     */
+    String getSnapshot();
+
+    /**
+     *
+     * @param snapshot
+     */
+    void setSnapshot(String snapshot);
 }

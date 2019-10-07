@@ -6,7 +6,7 @@
     <groupId>org.tanaguru</groupId>
     <artifactId>tanaguru</artifactId>
     <packaging>pom</packaging>
-    <version>6.0.1</version>
+    <version>6.1.0</version>
     <name>tanaguru</name>
     <url>http://www.tanaguru.org</url>
     <modules>
@@ -34,26 +34,28 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+        <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+
         <engineGroupId>org.tanaguru</engineGroupId>
-        <engineVersion>6.0.1</engineVersion>
+        <engineVersion>6.1.0</engineVersion>
         
         <webappGroupId>org.tanaguru</webappGroupId>
-        <webappVersion>6.0.1</webappVersion>
+        <webappVersion>6.1.0</webappVersion>
         
         <testingToolsGroupId>org.tanaguru</testingToolsGroupId>
-        <testingToolsVersion>6.0.1</testingToolsVersion>
+        <testingToolsVersion>6.1.0</testingToolsVersion>
         
         <tanaguruCliGroupId>org.tanaguru</tanaguruCliGroupId>
-        <tanaguruCliVersion>6.0.1</tanaguruCliVersion>
+        <tanaguruCliVersion>6.1.0</tanaguruCliVersion>
         
         <rulesGroupId>org.tanaguru</rulesGroupId>
-        <rulesVersion>6.0.1</rulesVersion>
+        <rulesVersion>6.1.0</rulesVersion>
         
         <springGroupId>org.springframework</springGroupId>
-        <springVersion>3.1.2.RELEASE</springVersion>
+        <springVersion>5.1.5.RELEASE</springVersion>
 
         <hibernateGroupId>org.hibernate</hibernateGroupId>
-        <hibernateVersion>4.3.11.Final</hibernateVersion>
+        <hibernateVersion>5.4.1.Final</hibernateVersion>
         
         <junitGroupId>junit</junitGroupId>
         <junitVersion>3.8.2</junitVersion>
@@ -109,6 +111,16 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
+        <repository>
+            <url>http://jaspersoft.jfrog.io/jaspersoft/third-party-ce-artifacts/</url>
+            <id>jaspersoft</id>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
     </repositories>
 
     <build>
@@ -127,10 +139,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.17</version>
-                <configuration> 
-                    <!--                    <skipTests>true</skipTests>-->
-                    <encoding>UTF-8</encoding>
-                </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
@@ -221,6 +229,12 @@
             <dependency>
                 <groupId>${rulesGroupId}</groupId>
                 <artifactId>tanaguru-rgaa3-2017</artifactId>
+                <version>${rulesVersion}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>${rulesGroupId}</groupId>
+                <artifactId>tanaguru-rgaa4-2019</artifactId>
                 <version>${rulesVersion}</version>
                 <scope>runtime</scope>
             </dependency>
@@ -476,7 +490,13 @@
                 <scope>runtime</scope>
             </dependency>
 
-            <!-- mysql connector dependencies -->
+            <!-- https://mvnrepository.com/artifact/org.liquibase/liquibase-core -->
+            <dependency>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-core</artifactId>
+                <version>3.6.3</version>
+            </dependency>
+
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
@@ -491,7 +511,12 @@
                 <scope>test</scope>
             </dependency>
 
-            <!-- hibernate dependencies -->   
+            <!-- hibernate dependencies -->
+            <dependency>
+                <groupId>${hibernateGroupId}</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${hibernateVersion}</version>
+            </dependency>
             <dependency>
                 <groupId>${hibernateGroupId}</groupId>
                 <artifactId>hibernate-ehcache</artifactId>
@@ -929,21 +954,25 @@
                 </exclusions>
             </dependency>
             <!-- web dependencies -->
+            <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
             <dependency>
                 <groupId>javax.servlet</groupId>
-                <artifactId>servlet-api</artifactId>
-                <version>2.5</version>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>4.0.1</version>
             </dependency>
+
             <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>jsp-api</artifactId>
-                <version>2.0</version>
+                <groupId>javax.servlet.jsp</groupId>
+                <artifactId>javax.servlet.jsp-api</artifactId>
+                <version>2.3.3</version>
             </dependency>
+
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>jstl</artifactId>
-                <version>1.1.2</version>
+                <version>1.2</version>
             </dependency>
+
             <dependency>
                 <groupId>taglibs</groupId>
                 <artifactId>standard</artifactId>
@@ -986,7 +1015,7 @@
             <dependency>
                 <groupId>net.sf.jasperreports</groupId>
                 <artifactId>jasperreports</artifactId>
-                <version>5.2.0</version>
+                <version>6.7.0</version>
                 <exclusions>
                     <exclusion>
                         <groupId>commons-collections</groupId>
@@ -1037,7 +1066,7 @@
             <dependency>
                 <groupId>ar.com.fdvs</groupId>
                 <artifactId>DynamicJasper</artifactId>
-                <version>4.0.4</version>
+                <version>5.1.1</version>
                 <exclusions>
                     <exclusion>
                         <groupId>jasperreports</groupId>
@@ -1048,11 +1077,9 @@
             <dependency>
                 <groupId>net.sf.jasperreports</groupId>
                 <artifactId>jasperreports-fonts</artifactId>
-                <version>4.0.0</version>
+                <version>6.8.0</version>
                 <scope>runtime</scope>
             </dependency>
-
-
 
             <!-- EasyMock -->
             <dependency>
@@ -1113,7 +1140,7 @@
                 <!-- jsoup HTML parser library @ http://jsoup.org/ -->
                 <groupId>org.jsoup</groupId>
                 <artifactId>jsoup</artifactId>
-                <version>1.7.2</version>
+                <version>1.12.1</version>
             </dependency>
             <dependency> 
                 <groupId>com.phloc</groupId> 
@@ -1182,14 +1209,6 @@
                 <artifactId>javax.ws.rs-api</artifactId>
                 <version>2.0</version>
             </dependency>
-
-            <!-- servlet api 3 -->
-            <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>javax.servlet-api</artifactId>
-                <version>3.0.1</version>
-                <scope>provided</scope>
-            </dependency>
             
             <!-- jackson dependencies -->		
             <dependency>
@@ -1201,6 +1220,24 @@
                 <groupId>org.codehaus.jackson</groupId>
                 <artifactId>jackson-mapper-asl</artifactId>
                 <version>1.9.13</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>2.9.5</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.databind</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>2.9.5</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.annotations</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>2.9.5</version>
             </dependency>
             
             <!-- glassfish jersey -->

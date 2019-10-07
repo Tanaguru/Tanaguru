@@ -108,6 +108,11 @@
                 <c:set var="proportion" scope="page" value="span4"/>
                 <c:set var="offset" scope="page" value="offset0"/>
                 <c:set var="size" scope="page" value="S"/>
+                <c:choose>
+                    <c:when test="${contract.lastActInfo.status == 'COMPLETED'}">
+                        <c:set var="snapshot" scope="page" value="${contract.lastActInfo.snapshot}"/>
+                    </c:when>
+                </c:choose>
                 <%@include file="template/thumbnail.jsp" %>
                 <div class="span8 offset1">
                     <div class="project-meta-info">

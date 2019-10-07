@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    <head> 
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
+        <title>Rgaa32017 Test.11.01.04 NMI 03</title> 
+    </head> 
+    <body> 
+        <div> 
+            <h1>Rgaa32017 Test.11.01.04 NMI 03</h1> 
+            <div class="test-detail" lang="fr"> Chaque 
+                <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#mChpSaisie">champ de formulaire</a> qui utilise une propriété ARIA
+                <code>aria-label</code> ou <code>aria-labelledby</code> est-il, si nécessaire, accompagné d'un passage de texte visible et accolé au champ 
+                permettant de comprendre la nature de la saisie attendue ?
+            </div>
+            <div class="testcase"> 
+            	<p>Elements for input data</p>
+                <form action="http://action.html" method="post"> 
+                    <span id="NMI-03-M"> Text area:</span> 
+                	<textarea aria-labelledby="NMI-03-M">
+						Text area case for the test 11.1.4 of the RGAA3-2017.
+					</textarea>
+					
+                    <span id="NMI-03-N1;NMI-01-N2;NMI-01-N3;"> Choose best fruit and best color:</span> 
+					 <select aria-labelledby="NMI-03-N1">
+						 <optgroup label="Fruits" aria-labelledby="NMI-03-N2">
+						   <option value="Apple" aria-labelledby="NMI-03-N3">Apple</option>
+						   <option value="Banana" aria-labelledby="NMI-03-N3">Banana</option>
+						 </optgroup>
+						 <optgroup label="Colors" aria-labelledby="NMI-03-N2">
+						   <option value="Green" aria-labelledby="NMI-03-N3">Green</option>
+						   <option value="Yellow" aria-labelledby="NMI-03-N3">Yellow</option>
+						 </optgroup>
+					</select> 
+					
+                    <span id="NMI-03-P"> Choose your favorite color:</span> 
+					<datalist id="colors" aria-labelledby="NMI-03-P">
+						<option value="Green">Green</option>
+						<option value="Yellow">Yellow</option>
+						<option value="pink">Pink</option>
+						<option value="red">Red</option>
+						<option value="blue">Blue</option>
+					</datalist>
+					
+                    <span id="NMI-03-Q"> Result of the operation :</span> 
+					<form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+					    <input type="range" name="b" value="50" /> +
+					    <input type="number" name="a" value="10" /> =
+					    <output name="result" aria-labelledby="NMI-03-Q">60</output>
+					</form>
+					
+					<span id="NMI-03-R"> Download progression bar :</span> 
+					<progress id="file" max="100" value="70" aria-labelledby="NMI-03-R"> 30% </progress>
+					
+					<span id="NMI-03-S"> RAM unavailable bar :</span> 
+					<meter value="0.6" aria-labelledby="NMI-03-S">60%</meter>
+                </form>
+                <p class="test-explanation"> NMI : The detected inputs have an aria-labelledby attribute, so we need to check manually. </p> 
+            </div> 
+        </div>   
+    </body>
+</html>

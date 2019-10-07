@@ -120,4 +120,15 @@ public interface WebResource extends Entity {
      */
     void addAllProcessResult(Collection<ProcessResult> processResultList);
 
+    /**
+     *
+     * @param snapshot
+     */
+    void setSnapshot(byte[] snapshot);
+
+    /**
+     *
+     * @return snapshot
+     */
+    byte[] getSnapshot();
 }

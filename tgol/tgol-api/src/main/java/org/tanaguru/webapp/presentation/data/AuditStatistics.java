@@ -59,13 +59,13 @@ public interface AuditStatistics {
      *
      * @return
      */
-    String getSnapshotUrl();
+    String getSnapshot();
 
     /**
      *
-     * @param snapshotUrl
+     * @param snapshot
      */
-    void setSnapshotUrl(String snapshotUrl);
+    void setSnapshot(String snapshot);
 
     /**
      *

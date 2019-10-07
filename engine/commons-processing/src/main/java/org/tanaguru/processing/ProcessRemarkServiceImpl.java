@@ -31,7 +31,7 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
-import org.jsoup.helper.StringUtil;
+import org.jsoup.internal.StringUtil;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.tanaguru.entity.audit.*;
@@ -421,7 +421,7 @@ public class ProcessRemarkServiceImpl implements ProcessRemarkService {
     
     /**
      * 
-     * @param node
+     * @param element
      * @return
      */
     private int searchElementLineNumber(Element element) {
@@ -504,7 +504,7 @@ public class ProcessRemarkServiceImpl implements ProcessRemarkService {
     /**
      * This methods search the line where the current node is present in
      * the source code
-     * @param node
+     * @param element
      * @return
      */
     private int getElementIndex(Element element) {
@@ -545,7 +545,7 @@ public class ProcessRemarkServiceImpl implements ProcessRemarkService {
      * Initialisation of a local map that handles each source code line, 
      * keyed by the line number
      * 
-     * @param adaptedContent
+     * @param rawSource
      */
     private void initializeRawSourceCodeMap(String rawSource) {
         rawSourceCodeWithLine = new LinkedHashMap<>();
@@ -801,7 +801,8 @@ public class ProcessRemarkServiceImpl implements ProcessRemarkService {
     
     /**
      * 
-     * @param originalElementHtml
+     * @param elementHtml
+     * @param elementName
      * @return 
      */
     private String closeElement(String elementHtml, String elementName) {
@@ -819,7 +820,6 @@ public class ProcessRemarkServiceImpl implements ProcessRemarkService {
      * 
      * @param originalElementHtml
      * @param truncatedElementHtml
-     * @param indexOfElementToClose
      * @return 
      */
     private String closeInnerElement (

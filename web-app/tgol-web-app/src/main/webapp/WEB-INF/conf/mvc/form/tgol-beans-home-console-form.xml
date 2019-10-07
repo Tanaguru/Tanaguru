@@ -40,9 +40,9 @@
             <map>
                 <entry key="sort-by-choice">
                     <list>
-                        <ref local="markContractSelectElementBuilder"/>
-                        <ref local="alphabeticalContractSelectElementBuilder"/>
-                        <ref local="dateContractSelectElementBuilder"/>
+                        <ref bean="markContractSelectElementBuilder"/>
+                        <ref bean="alphabeticalContractSelectElementBuilder"/>
+                        <ref bean="dateContractSelectElementBuilder"/>
                     </list>
                 </entry>
             </map>
@@ -72,8 +72,8 @@
             <map>
                 <entry key="order-choice">
                     <list>
-                        <ref local="ascendingContractSelectElementBuilder"/>
-                        <ref local="descendingContractSelectElementBuilder"/>
+                        <ref bean="ascendingContractSelectElementBuilder"/>
+                        <ref bean="descendingContractSelectElementBuilder"/>
                     </list>
                 </entry>
             </map>

@@ -51,8 +51,7 @@ public class ExposablePropertyPlaceholderConfigurer extends PropertyPlaceholderC
         resolvedProps = new HashMap<String, String>();
         for (Object key : props.keySet()) {
             String keyStr = key.toString();
-            resolvedProps.put(keyStr, parseStringValue(props.getProperty(keyStr), props,
-                    new HashSet()));
+            resolvedProps.put(keyStr, props.getProperty(keyStr));
         }
     }
 

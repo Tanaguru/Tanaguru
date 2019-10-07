@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd"
+                   objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet author="rcharre" id="update_from_5-1-0_to_5-2-0_engine_AUDIT">
+        <modifyDataType tableName="AUDIT" columnName="Dt_Creation" newDataType="DATETIME(3)"/>
+    </changeSet>
+
+    <changeSet author="rcharre" id="update_from_5-1-0_to_5-2-0_engine_EVIDENCE">
+        <preConditions onFail="MARK_RAN">
+                <sqlCheck expectedResult="0">SELECT count(*) FROM EVIDENCE WHERE Cd_Evidence='aria-hidden'</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO EVIDENCE (Cd_Evidence) VALUES ('aria-hidden');
+        </sql>
+    </changeSet>
+
+    <changeSet author="rcharre" id="update_from_5-1-0_to_5-2-0_tgol_TGSI_ROLE">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT count(*) FROM TGSI_ROLE WHERE Role_Name='ROLE_SUPER_ADMIN'</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO TGSI_ROLE (Role_Name, ROLE_Id_Role) VALUES
+            (4, 'ROLE_SUPER_ADMIN', 2);
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

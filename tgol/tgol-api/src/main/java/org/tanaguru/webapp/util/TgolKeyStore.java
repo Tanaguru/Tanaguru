@@ -35,7 +35,7 @@ public final class TgolKeyStore {
     /* url keys */
     public static final String DISPATCH_URL = "/dispatch";
     public static final String LOGIN_URL = "/login";
-    public static final String LOGOUT_URL = "/logout";
+    public static final String LOGOUT_URL = "/perform_logout";
     public static final String HOME_URL = "/home";
     public static final String ACCOUNT_SETTINGS_URL = "/account-settings";
     public static final String TEST_WEIGHT_URL = "/test-weight";

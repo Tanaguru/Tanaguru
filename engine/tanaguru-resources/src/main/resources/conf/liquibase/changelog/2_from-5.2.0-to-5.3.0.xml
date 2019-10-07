@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd"
+                   objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet author="rcharre" id="update_from_5-2-0_to_5-3-0_engine_TEST_EACCESS">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="TEST" columnName="Eaccess"/>
+            </not>
+        </preConditions>
+        <addColumn tableName="TEST">
+            <column name="Eaccess" type="INT" afterColumn="Id_Level" defaultValue="NULL"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="rcharre" id="update_from_5-2-0_to_5-3-0_tgol_TGSI_OPTION">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT count(*) FROM TGSI_OPTION WHERE Code='IS_EACCESS_ENABLED_CONTRACT'</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO TGSI_OPTION (Code, Description, Is_Restriction, OPTION_FAMILY_Id_Option_Family)
+            VALUES ('IS_EACCESS_ENABLED_CONTRACT', 'IS the E-Accessibilite labale enabled on contract', TRUE, (SELECT Id_Option_Family FROM TGSI_OPTION_FAMILY WHERE Code='ACT_RESTRICTION'));
+        </sql>
+    </changeSet>
+</databaseChangeLog>

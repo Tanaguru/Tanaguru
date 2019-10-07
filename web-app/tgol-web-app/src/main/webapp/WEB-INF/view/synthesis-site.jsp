@@ -41,9 +41,6 @@
 <c:set var="scoreIEJsUrl" scope="request">
     <c:url value="/Js/ie/score/score-ie-min.js"/>
 </c:set>
-<c:set var="displaySnapshotJsUrl" scope="page">
-    <c:url value="/Js/snapshot/snapshot-min.js"/>
-</c:set>
 <!-- images --> 
 <c:set var="goToImgUrl">
     <c:url value="/Images/window-duplicate.png"/>
@@ -364,7 +361,6 @@
         <script type="text/javascript" src="${resultPageChartsJsUrl}"></script>
         <script type="text/javascript" src="${top5FailedThemeGraphJsUrl}"></script>
         <!--<![endif]-->
-        <script type="text/javascript" src="${displaySnapshotJsUrl}"></script>
     </body>
 </html>
 </compress:html>

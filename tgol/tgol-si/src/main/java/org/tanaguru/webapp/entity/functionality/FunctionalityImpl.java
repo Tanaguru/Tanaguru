@@ -47,7 +47,7 @@ public class FunctionalityImpl implements Functionality, Serializable {
     @Column(name = "Label")
     private String label;
 
-    @JoinColumn(name = "Description")
+    @Column(name = "Description")
     private String description;
 
     @Override

@@ -8,14 +8,10 @@
 <div class="${proportion} ${offset}">
     <div class="thumbnail" >
         <c:choose>
-            <c:when test="${url != '' && 
-                            scope != 'GROUPOFFILES' && 
-                            scope != 'FILE' && 
-                            scope != 'SCENARIO' && 
-                            not empty configProperties['snapshotServiceUrl']}">
-        <img src="${configProperties['snapshotServiceUrl']}&amp;${configProperties['snapshotServiceWidthKey']}=${width}&amp;${configProperties['snapshotServiceHeightKey']}=${height}&amp;url=${url}" 
-             alt="${url}" />
-        <br/>
+            <c:when test="${scope != 'FILE' &&
+                            not empty snapshot}">
+        <img src="data:image/png;base64, ${snapshot}"
+             alt="audit snapshot" height="${height}" width="${width}"/>
             </c:when>
             <c:otherwise>
                 <c:set var="tgLogoUrl">

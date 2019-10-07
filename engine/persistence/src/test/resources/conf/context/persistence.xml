@@ -38,7 +38,7 @@
     <class>org.tanaguru.entity.reference.AccedewebImpl</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
-      <property name="dialect" value="org.hibernate.dialect.HSQLDialect"/>
+      <property name="dialect" value="org.tanaguru.config.test.CustomHSQLDialect"/>
       <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
     </properties>
   </persistence-unit>

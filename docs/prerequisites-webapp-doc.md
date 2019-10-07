@@ -114,25 +114,25 @@ sudo update-rc.d xvfb defaults
 ## Firefox
 
 ### For 32-bit architecture
-Retrieve the [lastest version of firefox](http://download.cdn.mozilla.net/pub/mozilla.org/firefox/releases/61.0/linux-i686/en-US/firefox-61.0.tar.bz2).
+Retrieve the [lastest version of firefox](http://download.cdn.mozilla.net/pub/mozilla.org/firefox/releases/69.0/linux-i686/en-US/firefox-69.0.tar.bz2).
 Install it on your file system and make sure the binary is executable for the tomcat8 user.
 ```sh
 cd /opt
-sudo wget http://download-origin.cdn.mozilla.net/pub/firefox/releases/61.0/linux-i686/en-US/firefox-61.0.tar.bz2
-sudo tar xvfj firefox-61.0.tar.bz2
-sudo mv firefox firefox-61.0
-sudo ln -s firefox-61.0 firefox
+sudo wget http://download-origin.cdn.mozilla.net/pub/firefox/releases/69.0/linux-i686/en-US/firefox-69.0.tar.bz2
+sudo tar xvfj firefox-69.0.tar.bz2
+sudo mv firefox firefox-69.0
+sudo ln -s firefox-69.0 firefox
 ```
 
 ### For 64-bit architecture
-Retrieve the [lastest version of firefox](http://download.cdn.mozilla.net/pub/mozilla.org/firefox/releases/61.0/linux-x86_64/en-US/firefox-61.0.tar.bz2).
+Retrieve the [lastest version of firefox](http://download.cdn.mozilla.net/pub/mozilla.org/firefox/releases/69.0/linux-x86_64/en-US/firefox-69.0.tar.bz2).
 Install it on your file system and make sure the binary is executable for the tomcat8 user.
 ```sh
 cd /opt
-sudo wgethttp://download-origin.cdn.mozilla.net/pub/firefox/releases/61.0/linux-x86_64/en-US/firefox-61.0.tar.bz2
-sudo tar xvfj firefox-61.0.tar.bz2
-sudo mv firefox firefox-61.0
-sudo ln -s firefox-61.0 firefox
+sudo wgethttp://download-origin.cdn.mozilla.net/pub/firefox/releases/69.0/linux-x86_64/en-US/firefox-69.0.tar.bz2
+sudo tar xvfj firefox-69.0.tar.bz2
+sudo mv firefox firefox-69.0
+sudo ln -s firefox-69.0 firefox
 ```
 
 ## Geckodriver

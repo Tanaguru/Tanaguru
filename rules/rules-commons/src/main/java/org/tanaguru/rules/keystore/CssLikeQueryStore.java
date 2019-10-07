@@ -27,6 +27,7 @@ package org.tanaguru.rules.keystore;
 public final class CssLikeQueryStore {
 
     // Image theme css-like queries
+	public static final String ROLE_IMG_LIKE_QUERY = "[role=img]";
     public static final String IMG_WITHOUT_ALT_CSS_LIKE_QUERY = "img:not([alt])";
     public static final String IMG_WITH_ALT_CSS_LIKE_QUERY = "img[alt]";
     public static final String IMG_WITH_ALT_NOT_IN_LINK_CSS_LIKE_QUERY
@@ -34,6 +35,7 @@ public final class CssLikeQueryStore {
     public static final String IMG_WITH_ALT_NOT_IN_LINK_WITHOUT_LONGDESC_CSS_LIKE_QUERY
             = "img[alt]:not(a img):not([longdesc])";
     public static final String IMG_NOT_IN_LINK_CSS_LIKE_QUERY = "img:not(a img)";
+    public static final String IMG_ROLE_CSS_LIKE_QUERY = "[role=img]";
     public static final String IMG_WITH_ISMAP_ATTR_CSS_LIKE_QUERY
             = "img[ismap] , "
             + "input[type=image][ismap]";
@@ -127,6 +129,28 @@ public final class CssLikeQueryStore {
             + "td[scope] , "
             + "td[headers] , "
             + "td[axis]";
+    public static final String DATA_TABLE_MARKUP_CSS_LIKE_QUERY2
+		    = "caption , "
+		    + "th , "
+		    + "thead , "
+		    + "tfoot , "
+		    + "colgroup , "
+		    + "[role=rowheader] , "
+		    + "[role=columnheader] , "
+		    + "td[scope] , "
+		    + "td[headers] , "
+		    + "td[axis]";
+    public static final String DATA_TABLE_CSS_LIKE_QUERY
+    		= "table , "
+    		+ "[role=table]";
+    public static final String DATA_TABLE_WITH_TITLE_CSS_LIKE_QUERY
+			= "table:has(caption) , "
+			+"table[aria-labelledby] , "
+			+"table[aria-label] , "
+			+"table[title] , "
+			+"[role=table][aria-labelledby] , "
+			+"[role=table][aria-label] ,"
+			+"[role=table][title]";
 
     // Frame theme css-like queries
     public static final String FRAME_WITH_TITLE_CSS_LIKE_QUERY = "frame[title]";
@@ -282,7 +306,30 @@ public final class CssLikeQueryStore {
             + "input[type=time] ";
     
     
-    
+    public static final String INPUT_ELEMENT_CSS_LIKE_QUERY
+    		= "input[type=checkbox] , "
+    		+ "input[type=radio] , "
+    		+ "input[type=date] , "
+    		+ "input[type=range] , "
+    		+ "input[type=color] , "
+    		+ "input[type=time] , "
+    		+ "input[type=file] , "
+    		+ "input[type=password] , "
+            + "input[type=text] , "
+            + "input[type=search] , "
+            + "input[type=tel] , "
+            + "input[type=email] , "
+            + "input[type=number] , "
+            + "input[type=url] , "
+    		+ "textarea , "
+    		+ "select , "
+    		+ "datalist , "
+    		+ "optgroup , "
+    		+ "option , "
+    		+ "keygen , "
+    		+ "output , "
+    		+ "progress , "
+    		+ "meter";
     public static final String INPUT_ELEMENT_INSIDE_FORM_CSS_LIKE_QUERY
             = "form textarea:not([title]):not([aria-label]):not([aria-labelledby]) , "
             + "form select:not([title]):not([aria-label]):not([aria-labelledby]) , "

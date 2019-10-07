@@ -103,13 +103,24 @@ public final class RemarkMessageStore {
     public static final String CHECK_SEARCH_ELEMENT_ARIA_MSG = "CheckSearchElementAria";
     
     // images
+    public static final String INVALID_TEXT_ALTERNATIVE_MSG = "InvalidAlternativeMsg";
+    public static final String TEXT_ALTERNATIVE_MISSING = "TextAlternativeMissing";
+    public static final String CHECK_NATURE_OF_IMAGE= "CheckNatureOfImage";
+    public static final String CHECK_NATURE_OF_IMAGE_WITHOUT_TEXT_ALTERNATIVE
+    		= "CheckNatureOfImageWithoutTextAlternativeMissing";
+    public static final String CHECK_NATURE_OF_IMAGE_WITH_TEXT_ALTERNATIVE
+			= "CheckNatureOfImageWithTextAlternative";
     public static final String ALT_MISSING_MSG = "AltMissing";
     public static final String DECORATIVE_ELEMENT_WITH_NOT_EMPTY_ALT_MSG
             = "DecorativeElementWithNotEmptyAltAttribute";
+    public static final String DECORATIVE_ELEMENT_WITH_TEXT_ALTERNATIVE_MSG
+    		= "DecorativeElementWithTextAlternative";
     public static final String DECORATIVE_ELEMENT_WITH_ROLE_IMG_MSG
     		= "DecorativeElementWithRoleImgAttribute";
     public static final String DECORATIVE_ELEMENT_WITHOUT_ARIA_HIDDEN_TRUE_MSG
             = "DecorativeElementWithoutAriaHiddenTrueAttribute";
+    public static final String DECORATIVE_ELEMENT_WITHOUT_ROLE_PRESENTATION_MSG
+    		= "DecorativeElementWithoutRolePresentationAttribute";
     public static final String DECORATIVE_ELEMENT_WITH_TITLE_ATTR_MSG
             = "DecorativeElementWithTitleAttribute";
     public static final String DECORATIVE_ELEMENT_WITH_ARIA_LABEL_ATTR_MSG
@@ -212,6 +223,8 @@ public final class RemarkMessageStore {
             = "SuspectedInformativeSvgWithTitleAttributeOnElementOrChild";
     public static final String SUSPECTED_DECORATIVE_ELEMENT_WITHOUT_ARIA_HIDDEN_TRUE_MSG
     		= "SuspectedDecorativeImgWithoutAriaHiddenTrueAttribute";
+    public static final String SUSPECTED_DECORATIVE_ELEMENT_WITHOUT_ROLE_PRESENTATION_MSG
+    		= "SuspectedDecorativeImgWithoutRolePresentationAttribute";
     public static final String SUSPECTED_DECORATIVE_IMG_WITH_ARIA_ATTRIBUTE_DETECTED_ON_ELEMENT_OR_CHILD
             = "SuspectedDecorativeImgWithAriaAttributeDetectedOnElementOrChild";
     public static final String SUSPECTED_DECORATIVE_IMG_WITH_TITLE_ATTRIBUTE_ON_ELEMENT_OR_CHILD
@@ -295,10 +308,14 @@ public final class RemarkMessageStore {
     // frames 
     public static final String NOT_PERTINENT_TITLE_OF_FRAME_MSG
             = "NotPertinentTitleOfFrame";
+    public static final String NOT_PERTINENT_TITLE_OF_FRAME_MSG2
+    		= "NotPertinentTitleOfFrame2";
     public static final String NOT_PERTINENT_TITLE_OF_IFRAME_MSG
             = "NotPertinentTitleOfIframe";
     public static final String CHECK_TITLE_OF_FRAME_PERTINENCE_MSG
             = "CheckTitleOfFramePertinence";
+    public static final String CHECK_TITLE_OF_FRAME_PERTINENCE_MSG2
+    		= "CheckTitleOfFramePertinence2";
     public static final String CHECK_TITLE_OF_IFRAME_PERTINENCE_MSG
             = "CheckTitleOfIframePertinence";
     public static final String EMPTY_TITLE_OF_FRAME_MSG = "EmtpyTitleOfFrame";
@@ -344,15 +361,26 @@ public final class RemarkMessageStore {
     		= "CheckRepeatedLabelPertinence";
 
     // table
+    public static final String TABLE_TITLE_RELEVANT_CONTENT
+    		= "TableTitleRelevantContent";
+    public static final String TABLE_TITLE_NOT_RELEVANT_CONTENT
+			= "TableTitleNotRelevantContent";
+    public static final String WRONG_TITLE_ASSOCIATION_WITH_TABLE 
+    		= "WrongTitleAssociationWithTable";
     public static final String SUMMARY_MISSING_MSG = "SummaryMissing";
+    public static final String SUMMARY_TEXT_MISSING_MSG = "SummaryTextMissing";
     public static final String CHECK_NATURE_OF_TABLE_WITH_EMPTY_SUMMARY_MSG
             = "CheckNatureOfTableWithEmptySummaryAttribute";
     public static final String CHECK_NATURE_OF_TABLE_WITH_NOT_EMPTY_SUMMARY_MSG
             = "CheckNatureOfTableWithNotEmptySummaryAttribute";
     public static final String CHECK_NATURE_OF_TABLE_WITH_SUMMARY_MSG
             = "CheckNatureOfTableWithSummaryAttribute";
+    public static final String CHECK_NATURE_OF_TABLE_WITH_SUMMARY_TEXT_MSG
+    		= "CheckNatureOfTableWithSummaryText";
     public static final String CHECK_NATURE_OF_TABLE_WITHOUT_SUMMARY_MSG
             = "CheckNatureOfTableWithoutSummaryAttribute";
+    public static final String CHECK_NATURE_OF_TABLE_WITHOUT_SUMMARY_TEXT_MSG
+    		= "CheckNatureOfTableWithoutSummaryText";
     public static final String CAPTION_MISSING_MSG = "CaptionMissing";
     public static final String CAPTION_MISSING_ON_COMPLEX_TABLE_MSG = "CaptionMissingOnComplexTable";
     public static final String CHECK_NATURE_OF_TABLE_WITHOUT_CAPTION_MSG
@@ -371,28 +399,46 @@ public final class RemarkMessageStore {
             = "NotPertinentCaptionForDataTable";
     public static final String NOT_PERTINENT_CAPTION_FOR_COMPLEX_TABLE_MSG
             = "NotPertinentCaptionForComplexTable";
+    public static final String NOT_PERTINENT_SUMMARY_TEXT_FOR_COMPLEX_TABLE_MSG
+    		= "NotPertinentSummaryTextForComplexTable";
     public static final String CHECK_SUMMARY_PERTINENCE_FOR_DATA_TABLE_MSG
             = "CheckSummaryPertinenceForDataTable";
     public static final String CHECK_CAPTION_PERTINENCE_FOR_DATA_TABLE_MSG
             = "CheckCaptionPertinenceForDataTable";
     public static final String CHECK_CAPTION_PERTINENCE_FOR_COMPLEX_TABLE_MSG
             = "CheckCaptionPertinenceForComplexTable";
+    public static final String CHECK_SUMMARY_TEXT_PERTINENCE_FOR_COMPLEX_TABLE_MSG
+    		= "CheckSummaryTextPertinenceForComplexTable";
     public static final String CHECK_NATURE_OF_TABLE_FOR_NOT_PERTINENT_SUMMARY_MSG
             = "CheckNatureOfTableForNotPertinentSummary";
+    public static final String CHECK_NATURE_OF_TABLE_FOR_NOT_PERTINENT_SUMMARY_TEXT_MSG
+    		= "CheckNatureOfTableForNotPertinentSummaryText";
     public static final String CHECK_NATURE_OF_TABLE_FOR_NOT_PERTINENT_CAPTION_MSG
             = "CheckNatureOfTableForNotPertinentCaption";
     public static final String CHECK_TABLE_IS_COMPLEX_FOR_NOT_PERTINENT_CAPTION_MSG
             = "CheckTableIsComplexForNotPertinentCaption";
+    public static final String CHECK_TABLE_IS_COMPLEX_FOR_NOT_PERTINENT_SUMMARY_TEXT_MSG
+    		= "CheckTableIsComplexForNotPertinentSummaryText";
     public static final String CHECK_NATURE_OF_TABLE_AND_SUMMARY_PERTINENCE_MSG
             = "CheckNatureOfTableAndSummaryPertinence";
     public static final String CHECK_NATURE_OF_TABLE_AND_CAPTION_PERTINENCE_MSG
             = "CheckNatureOfTableAndCaptionPertinence";
     public static final String CHECK_TABLE_IS_COMPLEX_AND_CAPTION_PERTINENCE_MSG
             = "CheckTableIsComplexAndCaptionPertinence";
+    public static final String CHECK_TABLE_IS_COMPLEX_AND_SUMMARY_TEXT_PERTINENCE_MSG
+    		= "CheckTableIsComplexAndSummaryTextPertinence";
     public static final String CHECK_NATURE_OF_TABLE_AND_LINEARISED_CONTENT_MSG
             = "CheckNatureOfTableAndLinearisedContent";
     public static final String CHECK_USAGE_OF_HEADERS_FOR_DATA_TABLE_MSG
             = "CheckUsageOfHeaderForDataTable";
+    public static final String CHECK_USAGE_OF_ROW_HEADERS_MSG
+    		= "CheckUsageOfRowHeader";
+    public static final String CHECK_USAGE_OF_COLUMN_HEADERS_MSG
+			= "CheckUsageOfColumnHeader";
+    public static final String CHECK_USAGE_OF_SCOPE_ROW_OR_COL_MSG
+			= "CheckUsageOfScopeRowOrCol";
+	public static final String WRONG_SCOPE_VALUE_MSG
+			= "WrongScopeValue";	
     public static final String CHECK_NATURE_OF_TABLE_AND_HEADERS_USAGE_MSG
             = "CheckNatureOfTableAndUsageOfHeaders";
     public static final String CHECK_DEFINITION_OF_HEADERS_FOR_DATA_TABLE_MSG
@@ -415,6 +461,10 @@ public final class RemarkMessageStore {
             = "CheckTableIsPresentationTable";
     public static final String DATA_TABLE_WITHOUT_HEADER_MSG
             = "DataTableWithoutHeader";
+    public static final String SUSPECTED_HEADERS_NOT_COVER_WHOLE_ELEMENT_MSG
+			= "SuspectedHeadersNotCoverWholeElement";
+    public static final String SUSPECTED_HEADERS_WELL_FORMED_COVER_WHOLE_ELEMENT_MSG
+    		= "SuspectedHeadersWellFormedCoverWholeElement";
     public static final String HEADER_DETECTED_CHECK_ALL_HEADERS_ARE_WELL_FORMED_MSG
             = "HeaderDetectedCheckAllHeadersAreWellFormed";
 

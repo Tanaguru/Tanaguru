@@ -26,6 +26,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import junit.framework.TestCase;
 import static org.easymock.EasyMock.*;
+
+import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.tanaguru.webapp.action.Action;
 import org.tanaguru.webapp.action.voter.ActionHandler;
 import org.tanaguru.webapp.entity.contract.Act;
@@ -42,7 +44,6 @@ import org.tanaguru.webapp.presentation.factory.impl.ContractInfoFactoryImpl;
 import org.tanaguru.webapp.presentation.factory.impl.DetailedContractInfoFactoryImpl;
 import org.tanaguru.webapp.security.userdetails.TgolUserDetails;
 import org.tanaguru.webapp.util.TgolKeyStore;
-import org.springframework.security.authentication.AuthenticationDetails;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -63,7 +64,7 @@ public class ContractControllerTest extends TestCase {
     private ActDataService mockActDataService;
     private LocaleResolver mockLocaleResolver;
     private ActionHandler mockActionHandler;
-    private AuthenticationDetails mockAuthenticationDetails;
+    private WebAuthenticationDetails mockAuthenticationDetails;
     private Authentication mockAuthentication;
     private Contract mockContract;
     private User mockUser;
@@ -280,8 +281,8 @@ public class ContractControllerTest extends TestCase {
         expect(mockAuthentication.getAuthorities()).andReturn(null).anyTimes();
         replay(mockAuthentication);
         
-        mockAuthenticationDetails = createMock(AuthenticationDetails.class);
-        expect(mockAuthenticationDetails.getContext()).andReturn("test1@test.com").anyTimes();
+        mockAuthenticationDetails = createMock(WebAuthenticationDetails.class);
+        expect(mockAuthenticationDetails.getSessionId()).andReturn("test1@test.com").anyTimes();
         replay(mockAuthenticationDetails);
     }
  

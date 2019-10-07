@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    <head> 
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
+        <title>Rgaa32017 Test.11.01.3 NA 04</title> 
+    </head> 
+    <body> 
+        <div> 
+            <h1>Rgaa32017 Test.11.01.3 NA 04</h1> 
+            <div class="test-detail" lang="fr"> Chaque 
+                <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#mChpSaisie">champ de formulaire</a> qui utilise une propriété ARIA
+                <code>aria-label</code> ou <code>aria-labelledby</code> est-il, si nécessaire, accompagné d'un passage de texte visible et accolé au champ 
+                permettant de comprendre la nature de la saisie attendue ?
+            </div>
+            <div class="testcase"> 
+            	<p>Elements for input data</p>
+                <form action="http://action.html" method="post"> 
+                    <span> Text area:</span> 
+                	<textarea>
+						Text area case for the test 11.1.4 of the RGAA3-2017.
+					</textarea>
+					
+                    <span> Choose best fruit and best color:</span> 
+					 <select>
+						 <optgroup label="Fruits">
+						   <option value="Apple">Apple</option>
+						   <option value="Banana">Banana</option>
+						 </optgroup>
+						 <optgroup label="Colors">
+						   <option value="Green">Green</option>
+						   <option value="Yellow">Yellow</option>
+						 </optgroup>
+					</select> 
+					
+                    <span> Choose your favorite color:</span> 
+					<datalist id="colors">
+						<option value="Green">Green</option>
+						<option value="Yellow">Yellow</option>
+						<option value="pink">Pink</option>
+						<option value="red">Red</option>
+						<option value="blue">Blue</option>
+					</datalist>
+					
+                    <span> Result of the operation :</span> 
+					<form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+					    <input type="range" name="b" value="50" /> +
+					    <input type="number" name="a" value="10" /> =
+					    <output name="result">60</output>
+					</form>
+					
+					<span> Download progression bar :</span> 
+					<progress id="file" max="100" value="70"> 30% </progress>
+					
+					<span> RAM unavailable bar :</span> 
+					<meter value="0.6">60%</meter>
+                </form>
+                <p class="test-explanation"> NA : The detected inputs don't have an aria-label or aria-labelledby attributes, 
+                so it's out of scope. </p> 
+            </div> 
+        </div>   
+    </body>
+</html>

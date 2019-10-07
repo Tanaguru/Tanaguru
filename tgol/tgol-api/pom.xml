@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.tanaguru</groupId>
         <artifactId>tgol</artifactId>
-        <version>6.0.1</version>
+        <version>6.1.0</version>
     </parent>
     <artifactId>tgol-api</artifactId>
     <name>tgol-api</name>
@@ -49,7 +49,7 @@
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
+            <artifactId>javax.servlet-api</artifactId>
         </dependency>
 
 

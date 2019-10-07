@@ -90,7 +90,9 @@ public final class HtmlElementStore {
     public static final String TEXT_ELEMENT2 = "text";
     public static final String TEXTAREA_ELEMENT = HTML.Tag.TEXTAREA.toString();
     public static final String TH_ELEMENT = HTML.Tag.TH.toString();
+    public static final String THEAD_ELEMENT = "thead";
     public static final String TITLE_ELEMENT = HTML.Tag.TITLE.toString();
+    public static final String TR_ELEMENT = "tr";
     public static final String TT_ELEMENT = HTML.Tag.TT.toString();
     public static final String UL_ELEMENT = HTML.Tag.UL.toString();
     public static final String VAR_ELEMENT = HTML.Tag.VAR.toString();

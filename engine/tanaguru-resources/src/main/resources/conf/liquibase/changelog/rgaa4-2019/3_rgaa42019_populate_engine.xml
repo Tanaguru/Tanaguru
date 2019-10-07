@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd"
+                   objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet author="edaconceicao" id="rgaa42019_populate_THEME">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="13">SELECT COUNT(*) FROM THEME</sqlCheck>
+        </preConditions>
+        <loadData encoding="UTF-8"
+                  file="classpath:conf/liquibase/data/RGAA42019/RGAA42019_THEME.csv"
+                  tableName="THEME">
+        </loadData>
+    </changeSet>
+
+    <changeSet author="edaconceicao" id="rgaa42019_populate_REFERENCE">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">SELECT COUNT(*) FROM REFERENCE</sqlCheck>
+        </preConditions>
+        <loadData encoding="UTF-8"
+                  file="classpath:conf/liquibase/data/RGAA42019/RGAA42019_REFERENCE.csv"
+                  tableName="REFERENCE">
+        </loadData>
+    </changeSet>
+
+    <changeSet author="edaconceicao" id="rgaa42019_populate_CRITERION">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="133">SELECT COUNT(*) FROM CRITERION</sqlCheck>
+        </preConditions>
+        <loadData encoding="UTF-8"
+                  file="classpath:conf/liquibase/data/RGAA42019/RGAA42019_CRITERION.csv"
+                  tableName="CRITERION">
+        </loadData>
+    </changeSet>
+
+    <changeSet author="edaconceicao" id="rgaa42019_populate_TEST">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="335">SELECT COUNT(*) FROM TEST</sqlCheck>
+        </preConditions>
+        <loadData encoding="UTF-8"
+                  file="classpath:conf/liquibase/data/RGAA42019/RGAA42019_TEST.csv"
+                  tableName="TEST">
+        </loadData>
+    </changeSet>
+
+    <changeSet author="edaconceicao" id="rgaa42019_populate_PARAMETER">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="28">SELECT COUNT(*) FROM PARAMETER</sqlCheck>
+        </preConditions>
+        <loadData encoding="UTF-8"
+                  file="classpath:conf/liquibase/data/RGAA42019/RGAA42019_PARAMETER.csv"
+                  tableName="PARAMETER">
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

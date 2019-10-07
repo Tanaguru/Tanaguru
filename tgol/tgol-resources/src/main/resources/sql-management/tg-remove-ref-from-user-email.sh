@@ -26,23 +26,23 @@ if [ -z "$UserEmail" ] || [ -z "$Refs" ]; then
 	exit 0
 fi
 
-for ref in $Refs;do
-   if [ $ref = "r1" ];
-     then 
-        mysql -u $DbUser -p$DbUserPasswd $DbName -e "
-        call remove_ref_to_contract_from_user_email(\"$UserEmail\", 1);
-        "
-   fi
-   if [ $ref = "r2" ];
-     then 
-        mysql -u $DbUser -p$DbUserPasswd $DbName -e "
-        call remove_ref_to_contract_from_user_email(\"$UserEmail\", 3);
-        "
-   fi
-   if [ $ref = "r3" ];
-     then 
-        mysql -u $DbUser -p$DbUserPasswd $DbName -e "
-        call remove_ref_to_contract_from_user_email(\"$UserEmail\", 4);
-        "
-   fi
+for ref in $Refs;do 
+   if [ $ref = "r1" ]; 
+     then  
+        mysql -u $DbUser -p$DbUserPasswd $DbName -e " 
+        call remove_ref_to_contract_from_user_email(\"$UserEmail\", 1); 
+        " 
+   fi 
+   if [ $ref = "r2" ]; 
+     then  
+        mysql -u $DbUser -p$DbUserPasswd $DbName -e " 
+        call remove_ref_to_contract_from_user_email(\"$UserEmail\", 3); 
+        " 
+   fi 
+   if [ $ref = "r3" ]; 
+     then  
+        mysql -u $DbUser -p$DbUserPasswd $DbName -e " 
+        call remove_ref_to_contract_from_user_email(\"$UserEmail\", 4); 
+        " 
+   fi 
 done

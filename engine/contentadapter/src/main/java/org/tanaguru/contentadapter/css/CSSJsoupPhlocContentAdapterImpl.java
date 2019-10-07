@@ -232,7 +232,7 @@ public class CSSJsoupPhlocContentAdapterImpl extends AbstractContentAdapter impl
                     cssContent = (StylesheetContent)getContentDataService().saveOrUpdate(cssContent);
                 }
                 relatedCssIdSet.add(cssContent.getId());
-            } catch (PersistenceException | DataException pe) {
+            } catch (PersistenceException pe) {
                 adaptedContentOnError(cssContent, relatedCssIdSet);
             }
         }
@@ -241,7 +241,7 @@ public class CSSJsoupPhlocContentAdapterImpl extends AbstractContentAdapter impl
     
     /**
      * Get the list of media from the media attribute content
-     * @param mediaAttribute
+     * @param element
      * @return
      */
     private List<CSSMediaQuery> getListOfMediaFromAttributeValue(Element element) {
@@ -262,7 +262,7 @@ public class CSSJsoupPhlocContentAdapterImpl extends AbstractContentAdapter impl
      * Downloads an external resource and returns a Resource instance or null
      * if the download has failed
      * @param path
-     * @param mediaAttributeValue
+     * @param mediaList
      * @return
      */
     private boolean getExternalResourceAndAdapt(
@@ -383,8 +383,8 @@ public class CSSJsoupPhlocContentAdapterImpl extends AbstractContentAdapter impl
      * Search and download imported resources from resources found in the html
      * Can be call recursively if an imported stylesheet is defined within an
      * imported stylesheet
-     * @param resource
-     * @param path
+     * @param cssImportRule
+     * @param currentLocalResourcePath
      *          The resource path
      */
     private void getImportedResources(CSSImportRule cssImportRule, String currentLocalResourcePath) {
@@ -436,7 +436,7 @@ public class CSSJsoupPhlocContentAdapterImpl extends AbstractContentAdapter impl
      * @param stylesheetContent
      * @param resource
      * @param currentLocalResourcePath
-     * @param mediaAttributeValue
+     * @param mediaList
      * 
      */
     private void adaptContent(

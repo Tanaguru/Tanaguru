@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    <head> 
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
+        <title>Rgaa42019 Test.08.05.01 Failed 06</title> 
+    </head> 
+    <body> 
+        <div> 
+        	<title>TITLE ADDED</title> 
+            <h1>Rgaa42019 Test.08.05.01 Failed 06</h1> 
+            <div class="test-detail" lang="fr"> Chaque page Web a-t-elle un 
+                <a href="http://references.modernisation.gouv.fr/referentiel-technique-0#mTitrePage">titre de page</a> (balise 
+                <code>title</code>) ? 
+            </div> 
+            <div class="testcase"> 
+            	<svg width="220" height="70">
+				  <title>svg title for the test</title>
+				  <rect x="10" y="10" width="200" height="50"
+				    style="fill:wheat; stroke:blue; stroke-width:1px">
+				</svg>
+            </div> 
+            <p class="test-explanation"> Failed : One &lt;title&gt; tag in the &lt;body&gt; tag. 
+            A &lt;title&gt; tag is detected in the &lt;svg&gt; tag, but it's not a page title so it's out of scope. </p> 
+        </div>   
+    </body>
+</html>

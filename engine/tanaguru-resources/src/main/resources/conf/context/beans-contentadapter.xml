@@ -37,7 +37,7 @@
 
     <bean id="cssContentAdapterFactory" class="org.tanaguru.contentadapter.css.CSSContentAdapterFactoryImpl">
         <property name="externalCSSRetriever">
-            <ref local="externalCSSRetriever"/>
+            <ref bean="externalCSSRetriever"/>
         </property>
     </bean>
   
@@ -50,7 +50,7 @@
         <property name="htmlParserFactory" ref="htmlParserFactory"/>
         <property name="contentAdapterFactorySet">
             <set>
-                <ref local="cssContentAdapterFactory"/>
+                <ref bean="cssContentAdapterFactory"/>
             </set>
         </property>
         <property name="urlIdentifierFactory" ref="urlIdentifierFactory"/>

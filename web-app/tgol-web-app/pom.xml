@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.tanaguru</groupId>
         <artifactId>web-app</artifactId>
-        <version>6.0.1</version>
+        <version>6.1.0</version>
     </parent>
     <artifactId>tgol-web-app</artifactId>
     <packaging>war</packaging>
@@ -129,6 +129,10 @@
             <groupId>${rulesGroupId}</groupId>
             <artifactId>tanaguru-rgaa3-2017</artifactId>
         </dependency>
+        <dependency>
+            <groupId>${rulesGroupId}</groupId>
+            <artifactId>tanaguru-rgaa4-2019</artifactId>
+        </dependency>
        
         
         <!-- spring dependencies -->
@@ -228,12 +232,12 @@
         <!-- web dependencies -->
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
+            <artifactId>javax.servlet-api</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jsp-api</artifactId>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -327,6 +331,7 @@
             </properties>
         </profile>
         <profile>
+            <id>jenkins</id>
             <activation>
                 <!-- the "activation" command offer the ability to run this profile only if "property" is set
                 See http://maven.apache.org/guides/introduction/introduction-to-profiles.html -->

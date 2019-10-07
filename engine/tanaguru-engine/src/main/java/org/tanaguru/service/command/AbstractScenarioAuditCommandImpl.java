@@ -27,6 +27,9 @@ import org.apache.log4j.Logger;
 import org.tanaguru.entity.audit.AuditStatus;
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.service.audit.AuditDataService;
+import org.tanaguru.entity.subject.Site;
+import org.tanaguru.entity.subject.WebResource;
+import org.tanaguru.service.AuditServiceImpl;
 import org.tanaguru.service.ScenarioLoaderService;
 
 /**
@@ -132,12 +135,17 @@ public abstract class AbstractScenarioAuditCommandImpl extends AuditCommandImpl 
         // the returned content list is already persisted and associated with
         // the current audit
 
+
+
         createEmptySiteResource(scenarioName);
 
         scenarioLoaderService.loadScenario(getAudit(), scenario);
-        setStatusToAudit(AuditStatus.CONTENT_ADAPTING);
-        if (LOGGER.isInfoEnabled()) {
-            LOGGER.info(scenarioName +" has been loaded");
+
+        if (getContentDataService().hasContent(getAudit())) {
+            setStatusToAudit(AuditStatus.CONTENT_ADAPTING);
+        } else {
+            Logger.getLogger(AuditServiceImpl.class).warn("Audit has no content");
+            setStatusToAudit(AuditStatus.ERROR);
         }
     }
 }

@@ -14,11 +14,15 @@
     </div><!-- class="row"-->
 </c:if>
 <div id="synthesis-result" class="row">
-    <c:set var="url" scope="page" value="${statistics.snapshotUrl}"/>
     <c:set var="scope" scope="page" value="${statistics.auditScope}"/>
     <c:set var="proportion" scope="page" value="span5"/>
     <c:set var="offset" scope="page" value="offset0"/>
     <c:set var="size" scope="page" value="S"/>
+    <c:choose>
+        <c:when test="${not empty statistics.snapshot}">
+            <c:set var="snapshot" scope="page" value="${statistics.snapshot}"/>
+        </c:when>
+    </c:choose>
     <%@include file="thumbnail-audit-result.jsp" %>
     <div id="synthesis-meta-data" class="span8 offset0">
         <div id="project-url">

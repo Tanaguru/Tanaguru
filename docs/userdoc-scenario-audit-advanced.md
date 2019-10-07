@@ -21,10 +21,10 @@ about its accessibility.
 
 If sent as is in Tanaguru, the result of the scenario won't show the "third page"
 (precisely the detail of the path shown by the Javascript button *View Details*).
-We have to add a `echo` command at the end of the scenario.
+We have to add a `store` command at the end of the scenario.
 
 * Click under the last command recorded.
-* Type *echo* in then command field
+* Type *store* in the command field
 * Type the name you want Tanaguru use for this page ine field value : select_journey
 
 ![](Images/screenshot_20150309_TANAGURU_SCENARIO_step_M_EXTENDED_storeCurrentUrl.png)

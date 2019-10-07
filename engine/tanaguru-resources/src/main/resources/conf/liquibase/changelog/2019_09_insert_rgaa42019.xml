@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd"
+       objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet author="edaconceicao" id="update_rgaa4_test_1_1_1">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">SELECT COUNT(*) FROM TEST WHERE Id_Test=336 AND No_Process=TRUE</sqlCheck>
+        </preConditions>
+        <update tableName="TEST"> 
+          <column name="No_Process" valueBoolean="FALSE"/>
+          <where>Id_Test=336</where>
+      	</update>
+    </changeSet>
+    
+    <changeSet author="edaconceicao" id="update_rgaa4_test_1_1_2">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">SELECT COUNT(*) FROM TEST WHERE Id_Test=337 AND No_Process=TRUE</sqlCheck>
+        </preConditions>
+        <update tableName="TEST"> 
+          <column name="No_Process" valueBoolean="FALSE"/>
+          <where>Id_Test=337</where>
+      	</update>
+    </changeSet>
+
+    <changeSet author="edaconceicao" id="update_rgaa4_test_1_1_3">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">SELECT COUNT(*) FROM TEST WHERE Id_Test=338 AND No_Process=TRUE</sqlCheck>
+        </preConditions>
+        <update tableName="TEST"> 
+          <column name="No_Process" valueBoolean="FALSE"/>
+          <where>Id_Test=338</where>
+      	</update>
+    </changeSet>
+
+    <changeSet author="edaconceicao" id="update_rgaa4_test_1_1_4">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">SELECT COUNT(*) FROM TEST WHERE Id_Test=339 AND No_Process=TRUE</sqlCheck>
+        </preConditions>
+        <update tableName="TEST"> 
+          <column name="No_Process" valueBoolean="FALSE"/>
+          <where>Id_Test=339</where>
+      	</update>
+    </changeSet>
+
+    <changeSet author="edaconceicao" id="update_rgaa4_test_1_1_5">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">SELECT COUNT(*) FROM TEST WHERE Id_Test=340 AND No_Process=TRUE</sqlCheck>
+        </preConditions>
+        <update tableName="TEST"> 
+          <column name="No_Process" valueBoolean="FALSE"/>
+          <where>Id_Test=340</where>
+      	</update>
+    </changeSet>
+
+    <changeSet author="edaconceicao" id="update_rgaa4_test_1_1_6">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">SELECT COUNT(*) FROM TEST WHERE Id_Test=341 AND No_Process=TRUE</sqlCheck>
+        </preConditions>
+        <update tableName="TEST"> 
+          <column name="No_Process" valueBoolean="FALSE"/>
+          <where>Id_Test=341</where>
+      	</update>
+    </changeSet>
+
+    <changeSet author="edaconceicao" id="update_rgaa4_test_1_1_7">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">SELECT COUNT(*) FROM TEST WHERE Id_Test=342 AND No_Process=TRUE</sqlCheck>
+        </preConditions>
+        <update tableName="TEST"> 
+          <column name="No_Process" valueBoolean="FALSE"/>
+          <where>Id_Test=342</where>
+      	</update>
+    </changeSet>
+
+    <changeSet author="edaconceicao" id="update_rgaa4_test_1_1_8">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">SELECT COUNT(*) FROM TEST WHERE Id_Test=343 AND No_Process=TRUE</sqlCheck>
+        </preConditions>
+        <update tableName="TEST"> 
+          <column name="No_Process" valueBoolean="FALSE"/>
+          <where>Id_Test=343</where>
+      	</update>
+    </changeSet>
+
+    <changeSet author="edaconceicao" id="update_rgaa4_test_1_2_1">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">SELECT COUNT(*) FROM TEST WHERE Id_Test=344 AND No_Process=TRUE</sqlCheck>
+        </preConditions>
+        <update tableName="TEST"> 
+          <column name="No_Process" valueBoolean="FALSE"/>
+          <where>Id_Test=344</where>
+      	</update>
+    </changeSet>
+
+    <changeSet author="edaconceicao" id="update_rgaa4_test_2_1_1">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">SELECT COUNT(*) FROM TEST WHERE Id_Test=394 AND No_Process=TRUE</sqlCheck>
+        </preConditions>
+        <update tableName="TEST"> 
+          <column name="No_Process" valueBoolean="FALSE"/>
+          <where>Id_Test=394</where>
+      	</update>
+    </changeSet>
+
+    <changeSet author="edaconceicao" id="update_rgaa4_test_2_2_1">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">SELECT COUNT(*) FROM TEST WHERE Id_Test=395 AND No_Process=TRUE</sqlCheck>
+        </preConditions>
+        <update tableName="TEST"> 
+          <column name="No_Process" valueBoolean="FALSE"/>
+          <where>Id_Test=395</where>
+      	</update>
+    </changeSet>
+
+    <changeSet author="edaconceicao" id="update_rgaa4_test_5_1_1">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">SELECT COUNT(*) FROM TEST WHERE Id_Test=436 AND No_Process=TRUE</sqlCheck>
+        </preConditions>
+        <update tableName="TEST"> 
+          <column name="No_Process" valueBoolean="FALSE"/>
+          <where>Id_Test=436</where>
+      	</update>
+    </changeSet>
+
+    <changeSet author="edaconceicao" id="update_rgaa4_test_5_2_1">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">SELECT COUNT(*) FROM TEST WHERE Id_Test=437 AND No_Process=TRUE</sqlCheck>
+        </preConditions>
+        <update tableName="TEST"> 
+          <column name="No_Process" valueBoolean="FALSE"/>
+          <where>Id_Test=437</where>
+      	</update>
+    </changeSet>
+
+    <changeSet author="edaconceicao" id="update_rgaa4_test_5_3_1">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">SELECT COUNT(*) FROM TEST WHERE Id_Test=438 AND No_Process=TRUE</sqlCheck>
+        </preConditions>
+        <update tableName="TEST"> 
+          <column name="No_Process" valueBoolean="FALSE"/>
+          <where>Id_Test=438</where>
+      	</update>
+    </changeSet>
+
+    <changeSet author="edaconceicao" id="update_rgaa4_test_5_4_1">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">SELECT COUNT(*) FROM TEST WHERE Id_Test=439 AND No_Process=TRUE</sqlCheck>
+        </preConditions>
+        <update tableName="TEST"> 
+          <column name="No_Process" valueBoolean="FALSE"/>
+          <where>Id_Test=439</where>
+      	</update>
+    </changeSet>
+
+    <changeSet author="edaconceicao" id="update_rgaa4_test_5_5_1">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">SELECT COUNT(*) FROM TEST WHERE Id_Test=440 AND No_Process=TRUE</sqlCheck>
+        </preConditions>
+        <update tableName="TEST"> 
+          <column name="No_Process" valueBoolean="FALSE"/>
+          <where>Id_Test=440</where>
+      	</update>
+    </changeSet>
+
+    <changeSet author="edaconceicao" id="update_rgaa4_test_5_6_1">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">SELECT COUNT(*) FROM TEST WHERE Id_Test=441 AND No_Process=TRUE</sqlCheck>
+        </preConditions>
+        <update tableName="TEST"> 
+          <column name="No_Process" valueBoolean="FALSE"/>
+          <where>Id_Test=441</where>
+      	</update>
+    </changeSet>
+
+    <changeSet author="edaconceicao" id="update_rgaa4_test_5_8_1">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">SELECT COUNT(*) FROM TEST WHERE Id_Test=449 AND No_Process=TRUE</sqlCheck>
+        </preConditions>
+        <update tableName="TEST"> 
+          <column name="No_Process" valueBoolean="FALSE"/>
+          <where>Id_Test=449</where>
+      	</update>
+    </changeSet>
+
+</databaseChangeLog>

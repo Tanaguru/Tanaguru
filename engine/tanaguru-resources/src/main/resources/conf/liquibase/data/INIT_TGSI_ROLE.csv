@@ -1,0 +1,5 @@
+"Id_Role","Role_Name","ROLE_Id_Role"
+"1","ROLE_GUEST",NULL
+"2","ROLE_USER",NULL
+"3","ROLE_ADMIN","2"
+"4","ROLE_SUPER_ADMIN","2"

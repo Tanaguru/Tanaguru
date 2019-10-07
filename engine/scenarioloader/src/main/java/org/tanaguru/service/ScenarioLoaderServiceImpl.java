@@ -79,8 +79,6 @@ public class ScenarioLoaderServiceImpl implements ScenarioLoaderService {
             content.setAudit(audit);
             contentDataService.saveAuditToContent(content.getId(),audit.getId());
         }
-        // Before returning the list of content we save the webResource
-        webResourceDataService.saveOrUpdate(audit.getSubject());
         return contentList;
     }
 }

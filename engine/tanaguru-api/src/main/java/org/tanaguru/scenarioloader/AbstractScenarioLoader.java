@@ -1,5 +1,6 @@
 package org.tanaguru.scenarioloader;
 
+import okhttp3.internal.cache.DiskLruCache;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpStatus;
 import org.apache.log4j.Logger;
@@ -105,6 +106,7 @@ public abstract class AbstractScenarioLoader implements ScenarioLoader {
 
         Page page = getWebResource(url);
         page.setLabel(label);
+        page.setSnapshot(snapshotContent);
         page = (Page) webResourceDataService.saveOrUpdate(page);
 
         SSP ssp = contentDataService.getSSP(
@@ -116,13 +118,6 @@ public abstract class AbstractScenarioLoader implements ScenarioLoader {
         ssp.setCharset(charset);
         contentDataService.saveOrUpdate(ssp);
         result.add(ssp);
-
-//        if (snapshotContent != null) {
-//            Snapshot snapshot = snapshotFactory.create(
-//                    page,
-//                    snapshotContent);
-//            snapshotDataService.saveOrUpdate(snapshot);
-//        }
 
         Audit audit = null;
         if (page.getAudit() != null) {

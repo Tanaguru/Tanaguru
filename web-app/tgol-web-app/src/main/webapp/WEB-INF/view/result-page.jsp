@@ -62,9 +62,6 @@
 <c:set var="progressBarJsUrl" scope="page">
     <c:url value="/Js/progress-bar/progress-bar-min.js"/>
 </c:set>
-<c:set var="displaySnapshotJsUrl" scope="page">
-    <c:url value="/Js/snapshot/snapshot-min.js"/>
-</c:set>
 <c:set var="detailResultManualJsUrl">
     <c:url value="/Js/result-page/detail-result-manual-min.js"/>  
 </c:set>
@@ -286,7 +283,6 @@
         <script type="text/javascript" src="${scoreJsUrl}"></script>
         <script type="text/javascript" src="${resultPageChartsJsUrl}"></script>
         <!--<![endif]-->
-        <script type="text/javascript" src="${displaySnapshotJsUrl}"></script>
         <script type="text/javascript" src="${orderPractices}"></script>
         <script type="text/javascript" src="${reorderResultsTable}"></script>
         <script type="text/javascript" src="${triggerPrint}"></script>

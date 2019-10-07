@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.tanaguru</groupId>
         <artifactId>tanaguru</artifactId>
-        <version>6.0.1</version>
+        <version>6.1.0</version>
     </parent>
     <artifactId>web-app</artifactId>
     <packaging>pom</packaging>

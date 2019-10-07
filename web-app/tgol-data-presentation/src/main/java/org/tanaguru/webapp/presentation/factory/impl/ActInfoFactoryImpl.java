@@ -21,12 +21,14 @@
  */
 package org.tanaguru.webapp.presentation.factory.impl;
 
+import java.util.Base64;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import org.tanaguru.entity.audit.Audit;
 import org.tanaguru.entity.audit.AuditStatus;
 import org.tanaguru.entity.service.audit.ContentDataService;
+import org.tanaguru.entity.subject.PageImpl;
 import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.webapp.entity.contract.Act;
 import org.tanaguru.webapp.entity.decorator.tanaguru.parameterization.ParameterDataServiceDecorator;
@@ -107,6 +109,12 @@ public final class ActInfoFactoryImpl implements ActInfoFactory {
                     || audit.getStatus().equals(AuditStatus.MANUAL_COMPLETED)) {
                 actInfo.setWeightedMark(statisticsDataService.getMarkByWebResourceAndAudit(wr, false, false).intValue());
                 actInfo.setRawMark(statisticsDataService.getMarkByWebResourceAndAudit(wr, true, false).intValue());
+
+                if(wr.getSnapshot() != null){
+                    String b64Snapshot = Base64.getEncoder().encodeToString(wr.getSnapshot());
+                    actInfo.setSnapshot(b64Snapshot);
+                }
+
                 if (actInfo.getRawMark() == -1) {
                     actInfo.setRawMark(0);
                 }
