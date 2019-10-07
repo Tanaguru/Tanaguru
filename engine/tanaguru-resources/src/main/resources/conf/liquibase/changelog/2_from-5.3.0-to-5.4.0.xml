@@ -10,7 +10,7 @@
             <sqlCheck expectedResult="0">SELECT count(*) FROM EVIDENCE WHERE Cd_Evidence='type'</sqlCheck>
         </preConditions>
         <sql>
-            INSERT INTO EVIDENCE (Cd_Evidence) VALUE ('type');
+            INSERT INTO EVIDENCE (Cd_Evidence) VALUES ('type');
         </sql>
     </changeSet>
 </databaseChangeLog>

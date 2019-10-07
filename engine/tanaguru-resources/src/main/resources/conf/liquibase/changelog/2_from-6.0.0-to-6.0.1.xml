@@ -42,7 +42,7 @@
             <sqlCheck expectedResult="0">SELECT count(*) FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits'</sqlCheck>
         </preConditions>
         <sql>
-            INSERT IGNORE INTO NOMENCLATURE (Cd_Nomenclature, Description, Long_Label, Short_Label, Id_Nomenclature_Parent) VALUES
+            INSERT INTO NOMENCLATURE (Cd_Nomenclature, Description, Long_Label, Short_Label, Id_Nomenclature_Parent) VALUES
             ('RelativeCssUnits', NULL, NULL, NULL, NULL);
         </sql>
     </changeSet>
@@ -52,7 +52,7 @@
             <sqlCheck expectedResult="0">SELECT count(*) FROM NOMENCLATURE_ELEMENT WHERE Label='%'</sqlCheck>
         </preConditions>
         <sql>
-            INSERT IGNORE INTO NOMENCLATURE_ELEMENT (DTYPE, Label, shortValue, Id_Nomenclature) VALUES
+            INSERT INTO NOMENCLATURE_ELEMENT (DTYPE, Label, shortValue, Id_Nomenclature) VALUES
             ('NomenclatureCssUnitImpl', '%', 30, (SELECT Id_Nomenclature FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits')),
             ('NomenclatureCssUnitImpl', 'em', 31, (SELECT Id_Nomenclature FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits')),
             ('NomenclatureCssUnitImpl', 'rem', 32, (SELECT Id_Nomenclature FROM NOMENCLATURE WHERE Cd_Nomenclature='RelativeCssUnits')),

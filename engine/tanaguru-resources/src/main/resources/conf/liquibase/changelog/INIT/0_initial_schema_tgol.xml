@@ -72,7 +72,7 @@
                 <constraints nullable="false"/>
             </column>
             <column name="Renewal_Date" type="datetime"/>
-            <column name="Price" type="FLOAT(12) UNSIGNED"/>
+            <column name="Price" type="FLOAT(12)"/>
             <column name="USER_Id_User" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
@@ -155,7 +155,7 @@
             </column>
             <column name="Label" type="VARCHAR(255)"/>
             <column name="Description" type="VARCHAR(2048)"/>
-            <column defaultValueBoolean="true" name="Is_Restriction" type="BIT(1)"/>
+            <column defaultValueBoolean="true" name="Is_Restriction" type="BOOLEAN"/>
             <column name="OPTION_FAMILY_Id_Option_Family" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
@@ -302,7 +302,7 @@
             <column name="ROLE_Id_Role" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column defaultValueBoolean="true" name="Activated" type="BIT(1)"/>
+            <column defaultValueBoolean="true" name="Activated" type="BOOLEAN"/>
         </createTable>
     </changeSet>
     <changeSet author="rcharre (generated)" id="1569920892527-42">
@@ -327,7 +327,7 @@
                 <indexExists tableName="TGSI_ACT_AUDIT" columnNames="ACT_Id_Act, AUDIT_Id_Audit"/>
             </not>
         </preConditions>
-        <addUniqueConstraint columnNames="ACT_Id_Act, AUDIT_Id_Audit" constraintName="INDEX_UNIQUE_PAIR"
+        <addUniqueConstraint columnNames="ACT_Id_Act, AUDIT_Id_Audit" constraintName="INDEX_UNIQUE_PAIR_TGSI_ACT_AUDIT"
                              tableName="TGSI_ACT_AUDIT"/>
     </changeSet>
 
@@ -338,7 +338,7 @@
             </not>
         </preConditions>
         <addUniqueConstraint columnNames="FUNCTIONALITY_Id_Functionality, CONTRACT_Id_Contract"
-                             constraintName="INDEX_UNIQUE_PAIR" tableName="TGSI_CONTRACT_FUNCTIONALITY"/>
+                             constraintName="INDEX_UNIQUE_PAIR_TGSI_CONTRACT_FUNCTIONALITY" tableName="TGSI_CONTRACT_FUNCTIONALITY"/>
     </changeSet>
 
     <changeSet author="rcharre (generated)" id="1569920892527-49">
@@ -348,7 +348,7 @@
             </not>
         </preConditions>
         <addUniqueConstraint columnNames="OPTION_ELEMENT_Id_Option_Element, CONTRACT_Id_Contract"
-                             constraintName="INDEX_UNIQUE_PAIR" tableName="TGSI_CONTRACT_OPTION_ELEMENT"/>
+                             constraintName="INDEX_UNIQUE_PAIR_TGSI_CONTRACT_OPTION_ELEMENT" tableName="TGSI_CONTRACT_OPTION_ELEMENT"/>
     </changeSet>
 
     <changeSet author="rcharre (generated)" id="1569920892527-50">
@@ -358,7 +358,7 @@
             </not>
         </preConditions>
         <addUniqueConstraint columnNames="REFERENTIAL_Id_Referential, CONTRACT_Id_Contract"
-                             constraintName="INDEX_UNIQUE_PAIR" tableName="TGSI_CONTRACT_REFERENTIAL"/>
+                             constraintName="INDEX_UNIQUE_PAIR_TGSI_CONTRACT_REFERENTIAL" tableName="TGSI_CONTRACT_REFERENTIAL"/>
     </changeSet>
 
     <changeSet author="rcharre (generated)" id="1569920892527-51">
@@ -367,7 +367,7 @@
                 <indexExists tableName="TGSI_OPTION_ELEMENT" columnNames="OPTION_Id_Option, Value"/>
             </not>
         </preConditions>
-        <addUniqueConstraint columnNames="OPTION_Id_Option, Value" constraintName="INDEX_UNIQUE_PAIR"
+        <addUniqueConstraint columnNames="OPTION_Id_Option, Value" constraintName="INDEX_UNIQUE_PAIR_TGSI_OPTION_ELEMENT"
                              tableName="TGSI_OPTION_ELEMENT"/>
     </changeSet>
 
@@ -378,7 +378,7 @@
             </not>
         </preConditions>
         <addUniqueConstraint columnNames="OPTION_ELEMENT_Id_Option_Element, USER_Id_User"
-                             constraintName="INDEX_UNIQUE_PAIR" tableName="TGSI_USER_OPTION_ELEMENT"/>
+                             constraintName="INDEX_UNIQUE_PAIR_TGSI_USER_OPTION_ELEMENT" tableName="TGSI_USER_OPTION_ELEMENT"/>
     </changeSet>
 
 
