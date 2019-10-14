@@ -1015,17 +1015,6 @@
         </createIndex>
     </changeSet>
 
-    <changeSet author="rcharre (generated)" id="1569917765381-65">
-        <preConditions onFail="MARK_RAN">
-            <not>
-                <indexExists tableName="CONTENT" columnNames="Uri" />
-            </not>
-        </preConditions>
-        <createIndex indexName="Uri_Index" tableName="CONTENT">
-            <column name="Uri"/>
-        </createIndex>
-    </changeSet>
-
     <changeSet author="rcharre (generated)" id="1569917765381-66">
         <preConditions onFail="MARK_RAN">
             <not>
