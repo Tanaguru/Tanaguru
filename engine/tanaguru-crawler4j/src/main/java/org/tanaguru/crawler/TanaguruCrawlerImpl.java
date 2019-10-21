@@ -48,7 +48,8 @@ public class TanaguruCrawlerImpl extends WebCrawler {
         LOGGER.info("Visiting page : " + page.getWebURL());
 
         if(page.getStatusCode() != HTTP_SUCCESS_RETURN_CODE
-                || ! page.getContentType().contains("text/html")){
+                || page.getContentType() == null
+                || !page.getContentType().contains("text/html")){
             LOGGER.error("Page content does not match html");
             return;
         }
