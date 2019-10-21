@@ -131,7 +131,7 @@ public final class TestResultFactoryImpl implements TestResultFactory {
             boolean hasResultDetails,
             boolean truncatable) {
         TestResult testResult = new TestResultImpl();
-        testResult.setTestUrl(processResult.getTest().getDescription());
+        testResult.setTestUrl(processResult.getTest().getRule().getDescription());
         testResult.setTestShortLabel(processResult.getTest().getLabel());
         testResult.setTestCode(processResult.getTest().getCode());
         testResult.setLevelCode(processResult.getTest().getLevel().getCode());

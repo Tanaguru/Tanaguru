@@ -31,6 +31,10 @@
         </dependency>
         <dependency>
             <groupId>${engineGroupId}</groupId>
+            <artifactId>tanaguru-audit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${engineGroupId}</groupId>
             <artifactId>tanaguru-resources</artifactId>
         </dependency>
         <dependency>

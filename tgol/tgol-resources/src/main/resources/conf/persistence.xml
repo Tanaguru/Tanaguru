@@ -28,6 +28,7 @@
         <class>org.tanaguru.entity.reference.ReferenceImpl</class>
         <class>org.tanaguru.entity.reference.ScopeImpl</class>
         <class>org.tanaguru.entity.reference.StandardMessageImpl</class>
+        <class>org.tanaguru.entity.reference.RuleImpl</class>
         <class>org.tanaguru.entity.reference.TestImpl</class>
         <class>org.tanaguru.entity.reference.AccedewebImpl</class>
         <class>org.tanaguru.entity.reference.ThemeImpl</class>

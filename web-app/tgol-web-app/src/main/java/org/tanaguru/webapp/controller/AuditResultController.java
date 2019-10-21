@@ -362,7 +362,7 @@ private static final Logger LOGGER = Logger.getLogger(AuditResultController.clas
             model.addAttribute(TgolKeyStore.TEST_LABEL_KEY, test.getLabel());
             model.addAttribute(TgolKeyStore.AUDIT_ID_KEY, audit.getId());
 
-            if (!test.getScope().equals(getPageScope())) {
+            if (!test.getRule().getScope().equals(getPageScope())) {
                 model.addAttribute(TgolKeyStore.SITE_SCOPE_TEST_DETAILS_KEY,
                         true);
             } else {

@@ -21,15 +21,6 @@
  */
 package org.tanaguru.entity.dao.audit;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
-import javax.persistence.NoResultException;
-
-import javax.persistence.Query;
-
 import org.hibernate.envers.AuditReader;
 import org.hibernate.envers.AuditReaderFactory;
 import org.tanaguru.entity.audit.*;
@@ -39,6 +30,10 @@ import org.tanaguru.entity.reference.Test;
 import org.tanaguru.entity.reference.Theme;
 import org.tanaguru.entity.subject.WebResource;
 import org.tanaguru.sdk.entity.dao.jpa.AbstractJPADAO;
+
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
+import java.util.*;
 
 /**
  *
@@ -250,7 +245,8 @@ public class ProcessResultDAOImpl extends AbstractJPADAO<ProcessResult, Long>
                 + " LEFT JOIN FETCH pk.elementSet el"
                 + " JOIN pr.subject r"
                 + " JOIN pr.test t"
-                + " JOIN t.scope s"
+                + " JOIN t.rule r"
+                + " JOIN r.scope s"
                 + " WHERE (r=:webResource)"
                 + " AND (s = :scope or s.id = :pageAndSiteScope)");
         query.setParameter("webResource", webResource);
@@ -299,7 +295,8 @@ public class ProcessResultDAOImpl extends AbstractJPADAO<ProcessResult, Long>
         sb.append(" JOIN pr.subject w");
         sb.append(" JOIN pr.test t");
         sb.append(" JOIN pr.test.criterion.theme th");
-        sb.append(" JOIN t.scope s");
+        sb.append(" JOIN t.rule r");
+        sb.append(" JOIN r.scope s");
         sb.append(" WHERE w=:webResource");
         sb.append(" AND (s = :scope or s.id = :pageAndSiteScope) ");
         if (theme != null && 
@@ -359,10 +356,11 @@ public class ProcessResultDAOImpl extends AbstractJPADAO<ProcessResult, Long>
         Query query = entityManager.createQuery(
                 "SELECT count(pr.id) FROM "
                 + getEntityClass().getName() + " pr"
-                + " JOIN pr.subject r"
+                + " JOIN pr.subject res"
                 + " JOIN pr.test t"
-                + " JOIN t.scope s"
-                + " WHERE (r.id=:id)"
+                + " JOIN t.rule r"
+                + " JOIN r.scope s"
+                + " WHERE (res.id=:id)"
                 + " AND (s = :scope or s.id = :pageAndSiteScope)");
         query.setParameter("id", webResource.getId());
         query.setParameter("pageAndSiteScope", pageAndSiteScopeId);

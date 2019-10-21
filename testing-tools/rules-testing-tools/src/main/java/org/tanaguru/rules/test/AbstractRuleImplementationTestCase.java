@@ -21,17 +21,6 @@
  */
 package org.tanaguru.rules.test;
 
-import java.awt.image.BufferedImage;
-import java.io.*;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.*;
-import javax.imageio.ImageIO;
-import javax.imageio.ImageWriter;
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertNotNull;
-import static junit.framework.Assert.assertNull;
-import static junit.framework.Assert.assertTrue;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
@@ -42,16 +31,11 @@ import org.dbunit.database.DatabaseConfig;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.tanaguru.contentadapter.util.URLIdentifier;
 import org.tanaguru.contentadapter.util.URLIdentifierFactory;
-import org.tanaguru.entity.audit.Audit;
-import org.tanaguru.entity.audit.Content;
-import org.tanaguru.entity.audit.EvidenceElement;
-import org.tanaguru.entity.audit.ProcessRemark;
-import org.tanaguru.entity.audit.ProcessResult;
-import org.tanaguru.entity.audit.SSP;
-import org.tanaguru.entity.audit.SourceCodeRemark;
-import org.tanaguru.entity.audit.TestSolution;
+import org.tanaguru.entity.audit.*;
 import org.tanaguru.entity.factory.audit.AuditFactory;
 import org.tanaguru.entity.factory.audit.ContentFactory;
 import org.tanaguru.entity.factory.parameterization.ParameterElementFactory;
@@ -62,6 +46,8 @@ import org.tanaguru.entity.factory.subject.WebResourceFactory;
 import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.parameterization.ParameterElement;
 import org.tanaguru.entity.parameterization.ParameterFamily;
+import org.tanaguru.entity.reference.Rule;
+import org.tanaguru.entity.reference.RuleImpl;
 import org.tanaguru.entity.reference.Test;
 import org.tanaguru.entity.subject.Page;
 import org.tanaguru.entity.subject.Site;
@@ -70,8 +56,14 @@ import org.tanaguru.service.ConsolidatorService;
 import org.tanaguru.service.ContentAdapterService;
 import org.tanaguru.service.ContentLoaderService;
 import org.tanaguru.service.ProcessorService;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import javax.imageio.ImageIO;
+import javax.imageio.ImageWriter;
+import java.awt.image.BufferedImage;
+import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.*;
 
 /**
  *
@@ -316,8 +308,10 @@ public abstract class AbstractRuleImplementationTestCase extends DBTestCase {
     private void setUpClass() {
         Test test = TEST_FACTORY.create();
         test.setCode(this.getName());
-        test.setRuleClassName(ruleImplementationClassName);
-        test.setRuleArchiveName("MockArchiveName");
+        Rule rule = new RuleImpl();
+        rule.setRuleClassName(ruleImplementationClassName);
+        rule.setRuleArchiveName("MockArchiveName");
+        test.setRule(rule);
         testList.add(test);
         URL src = null;
         LOGGER.info("setUpClass()");

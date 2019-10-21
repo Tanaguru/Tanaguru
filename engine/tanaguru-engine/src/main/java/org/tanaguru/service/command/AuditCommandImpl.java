@@ -21,12 +21,9 @@
  */
 package org.tanaguru.service.command;
 
-import java.io.UnsupportedEncodingException;
-import java.security.NoSuchAlgorithmException;
-import java.util.*;
-import javax.persistence.PersistenceException;
 import org.apache.http.HttpStatus;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
 import org.tanaguru.contentadapter.AdaptationListener;
 import org.tanaguru.entity.audit.*;
 import org.tanaguru.entity.parameterization.Parameter;
@@ -45,10 +42,13 @@ import org.tanaguru.messagin.TanaguruMsgOutService;
 import org.tanaguru.service.*;
 import org.tanaguru.util.MD5Encoder;
 
+import javax.persistence.PersistenceException;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import org.springframework.stereotype.Component;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+import java.util.*;
 
 /**
  *
@@ -671,7 +671,7 @@ public abstract class AuditCommandImpl implements AuditCommand {
             if (contentDataService.getNumberOfSSPFromWebResource(audit.getSubject(), HttpStatus.SC_OK) > 20) {
                 List<Test> testList = new ArrayList<>();
                 for (Test test : audit.getTestList()) {
-                    if (!test.getNoProcess()) { // only consolidate if the process has been launched on the test
+                    if (!test.getRule().getNoProcess()) { // only consolidate if the process has been launched on the test
                         testList.add(test);
 
                         Collection<ProcessResult> prList = (List<ProcessResult>) processResultDataService.

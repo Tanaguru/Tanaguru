@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet author="rcharre" id="2019_09_test_refactoring_create_table">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="RULE"/>
+            </not>
+        </preConditions>
+        <createTable tableName="RULE">
+            <column name="Id_Rule" autoIncrement="true" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Description" type="VARCHAR(255)"/>
+            <column name="Rule_Archive_Name" type="VARCHAR(255)"/>
+            <column name="Rule_Class_Name" type="VARCHAR(255)"/>
+            <column name="SCOPE_Id_Scope" type="BIGINT"/>
+            <column defaultValueBoolean="true" name="No_Process" type="BOOLEAN"/>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="RULE" baseColumnNames="SCOPE_Id_Scope" constraintName="FK_RULE_SCOPE_Id_Scope" referencedTableName="SCOPE"
+                                 referencedColumnNames="Id_Scope"/>
+    </changeSet>
+
+    <changeSet author="rcharre" id="2019_09_test_refactoring_insert">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT count(*) FROM RULE</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO RULE (Rule_Class_Name, Rule_Archive_Name, Description, SCOPE_Id_Scope, No_Process)
+            SELECT Rule_Class_Name, Rule_Archive_Name, Description, Id_Scope, No_Process FROM TEST;
+        </sql>
+    </changeSet>
+
+    <changeSet author="rcharre" id="2019_09_test_refactoring_migrate">
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="TEST" columnName="Rule_Class_Name"/>
+        </preConditions>
+        <sql>
+            UPDATE
+            TEST AS t
+            SET
+            t.Id_Rule = (
+            SELECT
+            Id_Rule
+            FROM
+            RULE AS r
+            WHERE
+            r.Rule_Class_Name = t.Rule_Class_Name
+            )
+
+
+        </sql>
+        <dropAllForeignKeyConstraints baseTableName="TEST"/>
+        <dropColumn tableName="TEST" columnName="No_Process"/>
+        <dropColumn tableName="TEST" columnName="Id_Scope"/>
+        <dropColumn tableName="TEST" columnName="Rule_Class_Name"/>
+        <dropColumn tableName="TEST" columnName="Rule_Archive_Name"/>
+        <dropColumn tableName="TEST" columnName="Description"/>
+        <addForeignKeyConstraint baseTableName="TEST" baseColumnNames="Id_Rule" constraintName="FK_TEST_RULE_Id_Rule" referencedTableName="RULE"
+                                 referencedColumnNames="Id_Rule"/>
+        <addForeignKeyConstraint baseTableName="TEST" baseColumnNames="Id_Criterion" constraintName="FK_TEST_CRITERION_Id_Criterion" referencedTableName="CRITERION"
+                                 referencedColumnNames="Id_Criterion"/>
+    </changeSet>
+
+</databaseChangeLog>

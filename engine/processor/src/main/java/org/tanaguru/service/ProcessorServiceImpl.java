@@ -21,8 +21,7 @@
  */
 package org.tanaguru.service;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.tanaguru.entity.audit.Content;
 import org.tanaguru.entity.audit.ProcessResult;
 import org.tanaguru.entity.audit.SSP;
@@ -30,7 +29,9 @@ import org.tanaguru.entity.reference.Test;
 import org.tanaguru.processor.Processor;
 import org.tanaguru.processor.ProcessorFactory;
 import org.tanaguru.ruleimplementation.RuleImplementation;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * 
@@ -72,7 +73,7 @@ public class ProcessorServiceImpl implements ProcessorService {
             if (content instanceof SSP) {
                 processor.setSSP((SSP) content);
                 for (Test test : testList) {
-                    if (!test.getNoProcess()) {
+                    if (!test.getRule().getNoProcess()) {
                         RuleImplementation ruleImplementation = ruleImplementationLoaderService.loadRuleImplementation(test);
                         processor.setRuleImplementation(ruleImplementation);
                         processor.run();

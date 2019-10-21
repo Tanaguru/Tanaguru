@@ -21,18 +21,19 @@
  */
 package org.tanaguru.entity.reference;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonSubTypes;
+import org.codehaus.jackson.annotate.JsonTypeInfo;
+
+import javax.persistence.*;
+import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
-import javax.persistence.*;
-import javax.xml.bind.annotation.XmlElementRef;
-import javax.xml.bind.annotation.XmlRootElement;
-import org.codehaus.jackson.annotate.JsonIgnore;
-import org.codehaus.jackson.annotate.JsonSubTypes;
-import org.codehaus.jackson.annotate.JsonTypeInfo;
 
 /**
  *
@@ -42,62 +43,61 @@ import org.codehaus.jackson.annotate.JsonTypeInfo;
 @Table(name = "TEST")
 @XmlRootElement
 public class TestImpl implements Test, Serializable {
-
-    @Column(name = "Cd_Test")
-    private String code;
-    @ManyToOne
-    @JoinColumn(name = "Id_Criterion")
-    private CriterionImpl criterion;
-    @ManyToOne
-    @JoinColumn(name = "Id_Decision_Level")
-    @JsonIgnore
-    private DecisionLevelImpl decisionLevel;
-    @Column(name = "Description")
-    @JsonIgnore
-    private String description;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id_Test")
     private Long id;
+
+    @Column(name = "Cd_Test")
+    private String code;
+
+    @ManyToOne
+    @JoinColumn(name = "Id_Criterion")
+    private CriterionImpl criterion;
+
+    @ManyToOne
+    @JoinColumn(name = "Id_Decision_Level")
+    @JsonIgnore
+    private DecisionLevelImpl decisionLevel;
+
+
     @Column(name = "Label")
     private String label;
+
     @ManyToOne
     @JoinColumn(name = "Id_Level")
     private LevelImpl level;
+
     @Column(name = "Eaccess")
     private Integer eAccess;
+
     @Column(name = "Rank")
     @JsonIgnore
     private int rank;
-    @Column(name = "Rule_Archive_Name")
-    @JsonIgnore
-    private String ruleArchiveName;
-    @Column(name = "Rule_Class_Name")
-    @JsonIgnore
-    private String ruleClassName;
-    @ManyToOne
-    @JoinColumn(name = "Id_Scope")
-    private ScopeImpl scope;
+
     @Column(name = "Rule_Design_Url")
     private String ruleDesignUrl;
+
     @Column(name = "Weight", precision = 2, scale = 1)
     private BigDecimal weight;
-    @Column(name = "No_Process")
-    @JsonIgnore
-    private boolean noProcess;
+
+
     @OneToMany(targetEntity = AccedewebImpl.class , mappedBy = "test", fetch = FetchType.EAGER)
     @JsonIgnore
     private Set<Accedeweb> accedwebSet;
+
+    @OneToOne
+    @JoinColumn(name = "Id_Rule")
+    private RuleImpl rule;
 
     public TestImpl() {
         super();
     }
 
-    public TestImpl(String code, String label, String description) {
+    public TestImpl(String code, String label) {
         super();
         this.code = code;
         this.label = label;
-        this.description = description;
     }
 
     @XmlElementRef(type = org.tanaguru.entity.reference.AccedewebImpl.class)
@@ -108,6 +108,7 @@ public class TestImpl implements Test, Serializable {
         }
         return (Collection) accedwebSet;
     }
+
 
     @Override
     public void setAccedwebSet(Set<Accedeweb> accedweb) {
@@ -128,7 +129,7 @@ public class TestImpl implements Test, Serializable {
     @XmlElementRef(type = org.tanaguru.entity.reference.CriterionImpl.class)
     @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.WRAPPER_OBJECT)
     @JsonSubTypes({
-        @JsonSubTypes.Type(value = org.tanaguru.entity.reference.CriterionImpl.class, name = "Criterion")})
+            @JsonSubTypes.Type(value = org.tanaguru.entity.reference.CriterionImpl.class, name = "Criterion")})
     public Criterion getCriterion() {
         return this.criterion;
     }
@@ -139,29 +140,7 @@ public class TestImpl implements Test, Serializable {
         return this.decisionLevel;
     }
 
-    @Override
-    public String getDescription() {
-        return this.description;
-    }
 
-    /**
-     *
-     * @return @deprecated
-     */
-    @Deprecated
-    @Override
-    @JsonIgnore
-    public String getFullCode() {
-        if (criterion == null) {
-            return "";
-        }
-
-        Reference reference = this.criterion.getReference();
-        Theme theme = this.criterion.getTheme();
-
-        return reference.getCode() + theme.getCode() + criterion.getCode()
-                + this.getCode();
-    }
 
     @Override
     public Long getId() {
@@ -177,7 +156,7 @@ public class TestImpl implements Test, Serializable {
     @XmlElementRef(type = org.tanaguru.entity.reference.LevelImpl.class)
     @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.WRAPPER_OBJECT)
     @JsonSubTypes({
-        @JsonSubTypes.Type(value = org.tanaguru.entity.reference.LevelImpl.class, name = "Level")})
+            @JsonSubTypes.Type(value = org.tanaguru.entity.reference.LevelImpl.class, name = "Level")})
     public Level getLevel() {
         return this.level;
     }
@@ -193,25 +172,6 @@ public class TestImpl implements Test, Serializable {
     }
 
     @Override
-    public String getRuleArchiveName() {
-        return ruleArchiveName;
-    }
-
-    @Override
-    public String getRuleClassName() {
-        return ruleClassName;
-    }
-
-    @Override
-    @XmlElementRef(type = org.tanaguru.entity.reference.ScopeImpl.class)
-    @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.WRAPPER_OBJECT)
-    @JsonSubTypes({
-        @JsonSubTypes.Type(value = org.tanaguru.entity.reference.ScopeImpl.class, name = "Scope")})
-    public Scope getScope() {
-        return this.scope;
-    }
-
-    @Override
     public String getRuleDesignUrl() {
         return this.ruleDesignUrl;
     }
@@ -221,10 +181,6 @@ public class TestImpl implements Test, Serializable {
         return this.weight;
     }
 
-    @Override
-    public boolean getNoProcess() {
-        return this.noProcess;
-    }
 
     @Override
     public void setCode(String code) {
@@ -239,11 +195,6 @@ public class TestImpl implements Test, Serializable {
     @Override
     public void setDecisionLevel(DecisionLevel decisionLevel) {
         this.decisionLevel = (DecisionLevelImpl) decisionLevel;
-    }
-
-    @Override
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     @Override
@@ -265,26 +216,12 @@ public class TestImpl implements Test, Serializable {
     public void setRank(int rank) {
         this.rank = rank;
     }
-    
+
     @Override
     public void seteAccess(Integer eAccess) {
         this.eAccess = eAccess;
     }
 
-    @Override
-    public void setRuleArchiveName(String ruleArchiveName) {
-        this.ruleArchiveName = ruleArchiveName;
-    }
-
-    @Override
-    public void setRuleClassName(String ruleClassName) {
-        this.ruleClassName = ruleClassName;
-    }
-
-    @Override
-    public void setScope(Scope scope) {
-        this.scope = (ScopeImpl) scope;
-    }
 
     @Override
     public void setRuleDesignUrl(String ruleDesignUrl) {
@@ -294,11 +231,6 @@ public class TestImpl implements Test, Serializable {
     @Override
     public void setWeight(BigDecimal weight) {
         this.weight = weight;
-    }
-
-    @Override
-    public void setNoProcess(boolean noProcess) {
-        this.noProcess = noProcess;
     }
 
     @Override
@@ -324,4 +256,25 @@ public class TestImpl implements Test, Serializable {
         return Objects.equals(this.id, other.id) || (this.id != null && this.id.equals(other.id));
     }
 
+    public void setCriterion(CriterionImpl criterion) {
+        this.criterion = criterion;
+    }
+
+    public void setDecisionLevel(DecisionLevelImpl decisionLevel) {
+        this.decisionLevel = decisionLevel;
+    }
+
+    public void setLevel(LevelImpl level) {
+        this.level = level;
+    }
+
+    @Override
+    public Rule getRule() {
+        return rule;
+    }
+
+    @Override
+    public void setRule(Rule rule) {
+        this.rule = (RuleImpl) rule;
+    }
 }

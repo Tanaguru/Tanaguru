@@ -5,6 +5,7 @@
         <non-jta-data-source>jdbc/tanaguru-TU</non-jta-data-source>
         
         <class>org.tanaguru.entity.audit.AuditImpl</class>
+        <class>org.tanaguru.entity.reference.RuleImpl</class>
         <class>org.tanaguru.entity.reference.TestImpl</class>
         <class>org.tanaguru.entity.reference.AccedewebImpl</class>
         <class>org.tanaguru.entity.reference.CriterionImpl</class>
