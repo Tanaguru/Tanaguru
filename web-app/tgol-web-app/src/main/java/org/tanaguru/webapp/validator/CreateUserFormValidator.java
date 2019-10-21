@@ -24,6 +24,7 @@ package org.tanaguru.webapp.validator;
 //import org.tanaguru.command.UserSignUpCommand;
 import java.util.regex.Pattern;
 import org.apache.commons.validator.routines.UrlValidator;
+import org.springframework.beans.factory.annotation.Value;
 import org.tanaguru.webapp.command.CreateUserCommand;
 import org.tanaguru.webapp.command.UserSignUpCommand;
 import org.tanaguru.webapp.entity.service.user.UserDataService;
@@ -77,10 +78,20 @@ public class CreateUserFormValidator implements Validator {
         this.checkSiteUrl = checkSiteUrl;
     }
 
+
     @Autowired
     public void setUserDataService(UserDataService userDataService) {
         this.userDataService = userDataService;
     }
+
+    private boolean bypassEmailCheck = false;
+    public boolean isBypassEmailCheck() {
+        return bypassEmailCheck;
+    }
+    public void setBypassEmailCheck(String bypassEmailCheck) {
+        this.bypassEmailCheck = Boolean.valueOf(bypassEmailCheck);
+    }
+    
 
     @Override
     public void validate(Object target, Errors errors) {
@@ -161,7 +172,7 @@ public class CreateUserFormValidator implements Validator {
             if (userDataService.getUserFromEmail(userSubscriptionCommand.getEmail()) != null) {
                 errors.rejectValue(EMAIL_KEY, EXISTING_ACCOUNT_WITH_EMAIL_KEY);
                 return false;
-            } else if (!emailCheckerPattern.matcher(email).matches()) {
+            } else if (this.bypassEmailCheck || !emailCheckerPattern.matcher(email).matches()) {
                 errors.rejectValue(EMAIL_KEY, INVALID_EMAIL_KEY);
                 return false;
             }
