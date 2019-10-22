@@ -25,4 +25,6 @@
     <include file="classpath:conf/liquibase/changelog/2019_09_update_WebResource.xml" relativeToChangelogFile="false"/>
 
     <!-- <include file="classpath:conf/liquibase/changelog/INIT/2019_09_insert_rgaa42019.xml" relativeToChangelogFile="false"/> -->
+    <include file="classpath:conf/liquibase/changelog/2019_10_test_refactoring.xml" relativeToChangelogFile="false"/>
+
 </databaseChangeLog>

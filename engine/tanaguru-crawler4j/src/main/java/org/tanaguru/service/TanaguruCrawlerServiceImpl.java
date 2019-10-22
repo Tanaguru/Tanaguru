@@ -25,14 +25,12 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.tanaguru.crawler.Crawler;
 import org.tanaguru.crawler.CrawlerFactory;
-import org.tanaguru.crawler.TanaguruCrawlerControllerImpl;
 import org.tanaguru.entity.audit.Audit;
+import org.tanaguru.entity.parameterization.Parameter;
 import org.tanaguru.entity.service.parameterization.ParameterDataService;
-import org.tanaguru.factory.TanaguruCrawlerControllerFactory;
-
 
 import javax.xml.bind.annotation.XmlTransient;
-import java.util.*;
+import java.util.List;
 
 /**
  *
@@ -90,8 +88,9 @@ public class TanaguruCrawlerServiceImpl implements CrawlerService{
 
     private int getMaxNumberOfCrawlPageFromAuditParameter(Audit audit) {
         try {
-            if (parameterDataService.getParameter(audit, "MAX_DOCUMENTS") != null) {
-                return Integer.valueOf(parameterDataService.getParameter(audit, "MAX_DOCUMENTS").getValue());
+            Parameter max_documents = parameterDataService.getParameter(audit, "MAX_DOCUMENTS");
+            if (max_documents != null) {
+                return Integer.valueOf(max_documents.getValue());
             }
         } catch (NumberFormatException nfe) {
             return -1;
@@ -101,8 +100,9 @@ public class TanaguruCrawlerServiceImpl implements CrawlerService{
 
     private int getMaxDepthOfCrawlPageFromAuditParameter(Audit audit) {
         try {
-            if (parameterDataService.getParameter(audit, "DEPTH") != null) {
-                return Integer.valueOf(parameterDataService.getParameter(audit, "DEPTH").getValue());
+            Parameter depth = parameterDataService.getParameter(audit, "DEPTH");
+            if (depth != null) {
+                return Integer.valueOf(depth.getValue());
             }
         } catch (NumberFormatException nfe) {
             return -1;
@@ -112,8 +112,9 @@ public class TanaguruCrawlerServiceImpl implements CrawlerService{
 
     private long getTimeOfCrawlPageFromAuditParameter(Audit audit) {
         try {
-            if (parameterDataService.getParameter(audit, "MAX_DURATION") != null) {
-                return 1000L * Long.valueOf(parameterDataService.getParameter(audit, "MAX_DURATION").getValue());
+            Parameter timeOfCrawl = parameterDataService.getParameter(audit, "MAX_DURATION");
+            if (timeOfCrawl != null) {
+                return 1000L * Long.valueOf(timeOfCrawl.getValue());
             }
         } catch (NumberFormatException nfe) {
             return -1;
@@ -122,14 +123,16 @@ public class TanaguruCrawlerServiceImpl implements CrawlerService{
     }
 
     private String getExclusionRegexFromAuditParameter(Audit audit) {
-        return parameterDataService.getParameter(audit, "EXCLUSION_REGEX") != null ?
-                buildRegexFromString(parameterDataService.getParameter(audit, "EXCLUSION_REGEX").getValue()) :
+        Parameter exclusionRegexp = parameterDataService.getParameter(audit, "EXCLUSION_REGEXP");
+        return exclusionRegexp != null ?
+                buildRegexFromString(exclusionRegexp.getValue()) :
                 "";
     }
 
     private String getInclusionRegexFromAuditParameter(Audit audit) {
-        return parameterDataService.getParameter(audit, "INCLUSION_REGEX") != null ?
-                buildRegexFromString(parameterDataService.getParameter(audit, "INCLUSION_REGEX").getValue()) :
+        Parameter inclusionRegexp = parameterDataService.getParameter(audit, "INCLUSION_REGEXP");
+        return inclusionRegexp != null ?
+                buildRegexFromString(inclusionRegexp.getValue()) :
                 "";
     }
 

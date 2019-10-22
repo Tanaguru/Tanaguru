@@ -4,7 +4,6 @@ import edu.uci.ics.crawler4j.crawler.CrawlConfig;
 import edu.uci.ics.crawler4j.fetcher.PageFetcher;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtConfig;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.tanaguru.crawler.Crawler;
 import org.tanaguru.crawler.CrawlerFactory;
 import org.tanaguru.crawler.TanaguruCrawlerControllerImpl;
@@ -21,32 +20,26 @@ public class TanaguruCrawlerControllerFactory implements CrawlerFactory {
     private String exclusionRegex;
     private String inclusionRegex;
 
-    @Autowired
     public void setOutputDir(String outputDir){
         this.outputDir = outputDir;
     }
 
-    @Autowired
     public void setMaxDepth(int maxDepth){
         this.maxDepth = maxDepth;
     }
 
-    @Autowired
     public void setMaxDocument(int maxDocument){
         this.maxDocument = maxDocument;
     }
 
-    @Autowired
     public void setMaxDuration(Long maxDuration){
         this.maxDuration = maxDuration;
     }
 
-    @Autowired
     public void setExclusionRegex(String exclusionRegex){
         this.exclusionRegex = exclusionRegex;
     }
 
-    @Autowired
     public void setInclusionRegex(String inclusionRegex){
         this.inclusionRegex = inclusionRegex;
     }

@@ -21,17 +21,21 @@
  */
 package org.tanaguru.entity.reference;
 
+
+import org.tanaguru.sdk.entity.Entity;
+import org.tanaguru.sdk.entity.Reorderable;
+
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Set;
-import org.tanaguru.sdk.entity.Entity;
-import org.tanaguru.sdk.entity.Reorderable;
+
 
 /**
  * 
  * @author jkowalczyk
  */
 public interface Test extends Entity, Reorderable {
+
 
     /**
      *
@@ -53,21 +57,11 @@ public interface Test extends Entity, Reorderable {
 
     /**
      *
-     * @return the description
-     */
-    String getDescription();
-
-    /**
-     *
-     * @return the full code
-     */
-    String getFullCode();
-
-    /**
-     *
      * @return the label
      */
     String getLabel();
+
+
 
     /**
      *
@@ -81,40 +75,18 @@ public interface Test extends Entity, Reorderable {
      */
     String getRuleDesignUrl();
 
-     /**
-      *
-      * @return
-      */
-    String getRuleArchiveName();
+
 
     /**
-     * 
-     * @return
-     */
-    String getRuleClassName();
-
-    /**
-     *
-     * @return the scope
-     */
-    Scope getScope();
-    
-    /**
-     *
-     * @return whether the test handle a process
-     */
-    boolean getNoProcess();
-    
-     /**
      *
      * @return the set of Accedeweb notice
      */
     Collection<Accedeweb> getAccedwebSet();
-    
-    
-    
+
+
+
     void setAccedwebSet(Set<Accedeweb> accedweb);
-    
+
     /**
      *
      * @param code
@@ -127,6 +99,7 @@ public interface Test extends Entity, Reorderable {
      * @param criterion
      *            the criterion to set
      */
+
     void setCriterion(Criterion criterion);
 
     /**
@@ -135,13 +108,6 @@ public interface Test extends Entity, Reorderable {
      *            the decision level to set
      */
     void setDecisionLevel(DecisionLevel decisionLevel);
-
-    /**
-     *
-     * @param description
-     *            the description to set
-     */
-    void setDescription(String description);
 
     /**
      *
@@ -158,23 +124,29 @@ public interface Test extends Entity, Reorderable {
     void setLevel(Level level);
 
     /**
-     * 
-     * @param ruleArchiveName
+     *
+     * @return
      */
-    void setRuleArchiveName(String ruleArchiveName);
-
-    /**
-     * 
-     * @param ruleClassName
-     */
-    void setRuleClassName(String ruleClassName);
+    BigDecimal getWeight();
 
     /**
      *
-     * @param scope
-     *            the scrope to set
+     * @param weight
      */
-    void setScope(Scope scope);
+    void setWeight(BigDecimal weight);
+
+
+
+    /**
+     *
+     * @return eAccess lvl
+     */
+    int geteAccess();
+    /**
+     *
+     * @param  eAccess
+     */
+    void seteAccess(Integer eAccess);
 
     /**
      *
@@ -182,31 +154,9 @@ public interface Test extends Entity, Reorderable {
      */
     void setRuleDesignUrl(String ruleDesignUrl);
 
-    /**
-     * 
-     * @return 
-     */
-    BigDecimal getWeight();
-    
-    /**
-     * 
-     * @param weight 
-     */
-    void setWeight(BigDecimal weight);
-    
-    /**
-     * 
-     * @param noProcess 
-     */
-    void setNoProcess(boolean noProcess);   
-    /**
-     * 
-     * @return eAccess lvl
-     */
-    int geteAccess();
-    /**
-     * 
-     * @param  eAccess
-     */
-    void seteAccess(Integer eAccess);
+    void setRule(Rule rule);
+
+    Rule getRule();
+
+
 }

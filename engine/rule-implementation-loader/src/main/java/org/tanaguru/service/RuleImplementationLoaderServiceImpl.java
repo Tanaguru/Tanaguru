@@ -21,8 +21,7 @@
  */
 package org.tanaguru.service;
 
-import java.util.HashSet;
-import java.util.Set;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.tanaguru.entity.reference.Test;
 import org.tanaguru.entity.service.audit.ProcessRemarkDataService;
 import org.tanaguru.entity.service.audit.ProcessResultDataService;
@@ -30,7 +29,9 @@ import org.tanaguru.ruleimplementation.AbstractSiteRuleWithPageResultImplementat
 import org.tanaguru.ruleimplementation.RuleImplementation;
 import org.tanaguru.ruleimplementationloader.RuleImplementationLoader;
 import org.tanaguru.ruleimplementationloader.RuleImplementationLoaderFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 
@@ -59,7 +60,7 @@ public class RuleImplementationLoaderServiceImpl implements RuleImplementationLo
 
     @Override
     public RuleImplementation loadRuleImplementation(Test test) {
-        RuleImplementationLoader ruleImplementationLoader = ruleImplementationLoaderFactory.create(archiveRoot, test.getRuleArchiveName(), test.getRuleClassName());
+        RuleImplementationLoader ruleImplementationLoader = ruleImplementationLoaderFactory.create(archiveRoot, test.getRule().getRuleArchiveName(), test.getRule().getRuleClassName());
         ruleImplementationLoader.run();
         RuleImplementation ruleImplementation = ruleImplementationLoader.getResult();
         ruleImplementation.setTest(test);

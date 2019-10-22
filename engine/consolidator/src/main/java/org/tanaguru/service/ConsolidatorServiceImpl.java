@@ -21,9 +21,7 @@
  */
 package org.tanaguru.service;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.tanaguru.consolidator.Consolidator;
 import org.tanaguru.consolidator.ConsolidatorFactory;
 import org.tanaguru.entity.audit.ProcessResult;
@@ -33,7 +31,10 @@ import org.tanaguru.entity.service.audit.EvidenceElementDataService;
 import org.tanaguru.entity.service.audit.ProcessRemarkDataService;
 import org.tanaguru.processing.ProcessRemarkServiceFactory;
 import org.tanaguru.ruleimplementation.RuleImplementation;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * 
@@ -57,7 +58,7 @@ public class ConsolidatorServiceImpl implements ConsolidatorService {
         List<ProcessResult> resultList = new ArrayList<>();
         for (Test test : testList) {
             // if the rule archive name is empty, the test is not launched
-            if (!test.getNoProcess()) {
+            if (!test.getRule().getNoProcess()) {
                 RuleImplementation ruleImplementation = ruleImplementationLoaderService.loadRuleImplementation(test);
                 Consolidator consolidator = consolidatorFactory.create(
                         grossResultList, 

@@ -6,7 +6,7 @@
     <groupId>org.tanaguru</groupId>
     <artifactId>tanaguru</artifactId>
     <packaging>pom</packaging>
-    <version>6.1.0</version>
+    <version>7.0.0-SNAPSHOT</version>
     <name>tanaguru</name>
     <url>http://www.tanaguru.org</url>
     <modules>
@@ -37,19 +37,19 @@
         <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
 
         <engineGroupId>org.tanaguru</engineGroupId>
-        <engineVersion>6.1.0</engineVersion>
+        <engineVersion>7.0.0-SNAPSHOT</engineVersion>
         
         <webappGroupId>org.tanaguru</webappGroupId>
-        <webappVersion>6.1.0</webappVersion>
+        <webappVersion>7.0.0-SNAPSHOT</webappVersion>
         
         <testingToolsGroupId>org.tanaguru</testingToolsGroupId>
-        <testingToolsVersion>6.1.0</testingToolsVersion>
+        <testingToolsVersion>7.0.0-SNAPSHOT</testingToolsVersion>
         
         <tanaguruCliGroupId>org.tanaguru</tanaguruCliGroupId>
-        <tanaguruCliVersion>6.1.0</tanaguruCliVersion>
+        <tanaguruCliVersion>7.0.0-SNAPSHOT</tanaguruCliVersion>
         
         <rulesGroupId>org.tanaguru</rulesGroupId>
-        <rulesVersion>6.1.0</rulesVersion>
+        <rulesVersion>7.0.0-SNAPSHOT</rulesVersion>
         
         <springGroupId>org.springframework</springGroupId>
         <springVersion>5.1.5.RELEASE</springVersion>
@@ -596,7 +596,7 @@
             <dependency>
                 <groupId>commons-fileupload</groupId>
                 <artifactId>commons-fileupload</artifactId>
-                <version>1.3</version>
+                <version>1.3.3</version>
             </dependency>
             <dependency>
                 <groupId>commons-validator</groupId>
@@ -638,7 +638,7 @@
             <dependency>
                 <groupId>com.thoughtworks.xstream</groupId>
                 <artifactId>xstream</artifactId>
-                <version>1.3.1</version>
+                <version>1.4.6</version>
             </dependency>
 
             <!-- htmlCleaner dependencies -->
