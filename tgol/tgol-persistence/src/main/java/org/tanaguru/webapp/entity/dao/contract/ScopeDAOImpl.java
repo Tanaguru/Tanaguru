@@ -23,7 +23,10 @@ package org.tanaguru.webapp.entity.dao.contract;
 
 import org.tanaguru.sdk.entity.dao.jpa.AbstractJPADAO;
 import org.tanaguru.webapp.entity.contract.Scope;
+import org.tanaguru.webapp.entity.contract.ScopeEnum;
 import org.tanaguru.webapp.entity.contract.TgsiScopeImpl;
+
+import javax.persistence.Query;
 
 /**
  *
@@ -39,6 +42,15 @@ public class ScopeDAOImpl extends AbstractJPADAO<Scope, Long>
     @Override
     protected Class<? extends Scope> getEntityClass() {
         return TgsiScopeImpl.class;
+    }
+
+
+    @Override
+    public Scope retrieveByCode(ScopeEnum code) {
+        Query query = entityManager.createQuery("SELECT s FROM "
+                + getEntityClass().getName() + " s WHERE s.code = :code");
+        query.setParameter("code", code);
+        return (Scope)query.getSingleResult();
     }
 
 }

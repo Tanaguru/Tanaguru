@@ -23,6 +23,11 @@ package org.tanaguru.webapp.entity.service.contract;
 
 import org.tanaguru.sdk.entity.service.AbstractGenericDataService;
 import org.tanaguru.webapp.entity.contract.Scope;
+import org.tanaguru.webapp.entity.contract.ScopeEnum;
+import org.tanaguru.webapp.entity.dao.contract.ScopeDAO;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -30,5 +35,16 @@ import org.tanaguru.webapp.entity.contract.Scope;
  */
 public class ScopeDataServiceImpl extends AbstractGenericDataService<Scope, Long>
         implements ScopeDataService {
-    
+
+    private Map<ScopeEnum, Scope> scopeMap = new HashMap<ScopeEnum,Scope>();
+
+    @Override
+    public Scope getByCode(ScopeEnum code) {
+        if (scopeMap.containsKey(code)) {
+            return scopeMap.get(code);
+        }
+        Scope scope = ((ScopeDAO)entityDao).retrieveByCode(code);
+        scopeMap.put(code, scope);
+        return scope;
+    }
 }
