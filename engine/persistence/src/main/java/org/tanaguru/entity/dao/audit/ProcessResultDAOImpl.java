@@ -243,11 +243,11 @@ public class ProcessResultDAOImpl extends AbstractJPADAO<ProcessResult, Long>
                 + getEntityClass().getName() + " pr"
                 + " LEFT JOIN FETCH pr.remarkSet pk"
                 + " LEFT JOIN FETCH pk.elementSet el"
-                + " JOIN pr.subject r"
+                + " JOIN pr.subject res"
                 + " JOIN pr.test t"
                 + " JOIN t.rule r"
                 + " JOIN r.scope s"
-                + " WHERE (r=:webResource)"
+                + " WHERE (res=:webResource)"
                 + " AND (s = :scope or s.id = :pageAndSiteScope)");
         query.setParameter("webResource", webResource);
         query.setParameter("scope", scope);
