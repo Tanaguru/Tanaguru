@@ -99,7 +99,7 @@ public abstract class AbstractController {
      */
     protected String getAuthenticatedUsername() {
         Logger.getLogger(this.getClass()).info(SecurityContextHolder.getContext().getAuthentication().getName());
-        return SecurityContextHolder.getContext().getAuthentication().getName();
+        return SecurityContextHolder.getContext().getAuthentication().getName().toLowerCase();
     }
 
     /**

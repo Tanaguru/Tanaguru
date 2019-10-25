@@ -178,7 +178,7 @@ public class ForgottenOrChangePasswordController extends AbstractController {
             if (currentUser == null || 
                     (!currentUser.getId().equals(userId) &&
                     !currentUser.getRole().getRoleName().equals(TgolKeyStore.ROLE_ADMIN_NAME_KEY)) ||
-                    forbiddenUserList.contains(currentUser.getEmail1())) {
+                    forbiddenUserList.contains(currentUser.getEmail1().toLowerCase())) {
                 return TgolKeyStore.ACCESS_DENIED_VIEW_REDIRECT_NAME;
             } else {
                 if (!currentUser.getId().equals(userId)){

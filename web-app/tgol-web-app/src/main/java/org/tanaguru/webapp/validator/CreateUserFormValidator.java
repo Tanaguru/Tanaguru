@@ -65,7 +65,7 @@ public class CreateUserFormValidator implements Validator {
 
     // from http://www.regular-expressions.info/email.html
     private static final String EMAIL_CHECKER_REGEXP =
-            "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+            "[A-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[A-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[A-z0-9](?:[A-z0-9-]*[A-z0-9])?.)+[A-z0-9](?:[A-z0-9-]*[A-z0-9])?";
     private final Pattern emailCheckerPattern = Pattern.compile(EMAIL_CHECKER_REGEXP);
 
     private UserDataService userDataService;
