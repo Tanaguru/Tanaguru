@@ -4,12 +4,14 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-    <include file="classpath:conf/liquibase/changelog/INIT/0_initial_schema_engine.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:conf/liquibase/changelog/INIT/0_initial_schema_tgol.xml" relativeToChangelogFile="false"/>
+    <!-- Tanaguru can only update his database from version 3.5.0 -->
 
-    <include file="classpath:conf/liquibase/changelog/INIT/1_initial_populate_engine.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:conf/liquibase/changelog/INIT/1_initial_populate_tgol.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:conf/liquibase/changelog/INIT/1_initial_populate_rules.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:conf/liquibase/changelog/0_initial_schema_engine.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:conf/liquibase/changelog/0_initial_schema_tgol.xml" relativeToChangelogFile="false"/>
+
+    <include file="classpath:conf/liquibase/changelog/1_initial_populate_engine.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:conf/liquibase/changelog/1_initial_populate_tgol.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:conf/liquibase/changelog/1_initial_populate_rules.xml" relativeToChangelogFile="false"/>
 
     <include file="classpath:conf/liquibase/changelog/2_from-3.5.0-to-4.0.0.xml" relativeToChangelogFile="false"/>
     <include file="classpath:conf/liquibase/changelog/2_from-4.1.0-to-4.2.0.xml" relativeToChangelogFile="false"/>
@@ -19,12 +21,13 @@
     <include file="classpath:conf/liquibase/changelog/2_from-5.3.0-to-5.4.0.xml" relativeToChangelogFile="false"/>
     <include file="classpath:conf/liquibase/changelog/2_from-6.0.0-to-6.0.1.xml" relativeToChangelogFile="false"/>
 
-    <include file="classpath:conf/liquibase/changelog/rgaa3-2017/3_rgaa3_2017.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:conf/liquibase/changelog/3_rgaa3_2017.xml" relativeToChangelogFile="false"/>
 
     <include file="classpath:conf/liquibase/changelog/2019_09_insert_evidence.xml" relativeToChangelogFile="false"/>
     <include file="classpath:conf/liquibase/changelog/2019_09_update_WebResource.xml" relativeToChangelogFile="false"/>
 
-    <!-- <include file="classpath:conf/liquibase/changelog/INIT/2019_09_insert_rgaa42019.xml" relativeToChangelogFile="false"/> -->
     <include file="classpath:conf/liquibase/changelog/2019_10_test_refactoring.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:conf/liquibase/changelog/2019_10_set_accedeweb.xml" relativeToChangelogFile="false"/>
 
+    <include file="classpath:conf/liquibase/changelog/3_rgaa4_2019.xml" relativeToChangelogFile="false"/>
 </databaseChangeLog>
