@@ -92,9 +92,6 @@
                 <entry key="SCREEN_HEIGHT">
                     <value>screen-height</value>
                 </entry>
-                <entry key="PREVENT_DEFAULT_PAGE_FIRING">
-                    <value>prevent-automatic-fire-new-page-event</value>
-                </entry>
             </map>
         </property>
         <property name="authorizedScopeForPageList">
