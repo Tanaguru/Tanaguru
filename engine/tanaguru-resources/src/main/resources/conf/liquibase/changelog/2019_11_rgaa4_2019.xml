@@ -559,39 +559,21 @@
 
     <changeSet author="rcharre" id="initial_rgaa42019_update_TEST-2">
         <sql>
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule010102') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.1.2';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule010103') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.1.3';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule010104') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.1.4';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule010201') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.2.1';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule010204') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.2.4';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule010306') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.3.6';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule010501') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.5.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule010502') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.5.2';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule010601') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.6.1';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule010602') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.6.2';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule010603') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.6.3';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule010604') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.6.4';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule010702') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.7.2';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule010801') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.8.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule010802') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.8.2';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule010803') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.8.3';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule010804') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.8.4';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule010805') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.8.5';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule020101') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '2.1.1';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule020201') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '2.2.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule030101') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '3.1.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule030102') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '3.1.2';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule030103') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '3.1.3';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule030104') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '3.1.4';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule030105') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '3.1.5';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule030106') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '3.1.6';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule040101') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.1.1';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule040102') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.1.2';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule040103') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.1.3';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule040201') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.2.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule040202') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.2.2';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule040203') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.2.3';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule040301') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.3.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule040302') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.3.2';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule040401') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.4.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule040701') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.5.1';
@@ -599,8 +581,6 @@
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule040801') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.6.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule040802') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.6.2';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule041501') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.7.1';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule041601') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.8.1';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule041602') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.8.2';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule041701') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.9.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule041801') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.10.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule042001') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.11.1';
@@ -609,16 +589,9 @@
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule042101') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.12.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule042102') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.12.2';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule042201') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.13.1';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule042202') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.13.2';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule050201') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '5.2.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule050301') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '5.3.1';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule050801') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '5.8.1';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule060101') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '6.1.1';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule060102') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '6.1.2';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule060103') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '6.1.3';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule070101') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '7.1.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule070201') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '7.2.1';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule070202') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '7.2.2';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule070301') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '7.3.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule070302') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '7.3.2';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule080101') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '8.1.1';
@@ -629,11 +602,8 @@
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule080501') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '8.5.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule080601') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '8.6.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule080701') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '8.7.1';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule080801') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '8.8.1';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule080901') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '8.9.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule081001') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '8.10.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule081002') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '8.10.2';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule090201') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '9.2.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule090301') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '9.3.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule090302') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '9.3.2';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule090303') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '9.3.3';
@@ -654,6 +624,7 @@
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule101502') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '10.10.2';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule101503') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '10.10.3';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule101504') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '10.10.4';
+
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule110201') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '11.2.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule110202') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '11.2.2';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule110203') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '11.2.3';

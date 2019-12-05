@@ -67,5 +67,9 @@
             <artifactId>spring-context</artifactId>
             <version>${springVersion}</version>
         </dependency>
+        <dependency>
+            <groupId>org.tanaguru</groupId>
+            <artifactId>tanaguru-rules-testing-tools</artifactId>
+        </dependency>
     </dependencies>
 </project>

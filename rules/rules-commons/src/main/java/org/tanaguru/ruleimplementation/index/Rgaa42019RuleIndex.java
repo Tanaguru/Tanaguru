@@ -4,7 +4,8 @@ import org.tanaguru.ruleimplementation.impl.ImageAndRoleImageHasAltAttr;
 
 public enum  Rgaa42019RuleIndex {
     /**
-     * This enum is not used anywhere. Its only purpose is to help developers to find multi referential rules.
+     * This enum is not used anywhere. Its only purpose is to help developers
+     * to find multi referential rules.
      *
      * @Author Raphaël Charre
      */
