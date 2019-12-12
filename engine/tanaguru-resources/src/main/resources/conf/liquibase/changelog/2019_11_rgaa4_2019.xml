@@ -624,22 +624,10 @@
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule101502') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '10.10.2';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule101503') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '10.10.3';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule101504') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '10.10.4';
-
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule110201') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '11.2.1';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule110202') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '11.2.2';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule110203') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '11.2.3';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule110204') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '11.2.4';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule110301') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '11.3.1';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule110302') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '11.3.2';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule110401') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '11.4.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule110601') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '11.6.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule110701') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '11.7.1';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule110801') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '11.8.1';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule110802') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '11.8.2';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule110803') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '11.8.3';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule111101') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '11.11.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule111102') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '11.11.2';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule111201') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '11.12.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule111202') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '11.12.2';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule120101') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '12.1.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule120201') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '12.2.1';
@@ -654,12 +642,10 @@
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule121301') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '12.8.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule121302') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '12.8.2';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule121401') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '12.9.1';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule121402') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '12.9.2';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule130101') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '13.1.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule130102') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '13.1.2';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule130103') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '13.1.3';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule130104') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '13.1.4';
-            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule130701') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '13.3.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule130801') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '13.4.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule131101') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '13.5.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule131201') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '13.6.1';
@@ -690,6 +676,36 @@
         <sql>
             INSERT INTO TGSI_REFERENTIAL (Code, Label) VALUES
             ('Rgaa42019', 'Rgaa 4-2019');
+        </sql>
+    </changeSet>
+
+    <changeSet id="initial_rgaa42019_populate_insert_RULE-1" author="rcharre">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM RULE WHERE Rule_Class_Name = 'org.tanaguru.ruleimplementation.impl.image.InformativeImageHasAltAttr'</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO RULE (Rule_Archive_Name, Rule_Class_Name, SCOPE_Id_Scope, No_Process) VALUES
+            ('rules-commons', 'org.tanaguru.ruleimplementation.impl.image.InformativeImageHasAltAttr', (SELECT Id_Scope FROM SCOPE WHERE Code='page'), FALSE),
+            ('rules-commons', 'org.tanaguru.ruleimplementation.impl.image.AreaOfInformativeImageHasAltText', (SELECT Id_Scope FROM SCOPE WHERE Code='page'), FALSE),
+            ('rules-commons', 'org.tanaguru.ruleimplementation.impl.image.ImageInputHasAltText', (SELECT Id_Scope FROM SCOPE WHERE Code='page'), FALSE),
+            ('rules-commons', 'org.tanaguru.ruleimplementation.impl.image.InformativeSvgHasRoleImageAndAltText', (SELECT Id_Scope FROM SCOPE WHERE Code='page'), FALSE),
+            ('rules-commons', 'org.tanaguru.ruleimplementation.impl.image.InformativeImageObjectHasAltTextOrAltContentLinkOrObjectContentSwitchMechanism', (SELECT Id_Scope FROM SCOPE WHERE Code='page'), FALSE),
+            ('rules-commons', 'org.tanaguru.ruleimplementation.impl.image.InformativeEbdImageHasAltTextOrAltContentLinkOrEmbedContentSwitchMechanism', (SELECT Id_Scope FROM SCOPE WHERE Code='page'), FALSE),
+            ('rules-commons', 'org.tanaguru.ruleimplementation.impl.image.InformativeCanvasHasAltTextOrAltContentInCanvasOrAltContentLinkOrCanvasContentSwitchMechanism', (SELECT Id_Scope FROM SCOPE WHERE Code='page'), FALSE),
+            ('rules-commons', 'org.tanaguru.ruleimplementation.impl.image.DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation', (SELECT Id_Scope FROM SCOPE WHERE Code='page'), FALSE),
+            ('rules-commons', 'org.tanaguru.ruleimplementation.impl.frame.FrameAndIframeHasTitle', (SELECT Id_Scope FROM SCOPE WHERE Code='page'), FALSE),
+            ('rules-commons', 'org.tanaguru.ruleimplementation.impl.frame.FrameAndIframeTitleIsRelevant', (SELECT Id_Scope FROM SCOPE WHERE Code='page'), FALSE);
+
+            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.ruleimplementation.impl.image.InformativeImageHasAltAttr') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.1.1';
+            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.ruleimplementation.impl.image.AreaOfInformativeImageHasAltText') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.1.2';
+            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.ruleimplementation.impl.image.ImageInputHasAltText') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.1.3';
+            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.ruleimplementation.impl.image.InformativeSvgHasRoleImageAndAltText') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.1.5';
+            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.ruleimplementation.impl.image.InformativeImageObjectHasAltTextOrAltContentLinkOrObjectContentSwitchMechanism') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.1.6';
+            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.ruleimplementation.impl.image.InformativeEbdImageHasAltTextOrAltContentLinkOrEmbedContentSwitchMechanism') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.1.6';
+            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.ruleimplementation.impl.image.InformativeCanvasHasAltTextOrAltContentInCanvasOrAltContentLinkOrCanvasContentSwitchMechanism') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.1.8';
+            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.ruleimplementation.impl.image.DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.2.1';
+            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.ruleimplementation.impl.frame.FrameAndIframeHasTitle') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '2.1.1';
+            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.ruleimplementation.impl.frame.FrameAndIframeTitleIsRelevant') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '2.2.1';
         </sql>
     </changeSet>
 

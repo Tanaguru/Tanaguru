@@ -22,38 +22,17 @@
 
 package org.tanaguru.rules.elementchecker.text;
 
-import org.jsoup.select.Elements;
-import org.tanaguru.processor.SSPHandler;
-import org.tanaguru.ruleimplementation.TestSolutionHandler;
-import org.tanaguru.rules.elementchecker.ElementCheckerImpl;
-import org.tanaguru.rules.elementselector.builder.CssLikeSelectorBuilder;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.tanaguru.entity.audit.TestSolution;
 import org.tanaguru.processor.SSPHandler;
-import org.tanaguru.ruleimplementation.ElementHandler;
 import org.tanaguru.ruleimplementation.TestSolutionHandler;
 import org.tanaguru.rules.elementchecker.ElementCheckerImpl;
-import org.tanaguru.rules.textbuilder.TextElementBuilder;
+import org.tanaguru.rules.elementselector.builder.CssLikeSelectorBuilder;
 
-import static org.tanaguru.rules.keystore.AttributeStore.ALT_ATTR;
-import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABELLEDBY_ATTR;
-import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABEL_ATTR;
-import static org.tanaguru.rules.keystore.AttributeStore.ID_ATTR;
-import static org.tanaguru.rules.keystore.AttributeStore.SRC_ATTR;
-import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
-import static org.tanaguru.rules.keystore.AttributeStore.TYPE_ATTR;
-import static org.tanaguru.rules.keystore.AttributeStore.ROLE_ATTR;
-import static org.tanaguru.rules.keystore.HtmlElementStore.IMG_ELEMENT;
-import static org.tanaguru.rules.keystore.HtmlElementStore.AREA_ELEMENT;
-import static org.tanaguru.rules.keystore.HtmlElementStore.INPUT_ELEMENT;
-import static org.tanaguru.rules.keystore.HtmlElementStore.SVG_ELEMENT;
-import static org.tanaguru.rules.keystore.HtmlElementStore.EMBED_ELEMENT;
-import static org.tanaguru.rules.keystore.HtmlElementStore.CANVAS_ELEMENT;
-import static org.tanaguru.rules.keystore.HtmlElementStore.OBJECT_ELEMENT;
-import static org.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
+import static org.tanaguru.rules.keystore.AttributeStore.*;
+import static org.tanaguru.rules.keystore.HtmlElementStore.*;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.INVALID_TEXT_ALTERNATIVE_MSG;
 
 public class TextAlternativePresenceChecker extends ElementCheckerImpl  {
@@ -62,6 +41,11 @@ public class TextAlternativePresenceChecker extends ElementCheckerImpl  {
 	 * Exception of alt=""
 	 */
 	private boolean exception = false;
+
+	/**
+	 * Check if the element is not empty
+	 */
+	private boolean notEmpty = false;
 	
 	/**
 	 * Unauthorized text alternative attribute detector
@@ -129,6 +113,37 @@ public class TextAlternativePresenceChecker extends ElementCheckerImpl  {
 		this(detectedSolutionPair,notDetectedSolutionPair);
 		this.attrtype = attrtype;
 	}
+
+	/**
+	 *
+	 * @param detectedSolutionPair
+	 * @param notDetectedSolutionPair
+	 * @param notEmpty use not detected if attr is empty
+	 * @param attrtype
+	 */
+	public TextAlternativePresenceChecker(
+			Pair<TestSolution, String> detectedSolutionPair,
+			Pair<TestSolution, String> notDetectedSolutionPair,
+			boolean notEmpty,
+			String attrtype) {
+		this(detectedSolutionPair,notDetectedSolutionPair);
+		this.attrtype = attrtype;
+		this.notEmpty = notEmpty;
+	}
+
+	/**
+	 *
+	 * @param detectedSolutionPair
+	 * @param notDetectedSolutionPair
+	 * @param notEmpty use not detected if attr is empty
+	 */
+	public TextAlternativePresenceChecker(
+			Pair<TestSolution, String> detectedSolutionPair,
+			Pair<TestSolution, String> notDetectedSolutionPair,
+			boolean notEmpty) {
+		this(detectedSolutionPair,notDetectedSolutionPair);
+		this.notEmpty = notEmpty;
+	}
 	
 	@Override
 	public void doCheck(SSPHandler sspHandler, Elements elements, TestSolutionHandler testSolutionHandler) {
@@ -183,18 +198,15 @@ public class TextAlternativePresenceChecker extends ElementCheckerImpl  {
 		if(unauthorizedAttr) {
 			return DEFAULT_INVALID_TEXT_ALTERNATIVE_ATTRIBUTE_TEST_SOLUTION;
 		}
-				
-		if(!hasTextAlternative) {
-			super.setEeAttributes(attrtype);
-			if(!hasException(el)) {
-				addSourceCodeRemark(getSuccessSolution(),el,getSuccessMsgCode());
-				return getSuccessSolution();
-			}
+
+		super.setEeAttributes(attrtype);
+		if((hasTextAlternative && !exception) || (!hasTextAlternative && hasException(el))){
+
+			return getSuccessSolution();
+		}else{
 			addSourceCodeRemark(getFailureSolution(),el,getFailureMsgCode());
 			return getFailureSolution();
 		}
-		
-		return getSuccessSolution();
 	}
 
 	/**
@@ -203,13 +215,7 @@ public class TextAlternativePresenceChecker extends ElementCheckerImpl  {
 	 * @return true if the exception is verified
 	 */
 	private boolean hasException(Element el) {
-		
-		if(exception) {
-			if(el.hasAttr(ALT_ATTR) && el.attr(ALT_ATTR).isEmpty()) {
-				return true;
-			}
-		}
-		return false;
+		return exception && el.hasAttr(ALT_ATTR) && el.attr(ALT_ATTR).isEmpty();
 	}
 
 	/**
@@ -219,20 +225,22 @@ public class TextAlternativePresenceChecker extends ElementCheckerImpl  {
 	 */
 	private boolean hasAlt(Element el) {
 		
-		if(el.hasAttr(ALT_ATTR)) {
+		if(el.hasAttr(ALT_ATTR) &&
+				(!notEmpty || !el.attr(ALT_ATTR).isEmpty())) {
 			
 			super.setEeAttributes(attrtype,ALT_ATTR);
-			
+
+			if(exception){
+				return ! hasException(el);
+			}
+
 			if(el.tagName().equals(IMG_ELEMENT) ||
 					el.tagName().equals(AREA_ELEMENT) ||
 					(el.tagName().equals(INPUT_ELEMENT) && el.attr(TYPE_ATTR).equals("image"))) {
-				
-				if(hasException(el)) {
-					return false;
-				}
-				
+
 	            return true;
 			}
+
 			unauthorizedAttr = true;
 			addSourceCodeRemark(DEFAULT_INVALID_TEXT_ALTERNATIVE_ATTRIBUTE_TEST_SOLUTION,
 					el,DEFAULT_INVALID_TEXT_ALTERNATIVE_ATTRIBUTE_MSG);
@@ -247,7 +255,8 @@ public class TextAlternativePresenceChecker extends ElementCheckerImpl  {
 	 */
 	private boolean hasAriaLabelledby(Element el) {
 
-		if(el.hasAttr(ARIA_LABELLEDBY_ATTR)) {
+		if(el.hasAttr(ARIA_LABELLEDBY_ATTR) &&
+				(!notEmpty || !el.attr(ARIA_LABELLEDBY_ATTR).isEmpty())) {
 			
 			super.setEeAttributes(attrtype,ARIA_LABELLEDBY_ATTR);
 			
@@ -278,7 +287,8 @@ public class TextAlternativePresenceChecker extends ElementCheckerImpl  {
 	 */
 	private boolean hasAriaLabel(Element el) {
 		
-		if(el.hasAttr(ARIA_LABEL_ATTR)) {
+		if(el.hasAttr(ARIA_LABEL_ATTR) &&
+				(!notEmpty || !el.attr(ARIA_LABEL_ATTR).isEmpty())) {
 			
 			super.setEeAttributes(attrtype,ARIA_LABEL_ATTR);
 			
@@ -307,7 +317,8 @@ public class TextAlternativePresenceChecker extends ElementCheckerImpl  {
 	 */
 	private boolean hasTitle(Element el) {
 
-		if(el.hasAttr(TITLE_ATTR)) {
+		if(el.hasAttr(TITLE_ATTR) &&
+				(!notEmpty || !el.attr(TITLE_ATTR).isEmpty())) {
 			
 			super.setEeAttributes(attrtype,TITLE_ATTR);
 			
@@ -348,7 +359,8 @@ public class TextAlternativePresenceChecker extends ElementCheckerImpl  {
 		
 		if(el.tagName().equals(SVG_ELEMENT)) {
 			for(Element child : el.children()) {
-				if(child.tagName().equals(TEXT_ELEMENT2)) {
+				if(child.tagName().equals(TEXT_ELEMENT2) &&
+						(!notEmpty || !child.text().isEmpty())) {
 					return true;
 				}
 			}			
