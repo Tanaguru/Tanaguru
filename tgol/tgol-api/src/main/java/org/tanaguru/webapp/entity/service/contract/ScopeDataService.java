@@ -23,9 +23,19 @@ package org.tanaguru.webapp.entity.service.contract;
 
 import org.tanaguru.sdk.entity.service.GenericDataService;
 import org.tanaguru.webapp.entity.contract.Scope;
+import org.tanaguru.webapp.entity.contract.ScopeEnum;
 
 /**
  *
  * @author jkowalczyk
  */
-public interface ScopeDataService extends GenericDataService<Scope, Long> {}
+public interface ScopeDataService extends GenericDataService<Scope, Long> {
+
+    /**
+     *
+     * @param code
+     *            the code to find from
+     * @return the found scope
+     */
+    Scope getByCode(ScopeEnum code);
+}

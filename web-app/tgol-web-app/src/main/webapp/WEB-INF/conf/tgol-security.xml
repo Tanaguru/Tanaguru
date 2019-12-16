@@ -61,12 +61,12 @@
         <beans:property name="usersByUsernameQuery">
             <beans:value>SELECT Email1, Password, Activated as enabled
                     FROM TGSI_USER
-                    WHERE Email1=?</beans:value>
+                    WHERE LOWER(Email1)=LOWER(?)</beans:value>
         </beans:property>
         <beans:property name="authoritiesByUsernameQuery">
             <beans:value>SELECT TGSI_USER.Email1, TGSI_ROLE.Role_Name as authorities
                     FROM TGSI_USER, TGSI_ROLE
-                    WHERE TGSI_USER.Email1 = ? AND TGSI_USER.ROLE_Id_Role=TGSI_ROLE.Id_Role</beans:value>
+                    WHERE LOWER(TGSI_USER.Email1) = LOWER(?) AND TGSI_USER.ROLE_Id_Role=TGSI_ROLE.Id_Role</beans:value>
         </beans:property>
     </beans:bean>
 

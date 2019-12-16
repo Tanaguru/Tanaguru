@@ -351,7 +351,7 @@ public class AbstractUserAndContractsController extends AbstractController{
             boolean updateAllUserData,
             boolean updateUserFromAdmin) throws Exception {
         boolean hasSessionToBeUpdated = true;
-        if (updateUserFromAdmin && !user.getEmail1().equals(getAuthenticatedUsername())) {
+        if (updateUserFromAdmin && !user.getEmail1().equalsIgnoreCase(getAuthenticatedUsername())) {
             hasSessionToBeUpdated = false;
         }
         if (updateAllUserData) {

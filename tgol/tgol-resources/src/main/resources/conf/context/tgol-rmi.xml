@@ -232,10 +232,10 @@
     </bean>
 
     <!-- JOB SERVICES -->
-    <bean id="OrchestratorServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
-        <property name="serviceName" value="OrchestratorService"/>
-        <property name="service" ref="tanaguruOrchestrator"/>
-        <property name="serviceInterface" value="org.tanaguru.webapp.orchestrator.TanaguruOrchestrator"/>
+    <bean id="AuditServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="AuditService"/>
+        <property name="service" ref="auditService"/>
+        <property name="serviceInterface" value="org.tanaguru.service.AuditService"/>
         <property name="registryPort" value="${rmi.port}"/>
     </bean>
 

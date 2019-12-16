@@ -1049,9 +1049,10 @@
                         <groupId>eclipse</groupId>
                         <artifactId>jdtcore</artifactId>
                     </exclusion>
+
                     <exclusion>
                         <groupId>org.bouncycastle</groupId>
-                        <artifactId>bctsp-jdk14</artifactId>
+                        <artifactId>*</artifactId>
                     </exclusion>
                     <exclusion>
                         <groupId>poi</groupId>

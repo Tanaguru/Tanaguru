@@ -23,9 +23,17 @@ package org.tanaguru.webapp.entity.dao.contract;
 
 import org.tanaguru.sdk.entity.dao.GenericDAO;
 import org.tanaguru.webapp.entity.contract.Scope;
+import org.tanaguru.webapp.entity.contract.ScopeEnum;
 
 /**
  *
  * @author jkowalczyk
  */
-public interface ScopeDAO extends GenericDAO<Scope, Long> {}
+public interface ScopeDAO extends GenericDAO<Scope, Long> {
+    /**
+     *
+     * @param code
+     * @return
+     */
+    Scope retrieveByCode(ScopeEnum code);
+}

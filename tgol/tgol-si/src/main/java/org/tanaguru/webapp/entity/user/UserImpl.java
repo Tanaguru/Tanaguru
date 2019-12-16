@@ -21,19 +21,20 @@
  */
 package org.tanaguru.webapp.entity.user;
 
+import org.tanaguru.webapp.entity.contract.Contract;
+import org.tanaguru.webapp.entity.contract.ContractImpl;
+import org.tanaguru.webapp.entity.option.OptionElement;
+import org.tanaguru.webapp.entity.option.OptionElementImpl;
+
+import javax.persistence.*;
+import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
-import javax.persistence.*;
-import javax.xml.bind.annotation.XmlElementRef;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import org.tanaguru.webapp.entity.contract.Contract;
-import org.tanaguru.webapp.entity.contract.ContractImpl;
-import org.tanaguru.webapp.entity.option.OptionElement;
-import org.tanaguru.webapp.entity.option.OptionElementImpl;
 
 /**
  *
@@ -109,12 +110,12 @@ public class UserImpl implements User, Serializable {
 
     @Override
     public String getEmail1() {
-        return email;
+        return email.toLowerCase();
     }
 
     @Override
     public void setEmail1(String email) {
-        this.email = email;
+        this.email = email.toLowerCase();
     }
 
     @Override

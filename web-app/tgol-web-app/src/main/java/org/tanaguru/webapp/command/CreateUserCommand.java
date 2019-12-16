@@ -53,7 +53,7 @@ public class CreateUserCommand  implements Serializable {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email = email.toLowerCase();
     }
     
     /**
