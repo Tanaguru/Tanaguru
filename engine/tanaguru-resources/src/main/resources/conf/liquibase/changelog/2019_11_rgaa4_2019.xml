@@ -15,7 +15,7 @@
 
     <changeSet id="initial_rgaa42019_populate_THEME" author="rcharre">
         <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM THEME WHERE Cd_Theme='Rgaa42019-%'</sqlCheck>
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM THEME WHERE Cd_Theme LIKE 'Rgaa42019-%'</sqlCheck>
         </preConditions>
         <sql>
             INSERT INTO THEME (Cd_Theme, Description, Label, Rank) VALUES
