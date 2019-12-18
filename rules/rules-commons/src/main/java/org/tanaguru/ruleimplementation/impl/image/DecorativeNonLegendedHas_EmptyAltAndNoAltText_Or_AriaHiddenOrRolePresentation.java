@@ -44,12 +44,12 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.*;
  * @author edaconceicao
  */
 
-public class DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation extends AbstractMarkerPageRuleImplementation {
+public class DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation extends AbstractMarkerPageRuleImplementation {
 
     /**
      * Default constructor
      */
-    public DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation() {
+    public DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation() {
     	super(new SimpleElementSelector(IMG_ELEMENT+","+ROLE_IMG_LIKE_QUERY), 
 
                 // the decorative images are not part of the scope

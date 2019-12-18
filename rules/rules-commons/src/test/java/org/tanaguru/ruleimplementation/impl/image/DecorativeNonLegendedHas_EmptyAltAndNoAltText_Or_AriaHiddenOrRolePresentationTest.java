@@ -35,69 +35,69 @@ import static org.tanaguru.rules.keystore.RemarkMessageStore.*;
  *
  * @author edaconceicao
  */
-public class DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentationTest extends CommonRuleImplementationTestCase {
+public class DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentationTest extends CommonRuleImplementationTestCase {
 
     /**
      * Default constructor
      */
-    public DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentationTest(String testName){
+    public DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentationTest(String testName){
         super(testName);
     }
 
     @Override
     protected void setUpRuleImplementationClassName() {
         setRuleImplementationClassName(
-                "org.tanaguru.ruleimplementation.impl.image.DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation");
+                "org.tanaguru.ruleimplementation.impl.image.DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation");
     }
 
     @Override
     protected void setUpWebResourceMap() {
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-1Passed-01",
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-1Passed-01",
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-1Passed-02",
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-1Passed-02",
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-1Passed-03",
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-1Passed-03",
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-1Passed-04",
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-1Passed-04",
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-1Passed-05",
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-1Passed-05",
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-01",
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-01",
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-02",
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-02",
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-03",
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-03",
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-04",
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-04",
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-05",
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-05",
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-06",
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-06",
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-07",
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-07",
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-08",
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-08",
                 createParameter("Rules", DECORATIVE_IMAGE_MARKER, "id-decorative-image"));
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-09");
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-01");
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-02");
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-03");
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-04");
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-05");
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-06");
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-07");
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-08");
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-09");
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-10");
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-11");
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-12");
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-4NA-01",
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-09");
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-01");
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-02");
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-03");
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-04");
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-05");
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-06");
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-07");
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-08");
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-09");
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-10");
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-11");
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-12");
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-4NA-01",
                 createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-4NA-02",
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-4NA-02",
                 createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-4NA-03",
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-4NA-03",
                 createParameter("Rules", INFORMATIVE_IMAGE_MARKER, "id-informative-image"));
-        addWebResource("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-4NA-04");
+        addWebResource("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-4NA-04");
     }
 
     @Override
@@ -105,32 +105,32 @@ public class DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePrese
         //----------------------------------------------------------------------
         //------------------------------1Passed-01------------------------------
         //----------------------------------------------------------------------
-        checkResultIsPassed(processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-1Passed-01"), 1);
+        checkResultIsPassed(processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-1Passed-01"), 1);
         
         //----------------------------------------------------------------------
         //------------------------------1Passed-02------------------------------
         //----------------------------------------------------------------------
-        checkResultIsPassed(processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-1Passed-02"), 1);
+        checkResultIsPassed(processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-1Passed-02"), 1);
         
         //----------------------------------------------------------------------
         //------------------------------1Passed-03------------------------------
         //----------------------------------------------------------------------
-        checkResultIsPassed(processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-1Passed-03"), 1);
+        checkResultIsPassed(processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-1Passed-03"), 1);
         
         //----------------------------------------------------------------------
         //------------------------------1Passed-04------------------------------
         //----------------------------------------------------------------------
-        checkResultIsPassed(processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-1Passed-04"), 1);
+        checkResultIsPassed(processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-1Passed-04"), 1);
         
         //----------------------------------------------------------------------
         //------------------------------1Passed-05------------------------------
         //----------------------------------------------------------------------
-        checkResultIsPassed(processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-1Passed-05"), 1);
+        checkResultIsPassed(processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-1Passed-05"), 1);
 
         //----------------------------------------------------------------------
         //------------------------------2Failed-01------------------------------
         //----------------------------------------------------------------------
-        ProcessResult processResult = processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-01");
+        ProcessResult processResult = processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-01");
         checkResultIsFailed(processResult, 1, 1);
         checkRemarkIsPresent(
                 processResult,
@@ -144,7 +144,7 @@ public class DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePrese
         //----------------------------------------------------------------------
         //------------------------------2Failed-02------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-02");
+        processResult = processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-02");
         checkResultIsFailed(processResult, 1, 1);
         checkRemarkIsPresent(
                 processResult,
@@ -158,7 +158,7 @@ public class DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePrese
         //----------------------------------------------------------------------
         //------------------------------2Failed-03------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-03");
+        processResult = processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-03");
         checkResultIsFailed(processResult, 1, 1);
         checkRemarkIsPresent(
                 processResult,
@@ -172,7 +172,7 @@ public class DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePrese
         //----------------------------------------------------------------------
         //------------------------------2Failed-04------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-04");
+        processResult = processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-04");
         checkResultIsFailed(processResult, 1, 1);
         checkRemarkIsPresent(
                 processResult,
@@ -186,7 +186,7 @@ public class DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePrese
         //----------------------------------------------------------------------
         //------------------------------2Failed-05------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-05");
+        processResult = processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-05");
         checkResultIsFailed(processResult, 1, 1);
         checkRemarkIsPresent(
                 processResult,
@@ -200,7 +200,7 @@ public class DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePrese
         //----------------------------------------------------------------------
         //------------------------------2Failed-06------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-06");
+        processResult = processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-06");
         checkResultIsFailed(processResult, 1, 2);
         checkRemarkIsPresent(
                 processResult,
@@ -221,7 +221,7 @@ public class DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePrese
         //----------------------------------------------------------------------
         //------------------------------2Failed-07------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-07");
+        processResult = processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-07");
         checkResultIsFailed(processResult, 1, 2);
         checkRemarkIsPresent(
                 processResult,
@@ -242,7 +242,7 @@ public class DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePrese
         //----------------------------------------------------------------------
         //------------------------------2Failed-08------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-08");
+        processResult = processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-08");
         checkResultIsFailed(processResult, 1, 1);
         checkRemarkIsPresent(
                 processResult,
@@ -255,7 +255,7 @@ public class DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePrese
         //----------------------------------------------------------------------
         //------------------------------2Failed-09------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-09");
+        processResult = processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-2Failed-09");
         checkResultIsFailed(processResult, 1, 1);
         checkRemarkIsPresent(
                 processResult,
@@ -270,7 +270,7 @@ public class DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePrese
         //----------------------------------------------------------------------
         //------------------------------3NMI-01---------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-01");
+        processResult = processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-01");
         checkResultIsPreQualified(processResult, 1, 1);
         checkRemarkIsPresent(
                 processResult,
@@ -283,7 +283,7 @@ public class DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePrese
         //----------------------------------------------------------------------
         //------------------------------3NMI-02---------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-02");
+        processResult = processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-02");
         checkResultIsPreQualified(processResult, 1, 2);
         checkRemarkIsPresent(
                 processResult,
@@ -304,7 +304,7 @@ public class DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePrese
         //----------------------------------------------------------------------
         //------------------------------3NMI-03---------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-03");
+        processResult = processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-03");
         checkResultIsPreQualified(processResult, 1, 2);
         checkRemarkIsPresent(
                 processResult,
@@ -325,7 +325,7 @@ public class DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePrese
         //----------------------------------------------------------------------
         //------------------------------3NMI-04---------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-04");
+        processResult = processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-04");
         checkResultIsPreQualified(processResult, 1, 2);
         checkRemarkIsPresent(
                 processResult,
@@ -346,7 +346,7 @@ public class DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePrese
         //----------------------------------------------------------------------
         //------------------------------3NMI-05---------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-05");
+        processResult = processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-05");
         checkResultIsPreQualified(processResult, 1, 2);
         checkRemarkIsPresent(
                 processResult,
@@ -367,7 +367,7 @@ public class DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePrese
         //----------------------------------------------------------------------
         //------------------------------3NMI-06---------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-06");
+        processResult = processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-06");
         checkResultIsPreQualified(processResult, 1, 1);
         checkRemarkIsPresent(
                 processResult,
@@ -381,7 +381,7 @@ public class DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePrese
         //----------------------------------------------------------------------
         //------------------------------3NMI-07---------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-07");
+        processResult = processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-07");
         checkResultIsPreQualified(processResult, 1, 1);
         checkRemarkIsPresent(
                 processResult,
@@ -395,7 +395,7 @@ public class DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePrese
         //----------------------------------------------------------------------
         //------------------------------3NMI-08---------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-08");
+        processResult = processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-08");
         checkResultIsPreQualified(processResult, 1, 1);
         checkRemarkIsPresent(
                 processResult,
@@ -409,7 +409,7 @@ public class DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePrese
         //----------------------------------------------------------------------
         //------------------------------3NMI-09---------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-09");
+        processResult = processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-09");
         checkResultIsPreQualified(processResult, 1, 1);
         checkRemarkIsPresent(
                 processResult,
@@ -423,7 +423,7 @@ public class DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePrese
         //----------------------------------------------------------------------
         //------------------------------3NMI-10---------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-10");
+        processResult = processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-10");
         checkResultIsPreQualified(processResult, 1, 2);
         checkRemarkIsPresent(
                 processResult,
@@ -444,7 +444,7 @@ public class DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePrese
         //----------------------------------------------------------------------
         //------------------------------3NMI-11---------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-11");
+        processResult = processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-11");
         checkResultIsPreQualified(processResult, 1, 2);
         checkRemarkIsPresent(
                 processResult,
@@ -465,7 +465,7 @@ public class DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePrese
         //----------------------------------------------------------------------
         //------------------------------3NMI-12---------------------------------
         //----------------------------------------------------------------------
-        processResult = processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-12");
+        processResult = processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-3NMI-12");
         checkResultIsPreQualified(processResult, 1, 1);
         checkRemarkIsPresent(
                 processResult,
@@ -478,21 +478,21 @@ public class DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePrese
         //----------------------------------------------------------------------
         //------------------------------4NA-01------------------------------
         //----------------------------------------------------------------------
-        checkResultIsNotApplicable(processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-4NA-01"));
+        checkResultIsNotApplicable(processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-4NA-01"));
         
         //----------------------------------------------------------------------
         //------------------------------4NA-02------------------------------
         //----------------------------------------------------------------------
-        checkResultIsNotApplicable(processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-4NA-02"));
+        checkResultIsNotApplicable(processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-4NA-02"));
         
         //----------------------------------------------------------------------
         //------------------------------4NA-03------------------------------
         //----------------------------------------------------------------------
-        checkResultIsNotApplicable(processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-4NA-03"));
+        checkResultIsNotApplicable(processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-4NA-03"));
         
         //----------------------------------------------------------------------
         //------------------------------4NA-04------------------------------
         //----------------------------------------------------------------------
-        checkResultIsNotApplicable(processPageTest("DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation-4NA-04"));
+        checkResultIsNotApplicable(processPageTest("DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation-4NA-04"));
     }
 }

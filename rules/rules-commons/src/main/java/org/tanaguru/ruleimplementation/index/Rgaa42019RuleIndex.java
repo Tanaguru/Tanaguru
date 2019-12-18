@@ -21,10 +21,25 @@ public enum  Rgaa42019RuleIndex {
     rgaa42019_1_1_6(InformativeImageObjectHasAltTextOrAltContentLinkOrObjectContentSwitchMechanism.class, "RGAA42019 1.1.6"),
     rgaa42019_1_1_7(InformativeEbdImageHasAltTextOrAltContentLinkOrEmbedContentSwitchMechanism.class, "RGAA42019 1.1.7"),
     rgaa42019_1_1_8(InformativeCanvasHasAltTextOrAltContentInCanvasOrAltContentLinkOrCanvasContentSwitchMechanism.class, "RGAA42019 1.1.8"),
-    rgaa42019_1_2_1(DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation.class, "RGAA42019 1.2.1"),
+    rgaa42019_1_2_1(DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation.class, "RGAA42019 1.2.1"),
+    rgaa42019_1_2_2(DecorativeAreaWithoutHrefHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation.class, "RGAA42019 1.2.2"),
+    rgaa42019_1_2_3(DecorativeImageObjectWithoutLegendHasAriaHiddenTrueAndNoAltTextAndNoTextUsedAsAltText.class, "RGAA42019 1.2.3"),
+    rgaa42019_1_5_1(CaptchaRgaa4ImageHasNonGraphicAltOrOtherAccess.class, "RGAA42019 1.5.1"),
+    //rgaa42019_1_5_2(Rgaa32017Rule010502.class, "RGAA42019 1.5.2"),
+    //rgaa42019_1_6_1(Rgaa32017Rule010601.class, "RGAA42019 1.6.1"),
+    //rgaa42019_1_6_2(Rgaa32017Rule010602.class, "RGAA42019 1.6.2"),
+    //rgaa42019_1_6_3(Rgaa32017Rule010603.class, "RGAA42019 1.6.3"),
+    //rgaa42019_1_6_4(Rgaa32017Rule010604.class, "RGAA42019 1.6.4"),
+    //rgaa42019_1_7_2(Rgaa32017Rule010604.class, "RGAA42019 1.7.2"),
+    rgaa42019_1_8_1(InformativeRgaa4ImageTextHasSwitchMechanismOrStyledTextSwitch.class, "RGAA42019 1.8.2"),
+
 
     rgaa42019_2_1_1(FrameAndIframeHasTitle .class, "RGAA42019 2.1.1"),
     rgaa42019_2_2_1(FrameAndIframeTitleIsRelevant .class, "RGAA42019 2.2.1"),
+
+    //rgaa42019_4_1_1(Rgaa32017Rule040401.class, "RGAA42019 4.1.1"),
+    //rgaa42019_4_1_2(Rgaa32017Rule040402.class, "RGAA42019 4.1.2"),
+    //rgaa42019_4_1_3(Rgaa32017Rule040403.class, "RGAA42019 4.1.3"),
 
     rgaa42019_5_1_1(ComplexDataTableHasSummary .class, "RGAA42019 5.1.1"),
     rgaa42019_5_2_1(ComplexDataTableSummaryIsPertinent.class, "RGAA42019 5.2.1"),

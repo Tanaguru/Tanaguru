@@ -28,6 +28,7 @@ public final class CssLikeQueryStore {
 
     // Image theme css-like queries
 	public static final String ROLE_IMG_LIKE_QUERY = "[role=img]";
+    public static final String ROLE_IMG_NOT_IN_LINK_LIKE_QUERY = "[role=img]:not(a [role=img])";
     public static final String IMG_WITHOUT_ALT_CSS_LIKE_QUERY = "img:not([alt])";
     public static final String IMG_WITH_ALT_CSS_LIKE_QUERY = "img[alt]";
     public static final String IMG_WITH_ALT_NOT_IN_LINK_CSS_LIKE_QUERY
@@ -35,7 +36,6 @@ public final class CssLikeQueryStore {
     public static final String IMG_WITH_ALT_NOT_IN_LINK_WITHOUT_LONGDESC_CSS_LIKE_QUERY
             = "img[alt]:not(a img):not([longdesc])";
     public static final String IMG_NOT_IN_LINK_CSS_LIKE_QUERY = "img:not(a img)";
-    public static final String IMG_ROLE_CSS_LIKE_QUERY = "[role=img]";
     public static final String IMG_WITH_ISMAP_ATTR_CSS_LIKE_QUERY
             = "img[ismap] , "
             + "input[type=image][ismap]";
@@ -71,6 +71,8 @@ public final class CssLikeQueryStore {
     public static final String AREA_NOT_IN_LINK_CSS_LIKE_QUERY
             = "area:not(a area)";
     public static final String AREA_WITH_ALT_WITHOUT_HREF_ATTR_CSS_LIKE_QUERY
+            = "area:not([href])";
+    public static final String AREA_WITHOUT_HREF_ATTR_CSS_LIKE_QUERY
             = "area[alt]:not([href])";
     public static final String FORM_BUTTON_CSS_LIKE_QUERY = "input[type=image]";
     public static final String FORM_BUTTON_WITH_ALT_CSS_LIKE_QUERY
@@ -117,6 +119,7 @@ public final class CssLikeQueryStore {
     // Table theme css-like queries
     public static final String TABLE_WITH_SUMMARY_CSS_LIKE_QUERY = "table[summary]";
     public static final String TABLE_WITH_CAPTION_CSS_LIKE_QUERY = "table:has(caption)";
+    public static final String TABLE_ROLE_WITH_CAPTION_CSS_LIKE_QUERY = "table:has(caption)";
     public static final String TABLE_WITH_TH_CSS_LIKE_QUERY = "table:has(th)";
     public static final String TABLE_WITH_TH_OR_TD_CSS_LIKE_QUERY
             = "table:has(th), table:has(td)";
@@ -562,14 +565,25 @@ public final class CssLikeQueryStore {
     		= "a[href]:not([name]):not([id])";
     public static final String TEXT_LINK_CSS_LIKE_QUERY
             = "a[href]:not(:has(*))";
+    public static final String TEXT_LINK_RGAA4_CSS_LIKE_QUERY
+            = "a[href]:not(:has(img, [role^=img], object, canvas, svg))";
+    public static final String LINK_RGAA4_CSS_LIKE_QUERY
+            = TEXT_LINK_RGAA4_CSS_LIKE_QUERY +
+            ", [role^=link], svg > a[xlink:href]";
     public static final String LINK_WITH_CHILDREN_CSS_LIKE_QUERY
             = "a[href]:has(*)";
+
+    public static final String LINK_WITH_CHILDREN_RGAA4_CSS_LIKE_QUERY
+            = "a[href]:has(*), [role^=link]:has(*)";
     public static final String LINK_WITH_HREF_CSS_LIKE_QUERY
             = "a[href]";
     public static final String IMAGE_LINK_CHILDREN_CSS_LIKE_QUERY
             = "img[alt] , object[type^=image], object[data^=data:image],"
             + "object[data$=png], object[data$=jpeg], object[data$=jpg],"
             + "object[data$=bmp], object[data$=gif], canvas";
+
+    public static final String IMAGE_LINK_CHILDREN_RGAA4_CSS_LIKE_QUERY =
+            IMAGE_LINK_CHILDREN_CSS_LIKE_QUERY + ", [role=img]";
     public static final String CLICKABLE_AREA_CSS_LIKE_QUERY = "area[href][alt]";
     public static final String LINK_WITHOUT_TARGET_CSS_LIKE_QUERY
             = "a:not([href]):not([name]):not([id])";

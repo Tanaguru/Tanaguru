@@ -24,9 +24,10 @@ package org.tanaguru.rules.elementselector;
 
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.nodes.Element;
+import org.tanaguru.rules.keystore.HtmlElementStore;
+
 import static org.tanaguru.rules.keystore.CssLikeQueryStore.IMAGE_LINK_CHILDREN_CSS_LIKE_QUERY;
 import static org.tanaguru.rules.keystore.CssLikeQueryStore.LINK_WITH_CHILDREN_CSS_LIKE_QUERY;
-import org.tanaguru.rules.keystore.HtmlElementStore;
 
 /**
  * Element selector implementation that select composite links. 
@@ -38,6 +39,8 @@ import org.tanaguru.rules.keystore.HtmlElementStore;
 public class CompositeLinkElementSelector extends LinkElementSelector {
 
     private boolean searchImageLink = false;
+    private String imageLinkCssQuery = IMAGE_LINK_CHILDREN_CSS_LIKE_QUERY;
+    private String linkCssQuery = LINK_WITH_CHILDREN_CSS_LIKE_QUERY;
 
     /**
      * Constructor
@@ -50,6 +53,8 @@ public class CompositeLinkElementSelector extends LinkElementSelector {
         super(considerContext);
         this.searchImageLink = searchImageLink;
     }
+
+
     
     /**
      * Constructor
@@ -64,10 +69,26 @@ public class CompositeLinkElementSelector extends LinkElementSelector {
         super(considerTitleAsContext, considerContext);
         this.searchImageLink = searchImageLink;
     }
+
+    /**
+     * Constructor
+     * @param considerContext
+     * @param searchImageLink
+     */
+    public CompositeLinkElementSelector(
+            boolean considerContext,
+            boolean searchImageLink,
+            String linkCssQuery,
+            String imageLinkCssQuery) {
+        super(considerContext);
+        this.searchImageLink = searchImageLink;
+        this.linkCssQuery = linkCssQuery;
+        this.imageLinkCssQuery = imageLinkCssQuery;
+    }
     
     @Override
     protected String getCssLikeQuery() {
-        return LINK_WITH_CHILDREN_CSS_LIKE_QUERY;
+        return this.linkCssQuery;
     }
     
     @Override
@@ -92,7 +113,7 @@ public class CompositeLinkElementSelector extends LinkElementSelector {
                 || StringUtils.isNotBlank(linkElement.ownText()) ) {
             return false;
         }
-        return !linkElement.children().select(IMAGE_LINK_CHILDREN_CSS_LIKE_QUERY).isEmpty();
+        return !linkElement.children().select(this.imageLinkCssQuery).isEmpty();
     }
 
     /**

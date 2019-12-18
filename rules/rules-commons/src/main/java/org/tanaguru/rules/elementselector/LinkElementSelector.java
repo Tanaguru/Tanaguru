@@ -22,21 +22,21 @@
 
 package org.tanaguru.rules.elementselector;
 
-import java.util.Collection;
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.util.CollectionUtils;
 import org.tanaguru.processor.SSPHandler;
 import org.tanaguru.ruleimplementation.ElementHandler;
 import org.tanaguru.ruleimplementation.ElementHandlerImpl;
-import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
-import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABEL_ATTR;
-import static org.tanaguru.rules.keystore.AttributeStore.ARIA_LABELLEDBY_ATTR;
 import org.tanaguru.rules.keystore.CssLikeQueryStore;
-import static org.tanaguru.rules.keystore.CssLikeQueryStore.TEXT_LINK_CSS_LIKE_QUERY;
 import org.tanaguru.rules.keystore.HtmlElementStore;
 import org.tanaguru.rules.textbuilder.LinkTextElementBuilder;
-import org.springframework.util.CollectionUtils;
+
+import java.util.Collection;
+
+import static org.tanaguru.rules.keystore.AttributeStore.*;
+import static org.tanaguru.rules.keystore.CssLikeQueryStore.TEXT_LINK_CSS_LIKE_QUERY;
 
 /**
  * Element selector implementation that select text links.
@@ -45,6 +45,8 @@ import org.springframework.util.CollectionUtils;
  * @author jkowalczyk
  */
 public class LinkElementSelector implements ElementSelector {
+
+    private String linkCssQuery = TEXT_LINK_CSS_LIKE_QUERY;
 
     /** 
      * The list of elements that are considered as context of the link. 
@@ -121,6 +123,16 @@ public class LinkElementSelector implements ElementSelector {
     public LinkElementSelector(boolean considerContext) {
         this.considerContext = considerContext;
     }
+
+    /**
+     *
+     * @param considerContext
+     * @param linkCssQuery
+     */
+    public LinkElementSelector(boolean considerContext, String linkCssQuery) {
+        this.considerContext = considerContext;
+        this.linkCssQuery = linkCssQuery;
+    }
     
     /**
      * Constructor
@@ -137,7 +149,7 @@ public class LinkElementSelector implements ElementSelector {
      * @return 
      */
     protected String getCssLikeQuery() {
-        return TEXT_LINK_CSS_LIKE_QUERY;
+        return this.linkCssQuery;
     }
     
     @Override

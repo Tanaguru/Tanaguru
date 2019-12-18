@@ -709,4 +709,44 @@
         </sql>
     </changeSet>
 
+    <changeSet id="initial_rgaa42019_populate_insert_RULE-2" author="rcharre">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM RULE WHERE Rule_Class_Name = 'org.tanaguru.ruleimplementation.impl.image.DecorativeAreaWithoutHrefHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation'</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO RULE (Rule_Archive_Name, Rule_Class_Name, SCOPE_Id_Scope, No_Process) VALUES
+            ('rules-commons', 'org.tanaguru.ruleimplementation.impl.image.DecorativeAreaWithoutHrefHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation', (SELECT Id_Scope FROM SCOPE WHERE Code='page'), FALSE),
+            ('rules-commons', 'org.tanaguru.ruleimplementation.impl.image.CaptchaRgaa4ImageHasNonGraphicAltOrOtherAccess', (SELECT Id_Scope FROM SCOPE WHERE Code='page'), FALSE),
+            ('rules-commons', 'org.tanaguru.ruleimplementation.impl.image.InformativeRgaa4ImageTextHasSwitchMechanismOrStyledTextSwitch', (SELECT Id_Scope FROM SCOPE WHERE Code='page'), FALSE);
+
+            UPDATE RULE SET Rule_Class_Name = 'org.tanaguru.ruleimplementation.impl.image.DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation' WHERE Rule_Class_Name = 'org.tanaguru.ruleimplementation.impl.image.DecorativeNonLegendedHas_NoAltAndNoAltText_Or_AriaHiddenOrRolePresentation';
+
+            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.ruleimplementation.impl.image.DecorativeNonLegendedHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.2.1';
+            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.ruleimplementation.impl.image.DecorativeAreaWithoutHrefHas_EmptyAltAndNoAltText_Or_AriaHiddenOrRolePresentation') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.2.2';
+            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.ruleimplementation.impl.image.CaptchaRgaa4ImageHasNonGraphicAltOrOtherAccess') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.5.1';
+            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule010601') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.6.1';
+            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule010602') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.6.2';
+            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule010603') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.6.3';
+            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule010604') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.6.4';
+            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule010702') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.7.2';
+            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.ruleimplementation.impl.image.InformativeRgaa4ImageTextHasSwitchMechanismOrStyledTextSwitch') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.8.1';
+            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule040101') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.1.1';
+            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule040102') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.1.2';
+            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule040103') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '4.1.3';
+        </sql>
+    </changeSet>
+
+    <changeSet id="initial_rgaa42019_populate_insert_RULE-2" author="rcharre">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM RULE WHERE Rule_Class_Name = 'org.tanaguru.ruleimplementation.impl.image.DecorativeImageObjectWithoutLegendHasAriaHiddenTrueAndNoAltTextAndNoTextUsedAsAltText'</sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO RULE (Rule_Archive_Name, Rule_Class_Name, SCOPE_Id_Scope, No_Process) VALUES
+            ('rules-commons', 'org.tanaguru.ruleimplementation.impl.image.DecorativeImageObjectWithoutLegendHasAriaHiddenTrueAndNoAltTextAndNoTextUsedAsAltText', (SELECT Id_Scope FROM SCOPE WHERE Code='page'), FALSE);
+
+
+            UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.ruleimplementation.impl.image.DecorativeImageObjectWithoutLegendHasAriaHiddenTrueAndNoAltTextAndNoTextUsedAsAltText') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.2.3';
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
