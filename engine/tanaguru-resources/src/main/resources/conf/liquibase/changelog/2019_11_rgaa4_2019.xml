@@ -736,7 +736,7 @@
         </sql>
     </changeSet>
 
-    <changeSet id="initial_rgaa42019_populate_insert_RULE-2" author="rcharre">
+    <changeSet id="initial_rgaa42019_populate_insert_RULE-3" author="rcharre">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">SELECT COUNT(*) FROM RULE WHERE Rule_Class_Name = 'org.tanaguru.ruleimplementation.impl.image.DecorativeImageObjectWithoutLegendHasAriaHiddenTrueAndNoAltTextAndNoTextUsedAsAltText'</sqlCheck>
         </preConditions>
@@ -750,7 +750,6 @@
             ('rules-commons', 'org.tanaguru.ruleimplementation.impl.form.LabelRepetedInPageIsConsistent', (SELECT Id_Scope FROM SCOPE WHERE Code='page'), FALSE),
             ('rules-commons', 'org.tanaguru.ruleimplementation.impl.form.LabelRepetedInGroupOfPageIsConsistent', (SELECT Id_Scope FROM SCOPE WHERE Code='page'), FALSE);
 
-
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.ruleimplementation.impl.image.DecorativeImageObjectWithoutLegendHasAriaHiddenTrueAndNoAltTextAndNoTextUsedAsAltText') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '1.2.3';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule100101') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '10.1.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.rules.rgaa32017.Rgaa32017Rule100102') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '10.1.2';
@@ -760,7 +759,6 @@
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.ruleimplementation.impl.form.InputAriaLabelledbyUnderstandable') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '11.2.4';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.ruleimplementation.impl.form.LabelRepetedInPageIsConsistent') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '11.3.1';
             UPDATE TEST SET Id_Rule = (SELECT Id_Rule FROM RULE WHERE Rule_Class_Name ='org.tanaguru.ruleimplementation.impl.form.LabelRepetedInGroupOfPageIsConsistent') WHERE Cd_Test LIKE 'Rgaa42019-%' AND Label = '11.4.1';
-
         </sql>
     </changeSet>
 
