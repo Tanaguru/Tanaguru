@@ -565,16 +565,11 @@ public final class CssLikeQueryStore {
     		= "a[href]:not([name]):not([id])";
     public static final String TEXT_LINK_CSS_LIKE_QUERY
             = "a[href]:not(:has(*))";
-    public static final String TEXT_LINK_RGAA4_CSS_LIKE_QUERY
-            = "a[href]:not(:has(img, [role^=img], object, canvas, svg))";
-    public static final String LINK_RGAA4_CSS_LIKE_QUERY
-            = TEXT_LINK_RGAA4_CSS_LIKE_QUERY +
-            ", [role^=link], svg > a[xlink:href]";
+
     public static final String LINK_WITH_CHILDREN_CSS_LIKE_QUERY
             = "a[href]:has(*)";
 
-    public static final String LINK_WITH_CHILDREN_RGAA4_CSS_LIKE_QUERY
-            = "a[href]:has(*), [role^=link]:has(*)";
+
     public static final String LINK_WITH_HREF_CSS_LIKE_QUERY
             = "a[href]";
     public static final String IMAGE_LINK_CHILDREN_CSS_LIKE_QUERY
