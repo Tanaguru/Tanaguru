@@ -44,7 +44,7 @@ public class Rgaa32017Rule110301Test extends Rgaa32017RuleImplementationTestCase
 
     @Override
     protected void setUpRuleImplementationClassName() {
-        setRuleImplementationClassName("org.tanaguru.rules.rgaa32017.Rgaa32017Rule110301");
+        setRuleImplementationClassName("org.tanaguru.rules.rgaa32017.LabelRepetedInPageIsConsistent");
     }
 
     @Override

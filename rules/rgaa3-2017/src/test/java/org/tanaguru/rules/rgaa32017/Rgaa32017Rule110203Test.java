@@ -45,7 +45,7 @@ public class Rgaa32017Rule110203Test extends Rgaa32017RuleImplementationTestCase
     @Override
     protected void setUpRuleImplementationClassName() {
         setRuleImplementationClassName(
-                "org.tanaguru.rules.rgaa32017.Rgaa32017Rule110203");
+                "org.tanaguru.rules.rgaa32017.InputAriaLabelUnderstandable");
     }
 
     @Override

@@ -25,9 +25,9 @@ import org.tanaguru.rules.elementchecker.link.LinkPertinenceChecker;
 import org.tanaguru.rules.elementselector.LinkElementSelector;
 
 import static org.tanaguru.rules.keystore.AttributeStore.TITLE_ATTR;
-import static org.tanaguru.rules.keystore.CssLikeQueryStore.TEXT_LINK_RGAA4_CSS_LIKE_QUERY;
 import static org.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
 import static org.tanaguru.rules.keystore.RemarkMessageStore.*;
+import static org.tanaguru.rules.keystore.rgaa4.Rgaa4CssLikeQueryStore.TEXT_LINK_RGAA4_CSS_LIKE_QUERY;
 
 public class TextLinkRgaa4Understandable extends AbstractLinkRuleImplementation {
 

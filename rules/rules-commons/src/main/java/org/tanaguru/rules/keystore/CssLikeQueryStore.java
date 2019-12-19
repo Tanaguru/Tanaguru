@@ -582,8 +582,6 @@ public final class CssLikeQueryStore {
             + "object[data$=png], object[data$=jpeg], object[data$=jpg],"
             + "object[data$=bmp], object[data$=gif], canvas";
 
-    public static final String IMAGE_LINK_CHILDREN_RGAA4_CSS_LIKE_QUERY =
-            IMAGE_LINK_CHILDREN_CSS_LIKE_QUERY + ", [role=img]";
     public static final String CLICKABLE_AREA_CSS_LIKE_QUERY = "area[href][alt]";
     public static final String LINK_WITHOUT_TARGET_CSS_LIKE_QUERY
             = "a:not([href]):not([name]):not([id])";

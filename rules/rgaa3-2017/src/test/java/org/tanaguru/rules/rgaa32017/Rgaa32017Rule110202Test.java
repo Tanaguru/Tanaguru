@@ -46,7 +46,7 @@ public class Rgaa32017Rule110202Test extends Rgaa32017RuleImplementationTestCase
 
     @Override
     protected void setUpRuleImplementationClassName() {
-        setRuleImplementationClassName("org.tanaguru.rules.rgaa32017.Rgaa32017Rule110202");
+        setRuleImplementationClassName("org.tanaguru.rules.rgaa32017.InputTitleUnderstandable");
     }
 
     @Override
