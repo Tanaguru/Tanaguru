@@ -49,7 +49,7 @@ public class InformativeRgaa4ImageTextHasSwitchMechanismOrStyledTextSwitch exten
      */
     public InformativeRgaa4ImageTextHasSwitchMechanismOrStyledTextSwitch() {
         super(
-                new ImageElementSelector(IMG_ELEMENT+","+ROLE_IMG_LIKE_QUERY),
+                new ImageElementSelector(IMG_ELEMENT+", "+ROLE_IMG_LIKE_QUERY),
                 INFORMATIVE_IMAGE_MARKER,
                 DECORATIVE_IMAGE_MARKER,
                 new ElementPresenceChecker(

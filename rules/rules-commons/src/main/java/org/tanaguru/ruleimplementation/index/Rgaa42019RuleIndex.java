@@ -34,7 +34,7 @@ public enum  Rgaa42019RuleIndex {
     //rgaa42019_1_6_3(Rgaa32017Rule010603.class, "RGAA42019 1.6.3"),
     //rgaa42019_1_6_4(Rgaa32017Rule010604.class, "RGAA42019 1.6.4"),
     //rgaa42019_1_7_2(Rgaa32017Rule010604.class, "RGAA42019 1.7.2"),
-    rgaa42019_1_8_1(InformativeRgaa4ImageTextHasSwitchMechanismOrStyledTextSwitch.class, "RGAA42019 1.8.2"),
+    rgaa42019_1_8_1(InformativeRgaa4ImageTextHasSwitchMechanismOrStyledTextSwitch.class, "RGAA42019 1.8.1"),
 
 
     rgaa42019_2_1_1(FrameAndIframeHasTitle.class, "RGAA42019 2.1.1"),
