@@ -58,7 +58,7 @@
         <hibernateVersion>5.4.1.Final</hibernateVersion>
         
         <junitGroupId>junit</junitGroupId>
-        <junitVersion>3.8.2</junitVersion>
+        <junitVersion>4.13.1</junitVersion>
 
         <log4jGroupId>log4j</log4jGroupId>
         <log4jVersion>1.2.15</log4jVersion>
