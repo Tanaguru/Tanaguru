@@ -55,7 +55,7 @@
         <springVersion>5.1.5.RELEASE</springVersion>
 
         <hibernateGroupId>org.hibernate</hibernateGroupId>
-        <hibernateVersion>5.4.1.Final</hibernateVersion>
+        <hibernateVersion>5.4.24.Final</hibernateVersion>
         
         <junitGroupId>junit</junitGroupId>
         <junitVersion>3.8.2</junitVersion>
